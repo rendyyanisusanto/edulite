@@ -1,7 +1,7 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : xampp
+ Source Server         : localhost_3306
  Source Server Type    : MySQL
  Source Server Version : 100138
  Source Host           : localhost:3306
@@ -11,7 +11,7 @@
  Target Server Version : 100138
  File Encoding         : 65001
 
- Date: 22/09/2020 13:18:29
+ Date: 12/12/2020 07:35:34
 */
 
 SET NAMES utf8mb4;
@@ -33,119 +33,32 @@ CREATE TABLE `absensi`  (
   `idkelas_fk` int(11) NULL DEFAULT NULL,
   `create_at` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_absensi`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 152 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 173 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of absensi
 -- ----------------------------
-INSERT INTO `absensi` VALUES (44, 51, '2020-08-25', 5, 0, '', 2, 2, 21, '2020-08-25 09:47:19');
-INSERT INTO `absensi` VALUES (45, 52, '2020-08-25', 5, 0, 'panti', 2, 2, 21, '2020-08-25 09:47:19');
-INSERT INTO `absensi` VALUES (46, 53, '2020-08-25', 5, 1, '', 2, 2, 21, '2020-08-25 09:47:19');
-INSERT INTO `absensi` VALUES (47, 54, '2020-08-25', 5, 1, '', 2, 2, 21, '2020-08-25 09:47:19');
-INSERT INTO `absensi` VALUES (48, 55, '2020-08-25', 5, 0, '', 2, 2, 21, '2020-08-25 09:47:20');
-INSERT INTO `absensi` VALUES (49, 56, '2020-08-25', 5, 0, 'ijin', 2, 2, 21, '2020-08-25 09:47:20');
-INSERT INTO `absensi` VALUES (50, 57, '2020-08-25', 5, 0, '', 2, 2, 21, '2020-08-25 09:47:20');
-INSERT INTO `absensi` VALUES (51, 58, '2020-08-25', 5, 1, '', 2, 2, 21, '2020-08-25 09:47:20');
-INSERT INTO `absensi` VALUES (52, 59, '2020-08-25', 5, 1, '', 2, 2, 21, '2020-08-25 09:47:20');
-INSERT INTO `absensi` VALUES (53, 60, '2020-08-25', 5, 1, '', 2, 2, 21, '2020-08-25 09:47:20');
-INSERT INTO `absensi` VALUES (54, 61, '2020-08-25', 5, 0, '', 2, 2, 21, '2020-08-25 09:47:20');
-INSERT INTO `absensi` VALUES (55, 62, '2020-08-25', 5, 0, '', 2, 2, 21, '2020-08-25 09:47:20');
-INSERT INTO `absensi` VALUES (56, 63, '2020-08-25', 5, 0, '', 2, 2, 21, '2020-08-25 09:47:20');
-INSERT INTO `absensi` VALUES (57, 64, '2020-08-25', 5, 1, '', 2, 2, 21, '2020-08-25 09:47:20');
-INSERT INTO `absensi` VALUES (58, 65, '2020-08-25', 5, 0, 'panti', 2, 2, 21, '2020-08-25 09:47:20');
-INSERT INTO `absensi` VALUES (59, 66, '2020-08-25', 5, 1, '', 2, 2, 21, '2020-08-25 09:47:20');
-INSERT INTO `absensi` VALUES (60, 67, '2020-08-25', 5, 0, '', 2, 2, 21, '2020-08-25 09:47:20');
-INSERT INTO `absensi` VALUES (61, 68, '2020-08-25', 5, 0, '', 2, 2, 21, '2020-08-25 09:47:20');
-INSERT INTO `absensi` VALUES (62, 69, '2020-08-25', 5, 1, '', 2, 2, 21, '2020-08-25 09:47:20');
-INSERT INTO `absensi` VALUES (63, 70, '2020-08-25', 5, 1, '', 2, 2, 21, '2020-08-25 09:47:20');
-INSERT INTO `absensi` VALUES (64, 71, '2020-08-25', 5, 1, '', 2, 2, 21, '2020-08-25 09:47:20');
-INSERT INTO `absensi` VALUES (65, 72, '2020-08-25', 5, 1, '', 2, 2, 22, '2020-08-25 09:48:53');
-INSERT INTO `absensi` VALUES (66, 73, '2020-08-25', 5, 0, '', 2, 2, 22, '2020-08-25 09:48:53');
-INSERT INTO `absensi` VALUES (67, 74, '2020-08-25', 5, 0, '', 2, 2, 22, '2020-08-25 09:48:53');
-INSERT INTO `absensi` VALUES (68, 75, '2020-08-25', 5, 0, '', 2, 2, 22, '2020-08-25 09:48:53');
-INSERT INTO `absensi` VALUES (69, 76, '2020-08-25', 5, 1, '', 2, 2, 22, '2020-08-25 09:48:53');
-INSERT INTO `absensi` VALUES (70, 77, '2020-08-25', 5, 0, '', 2, 2, 22, '2020-08-25 09:48:53');
-INSERT INTO `absensi` VALUES (71, 78, '2020-08-25', 5, 0, '', 2, 2, 22, '2020-08-25 09:48:53');
-INSERT INTO `absensi` VALUES (72, 79, '2020-08-25', 5, 0, '', 2, 2, 22, '2020-08-25 09:48:53');
-INSERT INTO `absensi` VALUES (73, 80, '2020-08-25', 5, 0, '', 2, 2, 22, '2020-08-25 09:48:53');
-INSERT INTO `absensi` VALUES (74, 81, '2020-08-25', 5, 1, '', 2, 2, 22, '2020-08-25 09:48:53');
-INSERT INTO `absensi` VALUES (75, 82, '2020-08-25', 5, 0, 'panti', 2, 2, 22, '2020-08-25 09:48:53');
-INSERT INTO `absensi` VALUES (76, 83, '2020-08-25', 5, 0, '', 2, 2, 22, '2020-08-25 09:48:54');
-INSERT INTO `absensi` VALUES (77, 84, '2020-08-25', 5, 0, 'sakit', 2, 2, 22, '2020-08-25 09:48:54');
-INSERT INTO `absensi` VALUES (78, 85, '2020-08-25', 5, 0, 'panti', 2, 2, 22, '2020-08-25 09:48:54');
-INSERT INTO `absensi` VALUES (79, 86, '2020-08-25', 5, 1, '', 2, 2, 22, '2020-08-25 09:48:54');
-INSERT INTO `absensi` VALUES (80, 87, '2020-08-25', 5, 0, '', 2, 2, 22, '2020-08-25 09:48:54');
-INSERT INTO `absensi` VALUES (81, 88, '2020-08-25', 5, 0, '', 2, 2, 22, '2020-08-25 09:48:54');
-INSERT INTO `absensi` VALUES (82, 89, '2020-08-25', 5, 0, '', 2, 2, 22, '2020-08-25 09:48:54');
-INSERT INTO `absensi` VALUES (83, 90, '2020-08-25', 5, 1, '', 2, 2, 22, '2020-08-25 09:48:54');
-INSERT INTO `absensi` VALUES (84, 91, '2020-08-25', 5, 0, 'ijin', 2, 2, 22, '2020-08-25 09:48:54');
-INSERT INTO `absensi` VALUES (85, 92, '2020-08-25', 5, 1, '', 2, 2, 22, '2020-08-25 09:48:54');
-INSERT INTO `absensi` VALUES (86, 93, '2020-08-25', 5, 0, 'panti', 2, 2, 22, '2020-08-25 09:48:54');
-INSERT INTO `absensi` VALUES (87, 51, '2020-08-26', 6, 1, '', 2, 7, 21, '2020-08-26 12:25:22');
-INSERT INTO `absensi` VALUES (88, 52, '2020-08-26', 6, 1, '', 2, 7, 21, '2020-08-26 12:25:22');
-INSERT INTO `absensi` VALUES (89, 53, '2020-08-26', 6, 1, '', 2, 7, 21, '2020-08-26 12:25:22');
-INSERT INTO `absensi` VALUES (90, 54, '2020-08-26', 6, 1, '', 2, 7, 21, '2020-08-26 12:25:22');
-INSERT INTO `absensi` VALUES (91, 55, '2020-08-26', 6, 1, '', 2, 7, 21, '2020-08-26 12:25:22');
-INSERT INTO `absensi` VALUES (92, 56, '2020-08-26', 6, 1, '', 2, 7, 21, '2020-08-26 12:25:22');
-INSERT INTO `absensi` VALUES (93, 57, '2020-08-26', 6, 1, '', 2, 7, 21, '2020-08-26 12:25:22');
-INSERT INTO `absensi` VALUES (94, 58, '2020-08-26', 6, 1, '', 2, 7, 21, '2020-08-26 12:25:22');
-INSERT INTO `absensi` VALUES (95, 59, '2020-08-26', 6, 1, '', 2, 7, 21, '2020-08-26 12:25:22');
-INSERT INTO `absensi` VALUES (96, 60, '2020-08-26', 6, 1, '', 2, 7, 21, '2020-08-26 12:25:22');
-INSERT INTO `absensi` VALUES (97, 61, '2020-08-26', 6, 1, '', 2, 7, 21, '2020-08-26 12:25:22');
-INSERT INTO `absensi` VALUES (98, 62, '2020-08-26', 6, 1, '', 2, 7, 21, '2020-08-26 12:25:22');
-INSERT INTO `absensi` VALUES (99, 63, '2020-08-26', 6, 1, '', 2, 7, 21, '2020-08-26 12:25:22');
-INSERT INTO `absensi` VALUES (100, 64, '2020-08-26', 6, 1, '', 2, 7, 21, '2020-08-26 12:25:22');
-INSERT INTO `absensi` VALUES (101, 65, '2020-08-26', 6, 1, '', 2, 7, 21, '2020-08-26 12:25:22');
-INSERT INTO `absensi` VALUES (102, 66, '2020-08-26', 6, 1, '', 2, 7, 21, '2020-08-26 12:25:22');
-INSERT INTO `absensi` VALUES (103, 67, '2020-08-26', 6, 1, '', 2, 7, 21, '2020-08-26 12:25:22');
-INSERT INTO `absensi` VALUES (104, 68, '2020-08-26', 6, 1, '', 2, 7, 21, '2020-08-26 12:25:22');
-INSERT INTO `absensi` VALUES (105, 69, '2020-08-26', 6, 1, '', 2, 7, 21, '2020-08-26 12:25:22');
-INSERT INTO `absensi` VALUES (106, 70, '2020-08-26', 6, 1, '', 2, 7, 21, '2020-08-26 12:25:23');
-INSERT INTO `absensi` VALUES (107, 71, '2020-08-26', 6, 1, '', 2, 7, 21, '2020-08-26 12:25:23');
-INSERT INTO `absensi` VALUES (108, 72, '2020-08-26', 6, 1, '', 2, 7, 22, '2020-08-26 12:25:32');
-INSERT INTO `absensi` VALUES (109, 73, '2020-08-26', 6, 1, '', 2, 7, 22, '2020-08-26 12:25:32');
-INSERT INTO `absensi` VALUES (110, 74, '2020-08-26', 6, 1, '', 2, 7, 22, '2020-08-26 12:25:32');
-INSERT INTO `absensi` VALUES (111, 75, '2020-08-26', 6, 1, '', 2, 7, 22, '2020-08-26 12:25:32');
-INSERT INTO `absensi` VALUES (112, 76, '2020-08-26', 6, 1, '', 2, 7, 22, '2020-08-26 12:25:32');
-INSERT INTO `absensi` VALUES (113, 77, '2020-08-26', 6, 1, '', 2, 7, 22, '2020-08-26 12:25:33');
-INSERT INTO `absensi` VALUES (114, 78, '2020-08-26', 6, 1, '', 2, 7, 22, '2020-08-26 12:25:33');
-INSERT INTO `absensi` VALUES (115, 79, '2020-08-26', 6, 1, '', 2, 7, 22, '2020-08-26 12:25:33');
-INSERT INTO `absensi` VALUES (116, 80, '2020-08-26', 6, 1, '', 2, 7, 22, '2020-08-26 12:25:33');
-INSERT INTO `absensi` VALUES (117, 81, '2020-08-26', 6, 1, '', 2, 7, 22, '2020-08-26 12:25:33');
-INSERT INTO `absensi` VALUES (118, 82, '2020-08-26', 6, 1, '', 2, 7, 22, '2020-08-26 12:25:33');
-INSERT INTO `absensi` VALUES (119, 83, '2020-08-26', 6, 1, '', 2, 7, 22, '2020-08-26 12:25:33');
-INSERT INTO `absensi` VALUES (120, 84, '2020-08-26', 6, 1, '', 2, 7, 22, '2020-08-26 12:25:33');
-INSERT INTO `absensi` VALUES (121, 85, '2020-08-26', 6, 1, '', 2, 7, 22, '2020-08-26 12:25:33');
-INSERT INTO `absensi` VALUES (122, 86, '2020-08-26', 6, 1, '', 2, 7, 22, '2020-08-26 12:25:33');
-INSERT INTO `absensi` VALUES (123, 87, '2020-08-26', 6, 1, '', 2, 7, 22, '2020-08-26 12:25:33');
-INSERT INTO `absensi` VALUES (124, 88, '2020-08-26', 6, 1, '', 2, 7, 22, '2020-08-26 12:25:33');
-INSERT INTO `absensi` VALUES (125, 89, '2020-08-26', 6, 1, '', 2, 7, 22, '2020-08-26 12:25:33');
-INSERT INTO `absensi` VALUES (126, 90, '2020-08-26', 6, 1, '', 2, 7, 22, '2020-08-26 12:25:33');
-INSERT INTO `absensi` VALUES (127, 91, '2020-08-26', 6, 1, '', 2, 7, 22, '2020-08-26 12:25:33');
-INSERT INTO `absensi` VALUES (128, 92, '2020-08-26', 6, 1, '', 2, 7, 22, '2020-08-26 12:25:33');
-INSERT INTO `absensi` VALUES (129, 93, '2020-08-26', 6, 1, '', 2, 7, 22, '2020-08-26 12:25:33');
-INSERT INTO `absensi` VALUES (130, 72, '2020-08-26', 6, 1, '', 2, 7, 22, '2020-08-26 12:26:11');
-INSERT INTO `absensi` VALUES (131, 73, '2020-08-26', 6, 1, '', 2, 7, 22, '2020-08-26 12:26:11');
-INSERT INTO `absensi` VALUES (132, 74, '2020-08-26', 6, 0, 'tertidur', 2, 7, 22, '2020-08-26 12:26:11');
-INSERT INTO `absensi` VALUES (133, 75, '2020-08-26', 6, 1, '', 2, 7, 22, '2020-08-26 12:26:11');
-INSERT INTO `absensi` VALUES (134, 76, '2020-08-26', 6, 1, '', 2, 7, 22, '2020-08-26 12:26:11');
-INSERT INTO `absensi` VALUES (135, 77, '2020-08-26', 6, 1, '', 2, 7, 22, '2020-08-26 12:26:11');
-INSERT INTO `absensi` VALUES (136, 78, '2020-08-26', 6, 1, '', 2, 7, 22, '2020-08-26 12:26:11');
-INSERT INTO `absensi` VALUES (137, 79, '2020-08-26', 6, 1, '', 2, 7, 22, '2020-08-26 12:26:11');
-INSERT INTO `absensi` VALUES (138, 80, '2020-08-26', 6, 1, '', 2, 7, 22, '2020-08-26 12:26:11');
-INSERT INTO `absensi` VALUES (139, 81, '2020-08-26', 6, 1, '', 2, 7, 22, '2020-08-26 12:26:11');
-INSERT INTO `absensi` VALUES (140, 82, '2020-08-26', 6, 1, '', 2, 7, 22, '2020-08-26 12:26:11');
-INSERT INTO `absensi` VALUES (141, 83, '2020-08-26', 6, 1, '', 2, 7, 22, '2020-08-26 12:26:11');
-INSERT INTO `absensi` VALUES (142, 84, '2020-08-26', 6, 1, '', 2, 7, 22, '2020-08-26 12:26:11');
-INSERT INTO `absensi` VALUES (143, 85, '2020-08-26', 6, 1, '', 2, 7, 22, '2020-08-26 12:26:11');
-INSERT INTO `absensi` VALUES (144, 86, '2020-08-26', 6, 1, '', 2, 7, 22, '2020-08-26 12:26:11');
-INSERT INTO `absensi` VALUES (145, 87, '2020-08-26', 6, 1, '', 2, 7, 22, '2020-08-26 12:26:12');
-INSERT INTO `absensi` VALUES (146, 88, '2020-08-26', 6, 1, '', 2, 7, 22, '2020-08-26 12:26:12');
-INSERT INTO `absensi` VALUES (147, 89, '2020-08-26', 6, 1, '', 2, 7, 22, '2020-08-26 12:26:12');
-INSERT INTO `absensi` VALUES (148, 90, '2020-08-26', 6, 1, '', 2, 7, 22, '2020-08-26 12:26:12');
-INSERT INTO `absensi` VALUES (149, 91, '2020-08-26', 6, 1, '', 2, 7, 22, '2020-08-26 12:26:12');
-INSERT INTO `absensi` VALUES (150, 92, '2020-08-26', 6, 1, '', 2, 7, 22, '2020-08-26 12:26:12');
-INSERT INTO `absensi` VALUES (151, 93, '2020-08-26', 6, 1, '', 2, 7, 22, '2020-08-26 12:26:12');
+INSERT INTO `absensi` VALUES (152, 51, '2020-09-23', 5, 1, '', 1, 2, 21, '2020-09-23 14:23:48');
+INSERT INTO `absensi` VALUES (153, 52, '2020-09-23', 5, 1, '', 1, 2, 21, '2020-09-23 14:23:48');
+INSERT INTO `absensi` VALUES (154, 53, '2020-09-23', 5, 0, 'sakit', 1, 2, 21, '2020-09-23 14:23:48');
+INSERT INTO `absensi` VALUES (155, 54, '2020-09-23', 5, 1, '', 1, 2, 21, '2020-09-23 14:23:48');
+INSERT INTO `absensi` VALUES (156, 55, '2020-09-23', 5, 1, '', 1, 2, 21, '2020-09-23 14:23:49');
+INSERT INTO `absensi` VALUES (157, 56, '2020-09-23', 5, 1, '', 1, 2, 21, '2020-09-23 14:23:49');
+INSERT INTO `absensi` VALUES (158, 57, '2020-09-23', 5, 1, '', 1, 2, 21, '2020-09-23 14:23:49');
+INSERT INTO `absensi` VALUES (159, 58, '2020-09-23', 5, 1, '', 1, 2, 21, '2020-09-23 14:23:49');
+INSERT INTO `absensi` VALUES (160, 59, '2020-09-23', 5, 1, '', 1, 2, 21, '2020-09-23 14:23:49');
+INSERT INTO `absensi` VALUES (161, 60, '2020-09-23', 5, 0, '', 1, 2, 21, '2020-09-23 14:23:49');
+INSERT INTO `absensi` VALUES (162, 61, '2020-09-23', 5, 1, '', 1, 2, 21, '2020-09-23 14:23:49');
+INSERT INTO `absensi` VALUES (163, 62, '2020-09-23', 5, 1, '', 1, 2, 21, '2020-09-23 14:23:49');
+INSERT INTO `absensi` VALUES (164, 63, '2020-09-23', 5, 0, '', 1, 2, 21, '2020-09-23 14:23:49');
+INSERT INTO `absensi` VALUES (165, 64, '2020-09-23', 5, 1, '', 1, 2, 21, '2020-09-23 14:23:49');
+INSERT INTO `absensi` VALUES (166, 65, '2020-09-23', 5, 1, '', 1, 2, 21, '2020-09-23 14:23:49');
+INSERT INTO `absensi` VALUES (167, 66, '2020-09-23', 5, 1, '', 1, 2, 21, '2020-09-23 14:23:49');
+INSERT INTO `absensi` VALUES (168, 67, '2020-09-23', 5, 1, '', 1, 2, 21, '2020-09-23 14:23:49');
+INSERT INTO `absensi` VALUES (169, 68, '2020-09-23', 5, 0, '', 1, 2, 21, '2020-09-23 14:23:49');
+INSERT INTO `absensi` VALUES (170, 69, '2020-09-23', 5, 1, '', 1, 2, 21, '2020-09-23 14:23:49');
+INSERT INTO `absensi` VALUES (171, 70, '2020-09-23', 5, 0, 'asd', 1, 2, 21, '2020-09-23 14:23:49');
+INSERT INTO `absensi` VALUES (172, 71, '2020-09-23', 5, 1, '', 1, 2, 21, '2020-09-23 14:23:49');
 
 -- ----------------------------
 -- Table structure for additional_setting
@@ -169,6 +82,80 @@ INSERT INTO `additional_setting` VALUES (5, 'type', 'Kabupaten');
 INSERT INTO `additional_setting` VALUES (6, 'postal_code', '65162');
 INSERT INTO `additional_setting` VALUES (9, 'jenis_pengiriman', '[{\"text\":\"POS Indonesia\",\"val\":\"pos\"},{\"text\":\"JNE\",\"val\":\"jne\"},{\"text\":\"Tiki\",\"val\":\"tiki\"}]');
 INSERT INTO `additional_setting` VALUES (10, 'jenis_pembayaran', '[{\"text\":\"Bank BCA\",\"no_rek\":\"12321312312312\",\"atas_nama\":\"Rendy Yani Susanto\"},{\"text\":\"Bank BRI\",\"no_rek\":\"43432\",\"atas_nama\":\"Cicik Winarsih\"},{\"text\":\"Bank BNI\",\"no_rek\":\"56566\",\"atas_nama\":\"Rendy Yani Susanto\"}]');
+
+-- ----------------------------
+-- Table structure for akun
+-- ----------------------------
+DROP TABLE IF EXISTS `akun`;
+CREATE TABLE `akun`  (
+  `id_akun` int(11) NOT NULL AUTO_INCREMENT,
+  `no_ref` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `nama` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `idindukakun_fk` int(11) NULL DEFAULT NULL,
+  `saldo_normal` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `create_at` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id_akun`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 29 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of akun
+-- ----------------------------
+INSERT INTO `akun` VALUES (1, '1101', 'Kas', 1, 'D', '2020-12-11 16:39:34');
+INSERT INTO `akun` VALUES (2, '1102', 'BANK', 1, 'D', '2020-12-11 16:39:44');
+INSERT INTO `akun` VALUES (3, '1103', 'Deposito', 1, 'D', '2020-12-11 16:39:55');
+INSERT INTO `akun` VALUES (4, '1104', 'Piutang', 1, 'D', '2020-12-11 16:40:04');
+INSERT INTO `akun` VALUES (5, '1105', 'Perlengkapan', 1, 'D', '2020-12-11 16:40:12');
+INSERT INTO `akun` VALUES (6, '1201', 'Aktiva Tetap', 2, 'D', '2020-12-11 16:40:39');
+INSERT INTO `akun` VALUES (7, '1202', 'Penyusutan', 2, 'D', '2020-12-11 16:40:47');
+INSERT INTO `akun` VALUES (8, '1203', 'Investasi', 2, 'D', '2020-12-11 16:40:58');
+INSERT INTO `akun` VALUES (9, '2101', 'Hutang Usaha', 3, 'K', '2020-12-11 16:41:10');
+INSERT INTO `akun` VALUES (10, '2102', 'Hutang Pajak', 3, 'K', '2020-12-11 16:41:22');
+INSERT INTO `akun` VALUES (11, '2103', 'Kewajiban Lancar Lain', 3, 'K', '2020-12-11 16:41:35');
+INSERT INTO `akun` VALUES (12, '2201', 'Hutang Pihak ke 3', 4, 'K', '2020-12-11 16:41:49');
+INSERT INTO `akun` VALUES (13, '2202', 'Hutang Program Lain', 4, 'K', '2020-12-11 16:42:01');
+INSERT INTO `akun` VALUES (14, '2203', 'Kewajiban Jangka Panjang Lain', 4, 'K', '2020-12-11 16:42:16');
+INSERT INTO `akun` VALUES (15, '3101', 'Modal Usaha', 5, 'K', '2020-12-11 16:42:26');
+INSERT INTO `akun` VALUES (16, '3102', 'Prive', 5, 'D', '2020-12-11 16:42:35');
+INSERT INTO `akun` VALUES (17, '4101', 'Donasi', 6, 'D', '2020-12-11 16:42:47');
+INSERT INTO `akun` VALUES (18, '4102', 'Sumbangan', 6, 'D', '2020-12-11 16:42:55');
+INSERT INTO `akun` VALUES (19, '4201', 'Penghasilan Layanan', 7, 'K', '2020-12-11 16:43:12');
+INSERT INTO `akun` VALUES (20, '4202', 'Pendapatan', 7, 'K', '2020-12-11 16:43:35');
+INSERT INTO `akun` VALUES (21, '4301', 'Pendapatan Lain', 8, 'K', '2020-12-11 16:44:06');
+INSERT INTO `akun` VALUES (22, '5101', 'Beban Gaji', 9, 'D', '2020-12-11 16:44:15');
+INSERT INTO `akun` VALUES (23, '5102', 'Biaya Perjalanan', 9, 'D', '2020-12-11 16:44:27');
+INSERT INTO `akun` VALUES (24, '5103', 'Biaya Kantor', 9, 'D', '2020-12-11 16:44:42');
+INSERT INTO `akun` VALUES (25, '5104', 'Biaya Sewa', 9, 'D', '2020-12-11 16:44:52');
+INSERT INTO `akun` VALUES (26, '5105', 'Biaya Pemeliharaan', 9, 'D', '2020-12-11 16:45:02');
+INSERT INTO `akun` VALUES (27, '5106', 'Biaya Rapat', 9, 'D', '2020-12-11 16:45:14');
+INSERT INTO `akun` VALUES (28, '5107', 'Biaya Lain', 9, 'D', '2020-12-11 16:45:20');
+
+-- ----------------------------
+-- Table structure for anak_pegawai
+-- ----------------------------
+DROP TABLE IF EXISTS `anak_pegawai`;
+CREATE TABLE `anak_pegawai`  (
+  `id_anak_pegawai` int(11) NOT NULL AUTO_INCREMENT,
+  `idguru_fk` int(11) NULL DEFAULT NULL,
+  `nama` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `tempat_lahir` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `tanggal_lahir` date NULL DEFAULT NULL,
+  `nama_ibu` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  PRIMARY KEY (`id_anak_pegawai`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of anak_pegawai
+-- ----------------------------
+INSERT INTO `anak_pegawai` VALUES (1, 23, 'a1', 'm1', '2020-12-08', 'i1');
+INSERT INTO `anak_pegawai` VALUES (2, 23, 'a2', 'm2', '2020-12-16', 'i2');
+INSERT INTO `anak_pegawai` VALUES (3, 24, 'a1', 'm1', '2020-12-08', 'i1');
+INSERT INTO `anak_pegawai` VALUES (4, 24, 'a2', 'm2', '2020-12-16', 'i2');
+INSERT INTO `anak_pegawai` VALUES (5, 25, 'M', 'malang', '2020-12-06', 'a');
+INSERT INTO `anak_pegawai` VALUES (6, 25, 'p', 'malang', '2020-12-08', 'b');
+INSERT INTO `anak_pegawai` VALUES (7, 26, 'M', 'malang', '2020-12-06', 'a');
+INSERT INTO `anak_pegawai` VALUES (8, 26, 'p', 'malang', '2020-12-08', 'b');
+INSERT INTO `anak_pegawai` VALUES (9, 27, 'M', 'malang', '2020-12-06', 'a');
+INSERT INTO `anak_pegawai` VALUES (10, 27, 'p', 'malang', '2020-12-08', 'b');
 
 -- ----------------------------
 -- Table structure for ans_bank_soal
@@ -958,6 +945,25 @@ INSERT INTO `cities` VALUES (498, 'Kab. Deiyai', 34, '2019-10-22 07:50:01', '201
 INSERT INTO `cities` VALUES (499, 'Kota Jayapura', 34, '2019-10-22 07:50:01', '2019-10-22 07:50:01');
 
 -- ----------------------------
+-- Table structure for coa
+-- ----------------------------
+DROP TABLE IF EXISTS `coa`;
+CREATE TABLE `coa`  (
+  `id_coa` int(11) NOT NULL AUTO_INCREMENT,
+  `name` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  PRIMARY KEY (`id_coa`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of coa
+-- ----------------------------
+INSERT INTO `coa` VALUES (1, 'Aktiva');
+INSERT INTO `coa` VALUES (2, 'Kewajiban');
+INSERT INTO `coa` VALUES (3, 'Aktiva Bersih');
+INSERT INTO `coa` VALUES (4, 'Penerimaan');
+INSERT INTO `coa` VALUES (5, 'Biaya');
+
+-- ----------------------------
 -- Table structure for component_jadwal
 -- ----------------------------
 DROP TABLE IF EXISTS `component_jadwal`;
@@ -976,6 +982,36 @@ CREATE TABLE `component_jadwal`  (
 -- ----------------------------
 INSERT INTO `component_jadwal` VALUES (1, '2020-08-18', 1, 2, 1, 21);
 INSERT INTO `component_jadwal` VALUES (2, '2020-08-18', 1, 2, 1, 22);
+
+-- ----------------------------
+-- Table structure for dokumen_pegawai
+-- ----------------------------
+DROP TABLE IF EXISTS `dokumen_pegawai`;
+CREATE TABLE `dokumen_pegawai`  (
+  `id_dokumen_pegawai` int(11) NOT NULL AUTO_INCREMENT,
+  `idguru_fk` int(11) NULL DEFAULT NULL,
+  `nama` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `file` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `keterangan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  PRIMARY KEY (`id_dokumen_pegawai`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 14 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of dokumen_pegawai
+-- ----------------------------
+INSERT INTO `dokumen_pegawai` VALUES (1, 25, NULL, NULL, 'foto_siswa');
+INSERT INTO `dokumen_pegawai` VALUES (2, 25, NULL, NULL, 'foto_siswa');
+INSERT INTO `dokumen_pegawai` VALUES (3, 25, NULL, NULL, 'foto_siswa');
+INSERT INTO `dokumen_pegawai` VALUES (4, 26, NULL, NULL, 'foto_siswa');
+INSERT INTO `dokumen_pegawai` VALUES (5, 26, NULL, NULL, 'foto_siswa');
+INSERT INTO `dokumen_pegawai` VALUES (6, 26, NULL, NULL, 'foto_siswa');
+INSERT INTO `dokumen_pegawai` VALUES (7, 27, NULL, NULL, 'foto_siswa');
+INSERT INTO `dokumen_pegawai` VALUES (8, 27, NULL, NULL, 'foto_siswa');
+INSERT INTO `dokumen_pegawai` VALUES (9, 27, NULL, NULL, 'foto_siswa');
+INSERT INTO `dokumen_pegawai` VALUES (10, 28, NULL, 'IMG-20171103-WA0008.jpg', 'foto_siswa');
+INSERT INTO `dokumen_pegawai` VALUES (11, 31, NULL, 'baru.jpg', 'foto_siswa');
+INSERT INTO `dokumen_pegawai` VALUES (12, 31, NULL, 'baru.jpg', 'foto_siswa');
+INSERT INTO `dokumen_pegawai` VALUES (13, 31, NULL, 'baru.jpg', 'foto_siswa');
 
 -- ----------------------------
 -- Table structure for groups
@@ -1007,7 +1043,6 @@ CREATE TABLE `guru`  (
   `nama` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `nip` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `alamat` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `agama` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `foto` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `pendidikan_terakhir` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `instansi` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
@@ -1018,20 +1053,61 @@ CREATE TABLE `guru`  (
   `jabatan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `email` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `no_hp` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `jenis_kelamin` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `tempat_lahir` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `agama` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `kewarganegaraan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `status_pernikahan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `status_rumah` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `jarak_ke_kantor` int(255) NULL DEFAULT NULL,
+  `bb` int(255) NULL DEFAULT NULL,
+  `tb` int(255) NULL DEFAULT NULL,
+  `gd` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `penyakit` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `kelainan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `no_karpeg` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `mulai_bertugas` date NULL DEFAULT NULL,
+  `berasal_dari` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `tanggal_meninggalkan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `alasan_meninggalkan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `kode_pegawai` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `istri` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `status_kepegawaian` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `no_taspen` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `tanggal_lahir` date NULL DEFAULT NULL,
   PRIMARY KEY (`id_guru`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 32 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of guru
 -- ----------------------------
-INSERT INTO `guru` VALUES (2, 'Rendy Yani Susanto', '121', 'Malang', 'Islam', 'Rendy-Yani-Susanto-IT-Department.jpeg', 'S1', 'Universitas Brawijaya', 'Rendy', 'rendy', 'rendy', 'rendy', 'Guru dan Programmer', 'rendy@smkitasy-syadzili.sch.id', '6285894632505');
-INSERT INTO `guru` VALUES (6, 'Abdur Rochim', '1234', 'Singosari', 'Islam', '91b83a0188e13986037d70730a65daa8.jpg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `guru` VALUES (7, 'Avi Hendratmoko', '-', 'Dsn Prapatan RT 038 RW 005 Tulusbesar Kec. Tumpang Kab. Malang Jawa Timur', 'Islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `guru` VALUES (8, 'Maimun Muzzaka', '123', 'malang', 'Islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `guru` VALUES (9, 'Cindy Permata Putri, S.Pd', NULL, 'Bugis, Saptorenggo', 'Islam', 'bucin.jpg', 'S1', 'IKIP Budi Utomo', '-', 'https://www.instagram.com/cindyputrii95/', 'Cindy', '-', 'Guru Bahasa Indonesia', 'Cindy@smkitasy-syadzili.sch.id', '6285895839663');
-INSERT INTO `guru` VALUES (10, 'Roikhatul Uzza, S.Psi', '123', 'Sumberpasir', 'Islam', 'buizza.jpg', 'S1', 'Universitas Islam', 'https://www.facebook.com/izzaclalu.dia', 'https://www.instagram.com/izza.sr/', NULL, NULL, 'Bimbingan Konseling', 'izza@smkitasy-syadzili.sch.id', '6283175798727');
-INSERT INTO `guru` VALUES (11, 'Refita Fardiani', NULL, 'Malang', 'Islam', 'burev.jpg', NULL, NULL, NULL, 'https://www.instagram.com/refhii_01/', NULL, NULL, 'Tata Usaha', 'refita@smkitasy-syadzili.sch.id', '6285645230304');
-INSERT INTO `guru` VALUES (12, 'Nur Cholis, S.Pdi', NULL, 'Malang', 'Islam', 'bunur.jpg', 'S1', NULL, NULL, NULL, NULL, NULL, 'Guru Pendidikan Agama Islam', 'nur@smkitasy-syadzili.sch.id', NULL);
+INSERT INTO `guru` VALUES (2, 'Rendy Yani Susanto', '121', 'Malang', 'Rendy-Yani-Susanto-IT-Department.jpeg', 'S1', 'Universitas Brawijaya', 'Rendy', 'rendy', 'rendy', 'rendy', 'Guru dan Programmer', 'rendy@smkitasy-syadzili.sch.id', '6285894632505', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'K001', NULL, NULL, NULL, NULL);
+INSERT INTO `guru` VALUES (6, 'Abdur Rochim', '1234', 'Singosari', '91b83a0188e13986037d70730a65daa8.jpg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'K002', NULL, NULL, NULL, NULL);
+INSERT INTO `guru` VALUES (7, 'Avi Hendratmoko', '-', 'Dsn Prapatan RT 038 RW 005 Tulusbesar Kec. Tumpang Kab. Malang Jawa Timur', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'K003', NULL, NULL, NULL, NULL);
+INSERT INTO `guru` VALUES (8, 'Maimun Muzzaka', '123', 'malang', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'K004', NULL, NULL, NULL, NULL);
+INSERT INTO `guru` VALUES (9, 'Cindy Permata Putri, S.Pd', NULL, 'Bugis, Saptorenggo', 'bucin.jpg', 'S1', 'IKIP Budi Utomo', '-', 'https://www.instagram.com/cindyputrii95/', 'Cindy', '-', 'Guru Bahasa Indonesia', 'Cindy@smkitasy-syadzili.sch.id', '6285895839663', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'K005', NULL, NULL, NULL, NULL);
+INSERT INTO `guru` VALUES (10, 'Roikhatul Uzza, S.Psi', '123', 'Sumberpasir', 'buizza.jpg', 'S1', 'Universitas Islam', 'https://www.facebook.com/izzaclalu.dia', 'https://www.instagram.com/izza.sr/', NULL, NULL, 'Bimbingan Konseling', 'izza@smkitasy-syadzili.sch.id', '6283175798727', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'K006', NULL, NULL, NULL, NULL);
+INSERT INTO `guru` VALUES (11, 'Refita Fardiani', NULL, 'Malang', 'burev.jpg', NULL, NULL, NULL, 'https://www.instagram.com/refhii_01/', NULL, NULL, 'Tata Usaha', 'refita@smkitasy-syadzili.sch.id', '6285645230304', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'K007', NULL, NULL, NULL, NULL);
+INSERT INTO `guru` VALUES (12, 'Nur Cholis, S.Pdi', NULL, 'Malang', 'bunur.jpg', 'S1', NULL, NULL, NULL, NULL, NULL, 'Guru Pendidikan Agama Islam', 'nur@smkitasy-syadzili.sch.id', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'K008', NULL, NULL, NULL, NULL);
+INSERT INTO `guru` VALUES (13, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `guru` VALUES (14, '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Laki-laki', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'G17883', '', 'PNS', '', NULL);
+INSERT INTO `guru` VALUES (15, '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Laki-laki', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'G419769', '', 'PNS', '', NULL);
+INSERT INTO `guru` VALUES (16, '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Laki-laki', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'G84716', '', 'PNS', '', NULL);
+INSERT INTO `guru` VALUES (17, '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Laki-laki', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'G235870', '', 'PNS', '', NULL);
+INSERT INTO `guru` VALUES (18, '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Laki-laki', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'G945983', '', 'PNS', '', NULL);
+INSERT INTO `guru` VALUES (19, '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Laki-laki', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'G895233', '', 'PNS', '', NULL);
+INSERT INTO `guru` VALUES (20, '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Laki-laki', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'G972778', '', 'PNS', '', NULL);
+INSERT INTO `guru` VALUES (21, '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Laki-laki', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'G847076', '', 'PNS', '', NULL);
+INSERT INTO `guru` VALUES (22, '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Laki-laki', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'G129943', '', 'PNS', '', NULL);
+INSERT INTO `guru` VALUES (23, 'coba', '312', 'Malang,aa', 'ea3ff3aeb4f2ff427c25fe28df0aef81.png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'dhumbahabaa@gmail.com', '8887878', 'Laki-laki', 'malang', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 13, 160, 161, 'B', '1', '1', '323', '2020-12-08', 'SD', '2020-12-11', 'AA', 'G259368', 'asd', 'PNS', '3118', NULL);
+INSERT INTO `guru` VALUES (24, 'coba', '312', 'Malang,aa', '42afe9a75fed950f237f3bc57c7911b2.png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'dhumbahabaa@gmail.com', '8887878', 'Laki-laki', 'malang', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 13, 160, 161, 'B', '1', '1', '323', '2020-12-08', 'SD', '2020-12-11', 'AA', 'G860260', 'asd', 'PNS', '3118', NULL);
+INSERT INTO `guru` VALUES (25, 'Cicik Winarsih', '3232', 'Malang', 'd067443b7c5e06c8f489b40226d6ddc3.png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'rusthina92@gmail.com', '8887878', 'Perempuan', 'malang', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 22, 40, 150, 'A', 'a', 'a', '2321', '2020-12-11', 'smk', '2020-12-31', 'ad', 'G934936', 'Rendy', 'PNS', '12312', NULL);
+INSERT INTO `guru` VALUES (26, 'Cicik Winarsih', '3232', 'Malang', '3cd6f1f7372a9266a67951793bdf8054.png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'rusthina92@gmail.com', '8887878', 'Perempuan', 'malang', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 22, 40, 150, 'A', 'a', 'a', '2321', '2020-12-11', 'smk', '2020-12-31', 'ad', 'G981903', 'Rendy', 'PNS', '12312', NULL);
+INSERT INTO `guru` VALUES (27, 'Cicik Winarsih', '3232', 'Malang', '754b727e2336bf82482391b0ef4a3e37.png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'rusthina92@gmail.com', '8887878', 'Perempuan', 'malang', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 22, 40, 150, 'A', 'a', 'a', '2321', '2020-12-11', 'smk', '2020-12-31', 'ad', 'G44799', 'Rendy', 'PNS', '12312', NULL);
+INSERT INTO `guru` VALUES (28, 'erre', '', '', 'b7630316f4b38c532dc20d0ade50c1ff.jpg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'dhumbahabaa@gmail.com', '', 'Laki-laki', 'malang', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'G97320', 'asd', 'PNS', '', NULL);
+INSERT INTO `guru` VALUES (29, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'G320465', NULL, NULL, NULL, NULL);
+INSERT INTO `guru` VALUES (30, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'G354309', NULL, NULL, NULL, NULL);
+INSERT INTO `guru` VALUES (31, 'ABBOCATH 18', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Laki-laki', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'G840179', '', 'PNS', '', NULL);
 
 -- ----------------------------
 -- Table structure for guru_mapel
@@ -1048,7 +1124,7 @@ CREATE TABLE `guru_mapel`  (
   INDEX `idmapel_fk`(`idmapel_fk`) USING BTREE,
   CONSTRAINT `guru_mapel_ibfk_1` FOREIGN KEY (`idguru_fk`) REFERENCES `guru` (`id_guru`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `guru_mapel_ibfk_2` FOREIGN KEY (`idmapel_fk`) REFERENCES `mata_pelajaran` (`id_mata_pelajaran`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 16 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 18 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of guru_mapel
@@ -1063,6 +1139,77 @@ INSERT INTO `guru_mapel` VALUES (11, 8, 6, 1, 19);
 INSERT INTO `guru_mapel` VALUES (12, 8, 6, 1, 20);
 INSERT INTO `guru_mapel` VALUES (14, 8, 5, 1, 20);
 INSERT INTO `guru_mapel` VALUES (15, 8, 5, 1, 19);
+INSERT INTO `guru_mapel` VALUES (16, 2, 7, 1, 22);
+INSERT INTO `guru_mapel` VALUES (17, 13, NULL, NULL, NULL);
+
+-- ----------------------------
+-- Table structure for hobi_pegawai
+-- ----------------------------
+DROP TABLE IF EXISTS `hobi_pegawai`;
+CREATE TABLE `hobi_pegawai`  (
+  `id_hobi_pegawai` int(11) NOT NULL AUTO_INCREMENT,
+  `idguru_fk` int(11) NULL DEFAULT NULL,
+  `jenis` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `aktif` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `kapan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  PRIMARY KEY (`id_hobi_pegawai`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of hobi_pegawai
+-- ----------------------------
+INSERT INTO `hobi_pegawai` VALUES (1, 24, 'H1', 'A', '2');
+INSERT INTO `hobi_pegawai` VALUES (2, 24, 'H2', 'A3', 'W');
+INSERT INTO `hobi_pegawai` VALUES (3, 25, 'putbol', 'aktif', '2001');
+INSERT INTO `hobi_pegawai` VALUES (4, 26, 'putbol', 'aktif', '2001');
+INSERT INTO `hobi_pegawai` VALUES (5, 27, 'putbol', 'aktif', '2001');
+
+-- ----------------------------
+-- Table structure for induk_akun
+-- ----------------------------
+DROP TABLE IF EXISTS `induk_akun`;
+CREATE TABLE `induk_akun`  (
+  `id_induk_akun` int(11) NOT NULL AUTO_INCREMENT,
+  `no_akun` int(11) NULL DEFAULT NULL,
+  `nama` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `idcoa_fk` int(11) NULL DEFAULT NULL,
+  PRIMARY KEY (`id_induk_akun`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of induk_akun
+-- ----------------------------
+INSERT INTO `induk_akun` VALUES (1, 11, 'Aktiva Lancar', 1);
+INSERT INTO `induk_akun` VALUES (2, 12, 'Aktiva Tidak lancar', 1);
+INSERT INTO `induk_akun` VALUES (3, 21, 'Kewajiban Lancar', 2);
+INSERT INTO `induk_akun` VALUES (4, 22, 'Kewajiban Jangka Panjang', 2);
+INSERT INTO `induk_akun` VALUES (5, 31, 'Modal Usaha', 3);
+INSERT INTO `induk_akun` VALUES (6, 41, 'Perolehan', 4);
+INSERT INTO `induk_akun` VALUES (7, 42, 'Pendapatan', 4);
+INSERT INTO `induk_akun` VALUES (8, 43, 'Pendapatan Lain', 4);
+INSERT INTO `induk_akun` VALUES (9, 51, 'Biaya Administrasi', 5);
+INSERT INTO `induk_akun` VALUES (10, 52, 'Biaya Lain', 5);
+
+-- ----------------------------
+-- Table structure for iuran_wajib_siswa
+-- ----------------------------
+DROP TABLE IF EXISTS `iuran_wajib_siswa`;
+CREATE TABLE `iuran_wajib_siswa`  (
+  `id_iuran_wajib_siswa` int(11) NOT NULL AUTO_INCREMENT,
+  `nama` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `harga` double NULL DEFAULT NULL,
+  PRIMARY KEY (`id_iuran_wajib_siswa`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of iuran_wajib_siswa
+-- ----------------------------
+INSERT INTO `iuran_wajib_siswa` VALUES (1, 'SPP Bulanan', 500000);
+INSERT INTO `iuran_wajib_siswa` VALUES (2, 'Uang Gedung', 2000000);
+INSERT INTO `iuran_wajib_siswa` VALUES (3, 'Seragam', 500000);
+INSERT INTO `iuran_wajib_siswa` VALUES (4, 'Buku/LKS', 120000);
+INSERT INTO `iuran_wajib_siswa` VALUES (5, 'PAS', 100000);
+INSERT INTO `iuran_wajib_siswa` VALUES (6, 'PTS', 100000);
 
 -- ----------------------------
 -- Table structure for jadwal
@@ -1195,6 +1342,36 @@ INSERT INTO `kelas` VALUES (23, 'XI APHP', 2, '2020-08-18 08:54:28', 4, 1);
 INSERT INTO `kelas` VALUES (24, 'XII APHP', 3, '2020-08-18 08:54:44', 4, 1);
 
 -- ----------------------------
+-- Table structure for kursus_pegawai
+-- ----------------------------
+DROP TABLE IF EXISTS `kursus_pegawai`;
+CREATE TABLE `kursus_pegawai`  (
+  `id_kursus_pegawai` int(11) NOT NULL AUTO_INCREMENT,
+  `jenis` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `tahun` int(255) NULL DEFAULT NULL,
+  `bulan` int(255) NULL DEFAULT NULL,
+  `hari` int(255) NULL DEFAULT NULL,
+  `tingkat` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `keterangan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `idguru_fk` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`id_kursus_pegawai`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of kursus_pegawai
+-- ----------------------------
+INSERT INTO `kursus_pegawai` VALUES (1, 'kk1', 10, 12, 1, 'NASIONAL', 'TIDAK ADA', '23');
+INSERT INTO `kursus_pegawai` VALUES (2, 'KK2', 1, 2, 3, 'L', 'P', '23');
+INSERT INTO `kursus_pegawai` VALUES (3, 'kk1', 10, 12, 1, 'NASIONAL', 'TIDAK ADA', '24');
+INSERT INTO `kursus_pegawai` VALUES (4, 'KK2', 1, 2, 3, 'L', 'P', '24');
+INSERT INTO `kursus_pegawai` VALUES (5, 'b.ind', 5, 2, 4, 'nasional', '-', '25');
+INSERT INTO `kursus_pegawai` VALUES (6, 'mtk', 2, 2, 1, 'malang', 'tidak', '25');
+INSERT INTO `kursus_pegawai` VALUES (7, 'b.ind', 5, 2, 4, 'nasional', '-', '26');
+INSERT INTO `kursus_pegawai` VALUES (8, 'mtk', 2, 2, 1, 'malang', 'tidak', '26');
+INSERT INTO `kursus_pegawai` VALUES (9, 'b.ind', 5, 2, 4, 'nasional', '-', '27');
+INSERT INTO `kursus_pegawai` VALUES (10, 'mtk', 2, 2, 1, 'malang', 'tidak', '27');
+
+-- ----------------------------
 -- Table structure for learning
 -- ----------------------------
 DROP TABLE IF EXISTS `learning`;
@@ -1239,6 +1416,32 @@ CREATE TABLE `login_attempts`  (
   `time` int(11) UNSIGNED NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Table structure for mapel_ajar_pegawai
+-- ----------------------------
+DROP TABLE IF EXISTS `mapel_ajar_pegawai`;
+CREATE TABLE `mapel_ajar_pegawai`  (
+  `id_mapel_ajar_pegawai` int(11) NOT NULL AUTO_INCREMENT,
+  `idguru_fk` int(11) NULL DEFAULT NULL,
+  `mapel` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `sekolah` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `kelas` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `tahun` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  PRIMARY KEY (`id_mapel_ajar_pegawai`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of mapel_ajar_pegawai
+-- ----------------------------
+INSERT INTO `mapel_ajar_pegawai` VALUES (1, 24, '42', '2', '2', NULL);
+INSERT INTO `mapel_ajar_pegawai` VALUES (2, 24, '201', 'G4', '4', NULL);
+INSERT INTO `mapel_ajar_pegawai` VALUES (3, 25, 'asd', 'smk', '5', '2001');
+INSERT INTO `mapel_ajar_pegawai` VALUES (4, 25, 're', 'sd', '6', '2002');
+INSERT INTO `mapel_ajar_pegawai` VALUES (5, 26, 'asd', 'smk', '5', '2001');
+INSERT INTO `mapel_ajar_pegawai` VALUES (6, 26, 're', 'sd', '6', '2002');
+INSERT INTO `mapel_ajar_pegawai` VALUES (7, 27, 'asd', 'smk', '5', '2001');
+INSERT INTO `mapel_ajar_pegawai` VALUES (8, 27, 're', 'sd', '6', '2002');
 
 -- ----------------------------
 -- Table structure for mata_pelajaran
@@ -1297,6 +1500,210 @@ CREATE TABLE `media_files`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
+-- Table structure for organisasi_pegawai
+-- ----------------------------
+DROP TABLE IF EXISTS `organisasi_pegawai`;
+CREATE TABLE `organisasi_pegawai`  (
+  `id_organisasi_pegawai` int(11) NOT NULL AUTO_INCREMENT,
+  `organisasi` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `jabatan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `tahun` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `idguru_fk` int(11) NULL DEFAULT NULL,
+  PRIMARY KEY (`id_organisasi_pegawai`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of organisasi_pegawai
+-- ----------------------------
+INSERT INTO `organisasi_pegawai` VALUES (1, 'O1', 'J1', '2010', 24);
+INSERT INTO `organisasi_pegawai` VALUES (2, 'O2', 'J2', '2011', 24);
+INSERT INTO `organisasi_pegawai` VALUES (3, 'fip', 'asd', '2001', 25);
+INSERT INTO `organisasi_pegawai` VALUES (4, 'aa', 'd', '2003', 25);
+INSERT INTO `organisasi_pegawai` VALUES (5, 'ere', 'ere', '2005', 25);
+INSERT INTO `organisasi_pegawai` VALUES (6, 'fip', 'asd', '2001', 26);
+INSERT INTO `organisasi_pegawai` VALUES (7, 'aa', 'd', '2003', 26);
+INSERT INTO `organisasi_pegawai` VALUES (8, 'ere', 'ere', '2005', 26);
+INSERT INTO `organisasi_pegawai` VALUES (9, 'fip', 'asd', '2001', 27);
+INSERT INTO `organisasi_pegawai` VALUES (10, 'aa', 'd', '2003', 27);
+INSERT INTO `organisasi_pegawai` VALUES (11, 'ere', 'ere', '2005', 27);
+
+-- ----------------------------
+-- Table structure for pembayaran_spp
+-- ----------------------------
+DROP TABLE IF EXISTS `pembayaran_spp`;
+CREATE TABLE `pembayaran_spp`  (
+  `id_pembayaran_spp` int(11) NOT NULL AUTO_INCREMENT,
+  `idsiswa_fk` int(11) NULL DEFAULT NULL,
+  `bulan` int(255) NULL DEFAULT NULL,
+  `tahun` int(255) NULL DEFAULT NULL,
+  `jumlah_bayar` double(20, 0) NULL DEFAULT NULL,
+  `tanggal` date NULL DEFAULT NULL,
+  `create_at` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id_pembayaran_spp`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of pembayaran_spp
+-- ----------------------------
+INSERT INTO `pembayaran_spp` VALUES (1, 95, 10, 2020, 500000, '2020-12-11', '2020-12-11 20:47:56');
+INSERT INTO `pembayaran_spp` VALUES (2, 95, 11, 2020, 5000, '2020-12-08', '2020-12-11 20:48:55');
+
+-- ----------------------------
+-- Table structure for pendaftaran
+-- ----------------------------
+DROP TABLE IF EXISTS `pendaftaran`;
+CREATE TABLE `pendaftaran`  (
+  `id_pendaftaran` int(11) NOT NULL AUTO_INCREMENT,
+  `nama_lengkap` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `nisn` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `jenis_kelamin` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `nik` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `kk` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `tempat_lahir` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `tanggal_lahir` date NULL DEFAULT NULL,
+  `akta` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `agama` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `kewarganegaraan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `disabilitas` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `jenis_disabilitas` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `alamat` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `rt` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `rw` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `dusun` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `kelurahan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `kecamatan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `kode_pos` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `lintang` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `bujur` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `tempat_tinggal` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `moda_transportasi` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `anak_ke` int(255) NULL DEFAULT NULL,
+  `punya_kip` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `tetap_kip` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `menolak_pip` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `nama_ayah` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `nik_ayah` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `tahun_lahir_ayah` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `pendidikan_ayah` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `pekerjaan_ayah` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `penghasilan_ayah` double(20, 0) NULL DEFAULT NULL,
+  `berkebutuhan_khusus_ayah` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `nama_ibu` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `nik_ibu` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `tahun_lahir_ibu` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `pendidikan_ibu` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `pekerjaan_ibu` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `penghasilan_ibu` double(20, 0) NULL DEFAULT NULL,
+  `berkebutuhan_khusus_ibu` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `nama_wali` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `nik_wali` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `tahun_lahir_wali` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `pendidikan_wali` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `pekerjaan_wali` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `penghasilan_wali` double(20, 0) NULL DEFAULT NULL,
+  `berkebutuhan_khusus_wali` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `nomor_telp_rumah` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `no_hp` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `email` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `tinggi_badan` int(255) NULL DEFAULT NULL,
+  `berat_badan` int(255) NULL DEFAULT NULL,
+  `lingkar_kepala` int(255) NULL DEFAULT NULL,
+  `jarak_ke_sekolah` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `angka_jarak` int(255) NULL DEFAULT NULL,
+  `waktu_tempuh` int(255) NULL DEFAULT NULL,
+  `jenis_kesejahteraan` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `no_kartu` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `nama_kartu` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `kompetensi_keahlian` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `jenis_pendaftaran` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `nis` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `tanggal_masuk_sekolah` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `sekolah_asal` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `no_peserta_un` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `no_seri_ijazah` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `no_skhu` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `usulan_layak_pip` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `punya_pkh` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `alasan_layak_pip` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `no_hp_ayah` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `no_hp_ibu` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `jenis_sekolah` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `kecamatan_sekolah` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `kabupaten_sekolah` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  PRIMARY KEY (`id_pendaftaran`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Table structure for pendidikan_pegawai
+-- ----------------------------
+DROP TABLE IF EXISTS `pendidikan_pegawai`;
+CREATE TABLE `pendidikan_pegawai`  (
+  `id_pendidikan_pegawai` int(11) NOT NULL AUTO_INCREMENT,
+  `idguru_fk` int(11) NULL DEFAULT NULL,
+  `jenis` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `berijazah` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `tahun` int(255) NULL DEFAULT NULL,
+  PRIMARY KEY (`id_pendidikan_pegawai`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of pendidikan_pegawai
+-- ----------------------------
+INSERT INTO `pendidikan_pegawai` VALUES (1, 23, 'jp1', 'y', 2020);
+INSERT INTO `pendidikan_pegawai` VALUES (2, 23, 'jp2', 'b', 2020);
+INSERT INTO `pendidikan_pegawai` VALUES (3, 24, 'jp1', 'y', 2020);
+INSERT INTO `pendidikan_pegawai` VALUES (4, 24, 'jp2', 'b', 2020);
+INSERT INTO `pendidikan_pegawai` VALUES (5, 25, 'smk', 'ya', 2020);
+INSERT INTO `pendidikan_pegawai` VALUES (6, 25, 'd3', 'ya', 2020);
+INSERT INTO `pendidikan_pegawai` VALUES (7, 26, 'smk', 'ya', 2020);
+INSERT INTO `pendidikan_pegawai` VALUES (8, 26, 'd3', 'ya', 2020);
+INSERT INTO `pendidikan_pegawai` VALUES (9, 27, 'smk', 'ya', 2020);
+INSERT INTO `pendidikan_pegawai` VALUES (10, 27, 'd3', 'ya', 2020);
+
+-- ----------------------------
+-- Table structure for ppdb
+-- ----------------------------
+DROP TABLE IF EXISTS `ppdb`;
+CREATE TABLE `ppdb`  (
+  `id_ppdb` int(11) NOT NULL AUTO_INCREMENT,
+  `nama` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `nisn` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `tanggal_lahir` date NULL DEFAULT NULL,
+  `alamat` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `email` longtext CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `no_hp` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `tempat_lahir` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `kode_pos` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `tinggi_badan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `berat_badan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `nama_ayah` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `tahun_lahir_ayah` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `no_hp_ayah` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `nama_ibu` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `nik_ibu` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `no_hp_ibu` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `tahun_lahir_ibu` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `jenis_kelamin` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `pendidikan_terakhir_ayah` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `pekerjaan_ayah` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `penghasilan_ayah` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `penghasilan_ibu` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `pekerjaan_ibu` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `pendidikan_terakhir_ibu` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `nik_siswa` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `kode_pendaftaran` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `nik_ayah` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `status` int(255) NULL DEFAULT 0,
+  `create_at` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id_ppdb`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 22 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of ppdb
+-- ----------------------------
+INSERT INTO `ppdb` VALUES (21, 'rendy', '123', '2020-12-04', 'DSN Sonosari ', 'rendyyanisusanto@gmail.com', '084994664558', 'Malang', '65162', '165', '56', 'Sugianto', '1956', '081334791464', 'Sri Indahyani', '123123', '00', '1988', 'L', '5', '9', '3', '3', '1', '2', '555', '718979097', '1231', NULL, '2020-12-04 21:18:35');
+
+-- ----------------------------
 -- Table structure for profil_website
 -- ----------------------------
 DROP TABLE IF EXISTS `profil_website`;
@@ -1328,7 +1735,7 @@ CREATE TABLE `profil_website`  (
 -- ----------------------------
 -- Records of profil_website
 -- ----------------------------
-INSERT INTO `profil_website` VALUES ('SMK IT Asy-Syadzili', 'Jl. Istana Mekar Wangi Utama No 1P-Q', '085894632505', 'logo-w.png', 'bulb.png', 'undefined', 'Shop with the nature, Please shop with me', '<p>The Balance Small Business makes launching and managing your own business easy. It is home to experts who provide clear, practical advice on entrepreneurship and management. Whether you&rsquo;re just starting up or you want to take your company to the next level, our 20-year-strong library of more than 7,000 pieces of content will answer your questions and turn your business dreams into reality.</p>\n\n<p><a href=\"https://www.thebalancesmb.com/\">The Balance</a>&nbsp;is part of The Balance family of sites, including&nbsp;<a href=\"https://www.thebalance.com/\" rel=\"noopener\" target=\"_blank\">The Balance</a>&nbsp;and&nbsp;<a href=\"https://www.thebalancecareers.com/\" rel=\"noopener\" target=\"_blank\">The Balance Careers</a>, covering personal finance, career, and small business topics. With more than 24 million monthly visitors, The Balance is among the top-10 largest finance properties as measured by comScore, a leading Internet measurement company. Our more than 50 expert writers have extensive qualifications and expertise in their topics, including MBAs, PhDs, CFPs, other advanced degrees and professional certifications.</p>\n\n<p>The Balance family of sites have been honored by multiple awards in the last year, including&nbsp;<a href=\"https://www.tellyawards.com/winners/2017/short-form-social/general-education-discovery\" rel=\"noopener nofollow\" target=\"_blank\">The Telly Awards</a>,&nbsp;<a href=\"https://www.communicatorawards.com/\" rel=\"noopener nofollow\" target=\"_blank\">The Communicator Awards</a>, and&nbsp;<a href=\"https://www.editorandpublisher.com/news/editor-publisher-announces-the-2017-eppy-award-finalists/\" rel=\"noopener nofollow\" target=\"_blank\">Eppy Awards</a>.</p>\n', 'hallo@smkitasy-syadzili.sch.id', 'Daniel Elvanda Yohanes', 'undefined', 'undefined', 'undefined', 'undefined', 'a00ae551dd485419a57db462a6ae30b9.jpg', 'Halo Admin, Saya ingin bertanya/membeli/.....', 'd797c14a0070235734508b7d9f409395.jpg', '&copy; 2019. <a href=\"#\">Core Master</a> by<a href=\"https://myber.co.id\" target=\"_blank\">Myber</a>', 'Core Master', 'Klinik Sekarpuro', 'Malang', 'Indonesia');
+INSERT INTO `profil_website` VALUES ('VOHISA', 'Jl. Istana Mekar Wangi Utama No 1P-Q', '085894632505', 'logo-w.png', 'bulb.png', 'undefined', 'Shop with the nature, Please shop with me', '<p>The Balance Small Business makes launching and managing your own business easy. It is home to experts who provide clear, practical advice on entrepreneurship and management. Whether you&rsquo;re just starting up or you want to take your company to the next level, our 20-year-strong library of more than 7,000 pieces of content will answer your questions and turn your business dreams into reality.</p>\n\n<p><a href=\"https://www.thebalancesmb.com/\">The Balance</a>&nbsp;is part of The Balance family of sites, including&nbsp;<a href=\"https://www.thebalance.com/\" rel=\"noopener\" target=\"_blank\">The Balance</a>&nbsp;and&nbsp;<a href=\"https://www.thebalancecareers.com/\" rel=\"noopener\" target=\"_blank\">The Balance Careers</a>, covering personal finance, career, and small business topics. With more than 24 million monthly visitors, The Balance is among the top-10 largest finance properties as measured by comScore, a leading Internet measurement company. Our more than 50 expert writers have extensive qualifications and expertise in their topics, including MBAs, PhDs, CFPs, other advanced degrees and professional certifications.</p>\n\n<p>The Balance family of sites have been honored by multiple awards in the last year, including&nbsp;<a href=\"https://www.tellyawards.com/winners/2017/short-form-social/general-education-discovery\" rel=\"noopener nofollow\" target=\"_blank\">The Telly Awards</a>,&nbsp;<a href=\"https://www.communicatorawards.com/\" rel=\"noopener nofollow\" target=\"_blank\">The Communicator Awards</a>, and&nbsp;<a href=\"https://www.editorandpublisher.com/news/editor-publisher-announces-the-2017-eppy-award-finalists/\" rel=\"noopener nofollow\" target=\"_blank\">Eppy Awards</a>.</p>\n', 'hallo@smkitasy-syadzili.sch.id', 'Daniel Elvanda Yohanes', 'undefined', 'undefined', 'undefined', 'undefined', 'a00ae551dd485419a57db462a6ae30b9.jpg', 'Halo Admin, Saya ingin bertanya/membeli/.....', 'd797c14a0070235734508b7d9f409395.jpg', '&copy; 2019. <a href=\"#\">Core Master</a> by<a href=\"https://myber.co.id\" target=\"_blank\">Myber</a>', 'Core Master', 'Klinik Sekarpuro', 'Malang', 'Indonesia');
 
 -- ----------------------------
 -- Table structure for provinces
@@ -1433,6 +1840,60 @@ CREATE TABLE `quiz`  (
 INSERT INTO `quiz` VALUES (2, 'Dasar C++', 0, '123', 1, 1, 2);
 
 -- ----------------------------
+-- Table structure for riwayat_kerja_pns_pegawai
+-- ----------------------------
+DROP TABLE IF EXISTS `riwayat_kerja_pns_pegawai`;
+CREATE TABLE `riwayat_kerja_pns_pegawai`  (
+  `id_riwayat_kerja_pns_pegawai` int(11) NOT NULL AUTO_INCREMENT,
+  `idguru_fk` int(11) NULL DEFAULT NULL,
+  `pangkat` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `jabatan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `gaji` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `terhitung_mulai` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `keterangan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  PRIMARY KEY (`id_riwayat_kerja_pns_pegawai`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of riwayat_kerja_pns_pegawai
+-- ----------------------------
+INSERT INTO `riwayat_kerja_pns_pegawai` VALUES (1, 23, 'RPNS1', 'D', '123', 'R', '13');
+INSERT INTO `riwayat_kerja_pns_pegawai` VALUES (2, 23, 'RPNS2', 'L', '32', 'L', 'J');
+INSERT INTO `riwayat_kerja_pns_pegawai` VALUES (3, 24, 'RPNS1', 'D', '123', 'R', '13');
+INSERT INTO `riwayat_kerja_pns_pegawai` VALUES (4, 24, 'RPNS2', 'L', '32', 'L', 'J');
+INSERT INTO `riwayat_kerja_pns_pegawai` VALUES (5, 25, 'v', 'aas', '2000', '2001', 'ad');
+INSERT INTO `riwayat_kerja_pns_pegawai` VALUES (6, 25, 'Vi', 'we', '60000', '2003', 're');
+INSERT INTO `riwayat_kerja_pns_pegawai` VALUES (7, 26, 'v', 'aas', '2000', '2001', 'ad');
+INSERT INTO `riwayat_kerja_pns_pegawai` VALUES (8, 26, 'Vi', 'we', '60000', '2003', 're');
+INSERT INTO `riwayat_kerja_pns_pegawai` VALUES (9, 27, 'v', 'aas', '2000', '2001', 'ad');
+INSERT INTO `riwayat_kerja_pns_pegawai` VALUES (10, 27, 'Vi', 'we', '60000', '2003', 're');
+
+-- ----------------------------
+-- Table structure for riwayat_kerja_swasta_pegawai
+-- ----------------------------
+DROP TABLE IF EXISTS `riwayat_kerja_swasta_pegawai`;
+CREATE TABLE `riwayat_kerja_swasta_pegawai`  (
+  `id_riwayat_kerja_swasta_pegawai` int(11) NOT NULL AUTO_INCREMENT,
+  `idguru_fk` int(11) NULL DEFAULT NULL,
+  `jenis` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `tahun` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `keterangan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  PRIMARY KEY (`id_riwayat_kerja_swasta_pegawai`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of riwayat_kerja_swasta_pegawai
+-- ----------------------------
+INSERT INTO `riwayat_kerja_swasta_pegawai` VALUES (1, 24, 'RS1', '2012', 'D');
+INSERT INTO `riwayat_kerja_swasta_pegawai` VALUES (2, 24, 'RS2', '2010', 'W');
+INSERT INTO `riwayat_kerja_swasta_pegawai` VALUES (3, 25, 'guru', '2001', 'smk it');
+INSERT INTO `riwayat_kerja_swasta_pegawai` VALUES (4, 25, 'kerja', '2009', 'op');
+INSERT INTO `riwayat_kerja_swasta_pegawai` VALUES (5, 26, 'guru', '2001', 'smk it');
+INSERT INTO `riwayat_kerja_swasta_pegawai` VALUES (6, 26, 'kerja', '2009', 'op');
+INSERT INTO `riwayat_kerja_swasta_pegawai` VALUES (7, 27, 'guru', '2001', 'smk it');
+INSERT INTO `riwayat_kerja_swasta_pegawai` VALUES (8, 27, 'kerja', '2009', 'op');
+
+-- ----------------------------
 -- Table structure for ruangan
 -- ----------------------------
 DROP TABLE IF EXISTS `ruangan`;
@@ -1519,13 +1980,14 @@ INSERT INTO `setting_table` VALUES (19, 'rekam_medis', 'template_struk', '------
 -- ----------------------------
 DROP TABLE IF EXISTS `setting_website`;
 CREATE TABLE `setting_website`  (
-  `themes` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL
+  `SPP` double(20, 0) NULL DEFAULT NULL,
+  `DSP` double(20, 0) NULL DEFAULT NULL
 ) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of setting_website
 -- ----------------------------
-INSERT INTO `setting_website` VALUES ('selling');
+INSERT INTO `setting_website` VALUES (0, NULL);
 
 -- ----------------------------
 -- Table structure for siswa
@@ -1573,102 +2035,104 @@ CREATE TABLE `siswa`  (
   `jarak_ke_sekolah` int(255) NULL DEFAULT NULL,
   `waktu_ke_sekolah` int(255) NULL DEFAULT NULL,
   `jumlah_saudara` int(255) NULL DEFAULT NULL,
+  `jenis_kelamin` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_siswa`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 94 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 96 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of siswa
 -- ----------------------------
-INSERT INTO `siswa` VALUES (4, '0130/0077.066', 'A. ARISY FIRMANSYAH', 19, 1, 'islam', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (5, '0132/0079.066', 'ABDUL MU\'ID', 19, 1, 'islam', '0037030560', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (6, '0133/0080.066', 'ACHMAD ARIFIN ILHAM', 19, 1, 'islam', '0040555657', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (7, '0134/0081.066', 'ACHMAD BAHRUL ULUM', 19, 1, 'islam', '0039935410', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (8, '0135/0082.066', 'ACHMAD MA\'RIFATUL FIQHI', 19, 1, 'islam', '0044638277', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (9, '0136/0083.066', 'ACHMAD NIZAR', 19, 1, 'islam', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (10, '0137/0084.066', 'ACHMAD NU\'MAN MAQBUL', 19, 1, 'islam', '0033191826', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (11, '0138/0085.066', 'ACHMAD YUSRON', 19, 1, 'islam', '0036892407', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (12, '0139/0086.066', 'AHMAD FARIHUR ROMADHONI', 19, 1, 'islam', '0036610597', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (13, '0140/0087.066', 'ALVIO TREINADI', 19, 1, 'islam', '0036653307', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (14, '0144/0091.066', 'FEBYAN AZIMMY IQBAL M.', 19, 1, 'islam', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (15, '0147/0094.066', 'HENDRI', 19, 1, 'islam', '0042672865', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (16, '0155/0102.066', 'M. AFIEH RAZALI', 19, 1, 'islam', '0048334539', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (17, '0156/0103.066', 'M. BIRUL WALIDAIN', 19, 1, 'islam', '0038232553', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (18, '0158/0105.066', 'M. IRFAN ASROFI', 19, 1, 'islam', '0042930399', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (19, '0159/0106.066', 'M. IRFAN SATRIO', 19, 1, 'islam', '0038094782', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (20, '0160/0107.066', 'M. IZZUDIN FAHMI ABIDIN', 19, 1, 'islam', '0038214313', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (21, '0175/0122.066', 'M. LUKMAN HAKIM', 19, 1, 'islam', '0018978409', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (22, '0149/0096.066', 'M. MUHAIMIN', 19, 1, 'islam', '0026169043', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (23, '0150/0097.066', 'M. RAFLI', 19, 1, 'islam', '0043116041', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (24, '0153/0100.066', 'M. SHOBIRIN', 19, 1, 'islam', '0044583442', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (25, '0154/0101.066', 'M. SYAIFUDDIN ZUHRI', 19, 1, 'islam', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (26, NULL, 'SULBI RAHMAT', 19, 1, 'islam', '0037343820', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (27, NULL, 'ABDUL AZIZ', 20, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (28, NULL, 'BAYU SATRIO PAMUNGKAS', 20, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (29, NULL, 'DANDI SETYOKO', 20, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (30, NULL, 'EMRIZAL HAMED BASSELA', 20, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (31, NULL, 'FIRDAUS REYHAN P.A', 20, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (32, NULL, 'HAMMAM ALWI', 20, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (33, NULL, 'IZUL HABIBULLOH', 20, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (34, NULL, 'M. BAHARUDIN MA\'RUF', 20, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (35, NULL, 'M. BINTANG RABBANI', 20, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (36, NULL, 'M. IMAM FATHONI', 20, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (37, NULL, 'M. KHOIRUL ANTARIKSA', 20, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (38, NULL, 'M. MAULANA RAMADHAN', 20, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (39, NULL, 'M. MINNANUR ROHMAN', 20, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (40, NULL, 'M. NAUFAL SYAFIQ AKHSANI', 20, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (41, NULL, 'M. PUTRA MAULIDANI', 20, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (42, NULL, 'M. RIF\'AN ZULKIFLI', 20, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (43, NULL, 'M. UBAIDILLAH', 20, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (44, NULL, 'MIFTAHUS SURUR AL-HISY', 20, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (45, NULL, 'NANDA NURUS SHOLIHIN', 20, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (46, NULL, 'OSCAR GONZALES PIRY', 20, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (47, NULL, 'RENDI FERDIANTO', 20, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (48, NULL, 'ROCHIT SANTOSO', 20, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (49, NULL, 'SATRIA YUDHA PURNAMA', 20, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (50, NULL, 'SUGENG SLAMET RIDHO\'I', 20, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (51, NULL, 'A. BUSTHONUL FAIDLIN', 21, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (52, NULL, 'DENI SYAPUTRA', 21, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (53, NULL, 'FIKRI RAHMAT MAULANA', 21, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (54, NULL, 'FIQIH ABDILLAH S. M.', 21, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (55, NULL, 'IKMAL WAFIQ ARAFAT', 21, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (56, NULL, 'M. AGUS HERMANSYAH', 21, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (57, NULL, 'M. AIMAR NUR ABABIEL', 21, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (58, NULL, 'M. ALIEF WAHYUDI', 21, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (59, NULL, 'M. AMIEN  QUTHBI', 21, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (60, NULL, 'M. HASAN ALI MAULANA', 21, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (61, NULL, 'M. HILDAN ISFANDIARI', 21, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (62, NULL, 'M. ILHAM HALIK MAULANA', 21, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (63, NULL, 'M. IQBAL ZAMZAMI', 21, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (64, NULL, 'M. IRFAN MUZAKKY', 21, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (65, NULL, 'M. NIZAR ASROFI', 21, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (66, NULL, 'M. NURIZ NURZAMAN', 21, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (67, NULL, 'M. RIFQILLAH MAZID', 21, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (68, NULL, 'M. SHOFIYUDDIN AINUR R.', 21, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (69, NULL, 'M. YUSRIL', 21, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (70, NULL, 'MISBAHUL MUNIR', 21, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (71, NULL, 'MUFTI ALI SHOLIHIN', 21, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (72, NULL, 'A. ARIF SYAR\'I', 22, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (73, NULL, 'ABDILLAH KAMAL PASHA', 22, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (74, NULL, 'ANANDA MIHDAN', 22, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (75, NULL, 'HILDAN ACHMAD', 22, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (76, NULL, 'M. ALFAN FIKRI ADITAMA', 22, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (77, NULL, 'M. ARDI FIRMANSYAH', 22, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (78, NULL, 'M. FAIZUL MURTADHO', 22, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (79, NULL, 'M. HAFID AMINUDDIN', 22, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (80, NULL, 'M. HILMI IBROHIM', 22, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (81, NULL, 'M. MA\'RUF SHOFIYUDDIN', 22, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (82, NULL, 'M. SYAHRUL AZIZI', 22, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (83, NULL, 'M. SYARIFUDDIN', 22, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (84, NULL, 'M. TAUFIKUR ROHMAN', 22, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (85, NULL, 'M. ZAINUL ARIFIN', 22, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (86, NULL, 'M. ZIDANE NAFI\' A.', 22, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (87, NULL, 'MOCH. ARIF MUKLIS', 22, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (88, NULL, 'REZA AKBAR TAUFANI', 22, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (89, NULL, 'RIDHO ABDI IMANULLOH', 22, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (90, NULL, 'SULTON ABDUL AZIZ', 22, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (91, NULL, 'VELLORIAND ADIAZ DIFANA', 22, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (92, NULL, 'YUSUF BAKHTIAR', 22, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (93, NULL, 'ZAINAL ABIDIN', 22, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (4, '0130/0077.066', 'A. ARISY FIRMANSYAH', 19, 1, 'islam', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (5, '0132/0079.066', 'ABDUL MU\'ID', 19, 1, 'islam', '0037030560', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (6, '0133/0080.066', 'ACHMAD ARIFIN ILHAM', 19, 1, 'islam', '0040555657', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (7, '0134/0081.066', 'ACHMAD BAHRUL ULUM', 19, 1, 'islam', '0039935410', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (8, '0135/0082.066', 'ACHMAD MA\'RIFATUL FIQHI', 19, 1, 'islam', '0044638277', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (9, '0136/0083.066', 'ACHMAD NIZAR', 19, 1, 'islam', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (10, '0137/0084.066', 'ACHMAD NU\'MAN MAQBUL', 19, 1, 'islam', '0033191826', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (11, '0138/0085.066', 'ACHMAD YUSRON', 19, 1, 'islam', '0036892407', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (12, '0139/0086.066', 'AHMAD FARIHUR ROMADHONI', 19, 1, 'islam', '0036610597', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (13, '0140/0087.066', 'ALVIO TREINADI', 19, 1, 'islam', '0036653307', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (14, '0144/0091.066', 'FEBYAN AZIMMY IQBAL M.', 19, 1, 'islam', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (15, '0147/0094.066', 'HENDRI', 19, 1, 'islam', '0042672865', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (16, '0155/0102.066', 'M. AFIEH RAZALI', 19, 1, 'islam', '0048334539', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (17, '0156/0103.066', 'M. BIRUL WALIDAIN', 19, 1, 'islam', '0038232553', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (18, '0158/0105.066', 'M. IRFAN ASROFI', 19, 1, 'islam', '0042930399', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (19, '0159/0106.066', 'M. IRFAN SATRIO', 19, 1, 'islam', '0038094782', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (20, '0160/0107.066', 'M. IZZUDIN FAHMI ABIDIN', 19, 1, 'islam', '0038214313', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (21, '0175/0122.066', 'M. LUKMAN HAKIM', 19, 1, 'islam', '0018978409', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (22, '0149/0096.066', 'M. MUHAIMIN', 19, 1, 'islam', '0026169043', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (23, '0150/0097.066', 'M. RAFLI', 19, 1, 'islam', '0043116041', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (24, '0153/0100.066', 'M. SHOBIRIN', 19, 1, 'islam', '0044583442', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (25, '0154/0101.066', 'M. SYAIFUDDIN ZUHRI', 19, 1, 'islam', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (26, NULL, 'SULBI RAHMAT', 19, 1, 'islam', '0037343820', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (27, NULL, 'ABDUL AZIZ', 20, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (28, NULL, 'BAYU SATRIO PAMUNGKAS', 20, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (29, NULL, 'DANDI SETYOKO', 20, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (30, NULL, 'EMRIZAL HAMED BASSELA', 20, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (31, NULL, 'FIRDAUS REYHAN P.A', 20, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (32, NULL, 'HAMMAM ALWI', 20, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (33, NULL, 'IZUL HABIBULLOH', 20, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (34, NULL, 'M. BAHARUDIN MA\'RUF', 20, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (35, NULL, 'M. BINTANG RABBANI', 20, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (36, NULL, 'M. IMAM FATHONI', 20, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (37, NULL, 'M. KHOIRUL ANTARIKSA', 20, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (38, NULL, 'M. MAULANA RAMADHAN', 20, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (39, NULL, 'M. MINNANUR ROHMAN', 20, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (40, NULL, 'M. NAUFAL SYAFIQ AKHSANI', 20, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (41, NULL, 'M. PUTRA MAULIDANI', 20, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (42, NULL, 'M. RIF\'AN ZULKIFLI', 20, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (43, NULL, 'M. UBAIDILLAH', 20, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (44, NULL, 'MIFTAHUS SURUR AL-HISY', 20, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (45, NULL, 'NANDA NURUS SHOLIHIN', 20, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (46, NULL, 'OSCAR GONZALES PIRY', 20, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (47, NULL, 'RENDI FERDIANTO', 20, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (48, NULL, 'ROCHIT SANTOSO', 20, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (49, NULL, 'SATRIA YUDHA PURNAMA', 20, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (50, NULL, 'SUGENG SLAMET RIDHO\'I', 20, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (51, NULL, 'A. BUSTHONUL FAIDLIN', 21, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (52, NULL, 'DENI SYAPUTRA', 21, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (53, NULL, 'FIKRI RAHMAT MAULANA', 21, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (54, NULL, 'FIQIH ABDILLAH S. M.', 21, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (55, NULL, 'IKMAL WAFIQ ARAFAT', 21, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (56, NULL, 'M. AGUS HERMANSYAH', 21, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (57, NULL, 'M. AIMAR NUR ABABIEL', 21, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (58, NULL, 'M. ALIEF WAHYUDI', 21, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (59, NULL, 'M. AMIEN  QUTHBI', 21, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (60, NULL, 'M. HASAN ALI MAULANA', 21, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (61, NULL, 'M. HILDAN ISFANDIARI', 21, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (62, NULL, 'M. ILHAM HALIK MAULANA', 21, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (63, NULL, 'M. IQBAL ZAMZAMI', 21, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (64, NULL, 'M. IRFAN MUZAKKY', 21, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (65, NULL, 'M. NIZAR ASROFI', 21, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (66, NULL, 'M. NURIZ NURZAMAN', 21, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (67, NULL, 'M. RIFQILLAH MAZID', 21, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (68, NULL, 'M. SHOFIYUDDIN AINUR R.', 21, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (69, '12312312', 'M. YUSRIL', 21, 1, 'islam', '', '', '', '', '', '', '', '', '0000-00-00', 'Ya', '', '', '', '', '', NULL, NULL, NULL, '', '', '0000-00-00', '', '', '', '', '', '0000-00-00', '', '', '', 0, 0, 0, NULL, 0, 'L');
+INSERT INTO `siswa` VALUES (70, NULL, 'MISBAHUL MUNIR', 21, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (71, NULL, 'MUFTI ALI SHOLIHIN', 21, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (72, NULL, 'A. ARIF SYAR\'I', 22, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (73, NULL, 'ABDILLAH KAMAL PASHA', 22, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (74, NULL, 'ANANDA MIHDAN', 22, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (75, NULL, 'HILDAN ACHMAD', 22, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (76, NULL, 'M. ALFAN FIKRI ADITAMA', 22, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (77, NULL, 'M. ARDI FIRMANSYAH', 22, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (78, NULL, 'M. FAIZUL MURTADHO', 22, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (79, '32131231231', 'M. HAFID AMINUDDIN', 22, 1, 'islam', '', '', '', '', '', '', '', '', '0000-00-00', 'Ya', '', '', '', '', '', NULL, NULL, NULL, '', '', '0000-00-00', '', '', '', '', '', '0000-00-00', '', '', '', 0, 0, 0, NULL, 0, 'L');
+INSERT INTO `siswa` VALUES (80, NULL, 'M. HILMI IBROHIM', 22, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (81, NULL, 'M. MA\'RUF SHOFIYUDDIN', 22, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (82, NULL, 'M. SYAHRUL AZIZI', 22, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (83, NULL, 'M. SYARIFUDDIN', 22, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (84, NULL, 'M. TAUFIKUR ROHMAN', 22, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (85, NULL, 'M. ZAINUL ARIFIN', 22, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (86, '', 'M. ZIDANE NAFI\' A.', 22, 1, 'islam', '', '', '', '', '', '', '', '', '0000-00-00', 'Ya', '', '', '', '', '', 'fb7e896fb8f0ac4b70d9b590ce2ffdd4.png', NULL, NULL, '', '', '0000-00-00', '', '', '', '', '', '0000-00-00', '', '', '', 0, 0, 0, NULL, 0, 'L');
+INSERT INTO `siswa` VALUES (87, NULL, 'MOCH. ARIF MUKLIS', 22, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (88, NULL, 'REZA AKBAR TAUFANI', 22, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (89, NULL, 'RIDHO ABDI IMANULLOH', 22, 1, 'islam', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (90, '130533608212', 'SULTON ABDUL AZIZ', 22, 1, 'islam', '0023697040', '312', '3213', '32131', '231092', '312312', 'smp', 'Malang', '2020-10-28', 'Ya', '', '', '', '', '', NULL, NULL, NULL, '', '', '0000-00-00', '', '', '', '', '', '0000-00-00', '', '', '', 0, 0, 0, NULL, 0, 'L');
+INSERT INTO `siswa` VALUES (91, '', 'VELLORIAND ADIAZ DIFANA', 22, 1, 'islam', '', '', '', '', '', '', '', '', '0000-00-00', 'Ya', '', '', '', '', '', 'b052b09fa735bacedbce846d75db8ab0.png', NULL, NULL, '', '', '0000-00-00', '', '', '', '', '', '0000-00-00', '', '', '', 0, 0, 0, NULL, 0, 'L');
+INSERT INTO `siswa` VALUES (92, '123', 'YUSUF BAKHTIAR', 22, 1, 'islam', '', '', '', '', '', '', '', '', '0000-00-00', 'Ya', '', '', '', '', '', '1b0020429c4fac52b182b2a229f3f656.jpg', NULL, NULL, '', '', '0000-00-00', '', '', '', '', '', '0000-00-00', '', '', '', 0, 0, 0, NULL, 0, 'L');
+INSERT INTO `siswa` VALUES (93, '231323', 'ZAINAL ABIDIN', 22, 1, 'islam', '', '', '', '', '', '', '', '', '0000-00-00', 'Ya', '', '', '', '', '', '', NULL, NULL, '', '', '0000-00-00', '', '', '', '', '', '0000-00-00', '', '', '', 0, 0, 0, NULL, 0, 'L');
+INSERT INTO `siswa` VALUES (95, '312', 'Rendy Yani Susanto', 11, 1, 'islam', '0003719937', '9090', '8888', '132', '9080', '1231', 'smp', 'malang', '1993-10-03', 'Tidak', 'Malang', 'Kebonagung', '32', '07', 'Kebonagung', '186030200011004.jpg', 1, NULL, 'Sugianto', 'Malang', '2020-11-30', 'SMA Sederajat', 'Wiraswasta', 'Rp. 2.000.000 - Rp. 4.999.999', 'Sri Indahyani', 'Malang', '2020-11-30', '', 'Peternak', 'Rp. 500.000 - Rp. 999.999', 160, 22, 10, NULL, 3, 'L');
 
 -- ----------------------------
 -- Table structure for siswa_beasiswa
@@ -1746,6 +2210,69 @@ INSERT INTO `siswa_prestasi` VALUES (3, 3, 'asd', 'ew', 'ere', '2017', '9020');
 INSERT INTO `siswa_prestasi` VALUES (4, 3, 'ere', 'asd', 'ds', '2018', '2020');
 
 -- ----------------------------
+-- Table structure for surat_keluar
+-- ----------------------------
+DROP TABLE IF EXISTS `surat_keluar`;
+CREATE TABLE `surat_keluar`  (
+  `id_surat_keluar` int(11) NOT NULL AUTO_INCREMENT,
+  `tujuan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `perihal` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `no_surat` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `kode_arsip` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `file_arsip` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `tanggal_surat` date NULL DEFAULT NULL,
+  `create_at` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id_surat_keluar`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of surat_keluar
+-- ----------------------------
+INSERT INTO `surat_keluar` VALUES (1, 'Malang', 'asd', '110/233/smkit/2019', '314941', '9654d34051c8dc57bd2e575bdaf8191f.pdf', '2020-12-08', '2020-12-08 14:05:22');
+INSERT INTO `surat_keluar` VALUES (2, 'aas', 'asdasd', '110/233/smkit/2019', '453826', '4152f765ee322c88d9422c8948b7b319.docx', '2020-12-08', '2020-12-08 14:06:27');
+
+-- ----------------------------
+-- Table structure for surat_masuk
+-- ----------------------------
+DROP TABLE IF EXISTS `surat_masuk`;
+CREATE TABLE `surat_masuk`  (
+  `id_surat_masuk` int(11) NOT NULL AUTO_INCREMENT,
+  `pengirim` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `perihal` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `tanggal_surat` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `kode_arsip` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `create_at` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP,
+  `no_surat` longtext CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  PRIMARY KEY (`id_surat_masuk`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 24 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of surat_masuk
+-- ----------------------------
+INSERT INTO `surat_masuk` VALUES (1, 'PPSQ1', 'Rapat Gan', '2020-12-01', '782958', '2020-12-05 18:11:52', NULL);
+INSERT INTO `surat_masuk` VALUES (2, 'PPSQ2', 'Rapat Gan', '2020-12-01', '782958', '2020-12-05 18:11:52', NULL);
+INSERT INTO `surat_masuk` VALUES (3, 'PPSQ3', 'Rapat Gan', '2020-12-01', '782958', '2020-12-05 18:11:52', NULL);
+INSERT INTO `surat_masuk` VALUES (4, 'PPSQ4', 'Rapat Gan', '2020-12-01', '782958', '2020-12-05 18:11:52', NULL);
+INSERT INTO `surat_masuk` VALUES (5, 'PPSQ5', 'Rapat Gan', '2020-12-02', '782958', '2020-12-05 18:11:52', NULL);
+INSERT INTO `surat_masuk` VALUES (6, 'PPSQ6', 'Rapat Gan', '2020-12-02', '782958', '2020-12-05 18:11:52', NULL);
+INSERT INTO `surat_masuk` VALUES (7, 'PPSQ7', 'Rapat Gan', '2020-12-02', '782958', '2020-12-05 18:11:52', NULL);
+INSERT INTO `surat_masuk` VALUES (8, 'PPSQ8', 'Rapat Gan', '2020-12-02', '782958', '2020-12-05 18:11:52', NULL);
+INSERT INTO `surat_masuk` VALUES (9, 'PPSQ9', 'Rapat Gan', '2020-12-03', '782958', '2020-12-05 18:11:52', NULL);
+INSERT INTO `surat_masuk` VALUES (10, 'PPSQ10', 'Rapat Gan', '2020-12-04', '782958', '2020-12-05 18:11:52', NULL);
+INSERT INTO `surat_masuk` VALUES (11, 'PPSQ11', 'Rapat Gan', '2020-12-04', '782958', '2020-12-05 18:11:52', NULL);
+INSERT INTO `surat_masuk` VALUES (12, 'PPSQ12', 'Rapat Gan', '2020-12-04', '782958', '2020-12-05 18:11:52', NULL);
+INSERT INTO `surat_masuk` VALUES (13, 'PPSQ13', 'Rapat Gan', '2020-12-04', '782958', '2020-12-05 18:11:52', NULL);
+INSERT INTO `surat_masuk` VALUES (14, 'PPSQ14', 'Rapat Gan', '2020-12-04', '782958', '2020-12-05 18:11:52', NULL);
+INSERT INTO `surat_masuk` VALUES (15, 'PPSQ15', 'Rapat Gan', '2020-12-05', '782958', '2020-12-05 18:11:52', NULL);
+INSERT INTO `surat_masuk` VALUES (16, 'PPSQ16', 'Rapat Gan', '2020-12-05', '782958', '2020-12-05 18:11:52', NULL);
+INSERT INTO `surat_masuk` VALUES (17, 'PPSQ17', 'Rapat Gan', '2020-12-05', '782958', '2020-12-05 18:11:52', NULL);
+INSERT INTO `surat_masuk` VALUES (18, 'PPSQ18', 'Rapat Gan', '2020-12-05', '782958', '2020-12-05 18:11:52', NULL);
+INSERT INTO `surat_masuk` VALUES (19, 'PPSQ19', 'Rapat Gan', '2020-12-05', '782958', '2020-12-05 18:11:52', NULL);
+INSERT INTO `surat_masuk` VALUES (20, 'PPSQ20', 'Rapat Gan 1', '2020-12-05', '782958', '2020-12-05 18:11:52', NULL);
+INSERT INTO `surat_masuk` VALUES (22, 'PPSQ2233', 'Rapat Masbro', '2020-12-01', '7829589', '2020-12-05 18:11:52', '110/233/smkit/2019');
+INSERT INTO `surat_masuk` VALUES (23, 'Myber Center', 'Kerjasama teknologi ', '2020-12-07', '695617', '2020-12-07 20:25:52', '110/233/smkit/2019');
+
+-- ----------------------------
 -- Table structure for tahun_ajaran
 -- ----------------------------
 DROP TABLE IF EXISTS `tahun_ajaran`;
@@ -1806,14 +2333,15 @@ CREATE TABLE `users`  (
   `foto` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
   `anggota_id` int(11) NULL DEFAULT NULL,
   `table` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
+  `is_walas` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES (1, '127.0.0.1', 'admin', '$2y$08$mxSDKMRKsKM3IwN6NPoB6.3pQqymDu4ZtGAMIzpw.ppcie3MJM9ty', '', 'hello@admin.com', '', NULL, NULL, NULL, 1268889823, 1600065023, 1, 'admin', 'Yani', 'ADMIN', '085894632505', '3c8f6f36f650d5ce07803470b4f4d4ff.jpg', NULL, NULL);
-INSERT INTO `users` VALUES (3, '127.0.0.1', 'rendy', '$2y$08$mxSDKMRKsKM3IwN6NPoB6.3pQqymDu4ZtGAMIzpw.ppcie3MJM9ty', '', 'hello@admin.com', '', NULL, NULL, NULL, 1268889823, 1600754363, 1, 'Rendy', 'Yani', 'ADMIN', '085894632505', '3c8f6f36f650d5ce07803470b4f4d4ff.jpg', 2, 'guru');
+INSERT INTO `users` VALUES (1, '127.0.0.1', 'admin', '$2y$08$mxSDKMRKsKM3IwN6NPoB6.3pQqymDu4ZtGAMIzpw.ppcie3MJM9ty', '', 'hello@admin.com', '', NULL, NULL, NULL, 1268889823, 1607681522, 1, 'admin', 'Yani', 'ADMIN', '085894632505', '3c8f6f36f650d5ce07803470b4f4d4ff.jpg', NULL, NULL, NULL);
+INSERT INTO `users` VALUES (3, '127.0.0.1', 'rendy', '$2y$08$mxSDKMRKsKM3IwN6NPoB6.3pQqymDu4ZtGAMIzpw.ppcie3MJM9ty', '', 'hello@admin.com', '', NULL, NULL, NULL, 1268889823, 1606710496, 1, 'Rendy', 'Yani', 'ADMIN', '085894632505', '3c8f6f36f650d5ce07803470b4f4d4ff.jpg', 2, 'guru', 1);
 
 -- ----------------------------
 -- Table structure for users_groups
@@ -1838,6 +2366,23 @@ INSERT INTO `users_groups` VALUES (1, 1, 1);
 INSERT INTO `users_groups` VALUES (3, 3, 3);
 
 -- ----------------------------
+-- Table structure for wali_kelas
+-- ----------------------------
+DROP TABLE IF EXISTS `wali_kelas`;
+CREATE TABLE `wali_kelas`  (
+  `id_wali_kelas` int(11) NOT NULL AUTO_INCREMENT,
+  `idguru_fk` int(11) NULL DEFAULT NULL,
+  `idtahunajaran_fk` int(11) NULL DEFAULT NULL,
+  `idkelas_fk` int(11) NULL DEFAULT NULL,
+  PRIMARY KEY (`id_wali_kelas`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of wali_kelas
+-- ----------------------------
+INSERT INTO `wali_kelas` VALUES (2, 2, 1, 11);
+
+-- ----------------------------
 -- View structure for v_bank_soal_quiz
 -- ----------------------------
 DROP VIEW IF EXISTS `v_bank_soal_quiz`;
@@ -1855,98 +2400,5 @@ question_cas.idquiz_fk
 FROM
 bank_soal
 INNER JOIN question_cas ON question_cas.idbanksoal_fk = bank_soal.id_bank_soal ; ;
-
--- ----------------------------
--- View structure for v_guru_mapel
--- ----------------------------
-DROP VIEW IF EXISTS `v_guru_mapel`;
-CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_guru_mapel` AS SELECT
-guru.id_guru,
-guru.nama,
-guru.nip,
-guru.alamat,
-guru.agama,
-guru.foto,
-guru.pendidikan_terakhir,
-guru.instansi,
-guru.fb,
-guru.ig,
-guru.twitter,
-guru.youtube,
-guru.jabatan,
-guru.email,
-guru.no_hp,
-guru_mapel.id_guru_mapel,
-guru_mapel.idguru_fk,
-guru_mapel.idmapel_fk,
-guru_mapel.idkelas_fk,
-mata_pelajaran.id_mata_pelajaran,
-mata_pelajaran.mata_pelajaran,
-mata_pelajaran.kode,
-kelas.id_kelas,
-kelas.kelas,
-kelas.idtingkat_fk,
-kelas.create_at,
-kelas.idjurusan_fk,
-kelas.idtahunajaran_fk,
-tahun_ajaran.id_tahun_ajaran,
-tahun_ajaran.tahun_ajaran,
-tahun_ajaran.is_active
-FROM
-guru
-INNER JOIN guru_mapel ON guru_mapel.idguru_fk = guru.id_guru
-INNER JOIN mata_pelajaran ON guru_mapel.idmapel_fk = mata_pelajaran.id_mata_pelajaran
-INNER JOIN kelas ON kelas.id_kelas = guru_mapel.idkelas_fk
-INNER JOIN tahun_ajaran ON tahun_ajaran.id_tahun_ajaran = guru_mapel.idtahunajaran_fk ;
-
--- ----------------------------
--- View structure for v_learning
--- ----------------------------
-DROP VIEW IF EXISTS `v_learning`;
-CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_learning` AS SELECT
-learning.id_learning,
-learning.idmatapelajaran_fk,
-learning.idkd_fk,
-learning.materi,
-learning.open_access,
-learning.`password`,
-learning.iduser_fk,
-learning.judul,
-learning.create_at,
-learning.idtingkat_fk,
-mata_pelajaran.id_mata_pelajaran,
-mata_pelajaran.mata_pelajaran,
-mata_pelajaran.kode,
-tingkat.id_tingkat,
-tingkat.tingkat,
-kd.id_kd,
-kd.idjenispenilaian_fk,
-kd.idsemester_fk,
-kd.kd,
-kd.ringkasan
-FROM
-learning
-LEFT JOIN mata_pelajaran ON learning.idmatapelajaran_fk = mata_pelajaran.id_mata_pelajaran
-LEFT JOIN tingkat ON learning.idtingkat_fk = tingkat.id_tingkat
-LEFT JOIN kd ON kd.idtingkat_fk = tingkat.id_tingkat ; ;
-
--- ----------------------------
--- View structure for v_quiz
--- ----------------------------
-DROP VIEW IF EXISTS `v_quiz`;
-CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_quiz` AS SELECT
-quiz.id_quiz,
-quiz.quiz_name,
-quiz.quiz_type,
-quiz.`password`,
-quiz.idmatapelajaran_fk,
-quiz.iduser_fk,
-quiz.open_access,
-mata_pelajaran.id_mata_pelajaran,
-mata_pelajaran.mata_pelajaran,
-mata_pelajaran.kode
-FROM
-quiz
-LEFT JOIN mata_pelajaran ON quiz.idmatapelajaran_fk = mata_pelajaran.id_mata_pelajaran ; ;
 
 SET FOREIGN_KEY_CHECKS = 1;
