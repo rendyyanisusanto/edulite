@@ -11,7 +11,7 @@
  Target Server Version : 100138
  File Encoding         : 65001
 
- Date: 12/12/2020 07:35:34
+ Date: 17/12/2020 07:38:16
 */
 
 SET NAMES utf8mb4;
@@ -128,6 +128,29 @@ INSERT INTO `akun` VALUES (25, '5104', 'Biaya Sewa', 9, 'D', '2020-12-11 16:44:5
 INSERT INTO `akun` VALUES (26, '5105', 'Biaya Pemeliharaan', 9, 'D', '2020-12-11 16:45:02');
 INSERT INTO `akun` VALUES (27, '5106', 'Biaya Rapat', 9, 'D', '2020-12-11 16:45:14');
 INSERT INTO `akun` VALUES (28, '5107', 'Biaya Lain', 9, 'D', '2020-12-11 16:45:20');
+
+-- ----------------------------
+-- Table structure for alumni
+-- ----------------------------
+DROP TABLE IF EXISTS `alumni`;
+CREATE TABLE `alumni`  (
+  `id_alumni` int(11) NOT NULL AUTO_INCREMENT,
+  `nama` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `tahun_lulus` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `alamat` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `no_hp` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `kuliah` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `menikah` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `bekerja` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `pesantren` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `create_at` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id_alumni`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of alumni
+-- ----------------------------
+INSERT INTO `alumni` VALUES (2, 'Rendy Yani Susanto ', '2013', 'jl. Kebonagung malang', '085894632505', 'Universitas Brawijaya Malang', 'Cicik Winarsih', 'Guru SMK IT', 'tidak', '2020-12-15 21:05:54');
 
 -- ----------------------------
 -- Table structure for anak_pegawai
@@ -408,6 +431,29 @@ INSERT INTO `blog_teacher` VALUES (5, 'Rendy Yani Susanto', 'Rendy-Yani-Susanto-
 INSERT INTO `blog_teacher` VALUES (6, 'Ali Syaifuddin, S.Pd', 'ali.jpg', 'Guru Matematika', 'I am an ambitious workaholic, but apart from that, pretty simple person.', NULL, NULL);
 INSERT INTO `blog_teacher` VALUES (7, 'Sutan Taufik, S.Hum', 'top-x.jpg', 'POKJA', 'I am an ambitious workaholic, but apart from that, pretty simple person.', NULL, NULL);
 INSERT INTO `blog_teacher` VALUES (9, 'Maimun Muzzaka', 'mymun.jpg', 'Laboran & Guru TKJ', 'I am an ambitious workaholic, but apart from that, pretty simple person.', NULL, NULL);
+
+-- ----------------------------
+-- Table structure for buku_pemanggilan_siswa
+-- ----------------------------
+DROP TABLE IF EXISTS `buku_pemanggilan_siswa`;
+CREATE TABLE `buku_pemanggilan_siswa`  (
+  `id_buku_pemanggilan_siswa` int(11) NOT NULL AUTO_INCREMENT,
+  `idsiswa_fk` int(11) NULL DEFAULT NULL,
+  `masalah` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `pemecahan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `tindak_lanjut` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `keterangan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `create_at` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `tanggal` date NULL DEFAULT NULL,
+  `kode_pemanggilan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  PRIMARY KEY (`id_buku_pemanggilan_siswa`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of buku_pemanggilan_siswa
+-- ----------------------------
+INSERT INTO `buku_pemanggilan_siswa` VALUES (1, 95, 'a', 'vb', 's', 'ad', NULL, '2020-12-14', 'BK-199401767791');
+INSERT INTO `buku_pemanggilan_siswa` VALUES (2, 95, NULL, NULL, NULL, NULL, NULL, '2020-12-16', NULL);
 
 -- ----------------------------
 -- Table structure for buku_tamu
@@ -1245,6 +1291,22 @@ INSERT INTO `jam` VALUES (1, '1', '08.30', '10.00');
 INSERT INTO `jam` VALUES (2, '2', '10.30', '12.00');
 
 -- ----------------------------
+-- Table structure for jenis_pelanggaran
+-- ----------------------------
+DROP TABLE IF EXISTS `jenis_pelanggaran`;
+CREATE TABLE `jenis_pelanggaran`  (
+  `id_jenis_pelanggaran` int(11) NOT NULL AUTO_INCREMENT,
+  `jenis_pelanggaran` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  PRIMARY KEY (`id_jenis_pelanggaran`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of jenis_pelanggaran
+-- ----------------------------
+INSERT INTO `jenis_pelanggaran` VALUES (1, 'CATATAN KERAPIAN');
+INSERT INTO `jenis_pelanggaran` VALUES (2, 'CATATAN KEDISIPLINAN');
+
+-- ----------------------------
 -- Table structure for jenis_penilaian
 -- ----------------------------
 DROP TABLE IF EXISTS `jenis_penilaian`;
@@ -1528,6 +1590,25 @@ INSERT INTO `organisasi_pegawai` VALUES (10, 'aa', 'd', '2003', 27);
 INSERT INTO `organisasi_pegawai` VALUES (11, 'ere', 'ere', '2005', 27);
 
 -- ----------------------------
+-- Table structure for pelanggaran_siswa
+-- ----------------------------
+DROP TABLE IF EXISTS `pelanggaran_siswa`;
+CREATE TABLE `pelanggaran_siswa`  (
+  `id_pelanggaran_siswa` int(11) NOT NULL AUTO_INCREMENT,
+  `tanggal` date NULL DEFAULT NULL,
+  `uraian_pelanggaran` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `idpoinpelanggaran_fk` int(11) NULL DEFAULT NULL,
+  `idsiswa_fk` int(11) NULL DEFAULT NULL,
+  PRIMARY KEY (`id_pelanggaran_siswa`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of pelanggaran_siswa
+-- ----------------------------
+INSERT INTO `pelanggaran_siswa` VALUES (1, '2020-12-16', 'Tidak Menggunakan sabuk', 2, 95);
+INSERT INTO `pelanggaran_siswa` VALUES (2, '2020-12-16', 'Tidak berseragam pramuka', 1, 95);
+
+-- ----------------------------
 -- Table structure for pembayaran_spp
 -- ----------------------------
 DROP TABLE IF EXISTS `pembayaran_spp`;
@@ -1659,6 +1740,27 @@ INSERT INTO `pendidikan_pegawai` VALUES (7, 26, 'smk', 'ya', 2020);
 INSERT INTO `pendidikan_pegawai` VALUES (8, 26, 'd3', 'ya', 2020);
 INSERT INTO `pendidikan_pegawai` VALUES (9, 27, 'smk', 'ya', 2020);
 INSERT INTO `pendidikan_pegawai` VALUES (10, 27, 'd3', 'ya', 2020);
+
+-- ----------------------------
+-- Table structure for poin_pelanggaran
+-- ----------------------------
+DROP TABLE IF EXISTS `poin_pelanggaran`;
+CREATE TABLE `poin_pelanggaran`  (
+  `id_poin_pelanggaran` int(11) NOT NULL AUTO_INCREMENT,
+  `idjenispelanggaran_fk` int(11) NULL DEFAULT NULL,
+  `nama_pelanggaran` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `poin` int(20) NULL DEFAULT NULL,
+  `kode_pelanggaran` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  PRIMARY KEY (`id_poin_pelanggaran`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of poin_pelanggaran
+-- ----------------------------
+INSERT INTO `poin_pelanggaran` VALUES (1, 1, 'Tidak menggunakan seragam', 5, 'A1');
+INSERT INTO `poin_pelanggaran` VALUES (2, 2, 'Tidak menggunakan atribut lengkap', 3, 'A2');
+INSERT INTO `poin_pelanggaran` VALUES (3, 1, 'T', 9, 'A001');
+INSERT INTO `poin_pelanggaran` VALUES (4, 2, 'Terlambat datang', 5, 'A002');
 
 -- ----------------------------
 -- Table structure for ppdb
@@ -2340,7 +2442,7 @@ CREATE TABLE `users`  (
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES (1, '127.0.0.1', 'admin', '$2y$08$mxSDKMRKsKM3IwN6NPoB6.3pQqymDu4ZtGAMIzpw.ppcie3MJM9ty', '', 'hello@admin.com', '', NULL, NULL, NULL, 1268889823, 1607681522, 1, 'admin', 'Yani', 'ADMIN', '085894632505', '3c8f6f36f650d5ce07803470b4f4d4ff.jpg', NULL, NULL, NULL);
+INSERT INTO `users` VALUES (1, '127.0.0.1', 'admin', '$2y$08$mxSDKMRKsKM3IwN6NPoB6.3pQqymDu4ZtGAMIzpw.ppcie3MJM9ty', '', 'hello@admin.com', '', NULL, NULL, NULL, 1268889823, 1608111234, 1, 'admin', 'Yani', 'ADMIN', '085894632505', '3c8f6f36f650d5ce07803470b4f4d4ff.jpg', NULL, NULL, NULL);
 INSERT INTO `users` VALUES (3, '127.0.0.1', 'rendy', '$2y$08$mxSDKMRKsKM3IwN6NPoB6.3pQqymDu4ZtGAMIzpw.ppcie3MJM9ty', '', 'hello@admin.com', '', NULL, NULL, NULL, 1268889823, 1606710496, 1, 'Rendy', 'Yani', 'ADMIN', '085894632505', '3c8f6f36f650d5ce07803470b4f4d4ff.jpg', 2, 'guru', 1);
 
 -- ----------------------------
@@ -2400,5 +2502,161 @@ question_cas.idquiz_fk
 FROM
 bank_soal
 INNER JOIN question_cas ON question_cas.idbanksoal_fk = bank_soal.id_bank_soal ; ;
+
+-- ----------------------------
+-- View structure for v_buku_pemanggilan_siswa
+-- ----------------------------
+DROP VIEW IF EXISTS `v_buku_pemanggilan_siswa`;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_buku_pemanggilan_siswa` AS SELECT
+buku_pemanggilan_siswa.id_buku_pemanggilan_siswa,
+buku_pemanggilan_siswa.idsiswa_fk,
+buku_pemanggilan_siswa.masalah,
+buku_pemanggilan_siswa.pemecahan,
+buku_pemanggilan_siswa.tindak_lanjut,
+buku_pemanggilan_siswa.keterangan,
+buku_pemanggilan_siswa.tanggal,
+buku_pemanggilan_siswa.kode_pemanggilan,
+siswa.id_siswa,
+siswa.nis,
+siswa.nama,
+siswa.idkelas_fk,
+siswa.idjurusan_fk,
+siswa.agama,
+siswa.nisn,
+siswa.no_ijazah_sekolah_asal,
+siswa.no_skhun_sekolah_asal,
+siswa.no_un_sekolah_asal,
+siswa.no_kk,
+siswa.npsn_sekolah_asal,
+siswa.nama_sekolah_asal,
+siswa.tempat_lahir,
+siswa.tanggal_lahir,
+siswa.berkebutuhan_khusus,
+siswa.alamat,
+siswa.dusun,
+siswa.rt,
+siswa.rw,
+siswa.kelurahan,
+siswa.foto,
+siswa.idprovince_fk,
+siswa.idcities_fk,
+siswa.nama_ayah,
+siswa.tempat_lahir_ayah,
+siswa.tanggal_lahir_ayah,
+siswa.pendidikan_ayah,
+siswa.pekerjaan_ayah,
+siswa.penghasilan_ayah,
+siswa.nama_ibu,
+siswa.tempat_lahir_ibu,
+siswa.tanggal_lahir_ibu,
+siswa.pendidikan_ibu,
+siswa.pekerjaan_ibu,
+siswa.penghasilan_ibu,
+siswa.tinggi_badan,
+siswa.berat_badan,
+siswa.jarak_ke_sekolah,
+siswa.waktu_ke_sekolah,
+siswa.jumlah_saudara,
+siswa.jenis_kelamin
+FROM
+buku_pemanggilan_siswa
+INNER JOIN siswa ON siswa.id_siswa = buku_pemanggilan_siswa.idsiswa_fk ;
+
+-- ----------------------------
+-- View structure for v_pelanggaran_siswa
+-- ----------------------------
+DROP VIEW IF EXISTS `v_pelanggaran_siswa`;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_pelanggaran_siswa` AS SELECT
+pelanggaran_siswa.id_pelanggaran_siswa,
+pelanggaran_siswa.tanggal,
+pelanggaran_siswa.uraian_pelanggaran,
+pelanggaran_siswa.idpoinpelanggaran_fk,
+pelanggaran_siswa.idsiswa_fk,
+poin_pelanggaran.id_poin_pelanggaran,
+poin_pelanggaran.idjenispelanggaran_fk,
+poin_pelanggaran.nama_pelanggaran,
+poin_pelanggaran.poin,
+poin_pelanggaran.kode_pelanggaran,
+jenis_pelanggaran.id_jenis_pelanggaran,
+jenis_pelanggaran.jenis_pelanggaran
+FROM
+pelanggaran_siswa
+LEFT JOIN poin_pelanggaran ON poin_pelanggaran.id_poin_pelanggaran = pelanggaran_siswa.idpoinpelanggaran_fk
+LEFT JOIN jenis_pelanggaran ON jenis_pelanggaran.id_jenis_pelanggaran = poin_pelanggaran.idjenispelanggaran_fk ;
+
+-- ----------------------------
+-- View structure for v_poin_pelanggaran
+-- ----------------------------
+DROP VIEW IF EXISTS `v_poin_pelanggaran`;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_poin_pelanggaran` AS SELECT
+poin_pelanggaran.id_poin_pelanggaran,
+poin_pelanggaran.idjenispelanggaran_fk,
+poin_pelanggaran.nama_pelanggaran,
+poin_pelanggaran.poin,
+poin_pelanggaran.kode_pelanggaran,
+jenis_pelanggaran.id_jenis_pelanggaran,
+jenis_pelanggaran.jenis_pelanggaran
+FROM
+poin_pelanggaran
+INNER JOIN jenis_pelanggaran ON jenis_pelanggaran.id_jenis_pelanggaran = poin_pelanggaran.idjenispelanggaran_fk ;
+
+-- ----------------------------
+-- View structure for v_siswa_jurusan
+-- ----------------------------
+DROP VIEW IF EXISTS `v_siswa_jurusan`;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_siswa_jurusan` AS SELECT
+siswa.id_siswa,
+siswa.nis,
+siswa.nama,
+siswa.idkelas_fk,
+siswa.idjurusan_fk,
+siswa.agama,
+siswa.nisn,
+siswa.no_ijazah_sekolah_asal,
+siswa.no_skhun_sekolah_asal,
+siswa.no_un_sekolah_asal,
+siswa.no_kk,
+siswa.npsn_sekolah_asal,
+siswa.nama_sekolah_asal,
+siswa.tempat_lahir,
+siswa.tanggal_lahir,
+siswa.berkebutuhan_khusus,
+siswa.alamat,
+siswa.dusun,
+siswa.rt,
+siswa.rw,
+siswa.kelurahan,
+siswa.foto,
+siswa.idprovince_fk,
+siswa.idcities_fk,
+siswa.nama_ayah,
+siswa.tempat_lahir_ayah,
+siswa.tanggal_lahir_ayah,
+siswa.pendidikan_ayah,
+siswa.pekerjaan_ayah,
+siswa.penghasilan_ayah,
+siswa.nama_ibu,
+siswa.tempat_lahir_ibu,
+siswa.tanggal_lahir_ibu,
+siswa.pendidikan_ibu,
+siswa.pekerjaan_ibu,
+siswa.penghasilan_ibu,
+siswa.tinggi_badan,
+siswa.berat_badan,
+siswa.jarak_ke_sekolah,
+siswa.waktu_ke_sekolah,
+siswa.jumlah_saudara,
+siswa.jenis_kelamin,
+kelas.id_kelas,
+kelas.kelas,
+kelas.idtingkat_fk,
+kelas.idtahunajaran_fk,
+jurusan.id_jurusan,
+jurusan.jurusan,
+jurusan.singkatan
+FROM
+siswa
+LEFT JOIN kelas ON kelas.id_kelas = siswa.idkelas_fk
+LEFT JOIN jurusan ON jurusan.id_jurusan = kelas.idjurusan_fk ;
 
 SET FOREIGN_KEY_CHECKS = 1;

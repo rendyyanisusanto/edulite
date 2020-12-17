@@ -22,6 +22,16 @@
       <li><a href="Pembayaran/get_data" class="app-item">Pembayaran Lain</a></li>
     </ul>
   </li>
+  
+  <li>
+    <a href="#"><i class="icon-notebook"></i> <span>Bimbingan Konseling</span></a>
+    <ul>
+      <li><a href="Buku_pemanggilan_siswa/get_data" class="app-item">Buku Pemanggilan Siswa</a></li>
+      <li><a href="Pelanggaran_siswa/get_data" class="app-item">Kartu Kendali Siswa</a></li>
+      <li><a href="Alumni/get_data" class="app-item">Buku Alumni</a></li>
+      <li><a href="Pelanggaran_siswa/poin_pelanggaran_setup" class="app-item">Point Pelanggaran</a></li>
+    </ul>
+  </li>
 
   <li>
     <a href="#"><i class="icon-user-check"></i> <span>Akademik</span></a>
