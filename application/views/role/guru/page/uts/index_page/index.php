@@ -1,13 +1,16 @@
 <div class="row">
   <div class="col-md-12">
     <div class="panel panel-body">
+      
       <table style ="border: 1px solid black;" class="table table-bordered">
         <thead>
           <tr>
             <th width="2%">No</th>
             <th width="20%">Kelas</th>
             <th>Mata Pelajaran</th>
-            <th width="10%">Action</th>
+            <th>Tahun Ajaran</th>
+            <th width="10%">N. Tugas</th>
+            <th width="10%">N. PTS</th>
           </tr>
         </thead>
         <tbody>
@@ -18,7 +21,9 @@
               <td><?php echo ++$no ?></td>
               <td><?php echo $value['kelas'] ?></td>
               <td><?php echo $value['mata_pelajaran'] ?></td>
-              <td><a href="<?php echo base_url('guru/uts/input_nilai/'.$value['id_kelas'].'/'.$value['id_mata_pelajaran']) ?>" class="app-item btn btn-success"><i class="icon-pencil"></i> INPUT NILAI</a></td>
+              <td><?php echo $value['tahun_ajaran'].' '.$value['semester'] ?></td>
+              <td><a href="<?php echo base_url('guru/uts/input_nilai/'.$value['id_kelas'].'/'.$value['id_mata_pelajaran']) ?>" class="app-item btn btn-success btn-sm"><i class="icon-pencil"></i></a></td>
+              <td><a href="uts/input_nilai_pts/<?php echo $value['id_kelas'].'/'.$value['id_mata_pelajaran'].'/'.$value['id_tahun_ajaran']; ?>" class="app-item btn btn-success btn-sm"><i class="icon-pencil"></i></a></td>
             </tr>
           <?php endforeach ?>
         </tbody>

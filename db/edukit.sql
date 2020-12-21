@@ -33,7 +33,7 @@ CREATE TABLE `absensi`  (
   `idkelas_fk` int(11) NULL DEFAULT NULL,
   `create_at` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_absensi`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 173 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 173 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ;
 
 -- ----------------------------
 -- Records of absensi
@@ -69,7 +69,7 @@ CREATE TABLE `additional_setting`  (
   `key_add` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `value_add` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_additional_setting`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ;
 
 -- ----------------------------
 -- Records of additional_setting
@@ -95,7 +95,7 @@ CREATE TABLE `akun`  (
   `saldo_normal` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `create_at` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_akun`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 29 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 29 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ;
 
 -- ----------------------------
 -- Records of akun
@@ -145,7 +145,7 @@ CREATE TABLE `alumni`  (
   `pesantren` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `create_at` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_alumni`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ;
 
 -- ----------------------------
 -- Records of alumni
@@ -164,7 +164,7 @@ CREATE TABLE `anak_pegawai`  (
   `tanggal_lahir` date NULL DEFAULT NULL,
   `nama_ibu` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_anak_pegawai`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ;
 
 -- ----------------------------
 -- Records of anak_pegawai
@@ -190,7 +190,7 @@ CREATE TABLE `ans_bank_soal`  (
   `ans` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `point` decimal(20, 2) NULL DEFAULT NULL,
   PRIMARY KEY (`id_ans_bank_soal`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 99 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 99 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ;
 
 -- ----------------------------
 -- Records of ans_bank_soal
@@ -298,7 +298,7 @@ CREATE TABLE `bank_soal`  (
   INDEX `idguru_fk`(`idguru_fk`) USING BTREE,
   CONSTRAINT `bank_soal_ibfk_1` FOREIGN KEY (`idmatapelajaran_fk`) REFERENCES `mata_pelajaran` (`id_mata_pelajaran`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `bank_soal_ibfk_2` FOREIGN KEY (`idguru_fk`) REFERENCES `guru` (`id_guru`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 27 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 27 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ;
 
 -- ----------------------------
 -- Records of bank_soal
@@ -339,7 +339,7 @@ CREATE TABLE `blog_article`  (
   `tagline` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `iduser_fk` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id_blog_article`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ;
 
 -- ----------------------------
 -- Records of blog_article
@@ -362,7 +362,7 @@ CREATE TABLE `blog_course`  (
   `seats` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `img` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_blog_course`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ;
 
 -- ----------------------------
 -- Records of blog_course
@@ -382,7 +382,7 @@ CREATE TABLE `blog_setting`  (
   `name` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `value` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_blog_setting`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ;
 
 -- ----------------------------
 -- Table structure for blog_slider
@@ -395,7 +395,7 @@ CREATE TABLE `blog_slider`  (
   `desc` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `button` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_blog_slider`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ;
 
 -- ----------------------------
 -- Records of blog_slider
@@ -418,7 +418,7 @@ CREATE TABLE `blog_teacher`  (
   `idguru_fk` int(11) NULL DEFAULT NULL,
   `slide` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_blog_teacher`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ;
 
 -- ----------------------------
 -- Records of blog_teacher
@@ -447,7 +447,7 @@ CREATE TABLE `buku_pemanggilan_siswa`  (
   `tanggal` date NULL DEFAULT NULL,
   `kode_pemanggilan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_buku_pemanggilan_siswa`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ;
 
 -- ----------------------------
 -- Records of buku_pemanggilan_siswa
@@ -467,7 +467,7 @@ CREATE TABLE `buku_tamu`  (
   `tanggal` date NULL DEFAULT NULL,
   `create_at` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_buku_tamu`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ;
 
 -- ----------------------------
 -- Records of buku_tamu
@@ -485,7 +485,7 @@ CREATE TABLE `cities`  (
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 500 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 500 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ;
 
 -- ----------------------------
 -- Records of cities
@@ -998,7 +998,7 @@ CREATE TABLE `coa`  (
   `id_coa` int(11) NOT NULL AUTO_INCREMENT,
   `name` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_coa`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ;
 
 -- ----------------------------
 -- Records of coa
@@ -1021,7 +1021,7 @@ CREATE TABLE `component_jadwal`  (
   `idpelajaran_fk` int(11) NULL DEFAULT NULL,
   `idkelas_fk` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id_component_jadwal`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ;
 
 -- ----------------------------
 -- Records of component_jadwal
@@ -1040,7 +1040,7 @@ CREATE TABLE `dokumen_pegawai`  (
   `file` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `keterangan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_dokumen_pegawai`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 14 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 14 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ;
 
 -- ----------------------------
 -- Records of dokumen_pegawai
@@ -1068,7 +1068,7 @@ CREATE TABLE `groups`  (
   `name` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `description` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_general_ci ;
 
 -- ----------------------------
 -- Records of groups
@@ -1122,7 +1122,7 @@ CREATE TABLE `guru`  (
   `no_taspen` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `tanggal_lahir` date NULL DEFAULT NULL,
   PRIMARY KEY (`id_guru`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 32 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ;
 
 -- ----------------------------
 -- Records of guru
@@ -1170,7 +1170,7 @@ CREATE TABLE `guru_mapel`  (
   INDEX `idmapel_fk`(`idmapel_fk`) USING BTREE,
   CONSTRAINT `guru_mapel_ibfk_1` FOREIGN KEY (`idguru_fk`) REFERENCES `guru` (`id_guru`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `guru_mapel_ibfk_2` FOREIGN KEY (`idmapel_fk`) REFERENCES `mata_pelajaran` (`id_mata_pelajaran`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 18 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 18 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ;
 
 -- ----------------------------
 -- Records of guru_mapel
@@ -1199,7 +1199,7 @@ CREATE TABLE `hobi_pegawai`  (
   `aktif` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `kapan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_hobi_pegawai`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ;
 
 -- ----------------------------
 -- Records of hobi_pegawai
@@ -1220,7 +1220,7 @@ CREATE TABLE `induk_akun`  (
   `nama` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `idcoa_fk` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id_induk_akun`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ;
 
 -- ----------------------------
 -- Records of induk_akun
@@ -1245,7 +1245,7 @@ CREATE TABLE `iuran_wajib_siswa`  (
   `nama` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `harga` double NULL DEFAULT NULL,
   PRIMARY KEY (`id_iuran_wajib_siswa`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ;
 
 -- ----------------------------
 -- Records of iuran_wajib_siswa
@@ -1265,7 +1265,7 @@ CREATE TABLE `jadwal`  (
   `id_jadwal` int(11) NOT NULL AUTO_INCREMENT,
   `tanggal` date NULL DEFAULT NULL,
   PRIMARY KEY (`id_jadwal`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ;
 
 -- ----------------------------
 -- Records of jadwal
@@ -1282,7 +1282,7 @@ CREATE TABLE `jam`  (
   `jam_mulai` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `jam_selesai` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_jam`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ;
 
 -- ----------------------------
 -- Records of jam
@@ -1298,7 +1298,7 @@ CREATE TABLE `jenis_pelanggaran`  (
   `id_jenis_pelanggaran` int(11) NOT NULL AUTO_INCREMENT,
   `jenis_pelanggaran` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_jenis_pelanggaran`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ;
 
 -- ----------------------------
 -- Records of jenis_pelanggaran
@@ -1314,7 +1314,7 @@ CREATE TABLE `jenis_penilaian`  (
   `id_jenis_penilaian` int(11) NOT NULL AUTO_INCREMENT,
   `jenis_penilaian` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_jenis_penilaian`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ;
 
 -- ----------------------------
 -- Records of jenis_penilaian
@@ -1333,7 +1333,7 @@ CREATE TABLE `jurusan`  (
   `jurusan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `singkatan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_jurusan`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ;
 
 -- ----------------------------
 -- Records of jurusan
@@ -1362,7 +1362,7 @@ CREATE TABLE `kd`  (
   CONSTRAINT `kd_ibfk_1` FOREIGN KEY (`idtingkat_fk`) REFERENCES `tingkat` (`id_tingkat`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `kd_ibfk_2` FOREIGN KEY (`idjenispenilaian_fk`) REFERENCES `jenis_penilaian` (`id_jenis_penilaian`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `kd_ibfk_3` FOREIGN KEY (`idsemester_fk`) REFERENCES `semester` (`id_semester`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ;
 
 -- ----------------------------
 -- Records of kd
@@ -1383,7 +1383,7 @@ CREATE TABLE `kelas`  (
   PRIMARY KEY (`id_kelas`) USING BTREE,
   INDEX `idtingkat_fk`(`idtingkat_fk`) USING BTREE,
   CONSTRAINT `kelas_ibfk_1` FOREIGN KEY (`idtingkat_fk`) REFERENCES `tingkat` (`id_tingkat`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 25 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 25 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ;
 
 -- ----------------------------
 -- Records of kelas
@@ -1417,7 +1417,7 @@ CREATE TABLE `kursus_pegawai`  (
   `keterangan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `idguru_fk` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id_kursus_pegawai`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ;
 
 -- ----------------------------
 -- Records of kursus_pegawai
@@ -1456,7 +1456,7 @@ CREATE TABLE `learning`  (
   CONSTRAINT `learning_ibfk_1` FOREIGN KEY (`idmatapelajaran_fk`) REFERENCES `mata_pelajaran` (`id_mata_pelajaran`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `learning_ibfk_2` FOREIGN KEY (`iduser_fk`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `learning_ibfk_3` FOREIGN KEY (`idtingkat_fk`) REFERENCES `tingkat` (`id_tingkat`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ;
 
 -- ----------------------------
 -- Records of learning
@@ -1477,7 +1477,7 @@ CREATE TABLE `login_attempts`  (
   `login` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `time` int(11) UNSIGNED NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ;
 
 -- ----------------------------
 -- Table structure for mapel_ajar_pegawai
@@ -1491,7 +1491,7 @@ CREATE TABLE `mapel_ajar_pegawai`  (
   `kelas` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `tahun` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_mapel_ajar_pegawai`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ;
 
 -- ----------------------------
 -- Records of mapel_ajar_pegawai
@@ -1514,7 +1514,7 @@ CREATE TABLE `mata_pelajaran`  (
   `mata_pelajaran` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `kode` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_mata_pelajaran`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ;
 
 -- ----------------------------
 -- Records of mata_pelajaran
@@ -1537,7 +1537,7 @@ CREATE TABLE `media`  (
   `tag` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `title` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_media`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ;
 
 -- ----------------------------
 -- Records of media
@@ -1559,7 +1559,7 @@ CREATE TABLE `media_files`  (
   `extension` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `url` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_media_files`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ;
 
 -- ----------------------------
 -- Table structure for organisasi_pegawai
@@ -1572,7 +1572,7 @@ CREATE TABLE `organisasi_pegawai`  (
   `tahun` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `idguru_fk` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id_organisasi_pegawai`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ;
 
 -- ----------------------------
 -- Records of organisasi_pegawai
@@ -1600,7 +1600,7 @@ CREATE TABLE `pelanggaran_siswa`  (
   `idpoinpelanggaran_fk` int(11) NULL DEFAULT NULL,
   `idsiswa_fk` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id_pelanggaran_siswa`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ;
 
 -- ----------------------------
 -- Records of pelanggaran_siswa
@@ -1621,7 +1621,7 @@ CREATE TABLE `pembayaran_spp`  (
   `tanggal` date NULL DEFAULT NULL,
   `create_at` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_pembayaran_spp`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ;
 
 -- ----------------------------
 -- Records of pembayaran_spp
@@ -1712,7 +1712,7 @@ CREATE TABLE `pendaftaran`  (
   `kecamatan_sekolah` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `kabupaten_sekolah` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_pendaftaran`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ;
 
 -- ----------------------------
 -- Table structure for pendidikan_pegawai
@@ -1725,7 +1725,7 @@ CREATE TABLE `pendidikan_pegawai`  (
   `berijazah` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `tahun` int(255) NULL DEFAULT NULL,
   PRIMARY KEY (`id_pendidikan_pegawai`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ;
 
 -- ----------------------------
 -- Records of pendidikan_pegawai
@@ -1752,7 +1752,7 @@ CREATE TABLE `poin_pelanggaran`  (
   `poin` int(20) NULL DEFAULT NULL,
   `kode_pelanggaran` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_poin_pelanggaran`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ;
 
 -- ----------------------------
 -- Records of poin_pelanggaran
@@ -1798,7 +1798,7 @@ CREATE TABLE `ppdb`  (
   `status` int(255) NULL DEFAULT 0,
   `create_at` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_ppdb`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 22 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 22 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ;
 
 -- ----------------------------
 -- Records of ppdb
@@ -1832,7 +1832,7 @@ CREATE TABLE `profil_website`  (
   `nama` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `kota` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `negara` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL
-) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ;
 
 -- ----------------------------
 -- Records of profil_website
@@ -1849,7 +1849,7 @@ CREATE TABLE `provinces`  (
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 35 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 35 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ;
 
 -- ----------------------------
 -- Records of provinces
@@ -1903,7 +1903,7 @@ CREATE TABLE `question_cas`  (
   INDEX `idassesmentcas_fk`(`idquiz_fk`) USING BTREE,
   CONSTRAINT `question_cas_ibfk_1` FOREIGN KEY (`idbanksoal_fk`) REFERENCES `bank_soal` (`id_bank_soal`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `question_cas_ibfk_2` FOREIGN KEY (`idquiz_fk`) REFERENCES `quiz` (`id_quiz`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ;
 
 -- ----------------------------
 -- Records of question_cas
@@ -1934,7 +1934,7 @@ CREATE TABLE `quiz`  (
   PRIMARY KEY (`id_quiz`) USING BTREE,
   INDEX `idmatapelajaran_fk`(`idmatapelajaran_fk`) USING BTREE,
   CONSTRAINT `quiz_ibfk_1` FOREIGN KEY (`idmatapelajaran_fk`) REFERENCES `mata_pelajaran` (`id_mata_pelajaran`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ;
 
 -- ----------------------------
 -- Records of quiz
@@ -1954,7 +1954,7 @@ CREATE TABLE `riwayat_kerja_pns_pegawai`  (
   `terhitung_mulai` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `keterangan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_riwayat_kerja_pns_pegawai`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ;
 
 -- ----------------------------
 -- Records of riwayat_kerja_pns_pegawai
@@ -1981,7 +1981,7 @@ CREATE TABLE `riwayat_kerja_swasta_pegawai`  (
   `tahun` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `keterangan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_riwayat_kerja_swasta_pegawai`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ;
 
 -- ----------------------------
 -- Records of riwayat_kerja_swasta_pegawai
@@ -2003,7 +2003,7 @@ CREATE TABLE `ruangan`  (
   `id_ruangan` int(11) NOT NULL AUTO_INCREMENT,
   `ruangan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_ruangan`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ;
 
 -- ----------------------------
 -- Records of ruangan
@@ -2020,7 +2020,7 @@ CREATE TABLE `semester`  (
   `semester` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `create_at` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_semester`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ;
 
 -- ----------------------------
 -- Records of semester
@@ -2039,7 +2039,7 @@ CREATE TABLE `setting_akun`  (
   `debit` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `kredit` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_setting_akun`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ;
 
 -- ----------------------------
 -- Table structure for setting_table
@@ -2052,7 +2052,7 @@ CREATE TABLE `setting_table`  (
   `value` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `keterangan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_setting_table`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 20 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 20 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ;
 
 -- ----------------------------
 -- Records of setting_table
@@ -2084,7 +2084,7 @@ DROP TABLE IF EXISTS `setting_website`;
 CREATE TABLE `setting_website`  (
   `SPP` double(20, 0) NULL DEFAULT NULL,
   `DSP` double(20, 0) NULL DEFAULT NULL
-) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ;
 
 -- ----------------------------
 -- Records of setting_website
@@ -2139,7 +2139,7 @@ CREATE TABLE `siswa`  (
   `jumlah_saudara` int(255) NULL DEFAULT NULL,
   `jenis_kelamin` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_siswa`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 96 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 96 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ;
 
 -- ----------------------------
 -- Records of siswa
@@ -2248,7 +2248,7 @@ CREATE TABLE `siswa_beasiswa`  (
   `tahun_mulai` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `tahun_selesai` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_siswa_beasiswa`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ;
 
 -- ----------------------------
 -- Records of siswa_beasiswa
@@ -2266,7 +2266,7 @@ CREATE TABLE `siswa_dokumen`  (
   `keterangan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `foto` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_siswa_dokumen`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ;
 
 -- ----------------------------
 -- Records of siswa_dokumen
@@ -2288,7 +2288,7 @@ CREATE TABLE `siswa_mapel`  (
   INDEX `idmatapelajaran_fk`(`idmatapelajaran_fk`) USING BTREE,
   CONSTRAINT `siswa_mapel_ibfk_1` FOREIGN KEY (`idsiswa_fk`) REFERENCES `siswa` (`id_siswa`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `siswa_mapel_ibfk_2` FOREIGN KEY (`idmatapelajaran_fk`) REFERENCES `mata_pelajaran` (`id_mata_pelajaran`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ;
 
 -- ----------------------------
 -- Table structure for siswa_prestasi
@@ -2303,7 +2303,7 @@ CREATE TABLE `siswa_prestasi`  (
   `tahun` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `penyelenggara` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_siswa_prestasi`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ;
 
 -- ----------------------------
 -- Records of siswa_prestasi
@@ -2325,7 +2325,7 @@ CREATE TABLE `surat_keluar`  (
   `tanggal_surat` date NULL DEFAULT NULL,
   `create_at` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_surat_keluar`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ;
 
 -- ----------------------------
 -- Records of surat_keluar
@@ -2346,7 +2346,7 @@ CREATE TABLE `surat_masuk`  (
   `create_at` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP,
   `no_surat` longtext CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_surat_masuk`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 24 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 24 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ;
 
 -- ----------------------------
 -- Records of surat_masuk
@@ -2384,7 +2384,7 @@ CREATE TABLE `tahun_ajaran`  (
   `create_at` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP,
   `is_active` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id_tahun_ajaran`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ;
 
 -- ----------------------------
 -- Records of tahun_ajaran
@@ -2401,7 +2401,7 @@ CREATE TABLE `tingkat`  (
   `tingkat` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `create_at` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_tingkat`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ;
 
 -- ----------------------------
 -- Records of tingkat
@@ -2437,7 +2437,7 @@ CREATE TABLE `users`  (
   `table` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
   `is_walas` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ;
 
 -- ----------------------------
 -- Records of users
@@ -2459,7 +2459,7 @@ CREATE TABLE `users_groups`  (
   INDEX `fk_users_groups_groups1_idx`(`group_id`) USING BTREE,
   CONSTRAINT `users_groups_ibfk_1` FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   CONSTRAINT `users_groups_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ;
 
 -- ----------------------------
 -- Records of users_groups
@@ -2477,7 +2477,7 @@ CREATE TABLE `wali_kelas`  (
   `idtahunajaran_fk` int(11) NULL DEFAULT NULL,
   `idkelas_fk` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id_wali_kelas`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ;
 
 -- ----------------------------
 -- Records of wali_kelas

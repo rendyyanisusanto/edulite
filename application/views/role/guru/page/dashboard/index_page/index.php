@@ -14,7 +14,7 @@
 					<span class="display-block"><?php echo $data_get['guru']['jabatan'] ?></span>
 				</div>
 				<a href="#" class="display-inline-block content-group-sm">
-					<img src="<?php echo base_url('include/media/blog/teacher/'.$data_get['guru']['foto'])?>" class="img-circle img-responsive" alt="" style="width: 120px; height: 120px;">
+					<img src="<?php echo base_url('include/media/foto_guru/'.$data_get['guru']['foto'])?>" class="img-circle img-responsive" alt="" style="width: 120px; height: 120px;">
 				</a>
 				<ul class="list-inline no-margin-bottom">
 					<li><a href="#" class="btn bg-blue-700 btn-rounded btn-icon"><i class="icon-phone"></i></a></li>

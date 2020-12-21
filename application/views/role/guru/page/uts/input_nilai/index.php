@@ -1,45 +1,50 @@
 <div class="row">
 	<div class="col-md-12">
 		<div class="panel panel-body">
+			<center><h3>Nilai PTS </h3></center>
+			<div class="alert alert-warning">
+				Jika anda lebih familiar menggunakan ms excel silahkan <a href="<?php echo base_url('guru/uts/download_file_pts/'.$data_get['kelas']['id_kelas'].'/'.$data_get['mata_pelajaran']['id_mata_pelajaran'].'/'.$data_get['tahun_ajaran']['id_tahun_ajaran']) ?>" target="__blank">download format ini</a>, kemudian lakukan import data pada form dibawah<br>
+				<form action="<?php echo $data_get['param']['table'] ?>/import_pts" id="app-import" method="POST">
+					<input type="hidden" name="idmatapelajaran_fk" value="<?php echo $data_get['mata_pelajaran']['id_mata_pelajaran']; ?>" class="form-control input-xs">
+							<input type="hidden" name="idguru_fk" value="<?php echo $data_get['guru']['id_guru']; ?>" class="form-control input-xs">
+							<input type="hidden" name="idkelas_fk" value="<?php echo $data_get['kelas']['id_kelas']; ?>" class="form-control input-xs">
+							<input type="hidden" name="idtahunajaran_fk" value="<?php echo $data_get['tahun_ajaran']['id_tahun_ajaran']; ?>" class="form-control input-xs">
+					<input type="file" name="file_upload"><br>
+					<button type="submit" class="btn btn-success">Import</button>
+				</form>
+			</div>
+			<form action="<?php echo $data_get['param']['table'] ?>/simpan_pts" id="app-submit" method="POST">
 			<table style ="border: 1px solid black;" class="table table-bordered">
 				<thead>
 					<tr>
-						<th rowspan="2">No</th>
-						<th rowspan="2">Nama Siswa</th>
-						<th colspan="3">Nilai Tugas</th>
-						<th colspan="3">Nilai Ulangan</th>
-						<th rowspan="2">UTS</th>
-					</tr>
-					
-					<tr>
-						<td>1</td>
-						<td>2</td>
-						<td>3</td>
-
-
-						<td>1</td>
-						<td>2</td>
-						<td>3</td>
+						<th style ="border: 1px solid black;" class="bg-blue" width="2%" rowspan="2">No</th>
+						<th style ="border: 1px solid black;" class="bg-blue" rowspan="2">Nama Siswa</th>
+						<th style ="border: 1px solid black;" class="bg-blue" width="20%" rowspan="2">UTS</th>
 					</tr>
 				</thead>
 				<tbody>
 					<?php 
 					$no = 0;
+
 					foreach ($data_get['siswa'] as $key => $value): ?>
+					<?php $rand = rand(0,99999); ?>
 						<tr>
-							<td><?php echo ++$no ?></td>
+							<td class="bg-info"><?php echo ++$no ?></td>
 							<td><?php echo $value['nama'] ?></td>
-							<td><input type="number" name="" class="form-control"></td>
-							<td><input type="number" name="" class="form-control"></td>
-							<td><input type="number" name="" class="form-control"></td>
-							<td><input type="number" name="" class="form-control"></td>
-							<td><input type="number" name="" class="form-control"></td>
-							<td><input type="number" name="" class="form-control"></td>
-							<td><input type="number" name="" class="form-control"></td>
+							<td><input type="number" name="data[<?php echo $rand ?>][nilai]" class="form-control input-xs"></td>
+							<input type="hidden" name="data[<?php echo $rand ?>][idsiswa_fk]" value="<?php echo $value['id_siswa']; ?>" class="form-control input-xs">
+							<input type="hidden" name="idmatapelajaran_fk" value="<?php echo $data_get['mata_pelajaran']['id_mata_pelajaran']; ?>" class="form-control input-xs">
+							<input type="hidden" name="idguru_fk" value="<?php echo $data_get['guru']['id_guru']; ?>" class="form-control input-xs">
+							<input type="hidden" name="idtahunajaran_fk" value="<?php echo $data_get['tahun_ajaran']['id_tahun_ajaran']; ?>" class="form-control input-xs">
 						</tr>
 					<?php endforeach ?>
 				</tbody>
 			</table>
+
+			<br>
+
+			<button class="btn btn-success" type="submit"><i class="icon-floppy-disk"></i> Submit Nilai</button>
+		</form>
 		</div>
 	</div>
 </div>
