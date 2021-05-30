@@ -1,26 +1,34 @@
+
 <div class="row">
 	<div class="alert alert-success">
-		Hallo selamat datang <b><?php echo $data_get['guru']['nama'] ?></b>, di website SMK IT Asy-syadzili
+		<marquee>Hallo <b><?php echo $data_get['guru']['nama'] ?></b>, Selamat datang di aplikasi EDULITE milik SMK IT ASY SYADZILI. Hak akses anda saat ini adalah sebagai <b>GURU</b></marquee>
 	</div>
 </div>
+<?php if ($data_get['cek_kd'] == 0): ?>
+	
+<div class="row">
+	<div class="alert alert-danger">
+		<b>Message from the system</b> :
+		<ul>
+			<li>Anda Belum Mengisi KD Pada tahun ajaran <?php echo $data_get['tahun_ajaran']['tahun_ajaran'].' '.$data_get['tahun_ajaran']['semester'] ?>, silahkan klik <a href="Kd/get_data" class="app-item">link ini</a></li>
+		</ul>
+	</div>
+</div>
+
+<?php endif ?>
 <div class="row">
 	<div class="col-md-4">
 		<div class="content-group">
-			<div class="panel-body bg-blue border-radius-top text-center" style="background-image: url(http://demo.interface.club/limitless/assets/images/bg.png); background-size: contain;">
+			<div class="panel-body bg-blue border-radius-top text-center" style="background-image: url(https://media.istockphoto.com/vectors/abstract-white-background-vector-id1143662580?b=1&k=6&m=1143662580&s=612x612&w=0&h=nHS1tx7rQOvyFnYh9Iwfd39Q2wctjNPNK6YjYhBEykY=); background-size: cover;">
 				<div class="content-group-sm">
-					<h5 class="text-semibold no-margin-bottom">
+					<h5 class="text-semibold no-margin-bottom text-blue">
 					<?php echo $data_get['guru']['nama'] ?>
 					</h5>
-					<span class="display-block"><?php echo $data_get['guru']['jabatan'] ?></span>
+					<span class="display-block text-blue"><?php echo $data_get['guru']['jabatan'] ?></span>
 				</div>
 				<a href="#" class="display-inline-block content-group-sm">
-					<img src="<?php echo base_url('include/media/foto_guru/'.$data_get['guru']['foto'])?>" class="img-circle img-responsive" alt="" style="width: 120px; height: 120px;">
+					<img src="<?php echo (!empty($data_get['guru']['foto'])) ? base_url('include/media/foto_pegawai/'.$data_get['guru']['foto']) : base_url('include/media/system/no_image.jpg')?>" class="img-responsive img-rounded" alt="" style="max-height :200px;"	>
 				</a>
-				<ul class="list-inline no-margin-bottom">
-					<li><a href="#" class="btn bg-blue-700 btn-rounded btn-icon"><i class="icon-phone"></i></a></li>
-					<li><a href="#" class="btn bg-blue-700 btn-rounded btn-icon"><i class="icon-bubbles4"></i></a></li>
-					<li><a href="#" class="btn bg-blue-700 btn-rounded btn-icon"><i class="icon-envelop4"></i></a></li>
-				</ul>
 			</div>
 			<div class="panel panel-body no-border-top no-border-radius-top">
 				<div class="form-group no-margin-bottom">
@@ -39,16 +47,20 @@
 					<label class="text-semibold">Corporate Email:</label>
 					<span class="pull-right-sm"><a href="#"><?php echo $data_get['guru']['email'] ?></a></span>
 				</div>
+				<div class="form-group no-margin-bottom">
+					<label class="text-semibold">Wali Kelas:</label>
+					<span class="pull-right-sm"><b>
+						<?php foreach ($data_get['walas'] as $key => $value): ?>
+							<?php echo $value['kelas'] ?>, 
+						<?php endforeach ?>
+					</b></span>
+				</div>
 				
 			</div>
 		</div>
 	</div>
 	<div class="col-md-6">
-		<div class="col-md-12">
-			<div class="panel panel-body">
-				<?php echo count($data_get['walas']) ?>
-			</div>
-		</div>
+		
 		<div class="col-md-12">
 			<div class="panel panel-body">
 			<center><b><u>Mapel yang anda ampu</u></b></center>

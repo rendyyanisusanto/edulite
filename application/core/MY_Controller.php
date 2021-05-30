@@ -11,6 +11,9 @@ class MY_Controller extends CI_Controller {
         $this->get_login();
     }
 
+    public $arr_hari  = [
+      '', 'senin', 'selasa', 'rabu', 'kamis', 'jumat', 'sabtu','minggu'
+    ];
     public function get_login()
     {
         
@@ -356,7 +359,7 @@ class MY_Controller extends CI_Controller {
     public function get_guru()
     {
         $data['account']    =   $this->get_user_account();
-        $data['walas']      =   (($this->my_where('v_walas', ['idguru_fk'=>$data['account']['anggota_id']])->num_rows()) > 0  ) ? $this->my_where('v_walas', ['idguru_fk'=>$data['account']['anggota_id']])->row_array() : [];
+        $data['walas']      =   (($this->my_where('v_walas', ['idguru_fk'=>$data['account']['anggota_id']])->num_rows()) > 0  ) ? $this->my_where('v_walas', ['idguru_fk'=>$data['account']['anggota_id']])->result_array() : [];
         $data['guru']       =   $this->my_where('guru', ['id_guru'=>$data['account']['anggota_id']])->row_array();
         $data['mapel']      =   $this->my_where('v_guru_mapel', ['id_guru'=>$data['account']['anggota_id']])->result_array();
         
@@ -376,5 +379,48 @@ class MY_Controller extends CI_Controller {
         }
 
     }
+
+    public function tahun_ajaran_aktif()
+    {
+        $tahun = $this->my_where('tahun_ajaran', ['is_active'=>1])->row_array();
+        return $tahun;
+    }
+
+    public function cek_kd()
+    {
+        
+        $data['account']    =   $this->get_user_account();
+        $ta = $this->tahun_ajaran_aktif();
+        $kd = $this->my_where('kd', ['idtahunajaran_fk'=>$ta['id_tahun_ajaran'], 'idguru_fk'=>$data['account']['anggota_id']])->num_rows();
+        return $kd;
+    }
+    public function cek_kd_mapel($kelas, $mapel)
+    {
+        
+        $data['account']    =   $this->get_user_account();
+        $ta = $this->tahun_ajaran_aktif();
+        $kd = $this->my_where('kd', ['idtahunajaran_fk'=>$ta['id_tahun_ajaran'], 'idguru_fk'=>$data['account']['anggota_id'], 'idmatapelajaran_fk'=>$mapel, 'idkelas_fk'=>$kelas])->num_rows();
+        return $kd;
+    }
+
+    public function cek_jadwal_guru_hari_ini($idguru_fk = "", $tahun_ajaran = "")
+    {
+        if (!empty($idguru_fk)) {
+            $day = date('w', strtotime("now"));
+            $cek_jadwal = $this->my_where('jadwal_guru', ['idguru_fk'=>$idguru_fk, 'idhari_fk'=>$day, 'idtahunajaran_fk'=>$tahun_ajaran]);
+
+            return $cek_jadwal->num_rows();
+        }
+    }
+
+    public function cek_presensi_guru_hari_ini($idguru_fk="", $tahun_ajaran="")
+    {
+        if (!empty($idguru_fk)) {
+            $cek_absen = $this->my_where('presensi_guru', ['idguru_fk'=>$idguru_fk, 'tanggal' => date('Y-m-d'), 'idtahunajaran_fk'=>$tahun_ajaran] )->row_array();
+
+            return $cek_absen;
+        }
+    }
+
 
 }

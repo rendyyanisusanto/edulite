@@ -75,8 +75,6 @@
             }
     });
 
-
-
     $('#import-btn').click(function(){
         set_content('<?php echo $data_get['param']['table'] ?>/import',{});
     });

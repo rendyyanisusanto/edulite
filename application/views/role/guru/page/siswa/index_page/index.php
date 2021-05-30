@@ -18,6 +18,8 @@
         <a class="btn bg-danger-400 btn-labeled legitRipple" id="del-btn"><b><i class="icon-bin"></i></b> Hapus</a>
         <a class="btn bg-purple-400 btn-labeled legitRipple" href="<?php echo $data_get['param']['table'] ?>/cetak_struk"><b><i class="icon-printer"></i></b> Print</a>
 
+        
+
         <a class="btn bg-warning-400 btn-labeled legitRipple" id="dtl-btn"><b><i class="icon-pencil4"></i></b> Detail</a>
         <hr>
         <div class="table-responsive">

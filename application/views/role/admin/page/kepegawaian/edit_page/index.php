@@ -5,7 +5,7 @@
     <div class="col-md-8">
       <div class="panel panel-flat">
         <div class="panel-heading">
-          <h5 class="panel-title">Tambah Data Pegawai (<i>Add Data</i>)<a class="heading-elements-toggle"><i class="icon-more"></i></a></h5>
+          <h5 class="panel-title">Edit Data Pegawai (<i>Edit Data</i>)<a class="heading-elements-toggle"><i class="icon-more"></i></a></h5>
           <div class="heading-elements">
             <ul class="icons-list">
               <li><a data-action="collapse"></a></li>
@@ -21,6 +21,7 @@
               <div class="form-group">
               <label class="col-lg-6 control-label"><b>A. KETERANGAN PRIBADI</b></label>
             </div>
+            <input type="hidden" name="id_guru" value="<?php echo $data_get['guru']['id_guru'] ?>">
             <div class="form-group">
               <label class="col-lg-3 control-label">1. Nama:</label>
               <div class="col-lg-6">
@@ -30,9 +31,9 @@
             <div class="form-group">
               <label class="col-lg-3 control-label">2. Jenis Kelamin:</label>
               <div class="col-lg-3">
-                <select data-placeholder="Pilih Jenis Kelamin" name="jenis_kelamin" class="select">
-                  <option <?php echo ($data_get['guru']['tempat_lahir'] = "Laki-laki") ? "selected" : ""; ?> value="Laki-laki">Laki-laki</option>
-                  <option <?php echo ($data_get['guru']['tempat_lahir'] = "Perempuan") ? "selected" : ""; ?> value="Perempuan">Perempuan</option>
+                <select data-placeholder="Pilih Jenis Kelamin" name="jenis_kelamin" class="form-control">
+                  <option <?php echo ($data_get['guru']['jenis_kelamin'] == "Laki-laki") ? "selected" : ""; ?> value="Laki-laki">Laki-laki</option>
+                  <option <?php echo ($data_get['guru']['jenis_kelamin'] == "Perempuan") ? "selected" : ""; ?> value="Perempuan">Perempuan</option>
                 </select>
               </div>
             </div>
@@ -52,18 +53,18 @@
             <div class="form-group">
               <label class="col-lg-3 control-label">5. Agama/kepercayaan:</label>
               <div class="col-lg-3">
-                <select data-placeholder="Pilih Agama" name="agama" class="select">
-                  <option <?php echo ($data_get['guru']['agama'] = "Islam") ? "selected" : ""; ?> value="Islam">Islam</option>
-                  <option <?php echo ($data_get['guru']['agama'] = "Kristen") ? "selected" : ""; ?> value="Kristen">Kristen</option>
-                  <option <?php echo ($data_get['guru']['agama'] = "Hindu") ? "selected" : ""; ?> value="Hindu">Hindu</option>
-                  <option <?php echo ($data_get['guru']['agama'] = "Budha") ? "selected" : ""; ?> value="Budha">Budha</option>
+                <select data-placeholder="Pilih Agama" name="agama" class="form-control">
+                  <option <?php echo ($data_get['guru']['agama'] == "Islam") ? "selected" : ""; ?> value="Islam">Islam</option>
+                  <option <?php echo ($data_get['guru']['agama'] == "Kristen") ? "selected" : ""; ?> value="Kristen">Kristen</option>
+                  <option <?php echo ($data_get['guru']['agama'] == "Hindu") ? "selected" : ""; ?> value="Hindu">Hindu</option>
+                  <option <?php echo ($data_get['guru']['agama'] == "Budha") ? "selected" : ""; ?> value="Budha">Budha</option>
                 </select>
               </div>
             </div>
             <div class="form-group">
               <label class="col-lg-3 control-label">6. Kewarganegaraan:</label>
               <div class="col-lg-3">
-                <select data-placeholder="Pilih Kewarganegaraan" name="kewarganegaraan" class="select">
+                <select data-placeholder="Pilih Kewarganegaraan" name="kewarganegaraan" class="form-control">
                   <option <?php echo ($data_get['guru']['kewarganegaraan'] = "WNI") ? "selected" : ""; ?> value="WNI">WNI</option>
                   <option <?php echo ($data_get['guru']['kewarganegaraan'] = "WNA") ? "selected" : ""; ?> value="WNA">WNA</option>
                 </select>
@@ -74,10 +75,10 @@
               <label class="col-lg-3 control-label">7. Status Menikah:</label>
               <div class="col-lg-3">
                 <select data-placeholder="Pilih Status Menikah" name="status_pernikahan" class="select">
-                  <option <?php echo ($data_get['guru']['status_pernikahan'] = "Kawin") ? "selected" : ""; ?> value="Kawin">Kawin</option>
-                  <option <?php echo ($data_get['guru']['status_pernikahan'] = "Belum Kawin") ? "selected" : ""; ?> value="Belum Kawin">Belum Kawin</option>
-                  <option <?php echo ($data_get['guru']['status_pernikahan'] = "Janda") ? "selected" : ""; ?> value="Janda">Janda</option>
-                  <option <?php echo ($data_get['guru']['status_pernikahan'] = "Duda") ? "selected" : ""; ?> value="Duda">Duda</option>
+                  <option <?php echo ($data_get['guru']['status_pernikahan'] == "Kawin") ? "selected" : ""; ?> value="Kawin">Kawin</option>
+                  <option <?php echo ($data_get['guru']['status_pernikahan'] == "Belum Kawin") ? "selected" : ""; ?> value="Belum Kawin">Belum Kawin</option>
+                  <option <?php echo ($data_get['guru']['status_pernikahan'] == "Janda") ? "selected" : ""; ?> value="Janda">Janda</option>
+                  <option <?php echo ($data_get['guru']['status_pernikahan'] == "Duda") ? "selected" : ""; ?> value="Duda">Duda</option>
                 </select>
               </div>
             </div>
@@ -139,10 +140,10 @@
               <label class="col-lg-3 control-label">2. Status Rumah:</label>
               <div class="col-lg-3">
                 <select data-placeholder="Pilih Status Rumah" name="status_rumah" class="select">
-                  <option <?php echo ($data_get['guru']['status_rumah'] = "Rumah Pribadi") ? "selected" : ""; ?> value="Rumah Pribadi" >Rumah Pribadi</option>
-                  <option <?php echo ($data_get['guru']['status_rumah'] = "Ikut Orang Tua") ? "selected" : ""; ?> value="Ikut Orang Tua">Ikut Orang Tua</option>
-                  <option <?php echo ($data_get['guru']['status_rumah'] = "Rumah Kontrak") ? "selected" : ""; ?> value="Rumah Kontrak">Rumah Kontrak</option>
-                  <option <?php echo ($data_get['guru']['status_rumah'] = "Rumah Kos") ? "selected" : ""; ?> value="Rumah Kos">Rumah Kos</option>
+                  <option <?php echo ($data_get['guru']['status_rumah'] == "Rumah Pribadi") ? "selected" : ""; ?> value="Rumah Pribadi" >Rumah Pribadi</option>
+                  <option <?php echo ($data_get['guru']['status_rumah'] == "Ikut Orang Tua") ? "selected" : ""; ?> value="Ikut Orang Tua">Ikut Orang Tua</option>
+                  <option <?php echo ($data_get['guru']['status_rumah'] == "Rumah Kontrak") ? "selected" : ""; ?> value="Rumah Kontrak">Rumah Kontrak</option>
+                  <option <?php echo ($data_get['guru']['status_rumah'] == "Rumah Kos") ? "selected" : ""; ?> value="Rumah Kos">Rumah Kos</option>
                 </select>
               </div>
             </div>
@@ -179,10 +180,10 @@
               <label class="col-lg-3 control-label">3. Golongan Darah:</label>
               <div class="col-lg-3">
                 <select data-placeholder="Pilih Golongan Darah" name="gd" class="select">
-                  <option <?php echo ($data_get['guru']['gd'] = "A") ? "selected" : ""; ?> value="A">A</option>
-                  <option <?php echo ($data_get['guru']['gd'] = "B") ? "selected" : ""; ?> value="B">B</option>
-                  <option <?php echo ($data_get['guru']['gd'] = "AB") ? "selected" : ""; ?> value="AB">AB</option>
-                  <option <?php echo ($data_get['guru']['gd'] = "O") ? "selected" : ""; ?> value="O">O</option>
+                  <option <?php echo ($data_get['guru']['gd'] == "A") ? "selected" : ""; ?> value="A">A</option>
+                  <option <?php echo ($data_get['guru']['gd'] == "B") ? "selected" : ""; ?> value="B">B</option>
+                  <option <?php echo ($data_get['guru']['gd'] == "AB") ? "selected" : ""; ?> value="AB">AB</option>
+                  <option <?php echo ($data_get['guru']['gd'] == "O") ? "selected" : ""; ?> value="O">O</option>
                 </select>
               </div>
             </div>

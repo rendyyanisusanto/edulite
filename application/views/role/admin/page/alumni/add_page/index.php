@@ -1,3 +1,5 @@
+
+
 <form class="form-horizontal" action="<?php echo $data_get['param']['table'] ?>/simpan_data" id="app-submit" method="POST">
 
 <div class="row">
@@ -62,3 +64,4 @@
 	</div>
 </div>
 </form>
+

@@ -12,7 +12,7 @@
     </div>
 
     <div class="navbar-collapse collapse" id="navbar-mobile">
-      <ul class="nav navbar-nav">
+      <!-- <ul class="nav navbar-nav">
         <li><a class="sidebar-control sidebar-main-toggle hidden-xs"><i class="icon-paragraph-justify3"></i></a></li>
 
         <li class="dropdown">
@@ -92,14 +92,14 @@
             </div>
           </div>
         </li>
-      </ul>
+      </ul> -->
 
       <div class="navbar-right">
         <p class="navbar-text">Morning, <?php echo ucfirst($user_account['username']) ?>!</p>
         <p class="navbar-text"><span class="label bg-success">Online</span></p>
         
         <ul class="nav navbar-nav">       
-          <li class="dropdown">
+          <!-- <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="icon-bell2"></i>
               <span class="visible-xs-inline-block position-right">Activity</span>
@@ -273,7 +273,9 @@
                 <a href="#" data-popup="tooltip" title="All messages"><i class="icon-menu display-block"></i></a>
               </div>
             </div>
-          </li>         
+          </li> -->      
+
+          <li style="background: red;"><a href="<?php echo base_url('auth/logout') ?>" style="color: white !important;"><i class="icon-exit"></i> <span>LOGOUT</span></a></li>   
         </ul>
       </div>
     </div>

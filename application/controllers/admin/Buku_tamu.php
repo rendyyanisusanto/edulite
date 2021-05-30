@@ -9,9 +9,9 @@ class buku_tamu extends MY_Controller {
 	public $arr = [
 			'title'				=>	'Halaman buku_tamu',
 			'table'				=>	'buku_tamu',
-			'column'			=>	[ 'nama', 'alamat', 'keperluan', 'tanggal'],
-			'column_order'		=>	[ 'id_buku_tamu','nama', 'alamat', 'keperluan', 'tanggal'],
-			'column_search'		=>	[ 'id_buku_tamu','nama', 'alamat', 'keperluan', 'tanggal'],
+			'column'			=>	[ 'nama', 'alamat','jabatan', 'keperluan','saran', 'tanggal'],
+			'column_order'		=>	[ 'id_buku_tamu','nama', 'alamat', 'jabatan', 'keperluan','saran', 'tanggal'],
+			'column_search'		=>	[ 'id_buku_tamu','nama', 'alamat', 'jabatan', 'keperluan','saran', 'tanggal'],
 			'order'				=>	['id_buku_tamu'	=>	'DESC'],
 			'id'				=>	'id_buku_tamu'
 	];

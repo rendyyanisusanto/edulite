@@ -70,7 +70,8 @@ class siswa extends MY_Controller {
 		$data['detail_guru'] = $this->get_guru();
 		$data['account']	=	$this->get_user_account();
 		$data['param'] 		= 	$this->arr;
-		$this->my_view(['role/guru/page/siswa/index_page/index','role/guru/page/siswa/index_page/js'],$data);
+		$data['dt_guru']	=	$this->get_guru();
+		$this->my_view(['role/guru/page/siswa/perkelas/index','role/guru/page/siswa/perkelas/js'],$data);
 
 	}
 
@@ -296,5 +297,41 @@ class siswa extends MY_Controller {
 		$send .= "<script>$('.select').select2();</script>";
 
 		echo $send;
+	}
+	public function proses_siswa($value='')
+	{
+		
+		$data['account']	=	$this->get_user_account();
+		$data['param'] 		= 	$this->arr;
+		$data['siswa'] = $this->my_where('v_siswa_jurusan', ['idkelas_fk'=>$_POST['id_kelas']])->result_array(); 
+		$data['kelas']	=	$this->my_where('kelas', ['id_kelas'=>$_POST['id_kelas']])->row_array();
+		$this->my_view(['role/guru/page/siswa/perkelas/proses_siswa','role/guru/page/siswa/perkelas/js_proses'],$data);
+	}
+
+	public function download_file_siswa($id_kelas='')
+	{
+		$reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
+		$spreadsheet = $reader->load("include/template/excel/format_edit_sisw.xlsx");
+		// $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load();
+		$kelas 		=	$this->my_where('kelas', ['id_kelas'=>$id_kelas])->row_array();
+		$siswa		=	$this->my_where('siswa', ['idkelas_fk'=>$id_kelas])->result_array();
+		//change it
+		$sheet = $spreadsheet->getActiveSheet();
+		$sheet->setCellValue('A10', $kelas['kelas']);
+		$sheet->setCellValue('E10', $kelas['kelas']);
+		foreach ($siswa as $key => $value) {
+			$sheet->setCellValue('B'.($key+14), $value['nama']);
+			$spreadsheet->getActiveSheet()->getStyle('D'.($key+14))->getFont()->getColor()->setARGB(\PhpOffice\PhpSpreadsheet\Style\Color::COLOR_RED);
+			$sheet->getStyle('D'.($key+14))->getProtection()->setLocked(\PhpOffice\PhpSpreadsheet\Style\Protection::PROTECTION_PROTECTED);
+			$sheet->setCellValue('D'.($key+14), $value['id_siswa']);
+		}
+		
+
+		//write it again to Filesystem with the same name (=replace)
+		$writer = new Xlsx($spreadsheet);
+		$fileName = "edit_siswa_".$kelas['kelas'].".xlsx";
+		header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        header('Content-Disposition: attachment; filename="'. urlencode($fileName).'"');
+        $writer->save('php://output');
 	}
 }

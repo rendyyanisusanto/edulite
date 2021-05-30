@@ -5,7 +5,7 @@
 
 
       <div class="sidebar sidebar-main">
-        <div class="sidebar-content">
+        <div class="sidebar-content" >
 
           <!-- User menu -->
           <div class="sidebar-user">
@@ -35,8 +35,8 @@
           <!-- Main navigation -->
           <div class="sidebar-category sidebar-category-visible">
             <div class="category-content no-padding">
-              
               <?php $this->load->view($sidebar); ?>
+              <li style="background: red;"><a href="<?php echo base_url('auth/logout') ?>"><i class="icon-exit"></i> <span>LOGOUT</span></a></li>
             </div>
           </div>
           <!-- /main navigation -->

@@ -26,6 +26,13 @@ class Ppdb extends MY_Controller {
 		$this->my_view(['role/admin/page/ppdb/index_page/index','role/admin/page/ppdb/index_page/js'],$data);
 	}
 
+	public function list()
+	{
+		$data['account']	=	$this->get_user_account();
+		$data['param'] 		= 	$this->arr;
+		$this->my_view(['role/admin/page/ppdb/index_page/index_list','role/admin/page/ppdb/index_page/js_list'],$data);
+	}
+
 	function detail_data($id = "")
 	{
 		if ($id !== "") {

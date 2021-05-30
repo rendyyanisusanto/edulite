@@ -34,11 +34,10 @@
   </li>
 
   <li>
-    <a href="#"><i class="icon-user-check"></i> <span>Akademik</span></a>
+    <a href="#"><i class="icon-user-check"></i> <span>Kesiswaan</span></a>
     <ul>
       <li><a href="Siswa/get_data" class="app-item">Data Siswa</a></li>
-      <!-- <li><a href="Pembelajaran/get_data" class="app-item">Pembelajaran</a></li>
-      <li><a href="Absensi/get_data" class="app-item">Absensi</a></li> -->
+      <li><a href="Siswa/perkelas" class="app-item">Data Siswa Perkelas</a></li>
     </ul>
   </li>
 
@@ -46,11 +45,29 @@
     <a href="#"><i class="icon-book"></i> <span>PPDB</span></a>
     <ul>
       <li><a href="Ppdb/get_data" class="app-item">Data Pendaftar Baru</a></li>
+      <li><a href="Ppdb/list" class="app-item">List Pendaftar Baru</a></li>
     </ul>
   </li>
 
-
+ 
   <!-- Page kits -->
+  <li class="navigation-header"><span>Manajemen Kepegawaian</span> <i class="icon-menu" title="Page kits"></i></li>
+   <li>
+    <a href="#"><i class=" icon-paste4"></i> <span>Penilaian Kinerja Guru</span></a>
+    <ul>
+      <li><a href="Indikator_pkg/get_data" class="app-item">Indikator PKG</a></li>
+      <li><a href="Penilaian_kinerja_guru/get_data" class="app-item">Input Data PKG</a></li>
+    </ul>
+  </li>
+  <li>
+    <a href="#"><i class=" icon-paste4"></i> <span>Persentase Presensi Guru</span></a>
+    <ul>
+      <li><a href="Jadwal_guru/get_data" class="app-item">Jadwal Guru</a></li>
+      <li><a href="Persentase_guru/get_data" class="app-item">Data Persentase Guru</a></li>
+      <li><a href="Presensi_guru/get_data" class="app-item">Presensi Guru</a></li>
+      <li><a href="Presensi_guru/rekap" class="app-item">Rekap Presensi Guru</a></li>
+    </ul>
+  </li>
   <li class="navigation-header"><span>Setting kits</span> <i class="icon-menu" title="Page kits"></i></li>
   <li>
     <a href="#"><i class="icon-stack2"></i> <span>Master</span></a>

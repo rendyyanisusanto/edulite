@@ -29,6 +29,41 @@ class Uts extends MY_Controller {
 		$data['jam']		=	$this->my_where('jam',[])->result_array();
 		$data['dt_guru']	=	$this->get_guru();
 		$data['mapel'] 		= 	$this->my_where('v_guru_mapel', ['id_guru'=>$data['account']['anggota_id']])->result_array();
+		$data['view_mapel']	= [];
+		foreach ($data['dt_guru']['mapel'] as $key => $value) {
+			$data['view_mapel'][] = [
+				'mapel' 			=>	$value,
+				'input_nilai_pts'	=>	$this->my_where('input_nilai_pts', [
+					'idmatapelajaran_fk'		=>	$value['id_mata_pelajaran'],
+					'idkelas_fk'				=>	$value['idkelas_fk'],
+					'idtahunajaran_fk'			=>	$value['id_tahun_ajaran'],
+					'idguru_fk'					=>	$data['account']['anggota_id'],
+				]
+				)->num_rows(),
+				'input_nilai_pas'	=>	$this->my_where('input_nilai_pas', [
+					'idmatapelajaran_fk'		=>	$value['id_mata_pelajaran'],
+					'idkelas_fk'				=>	$value['idkelas_fk'],
+					'idtahunajaran_fk'			=>	$value['id_tahun_ajaran'],
+					'idguru_fk'					=>	$data['account']['anggota_id'],
+				]
+				)->num_rows(),
+				'input_nilai_pengetahuan'	=>	$this->my_where('input_nilai_pengetahuan', [
+					'idmatapelajaran_fk'		=>	$value['id_mata_pelajaran'],
+					'idkelas_fk'				=>	$value['idkelas_fk'],
+					'idtahunajaran_fk'			=>	$value['id_tahun_ajaran'],
+					'idguru_fk'					=>	$data['account']['anggota_id'],
+				]
+				)->num_rows(),
+				'input_nilai_keterampilan'	=>	$this->my_where('input_nilai_keterampilan', [
+					'idmatapelajaran_fk'		=>	$value['id_mata_pelajaran'],
+					'idkelas_fk'				=>	$value['idkelas_fk'],
+					'idtahunajaran_fk'			=>	$value['id_tahun_ajaran'],
+					'idguru_fk'					=>	$data['account']['anggota_id'],
+				]
+				)->num_rows(),
+				'cek_kd'					=>	$this->cek_kd_mapel($value['idkelas_fk'],$value['id_mata_pelajaran'])
+			];
+		}
 		$this->my_view(['role/guru/page/uts/index_page/index','role/guru/page/uts/index_page/js'],$data);
 	}
 
@@ -42,6 +77,28 @@ class Uts extends MY_Controller {
 			$data['mata_pelajaran']		=	$this->my_where('mata_pelajaran', ['id_mata_pelajaran'=>$id_mata_pelajaran])->row_array();
 			$data['tahun_ajaran']		=	$this->my_where('tahun_ajaran', ['id_tahun_ajaran'=>$id_tahun_ajaran])->row_array();
 			$data['siswa']		=	$this->my_where('siswa', ['idkelas_fk'=>$id_kelas])->result_array();
+
+			$input_nilai_pts	=	$this->my_where('input_nilai_pts', [
+					'idmatapelajaran_fk'		=>	$id_mata_pelajaran,
+					'idkelas_fk'				=>	$id_kelas,
+					'idtahunajaran_fk'			=>	$id_tahun_ajaran,
+					'idguru_fk'					=>	$data['account']['anggota_id'],
+				]
+				);
+
+			if ($input_nilai_pts->num_rows() > 0) {
+				$arrSiswa 	= [];
+				$qnilai 	= $input_nilai_pts -> row_array();
+				foreach ($data['siswa'] as $key => $value) {
+					$nilai_pts 	= $this->my_where('nilai_pts', ['idinputnilaipts_fk'=>$qnilai['id_input_nilai_pts'], 'idsiswa_fk'=>$value['id_siswa']])->row_array();
+					$arrSiswa[] = [
+						'nama' => $value['nama'],
+						'id_siswa'=> $value['id_siswa'],
+						'nilai_pts'=>$nilai_pts['nilai']
+					];
+				}
+				$data['siswa'] = $arrSiswa;
+			}
 			$this->my_view(['role/guru/page/uts/input_nilai/index','role/guru/page/uts/input_nilai/js'],$data);
 		}
 	}
@@ -54,6 +111,7 @@ class Uts extends MY_Controller {
 			'idguru_fk' 			=>	$data_set['idguru_fk'],
 			'idmatapelajaran_fk'	=>	$data_set['idmatapelajaran_fk'],
 			'idtahunajaran_fk'		=>	$data_set['idtahunajaran_fk'],
+			'idkelas_fk'			=>	$data_set['idkelas_fk'],
 			'trans_code'			=>	$trans_code
 		];
 		$this->save_data('input_nilai_pts', $data_input_nilai);
@@ -105,6 +163,7 @@ class Uts extends MY_Controller {
 				'idguru_fk' 			=>	$data_set['idguru_fk'],
 				'idmatapelajaran_fk'	=>	$data_set['idmatapelajaran_fk'],
 				'idtahunajaran_fk'		=>	$data_set['idtahunajaran_fk'],
+				'idkelas_fk'			=>	$data_set['idkelas_fk'],
 				'trans_code'			=>	$trans_code
 			];
 			$this->save_data('input_nilai_pts', $data_input_nilai);
@@ -128,7 +187,7 @@ class Uts extends MY_Controller {
 	public function download_file_pts($id_kelas='', $id_mata_pelajaran='', $id_tahun_ajaran ='')
 	{
 		$reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
-		$spreadsheet = $reader->load("include/template/excel/format_pts.xlsx");
+		$spreadsheet = $reader->load("include/template/excel/format_nilai_pts.xlsx");
 		// $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load();
 		$kelas 		=	$this->my_where('kelas', ['id_kelas'=>$id_kelas])->row_array();
 		$tahun_ajaran 		=	$this->my_where('tahun_ajaran', ['id_tahun_ajaran'=>$id_tahun_ajaran])->row_array();
@@ -154,5 +213,6 @@ class Uts extends MY_Controller {
         header('Content-Disposition: attachment; filename="'. urlencode($fileName).'"');
         $writer->save('php://output');
 	}
+	
 
 }

@@ -19,6 +19,7 @@
         <a class="btn bg-purple-400 btn-labeled legitRipple" href="<?php echo $data_get['param']['table'] ?>/cetak_struk"><b><i class="icon-printer"></i></b> Print</a>
 
         <a class="btn bg-warning-400 btn-labeled legitRipple" id="dtl-btn"><b><i class="icon-pencil4"></i></b> Detail</a>
+        <a class="btn bg-purple-400 btn-labeled legitRipple app-item" href="<?php echo $data_get['param']['table'] ?>/perkelas"><b><i class="icon-user"></i></b> Per Kelas</a>
         <hr>
         <div class="table-responsive">
         <table class="table" width="100%" id="tabel-data">

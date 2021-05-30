@@ -21,12 +21,9 @@ class siswa extends MY_Controller {
 	*/
 	public function get_data()
 	{
-		
-
 		$data['account']	=	$this->get_user_account();
 		$data['param'] 		= 	$this->arr;
 		$this->my_view(['role/admin/page/siswa/index_page/index','role/admin/page/siswa/index_page/js'],$data);
-
 	}
 
 	public function add_page()
@@ -38,11 +35,19 @@ class siswa extends MY_Controller {
 		$data['param'] 		= 	$this->arr;
 		$this->my_view(['role/admin/page/siswa/add_page/index','role/admin/page/siswa/add_page/js'],$data);
 	}
+	public function perkelas()
+	{
+		$data['kelas']		=	$this->my_where('kelas', [])->result_array();
+		$data['jurusan']	=	$this->my_where('jurusan', [])->result_array();
+		$data['province']	=	$this->my_where('provinces', [])->result_array();
+		$data['account']	=	$this->get_user_account();
+		$data['param'] 		= 	$this->arr;
+		$this->my_view(['role/admin/page/siswa/perkelas/index','role/admin/page/siswa/perkelas/js'],$data);
+	}
 
 	public function edit_page($id)
 	{
 		if (isset($id)) {
-
 				$data['param'] 		= 	$this->arr;
 				$data['siswa'] 		= 	$this->my_where('siswa',['id_siswa'=>$id])->row_array();
 				$data['kelas']		=	$this->my_where('kelas', [])->result_array();
@@ -226,7 +231,6 @@ class siswa extends MY_Controller {
 
 		$data=[];
 		$data=[
-				'foto'					=>	((isset($foto)) ? $foto['file_name'] : $_POST['foto_before']),
 				'nis'					=>	$_POST['nis'],
 				'nama' 					=>	$_POST['nama'],
 				'idkelas_fk' 			=>	$_POST['idkelas_fk'],
@@ -425,5 +429,73 @@ class siswa extends MY_Controller {
 		$send .= "<script>$('.select').select2();</script>";
 
 		echo $send;
+	}
+
+	public function proses_siswa($value='')
+	{
+		
+		$data['account']	=	$this->get_user_account();
+		$data['param'] 		= 	$this->arr;
+		$data['siswa'] = $this->my_where('v_siswa_jurusan', ['idkelas_fk'=>$_POST['id_kelas']])->result_array(); 
+		$data['kelas']	=	$this->my_where('kelas', ['id_kelas'=>$_POST['id_kelas']])->row_array();
+		$this->my_view(['role/admin/page/siswa/perkelas/proses_siswa','role/admin/page/siswa/perkelas/js_proses'],$data);
+	}
+	public function import_siswa($value='')
+	{
+		$file_mimes = array('application/octet-stream', 'application/vnd.ms-excel', 'application/x-csv', 'text/x-csv', 'text/csv', 'application/csv', 'application/excel', 'application/vnd.msexcel', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+ 
+		if(isset($_FILES['file_upload']['name']) && in_array($_FILES['file_upload']['type'], $file_mimes)) {
+		 	
+		    $arr_file = explode('.', $_FILES['file_upload']['name']);
+		    $extension = end($arr_file);
+		 
+		    if($extension == 'csv'){
+                    $reader = new \PhpOffice\PhpSpreadsheet\Reader\Csv();
+                } elseif($extension == 'xlsx') {
+                    $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
+                } else {
+                    $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xls();
+                }
+		 
+		    $spreadsheet = $reader->load($_FILES['file_upload']['tmp_name']);
+		    $send = [];
+		    // $sheetData = $spreadsheet->getActiveSheet();
+			$sheetData = $spreadsheet->getActiveSheet()->toArray();
+			for($i = 13 ;$i < count($sheetData);$i++)
+			{
+		        $nama = $sheetData[$i]['1'];
+		        $kelas = $sheetData[$i]['2'];
+		        $alamat = $sheetData[$i]['3'];
+		        if (isset($sheetData[$i]['1'])) {
+		        	$send [] = [
+						'nama' 					=>  (!empty($sheetData[$i]['1'])) ? $sheetData[$i]['1'] : '',
+						'nis'					=>	(!empty($sheetData[$i]['2'])) ? $sheetData[$i]['2'] : '',
+						'idkelas_fk'			=>	$_POST['idkelas_fk']
+					];
+		        }
+		        
+		    }
+			
+
+			$this->save_data_batch('siswa', $send);
+		    echo json_encode($sheetData);
+		}
+	}
+	public function download_file_siswa($id_kelas='')
+	{
+		$reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
+		$spreadsheet = $reader->load("include/template/excel/format_import_siswa.xlsx");
+		// $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load();
+		$kelas 		=	$this->my_where('kelas', ['id_kelas'=>$id_kelas])->row_array();
+		//change it
+		$sheet = $spreadsheet->getActiveSheet();
+		$sheet->setCellValue('A10', $kelas['kelas']);
+
+		//write it again to Filesystem with the same name (=replace)
+		$writer = new Xlsx($spreadsheet);
+		$fileName = "SISWA_KELAS_".$kelas['kelas'].".xlsx";
+		header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        header('Content-Disposition: attachment; filename="'. urlencode($fileName).'"');
+        $writer->save('php://output');
 	}
 }

@@ -67,10 +67,14 @@ class kepegawaian extends MY_Controller {
 	public function simpan_data()
 	{	
 		$random_code = 'G'.rand(0,999999);
-		$foto = $this->save_media([
-			'path'	=>	"./include/media/foto_guru/",
-			'filename' => 'foto',
-		]);
+		$foto = '';
+		if(file_exists($_FILES['foto']['tmp_name']) || is_uploaded_file($_FILES['foto']['tmp_name'])) {
+			$foto = $this->save_media([
+				'path'	=>	"./include/media/foto_pegawai/",
+				'filename' => 'foto',
+			]);
+		}
+		
 		$data = [
 			'nama'					=>	$_POST['nama'],
 			'nip'					=>	$_POST['nip'],
@@ -252,18 +256,54 @@ class kepegawaian extends MY_Controller {
 
 	function update_data()
 	{
+		$foto = '';
+		if(file_exists($_FILES['foto']['tmp_name']) || is_uploaded_file($_FILES['foto']['tmp_name'])) {
+			$foto = $this->save_media([
+				'path'	=>	"./include/media/foto_pegawai/",
+				'filename' => 'foto',
+			]);
+		}
+		
+
+
 		$data = [
-			'kode_arsip' 	=> $_POST['kode_arsip'],
-			'pengirim' 		=> $_POST['pengirim'],
-			'tanggal_surat' => $_POST['tanggal_surat'],
-			'perihal' 		=> $_POST['perihal'],
-			'no_surat' 		=> $_POST['no_surat'],
+			'nama'					=>	$_POST['nama'],
+			'nip'					=>	$_POST['nip'],
+			'alamat'				=>	$_POST['alamat'],
+			'email'					=>	$_POST['email'],
+			'no_hp'					=>	$_POST['no_hp'],
+			'jenis_kelamin'			=>	$_POST['jenis_kelamin'],
+			'tempat_lahir'			=>	$_POST['tempat_lahir'],
+			'tanggal_lahir'			=>	$_POST['tanggal_lahir'],
+			'agama'					=>	$_POST['agama'],
+			'kewarganegaraan'		=>	$_POST['kewarganegaraan'],
+			'status_pernikahan'		=>	$_POST['status_pernikahan'],
+			'status_rumah'			=>	$_POST['status_rumah'],
+			'jarak_ke_kantor'		=>	$_POST['jarak_ke_kantor'],
+			'bb'					=>	$_POST['bb'],
+			'tb'					=>	$_POST['tb'],
+			'gd'					=>	$_POST['gd'],
+			'penyakit'				=>	$_POST['penyakit'],
+			'kelainan'				=>	$_POST['kelainan'],
+			'no_karpeg'				=>	$_POST['no_karpeg'],
+			'mulai_bertugas'		=>	$_POST['mulai_bertugas'],
+			'berasal_dari'			=>	$_POST['berasal_dari'],
+			'tanggal_meninggalkan'	=>	$_POST['tanggal_meninggalkan'],
+			'alasan_meninggalkan'	=>	$_POST['alasan_meninggalkan'],
+			'istri'					=>	$_POST['istri'],
+			'status_kepegawaian'	=>	$_POST['status_kepegawaian'],
+			'no_taspen'				=>	$_POST['no_taspen']
 		];
-		if ($this->my_update('kepegawaian',$data,['id_kepegawaian'=>$_POST['id_kepegawaian']])) {
-			// print_r(((isset($foto)) ? $foto['file_name'] : $_POST['foto_before']));
+		if(file_exists($_FILES['foto']['tmp_name']) || is_uploaded_file($_FILES['foto']['tmp_name'])) {
+			$data['foto'] = ((isset($foto)) ? $foto['file_name'] : '');
+		}
+
+		if ($this->my_update('guru', $data, ['id_guru'=>$_POST['id_guru']])) {
+			$this->get_data();
 		}	else 	{
 			echo "error";
 		}
+
 	}
 
 	/*
@@ -383,7 +423,7 @@ class kepegawaian extends MY_Controller {
             $row        =   array();
             $row[]      =   '<input type="checkbox" name="get-check" value="'.$field['id_guru'].'"></input>';
             $row[]		=	'<a href="kepegawaian/detail_page/'.$field['id_guru'].'" class="app-item"><b>'.strtoupper($field['kode_pegawai']).'</b></a>';
-            
+            $row[]		=	!empty($field['foto']) ? "<img class='img' style='width:80px;height:100px;' src='".base_url('include/media/foto_pegawai/'.$field['foto'])."'></img>" : "<img class='img' style='max-width:100px;' src='".base_url('include/media/default_image/noimage.png')."'></img>"; 
             $row[]		=	!empty($field['nama']) ? strtoupper($field['nama']) : '-';
             $row[]		=	!empty($field['alamat']) ? strtoupper($field['alamat']) : '-';
             $row[]		=	!empty($field['no_hp']) ? $field['no_hp'] : '-';

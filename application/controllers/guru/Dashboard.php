@@ -6,6 +6,8 @@ class Dashboard extends MY_Controller {
 	public function get_data()
 	{
 		$data				=	$this->get_guru();
+		$data['cek_kd']		=	$this->cek_kd();
+		$data['tahun_ajaran']	=	$this->tahun_ajaran_aktif();
 		$this->my_view(['role/guru/page/dashboard/index_page/index','role/guru/page/dashboard/index_page/js'],$data);
 	}
 }

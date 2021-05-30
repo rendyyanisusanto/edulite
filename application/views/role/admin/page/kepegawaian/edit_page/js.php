@@ -9,8 +9,8 @@
         send_ajax_file( $(this).attr('action'),form_data).then( function(data){
 	            $(".se-pre-con").fadeOut("slow");
 	            // console.log(data);
-	            // toastr.success('Data berhasil ditambahkan, Refresh untuk melihat perubahan');
-	            // set_content('kepegawaian/get_data');
+	            toastr.success('Data berhasil ditambahkan, Refresh untuk melihat perubahan');
+	            set_content('kepegawaian/get_data');
 	        });
 	    return false;
 	});

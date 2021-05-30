@@ -16,7 +16,10 @@
 
   <link rel="stylesheet" href="<?php echo base_url('include/template/toastr/toastr.css')?>">
   <!-- /global stylesheets -->
-
+  <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
   <!-- Core JS files -->
   <script src="<?php echo base_url('include/template/limitless2/')?>global_assets/js/plugins/loaders/pace.min.js"></script>
   <script src="<?php echo base_url('include/template/limitless2/')?>global_assets/js/core/libraries/jquery.min.js"></script>

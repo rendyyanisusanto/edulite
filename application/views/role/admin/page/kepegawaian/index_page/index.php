@@ -25,6 +25,7 @@
           <thead>
             <tr>
               <th width="1%">#</th>
+              <th width="15%">Foto</th>
               <th width="15%">Kode</th>
               <th width="25%">Nama</th>
               <th>Alamat</th>

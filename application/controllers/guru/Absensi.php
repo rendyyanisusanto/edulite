@@ -8,7 +8,7 @@ class absensi extends MY_Controller {
 
 	public $arr = [
 			'title'				=>	'Halaman siswa_kelas',
-			'table'				=>	'siswa_kelas',
+			'table'				=>	'absensi',
 			'column'			=>	[ 'siswa_kelas'],
 			'column_order'		=>	[ 'id_siswa_kelas','siswa_kelas'],
 			'column_search'		=>	[ 'id_siswa_kelas','siswa_kelas'],
@@ -23,105 +23,123 @@ class absensi extends MY_Controller {
 	{
 		$data['account']	=	$this->get_user_account();
 		$data['param'] 		= 	$this->arr;
-		$data['kelas']		=	$this->my_where('kelas',[])->result_array();
-		$data['guru']		=	$this->my_where('guru', ['id_guru'=>$data['account']['anggota_id']])->row_array();
-		$data['mata_pelajaran']		=	$this->my_where('mata_pelajaran',[])->result_array();
-		$data['jam']		=	$this->my_where('jam',[])->result_array();
-		
+		$data['dt_guru']	=	$this->get_guru();
+		$data['tahun_ajaran']		=	$this->my_where('tahun_ajaran', [])->result_array();
 		$data['mapel'] 		= 	$this->my_where('v_guru_mapel', ['id_guru'=>$data['account']['anggota_id']])->result_array();
 		$this->my_view(['role/guru/page/absensi/index_page/index','role/guru/page/absensi/index_page/js'],$data);
 	}
-
-	public function get_siswa()
+	public function proses_absensi($value='')
 	{
-		$kelas = $_POST['kelas'];
-		$siswa = $this->my_where('siswa', ['idkelas_fk'=>$kelas])->result_array();
-
-		$send = '<div class="panel panel-body">';
-		$send .= '<div class="table-responsive">';
-		$send .= '<table  class="table table-bordered">';
-		$send .= '<thead>';
-		$send .= '<tr>';
-			$send .= '<th>No</th>';
-			$send .= '<th>Nama</th>';
-			$send .= '<th>Masuk</th>';
-			$send .= '<th>Tidak Masuk</th>';
-			$send .= '<th>Keterangan</th>';
-		$send .= '</tr>';
-		$send .= '</thead>';
-		$i = 0;
-		$no = 0;
+		$data['account']	=	$this->get_user_account();
+		$data['param'] 		= 	$this->arr;
+		$data['tahun_ajaran']		=	$this->my_where('tahun_ajaran', ['id_tahun_ajaran'=>$_POST['idtahunajaran_fk']])->row_array();
+		$siswa		=	$this->my_where('siswa', ['idkelas_fk'=>$_POST['idkelas_fk']])->result_array();
+		$data['kelas']		=	$this->my_where('kelas', ['id_kelas'=>$_POST['idkelas_fk']])->row_array();
+		$data['siswa'] = [];
 		foreach ($siswa as $key => $value) {
-			$check = $this->my_where('absensi', [
-				'idsiswa_fk' 			=>  $value['id_siswa'],
-				'tanggal'				=>	$_POST['tanggal'],
-				'idmatapelajaran_fk'	=>	$_POST['mata_pelajaran'],
-				'idjam_fk'				=>	$_POST['jam'],
-				'idguru_fk'				=>	$_POST['guru'],
-				'idkelas_fk'			=>	$_POST['kelas']
-			]);
-			$check_num = $check->num_rows();
-			$check_row = $check->row_array();
-			// print_r($check_num);
-			$send .= '<tr >';
-			$send .= '<td>'.(++$no).'</td>';
-			$send .= '<td>'.$value['nama'].'</td>';
-			$send .= '<td><input type="radio" value="1" '.(($check_num>0)?(($check_row['status']==1)?'checked':''):'checked').' name="absensi['.($i).'][absensi]" /> M</td>';
-			$send .= '<td><input type="radio" '.(($check_num>0)?(($check_row['status']==0)?'checked':''):'').' value="0" name="absensi['.($i).'][absensi]" /> TM</td>';
-			$send .= '<td><input type="text" value="'.(($check_num>0)?$check_row['keterangan']:'').'" name="absensi['.($i).'][keterangan]" class="form-control"/> </td>';
-			$send .= '<input type="hidden" value="'.$value['id_siswa'].'" name="absensi['.($i).'][idsiswa_fk]" />';
-			$send .= '<input type="hidden" value="'.(($check_num>0)?1:0).'" name="absensi['.($i).'][stt]" />';
-			$send .= '</tr>';	
-			$i++;
+			$presensi = $this->my_where('presensi_rapor', [
+				'idsiswa_fk' => $value['id_siswa'],
+				'idtahunajaran_fk'=>$_POST['idtahunajaran_fk'],
+				'idkelas_fk'=>$_POST['idkelas_fk']
+			])->row_array();
+
+			$data['siswa'][] = [
+				'siswa' => $value,
+				'presensi' => !empty($presensi) ? $presensi : []
+			];
+ 		}
+		$this->my_view(['role/guru/page/absensi/index_page/list_siswa'],$data);
+	}
+	public function download_file($id_kelas='', $id_tahun_ajaran ='')
+	{
+		$reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
+		$spreadsheet = $reader->load("include/template/excel/format_absensi.xlsx");
+		// $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load();
+		$kelas 		=	$this->my_where('kelas', ['id_kelas'=>$id_kelas])->row_array();
+		$tahun_ajaran 		=	$this->my_where('tahun_ajaran', ['id_tahun_ajaran'=>$id_tahun_ajaran])->row_array();
+		$siswa		=	$this->my_where('siswa', ['idkelas_fk'=>$id_kelas])->result_array();
+		//change it
+		$sheet = $spreadsheet->getActiveSheet();
+		$sheet->setCellValue('A10', $kelas['kelas']);
+		foreach ($siswa as $key => $value) {
+			$cek = $this->my_where('presensi_rapor', [
+					'idsiswa_fk' => $value['id_siswa'],
+					'idkelas_fk' => $id_kelas,
+					'idtahunajaran_fk' => $id_tahun_ajaran
+				]);
+			
+			$sheet->setCellValue('B'.($key+14), $value['nama']);
+			$sheet->setCellValue('C'.($key+14), (($cek->num_rows() > 0) ? $cek->row_array()['sakit'] : ''));
+			$sheet->setCellValue('D'.($key+14), (($cek->num_rows() > 0) ? $cek->row_array()['ijin'] : ''));
+			$sheet->setCellValue('E'.($key+14), (($cek->num_rows() > 0) ? $cek->row_array()['alpha'] : ''));
+			$spreadsheet->getActiveSheet()->getStyle('D'.($key+14))->getFont()->getColor()->setARGB(\PhpOffice\PhpSpreadsheet\Style\Color::COLOR_RED);
+			$sheet->getStyle('F'.($key+14))->getProtection()->setLocked(\PhpOffice\PhpSpreadsheet\Style\Protection::PROTECTION_PROTECTED);
+			$sheet->setCellValue('F'.($key+14), $value['id_siswa']);
 		}
-		$send .= '</table>';
-		$send .= '<div>';
-		$send .= '<br/>';
-		$send .= '<center><button type="submit" class="btn btn-success btn-sbm">Submit</button></center>';
-		$send .= '</div>';
-		echo $send;
+		
+
+		//write it again to Filesystem with the same name (=replace)
+		$writer = new Xlsx($spreadsheet);
+		$fileName = "ABSENSI_KELAS_".$kelas['kelas']."_TAHUN_AJARAN_".$tahun_ajaran['tahun_ajaran'].$tahun_ajaran['semester'].".xlsx";
+		header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        header('Content-Disposition: attachment; filename="'. urlencode($fileName).'"');
+        $writer->save('php://output');
 	}
 
-	public function simpan_data()
+	public function impor_presensi_rapor()
 	{
-		$data_siswa = [];
-		foreach ($_POST['absensi'] as $key => $value) {
-			$data_siswa = [
-				'idsiswa_fk' 			=>  $value['idsiswa_fk'],
-				'tanggal'				=>	$_POST['tanggal'],
-				'idmatapelajaran_fk'	=>	$_POST['idmatapelajaran_fk'],
-				'status'				=>	$value['absensi'],
-				'keterangan'			=>	$value['keterangan'],
-				'idjam_fk'				=>	$_POST['idjam_fk'],
-				'idguru_fk'				=>	$_POST['idguru_fk'],
-				'idkelas_fk'			=>	$_POST['idkelas_fk']
-			];
+		$file_mimes = array('application/octet-stream', 'application/vnd.ms-excel', 'application/x-csv', 'text/x-csv', 'text/csv', 'application/csv', 'application/excel', 'application/vnd.msexcel', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+ 
+		if(isset($_FILES['file_upload']['name']) && in_array($_FILES['file_upload']['type'], $file_mimes)) {
+		 	
+		 	$kelas 		=	$this->my_where('kelas', ['id_kelas'=>$_POST['idkelas_fk']])->row_array();
+			$tahun_ajaran 		=	$this->my_where('tahun_ajaran', ['id_tahun_ajaran'=>$_POST['idtahunajaran_fk']])->row_array();
+			$siswa		=	$this->my_where('siswa', ['idkelas_fk'=>$_POST['idkelas_fk']])->result_array();
+		    $arr_file = explode('.', $_FILES['file_upload']['name']);
+		    $extension = end($arr_file);
+		 
+		    if($extension == 'csv'){
+                    $reader = new \PhpOffice\PhpSpreadsheet\Reader\Csv();
+                } elseif($extension == 'xlsx') {
+                    $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
+                } else {
+                    $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xls();
+            }
+		 
+		    $spreadsheet = $reader->load($_FILES['file_upload']['tmp_name']);
+		    $send = [];
+		    $sheetData = $spreadsheet->getActiveSheet();
+			
+			foreach ($siswa as $key => $value) {
+				// cek
+				$cek = $this->my_where('presensi_rapor', [
+					'idsiswa_fk' => $sheetData->getCell('F'.($key+14))->getValue(),
+					'idkelas_fk' => $_POST['idkelas_fk'],
+					'idtahunajaran_fk' => $_POST['idtahunajaran_fk']
+				]);
+				// insert
+				$data_set = [
+					'idsiswa_fk' 			=> $sheetData->getCell('F'.($key+14))->getValue(),
+					'sakit'					=>	(!empty($sheetData->getCell('C'.($key+14))->getValue())) ? $sheetData->getCell('C'.($key+14))->getValue() : "",
+					'ijin'					=>	(!empty($sheetData->getCell('D'.($key+14))->getValue())) ? $sheetData->getCell('D'.($key+14))->getValue() : "",
+					'alpha'					=>	(!empty($sheetData->getCell('E'.($key+14))->getValue())) ? $sheetData->getCell('E'.($key+14))->getValue() : "",
+					'idkelas_fk'			=>	$_POST['idkelas_fk'],
+					'idtahunajaran_fk'		=>	$_POST['idtahunajaran_fk']
+				];
 
-			$check =[
-				'idsiswa_fk' 			=>  $value['idsiswa_fk'],
-				'tanggal'				=>	$_POST['tanggal'],
-				'idmatapelajaran_fk'	=>	$_POST['idmatapelajaran_fk'],
-				'idjam_fk'				=>	$_POST['idjam_fk'],
-				'idguru_fk'				=>	$_POST['idguru_fk'],
-				'idkelas_fk'			=>	$_POST['idkelas_fk']
-			];
-
-			if ($value['stt'] == 1) {
-				$this->my_update('absensi', $data_siswa, $check);
-			}else{
-				$this->save_data('absensi', $data_siswa);
+				if ($cek->num_rows() > 0) {
+					$this->my_update('presensi_rapor', $data_set, ['idsiswa_fk'=>$sheetData->getCell('F'.($key+14))->getValue()]);
+				}else{
+					$send [] = $data_set;
+				}
+				
+				
 			}
-
-
+			if (count($send) > 0) {
+				$this->save_data_batch('presensi_rapor', $send);
+			}
+		    echo json_encode($send);
 		}
-		echo json_encode($data_siswa);
 	}
 
-	function get_kelas_jadwal()
-	{
-
-		$data	= 	$this->my_where('v_guru_mapel', ['id_guru_mapel'=>$_POST['id']])->row_array();
-
-		echo json_encode($data);
-	}
 }
