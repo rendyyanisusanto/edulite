@@ -20,7 +20,7 @@ class Penilaian_kinerja_guru extends MY_Controller {
 		$data['account']	=	$this->get_user_account();
 		$data['tahun_ajaran'] = 	$this->my_where('tahun_ajaran', [])->result_array();
 		$data['guru'] 		= 	$this->my_where('guru', [])->result_array();
-		$this->my_view(['role/admin/page/penilaian_kinerja_guru/index_page/index','role/admin/page/penilaian_kinerja_guru/index_page/js'],$data);
+		$this->my_view(['role/kepsek/page/penilaian_kinerja_guru/index_page/index','role/kepsek/page/penilaian_kinerja_guru/index_page/js'],$data);
 	}
 	public function report_pkg()
 	{
@@ -28,45 +28,7 @@ class Penilaian_kinerja_guru extends MY_Controller {
 		$data['account']	=	$this->get_user_account();
 		$data['tahun_ajaran'] = 	$this->my_where('tahun_ajaran', [])->result_array();
 		$data['guru'] 		= 	$this->my_where('guru', [])->result_array();
-		$this->my_view(['role/admin/page/penilaian_kinerja_guru/report_pkg/index','role/admin/page/penilaian_kinerja_guru/report_pkg/js'],$data);
-	}
-	public function report_pkg_guru($id_guru, $periode, $idtahunajaran_fk)
-	{
-		$data['param']		=	$this->arr;
-		$data['account']	=	$this->get_user_account();
-		$data['tahun_ajaran'] = 	$this->my_where('tahun_ajaran', ['id_tahun_ajaran'=>$idtahunajaran_fk])->row_array();
-		$data['guru'] 		= 	$this->my_where('guru', ['id_guru'=>$id_guru])->row_array();
-		$data['periode']	=	$periode;
-
-		$kompetensi_pkg				=	$this->my_where('kompetensi_pkg',[])->result_array();
-		$data['indikator_pkg'] = [];
-		foreach ($kompetensi_pkg as $key => $value) {
-			$subkompetensi_pkg 	= 	$this->my_where('subkompetensi_pkg', ['idkompetensipkg_fk'=>$value['id_kompetensi_pkg']])->result_array();
-			$qpkg 				=	[];
-			
-				foreach ($subkompetensi_pkg as $value_sub) {
-					$get_pkg = $this->my_where('v_pkg', [
-						'idguru_fk'	=>	$id_guru,
-						'bulan'		=>	date_format(date_create($periode),"m" ),
-						'tahun'		=>	date_format(date_create($periode),"Y" ),
-						'idtahunajaran_fk'	=>	$idtahunajaran_fk,
-						'idsubkompetensipkg_fk'	=>	$value_sub['id_subkompetensi_pkg']
-					])->row_array();
-
-					$qpkg[] 	= [
-						'id_subkompetensi_pkg'	=> 	$value_sub['id_subkompetensi_pkg'],
-						'idkompetensipkg_fk'	=>	$value_sub['idkompetensipkg_fk'],
-						'subkompetensi'			=>	$value_sub['subkompetensi'],
-						'nilai'					=>	$get_pkg['nilai']
-					];
-				}
-			
-			$data['indikator_pkg'][] = [
-				'kompetensi_pkg' => $value,
-				'subkompetensi_pkg' => $qpkg
-			];
-		}
-		$this->my_view(['role/admin/page/penilaian_kinerja_guru/report_pkg/index_guru'],$data);
+		$this->my_view(['role/kepsek/page/penilaian_kinerja_guru/report_pkg/index','role/kepsek/page/penilaian_kinerja_guru/report_pkg/js'],$data);
 	}
 	public function get_data_bulanan()
 	{
@@ -74,7 +36,7 @@ class Penilaian_kinerja_guru extends MY_Controller {
 		$data['account']	=	$this->get_user_account();
 		$data['tahun_ajaran'] = 	$this->my_where('tahun_ajaran', [])->result_array();
 		$data['guru'] 		= 	$this->my_where('guru', [])->result_array();
-		$this->my_view(['role/admin/page/penilaian_kinerja_guru/index2_page/index','role/admin/page/penilaian_kinerja_guru/index2_page/modal_pkg','role/admin/page/penilaian_kinerja_guru/index2_page/js'],$data);
+		$this->my_view(['role/kepsek/page/penilaian_kinerja_guru/index2_page/index','role/kepsek/page/penilaian_kinerja_guru/index2_page/modal_pkg','role/kepsek/page/penilaian_kinerja_guru/index2_page/js'],$data);
 	}
 
 	public function proses_data()
@@ -92,7 +54,7 @@ class Penilaian_kinerja_guru extends MY_Controller {
 				'subkompetensi_pkg' => $subkompetensi_pkg
 			];
 		}
-		$this->my_view(['role/admin/page/penilaian_kinerja_guru/index_page/proses_data'],$data);
+		$this->my_view(['role/kepsek/page/penilaian_kinerja_guru/index_page/proses_data'],$data);
 	}
 	function get_proses_now()
 	{
@@ -116,7 +78,7 @@ class Penilaian_kinerja_guru extends MY_Controller {
 				'pkg'	=>	$pkg
 			];
 		}
-		$this->my_view(['role/admin/page/penilaian_kinerja_guru/index2_page/proses_data'],$data);
+		$this->my_view(['role/kepsek/page/penilaian_kinerja_guru/index2_page/proses_data'],$data);
 	}
 	function save_pkg()
 	{
@@ -185,7 +147,7 @@ class Penilaian_kinerja_guru extends MY_Controller {
 				'subkompetensi_pkg' => $qpkg
 			];
 		}
-		$this->my_view(['role/admin/page/penilaian_kinerja_guru/index2_page/data_pkg'],$data);
+		$this->my_view(['role/kepsek/page/penilaian_kinerja_guru/index2_page/data_pkg'],$data);
 	}
 
 	function proses_report()
@@ -234,94 +196,6 @@ class Penilaian_kinerja_guru extends MY_Controller {
 				'predikat' => $predikat_pkg
 			];
 		}
-		$this->my_view(['role/admin/page/penilaian_kinerja_guru/report_pkg/report_pkg'],$data);
-	}
-
-	function cetak_pkg_all($periode, $tahun_ajaran)
-	{
-		$data['guru'] 				= 	$this->my_where('guru', [])->result_array();
-		$data['c_sub'] 				= 	$this->my_where('subkompetensi_pkg', [])->num_rows();
-		$data['tahun_ajaran'] 		= 	$this->my_where('tahun_ajaran', ['id_tahun_ajaran'=>$tahun_ajaran])->row_array();
-		$data['periode']			=	$periode;
-		$kompetensi_pkg				=	$this->my_where('kompetensi_pkg',[])->result_array();
-		$data['indikator_pkg']		=	[];
-		$data['all']				=	[];
-		foreach ($kompetensi_pkg as $key => $value) {
-			$subkompetensi_pkg = $this->my_where('subkompetensi_pkg', ['idkompetensipkg_fk'=>$value['id_kompetensi_pkg']])->result_array();	
-			
-			$data['indikator_pkg'][] = [
-				'kompetensi_pkg' => $value,
-				'subkompetensi_pkg' => $subkompetensi_pkg
-			];
-		}
-		foreach ($data['guru'] as $value) {
-			$subkompetensi_pkg = $this->my_where('subkompetensi_pkg', [])->result_array();	
-			$all_sub = [];
-			$total = 0;
-			foreach ($subkompetensi_pkg as $key => $value_sub) {
-				$get_pkg = $this->my_where('v_pkg', [
-							'idguru_fk'	=>	$value['id_guru'],
-							'bulan'		=>	date_format(date_create($periode),"m" ),
-							'tahun'		=>	date_format(date_create($periode),"Y" ),
-							'idtahunajaran_fk'	=>	$tahun_ajaran,
-							'idsubkompetensipkg_fk'	=>	$value_sub['id_subkompetensi_pkg']
-						])->row_array();
-				$all_sub[] = [
-					'subkompetensi_pkg' => $value_sub,
-					'nilai'				=>	(isset($get_pkg['nilai'])) ? $get_pkg['nilai'] :'-'
-				];
-				(isset($get_pkg['nilai'])) ? $total+=$get_pkg['nilai'] :$total ;
-			}
-
-			$hasil =  number_format((($total/(count($subkompetensi_pkg) * 4))*100),0,'.','.');
-			$predikat_pkg = $this->my_where('predikat_pkg', ['min <= '=>$hasil, 'max>='=>$hasil])->row_array();	
-			$data['all'][] = [
-				'guru' 	=> $value,
-				'nilai' => $all_sub,
-				'total' => $total,
-				'hasil'	=> number_format((($total/(count($subkompetensi_pkg) * 4))*100),2,'.','.'),
-				'predikat' => $predikat_pkg
-			];
-		}
-		// $this->load->view('role/admin/page/penilaian_kinerja_guru/report_pkg/cetak_pkg_all', $data);
-		$this->my_view(['role/admin/page/penilaian_kinerja_guru/report_pkg/cetak_pkg_all'],$data);
-	}
-	function cetak_pkg_guru($id_guru='',$periode, $tahun_ajaran)
-	{
-		$data['param']		=	$this->arr;
-		$data['account']	=	$this->get_user_account();
-		$data['tahun_ajaran'] = 	$this->my_where('tahun_ajaran', ['id_tahun_ajaran'=>$tahun_ajaran])->row_array();
-		$data['guru'] 		= 	$this->my_where('guru', ['id_guru'=>$id_guru])->row_array();
-		$data['periode']	=	$periode;
-
-		$kompetensi_pkg				=	$this->my_where('kompetensi_pkg',[])->result_array();
-		$data['indikator_pkg'] = [];
-		foreach ($kompetensi_pkg as $key => $value) {
-			$subkompetensi_pkg 	= 	$this->my_where('subkompetensi_pkg', ['idkompetensipkg_fk'=>$value['id_kompetensi_pkg']])->result_array();
-			$qpkg 				=	[];
-			
-				foreach ($subkompetensi_pkg as $value_sub) {
-					$get_pkg = $this->my_where('v_pkg', [
-						'idguru_fk'	=>	$id_guru,
-						'bulan'		=>	date_format(date_create($periode),"m" ),
-						'tahun'		=>	date_format(date_create($periode),"Y" ),
-						'idtahunajaran_fk'	=>	$tahun_ajaran,
-						'idsubkompetensipkg_fk'	=>	$value_sub['id_subkompetensi_pkg']
-					])->row_array();
-
-					$qpkg[] 	= [
-						'id_subkompetensi_pkg'	=> 	$value_sub['id_subkompetensi_pkg'],
-						'idkompetensipkg_fk'	=>	$value_sub['idkompetensipkg_fk'],
-						'subkompetensi'			=>	$value_sub['subkompetensi'],
-						'nilai'					=>	$get_pkg['nilai']
-					];
-				}
-			
-			$data['indikator_pkg'][] = [
-				'kompetensi_pkg' => $value,
-				'subkompetensi_pkg' => $qpkg
-			];
-		}
-		$this->my_view(['role/admin/page/penilaian_kinerja_guru/report_pkg/cetak_per_guru'],$data);
+		$this->my_view(['role/kepsek/page/penilaian_kinerja_guru/report_pkg/report_pkg'],$data);
 	}
 }

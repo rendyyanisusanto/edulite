@@ -4,7 +4,7 @@
 		blockui($('.panel-top'));
 		blockui($('.panel-proses'));
 		send_ajax($(this).attr('action'), $(this).serialize()).then(function(data){
-			$('.panel-nilai').html(data);
+			$('.panel-pkg').html(data);
 			unblockui('.panel-top');
 			unblockui('.panel-proses');
 		});

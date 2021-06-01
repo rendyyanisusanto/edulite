@@ -1,7 +1,7 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : xampp
+ Source Server         : XAMPP
  Source Server Type    : MySQL
  Source Server Version : 100138
  Source Host           : localhost:3306
@@ -11,7 +11,7 @@
  Target Server Version : 100138
  File Encoding         : 65001
 
- Date: 30/05/2021 08:35:44
+ Date: 01/06/2021 22:10:29
 */
 
 SET NAMES utf8mb4;
@@ -874,6 +874,120 @@ CREATE TABLE `component_jadwal`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
+-- Table structure for component_penilaian_kinerja_guru
+-- ----------------------------
+DROP TABLE IF EXISTS `component_penilaian_kinerja_guru`;
+CREATE TABLE `component_penilaian_kinerja_guru`  (
+  `id_component_penilaian_kinerja_guru` int(11) NOT NULL AUTO_INCREMENT,
+  `idpenilaiankinerjaguru_fk` int(11) NULL DEFAULT NULL,
+  `idsubkompetensipkg_fk` int(11) NULL DEFAULT NULL,
+  `nilai` int(255) NULL DEFAULT NULL,
+  PRIMARY KEY (`id_component_penilaian_kinerja_guru`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 116 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of component_penilaian_kinerja_guru
+-- ----------------------------
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (4, 2, 1, 1);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (5, 2, 2, 2);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (6, 2, 3, 1);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (7, 2, 4, 1);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (8, 2, 5, 2);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (9, 2, 6, 3);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (10, 2, 7, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (11, 2, 8, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (12, 2, 9, 2);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (13, 2, 10, 3);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (14, 2, 11, 1);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (15, 2, 12, 1);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (16, 2, 13, 2);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (17, 2, 14, 1);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (18, 3, 1, 2);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (19, 3, 2, 1);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (20, 3, 3, 3);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (21, 3, 4, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (22, 3, 5, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (23, 3, 6, 2);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (24, 3, 7, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (25, 3, 8, 3);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (26, 3, 9, 1);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (27, 3, 10, 2);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (28, 3, 11, 2);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (29, 3, 12, 3);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (30, 3, 13, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (31, 3, 14, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (32, 4, 1, 0);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (33, 4, 2, 0);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (34, 4, 3, 0);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (35, 4, 4, 0);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (36, 4, 5, 0);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (37, 4, 6, 0);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (38, 4, 7, 0);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (39, 4, 8, 0);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (40, 4, 9, 0);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (41, 4, 10, 0);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (42, 4, 11, 0);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (43, 4, 12, 0);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (44, 4, 13, 0);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (45, 4, 14, 0);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (46, 5, 1, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (47, 5, 2, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (48, 5, 3, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (49, 5, 4, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (50, 5, 5, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (51, 5, 6, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (52, 5, 7, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (53, 5, 8, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (54, 5, 9, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (55, 5, 10, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (56, 5, 11, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (57, 5, 12, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (58, 5, 13, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (59, 5, 14, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (60, 6, 1, 3);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (61, 6, 2, 3);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (62, 6, 3, 3);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (63, 6, 4, 3);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (64, 6, 5, 3);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (65, 6, 6, 3);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (66, 6, 7, 3);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (67, 6, 8, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (68, 6, 9, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (69, 6, 10, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (70, 6, 11, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (71, 6, 12, 3);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (72, 6, 13, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (73, 6, 14, 3);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (88, 8, 1, 3);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (89, 8, 2, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (90, 8, 3, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (91, 8, 4, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (92, 8, 5, 3);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (93, 8, 6, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (94, 8, 7, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (95, 8, 8, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (96, 8, 9, 3);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (97, 8, 10, 3);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (98, 8, 11, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (99, 8, 12, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (100, 8, 13, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (101, 8, 14, 3);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (102, 9, 1, 3);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (103, 9, 2, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (104, 9, 3, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (105, 9, 4, 3);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (106, 9, 5, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (107, 9, 6, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (108, 9, 7, 3);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (109, 9, 8, 3);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (110, 9, 9, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (111, 9, 10, 3);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (112, 9, 11, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (113, 9, 12, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (114, 9, 13, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (115, 9, 14, 3);
+
+-- ----------------------------
 -- Table structure for dokumen_pegawai
 -- ----------------------------
 DROP TABLE IF EXISTS `dokumen_pegawai`;
@@ -936,7 +1050,7 @@ CREATE TABLE `groups`  (
   `name` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `description` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of groups
@@ -947,6 +1061,7 @@ INSERT INTO `groups` VALUES (3, 'guru', 'Guru');
 INSERT INTO `groups` VALUES (4, 'staff', 'Staff');
 INSERT INTO `groups` VALUES (5, 'kepsek', 'kepsek');
 INSERT INTO `groups` VALUES (6, 'kurikulum', 'kurikulum');
+INSERT INTO `groups` VALUES (7, 'tu', 'Tata Usaha');
 
 -- ----------------------------
 -- Table structure for guru
@@ -2254,6 +2369,31 @@ INSERT INTO `pendidikan_pegawai` VALUES (9, 27, 'smk', 'ya', 2020);
 INSERT INTO `pendidikan_pegawai` VALUES (10, 27, 'd3', 'ya', 2020);
 
 -- ----------------------------
+-- Table structure for penilaian_kinerja_guru
+-- ----------------------------
+DROP TABLE IF EXISTS `penilaian_kinerja_guru`;
+CREATE TABLE `penilaian_kinerja_guru`  (
+  `id_penilaian_kinerja_guru` int(11) NOT NULL AUTO_INCREMENT,
+  `idguru_fk` int(11) NULL DEFAULT NULL,
+  `bulan` int(11) NULL DEFAULT NULL,
+  `tahun` int(255) NULL DEFAULT NULL,
+  `idtahunajaran_fk` int(11) NULL DEFAULT NULL,
+  `create_at` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP,
+  `trans_code` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  PRIMARY KEY (`id_penilaian_kinerja_guru`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of penilaian_kinerja_guru
+-- ----------------------------
+INSERT INTO `penilaian_kinerja_guru` VALUES (2, 2, 5, 2021, 1, '2021-05-30 10:15:38', '18748');
+INSERT INTO `penilaian_kinerja_guru` VALUES (3, 6, 5, 2021, 1, '2021-05-31 16:30:54', '32453');
+INSERT INTO `penilaian_kinerja_guru` VALUES (5, 7, 5, 2021, 1, '2021-05-31 17:02:59', '76585');
+INSERT INTO `penilaian_kinerja_guru` VALUES (6, 10, 5, 2021, 1, '2021-05-31 17:08:46', '52575');
+INSERT INTO `penilaian_kinerja_guru` VALUES (8, 2, 4, 2021, 1, '2021-05-31 17:56:21', '97789');
+INSERT INTO `penilaian_kinerja_guru` VALUES (9, 2, 3, 2021, 1, '2021-05-31 17:57:55', '30426');
+
+-- ----------------------------
 -- Table structure for persentase_guru
 -- ----------------------------
 DROP TABLE IF EXISTS `persentase_guru`;
@@ -2378,6 +2518,28 @@ INSERT INTO `predikat_nilai` VALUES (3, 80, 84, 'B+');
 INSERT INTO `predikat_nilai` VALUES (4, 75, 79, 'B');
 INSERT INTO `predikat_nilai` VALUES (5, 60, 74, 'C');
 INSERT INTO `predikat_nilai` VALUES (6, 0, 59, 'D');
+
+-- ----------------------------
+-- Table structure for predikat_pkg
+-- ----------------------------
+DROP TABLE IF EXISTS `predikat_pkg`;
+CREATE TABLE `predikat_pkg`  (
+  `id_predikat_pkg` int(11) NOT NULL AUTO_INCREMENT,
+  `min` int(255) NULL DEFAULT NULL,
+  `max` int(255) NULL DEFAULT NULL,
+  `predikat` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `warna` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  PRIMARY KEY (`id_predikat_pkg`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of predikat_pkg
+-- ----------------------------
+INSERT INTO `predikat_pkg` VALUES (1, 0, 55, 'Sangat Kurang', 'danger');
+INSERT INTO `predikat_pkg` VALUES (2, 56, 69, 'Kurang', 'warning');
+INSERT INTO `predikat_pkg` VALUES (3, 70, 79, 'Cukup', 'info');
+INSERT INTO `predikat_pkg` VALUES (4, 80, 90, 'Baik', 'primary');
+INSERT INTO `predikat_pkg` VALUES (5, 91, 100, 'Sangat Baik', 'success');
 
 -- ----------------------------
 -- Table structure for presensi_guru
@@ -3186,26 +3348,27 @@ CREATE TABLE `subkompetensi_pkg`  (
   `id_subkompetensi_pkg` int(11) NOT NULL AUTO_INCREMENT,
   `idkompetensipkg_fk` int(11) NULL DEFAULT NULL,
   `subkompetensi` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `kode` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_subkompetensi_pkg`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 15 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of subkompetensi_pkg
 -- ----------------------------
-INSERT INTO `subkompetensi_pkg` VALUES (1, 1, 'Menguasai  karakteristik  peserta  didik');
-INSERT INTO `subkompetensi_pkg` VALUES (2, 1, 'Menguasai  teori  belajar  dan  prinsip?prinsip  pembelajaran  yang  mendidik');
-INSERT INTO `subkompetensi_pkg` VALUES (3, 1, 'Pengembangan  kurikulum');
-INSERT INTO `subkompetensi_pkg` VALUES (4, 1, 'Kegiatan  pembelajaran  yang  mendidik');
-INSERT INTO `subkompetensi_pkg` VALUES (5, 1, 'Pengembangan  potensi  peserta  didik');
-INSERT INTO `subkompetensi_pkg` VALUES (6, 1, 'Komunikasi  dengan  peserta  didik');
-INSERT INTO `subkompetensi_pkg` VALUES (7, 1, 'Penilaian  dan  evaluasi');
-INSERT INTO `subkompetensi_pkg` VALUES (8, 3, 'Bertindak  sesuai  dengan  norma  agama,  hukum,  sosial  dan  kebudayaan nasional');
-INSERT INTO `subkompetensi_pkg` VALUES (9, 3, 'Menunjukkan  pribadi  yang  dewasa  dan  teladan');
-INSERT INTO `subkompetensi_pkg` VALUES (10, 3, 'Etos  kerja,  tanggung  jawab  yang  tinggi,  rasa  bangga  menjadi  guru');
-INSERT INTO `subkompetensi_pkg` VALUES (11, 4, 'Bersikap  inklusif,  bertindak  obyektif,  serta  tidak  diskriminatif');
-INSERT INTO `subkompetensi_pkg` VALUES (12, 4, 'Komunikasi  dengan  sesama  guru,  tenaga  kependidikan,  orang  tua,  peserta didik,  dan  masyarakat');
-INSERT INTO `subkompetensi_pkg` VALUES (13, 5, 'Penguasaan  materi,  struktur,  konsep  dan  pola  pikir  keilmuan  yg mendukung  mata  pelajaran  yg  diampu');
-INSERT INTO `subkompetensi_pkg` VALUES (14, 5, 'Mengembangkan  keprofesionalan  melalui  tindakan  yang  reflektif ');
+INSERT INTO `subkompetensi_pkg` VALUES (1, 1, 'Menguasai  karakteristik  peserta  didik', 'K1');
+INSERT INTO `subkompetensi_pkg` VALUES (2, 1, 'Menguasai  teori  belajar  dan  prinsip?prinsip  pembelajaran  yang  mendidik', 'K2');
+INSERT INTO `subkompetensi_pkg` VALUES (3, 1, 'Pengembangan  kurikulum', 'K3');
+INSERT INTO `subkompetensi_pkg` VALUES (4, 1, 'Kegiatan  pembelajaran  yang  mendidik', 'K4');
+INSERT INTO `subkompetensi_pkg` VALUES (5, 1, 'Pengembangan  potensi  peserta  didik', 'K5');
+INSERT INTO `subkompetensi_pkg` VALUES (6, 1, 'Komunikasi  dengan  peserta  didik', 'K6');
+INSERT INTO `subkompetensi_pkg` VALUES (7, 1, 'Penilaian  dan  evaluasi', 'K7');
+INSERT INTO `subkompetensi_pkg` VALUES (8, 3, 'Bertindak  sesuai  dengan  norma  agama,  hukum,  sosial  dan  kebudayaan nasional', 'K8');
+INSERT INTO `subkompetensi_pkg` VALUES (9, 3, 'Menunjukkan  pribadi  yang  dewasa  dan  teladan', 'K9');
+INSERT INTO `subkompetensi_pkg` VALUES (10, 3, 'Etos  kerja,  tanggung  jawab  yang  tinggi,  rasa  bangga  menjadi  guru', 'K10');
+INSERT INTO `subkompetensi_pkg` VALUES (11, 4, 'Bersikap  inklusif,  bertindak  obyektif,  serta  tidak  diskriminatif', 'K11');
+INSERT INTO `subkompetensi_pkg` VALUES (12, 4, 'Komunikasi  dengan  sesama  guru,  tenaga  kependidikan,  orang  tua,  peserta didik,  dan  masyarakat', 'K12');
+INSERT INTO `subkompetensi_pkg` VALUES (13, 5, 'Penguasaan  materi,  struktur,  konsep  dan  pola  pikir  keilmuan  yg mendukung  mata  pelajaran  yg  diampu', 'K13');
+INSERT INTO `subkompetensi_pkg` VALUES (14, 5, 'Mengembangkan  keprofesionalan  melalui  tindakan  yang  reflektif ', 'K14');
 
 -- ----------------------------
 -- Table structure for surat_keluar
@@ -3339,9 +3502,9 @@ CREATE TABLE `users`  (
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES (1, '127.0.0.1', 'admin', '$2y$08$mxSDKMRKsKM3IwN6NPoB6.3pQqymDu4ZtGAMIzpw.ppcie3MJM9ty', '', 'hello@admin.com', '', NULL, NULL, NULL, 1268889823, 1622336793, 1, 'admin', 'Yani', 'ADMIN', '085894632505', '3c8f6f36f650d5ce07803470b4f4d4ff.jpg', NULL, NULL, NULL);
+INSERT INTO `users` VALUES (1, '127.0.0.1', 'admin', '$2y$08$mxSDKMRKsKM3IwN6NPoB6.3pQqymDu4ZtGAMIzpw.ppcie3MJM9ty', '', 'hello@admin.com', '', NULL, NULL, NULL, 1268889823, 1622537798, 1, 'admin', 'Yani', 'ADMIN', '085894632505', '3c8f6f36f650d5ce07803470b4f4d4ff.jpg', NULL, NULL, NULL);
 INSERT INTO `users` VALUES (3, '127.0.0.1', 'rendy', '$2y$08$mxSDKMRKsKM3IwN6NPoB6.3pQqymDu4ZtGAMIzpw.ppcie3MJM9ty', '', 'hello@admin.com', '', NULL, NULL, NULL, 1268889823, 1621471641, 1, 'Rendy', 'Yani', 'ADMIN', '085894632505', '3c8f6f36f650d5ce07803470b4f4d4ff.jpg', 2, 'guru', 1);
-INSERT INTO `users` VALUES (4, '::1', 'is_376326', '$2y$08$btIyb0KsgC.oQwjrEAo.kOtGP2v.HAIe6I7fXaGSi1D8ftrhDAKSK', NULL, 'is_376326@gmail.com', NULL, NULL, NULL, NULL, 1609057333, 1621504168, 1, 'Abdur Rochim, S.Pd.', NULL, NULL, NULL, NULL, 6, 'guru', NULL);
+INSERT INTO `users` VALUES (4, '::1', 'is_376326', '$2y$08$btIyb0KsgC.oQwjrEAo.kOtGP2v.HAIe6I7fXaGSi1D8ftrhDAKSK', NULL, 'is_376326@gmail.com', NULL, NULL, NULL, NULL, 1609057333, 1622508531, 1, 'Abdur Rochim, S.Pd.', NULL, NULL, NULL, NULL, 6, 'guru', NULL);
 INSERT INTO `users` VALUES (5, '::1', 'is_559029', '$2y$08$O0X.fpQqfSjoyvdnwkwMGuizSSh2UGVW65nYjY60F3QT4c0cEAU36', NULL, 'is_559029@gmail.com', NULL, NULL, NULL, NULL, 1609057451, 1609141005, 1, 'Avi Hendratmoko, S.Kom.', NULL, NULL, NULL, NULL, 7, 'guru', NULL);
 INSERT INTO `users` VALUES (6, '::1', 'is_692692', '$2y$08$IRAxfjkQv0dssEQI3d6CAeKGJyhxtcvM6jq66D2g681Oe4Z5sFB1S', NULL, 'is_692692@gmail.com', NULL, NULL, NULL, NULL, 1609057777, 1609057789, 1, 'M. Maimun Muzakka', NULL, NULL, NULL, NULL, 8, 'guru', 1);
 INSERT INTO `users` VALUES (7, '::1', 'is_591727', '$2y$08$HRS9vvh3bShD9YQ6TJaaru7ypOsaB4yo8Eigjr0ueEK0A07h/H0Xa', NULL, 'is_591727@gmail.com', NULL, NULL, NULL, NULL, 1609057880, 1609057922, 1, 'Cindy Permata Putri, S.Pd', NULL, NULL, NULL, NULL, 9, 'guru', 1);
@@ -3383,7 +3546,7 @@ CREATE TABLE `users_groups`  (
 -- ----------------------------
 INSERT INTO `users_groups` VALUES (1, 1, 1);
 INSERT INTO `users_groups` VALUES (3, 3, 3);
-INSERT INTO `users_groups` VALUES (4, 4, 1);
+INSERT INTO `users_groups` VALUES (4, 4, 5);
 INSERT INTO `users_groups` VALUES (5, 5, 3);
 INSERT INTO `users_groups` VALUES (6, 6, 3);
 INSERT INTO `users_groups` VALUES (7, 7, 3);
@@ -3450,7 +3613,7 @@ question_cas.idbanksoal_fk,
 question_cas.idquiz_fk
 FROM
 bank_soal
-INNER JOIN question_cas ON question_cas.idbanksoal_fk = bank_soal.id_bank_soal ; ;
+INNER JOIN question_cas ON question_cas.idbanksoal_fk = bank_soal.id_bank_soal ;
 
 -- ----------------------------
 -- View structure for v_guru_mapel
@@ -3602,6 +3765,26 @@ FROM
 pelanggaran_siswa
 LEFT JOIN poin_pelanggaran ON poin_pelanggaran.id_poin_pelanggaran = pelanggaran_siswa.idpoinpelanggaran_fk
 LEFT JOIN jenis_pelanggaran ON jenis_pelanggaran.id_jenis_pelanggaran = poin_pelanggaran.idjenispelanggaran_fk ;
+
+-- ----------------------------
+-- View structure for v_pkg
+-- ----------------------------
+DROP VIEW IF EXISTS `v_pkg`;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_pkg` AS SELECT
+component_penilaian_kinerja_guru.idpenilaiankinerjaguru_fk,
+penilaian_kinerja_guru.id_penilaian_kinerja_guru,
+penilaian_kinerja_guru.idguru_fk,
+penilaian_kinerja_guru.bulan,
+penilaian_kinerja_guru.tahun,
+penilaian_kinerja_guru.idtahunajaran_fk,
+penilaian_kinerja_guru.create_at,
+penilaian_kinerja_guru.trans_code,
+component_penilaian_kinerja_guru.id_component_penilaian_kinerja_guru,
+component_penilaian_kinerja_guru.idsubkompetensipkg_fk,
+component_penilaian_kinerja_guru.nilai
+FROM
+penilaian_kinerja_guru
+INNER JOIN component_penilaian_kinerja_guru ON penilaian_kinerja_guru.id_penilaian_kinerja_guru = component_penilaian_kinerja_guru.idpenilaiankinerjaguru_fk ;
 
 -- ----------------------------
 -- View structure for v_poin_pelanggaran

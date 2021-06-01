@@ -1,9 +1,6 @@
-<div class="panel panel-body panel-proses">
-
-		<form class="form-horizontal" action="Penilaian_kinerja_guru/save_pkg" id="app-submit-sub" method="POST">
-	<div class="row">
+<div class="row">
 		<div class="col-md-12">
-			<center><h3><u>Penilaian Kinerja Guru Periode <?php echo date_format(date_create($data_get['periode']), 'm/Y') ?> Tahun Ajaran <?php echo $data_get['tahun_ajaran']['tahun_ajaran'] ?></u></h3></center>
+			<center><h3><u>Penilaian Kinerja Guru Periode <?php echo $data_get['bulan'].'/'.$data_get['tahun'] ?> Tahun Ajaran <?php echo $data_get['tahun_ajaran'] ?></u></h3></center>
 		</div>
 	</div>
 	<div class="row">
@@ -12,10 +9,10 @@
 		</div>
 
 		<!-- INPUT TYPE HIDE -->
-		<input type="hidden" value="<?= $data_get['guru']['id_guru'] ?>" name="idguru_fk">
-		<input type="hidden" value="<?= $data_get['tahun_ajaran']['id_tahun_ajaran'] ?>" name="idtahunajaran_fk">
-		<input type="hidden" value="<?= date_format(date_create($data_get['periode']),"m" ) ?>" name="bulan">
-		<input type="hidden" value="<?= date_format(date_create($data_get['periode']),"Y" ) ?>" name="tahun">
+				<input type="hidden" value="<?= $data_get['guru']['id_guru'] ?>" name="idguru_fk">
+				<input type="hidden" value="<?= $data_get['tahun_ajaran_id'] ?>" name="idtahunajaran_fk">
+				<input type="hidden" value="<?= $data_get['bulan'] ?>" name="bulan">
+				<input type="hidden" value="<?= $data_get['tahun']  ?>" name="tahun">
 		<!-- /INPUT -->
 		<div class="col-md-6">
 			<table class="table table-framed">
@@ -63,7 +60,7 @@
 								<!-- /hidden -->
 								<td class="bg-info"><?php echo ++$no; ?></td>
 								<td><?php echo $value_sub['subkompetensi'] ?></td>
-								<td><input type="number" name="data_pkg[<?= $vno ?>][nilai]" class="form-control" min="1" max="4" placeholder="(Angka 1-4)"></td>
+								<td><input type="number" name="data_pkg[<?= $vno ?>][nilai]" required value="<?= ($data_get['is_edit'] == 1) ? ((isset($value_sub['nilai']) ? $value_sub['nilai']: "" )) : "" ; ?>" class="form-control" min="1" max="4" placeholder="(Angka 1-4)"></td>
 							</tr>
 							<?php $vno ++; ?>
 						<?php endforeach ?>
@@ -72,7 +69,3 @@
 			</table>
 		</div>
 	</div>
-	<hr>
-	<button class="btn btn-success" type="submit"><i class="icon-floppy-disk"></i> Simpan</button>
-</form>
-</div>

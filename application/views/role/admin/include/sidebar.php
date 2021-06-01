@@ -57,15 +57,23 @@
     <ul>
       <li><a href="Indikator_pkg/get_data" class="app-item">Indikator PKG</a></li>
       <li><a href="Penilaian_kinerja_guru/get_data" class="app-item">Input Data PKG</a></li>
+      <li><a href="Penilaian_kinerja_guru/get_data_bulanan" class="app-item">Input Data PKG Bulanan</a></li>
+      <li><a href="Penilaian_kinerja_guru/report_pkg" class="app-item">Report PKG</a></li>
     </ul>
   </li>
   <li>
-    <a href="#"><i class=" icon-paste4"></i> <span>Persentase Presensi Guru</span></a>
+    <a href="#"><i class=" icon-paste4"></i> <span>Presensi Guru</span></a>
     <ul>
-      <li><a href="Jadwal_guru/get_data" class="app-item">Jadwal Guru</a></li>
-      <li><a href="Persentase_guru/get_data" class="app-item">Data Persentase Guru</a></li>
       <li><a href="Presensi_guru/get_data" class="app-item">Presensi Guru</a></li>
       <li><a href="Presensi_guru/rekap" class="app-item">Rekap Presensi Guru</a></li>
+    </ul>
+  </li>
+  <li>
+    <a href="#"><i class=" icon-paste4"></i> <span>Data Pegawai</span></a>
+    <ul>
+      <li><a href="Kepegawaian/get_data" class="app-item">Buku Induk Kepegawaian</a></li>
+      <li><a href="Jadwal_guru/get_data" class="app-item">Jadwal Guru</a></li>
+      <li><a href="Persentase_guru/get_data" class="app-item">Data Persentase Guru</a></li>
     </ul>
   </li>
   <li class="navigation-header"><span>Setting kits</span> <i class="icon-menu" title="Page kits"></i></li>
