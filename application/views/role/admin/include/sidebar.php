@@ -76,6 +76,15 @@
       <li><a href="Persentase_guru/get_data" class="app-item">Data Persentase Guru</a></li>
     </ul>
   </li>
+   <!-- Page kits -->
+  <li class="navigation-header"><span>External App</span> <i class="icon-menu" title="Page kits"></i></li>
+  <li>
+    <a href="#"><i class=" icon-paste4"></i> <span>Online Assesment System</span></a>
+    <ul>
+      <li><a href="Oas/get_data" class="app-item">Tambah Jadwal OAS</a></li>
+      <li><a href="Presensi_guru/rekap" class="app-item">Rekap Presensi Guru</a></li>
+    </ul>
+  </li>
   <li class="navigation-header"><span>Setting kits</span> <i class="icon-menu" title="Page kits"></i></li>
   <li>
     <a href="#"><i class="icon-stack2"></i> <span>Master</span></a>
