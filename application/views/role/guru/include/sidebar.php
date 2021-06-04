@@ -10,9 +10,19 @@
     </ul>
   </li>
   <li>
+    <a href="#"><i class="icon-book"></i> <span>Buku Kerja Guru</span></a>
+    <ul>
+      <li><a href="Kd/get_data" class="app-item">Identifikasi KI/KD</a></li>
+      <li><a href="Rpp/get_data" class="app-item">Silabus</a></li>
+      <li><a href="Rpp/get_data" class="app-item">Rpp</a></li>
+      <li><a href="Prota/get_data" class="app-item">Prota</a></li>
+      <li><a href="Promes/get_data" class="app-item">Promes</a></li>
+      <li><a href="Banksoal/get_data" class="app-item">Bank soal</a></li>
+    </ul>
+  </li>
+  <li>
     <a href="#"><i class="icon-book"></i> <span>Akademik</span></a>
     <ul>
-      <!-- <li><a href="Pembelajaran/get_data" class="app-item">Pembelajaran</a></li> -->
       <li><a href="Presensi_guru/get_data" class="app-item">Presensi Guru</a></li>
       <li><a href="Uts/get_data" class="app-item">Input Nilai</a></li>
     </ul>

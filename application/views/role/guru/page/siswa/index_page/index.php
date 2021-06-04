@@ -23,7 +23,7 @@
         <a class="btn bg-warning-400 btn-labeled legitRipple" id="dtl-btn"><b><i class="icon-pencil4"></i></b> Detail</a>
         <hr>
         <div class="table-responsive">
-        <table class="table" width="100%" id="tabel-data">
+        <table class="table table-framed table-bordered table-xxs" width="100%" id="tabel-data">
           <thead>
             <tr>
               <th width="1%">#</th>
