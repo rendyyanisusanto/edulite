@@ -23,6 +23,13 @@
 		$('.idsiswa').val($(this).data('idsiswa'));
 		$('#modal_animation').modal('toggle');
 	})
+	$(document).on('click', '.btn-ubh-status', function(e){
+		e.stopImmediatePropagation();
+		$('.idoas').val($(this).data('idoas'));
+		$('.status_lulus').val($(this).data('status'));
+		$('.is_active').val($(this).data('active'));
+		$('#modal_ubah_status').modal('toggle');
+	})
 
 	$( "#app-submit" ).on('submit',function( e ) {
 				blockui($('#modal_animation'));
@@ -34,6 +41,21 @@
 
 					unblockui($('#modal_animation'));
 					$('#modal_animation').modal('toggle');
+					get_siswa();
+			    });
+	    return false;
+	});
+
+	$( "#app-submit-ubah" ).on('submit',function( e ) {
+				blockui($('#modal_ubah_status'));
+			    e.stopImmediatePropagation();
+			    e.preventDefault();
+		        var form_data = new FormData(this);
+		        send_ajax_file( $(this).attr('action'),form_data).then( function(data){
+			        toastr.success('Data berhasil diubah, Refresh untuk melihat perubahan');
+
+					unblockui($('#modal_ubah_status'));
+					$('#modal_ubah_status').modal('toggle');
 					get_siswa();
 			    });
 	    return false;

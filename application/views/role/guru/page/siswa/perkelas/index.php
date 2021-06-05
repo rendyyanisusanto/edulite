@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-6">
-    <div class="panel panel-body">
+    <div class="panel panel-body panel-head">
       <form action="Siswa/proses_siswa" id="app-proses" method="POST">
         <label>Kelas</label>
         <select class="form-control" name="id_kelas">

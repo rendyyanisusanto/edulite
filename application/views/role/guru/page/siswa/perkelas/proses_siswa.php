@@ -4,7 +4,7 @@
 				<form action="<?php echo $data_get['param']['table'] ?>/import_siswa/<?php echo $data_get['kelas']['id_kelas'] ?>" id="app-import" method="POST">
 					<input type="hidden" name="idkelas_fk" value="<?php echo $data_get['kelas']['id_kelas'] ?>">
 					
-					<input type="file" name="file_upload"><br>
+					<input type="file" required="" name="file_upload"><br>
 					<button type="submit" class="btn btn-success">Import</button>
 				</form>
 			</div>
@@ -13,6 +13,7 @@
 					<tr>
 						<th style ="border: 1px solid black;" class="bg-blue" width="2%" rowspan="2">No</th>
 						<th style ="border: 1px solid black;" class="bg-blue" rowspan="2">NIS</th>
+						<th style ="border: 1px solid black;" class="bg-blue" rowspan="2">NISN</th>
 						<th style ="border: 1px solid black;" class="bg-blue" rowspan="2">Nama</th>
 						<th style ="border: 1px solid black;" class="bg-blue" rowspan="2">Kelas</th>
 						<th style ="border: 1px solid black;width: 2%;" class="bg-blue"  rowspan="2">J.Kelamin</th>
@@ -27,7 +28,8 @@
 						<?php $rand = rand(0,99999); ?>
 						<tr>
 							<td class="bg-info"><?php echo ++$no ?></td>
-							<td><?php echo '<a href="siswa/detail_all/'.$value['id_siswa'].'" class="app-item">'.strtoupper($value['nis']).'</a>' ?></td>
+							<td><?php echo '<a href="siswa/detail_all/'.$value['id_siswa'].'" class="app-item">'.(($value['nis']=='')? "-"  : $value['nis'] ).'</a>' ?></td>
+							<td><?php echo '<a href="siswa/detail_all/'.$value['id_siswa'].'" class="app-item">'.(($value['nisn']=='')? "-"  : $value['nisn'] ).'</a>' ?></td>
 							<td><?php echo '<a href="siswa/detail_all/'.$value['id_siswa'].'" class="app-item">'.strtoupper($value['nama']).'</a>' ?></td>
 							<td><?php echo strtoupper($value['kelas'])?></td>
 							<td><?php echo strtoupper($value['jenis_kelamin'])?></td>

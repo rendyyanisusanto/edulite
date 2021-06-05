@@ -31,27 +31,7 @@
                     <input type="text" name="nama" class="form-control"  placeholder="Input here......">
                   </div>
                 </div>
-                <div class="form-group">
-                  <label class="col-lg-3 control-label">Jurusan:</label>
-                  <div class="col-lg-4 col-md-6">
-                    <input type="hidden" name="idjurusan_fk" class="form-control"  value="<?php echo $data_get['detail_guru']['walas']['id_jurusan'] ?>">
-
-                    <input type="text" readonly="" class="form-control"  value="<?php echo $data_get['detail_guru']['walas']['jurusan'] ?>">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-lg-3 control-label">Kelas:</label>
-                  <div class="col-lg-4 col-md-6">
-
-                    <input type="hidden" name="idkelas_fk" class="form-control"  value="<?php echo $data_get['detail_guru']['walas']['id_kelas'] ?>">
-
-                    <input type="text" readonly="" class="form-control"  value="<?php echo $data_get['detail_guru']['walas']['kelas'] ?>">
-                    
-                  </div>
-                  <div class="col-md-5">
-                    <code>Kelas pada tahun ajaran saat ini</code>
-                  </div>
-                </div>
+               
                 
                 <div class="form-group">
                   <label class="col-lg-3 control-label">Agama:</label>

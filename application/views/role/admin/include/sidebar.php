@@ -76,13 +76,23 @@
       <li><a href="Persentase_guru/get_data" class="app-item">Data Persentase Guru</a></li>
     </ul>
   </li>
+  <li>
+    <a href="#"><i class="icon-paste4"></i> <span>Buku Kerja Guru</span></a>
+    <ul>
+      <li><a href="Kd/get_data" class="app-item">Identifikasi KI/KD</a></li>
+      <li><a href="Rpp/get_data" class="app-item">Silabus</a></li>
+      <li><a href="Rpp/get_data" class="app-item">Rpp</a></li>
+      <li><a href="Prota/get_data" class="app-item">Prota</a></li>
+      <li><a href="Promes/get_data" class="app-item">Promes</a></li>
+      <li><a href="Banksoal/get_data" class="app-item">Bank soal</a></li>
+    </ul>
+  </li>
    <!-- Page kits -->
   <li class="navigation-header"><span>External App</span> <i class="icon-menu" title="Page kits"></i></li>
   <li>
     <a href="#"><i class=" icon-paste4"></i> <span>Online Assesment System</span></a>
     <ul>
       <li><a href="Oas/get_data" class="app-item">Tambah Jadwal OAS</a></li>
-      <li><a href="Presensi_guru/rekap" class="app-item">Rekap Presensi Guru</a></li>
     </ul>
   </li>
   <li class="navigation-header"><span>Setting kits</span> <i class="icon-menu" title="Page kits"></i></li>

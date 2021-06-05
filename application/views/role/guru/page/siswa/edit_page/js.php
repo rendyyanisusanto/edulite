@@ -21,7 +21,16 @@ $('.idprovince_fk').on('change', function(e){
         $('.idcities_fk').append(data);
     });
 });
-
+data_start();
+function data_start(){
+    var idcities_fk = '<?= $data_get['siswa']['idcities_fk']; ?>';
+    if (idcities_fk !== '') {
+        send_ajax( 'siswa/get_cities_update',{idcities_fk:idcities_fk} ).then( function(data){
+           $(".idcities_fk option").remove();
+           $('.idcities_fk').append(data);
+        });
+    }
+}
 $('.btn-add-prestasi').on('click', function(){
     var tbl = $('.table-prestasi tbody');
     var tblcount = $('.table-prestasi tbody tr').length;

@@ -89,31 +89,37 @@ class presensi_harian extends MY_Controller {
 		}
 		echo json_encode($_POST);
 	}
-	public function download_file($id_kelas='', $id_tahun_ajaran ='')
+	public function download_file($id_kelas='', $id_tahun_ajaran ='', $id_mata_pelajaran ='', $tanggal='')
 	{
 		$reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
 		$spreadsheet = $reader->load("include/template/excel/format_presensi_harian.xlsx");
 		// $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load();
 		$kelas 		=	$this->my_where('kelas', ['id_kelas'=>$id_kelas])->row_array();
+		$mata_pelajaran 		=	$this->my_where('mata_pelajaran', ['id_mata_pelajaran'=>$id_mata_pelajaran])->row_array();
 		$tahun_ajaran 		=	$this->my_where('tahun_ajaran', ['id_tahun_ajaran'=>$id_tahun_ajaran])->row_array();
 		$siswa		=	$this->my_where('siswa', ['idkelas_fk'=>$id_kelas])->result_array();
 		//change it
 		$sheet = $spreadsheet->getActiveSheet();
+		$sheet->setCellValue('A9', $mata_pelajaran['mata_pelajaran']);
+		$sheet->setCellValue('D9', $tanggal);
 		$sheet->setCellValue('A10', $kelas['kelas']);
+		$sheet->setCellValue('D10', base64_encode($mata_pelajaran['id_mata_pelajaran']));
 		foreach ($siswa as $key => $value) {
-			$cek = $this->my_where('presensi_rapor', [
+			$cek = $this->my_where('presensi_harian', [
 					'idsiswa_fk' => $value['id_siswa'],
 					'idkelas_fk' => $id_kelas,
-					'idtahunajaran_fk' => $id_tahun_ajaran
+					'tanggal'				=>	$tanggal,
+					'idtahunajaran_fk' 		=> $id_tahun_ajaran,
+					'idmatapelajaran_fk' 	=> 	$id_mata_pelajaran,
 				]);
+
+
+
 			
 			$sheet->setCellValue('B'.($key+14), $value['nama']);
-			$sheet->setCellValue('C'.($key+14), (($cek->num_rows() > 0) ? $cek->row_array()['sakit'] : ''));
-			$sheet->setCellValue('D'.($key+14), (($cek->num_rows() > 0) ? $cek->row_array()['ijin'] : ''));
-			$sheet->setCellValue('E'.($key+14), (($cek->num_rows() > 0) ? $cek->row_array()['alpha'] : ''));
-			$spreadsheet->getActiveSheet()->getStyle('D'.($key+14))->getFont()->getColor()->setARGB(\PhpOffice\PhpSpreadsheet\Style\Color::COLOR_RED);
-			$sheet->getStyle('F'.($key+14))->getProtection()->setLocked(\PhpOffice\PhpSpreadsheet\Style\Protection::PROTECTION_PROTECTED);
-			$sheet->setCellValue('F'.($key+14), $value['id_siswa']);
+			$sheet->setCellValue('C'.($key+14), (($cek->num_rows() > 0) ? $cek->row_array()['presensi'] : ''));
+			$sheet->getStyle('D'.($key+14))->getProtection()->setLocked(\PhpOffice\PhpSpreadsheet\Style\Protection::PROTECTION_PROTECTED);
+			$sheet->setCellValue('D'.($key+14), $value['id_siswa']);
 		}
 		
 
@@ -151,31 +157,36 @@ class presensi_harian extends MY_Controller {
 			
 			foreach ($siswa as $key => $value) {
 				// cek
-				$cek = $this->my_where('presensi_rapor', [
-					'idsiswa_fk' => $sheetData->getCell('F'.($key+14))->getValue(),
+				$cek = $this->my_where('presensi_harian', [
+					'idsiswa_fk' => $value['id_siswa'],
 					'idkelas_fk' => $_POST['idkelas_fk'],
-					'idtahunajaran_fk' => $_POST['idtahunajaran_fk']
+					'tanggal'				=>	$_POST['tanggal'],
+					'idtahunajaran_fk' 		=>  $_POST['idtahunajaran_fk'],
+					'idmatapelajaran_fk' 	=> 	$_POST['idmatapelajaran_fk'],
 				]);
-				// insert
+				
 				$data_set = [
-					'idsiswa_fk' 			=> $sheetData->getCell('F'.($key+14))->getValue(),
-					'sakit'					=>	(!empty($sheetData->getCell('C'.($key+14))->getValue())) ? $sheetData->getCell('C'.($key+14))->getValue() : "",
-					'ijin'					=>	(!empty($sheetData->getCell('D'.($key+14))->getValue())) ? $sheetData->getCell('D'.($key+14))->getValue() : "",
-					'alpha'					=>	(!empty($sheetData->getCell('E'.($key+14))->getValue())) ? $sheetData->getCell('E'.($key+14))->getValue() : "",
+					'idmatapelajaran_fk' 	=> 	$_POST['idmatapelajaran_fk'],
+					'idsiswa_fk'			=>	$sheetData->getCell('d'.($key+14))->getValue(),
+					'presensi'				=>	(!empty($sheetData->getCell('C'.($key+14))->getValue())) ? $sheetData->getCell('C'.($key+14))->getValue() : "",
+					'keterangan'			=>	"",
+					'tanggal'				=>	$_POST['tanggal'],
+					'idtahunajaran_fk'		=>	$_POST['idtahunajaran_fk'],
 					'idkelas_fk'			=>	$_POST['idkelas_fk'],
-					'idtahunajaran_fk'		=>	$_POST['idtahunajaran_fk']
 				];
 
 				if ($cek->num_rows() > 0) {
-					$this->my_update('presensi_rapor', $data_set, ['idsiswa_fk'=>$sheetData->getCell('F'.($key+14))->getValue()]);
+					$this->my_update('presensi_harian', $data_set, ['idsiswa_fk'=>$sheetData->getCell('d'.($key+14))->getValue()]);
 				}else{
 					$send [] = $data_set;
 				}
 				
+
+
 				
 			}
 			if (count($send) > 0) {
-				$this->save_data_batch('presensi_rapor', $send);
+				$this->save_data_batch('presensi_harian', $send);
 			}
 		    echo json_encode($send);
 		}

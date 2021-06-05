@@ -93,9 +93,20 @@ class oas extends MY_Controller {
 		$data = [
 			'file_oas'		=>	((isset($file_pdf)) ? $file_pdf['file_name'] : ''),
 			'idsiswa_fk'	=>	$_POST['id_siswa'],
-			'status'		=>	$_POST['status']
+			'status'		=>	$_POST['status'],
+			'is_active'		=>	0
 		];
 		$this->save_data('file_oas', $data);
+	}
+
+	function ubah_data()
+	{
+		$data = [
+			'status'		=>	$_POST['status'],
+			'is_active'		=>	$_POST['is_active'],
+		];
+
+		$this->my_update('file_oas', $data, ['id_file_oas'=>$_POST['id_file_oas']]);
 	}
 }
 ?>

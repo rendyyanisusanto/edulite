@@ -32,30 +32,6 @@
                     <input type="text" name="nama" value="<?php echo $data_get['siswa']['nama'] ?>" class="form-control"  placeholder="Input here......">
                   </div>
                 </div>
-                <div class="form-group">
-                  <label class="col-lg-3 control-label">Jurusan:</label>
-                  <div class="col-lg-4 col-md-6">
-                    <input type="hidden" class="idjurusan" value="<?php echo $data_get['siswa']['idjurusan_fk'] ?>" name="">
-                    <select data-placeholder="Pilih Jurusan" name="idjurusan_fk" class="select jurusan">
-                      <?php foreach ($data_get['jurusan'] as $key => $value): ?>
-                      <option <?php echo ($data_get['siswa']['idjurusan_fk'] == $value['id_jurusan']) ? 'selected' : ''; ?> value="<?php echo $value['id_jurusan'] ?>"><?php echo $value['jurusan'] ?></option>
-                      <?php endforeach ?>
-                    </select>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-lg-3 control-label">Kelas:</label>
-                  <div class="col-lg-4 col-md-6">
-                    <div class="select_kelas">
-                        <input type="hidden" name="" class="idkelas" value="<?php echo $data_get['siswa']['idkelas_fk'] ?>">
-                        <select data-placeholder="Pilih Jurusan terlebih dahulu" name="idkelas_fk" class="select kelas">
-                        </select>  
-                    </div>
-                  </div>
-                  <div class="col-md-5">
-                    <code>Kelas pada tahun ajaran saat ini</code>
-                  </div>
-                </div>
                 
                 <div class="form-group">
                   <label class="col-lg-3 control-label">Agama:</label>
@@ -148,7 +124,7 @@
                   <div class="col-lg-9">
                     <select data-placeholder="Pilih..." name="idprovince_fk" class="select idprovince_fk">
                      <?php foreach ($data_get['province'] as $key => $value): ?>
-                       <option value="<?php echo $value['id'] ?>"><?php echo $value['name'] ?></option>
+                       <option <?= ($data_get['siswa']['idprovince_fk'] == $value['id']) ? "selected" : "";  ?> value="<?php echo $value['id']  ?>"><?php echo $value['name'] ?></option>
                      <?php endforeach ?>
                     </select>
                   </div>
@@ -241,9 +217,9 @@
                             <option <?php echo ($data_get['siswa']['pendidikan_ibu'] == 'SMP Sederajat') ? 'selected' : ''; ?> value="SMP Sederajat">SMP Sederajat</option>
                             <option <?php echo ($data_get['siswa']['pendidikan_ibu'] == 'SMA Sederajat') ? 'selected' : ''; ?> value="SMA Sederajat">SMA Sederajat</option>
                             <option <?php echo ($data_get['siswa']['pendidikan_ibu'] == 'D1') ? 'selected' : ''; ?> value="D1">D1</option>
-                            <option <?php echo ($data_get['siswa']['pendidikan_ibu'] == 'D2') ? 'selected' : ''; ?>value="D2">D2</option>
-                            <option <?php echo ($data_get['siswa']['pendidikan_ibu'] == 'D3') ? 'selected' : ''; ?>value="D3">D3</option>
-                            <option <?php echo ($data_get['siswa']['pendidikan_ibu'] == 'D4/S1') ? 'selected' : ''; ?>value="D4/S1">D4/S1</option>
+                            <option <?php echo ($data_get['siswa']['pendidikan_ibu'] == 'D2') ? 'selected' : ''; ?> value="D2">D2</option>
+                            <option <?php echo ($data_get['siswa']['pendidikan_ibu'] == 'D3') ? 'selected' : ''; ?> value="D3">D3</option>
+                            <option <?php echo ($data_get['siswa']['pendidikan_ibu'] == 'D4/S1') ? 'selected' : ''; ?> value="D4/S1">D4/S1</option>
                             <option <?php echo ($data_get['siswa']['pendidikan_ibu'] == 'S2') ? 'selected' : ''; ?> value="S2">S2</option>
                             <option <?php echo ($data_get['siswa']['pendidikan_ibu'] == 'S3') ? 'selected' : ''; ?> value="S3">S3</option>
                           </select>
@@ -320,9 +296,9 @@
                             <option <?php echo ($data_get['siswa']['pendidikan_ayah'] == 'SMP Sederajat') ? 'selected' : ''; ?> value="SMP Sederajat">SMP Sederajat</option>
                             <option <?php echo ($data_get['siswa']['pendidikan_ayah'] == 'SMA Sederajat') ? 'selected' : ''; ?> value="SMA Sederajat">SMA Sederajat</option>
                             <option <?php echo ($data_get['siswa']['pendidikan_ayah'] == 'D1') ? 'selected' : ''; ?> value="D1">D1</option>
-                            <option <?php echo ($data_get['siswa']['pendidikan_ayah'] == 'D2') ? 'selected' : ''; ?>value="D2">D2</option>
-                            <option <?php echo ($data_get['siswa']['pendidikan_ayah'] == 'D3') ? 'selected' : ''; ?>value="D3">D3</option>
-                            <option <?php echo ($data_get['siswa']['pendidikan_ayah'] == 'D4/S1') ? 'selected' : ''; ?>value="D4/S1">D4/S1</option>
+                            <option <?php echo ($data_get['siswa']['pendidikan_ayah'] == 'D2') ? 'selected' : ''; ?> value="D2">D2</option>
+                            <option <?php echo ($data_get['siswa']['pendidikan_ayah'] == 'D3') ? 'selected' : ''; ?> value="D3">D3</option>
+                            <option <?php echo ($data_get['siswa']['pendidikan_ayah'] == 'D4/S1') ? 'selected' : ''; ?> value="D4/S1">D4/S1</option>
                             <option <?php echo ($data_get['siswa']['pendidikan_ayah'] == 'S2') ? 'selected' : ''; ?> value="S2">S2</option>
                             <option <?php echo ($data_get['siswa']['pendidikan_ayah'] == 'S3') ? 'selected' : ''; ?> value="S3">S3</option>
                           </select>

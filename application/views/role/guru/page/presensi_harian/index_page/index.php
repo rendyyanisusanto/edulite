@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-6">
-    <div class="panel panel-body">
+    <div class="panel panel-body panel-head">
       <form action="Presensi_harian/proses_presensi_harian" id="app-proses" method="POST">
         <table class="table table-framed table-bordered">
           <tr>
@@ -32,7 +32,7 @@
         </select>
         <br>
         <label>Tanggal</label>
-        <input type="date" class="form-control" name="tanggal">
+        <input type="date" class="form-control" value="<?= date('Y-m-d') ?>" name="tanggal">
         <button style="margin-top: 20px;" type="submit" required class="btn btn-success"><i class="icon-spinner2"></i> Proses</button>
       </form>
     </div>

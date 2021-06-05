@@ -94,20 +94,8 @@ class siswa extends MY_Controller {
 	/*
 		ADD DATA
 	*/
-	public function save_media($data)
-	{
-		$config['upload_path']=$data['path'] ; //path folder file upload
-        $config['allowed_types']='gif|jpg|png|pdf|doc|docx|xls|xlsx'; //type file yang boleh di upload
-        $config['encrypt_name'] = TRUE; //enkripsi file name upload
-         
-        $this->load->library('upload',$config); //call library upload 
-        if($this->upload->do_upload($data['filename'])){ //upload file
-           
-        	return $this->upload->data(); 
-        }
 
-	}
-
+		
 	function update_data()
 	{
 		$foto = $this->save_media([
@@ -117,11 +105,8 @@ class siswa extends MY_Controller {
 
 		$data=[];
 		$data=[
-				'foto'					=>	((isset($foto)) ? $foto['file_name'] : $_POST['foto_before']),
 				'nis'					=>	$_POST['nis'],
 				'nama' 					=>	$_POST['nama'],
-				'idkelas_fk' 			=>	$_POST['idkelas_fk'],
-				'idjurusan_fk'			=>	$_POST['idjurusan_fk'],
 				'agama' 				=>	$_POST['agama'],
 				'jenis_kelamin'			=>	$_POST['jenis_kelamin'],
 				'nisn' 					=>	$_POST['nisn'],
@@ -133,14 +118,14 @@ class siswa extends MY_Controller {
 				'nama_sekolah_asal'		=>	$_POST['nama_sekolah_asal'],	
 				'tempat_lahir'			=>	$_POST['tempat_lahir'],
 				'tanggal_lahir'			=>	$_POST['tanggal_lahir'],
+				'idprovince_fk'			=>	$_POST['idprovince_fk'],
+				'idcities_fk'			=>	$_POST['idcities_fk'],
 				'berkebutuhan_khusus'	=>	$_POST['berkebutuhan_khusus'],
 				'alamat'				=>	$_POST['alamat'],
 				'dusun'					=>	$_POST['dusun'],
 				'rt'					=>	$_POST['rt'],
 				'rw'					=>	$_POST['rw'],
 				'kelurahan'				=>	$_POST['kelurahan'],
-				// 'idprovince_fk'			=>	$_POST['idprovince_fk'],
-				// 'idcities_fk'			=>	$_POST['idcities_fk'],
 				'nama_ayah'				=>	$_POST['nama_ayah'],
 				'tempat_lahir_ayah'		=>	$_POST['tempat_lahir_ayah'],
 				'tanggal_lahir_ayah'	=>	$_POST['tanggal_lahir_ayah'],
@@ -158,15 +143,16 @@ class siswa extends MY_Controller {
 				'jarak_ke_sekolah'		=>	$_POST['jarak_ke_sekolah'],
 				'jumlah_saudara'		=>	$_POST['jumlah_saudara'],
 				];
-				
+		if(isset($foto)){
+				$data['foto'] = $foto['file_name'];
+			} 
 		if ($this->my_update('siswa',$data,['id_siswa'=>$_POST['id_siswa']])) {
-			print_r(((isset($foto)) ? $foto['file_name'] : $_POST['foto_before']));
+
 		}	else 	{
 			echo "error";
 		}
 
 	}
-
 
 	/*
 		EDIT DATA
@@ -280,6 +266,20 @@ class siswa extends MY_Controller {
 		$get = $this->my_where('cities', ['province_id' => $dt])->result_array();
 		foreach ($get as $key => $value) {
 			$data .= '<option value="'.$value['id'].'">'.$value['name'].'</option>';
+		}
+
+		echo $data;
+	}
+
+	function get_cities_update()
+	{
+		$dt = $_POST['idcities_fk'];
+
+		$data = '';
+		$get = $this->my_where('cities', ['id' => $dt])->row_array();
+		if($get){
+			$data .= '<option selected value="'.$get['id'].'">'.$get['name'].'</option>';
+		
 		}
 
 		echo $data;
