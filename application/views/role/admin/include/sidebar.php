@@ -81,6 +81,17 @@
       <li><a href="Banksoal/get_data" class="app-item">Bank soal</a></li>
     </ul>
   </li>
+  <!-- Kurikulum -->
+  <li class="navigation-header"><span>Kurikulum</span> <i class="icon-menu" title="Page kits"></i></li>
+  <li>
+    <a href="#"><i class=" icon-book"></i> <span>Data Pelajaran & Jadwal</span></a>
+    <ul>
+      <li><a href="Mata_pelajaran/get_data" class="app-item">Mata Pelajaran</a></li>
+      <li><a href="Guru_mapel/get_kelas" class="app-item">Mapel per Kelas</a></li>
+      <li><a href="Guru_mapel/get_data" class="app-item">Guru Mapel</a></li>
+    </ul>
+  </li>
+  <li>
    <!-- Kesiswaan -->
    <li class="navigation-header"><span>Kesiswaan</span> <i class="icon-menu" title="Page kits"></i></li>
    <li>
