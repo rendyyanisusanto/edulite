@@ -1,6 +1,27 @@
 <script type="text/javascript">
 	get_kd();
+	$(document).on('click', '.btn-edit',function(e){
 
+	    e.stopImmediatePropagation();
+	            $('.idmateri').val($(this).data('id'));
+	            $('.materi').val($(this).data('materi'));
+	            $('.kdtiga').val($(this).data('kdtiga'));
+	            $('.kdempat').val($(this).data('kdempat'));
+	            $('#modal_edit').modal('toggle');
+	});
+	$(document).on('click', '.btn-del', function(e){
+		e.stopImmediatePropagation();
+
+		var txt;
+		var r = confirm("Apakah anda yakin ingin menghapus data ini!");
+		if (r == true) {
+			send_ajax( 'Kd/hapus_data/'+($(this).data('id')),$(this).serialize() ).then( function(data){
+	            toastr.success('Data berhasil dihapus, Refresh untuk melihat perubahan');
+	            get_kd();
+	        });
+		} else {
+		}
+	})
 	$( "#app-submit" ).on('submit',function( e ) {
 	    e.stopImmediatePropagation();
 	    e.preventDefault();
@@ -12,6 +33,21 @@
 	            $('.kdtiga').val("");
 	            $('.kdempat').val("");
 	            $('#modal_default').modal('toggle');
+	        });
+	    return false;
+	});
+
+	$( "#app-submit-update" ).on('submit',function( e ) {
+	    e.stopImmediatePropagation();
+	    e.preventDefault();
+	    // $('.se-pre-con').css('display','block');
+	        send_ajax( $(this).attr('action'),$(this).serialize() ).then( function(data){
+	            toastr.success('Data berhasil ditambahkan, Refresh untuk melihat perubahan');
+	            get_kd();
+	            $('.materi').val("");
+	            $('.kdtiga').val("");
+	            $('.kdempat').val("");
+	            $('#modal_edit').modal('toggle');
 	        });
 	    return false;
 	});

@@ -23,21 +23,19 @@ class presensi_harian extends MY_Controller {
 	{
 		$data['account']	=	$this->get_user_account();
 		$data['param'] 		= 	$this->arr;
-		$data['dt_guru']	=	$this->get_guru();
 		$data['tahun_ajaran']		=	$this->my_where('tahun_ajaran', [])->result_array();
 		$data['mata_pelajaran']		=	$this->my_where('mata_pelajaran', [])->result_array();
-		$data['mapel'] 		= 	$this->my_where('v_guru_mapel', ['id_guru'=>$data['account']['anggota_id']])->result_array();
-		$this->my_view(['role/guru/page/presensi_harian/index_page/index','role/guru/page/presensi_harian/index_page/js'],$data);
+		$data['kelas']		=	$this->my_where('kelas', [])->result_array();
+		$this->my_view(['role/admin/page/presensi_harian/index_page/index','role/admin/page/presensi_harian/index_page/js'],$data);
 	}
 	public function rekap()
 	{
 		$data['account']	=	$this->get_user_account();
 		$data['param'] 		= 	$this->arr;
-		$data['dt_guru']	=	$this->get_guru();
 		$data['tahun_ajaran']		=	$this->my_where('tahun_ajaran', [])->result_array();
 		$data['mata_pelajaran']		=	$this->my_where('mata_pelajaran', [])->result_array();
-		$data['mapel'] 		= 	$this->my_where('v_guru_mapel', ['id_guru'=>$data['account']['anggota_id']])->result_array();
-		$this->my_view(['role/guru/page/presensi_harian/rekap/index','role/guru/page/presensi_harian/rekap/js'],$data);
+		$data['kelas']		=	$this->my_where('kelas', [])->result_array();
+		$this->my_view(['role/admin/page/presensi_harian/rekap/index','role/admin/page/presensi_harian/rekap/js'],$data);
 	}
 	public function proses_presensi_harian($value='')
 	{
@@ -64,7 +62,7 @@ class presensi_harian extends MY_Controller {
 				'presensi' => !empty($presensi) ? $presensi : []
 			];
  		}
-		$this->my_view(['role/guru/page/presensi_harian/index_page/list_siswa'],$data);
+		$this->my_view(['role/admin/page/presensi_harian/index_page/list_siswa'],$data);
 	}
 	public function proses_rekap()
 	{
@@ -101,7 +99,7 @@ class presensi_harian extends MY_Controller {
 					'presensi' => !empty($presensi) ? $presensi : []
 				];
 	 		}
-			$this->my_view(['role/guru/page/presensi_harian/rekap/list_siswa'],$data);
+			$this->my_view(['role/admin/page/presensi_harian/rekap/list_siswa'],$data);
 		} elseif($_POST['tipe'] == 1){
 			foreach ($siswa as $key => $value) {
 				$a = $this->my_where('presensi_harian', [
@@ -148,7 +146,7 @@ class presensi_harian extends MY_Controller {
 					'a'	=>	$a
 				];
 			}
-			$this->my_view(['role/guru/page/presensi_harian/rekap/list_total'],$data);
+			$this->my_view(['role/admin/page/presensi_harian/rekap/list_total'],$data);
 		}
 		
 	}

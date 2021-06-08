@@ -43,7 +43,7 @@
       <a href="#"><i class="icon-book"></i> <span>Presensi Harian</span></a>
       <ul>
         <li><a href="Presensi_harian/get_data" class="app-item">Presensi Harian</a></li>
-        <li><a href="Presensi_harian/get_data" class="app-item">Rekap Presensi Harian</a></li>
+        <li><a href="Presensi_harian/rekap" class="app-item">Rekap Presensi Harian</a></li>
       </ul>
     </li>
     <li>

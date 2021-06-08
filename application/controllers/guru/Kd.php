@@ -82,6 +82,12 @@ class kd extends MY_Controller {
 		$this->save_data('kd',$data_kd_empat);
 		}
 	}
+	public function update_kd()
+	{
+		$this->my_update('materi', ['materi'=>$_POST['materi']], ['id_materi'=>$_POST['idmateri_fk']]);
+		$this->my_update('kd', ['ringkasan'=>$_POST['kdtiga']], ['idmateri_fk'=>$_POST['idmateri_fk'], 'idjenispenilaian_fk'=>'3']);
+		$this->my_update('kd', ['ringkasan'=>$_POST['kdempat']], ['idmateri_fk'=>$_POST['idmateri_fk'], 'idjenispenilaian_fk'=>'4']);
+	}
 	public function get_data_kd()
 	{
 		$materi = $this->my_where('materi', [
@@ -101,14 +107,29 @@ class kd extends MY_Controller {
 				'idjenispenilaian_fk'=> 4
 			])->row_array();
 			$send .= '
-			<div class="panel panel-body"> 
-				<b>Materi </b> : '.$value['materi'].'<br/>
-				<b>KD 3 - Pengetahuan </b>: '.$kdtiga['ringkasan'].'<br/>
-				<b>KD 4 - Keterampilan </b>: '.$kdempat['ringkasan'].'
+			<div class="panel">
+				<div class="panel-heading">
+					
+					<div class="heading-elements">
+						<ul class="icons-list">
+						 <li><button data-id="'.$value['id_materi'].'" data-materi="'.$value['materi'].'" data-kdtiga="'.$kdtiga['ringkasan'].'" data-kdempat="'.$kdempat['ringkasan'].'" class="btn btn-success btn-sm btn-edit" type="button"><i class="icon-pencil3"></i></button></li>
+						 <li><button class="btn btn-danger btn-sm btn-del" data-id="'.$value['id_materi'].'"><i class="icon-trash"></i></button></li>
+						</ul>
+					</div>
+				</div>
+				<div class=" panel-body"> 
+					<b>Materi </b> : '.$value['materi'].'<br/>
+					<b>KD 3 - Pengetahuan </b>: '.$kdtiga['ringkasan'].'<br/>
+					<b>KD 4 - Keterampilan </b>: '.$kdempat['ringkasan'].'
+				</div>
 			</div>
 			';
 		}
 		echo $send;
-
+	}
+	public function hapus_data($id='')
+	{
+		$this->db->delete('materi',  ['id_materi'=>$id]);
+		$this->db->delete('kd',  ['idmateri_fk'=>$id]);
 	}
 }

@@ -33,13 +33,7 @@
     </ul>
   </li>
 
-  <li>
-    <a href="#"><i class="icon-user-check"></i> <span>Kesiswaan</span></a>
-    <ul>
-      <li><a href="Siswa/get_data" class="app-item">Data Siswa</a></li>
-      <li><a href="Siswa/perkelas" class="app-item">Data Siswa Perkelas</a></li>
-    </ul>
-  </li>
+  
 
   <li>
     <a href="#"><i class="icon-book"></i> <span>PPDB</span></a>
@@ -87,7 +81,22 @@
       <li><a href="Banksoal/get_data" class="app-item">Bank soal</a></li>
     </ul>
   </li>
-   <!-- Page kits -->
+   <!-- Kesiswaan -->
+   <li class="navigation-header"><span>Kesiswaan</span> <i class="icon-menu" title="Page kits"></i></li>
+   <li>
+      <a href="#"><i class="icon-user-check"></i> <span>Data Siswa</span></a>
+      <ul>
+        <li><a href="Siswa/get_data" class="app-item">Semua Siswa</a></li>
+        <li><a href="Siswa/perkelas" class="app-item">Data Siswa Perkelas</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#"><i class="icon-user-check"></i> <span>Laporan</span></a>
+      <ul>
+        <li><a href="Presensi_harian/rekap" class="app-item">Rekap Presensi Siswa</a></li>
+      </ul>
+    </li>
+   <!-- /Kesiswaan -->
   <li class="navigation-header"><span>External App</span> <i class="icon-menu" title="Page kits"></i></li>
   <li>
     <a href="#"><i class=" icon-paste4"></i> <span>Online Assesment System</span></a>
