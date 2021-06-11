@@ -9,11 +9,17 @@
 
     	e.stopImmediatePropagation();
 		var tahun_ajaran	= $('.tahun_ajaran').val();
-		var guru 			= $('.guru').val();
+		var kelas 			= $('.kelas').val();
 		var mapel  			= $('.idmapel_fk').val();
-		var kelas  			= $('.idkelas_fk').val();
+		var guru  			= $('.idguru_fk').val();
 		send_ajax( 'guru_mapel/save_mapel',{idtahunajaran_fk:tahun_ajaran,idguru_fk:guru, idmapel_fk:mapel, idkelas_fk:kelas} ).then( function(data){
-			toastr.success('Data berhasil ditambahkan, Refresh untuk melihat perubahan');
+			var response = JSON.parse(data);
+			if (response.status == 0) {
+				toastr.error ('Data gagal ditambahkan, Jadwal guru sudah ada');
+			}else{
+				toastr.success('Data berhasil ditambahkan, Refresh untuk melihat perubahan');
+			}
+			
            get_mapel();
         });
 	});

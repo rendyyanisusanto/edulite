@@ -2,10 +2,10 @@
 <form class="form-horizontal" action="<?php echo $data_get['param']['table'] ?>/simpan_data" id="app-submit" method="POST">
 <div class="row">
 	<div class="col-md-12">
-		<div class="panel panel-body panel-head">
+		
 			<div class="row">
 				<div class="col-md-6">
-					<div class="panel panel-body">
+					<div class="panel panel-body panel-head">
 						<fieldset>
 							<div class="form-group">
 			                  <label class="col-lg-4 control-label">Tahun Ajaran</label>
@@ -17,25 +17,18 @@
 			                    </select>
 			                  </div>
 			                </div>
-			                <div class="form-group">
-			                <label class="col-lg-4 control-label">Kelas</label>
-			                  <div class="col-lg-8">
-			                    <select data-placeholder="Pilih Kelas" name="idkelas_fk" class="select kelas">
-			                      <?php foreach ($data_get['kelas'] as $key => $value): ?>
-			                      <option value="<?php echo $value['id_kelas'] ?>"><?php echo $value['kelas'] ?></option>
-			                      <?php endforeach ?>
-			                    </select>
-			                  </div>
-			                </div>
+
+			                
+			                
 			                <button type="button" class="btn btn-success btn-proses">Proses</button>
 						</fieldset>
 					</div>
 				</div>
 				<div class="col-md-12">
-					<div class="panel-kelas"></div>
+					<div class="panel-jam"></div>
 				</div>
 			</div>
-		</div>
+		
 	</div>
 </div>
 </form>

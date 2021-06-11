@@ -121,7 +121,7 @@ class Guru_mapel extends MY_Controller {
 
 		$data['guru']				=	$this->my_where('guru',[])->result_array();
 		$data['mata_pelajaran']		=	$this->my_where('mata_pelajaran',[])->result_array();
-
+		
 
 		$send = '
 				<div class="panel panel-body">
@@ -189,15 +189,31 @@ class Guru_mapel extends MY_Controller {
 	}
 	function save_mapel()
 	{
-
-		$data = [
+		$cek = $this->my_where('guru_mapel', [
 			'idguru_fk'			=>	$_POST['idguru_fk'],
 			'idmapel_fk'		=>	$_POST['idmapel_fk'],
 			'idtahunajaran_fk'	=>	$_POST['idtahunajaran_fk'],
 			'idkelas_fk'		=>	$_POST['idkelas_fk']
-		];
+		])->num_rows();
 
-		$this->save_data('guru_mapel', $data);
+		if ($cek > 0) {
+			echo json_encode([
+				'status' => 0
+			]);
+		}else{
+			$data = [
+				'idguru_fk'			=>	$_POST['idguru_fk'],
+				'idmapel_fk'		=>	$_POST['idmapel_fk'],
+				'idtahunajaran_fk'	=>	$_POST['idtahunajaran_fk'],
+				'idkelas_fk'		=>	$_POST['idkelas_fk']
+			];
+
+			$this->save_data('guru_mapel', $data);
+			echo json_encode([
+				'status' => 1
+			]);
+		}
+		
 	}
 
 	function hapus_mapel()
