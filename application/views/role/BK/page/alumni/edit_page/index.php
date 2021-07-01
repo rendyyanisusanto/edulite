@@ -1,0 +1,86 @@
+
+
+<form class="form-horizontal" action="<?php echo $data_get['param']['table'] ?>/update_data" id="app-submit" method="POST">
+
+<div class="row">
+	<div class="col-md-12">
+		<div class="panel panel-body">
+			<fieldset>
+				<input type="hidden" value="<?php echo $data_get['alumni']['id_alumni'] ?>" name="id_alumni">
+	            <div class="form-group">
+	              <label class="col-lg-3 control-label">Nama</label>
+	              <div class="col-lg-4">
+	              	<input type="text" class="form-control" value="<?php echo $data_get['alumni']['nama']; ?>" required name="nama" placeholder="Input here......">
+	              </div>
+	            </div>
+	            <div class="form-group">
+	              <label class="col-lg-3 control-label">Tahun Lulus</label>
+	              <div class="col-lg-2">
+	              	<input type="text" class="form-control" value="<?php echo $data_get['alumni']['tahun_lulus']; ?>" name="tahun_lulus" required placeholder="Input here......">
+	              </div>
+	            </div>
+	            <div class="form-group">
+	              <label class="col-lg-3 control-label">No. HP</label>
+	              <div class="col-lg-3">
+	              	<input type="text" class="form-control" value="<?php echo $data_get['alumni']['no_hp']; ?>" name="no_hp" required placeholder="Input here......">
+	              </div>
+	            </div>
+	            <div class="form-group">
+	              <label class="col-lg-3 control-label">Alamat</label>
+	              <div class="col-lg-6">
+	              	<input type="text" class="form-control" value="<?php echo $data_get['alumni']['alamat']; ?>" name="alamat" required placeholder="Input here......">
+	              </div>
+	            </div>
+	            <div class="form-group">
+	              <label class="col-lg-3 control-label">Lokasi:</label>
+	              <div class="col-lg-9">
+	                <div id="gmap" style="width: 100%;height: 500px;"></div>
+	              </div>
+	            </div>
+	            <div class="form-group">
+	              <label class="col-lg-3 control-label">Latitude:</label>
+	              <div class="col-lg-9">
+	                <input type="text" required="" value="<?php echo $data_get['alumni']['lat']; ?>" name="lat" class="lat form-control">
+	              </div>
+	            </div>
+	            <div class="form-group">
+	              <label class="col-lg-3 control-label">Longitude:</label>
+	              <div class="col-lg-9">
+	                <input type="text" required="" value="<?php echo $data_get['alumni']['lng']; ?>" name="lng" class="lng form-control">
+	              </div>
+	            </div>
+	            <div class="panel panel-body">
+	            	<b>Kegiatan saat ini :</b>
+	            	<div class="form-group">
+		              <label class="col-lg-3 control-label">Kuliah</label>
+		              <div class="col-lg-4">
+		              	<input type="text" class="form-control" name="kuliah" value="<?php echo $data_get['alumni']['kuliah']; ?>" required placeholder="Input here......">
+		              </div>
+		            </div>
+		            <div class="form-group">
+		              <label class="col-lg-3 control-label">Menikah</label>
+		              <div class="col-lg-4">
+		              	<input type="text" class="form-control" name="menikah" value="<?php echo $data_get['alumni']['menikah']; ?>" required placeholder="Input here......">
+		              </div>
+		            </div>
+		            <div class="form-group">
+		              <label class="col-lg-3 control-label">Bekerja</label>
+		              <div class="col-lg-4">
+		              	<input type="text" class="form-control" name="bekerja" value="<?php echo $data_get['alumni']['bekerja']; ?>" required placeholder="Input here......">
+		              </div>
+		            </div>
+		            <div class="form-group">
+		              <label class="col-lg-3 control-label">Pesantren</label>
+		              <div class="col-lg-4">
+		              	<input type="text" class="form-control" name="pesantren" value="<?php echo $data_get['alumni']['pesantren']; ?>" required placeholder="Input here......">
+		              </div>
+		            </div>
+	            </div>
+
+	            <button class="btn btn-success" type="submit">Simpan</button>
+            </fieldset>	
+		</div>
+	</div>
+</div>
+</form>
+

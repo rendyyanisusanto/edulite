@@ -57,6 +57,8 @@ class alumni extends MY_Controller {
 			'alamat' 			=> $_POST['alamat'],
 			'no_hp' 			=> $_POST['no_hp'],
 			'kuliah' 			=> $_POST['kuliah'],
+			'longitude'			=> $_POST['lng'],
+			'latitude'			=> $_POST['lat'],
 			'menikah' 			=> $_POST['menikah'],
 			'bekerja' 			=> $_POST['bekerja'],
 			'pesantren' 		=> $_POST['pesantren'],

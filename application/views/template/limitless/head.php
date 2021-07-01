@@ -41,6 +41,7 @@
 <script src="<?php echo base_url('include/template/toastr/toastr.min.js')?>"></script>
 <script src="<?php echo base_url('include/template/keys/jquery.key.js')?>"></script>
 
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAz51lKipef50F9xznI-1g_O0GQt0JR7h0"></script>
   <!-- /theme JS files -->
 
 </head>

@@ -23,7 +23,7 @@ class siswa extends MY_Controller {
 	{
 		$data['account']	=	$this->get_user_account();
 		$data['param'] 		= 	$this->arr;
-		$this->my_view(['role/admin/page/siswa/index_page/index','role/admin/page/siswa/index_page/js'],$data);
+		$this->my_view(['role/kesiswaan/page/siswa/index_page/index','role/kesiswaan/page/siswa/index_page/js'],$data);
 	}
 
 	public function add_page()
@@ -33,7 +33,7 @@ class siswa extends MY_Controller {
 		$data['province']	=	$this->my_where('provinces', [])->result_array();
 		$data['account']	=	$this->get_user_account();
 		$data['param'] 		= 	$this->arr;
-		$this->my_view(['role/admin/page/siswa/add_page/index','role/admin/page/siswa/add_page/js'],$data);
+		$this->my_view(['role/kesiswaan/page/siswa/add_page/index','role/kesiswaan/page/siswa/add_page/js'],$data);
 	}
 	public function perkelas()
 	{
@@ -42,7 +42,7 @@ class siswa extends MY_Controller {
 		$data['province']	=	$this->my_where('provinces', [])->result_array();
 		$data['account']	=	$this->get_user_account();
 		$data['param'] 		= 	$this->arr;
-		$this->my_view(['role/admin/page/siswa/perkelas/index','role/admin/page/siswa/perkelas/js'],$data);
+		$this->my_view(['role/kesiswaan/page/siswa/perkelas/index','role/kesiswaan/page/siswa/perkelas/js'],$data);
 	}
 
 	public function edit_page($id)
@@ -53,7 +53,7 @@ class siswa extends MY_Controller {
 				$data['kelas']		=	$this->my_where('kelas', [])->result_array();
 				$data['jurusan']	=	$this->my_where('jurusan', [])->result_array();
 				$data['province']	=	$this->my_where('provinces', [])->result_array();
-				$this->my_view(['role/admin/page/siswa/edit_page/index','role/admin/page/siswa/edit_page/js'],$data);
+				$this->my_view(['role/kesiswaan/page/siswa/edit_page/index','role/kesiswaan/page/siswa/edit_page/js'],$data);
 		} else {
 			$this->get_data();
 		}
@@ -70,7 +70,7 @@ class siswa extends MY_Controller {
 				$data['jurusan']	=	$this->my_where('jurusan', [])->result_array();
 				$data['province']	=	$this->my_where('provinces', ['id' => $data['siswa']['idprovince_fk']])->row_array();
 				$data['city']		=	$this->my_where('cities', ['id' => $data['siswa']['idcities_fk']])->row_array();
-				$this->my_view(['role/admin/page/siswa/detail_page/index','role/admin/page/siswa/detail_page/js'],$data);
+				$this->my_view(['role/kesiswaan/page/siswa/detail_page/index','role/kesiswaan/page/siswa/detail_page/js'],$data);
 		} else {
 			$this->get_data();
 		}
@@ -80,7 +80,7 @@ class siswa extends MY_Controller {
 	public function upload_page()
 	{
 		$data['account']	=	$this->get_user_account();
-		$this->my_view(['role/admin/page/siswa/upload_page','role/admin/page/siswa/js_upload_page'],$data);
+		$this->my_view(['role/kesiswaan/page/siswa/upload_page','role/kesiswaan/page/siswa/js_upload_page'],$data);
 	}
 	/*
 		ADD DATA
@@ -306,7 +306,7 @@ class siswa extends MY_Controller {
 				$data['jurusan']	=	$this->my_where('jurusan', [])->result_array();
 				$data['province']	=	$this->my_where('provinces', ['id' => $data['siswa']['idprovince_fk']])->row_array();
 				$data['city']		=	$this->my_where('cities', ['id' => $data['siswa']['idcities_fk']])->row_array();
-				$this->load->view('role/admin/page/siswa/print/print_siswa',$data);
+				$this->load->view('role/kesiswaan/page/siswa/print/print_siswa',$data);
 			} else {
 				$this->get_data();
 			}
@@ -438,7 +438,7 @@ class siswa extends MY_Controller {
 		$data['param'] 		= 	$this->arr;
 		$data['siswa'] = $this->my_where('v_siswa_jurusan', ['idkelas_fk'=>$_POST['id_kelas']])->result_array(); 
 		$data['kelas']	=	$this->my_where('kelas', ['id_kelas'=>$_POST['id_kelas']])->row_array();
-		$this->my_view(['role/admin/page/siswa/perkelas/proses_siswa','role/admin/page/siswa/perkelas/js_proses'],$data);
+		$this->my_view(['role/kesiswaan/page/siswa/perkelas/proses_siswa','role/kesiswaan/page/siswa/perkelas/js_proses'],$data);
 	}
 	public function import_siswa($value='')
 	{

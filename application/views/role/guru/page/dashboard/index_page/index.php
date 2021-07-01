@@ -16,6 +16,41 @@
 </div>
 
 <?php endif ?>
+<?php if (count($data_get['mapel_hari_ini']) > 0): ?>
+	
+<div class="row">
+	<div class="col-md-12">
+			<div class="panel panel-body">
+				<center><b><u>Tugas anda hari ini</u></b></center>
+
+				<table class="table table-bordered table-xxs table-framed">
+					<thead>
+						<tr>
+							<th width="1%">No</th>
+							<th>Keterangan</th>
+							<th width="1%">Abs</th>
+							<th width="1%">Jn</th>
+							<th width="1%">Ctt</th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php $no = 0; ?>
+						<?php foreach ($data_get['mapel_hari_ini'] as $value): ?>
+							<tr>
+								<td><?= (++$no); ?></td>
+								<td><a href="Jurnal_guru/jurnal/<?= $value['mapel']['id_jadwal_pelajaran'] ?>" class="app-item">Mata Pelajaran <?= '<b>'.$value['mapel']['kode_pelajaran'].'<b> Kelas <b>'.$value['mapel']['kelas'].'</b> Jam Ke-'.$value['mapel']['nama'] ?></a></td>
+								<td><b class="<?php echo ($value['absen']>0) ? 'text-success icon-checkmark2' : 'text-danger icon-close2'; ?>"></b></td>
+								<td><b class="<?php echo ($value['jurnal_guru']>0) ? 'text-success icon-checkmark2' : 'text-danger icon-close2'; ?>"></b></td>
+								<td><b class="<?php echo ($value['catatan_siswa']>0) ? 'text-success icon-checkmark2' : 'text-danger icon-close2'; ?>"></b></td>
+							</tr>
+						<?php endforeach ?>
+					</tbody>
+				</table>
+			</div>
+		</div>
+</div>
+
+<?php endif ?>
 <div class="row">
 	<div class="col-md-4">
 		<div class="content-group">
@@ -60,29 +95,6 @@
 		</div>
 	</div>
 	<div class="col-md-8">
-		<div class="col-md-12">
-			<div class="panel panel-body">
-				<center><b><u>Tugas anda hari ini</u></b></center>
-
-				<table class="table table-bordered table-xxs table-framed">
-					<thead>
-						<tr>
-							<th width="1%">No</th>
-							<th>Keterangan</th>
-						</tr>
-					</thead>
-					<tbody>
-						<?php $no = 0; ?>
-						<?php foreach ($data_get['mapel_hari_ini'] as $value): ?>
-							<tr>
-								<td><?= (++$no); ?></td>
-								<td><a href="Jurnal_guru/jurnal/<?= $value['id_jadwal_pelajaran'] ?>" class="app-item">Mata Pelajaran <?= '<b>'.$value['kode_pelajaran'].'<b> Kelas <b>'.$value['kelas'].'</b> Jam Ke-'.$value['nama'] ?></a></td>
-							</tr>
-						<?php endforeach ?>
-					</tbody>
-				</table>
-			</div>
-		</div>
 		<div class="col-md-12">
 			<div class="panel panel-body">
 			<center><b><u>Mapel yang anda ampu</u></b></center>
