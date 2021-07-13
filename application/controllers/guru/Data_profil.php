@@ -8,6 +8,25 @@ class Data_profil extends MY_Controller {
 		$data				=	$this->get_guru();
 		$this->my_view(['role/guru/page/data_profil/index_page/index','role/guru/page/data_profil/index_page/js'],$data);
 	}
+	public function akun()
+	{
+		$data				=	$this->get_guru();
+		$this->my_view(['role/guru/page/data_profil/index_page/akun','role/guru/page/data_profil/index_page/jsakun'],$data);
+	}
+
+	public function update_akun()
+	{
+		$old_password = $this->input->post('old_password');
+		$password_matches = $this->ion_auth->hash_password_db($_POST['id'], $old_password);
+		if ($password_matches) {
+			 $data = [
+			          'username' => $_POST['username'],
+			          'password' => $_POST['password'],
+		           	 ];
+		    $this->ion_auth->update($_POST['id'], $data);
+		}
+		echo json_encode(['status'=>$password_matches]);
+	}
 
 	function update_data()
 	{

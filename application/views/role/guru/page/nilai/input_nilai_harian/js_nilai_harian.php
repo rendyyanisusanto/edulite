@@ -14,5 +14,16 @@
         return false;
     });
 
-    
+    $( "#app-proses-submit" ).on('submit',function( e ) {
+        e.stopImmediatePropagation();
+        e.preventDefault();
+        // $('.se-pre-con').css('display','block');
+
+        blockui($('.proses-nilai'));
+            send_ajax( $(this).attr('action'),$(this).serialize() ).then( function(data){
+                toastr.success('Data berhasil ditambahkan, Refresh untuk melihat perubahan');
+                unblockui($('.proses-nilai'));
+            });
+        return false;
+    });
 </script>

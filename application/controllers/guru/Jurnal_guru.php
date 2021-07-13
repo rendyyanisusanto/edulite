@@ -25,7 +25,8 @@ class Jurnal_guru extends MY_Controller {
 			$presensi = $this->my_where('presensi_harian', [
 				'idsiswa_fk' => $value['id_siswa'],
 				'idtahunajaran_fk'=>$mapel_get['idtahunajaran_fk'],
-				'idkelas_fk'=>$mapel_get['idkelas_fk']
+				'idkelas_fk'=>$mapel_get['idkelas_fk'],
+				'tanggal' 		=>	date('Y-m-d')
 			])->row_array();
 
 			$data['siswa'][] = [

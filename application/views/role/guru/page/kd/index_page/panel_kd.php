@@ -8,13 +8,21 @@
 		</tr>
 		<tr>
 			<td class="bg-blue">Kelas</td>
-			<td class="bg-info"><?php echo $data_get['kelas']['kelas'] ?></td>
+			<td class="bg-info"><?php echo $data_get['kelas']['kelas'] ?><?php echo $data_get['id_tahun_ajaran'] ?></td>
 		</tr>
 	</table>
 	<br>
 
 	<button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal_default"><i class="icon-plus3">
-	</i>Tambah Materi/KD </button>
+	</i> Tambah Materi/KD </button>
+	<button type="button" class="btn btn-primary btn-duplicat pull-right btn-sm"
+	data-idtingkat_fk = "<?php echo $data_get['kelas']['idtingkat_fk'] ?>"
+	data-idkelas_fk = "<?php echo $data_get['kelas']['id_kelas'] ?>"
+	data-idtahunajaran_fk = "<?php echo $data_get['id_tahun_ajaran'] ?>"
+	data-idguru_fk = "<?php echo $data_get['id_guru']?>"
+	data-idmapel_fk = "<?php echo $data_get['mapel']['id_mata_pelajaran'] ?>"
+	><i class="icon-copy">
+	</i> Duplikat</button>
 	<hr>
 	
 	<div class="p-kd">
@@ -110,3 +118,22 @@
 <!-- <div id="jui-dialog-form-horizontal" title="Tambah KD">
 		
 </div> -->
+<div id="modal_cpy" class="modal fade" tabindex="-1">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<form class="form-horizontal" action="Kd/duplikat_proses" id="app-submit-duplicat" method="POST">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h5 class="modal-title">Duplikat Materi/KD</h5>
+				</div>
+				<div class="modal-body">
+					<div class="div-duplicat"></div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
+					<button type="submit" class="btn btn-primary">Proses</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

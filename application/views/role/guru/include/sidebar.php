@@ -23,8 +23,12 @@
   <li>
     <a href="#"><i class="icon-book"></i> <span>Akademik</span></a>
     <ul>
-      <li><a href="Presensi_guru/get_data" class="app-item">Presensi Guru</a></li>
-      <li><a href="Uts/get_data" class="app-item">Input Nilai</a></li>
+      <li><a href="Akademik/presensi_siswa" class="app-item">Presensi Siswa</a></li>
+      <li><a href="Akademik/jurnal" class="app-item">Jurnal Guru</a></li>
+      <li><a href="Akademik/catatan" class="app-item">Catatan Siswa</a></li>
+      <li><a href="Akademik/nilai_tugas" class="app-item">Nilai Tugas Siswa</a></li>
+      <li><a href="Uts/get_data" class="app-item">Nilai Keterampilan Siswa</a></li>
+      <li><a href="Uts/get_data" class="app-item">Input Nilai Rapor</a></li>
     </ul>
   </li>
   <?php if (!empty($user_account['is_walas'])): ?>
@@ -75,8 +79,7 @@
     
     <ul>
       <li><a href="Data_profil/get_data" class="app-item">Data Profil</a></li>
-      <li><a href="Profil_website/get_data" class="app-item">Role</a></li>
+      <li><a href="Data_profil/akun" class="app-item">Data Akun</a></li>
   </li>
-  <li><a href="Media/get_data" class="app-item"><i class="icon-stack-picture"></i> <span>Media</span></a></li>
   <!-- /page kits -->
 </ul>

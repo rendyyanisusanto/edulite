@@ -122,6 +122,12 @@
       <li><a href="Oas/get_data" class="app-item">Tambah Jadwal OAS</a></li>
     </ul>
   </li>
+  <li>
+    <a href="#"><i class=" icon-paste4"></i> <span>E-Rapor</span></a>
+    <ul>
+      <li><a href="Erapor/get_data" class="app-item">Tambah Jadwal E-rapor</a></li>
+    </ul>
+  </li>
   <li class="navigation-header"><span>Setting kits</span> <i class="icon-menu" title="Page kits"></i></li>
   <li>
     <a href="#"><i class="icon-stack2"></i> <span>Master</span></a>

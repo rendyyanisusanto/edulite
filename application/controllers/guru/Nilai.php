@@ -755,4 +755,39 @@ class nilai extends MY_Controller {
 			}
 		$this->my_view(['role/guru/page/nilai/input_nilai_keterampilan/index_nilai_keterampilan','role/guru/page/nilai/input_nilai_keterampilan/js_nilai_keterampilan'],$data);
 	}
+
+	public function input_nilai_harian_set($id_kd)
+	{
+			$kelas 		=	$this->my_where('kelas', ['id_kelas'=>$_POST['idkelas_fk']])->row_array();
+			$tahun_ajaran 		=	$this->my_where('tahun_ajaran', ['id_tahun_ajaran'=>$_POST['idtahunajaran_fk']])->row_array();
+			$mapel 		=	$this->my_where('mata_pelajaran', ['id_mata_pelajaran'=>$_POST['idmatapelajaran_fk']])->row_array();
+			$siswa		=	$this->my_where('siswa', ['idkelas_fk'=>$_POST['idkelas_fk']])->result_array();
+		    $send = [];
+		    
+			$data_set = $_POST;
+			$trans_code = rand(0,99999).rand(0,99999);
+			$data_input_nilai = [
+				'idguru_fk' 			=>	$_POST['idguru_fk'],
+				'idmatapelajaran_fk'	=>	$_POST['idmatapelajaran_fk'],
+				'idkelas_fk'			=>	$_POST['idkelas_fk'],
+				'idtahunajaran_fk'		=>	$_POST['idtahunajaran_fk'],
+				'trans_code'			=>	$trans_code,
+				'idjenispengetahuan_fk' => 	$_POST['idjenispengetahuan_fk']
+			];
+			$this->save_data('input_nilai_pengetahuan', $data_input_nilai);
+
+			$input_nilai_pengetahuan_get = $this->my_where('input_nilai_pengetahuan', $data_input_nilai)->row_array();
+
+			foreach ($_POST['data'] as $key => $value) {
+				$send [] = [
+					'idsiswa_fk' 					=> 	$value['idsiswa_fk'],
+					'nilai'							=>	(!empty($value['nilai'])) ? $value['nilai'] : 0,
+					'trans_code'					=>	$key,
+					'idinputnilaipengetahuan_fk'	=>	$input_nilai_pengetahuan_get['id_input_nilai_pengetahuan'],
+					'idkd_fk'						=> 	$id_kd
+				];
+			}
+			$this->save_data_batch('nilai_pengetahuan', $send);
+		    echo json_encode($send);
+	}
 }

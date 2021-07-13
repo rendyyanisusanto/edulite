@@ -35,6 +35,115 @@ class kd extends MY_Controller {
 		$this->my_view(['role/guru/page/kd/index_page/panel_kd','role/guru/page/kd/index_page/js_kd'],$data);
 	}
 
+	public function duplicat()
+	{
+
+		$data['idmatapelajaran_fk']	=	$_POST['id_mata_pelajaran'];
+		$data['idguru_fk']	=	$_POST['id_guru'];
+		$data['idkelas_fk']	=	$_POST['idkelas_fk'];
+		$data['idtahunajaran_fk']	=	$_POST['id_tahun_ajaran'];
+
+		$data['pelajaran']	=	$this->my_where('v_guru_mapel', ['idguru_fk'=>$_POST['id_guru'], 'idmapel_fk'=>$_POST['id_mata_pelajaran'], 'idtingkat_fk'=>$_POST['id_tingkat'],'idtahunajaran_fk'	=>	$_POST['id_tahun_ajaran'], 'idkelas_fk <>'=>$_POST['idkelas_fk']])->result_array();
+		$materi = $this->my_where('materi', [
+			'idkelas_fk'		=>	$_POST['idkelas_fk'],
+			'idguru_fk'			=>	$_POST['id_guru'],
+			'idtahunajaran_fk'	=>	$_POST['id_tahun_ajaran'],
+			'idmatapelajaran_fk'=>	$_POST['id_mata_pelajaran'],
+		])->num_rows();
+		if ($materi > 0) {
+			$this->my_view(['role/guru/page/kd/index_page/panel_duplicat'],$data);
+		}else{
+			echo "<h3 class='text-danger text-center'>Tidak ada data(Materi dan KD) yang bisa di duplikat</h3>";
+		}
+		
+	}
+
+	public function duplikat_proses()
+	{
+		foreach ($_POST['kelas'] as $key => $value) {
+			$guru_mapel_get = $this->my_where('guru_mapel', ['id_guru_mapel'=>$value])->row_array();
+
+			$get_materi = $this->my_where('materi',[
+				'idkelas_fk'		=>	$_POST['idkelas_fk'],
+				'idguru_fk'			=>	$_POST['idguru_fk'],
+				'idtahunajaran_fk'	=>	$_POST['idtahunajaran_fk'],
+				'idmatapelajaran_fk'=>	$_POST['idmatapelajaran_fk'],
+			])->result_array();
+
+			foreach ($get_materi as $key_materi => $value_materi) {
+				$rand = rand(0,99999).rand(0,99999);
+				$data = [
+					'materi'			=>	$value_materi['materi'],
+					'file_materi'		=>	'',
+					'file_rpp'			=>	'',
+					'idkelas_fk'		=>	$guru_mapel_get['idkelas_fk'],
+					'idguru_fk'			=>	$_POST['idguru_fk'],
+					'idtahunajaran_fk'	=>	$_POST['idtahunajaran_fk'],
+					'idmatapelajaran_fk'=>	$_POST['idmatapelajaran_fk'],
+				];
+				if ($this->my_where('materi', $data)->num_rows() == 0) {
+
+					$data['trans_code']	=	$rand;
+					$this->save_data('materi',$data);
+				}
+
+				$materi = $this->my_where('materi', $data)->row_array();
+				$kdtiga = $this->my_where('kd', [
+						'idkelas_fk'			=>	$value_materi['idkelas_fk'],
+						'idjenispenilaian_fk'	=>	'3',
+						'idmatapelajaran_fk'	=>	$value_materi['idmatapelajaran_fk'],
+						'idmateri_fk'			=>	$value_materi['id_materi'],
+						'idtahunajaran_fk'		=>	$value_materi['idtahunajaran_fk'],
+						'idguru_fk'				=>	$value_materi['idguru_fk']
+				])->row_array();
+
+				$kdempat = $this->my_where('kd', [
+						'idkelas_fk'			=>	$value_materi['idkelas_fk'],
+						'idjenispenilaian_fk'	=>	'4',
+						'idmatapelajaran_fk'	=>	$value_materi['idmatapelajaran_fk'],
+						'idmateri_fk'			=>	$value_materi['id_materi'],
+						'idtahunajaran_fk'		=>	$value_materi['idtahunajaran_fk'],
+						'idguru_fk'				=>	$value_materi['idguru_fk']
+				])->row_array();
+
+
+					$data_kd_tiga = [
+						'idkelas_fk'			=>	$guru_mapel_get['idkelas_fk'],
+						'idjenispenilaian_fk'	=>	'3',
+						'idmatapelajaran_fk'	=>	$_POST['idmatapelajaran_fk'],
+						'kode'					=>	'',
+						'ringkasan'				=>	$kdtiga['ringkasan'],
+						'idmateri_fk'			=>	$materi['id_materi'],
+						'idtahunajaran_fk'		=>	$_POST['idtahunajaran_fk'],
+						'idguru_fk'				=>	$_POST['idguru_fk']
+					];
+				
+				if ($this->my_where('kd', $data_kd_tiga)->num_rows() == 0) {
+					$this->save_data('kd',$data_kd_tiga);
+				}					
+				
+
+					$data_kd_empat = [
+						'idkelas_fk'			=>	$guru_mapel_get['idkelas_fk'],
+						'idjenispenilaian_fk'	=>	'4',
+						'idmatapelajaran_fk'	=>	$_POST['idmatapelajaran_fk'],
+						'kode'					=>	'',
+						'ringkasan'				=>	$kdempat['ringkasan'],
+						'idtahunajaran_fk'		=>	$_POST['idtahunajaran_fk'],
+						'idmateri_fk'			=>	$materi['id_materi'],
+						'idguru_fk'				=>	$_POST['idguru_fk']
+					];
+					
+				if ($this->my_where('kd', $data_kd_empat)->num_rows() == 0) {
+					$this->save_data('kd',$data_kd_empat);
+				}	
+			}
+
+		}
+		
+		echo json_encode($_POST);
+	}
+
 	public function add_kd()
 	{
 		$rand = rand(0,99999).rand(0,99999);

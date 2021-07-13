@@ -8,7 +8,7 @@
         </tr>
       </table>
       <hr>
-      <table style ="border: 1px solid black;" class="table table-bordered">
+      <table style ="border-collapse: collapse;" class="table table-xxs table-framed table-bordered">
         <thead>
           <tr>
             <th width="2%">No</th>
@@ -35,7 +35,7 @@
               <td><a href="nilai/input_nilai_keterampilan/<?php echo $value['mapel']['id_kelas'].'/'.$value['mapel']['id_mata_pelajaran'].'/'.$value['mapel']['id_tahun_ajaran']; ?>"  class="app-item btn btn-<?php echo ($value['input_nilai_keterampilan'] == 0) ? "danger" :"success"; ?> btn-sm"><i class="icon-<?php echo ($value['input_nilai_keterampilan'] == 0) ? "pencil" :"checkmark4"; ?>"></i></a></td>
               <td><a href="uts/input_nilai_pts/<?php echo $value['mapel']['id_kelas'].'/'.$value['mapel']['id_mata_pelajaran'].'/'.$value['mapel']['id_tahun_ajaran']; ?>" class="app-item btn btn-<?php echo ($value['input_nilai_pts'] == 0) ? "danger" :"success"; ?> btn-sm"><i class="icon-<?php echo ($value['input_nilai_pts'] == 0) ? "pencil" :"checkmark4"; ?>"></i></a></td>
               <td><a href="nilai/input_nilai_pas/<?php echo $value['mapel']['id_kelas'].'/'.$value['mapel']['id_mata_pelajaran'].'/'.$value['mapel']['id_tahun_ajaran']; ?>" class="app-item btn btn-<?php echo ($value['input_nilai_pas'] == 0) ? "danger" :"success"; ?> btn-sm"><i class="icon-<?php echo ($value['input_nilai_pas'] == 0) ? "pencil" :"checkmark4"; ?>"></i></a></td>
-              <td><?php echo ($value['cek_kd'] > 0 ) ? '<a href="nilai/import_all/'.$value['mapel']['id_kelas'].'/'.$value['mapel']['id_mata_pelajaran'].'/'.$value['mapel']['id_tahun_ajaran'].'" class=" app-item ">Import Excel</a> <br> <a href="nilai/cek_nilai/'.$value['mapel']['id_kelas'].'/'.$value['mapel']['id_mata_pelajaran'].'/'.$value['mapel']['id_tahun_ajaran'].'" class=" app-item ">Lihat Nilai</a>' :'<a href="Kd/get_data" class="app-item"><p class="text-danger">KD BELUM LENGKAP</p></a>'; ?></td>
+              <td><?php echo ($value['cek_kd'] > 0 ) ? ' <a href="nilai/cek_nilai/'.$value['mapel']['id_kelas'].'/'.$value['mapel']['id_mata_pelajaran'].'/'.$value['mapel']['id_tahun_ajaran'].'" class=" app-item ">Lihat Nilai</a>' :'<a href="Kd/get_data" class="app-item"><p class="text-danger">KD BELUM LENGKAP</p></a>'; ?></td>
             </tr>
           <?php endforeach ?>
         </tbody>
@@ -43,3 +43,5 @@
     </div>
   </div>
 </div>
+
+<!-- <a href="nilai/import_all/'.$value['mapel']['id_kelas'].'/'.$value['mapel']['id_mata_pelajaran'].'/'.$value['mapel']['id_tahun_ajaran'].'" class=" app-item ">Import Excel</a> -->
