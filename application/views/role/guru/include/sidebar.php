@@ -9,7 +9,7 @@
       <li><a href="Presensi_guru/history" class="app-item">Rekap Presensi</a></li>
     </ul>
   </li>
-  <li>
+  <!-- <li>
     <a href="#"><i class="icon-book"></i> <span>Buku Kerja Guru</span></a>
     <ul>
       <li><a href="Kd/get_data" class="app-item">Identifikasi KI/KD</a></li>
@@ -19,7 +19,7 @@
       <li><a href="Promes/get_data" class="app-item">Promes</a></li>
       <li><a href="Banksoal/get_data" class="app-item">Bank soal</a></li>
     </ul>
-  </li>
+  </li> -->
   <li>
     <a href="#"><i class="icon-book"></i> <span>Akademik</span></a>
     <ul>
@@ -27,8 +27,8 @@
       <li><a href="Akademik/jurnal" class="app-item">Jurnal Guru</a></li>
       <li><a href="Akademik/catatan" class="app-item">Catatan Siswa</a></li>
       <li><a href="Akademik/nilai_tugas" class="app-item">Nilai Tugas Siswa</a></li>
-      <li><a href="Uts/get_data" class="app-item">Nilai Keterampilan Siswa</a></li>
-      <li><a href="Uts/get_data" class="app-item">Input Nilai Rapor</a></li>
+      <!-- <li><a href="Uts/get_data" class="app-item">Nilai Keterampilan Siswa</a></li>
+      <li><a href="Uts/get_data" class="app-item">Input Nilai Rapor</a></li> -->
     </ul>
   </li>
   <?php if (!empty($user_account['is_walas'])): ?>

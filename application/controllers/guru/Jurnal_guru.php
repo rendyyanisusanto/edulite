@@ -19,14 +19,15 @@ class Jurnal_guru extends MY_Controller {
 		$siswa		=	$this->my_where('siswa', ['idkelas_fk'=>$mapel_get['idkelas_fk']])->result_array();
 		$data['kelas']		=	$this->my_where('kelas', ['id_kelas'=>$mapel_get['idkelas_fk']])->row_array();
 		$data['mata_pelajaran']		=	$this->my_where('mata_pelajaran', ['id_mata_pelajaran'=>$mapel_get['idmapel_fk']])->row_array();
-
+		$data['dt_guru']	=	$this->get_guru();
 		$data['siswa'] = [];
 		foreach ($siswa as $key => $value) {
 			$presensi = $this->my_where('presensi_harian', [
-				'idsiswa_fk' => $value['id_siswa'],
-				'idtahunajaran_fk'=>$mapel_get['idtahunajaran_fk'],
-				'idkelas_fk'=>$mapel_get['idkelas_fk'],
-				'tanggal' 		=>	date('Y-m-d')
+				'idsiswa_fk' 			=> 	$value['id_siswa'],
+				'idtahunajaran_fk'		=>	$mapel_get['idtahunajaran_fk'],
+				'idkelas_fk'			=>	$mapel_get['idkelas_fk'],
+				'idmatapelajaran_fk'	=>	$mapel_get['idmapel_fk'],
+				'tanggal' 				=>	date('Y-m-d')
 			])->row_array();
 
 			$data['siswa'][] = [

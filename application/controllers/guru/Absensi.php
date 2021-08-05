@@ -32,6 +32,7 @@ class absensi extends MY_Controller {
 	{
 		$data['account']	=	$this->get_user_account();
 		$data['param'] 		= 	$this->arr;
+		$data['dt_guru']	=	$this->get_guru();
 		$data['tahun_ajaran']		=	$this->my_where('tahun_ajaran', ['id_tahun_ajaran'=>$_POST['idtahunajaran_fk']])->row_array();
 		$siswa		=	$this->my_where('siswa', ['idkelas_fk'=>$_POST['idkelas_fk']])->result_array();
 		$data['kelas']		=	$this->my_where('kelas', ['id_kelas'=>$_POST['idkelas_fk']])->row_array();
@@ -40,6 +41,7 @@ class absensi extends MY_Controller {
 			$presensi = $this->my_where('presensi_rapor', [
 				'idsiswa_fk' => $value['id_siswa'],
 				'idtahunajaran_fk'=>$_POST['idtahunajaran_fk'],
+				'id_guru'=>	$data['dt_guru']['id_guru'],
 				'idkelas_fk'=>$_POST['idkelas_fk']
 			])->row_array();
 

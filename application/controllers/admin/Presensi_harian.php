@@ -37,6 +37,40 @@ class presensi_harian extends MY_Controller {
 		$data['kelas']		=	$this->my_where('kelas', [])->result_array();
 		$this->my_view(['role/admin/page/presensi_harian/rekap/index','role/admin/page/presensi_harian/rekap/js'],$data);
 	}
+	public function presensi_siswa()
+	{
+		$data['account']	=	$this->get_user_account();
+		$data['param'] 		= 	$this->arr;
+		$data['tahun_ajaran']		=	$this->my_where('tahun_ajaran', [])->result_array();
+		$data['kelas']		=	$this->my_where('kelas', [])->result_array();
+		$this->my_view(['role/admin/page/presensi_harian/presensi_siswa/index','role/admin/page/presensi_harian/presensi_siswa/js'],$data);
+	}
+	public function absen($idmapel)
+	{
+		$data['account']	=	$this->get_user_account();
+		$mapel_get			=	$this->my_where('v_jadwal_pelajaran', ['id_jadwal_pelajaran'=>$idmapel])->row_array();
+		$data['tahun_ajaran']		=	$this->my_where('tahun_ajaran', ['id_tahun_ajaran'=>$mapel_get['idtahunajaran_fk']])->row_array();
+		$siswa		=	$this->my_where('siswa', ['idkelas_fk'=>$mapel_get['idkelas_fk']])->result_array();
+		$data['kelas']		=	$this->my_where('kelas', ['id_kelas'=>$mapel_get['idkelas_fk']])->row_array();
+		$data['mata_pelajaran']		=	$this->my_where('mata_pelajaran', ['id_mata_pelajaran'=>$mapel_get['idmapel_fk']])->row_array();
+		$data['dt_guru']	=	$this->get_guru();
+		$data['siswa'] = [];
+		foreach ($siswa as $key => $value) {
+			$presensi = $this->my_where('presensi_harian', [
+				'idsiswa_fk' 			=> 	$value['id_siswa'],
+				'idtahunajaran_fk'		=>	$mapel_get['idtahunajaran_fk'],
+				'idkelas_fk'			=>	$mapel_get['idkelas_fk'],
+				'idmatapelajaran_fk'	=>	$mapel_get['idmapel_fk'],
+				'tanggal' 				=>	date('Y-m-d')
+			])->row_array();
+
+			$data['siswa'][] = [
+				'siswa' => $value,
+				'presensi' => !empty($presensi) ? $presensi : []
+			];
+ 		}
+		$this->my_view(['role/admin/page/presensi_harian/presensi_siswa/absen'],$data);
+	}
 	public function proses_presensi_harian($value='')
 	{
 		$data['account']	=	$this->get_user_account();
@@ -63,6 +97,41 @@ class presensi_harian extends MY_Controller {
 			];
  		}
 		$this->my_view(['role/admin/page/presensi_harian/index_page/list_siswa'],$data);
+	}
+
+	public function proses_presensi_harian_index()
+	{
+		$data['account']	=	$this->get_user_account();
+		$data['param'] 		= 	$this->arr;
+
+		$mapel_hari_ini 	=	$this->my_where('v_jadwal_pelajaran', ['code' => date_format(date_create($_POST['tanggal']),'N')])->result_array();
+
+		foreach ($mapel_hari_ini as $key => $value) {
+			$data['mapel_hari_ini'][] =[
+				'mapel'		=>		$value,
+				'absen'		=>		$this->my_where('presensi_harian', [
+					'idmatapelajaran_fk'	=> $value['idmapel_fk'],
+					'tanggal'				=>	date('Y-m-d'),	
+					'idkelas_fk'			=>	$value['idkelas_fk'],
+					'idtahunajaran_fk'		=>	$value['idtahunajaran_fk'],
+				])->num_rows(),
+				'jurnal_guru'		=>		$this->my_where('jurnal_guru', [
+					'idmapel_fk'			=> $value['idmapel_fk'],
+					'tanggal'				=>	date('Y-m-d'),	
+					'idkelas_fk'			=>	$value['idkelas_fk'],
+					'idtahunajaran_fk'		=>	$value['idtahunajaran_fk'],
+				])->num_rows(),
+				'catatan_siswa'		=>		$this->my_where('catatan_siswa', [
+					'idmapel_fk'			=> $value['idmapel_fk'],
+					'tanggal'				=>	date('Y-m-d'),	
+					'idkelas_fk'			=>	$value['idkelas_fk'],
+					'idguru_fk'				=>	$value['idguru_fk'],
+					'idtahunajaran_fk'		=>	$value['idtahunajaran_fk'],
+				])->num_rows(),
+			]; 
+		}
+		$this->my_view(['role/admin/page/presensi_harian/presensi_siswa/jadwal'],$data);
+
 	}
 	public function proses_rekap()
 	{

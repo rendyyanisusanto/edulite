@@ -106,6 +106,7 @@
       <ul>
         <li><a href="Siswa/get_data" class="app-item">Semua Siswa</a></li>
         <li><a href="Siswa/perkelas" class="app-item">Data Siswa Perkelas</a></li>
+        <li><a href="Presensi_harian/presensi_siswa" class="app-item">Presensi Siswa</a></li>
       </ul>
     </li>
     <li>

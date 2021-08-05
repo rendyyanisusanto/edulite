@@ -29,9 +29,9 @@
     <a href="#"><i class="icon-users2"></i> <span>Account</span></a>
     
     <ul>
-      <li><a href="users/get_data" class="app-item">User</a></li>
-      <li><a href="Profil_website/get_data" class="app-item">Role</a></li>
+      <li><a href="Data_profil/get_data" class="app-item">Data Profil</a></li>
+      <li><a href="Data_profil/akun" class="app-item">Data Akun</a></li>
   </li>
-  <li><a href="Media/get_data" class="app-item"><i class="icon-stack-picture"></i> <span>Media</span></a></li>
+
   <!-- /page kits -->
 </ul>
