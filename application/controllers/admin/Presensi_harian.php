@@ -55,6 +55,7 @@ class presensi_harian extends MY_Controller {
 		$data['mata_pelajaran']		=	$this->my_where('mata_pelajaran', ['id_mata_pelajaran'=>$mapel_get['idmapel_fk']])->row_array();
 		$data['dt_guru']	=	$this->get_guru();
 		$data['siswa'] = [];
+		
 		foreach ($siswa as $key => $value) {
 			$presensi = $this->my_where('presensi_harian', [
 				'idsiswa_fk' 			=> 	$value['id_siswa'],
@@ -118,7 +119,7 @@ class presensi_harian extends MY_Controller {
 				]; 
 			}
 			$this->my_view(['role/admin/page/presensi_harian/presensi_siswa/jadwal'],$data);
-		
+
 			# code...
 		}
 	}

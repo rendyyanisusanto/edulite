@@ -13,7 +13,7 @@
 	</thead>
 	<tbody>
 		<input type="hidden" name="idkelas_fk" value="<?php echo $data_get['kelas']['id_kelas'] ?>">
-		<input type="hidden" name="tanggal" value="<?php echo date('Y-m-d') ?>">
+		<input type="hidden" name="tanggal" class="tglabsen">
 		<input type="hidden" name="idmatapelajaran_fk" value="<?php echo $data_get['mata_pelajaran']['id_mata_pelajaran'] ?>">
 		<input type="hidden" name="idtahunajaran_fk" value="<?php echo $data_get['tahun_ajaran']['id_tahun_ajaran']; ?>" class="form-control input-xs">
 		<?php foreach ($data_get['siswa'] as $key => $value): ?>

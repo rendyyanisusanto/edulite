@@ -36,6 +36,7 @@
             
             $('.idmapel_form').val(idmapel);
             $('.modal-body').html(data);
+            $('.tglabsen').val($('.tanggal').val());
             $('#modal_absen').modal('toggle');
 
         });
