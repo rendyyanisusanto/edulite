@@ -105,33 +105,22 @@ class presensi_harian extends MY_Controller {
 		$data['param'] 		= 	$this->arr;
 
 		$mapel_hari_ini 	=	$this->my_where('v_jadwal_pelajaran', ['code' => date_format(date_create($_POST['tanggal']),'N')])->result_array();
-
+		if (!empty($mapel_hari_ini)) {
 		foreach ($mapel_hari_ini as $key => $value) {
-			$data['mapel_hari_ini'][] =[
-				'mapel'		=>		$value,
-				'absen'		=>		$this->my_where('presensi_harian', [
-					'idmatapelajaran_fk'	=> $value['idmapel_fk'],
-					'tanggal'				=>	date('Y-m-d'),	
-					'idkelas_fk'			=>	$value['idkelas_fk'],
-					'idtahunajaran_fk'		=>	$value['idtahunajaran_fk'],
-				])->num_rows(),
-				'jurnal_guru'		=>		$this->my_where('jurnal_guru', [
-					'idmapel_fk'			=> $value['idmapel_fk'],
-					'tanggal'				=>	date('Y-m-d'),	
-					'idkelas_fk'			=>	$value['idkelas_fk'],
-					'idtahunajaran_fk'		=>	$value['idtahunajaran_fk'],
-				])->num_rows(),
-				'catatan_siswa'		=>		$this->my_where('catatan_siswa', [
-					'idmapel_fk'			=> $value['idmapel_fk'],
-					'tanggal'				=>	date('Y-m-d'),	
-					'idkelas_fk'			=>	$value['idkelas_fk'],
-					'idguru_fk'				=>	$value['idguru_fk'],
-					'idtahunajaran_fk'		=>	$value['idtahunajaran_fk'],
-				])->num_rows(),
-			]; 
+				$data['mapel_hari_ini'][] =[
+					'mapel'		=>		$value,
+					'absen'		=>		$this->my_where('presensi_harian', [
+						'idmatapelajaran_fk'	=> $value['idmapel_fk'],
+						'tanggal'				=>	$_POST['tanggal'],	
+						'idkelas_fk'			=>	$value['idkelas_fk'],
+						'idtahunajaran_fk'		=>	$value['idtahunajaran_fk'],
+					])->num_rows(),
+				]; 
+			}
+			$this->my_view(['role/admin/page/presensi_harian/presensi_siswa/jadwal'],$data);
+		
+			# code...
 		}
-		$this->my_view(['role/admin/page/presensi_harian/presensi_siswa/jadwal'],$data);
-
 	}
 	public function proses_rekap()
 	{
@@ -161,8 +150,6 @@ class presensi_harian extends MY_Controller {
 								'idmatapelajaran_fk' 	=> 	$_POST['idmatapelajaran_fk'],
 							])->row_array();
 				}
-				
-
 				$data['siswa'][] = [
 					'siswa' => $value,
 					'presensi' => !empty($presensi) ? $presensi : []

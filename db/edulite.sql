@@ -1,7 +1,7 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : XAMPP
+ Source Server         : xampp
  Source Server Type    : MySQL
  Source Server Version : 100138
  Source Host           : localhost:3306
@@ -11,7 +11,7 @@
  Target Server Version : 100138
  File Encoding         : 65001
 
- Date: 01/06/2021 22:10:29
+ Date: 06/08/2021 15:44:38
 */
 
 SET NAMES utf8mb4;
@@ -119,13 +119,15 @@ CREATE TABLE `alumni`  (
   `bekerja` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `pesantren` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `create_at` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP,
+  `lng` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `lat` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_alumni`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of alumni
 -- ----------------------------
-INSERT INTO `alumni` VALUES (2, 'Rendy Yani Susanto ', '2013', 'jl. Kebonagung malang', '085894632505', 'Universitas Brawijaya Malang', 'Cicik Winarsih', 'Guru SMK IT', 'tidak', '2020-12-15 21:05:54');
+INSERT INTO `alumni` VALUES (1, 'AHMAT BUSTHONUL FAIZIN  ', '2021', '-', '-', '-', '-', '-', '-', '2021-08-05 13:00:20', '112.68899050859909', '-7.988527037389827');
 
 -- ----------------------------
 -- Table structure for anak_pegawai
@@ -139,21 +141,7 @@ CREATE TABLE `anak_pegawai`  (
   `tanggal_lahir` date NULL DEFAULT NULL,
   `nama_ibu` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_anak_pegawai`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
-
--- ----------------------------
--- Records of anak_pegawai
--- ----------------------------
-INSERT INTO `anak_pegawai` VALUES (1, 23, 'a1', 'm1', '2020-12-08', 'i1');
-INSERT INTO `anak_pegawai` VALUES (2, 23, 'a2', 'm2', '2020-12-16', 'i2');
-INSERT INTO `anak_pegawai` VALUES (3, 24, 'a1', 'm1', '2020-12-08', 'i1');
-INSERT INTO `anak_pegawai` VALUES (4, 24, 'a2', 'm2', '2020-12-16', 'i2');
-INSERT INTO `anak_pegawai` VALUES (5, 25, 'M', 'malang', '2020-12-06', 'a');
-INSERT INTO `anak_pegawai` VALUES (6, 25, 'p', 'malang', '2020-12-08', 'b');
-INSERT INTO `anak_pegawai` VALUES (7, 26, 'M', 'malang', '2020-12-06', 'a');
-INSERT INTO `anak_pegawai` VALUES (8, 26, 'p', 'malang', '2020-12-08', 'b');
-INSERT INTO `anak_pegawai` VALUES (9, 27, 'M', 'malang', '2020-12-06', 'a');
-INSERT INTO `anak_pegawai` VALUES (10, 27, 'p', 'malang', '2020-12-08', 'b');
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for ans_bank_soal
@@ -198,14 +186,7 @@ CREATE TABLE `blog_article`  (
   `tagline` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `iduser_fk` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id_blog_article`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
-
--- ----------------------------
--- Records of blog_article
--- ----------------------------
-INSERT INTO `blog_article` VALUES (2, 'YUK TENGOK SERUNYA KEGIATAN PBB YANG DILAKUKAN SETELAH APEL MPLS', 'Pada tanggal 07 Juli 2020 SMP, SMA, dan SMK IT Asy-Syadzili mengadakan acara Masa Pengenalan Lingkungan Sekolah (MPLS) tahun ajaran 2020/2021 yang dihadiri oleh kepala sekolah, Jajaran dewan guru dan seluruh siswa SMP, SMA, dan SMK IT Asy Syadzili.', '2.jpg', '2020-10-04', 'SMK, SMK BISA,PBB', 1);
-INSERT INTO `blog_article` VALUES (3, 'KEGIATAN MPLS SMP-SMA-SMK IT ASY SYADZILI TAHUN AJARAN 2020/2021', 'Pada tanggal 07 Juli 2020 SMP, SMA, dan SMK IT Asy-Syadzili mengadakan acara Masa Pengenalan Lingkungan Sekolah (MPLS) tahun ajaran 2020/2021 yang dihadiri oleh kepala sekolah, Jajaran dewan guru dan seluruh siswa SMP, SMA, dan SMK IT Asy Syadzili.', '3.jpg', '2020-09-04', 'SMK, SMK IT, VOHISA, MPLS', 2);
-INSERT INTO `blog_article` VALUES (4, 'SMK IT ASY-SYADZILI DAPAT GELAR JUARA 2 BANJARI SE JATIM', 'Banjari merupakan seni penggabungan antara musik dengan keregilian selain itu banjari banyak di gemari oleh masyarakat muda khususnya di jatim\r\n\r\nDan pada tanggal 14 Maret 2020 SMK IT ASY-SYADZILI mendapatkan gelar juara 2 tingkat jatim dengan persiapan waktu kurang lebih seminggu ini sangat mengejutkan dan yang saat itu di gelar di SMA NEGERI 3 MALANG', '4.jpg', '2020-09-04', 'SMK, SMK JUARA', 2);
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for blog_course
@@ -221,15 +202,7 @@ CREATE TABLE `blog_course`  (
   `seats` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `img` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_blog_course`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
-
--- ----------------------------
--- Records of blog_course
--- ----------------------------
-INSERT INTO `blog_course` VALUES (1, 'Teknik Komputer dan Jaringan', 'Program keahlian yang mempersiapkan siswa menjadi tenaga profesional di bidang perangkat keras komputer dan jaringan. Kemampuan yang dimiliki siswa dalam program keahlian ini meliputi elektronika digital dasar, instalasi sistem operasi berbasis GUI dan Text (Open Source dan Propietary), Setting LAN, WAN, Serta merancang berbagai jenis server.', '<a href=\"#\" class=\"btn btn-primary\">Baca Sekarang</a>', '3 Tahun', 'Avi H', 'unlimited', 'a953aaff-3853-4d38-acb5-25fcc0eff499.jpg');
-INSERT INTO `blog_course` VALUES (2, 'Rekayasa Perangkat Lunak', 'Program keahlian yang mempersiapkan siswa menjadi tenaga terampil di bidang pemrogaman software. Siswa di bekali kemampuan dasar instalasi hardware dan software komputer, penguasaan bahasa pemrogaman (Java, Delphi, Pascal, C++, Basic, PHP dsb), dan pengolahan database (Microsoft Acces, MySQL, dsb)', '<a href=\"#\" class=\"btn btn-primary\">Baca Sekarang</a>', '3 Tahun', 'Rendy Y', 'unlimited', 'IMG-20190418-WA0000.jpg');
-INSERT INTO `blog_course` VALUES (3, 'Agribisnis Pengolahan Hasil Pertanian', 'Keahlian Agribisnis Pengolahan Hasil Pertanian menjadi pusat pendidikan dan latihan mengenai bidang ilmu Agribisnis Pengolahan Hasil Pertanian sehingga menghasilkan sumber daya yang handal dalam pengembangan pangan lokal masa depan dalam agroindustri yang mampu bersaing   di era globalisasi dengan berwawasan lingkungan.', '<a href=\"#\" class=\"btn btn-primary\">Baca Sekarang</a>', '3 Tahun', 'Zidni M', 'unlimited', 'aphp.jpg');
-INSERT INTO `blog_course` VALUES (4, 'Multimedia', 'Program keahlian yang mempersiapkan siswa menjadi terampil di bidang desain dan penguasaan teknologi informasi multimedia. Siswa dibekali kemampuan dasar seni dan desain,penguasaan software desain grafis dan multimedia (2D dan 3D),desain web,dan media interaktif, fotografi, editing audiovisual.', '<a href=\"#\" class=\"btn btn-primary\">Baca Sekarang</a>', '3 Tahun', 'Fahmi', 'unlimited', 'img_1504.jpg');
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for blog_setting
@@ -254,15 +227,7 @@ CREATE TABLE `blog_slider`  (
   `desc` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `button` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_blog_slider`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
-
--- ----------------------------
--- Records of blog_slider
--- ----------------------------
-INSERT INTO `blog_slider` VALUES (1, '12.jpg', 'SMK IT ASY SYADZILI, SEKOLAH TEKNOLOGI YANG QURANI', 'Kami mendukung dan memfasilitasi kebutuhan teknologi agar siswa memiliki Ilmu Pengetahuan dan Teknologi', '<a href=\"#\" class=\"btn btn-primary px-4 py-3 mt-3\">Contact Us</a>');
-INSERT INTO `blog_slider` VALUES (2, 'IMG_7499.jpg', 'GURU YANG BERKUALITAS', 'Kami mendukung dan memfasilitasi kebutuhan teknologi agar siswa memiliki Ilmu Pengetahuan dan Teknologi', '<a href=\"#\" class=\"btn btn-primary px-4 py-3 mt-3\">Contact Us</a>');
-INSERT INTO `blog_slider` VALUES (3, 'IMG20200817082440.jpg', 'PROGRAM PENDIDIKAN YANG BERKUALITAS', 'Kami mendukung dan memfasilitasi kebutuhan teknologi agar siswa memiliki Ilmu Pengetahuan dan Teknologi', '<a href=\"#\" class=\"btn btn-primary px-4 py-3 mt-3\">Contact Us</a>');
-INSERT INTO `blog_slider` VALUES (4, 'IMG20200817082611.jpg', 'PENGUATAN KARAKTER SISWA', 'Kami mendukung dan memfasilitasi kebutuhan teknologi agar siswa memiliki Ilmu Pengetahuan dan Teknologi', '<a href=\"#\" class=\"btn btn-primary px-4 py-3 mt-3\">Contact Us</a>');
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for blog_teacher
@@ -277,19 +242,7 @@ CREATE TABLE `blog_teacher`  (
   `idguru_fk` int(11) NULL DEFAULT NULL,
   `slide` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_blog_teacher`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
-
--- ----------------------------
--- Records of blog_teacher
--- ----------------------------
-INSERT INTO `blog_teacher` VALUES (1, 'Roikhatul Uzza, S.Psi', 'buizza.jpg', 'Bimbingan Konseling', 'I am an ambitious workaholic, but apart from that, pretty simple person.', 10, 'slide4.png');
-INSERT INTO `blog_teacher` VALUES (2, 'Refita Fardiani', 'burev.jpg', 'Tata Usaha', 'I am an ambitious workaholic, but apart from that, pretty simple person.', 11, 'slide3.png');
-INSERT INTO `blog_teacher` VALUES (3, 'Nur Cholis, S.Pdi', 'bunur.jpg', 'Guru Agama Islam', 'I am an ambitious workaholic, but apart from that, pretty simple person.', 12, 'slide2.png');
-INSERT INTO `blog_teacher` VALUES (4, 'Cindy Permata Putri, S.Pd', 'bucin.jpg', 'Guru Bahasa Indonesia', 'I am an ambitious workaholic, but apart from that, pretty simple person.', 9, 'slide1.png');
-INSERT INTO `blog_teacher` VALUES (5, 'Rendy Yani Susanto', 'Rendy-Yani-Susanto-IT-Department.jpeg', 'Programmer', '<p>Rendy yani&nbsp;<strong>susanto</strong></p>\r\n', 2, NULL);
-INSERT INTO `blog_teacher` VALUES (6, 'Ali Syaifuddin, S.Pd', 'ali.jpg', 'Guru Matematika', 'I am an ambitious workaholic, but apart from that, pretty simple person.', NULL, NULL);
-INSERT INTO `blog_teacher` VALUES (7, 'Sutan Taufik, S.Hum', 'top-x.jpg', 'POKJA', 'I am an ambitious workaholic, but apart from that, pretty simple person.', NULL, NULL);
-INSERT INTO `blog_teacher` VALUES (9, 'Maimun Muzzaka', 'mymun.jpg', 'Laboran & Guru TKJ', 'I am an ambitious workaholic, but apart from that, pretty simple person.', NULL, NULL);
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for buku_pemanggilan_siswa
@@ -322,6 +275,24 @@ CREATE TABLE `buku_tamu`  (
   `jabatan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `saran` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_buku_tamu`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Table structure for catatan_siswa
+-- ----------------------------
+DROP TABLE IF EXISTS `catatan_siswa`;
+CREATE TABLE `catatan_siswa`  (
+  `id_catatan_siswa` int(11) NOT NULL AUTO_INCREMENT,
+  `idsiswa_fk` int(11) NULL DEFAULT NULL,
+  `idkelas_fk` int(11) NULL DEFAULT NULL,
+  `idguru_fk` int(11) NULL DEFAULT NULL,
+  `tanggal` date NULL DEFAULT NULL,
+  `uraian` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `teruskan_ke` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `idtahunajaran_fk` int(11) NULL DEFAULT NULL,
+  `idmapel_fk` int(11) NULL DEFAULT NULL,
+  `is_tindakan` int(11) NULL DEFAULT NULL,
+  PRIMARY KEY (`id_catatan_siswa`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
@@ -883,7 +854,7 @@ CREATE TABLE `component_penilaian_kinerja_guru`  (
   `idsubkompetensipkg_fk` int(11) NULL DEFAULT NULL,
   `nilai` int(255) NULL DEFAULT NULL,
   PRIMARY KEY (`id_component_penilaian_kinerja_guru`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 116 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 146 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of component_penilaian_kinerja_guru
@@ -986,6 +957,36 @@ INSERT INTO `component_penilaian_kinerja_guru` VALUES (112, 9, 11, 4);
 INSERT INTO `component_penilaian_kinerja_guru` VALUES (113, 9, 12, 4);
 INSERT INTO `component_penilaian_kinerja_guru` VALUES (114, 9, 13, 4);
 INSERT INTO `component_penilaian_kinerja_guru` VALUES (115, 9, 14, 3);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (116, 10, 1, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (117, 10, 2, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (118, 10, 3, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (119, 10, 4, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (120, 10, 5, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (121, 10, 6, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (122, 10, 7, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (123, 10, 8, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (124, 10, 9, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (125, 10, 10, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (126, 10, 11, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (127, 10, 12, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (128, 10, 13, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (129, 10, 14, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (130, 11, 1, 1);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (131, 11, 2, 3);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (132, 11, 3, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (133, 11, 4, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (134, 11, 5, 3);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (135, 11, 6, 1);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (136, 11, 7, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (137, 11, 8, 2);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (138, 11, 9, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (139, 11, 10, 2);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (140, 11, 11, 3);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (141, 11, 12, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (142, 11, 13, 2);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (143, 11, 14, 4);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (144, 11, 15, 2);
+INSERT INTO `component_penilaian_kinerja_guru` VALUES (145, 11, 16, 4);
 
 -- ----------------------------
 -- Table structure for dokumen_pegawai
@@ -998,24 +999,107 @@ CREATE TABLE `dokumen_pegawai`  (
   `file` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `keterangan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_dokumen_pegawai`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 14 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
--- Records of dokumen_pegawai
+-- Table structure for erapor
 -- ----------------------------
-INSERT INTO `dokumen_pegawai` VALUES (1, 25, NULL, NULL, 'foto_siswa');
-INSERT INTO `dokumen_pegawai` VALUES (2, 25, NULL, NULL, 'foto_siswa');
-INSERT INTO `dokumen_pegawai` VALUES (3, 25, NULL, NULL, 'foto_siswa');
-INSERT INTO `dokumen_pegawai` VALUES (4, 26, NULL, NULL, 'foto_siswa');
-INSERT INTO `dokumen_pegawai` VALUES (5, 26, NULL, NULL, 'foto_siswa');
-INSERT INTO `dokumen_pegawai` VALUES (6, 26, NULL, NULL, 'foto_siswa');
-INSERT INTO `dokumen_pegawai` VALUES (7, 27, NULL, NULL, 'foto_siswa');
-INSERT INTO `dokumen_pegawai` VALUES (8, 27, NULL, NULL, 'foto_siswa');
-INSERT INTO `dokumen_pegawai` VALUES (9, 27, NULL, NULL, 'foto_siswa');
-INSERT INTO `dokumen_pegawai` VALUES (10, 28, NULL, 'IMG-20171103-WA0008.jpg', 'foto_siswa');
-INSERT INTO `dokumen_pegawai` VALUES (11, 31, NULL, 'baru.jpg', 'foto_siswa');
-INSERT INTO `dokumen_pegawai` VALUES (12, 31, NULL, 'baru.jpg', 'foto_siswa');
-INSERT INTO `dokumen_pegawai` VALUES (13, 31, NULL, 'baru.jpg', 'foto_siswa');
+DROP TABLE IF EXISTS `erapor`;
+CREATE TABLE `erapor`  (
+  `id_erapor` int(11) NOT NULL AUTO_INCREMENT,
+  `tanggal_mulai` date NULL DEFAULT NULL,
+  `tanggal_selesai` date NULL DEFAULT NULL,
+  `kode` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `is_active` int(255) NULL DEFAULT 0,
+  `keterangan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  PRIMARY KEY (`id_erapor`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of erapor
+-- ----------------------------
+INSERT INTO `erapor` VALUES (1, '2021-07-09', '2021-07-16', 'ABS123', 1, NULL);
+
+-- ----------------------------
+-- Table structure for file_oas
+-- ----------------------------
+DROP TABLE IF EXISTS `file_oas`;
+CREATE TABLE `file_oas`  (
+  `id_file_oas` int(11) NOT NULL AUTO_INCREMENT,
+  `file_oas` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `idsiswa_fk` int(11) NULL DEFAULT NULL,
+  `status` int(1) NULL DEFAULT NULL,
+  `is_active` int(11) NULL DEFAULT NULL,
+  PRIMARY KEY (`id_file_oas`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 67 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of file_oas
+-- ----------------------------
+INSERT INTO `file_oas` VALUES (2, '48376309fa70987e9232b2dea0e00462.pdf', 254, 1, 0);
+INSERT INTO `file_oas` VALUES (3, 'c3762953304fdace1e208b36f3d22e17.pdf', 225, 1, 0);
+INSERT INTO `file_oas` VALUES (4, '9c2d8f0505c4d143b505e24bf8315ef1.pdf', 242, 1, 0);
+INSERT INTO `file_oas` VALUES (5, '96a948faf1078ee87db18272fad3138b.pdf', 250, 0, 0);
+INSERT INTO `file_oas` VALUES (6, 'b7c941a14d827a605c338025b2e0c946.pdf', 232, 1, 0);
+INSERT INTO `file_oas` VALUES (7, '9aedac81514d16236fb11f546621108b.pdf', 230, 1, 0);
+INSERT INTO `file_oas` VALUES (8, '801233201e91dc0b9887d8a288560f1d.pdf', 224, 1, 0);
+INSERT INTO `file_oas` VALUES (9, '2b62a56f62ae061d288619dc0048b16c.pdf', 218, 1, 0);
+INSERT INTO `file_oas` VALUES (10, 'd044eca454a442d5fee095afd9ca39ba.pdf', 221, 1, 0);
+INSERT INTO `file_oas` VALUES (11, '1da6907ae52f3af1e7a8bec7fa670a17.pdf', 240, 1, 0);
+INSERT INTO `file_oas` VALUES (12, '2abcda9dfe878e40d45388bbba357d90.pdf', 229, 1, 0);
+INSERT INTO `file_oas` VALUES (13, 'bbd65c39b6316c6fb6d06dbe33fb1fea.pdf', 211, 1, 0);
+INSERT INTO `file_oas` VALUES (14, '00d5a600c59e53683ea664ac5ee0a90e.pdf', 233, 1, 0);
+INSERT INTO `file_oas` VALUES (15, 'd9f2aabc4b5a84732026e18f54970678.pdf', 222, 1, 0);
+INSERT INTO `file_oas` VALUES (16, 'f4bb3db65c1d9fc5a4c0bcc5e84b6c0f.pdf', 243, 1, 0);
+INSERT INTO `file_oas` VALUES (17, '1e9f92b8c2c2121df31831d734502c87.pdf', 212, 1, 0);
+INSERT INTO `file_oas` VALUES (18, 'f7c7bd96347ce98f1fc128759ccd50f1.pdf', 231, 1, 0);
+INSERT INTO `file_oas` VALUES (19, '05772efb116aaa66d5f6037c228682fa.pdf', 248, 1, 0);
+INSERT INTO `file_oas` VALUES (20, 'bc63d172c9c0edf0d31055b7b538ca48.pdf', 228, 1, 0);
+INSERT INTO `file_oas` VALUES (21, 'd9ee56efaf020d5bf121d32ea6548c9d.pdf', 223, 1, 0);
+INSERT INTO `file_oas` VALUES (22, '432609777ca3daa898302a95d2843760.pdf', 238, 1, 0);
+INSERT INTO `file_oas` VALUES (23, '04b05e92bdd2e9f6de157d7f96b32c8a.pdf', 216, 1, 0);
+INSERT INTO `file_oas` VALUES (24, 'd356db7a728142c63b50163c474756db.pdf', 220, 1, 0);
+INSERT INTO `file_oas` VALUES (25, '6666754ac92a51324bf3a6952d546b1c.pdf', 244, 1, 0);
+INSERT INTO `file_oas` VALUES (26, '47b5e7d87d846348a74239dda6727d8a.pdf', 246, 1, 0);
+INSERT INTO `file_oas` VALUES (27, 'f0b15fd6a15ba97ba79e26c5d16f819b.pdf', 249, 1, 0);
+INSERT INTO `file_oas` VALUES (28, 'bb37f3868f46e62186202083314b6c7b.pdf', 237, 1, 1);
+INSERT INTO `file_oas` VALUES (29, '705d2ff6167b2651f13809f75bc0fd08.pdf', 215, 1, 0);
+INSERT INTO `file_oas` VALUES (30, 'fe569ca2e9f4bdba6c3522a0af175d8c.pdf', 234, 1, 0);
+INSERT INTO `file_oas` VALUES (31, '5d280e2efd1ede90fe9c73c4cd03d140.pdf', 239, 1, 0);
+INSERT INTO `file_oas` VALUES (32, '4ceceffcdf6377d4955cfd9d1028e581.pdf', 214, 1, 0);
+INSERT INTO `file_oas` VALUES (33, '1e0fbeea2c6f43d5b12f2477ff3fd982.pdf', 236, 1, 0);
+INSERT INTO `file_oas` VALUES (34, '9f9bee7f33f8f71c62520beef1b8fcce.pdf', 217, 1, 0);
+INSERT INTO `file_oas` VALUES (35, 'a9fb46c9877a8db7aa7c46576506bc69.pdf', 247, 1, 0);
+INSERT INTO `file_oas` VALUES (36, '1a68f1564488613ff7efe3b208f2012e.pdf', 251, 1, 0);
+INSERT INTO `file_oas` VALUES (37, '64bdf0af947d7a3f6c286bd65d763e97.pdf', 226, 1, 0);
+INSERT INTO `file_oas` VALUES (38, '60ffca2945a0cd96286e340aa5f58205.pdf', 253, 1, 0);
+INSERT INTO `file_oas` VALUES (39, 'c093cc0faa38d62ef2c5ac099f8b9105.pdf', 227, 1, 0);
+INSERT INTO `file_oas` VALUES (40, '886bfb7632ba438623d1a9f0af54b3aa.pdf', 241, 1, 1);
+INSERT INTO `file_oas` VALUES (41, '174e45a01ef7085391dc15ea6c9a999e.pdf', 213, 1, 1);
+INSERT INTO `file_oas` VALUES (42, '409cf96dbc3f6bba0e468c9939424a02.pdf', 252, 1, 1);
+INSERT INTO `file_oas` VALUES (43, 'b66741d8e6b6b409922f25575d985c1e.pdf', 219, 1, 1);
+INSERT INTO `file_oas` VALUES (45, 'ebe3ec29beb9c6ca277ee45c349a0b78.pdf', 245, 1, 0);
+INSERT INTO `file_oas` VALUES (46, '2304b0dc5a926f03f32a3e8841ceee22.pdf', 235, 0, 0);
+INSERT INTO `file_oas` VALUES (47, 'f22d75eb634b6a3b9e55552a399717c1.pdf', 262, 1, 0);
+INSERT INTO `file_oas` VALUES (48, 'a395d278a293f9a4a89b54c6d312c03c.pdf', 268, 1, 0);
+INSERT INTO `file_oas` VALUES (49, '7d837c5b1ad638ac5f05de013e272a75.pdf', 269, 1, 0);
+INSERT INTO `file_oas` VALUES (50, '8201af862d496e1860bdf76e5dd1c0a5.pdf', 265, 1, 0);
+INSERT INTO `file_oas` VALUES (51, '08fffcf6a09640cacf6c56295ab9c46f.pdf', 267, 1, 0);
+INSERT INTO `file_oas` VALUES (52, '4b60c131d928afcd38a685fec7244883.pdf', 259, 1, 0);
+INSERT INTO `file_oas` VALUES (53, '81488e029cea93338954c463b1217d07.pdf', 260, 1, 0);
+INSERT INTO `file_oas` VALUES (54, 'f4f46aa4742565c67161a55a43fee069.pdf', 266, 1, 0);
+INSERT INTO `file_oas` VALUES (55, '34686ddcd904c344dcb0bf8a5f7b4804.pdf', 258, 1, 0);
+INSERT INTO `file_oas` VALUES (56, 'cfbefb44c525a100ddb0bfb586a43eb6.pdf', 257, 1, 0);
+INSERT INTO `file_oas` VALUES (57, '77bb43940608e6dc3c1bc7500df09d3a.pdf', 261, 1, 0);
+INSERT INTO `file_oas` VALUES (58, '92ab4f71ed76a72ca7a30deb735981a2.pdf', 263, 1, 0);
+INSERT INTO `file_oas` VALUES (59, '1d957fb39dcde762131f1aed65b4b4dc.pdf', 264, 1, 1);
+INSERT INTO `file_oas` VALUES (60, '8db76ab88e5c9d05b20e98d31690b230.pdf', 256, 1, 1);
+INSERT INTO `file_oas` VALUES (61, 'baf1ab0eb277d4588acba10d700ab94d.pdf', 255, 1, 0);
+INSERT INTO `file_oas` VALUES (62, '446b9cb08fdc919f8c7bb612f0b3798b.pdf', 270, 1, 0);
+INSERT INTO `file_oas` VALUES (63, '33e9cfe21eb97bae2ddfbb393a944d57.pdf', 271, 0, 0);
+INSERT INTO `file_oas` VALUES (64, '36a4c2eaea385843d0bed7d98df5cfa4.pdf', 272, 1, 0);
+INSERT INTO `file_oas` VALUES (65, '1e6aae2d98580e710b55621e42671996.pdf', 273, 1, 0);
+INSERT INTO `file_oas` VALUES (66, 'e75973edd6480b9db5e69d57ebefc0f2.pdf', 274, 1, 0);
 
 -- ----------------------------
 -- Table structure for file_rapor_online
@@ -1027,19 +1111,10 @@ CREATE TABLE `file_rapor_online`  (
   `idsiswa_fk` int(11) NULL DEFAULT NULL,
   `idtahunajaran_fk` int(11) NULL DEFAULT NULL,
   `trans_code` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `status` int(11) NULL DEFAULT 1,
+  `is_active` int(11) NULL DEFAULT 0,
   PRIMARY KEY (`id_file_rapor_online`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 19 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
-
--- ----------------------------
--- Records of file_rapor_online
--- ----------------------------
-INSERT INTO `file_rapor_online` VALUES (12, '1211db2633ffa4ef3fcc2ec3d5acc13f.pdf', 107, 1, '632328');
-INSERT INTO `file_rapor_online` VALUES (13, 'd78a0cf00c20c65fcfe7bf0ed31061a2.pdf', 108, 1, '387426');
-INSERT INTO `file_rapor_online` VALUES (14, 'c6cef42fc65d67e9c2f699a8698a9f0f.pdf', 109, 1, '908541');
-INSERT INTO `file_rapor_online` VALUES (15, '9dee892d5f2e94929512017de918e662.pdf', 110, 1, '20229');
-INSERT INTO `file_rapor_online` VALUES (16, '7a9fe44626b8963b7d029c44ce4ff351.pdf', 111, 1, '808450');
-INSERT INTO `file_rapor_online` VALUES (17, '84b4a46411bcd72b174f35f03bc96e98.pdf', 112, 1, '954063');
-INSERT INTO `file_rapor_online` VALUES (18, '75b470adc5e64465cc13581c68043af8.pdf', 113, 1, '828285');
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for groups
@@ -1050,7 +1125,7 @@ CREATE TABLE `groups`  (
   `name` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `description` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of groups
@@ -1058,10 +1133,11 @@ CREATE TABLE `groups`  (
 INSERT INTO `groups` VALUES (1, 'admin', 'Administrator');
 INSERT INTO `groups` VALUES (2, 'siswa', 'Siswa');
 INSERT INTO `groups` VALUES (3, 'guru', 'Guru');
-INSERT INTO `groups` VALUES (4, 'staff', 'Staff');
+INSERT INTO `groups` VALUES (4, 'BK', 'BK');
 INSERT INTO `groups` VALUES (5, 'kepsek', 'kepsek');
 INSERT INTO `groups` VALUES (6, 'kurikulum', 'kurikulum');
 INSERT INTO `groups` VALUES (7, 'tu', 'Tata Usaha');
+INSERT INTO `groups` VALUES (8, 'kesiswaan', 'Kesiswaan');
 
 -- ----------------------------
 -- Table structure for guru
@@ -1105,34 +1181,38 @@ CREATE TABLE `guru`  (
   `no_taspen` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `tanggal_lahir` date NULL DEFAULT NULL,
   PRIMARY KEY (`id_guru`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 28 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 32 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of guru
 -- ----------------------------
-INSERT INTO `guru` VALUES (2, 'Rendy Yani Susanto, S.Pd.', '1', 'Malang', '14cd358dd2edfd41fd256b96ec7957bb.jpg', 'S1', 'Universitas Brawijaya', 'Rendy', 'rendy', 'rendy', 'rendy', 'Guru dan Programmer', 'rendy@smkitasy-syadzili.sch.id', '6285894632505', 'Laki-laki', 'Malang', 'Islam', 'WNA', 'Kawin', 'Rumah Kos', 0, 0, 0, 'O', '', '', '', '0000-00-00', '', '', '', 'K001', 'Cicik Winarsih', 'Non PNS', '', '1993-10-03');
-INSERT INTO `guru` VALUES (6, 'Abdur Rochim, S.Pd.', '1234', 'Singosari', '148554d23346ab57fd47490df87182f0.png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Abdurrochim@gmail.com', '', 'Laki-laki', 'Malang', 'Islam', 'WNA', 'Kawin', 'Rumah Kos', 0, 0, 0, 'O', '', '', '', '0000-00-00', '', '', '', 'K002', '', 'Non PNS', '', '0000-00-00');
-INSERT INTO `guru` VALUES (7, 'Avi Hendratmoko, S.Kom.\r\n', '-', 'Dsn Prapatan RT 038 RW 005 Tulusbesar Kec. Tumpang Kab. Malang Jawa Timur', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'K003', NULL, NULL, NULL, NULL);
-INSERT INTO `guru` VALUES (8, 'M. Maimun Muzakka\r\n', '123', 'malang', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'K004', NULL, NULL, NULL, NULL);
-INSERT INTO `guru` VALUES (9, 'Cindy Permata Putri, S.Pd', NULL, 'Bugis, Saptorenggo', 'bucin.jpg', 'S1', 'IKIP Budi Utomo', '-', 'https://www.instagram.com/cindyputrii95/', 'Cindy', '-', 'Guru Bahasa Indonesia', 'Cindy@smkitasy-syadzili.sch.id', '6285895839663', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'K005', NULL, NULL, NULL, NULL);
-INSERT INTO `guru` VALUES (10, 'Roikhatul Uzza, S.Psi', '123', 'Sumberpasir', 'buizza.jpg', 'S1', 'Universitas Islam', 'https://www.facebook.com/izzaclalu.dia', 'https://www.instagram.com/izza.sr/', NULL, NULL, 'Bimbingan Konseling', 'izza@smkitasy-syadzili.sch.id', '6283175798727', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'K006', NULL, NULL, NULL, NULL);
-INSERT INTO `guru` VALUES (11, 'Refita Fardiani', NULL, 'Malang', 'burev.jpg', NULL, NULL, NULL, 'https://www.instagram.com/refhii_01/', NULL, NULL, 'Tata Usaha', 'refita@smkitasy-syadzili.sch.id', '6285645230304', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'K007', NULL, NULL, NULL, NULL);
-INSERT INTO `guru` VALUES (12, 'Nur Cholis, S.Pdi', NULL, 'Malang', 'bunur.jpg', 'S1', NULL, NULL, NULL, NULL, NULL, 'Guru Pendidikan Agama Islam', 'nur@smkitasy-syadzili.sch.id', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'K008', NULL, NULL, NULL, NULL);
-INSERT INTO `guru` VALUES (13, 'Pohet Bintoto, S.Pd., M.Si.\r\n', NULL, NULL, '8.png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'K009', NULL, NULL, NULL, NULL);
-INSERT INTO `guru` VALUES (14, 'Mohammad Nazibullah, M.Pd.\r\n', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'K010', NULL, NULL, NULL, NULL);
-INSERT INTO `guru` VALUES (15, 'Syamsul Arifin, S.Pd.\r\n', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'K011', NULL, NULL, NULL, NULL);
-INSERT INTO `guru` VALUES (16, 'M. Mirza Ayatulloh, S.Psi.\r\n', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'K012', NULL, NULL, NULL, NULL);
-INSERT INTO `guru` VALUES (17, 'Sutan Taufik, S.Hum\r\n', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'K013', NULL, NULL, NULL, NULL);
-INSERT INTO `guru` VALUES (18, 'Fatat Alvin D. N. S.\r\n', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'K014', NULL, NULL, NULL, NULL);
-INSERT INTO `guru` VALUES (19, 'Nailatur Rizqiyah S.P.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'K015', NULL, NULL, NULL, NULL);
-INSERT INTO `guru` VALUES (20, 'Saifudin Mansur, S.TP\r\n', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'K016', NULL, NULL, NULL, NULL);
-INSERT INTO `guru` VALUES (21, 'Faridatuz Zakiyah, S.TP\r\n', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'K017', NULL, NULL, NULL, NULL);
-INSERT INTO `guru` VALUES (22, 'Muhammad Iwan Wahyudi, S.Pd.\r\n', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'K018', NULL, NULL, NULL, NULL);
-INSERT INTO `guru` VALUES (23, 'Muhammad Yasminto, S.Pd.\r\n', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'K019', NULL, NULL, NULL, NULL);
-INSERT INTO `guru` VALUES (24, 'Muhammad Ali Saifudin, S.Pd.', '', '', 'd52da1e8b624f76abcce806a0a1b4470.png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Laki-laki', 'Malang', 'Islam', 'WNI', 'Kawin', 'Rumah Kos', 0, 0, 0, 'O', '', '', '', '0000-00-00', '', '', '', 'K020', '', 'Non PNS', '', '0000-00-00');
-INSERT INTO `guru` VALUES (25, 'M. Faiz Zidni Mubarok, S.Pt\r\n', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'K021', NULL, NULL, NULL, NULL);
-INSERT INTO `guru` VALUES (26, 'Fahmi Jamaludin, S.T.\r\n', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'K022', NULL, NULL, NULL, NULL);
-INSERT INTO `guru` VALUES (27, 'Nur Azizah\r\n', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'K023', NULL, NULL, NULL, NULL);
+INSERT INTO `guru` VALUES (2, 'Rendy Yani Susanto, S.Pd', '17', 'Malang', '51740b7253b0915e7878b8690ff38b3c.jpg', 'S1', 'Universitas Brawijaya', 'Rendy', 'rendy', 'rendy', 'rendy', 'Guru dan Programmer', 'rendy@smkitasy-syadzili.sch.id', '6285894632505', 'Laki-laki', 'Malang', 'Islam', 'WNI', 'Kawin', 'Rumah Kos', 0, 0, 0, 'O', '', '', '', '0000-00-00', '', '', '', 'K001', 'Cicik Winarsih', 'Non PNS', '', '1993-10-03');
+INSERT INTO `guru` VALUES (6, 'Abdur Rochim, S.Pd.', '1', 'Singosari', '148554d23346ab57fd47490df87182f0.png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Abdurrochim@gmail.com', '', 'Laki-laki', 'Malang', 'Islam', 'WNA', 'Kawin', 'Rumah Kos', 0, 0, 0, 'O', '', '', '', '0000-00-00', '', '', '', 'K002', '', 'Non PNS', '', '0000-00-00');
+INSERT INTO `guru` VALUES (7, 'Avi Hendratmoko, S.Kom.\r\n', '9', 'Dsn Prapatan RT 038 RW 005 Tulusbesar Kec. Tumpang Kab. Malang Jawa Timur', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'K003', NULL, NULL, NULL, NULL);
+INSERT INTO `guru` VALUES (8, 'M. Maimun Muzakka\r\n', '14', 'malang', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'K004', NULL, NULL, NULL, NULL);
+INSERT INTO `guru` VALUES (9, 'Cindy Permata Putri, S.Pd', '15', 'Bugis, Saptorenggo', 'bucin.jpg', 'S1', 'IKIP Budi Utomo', '-', 'https://www.instagram.com/cindyputrii95/', 'Cindy', '-', 'Guru Bahasa Indonesia', 'Cindy@smkitasy-syadzili.sch.id', '6285895839663', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'K005', NULL, NULL, NULL, NULL);
+INSERT INTO `guru` VALUES (10, 'Roikhatul Uzza, S.Psi', '8', 'Sumberpasir', 'd43b026404c6b899e49445366e8c1b06.jpg', 'S1', 'Universitas Islam', 'https://www.facebook.com/izzaclalu.dia', 'https://www.instagram.com/izza.sr/', NULL, NULL, 'Bimbingan Konseling', 'izza@smkitasy-syadzili.sch.id', '6283175798727', 'Laki-laki', '', 'Islam', 'WNA', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'K006', '', 'Non PNS', '', '0000-00-00');
+INSERT INTO `guru` VALUES (11, 'Refita Fardiani', '16', 'Malang', 'burev.jpg', NULL, NULL, NULL, 'https://www.instagram.com/refhii_01/', NULL, NULL, 'Tata Usaha', 'refita@smkitasy-syadzili.sch.id', '6285645230304', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'K007', NULL, NULL, NULL, NULL);
+INSERT INTO `guru` VALUES (12, 'Nur Cholis, S.Pdi', '11', 'Malang', 'bunur.jpg', 'S1', NULL, NULL, NULL, NULL, NULL, 'Guru Pendidikan Agama Islam', 'nur@smkitasy-syadzili.sch.id', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'K008', NULL, NULL, NULL, NULL);
+INSERT INTO `guru` VALUES (13, 'Pohet Bintoto, S.Pd., M.Si.\r\n', '2', NULL, '8.png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'K009', NULL, NULL, NULL, NULL);
+INSERT INTO `guru` VALUES (14, 'Mohammad Nazibullah, M.Pd.\r\n', '3', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'K010', NULL, NULL, NULL, NULL);
+INSERT INTO `guru` VALUES (15, 'Syamsul Arifin, S.Pd.\r\n', '4', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'K011', NULL, NULL, NULL, NULL);
+INSERT INTO `guru` VALUES (16, 'M. Mirza Ayatulloh, S.Psi.\r\n', '5', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'K012', NULL, NULL, NULL, NULL);
+INSERT INTO `guru` VALUES (17, 'Sutan Taufik, S.Hum\r\n', '6', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'K013', NULL, NULL, NULL, NULL);
+INSERT INTO `guru` VALUES (18, 'Fatat Alvin D. N. S.\r\n', '7', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'K014', NULL, NULL, NULL, NULL);
+INSERT INTO `guru` VALUES (19, 'Nailatur Rizqiyah S.P.', '10', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'K015', NULL, NULL, NULL, NULL);
+INSERT INTO `guru` VALUES (20, 'Saifudin Mansur, S.TP\r\n', '12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'K016', NULL, NULL, NULL, NULL);
+INSERT INTO `guru` VALUES (21, 'Faridatuz Zakiyah, S.TP\r\n', '13', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'K017', NULL, NULL, NULL, NULL);
+INSERT INTO `guru` VALUES (22, 'Ega Kurniawan', '18', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Laki-laki', '', 'Islam', 'WNA', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'K018', '', 'Non PNS', '', '0000-00-00');
+INSERT INTO `guru` VALUES (23, 'A. Faldiansyah Havis B', '19', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Laki-laki', '', 'Islam', 'WNA', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'K019', '', 'Non PNS', '', '0000-00-00');
+INSERT INTO `guru` VALUES (24, 'Muhammad Ali Saifudin, S.Pd.', '18', '', 'd52da1e8b624f76abcce806a0a1b4470.png', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Laki-laki', 'Malang', 'Islam', 'WNI', 'Kawin', 'Rumah Kos', 0, 0, 0, 'O', '', '', '', '0000-00-00', '', '', '', 'K020', '', 'Non PNS', '', '0000-00-00');
+INSERT INTO `guru` VALUES (25, 'M. Faiz Zidni Mubarok, S.Pt\r\n', '19', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'K021', NULL, NULL, NULL, NULL);
+INSERT INTO `guru` VALUES (26, 'Andiani Kristanti, S.Pd', '20', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Perempuan', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'K022', '', 'Non PNS', '', '0000-00-00');
+INSERT INTO `guru` VALUES (27, 'Nur Azizah\r\n', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'K023', NULL, NULL, NULL, NULL);
+INSERT INTO `guru` VALUES (28, 'Nadya Anastasya Paramita, S.Or', '21', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Perempuan', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'G68099', '', 'PNS', '', '0000-00-00');
+INSERT INTO `guru` VALUES (29, 'Zein Iqbal Zarkasi, S.Pd.', '23', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Laki-laki', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'G5961', '', 'PNS', '', '0000-00-00');
+INSERT INTO `guru` VALUES (30, 'Na\'ilah Fauziyah, S.Pd.', '22', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Perempuan', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'G772835', '', 'PNS', '', '0000-00-00');
+INSERT INTO `guru` VALUES (31, 'Joko Dwi Pitono, S.Pd.', '24', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Laki-laki', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'G97171', '', 'PNS', '', '0000-00-00');
 
 -- ----------------------------
 -- Table structure for guru_mapel
@@ -1144,206 +1224,176 @@ CREATE TABLE `guru_mapel`  (
   `idmapel_fk` int(11) NULL DEFAULT NULL,
   `idtahunajaran_fk` int(11) NULL DEFAULT NULL,
   `idkelas_fk` int(11) NULL DEFAULT NULL,
+  `jKode` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id_guru_mapel`) USING BTREE,
   INDEX `idguru_fk`(`idguru_fk`) USING BTREE,
   INDEX `idmapel_fk`(`idmapel_fk`) USING BTREE,
   CONSTRAINT `guru_mapel_ibfk_1` FOREIGN KEY (`idguru_fk`) REFERENCES `guru` (`id_guru`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `guru_mapel_ibfk_2` FOREIGN KEY (`idmapel_fk`) REFERENCES `mata_pelajaran` (`id_mata_pelajaran`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 202 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 373 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of guru_mapel
 -- ----------------------------
-INSERT INTO `guru_mapel` VALUES (1, 2, 14, 1, 11);
-INSERT INTO `guru_mapel` VALUES (4, 2, 14, 1, 13);
-INSERT INTO `guru_mapel` VALUES (5, 2, 14, 1, 15);
-INSERT INTO `guru_mapel` VALUES (6, 2, 7, 1, 19);
-INSERT INTO `guru_mapel` VALUES (7, 2, 7, 1, 20);
-INSERT INTO `guru_mapel` VALUES (8, 2, 7, 1, 21);
-INSERT INTO `guru_mapel` VALUES (9, 2, 7, 1, 22);
-INSERT INTO `guru_mapel` VALUES (10, 13, 3, 1, 16);
-INSERT INTO `guru_mapel` VALUES (11, 13, 3, 1, 23);
-INSERT INTO `guru_mapel` VALUES (12, 13, 3, 1, 24);
-INSERT INTO `guru_mapel` VALUES (13, 13, 2, 1, 11);
-INSERT INTO `guru_mapel` VALUES (14, 13, 2, 1, 13);
-INSERT INTO `guru_mapel` VALUES (15, 13, 2, 1, 15);
-INSERT INTO `guru_mapel` VALUES (16, 13, 2, 1, 16);
-INSERT INTO `guru_mapel` VALUES (17, 13, 8, 1, 16);
-INSERT INTO `guru_mapel` VALUES (18, 13, 9, 1, 16);
-INSERT INTO `guru_mapel` VALUES (19, 14, 10, 1, 11);
-INSERT INTO `guru_mapel` VALUES (20, 14, 10, 1, 13);
-INSERT INTO `guru_mapel` VALUES (21, 14, 10, 1, 15);
-INSERT INTO `guru_mapel` VALUES (22, 13, 3, 1, 14);
-INSERT INTO `guru_mapel` VALUES (23, 13, 3, 1, 18);
-INSERT INTO `guru_mapel` VALUES (24, 13, 2, 1, 14);
-INSERT INTO `guru_mapel` VALUES (25, 13, 2, 1, 16);
-INSERT INTO `guru_mapel` VALUES (26, 13, 8, 1, 14);
-INSERT INTO `guru_mapel` VALUES (27, 13, 8, 1, 18);
-INSERT INTO `guru_mapel` VALUES (28, 13, 9, 1, 14);
-INSERT INTO `guru_mapel` VALUES (29, 13, 9, 1, 18);
-INSERT INTO `guru_mapel` VALUES (30, 13, 2, 1, 17);
-INSERT INTO `guru_mapel` VALUES (31, 14, 10, 1, 17);
-INSERT INTO `guru_mapel` VALUES (32, 14, 10, 1, 14);
-INSERT INTO `guru_mapel` VALUES (33, 14, 10, 1, 16);
-INSERT INTO `guru_mapel` VALUES (34, 14, 10, 1, 18);
-INSERT INTO `guru_mapel` VALUES (35, 14, 10, 1, 19);
-INSERT INTO `guru_mapel` VALUES (36, 14, 10, 1, 20);
-INSERT INTO `guru_mapel` VALUES (37, 14, 10, 1, 23);
-INSERT INTO `guru_mapel` VALUES (38, 15, 1, 1, 19);
-INSERT INTO `guru_mapel` VALUES (39, 15, 1, 1, 20);
-INSERT INTO `guru_mapel` VALUES (40, 15, 1, 1, 23);
-INSERT INTO `guru_mapel` VALUES (41, 15, 1, 1, 24);
-INSERT INTO `guru_mapel` VALUES (42, 16, 11, 1, 19);
-INSERT INTO `guru_mapel` VALUES (43, 16, 11, 1, 20);
-INSERT INTO `guru_mapel` VALUES (44, 16, 11, 1, 21);
-INSERT INTO `guru_mapel` VALUES (45, 16, 11, 1, 22);
-INSERT INTO `guru_mapel` VALUES (46, 16, 8, 1, 11);
-INSERT INTO `guru_mapel` VALUES (47, 16, 8, 1, 13);
-INSERT INTO `guru_mapel` VALUES (48, 16, 8, 1, 15);
-INSERT INTO `guru_mapel` VALUES (49, 16, 8, 1, 17);
-INSERT INTO `guru_mapel` VALUES (50, 17, 1, 1, 14);
-INSERT INTO `guru_mapel` VALUES (51, 17, 1, 1, 16);
-INSERT INTO `guru_mapel` VALUES (52, 17, 1, 1, 18);
-INSERT INTO `guru_mapel` VALUES (53, 17, 1, 1, 21);
-INSERT INTO `guru_mapel` VALUES (54, 18, 12, 1, 14);
-INSERT INTO `guru_mapel` VALUES (55, 18, 12, 1, 16);
-INSERT INTO `guru_mapel` VALUES (56, 18, 14, 1, 14);
-INSERT INTO `guru_mapel` VALUES (57, 18, 14, 1, 16);
-INSERT INTO `guru_mapel` VALUES (58, 18, 15, 1, 14);
-INSERT INTO `guru_mapel` VALUES (59, 18, 15, 1, 16);
-INSERT INTO `guru_mapel` VALUES (60, 18, 13, 1, 14);
-INSERT INTO `guru_mapel` VALUES (61, 18, 13, 1, 16);
-INSERT INTO `guru_mapel` VALUES (62, 10, 16, 1, 18);
-INSERT INTO `guru_mapel` VALUES (63, 10, 17, 1, 23);
-INSERT INTO `guru_mapel` VALUES (64, 10, 17, 1, 24);
-INSERT INTO `guru_mapel` VALUES (65, 7, 6, 1, 21);
-INSERT INTO `guru_mapel` VALUES (66, 7, 6, 1, 22);
-INSERT INTO `guru_mapel` VALUES (67, 7, 18, 1, 21);
-INSERT INTO `guru_mapel` VALUES (68, 7, 18, 1, 22);
-INSERT INTO `guru_mapel` VALUES (69, 19, 19, 1, 23);
-INSERT INTO `guru_mapel` VALUES (70, 19, 20, 1, 23);
-INSERT INTO `guru_mapel` VALUES (71, 19, 20, 1, 24);
-INSERT INTO `guru_mapel` VALUES (72, 19, 21, 1, 23);
-INSERT INTO `guru_mapel` VALUES (73, 19, 21, 1, 24);
-INSERT INTO `guru_mapel` VALUES (74, 19, 7, 1, 23);
-INSERT INTO `guru_mapel` VALUES (75, 19, 7, 1, 24);
-INSERT INTO `guru_mapel` VALUES (76, 19, 22, 1, 18);
-INSERT INTO `guru_mapel` VALUES (78, 12, 11, 1, 14);
-INSERT INTO `guru_mapel` VALUES (79, 12, 11, 1, 16);
-INSERT INTO `guru_mapel` VALUES (80, 12, 11, 1, 18);
-INSERT INTO `guru_mapel` VALUES (81, 12, 11, 1, 23);
-INSERT INTO `guru_mapel` VALUES (82, 12, 11, 1, 24);
-INSERT INTO `guru_mapel` VALUES (83, 20, 19, 1, 24);
-INSERT INTO `guru_mapel` VALUES (84, 21, 24, 1, 18);
-INSERT INTO `guru_mapel` VALUES (85, 21, 25, 1, 18);
-INSERT INTO `guru_mapel` VALUES (86, 8, 23, 1, 19);
-INSERT INTO `guru_mapel` VALUES (87, 8, 23, 1, 20);
-INSERT INTO `guru_mapel` VALUES (88, 8, 5, 1, 19);
-INSERT INTO `guru_mapel` VALUES (89, 8, 5, 1, 20);
-INSERT INTO `guru_mapel` VALUES (90, 8, 6, 1, 19);
-INSERT INTO `guru_mapel` VALUES (91, 8, 8, 1, 20);
-INSERT INTO `guru_mapel` VALUES (92, 8, 18, 1, 19);
-INSERT INTO `guru_mapel` VALUES (93, 8, 18, 1, 20);
-INSERT INTO `guru_mapel` VALUES (94, 9, 4, 1, 11);
-INSERT INTO `guru_mapel` VALUES (95, 9, 4, 1, 13);
-INSERT INTO `guru_mapel` VALUES (96, 9, 4, 1, 15);
-INSERT INTO `guru_mapel` VALUES (97, 9, 4, 1, 17);
-INSERT INTO `guru_mapel` VALUES (98, 9, 4, 1, 19);
-INSERT INTO `guru_mapel` VALUES (99, 9, 4, 1, 20);
-INSERT INTO `guru_mapel` VALUES (100, 9, 4, 1, 14);
-INSERT INTO `guru_mapel` VALUES (101, 9, 4, 1, 16);
-INSERT INTO `guru_mapel` VALUES (102, 9, 4, 1, 18);
-INSERT INTO `guru_mapel` VALUES (103, 9, 4, 1, 21);
-INSERT INTO `guru_mapel` VALUES (104, 9, 4, 1, 22);
-INSERT INTO `guru_mapel` VALUES (105, 9, 4, 1, 23);
-INSERT INTO `guru_mapel` VALUES (106, 9, 4, 1, 24);
-INSERT INTO `guru_mapel` VALUES (107, 22, 11, 1, 11);
-INSERT INTO `guru_mapel` VALUES (108, 22, 11, 1, 13);
-INSERT INTO `guru_mapel` VALUES (109, 22, 11, 1, 15);
-INSERT INTO `guru_mapel` VALUES (110, 22, 12, 1, 11);
-INSERT INTO `guru_mapel` VALUES (111, 22, 12, 1, 13);
-INSERT INTO `guru_mapel` VALUES (112, 22, 12, 1, 15);
-INSERT INTO `guru_mapel` VALUES (113, 23, 1, 1, 11);
-INSERT INTO `guru_mapel` VALUES (114, 23, 1, 1, 13);
-INSERT INTO `guru_mapel` VALUES (115, 23, 1, 1, 14);
-INSERT INTO `guru_mapel` VALUES (116, 23, 1, 1, 15);
-INSERT INTO `guru_mapel` VALUES (117, 23, 1, 1, 16);
-INSERT INTO `guru_mapel` VALUES (118, 23, 1, 1, 17);
-INSERT INTO `guru_mapel` VALUES (119, 23, 1, 1, 18);
-INSERT INTO `guru_mapel` VALUES (120, 23, 1, 1, 22);
-INSERT INTO `guru_mapel` VALUES (121, 24, 3, 1, 11);
-INSERT INTO `guru_mapel` VALUES (122, 24, 3, 1, 13);
-INSERT INTO `guru_mapel` VALUES (123, 24, 3, 1, 15);
-INSERT INTO `guru_mapel` VALUES (124, 24, 3, 1, 17);
-INSERT INTO `guru_mapel` VALUES (125, 24, 3, 1, 19);
-INSERT INTO `guru_mapel` VALUES (126, 24, 3, 1, 20);
-INSERT INTO `guru_mapel` VALUES (127, 24, 3, 1, 21);
-INSERT INTO `guru_mapel` VALUES (128, 24, 3, 1, 22);
-INSERT INTO `guru_mapel` VALUES (129, 25, 24, 1, 17);
-INSERT INTO `guru_mapel` VALUES (130, 25, 25, 1, 17);
-INSERT INTO `guru_mapel` VALUES (131, 25, 22, 1, 17);
-INSERT INTO `guru_mapel` VALUES (132, 25, 9, 1, 11);
-INSERT INTO `guru_mapel` VALUES (133, 25, 9, 1, 13);
-INSERT INTO `guru_mapel` VALUES (134, 25, 9, 1, 15);
-INSERT INTO `guru_mapel` VALUES (135, 25, 9, 1, 17);
-INSERT INTO `guru_mapel` VALUES (136, 25, 16, 1, 17);
-INSERT INTO `guru_mapel` VALUES (137, 26, 13, 1, 11);
-INSERT INTO `guru_mapel` VALUES (138, 26, 13, 1, 13);
-INSERT INTO `guru_mapel` VALUES (139, 26, 13, 1, 15);
-INSERT INTO `guru_mapel` VALUES (140, 26, 15, 1, 11);
-INSERT INTO `guru_mapel` VALUES (141, 26, 15, 1, 13);
-INSERT INTO `guru_mapel` VALUES (142, 26, 15, 1, 15);
-INSERT INTO `guru_mapel` VALUES (143, 26, 5, 1, 21);
-INSERT INTO `guru_mapel` VALUES (144, 26, 5, 1, 22);
-INSERT INTO `guru_mapel` VALUES (145, 17, 27, 1, 11);
-INSERT INTO `guru_mapel` VALUES (146, 17, 27, 1, 13);
-INSERT INTO `guru_mapel` VALUES (149, 17, 27, 1, 14);
-INSERT INTO `guru_mapel` VALUES (150, 17, 27, 1, 15);
-INSERT INTO `guru_mapel` VALUES (151, 17, 27, 1, 16);
-INSERT INTO `guru_mapel` VALUES (153, 17, 27, 1, 17);
-INSERT INTO `guru_mapel` VALUES (155, 17, 27, 1, 18);
-INSERT INTO `guru_mapel` VALUES (156, 17, 27, 1, 19);
-INSERT INTO `guru_mapel` VALUES (158, 17, 27, 1, 20);
-INSERT INTO `guru_mapel` VALUES (159, 17, 27, 1, 21);
-INSERT INTO `guru_mapel` VALUES (160, 17, 27, 1, 22);
-INSERT INTO `guru_mapel` VALUES (161, 17, 26, 1, 11);
-INSERT INTO `guru_mapel` VALUES (162, 17, 26, 1, 13);
-INSERT INTO `guru_mapel` VALUES (163, 17, 26, 1, 14);
-INSERT INTO `guru_mapel` VALUES (164, 17, 26, 1, 15);
-INSERT INTO `guru_mapel` VALUES (165, 17, 26, 1, 16);
-INSERT INTO `guru_mapel` VALUES (166, 17, 26, 1, 17);
-INSERT INTO `guru_mapel` VALUES (167, 17, 26, 1, 18);
-INSERT INTO `guru_mapel` VALUES (168, 17, 26, 1, 19);
-INSERT INTO `guru_mapel` VALUES (171, 17, 26, 1, 20);
-INSERT INTO `guru_mapel` VALUES (172, 17, 26, 1, 21);
-INSERT INTO `guru_mapel` VALUES (174, 17, 26, 1, 22);
-INSERT INTO `guru_mapel` VALUES (175, 10, 28, 1, 11);
-INSERT INTO `guru_mapel` VALUES (176, 10, 28, 1, 13);
-INSERT INTO `guru_mapel` VALUES (177, 10, 28, 1, 14);
-INSERT INTO `guru_mapel` VALUES (178, 10, 28, 1, 15);
-INSERT INTO `guru_mapel` VALUES (179, 10, 28, 1, 16);
-INSERT INTO `guru_mapel` VALUES (180, 10, 28, 1, 17);
-INSERT INTO `guru_mapel` VALUES (181, 10, 28, 1, 18);
-INSERT INTO `guru_mapel` VALUES (182, 10, 28, 1, 19);
-INSERT INTO `guru_mapel` VALUES (183, 10, 28, 1, 20);
-INSERT INTO `guru_mapel` VALUES (184, 10, 28, 1, 21);
-INSERT INTO `guru_mapel` VALUES (185, 10, 28, 1, 22);
-INSERT INTO `guru_mapel` VALUES (186, 10, 28, 1, 23);
-INSERT INTO `guru_mapel` VALUES (187, 10, 28, 1, 24);
-INSERT INTO `guru_mapel` VALUES (188, 10, 29, 1, 11);
-INSERT INTO `guru_mapel` VALUES (189, 10, 29, 1, 13);
-INSERT INTO `guru_mapel` VALUES (190, 10, 29, 1, 14);
-INSERT INTO `guru_mapel` VALUES (191, 10, 29, 1, 15);
-INSERT INTO `guru_mapel` VALUES (192, 10, 29, 1, 16);
-INSERT INTO `guru_mapel` VALUES (193, 10, 29, 1, 17);
-INSERT INTO `guru_mapel` VALUES (194, 10, 29, 1, 18);
-INSERT INTO `guru_mapel` VALUES (195, 10, 30, 1, 11);
-INSERT INTO `guru_mapel` VALUES (196, 10, 30, 1, 13);
-INSERT INTO `guru_mapel` VALUES (197, 10, 30, 1, 14);
-INSERT INTO `guru_mapel` VALUES (198, 10, 30, 1, 15);
-INSERT INTO `guru_mapel` VALUES (199, 10, 30, 1, 16);
-INSERT INTO `guru_mapel` VALUES (200, 10, 30, 1, 17);
-INSERT INTO `guru_mapel` VALUES (201, 10, 30, 1, 18);
+INSERT INTO `guru_mapel` VALUES (207, 13, 34, 3, 34, NULL);
+INSERT INTO `guru_mapel` VALUES (208, 13, 36, 3, 32, NULL);
+INSERT INTO `guru_mapel` VALUES (209, 13, 36, 3, 33, NULL);
+INSERT INTO `guru_mapel` VALUES (210, 13, 32, 3, 25, NULL);
+INSERT INTO `guru_mapel` VALUES (211, 13, 32, 3, 26, NULL);
+INSERT INTO `guru_mapel` VALUES (212, 13, 32, 3, 37, NULL);
+INSERT INTO `guru_mapel` VALUES (213, 13, 32, 3, 38, NULL);
+INSERT INTO `guru_mapel` VALUES (214, 13, 32, 3, 27, NULL);
+INSERT INTO `guru_mapel` VALUES (215, 13, 32, 3, 28, NULL);
+INSERT INTO `guru_mapel` VALUES (216, 13, 32, 3, 29, NULL);
+INSERT INTO `guru_mapel` VALUES (217, 13, 32, 3, 30, NULL);
+INSERT INTO `guru_mapel` VALUES (218, 13, 32, 3, 31, NULL);
+INSERT INTO `guru_mapel` VALUES (219, 13, 32, 3, 35, NULL);
+INSERT INTO `guru_mapel` VALUES (220, 13, 32, 3, 36, NULL);
+INSERT INTO `guru_mapel` VALUES (221, 13, 32, 3, 32, NULL);
+INSERT INTO `guru_mapel` VALUES (222, 13, 32, 3, 33, NULL);
+INSERT INTO `guru_mapel` VALUES (223, 13, 32, 3, 34, NULL);
+INSERT INTO `guru_mapel` VALUES (224, 14, 40, 3, 25, NULL);
+INSERT INTO `guru_mapel` VALUES (225, 14, 40, 3, 26, NULL);
+INSERT INTO `guru_mapel` VALUES (226, 14, 40, 3, 28, NULL);
+INSERT INTO `guru_mapel` VALUES (227, 14, 40, 3, 29, NULL);
+INSERT INTO `guru_mapel` VALUES (228, 14, 40, 3, 30, NULL);
+INSERT INTO `guru_mapel` VALUES (229, 14, 40, 3, 31, NULL);
+INSERT INTO `guru_mapel` VALUES (230, 14, 43, 3, 28, NULL);
+INSERT INTO `guru_mapel` VALUES (231, 14, 43, 3, 29, NULL);
+INSERT INTO `guru_mapel` VALUES (232, 14, 43, 3, 30, NULL);
+INSERT INTO `guru_mapel` VALUES (233, 14, 43, 3, 31, NULL);
+INSERT INTO `guru_mapel` VALUES (234, 14, 43, 3, 35, NULL);
+INSERT INTO `guru_mapel` VALUES (236, 14, 43, 3, 32, NULL);
+INSERT INTO `guru_mapel` VALUES (237, 14, 43, 3, 33, NULL);
+INSERT INTO `guru_mapel` VALUES (238, 14, 43, 3, 34, NULL);
+INSERT INTO `guru_mapel` VALUES (239, 14, 43, 3, 36, NULL);
+INSERT INTO `guru_mapel` VALUES (240, 15, 44, 3, 25, NULL);
+INSERT INTO `guru_mapel` VALUES (241, 15, 44, 3, 26, NULL);
+INSERT INTO `guru_mapel` VALUES (242, 15, 44, 3, 28, NULL);
+INSERT INTO `guru_mapel` VALUES (243, 15, 44, 3, 29, NULL);
+INSERT INTO `guru_mapel` VALUES (244, 15, 44, 3, 30, NULL);
+INSERT INTO `guru_mapel` VALUES (245, 15, 44, 3, 31, NULL);
+INSERT INTO `guru_mapel` VALUES (246, 16, 36, 3, 29, NULL);
+INSERT INTO `guru_mapel` VALUES (247, 16, 36, 3, 30, NULL);
+INSERT INTO `guru_mapel` VALUES (248, 16, 36, 3, 31, NULL);
+INSERT INTO `guru_mapel` VALUES (249, 16, 48, 3, 25, NULL);
+INSERT INTO `guru_mapel` VALUES (250, 16, 48, 3, 26, NULL);
+INSERT INTO `guru_mapel` VALUES (251, 16, 48, 3, 27, NULL);
+INSERT INTO `guru_mapel` VALUES (252, 16, 48, 3, 37, NULL);
+INSERT INTO `guru_mapel` VALUES (253, 16, 48, 3, 38, NULL);
+INSERT INTO `guru_mapel` VALUES (254, 17, 32, 3, 25, NULL);
+INSERT INTO `guru_mapel` VALUES (255, 17, 32, 3, 26, NULL);
+INSERT INTO `guru_mapel` VALUES (256, 17, 32, 3, 27, NULL);
+INSERT INTO `guru_mapel` VALUES (257, 17, 32, 3, 28, NULL);
+INSERT INTO `guru_mapel` VALUES (258, 17, 32, 3, 29, NULL);
+INSERT INTO `guru_mapel` VALUES (259, 17, 32, 3, 30, NULL);
+INSERT INTO `guru_mapel` VALUES (260, 17, 32, 3, 31, NULL);
+INSERT INTO `guru_mapel` VALUES (261, 17, 32, 3, 32, NULL);
+INSERT INTO `guru_mapel` VALUES (262, 17, 32, 3, 33, NULL);
+INSERT INTO `guru_mapel` VALUES (263, 17, 32, 3, 34, NULL);
+INSERT INTO `guru_mapel` VALUES (264, 17, 32, 3, 35, NULL);
+INSERT INTO `guru_mapel` VALUES (265, 17, 32, 3, 36, NULL);
+INSERT INTO `guru_mapel` VALUES (266, 17, 32, 3, 37, NULL);
+INSERT INTO `guru_mapel` VALUES (267, 17, 32, 3, 38, NULL);
+INSERT INTO `guru_mapel` VALUES (268, 7, 58, 3, 25, NULL);
+INSERT INTO `guru_mapel` VALUES (269, 7, 58, 3, 37, NULL);
+INSERT INTO `guru_mapel` VALUES (270, 7, 60, 3, 28, NULL);
+INSERT INTO `guru_mapel` VALUES (271, 7, 60, 3, 29, NULL);
+INSERT INTO `guru_mapel` VALUES (272, 7, 60, 3, 30, NULL);
+INSERT INTO `guru_mapel` VALUES (273, 7, 60, 3, 32, NULL);
+INSERT INTO `guru_mapel` VALUES (274, 7, 63, 3, 26, NULL);
+INSERT INTO `guru_mapel` VALUES (275, 7, 63, 3, 38, NULL);
+INSERT INTO `guru_mapel` VALUES (276, 19, 65, 3, 27, NULL);
+INSERT INTO `guru_mapel` VALUES (277, 19, 66, 3, 31, NULL);
+INSERT INTO `guru_mapel` VALUES (278, 19, 66, 3, 36, NULL);
+INSERT INTO `guru_mapel` VALUES (279, 19, 66, 3, 34, NULL);
+INSERT INTO `guru_mapel` VALUES (280, 19, 69, 3, 34, NULL);
+INSERT INTO `guru_mapel` VALUES (281, 9, 86, 3, 37, NULL);
+INSERT INTO `guru_mapel` VALUES (283, 9, 86, 3, 38, NULL);
+INSERT INTO `guru_mapel` VALUES (284, 9, 86, 3, 27, NULL);
+INSERT INTO `guru_mapel` VALUES (285, 19, 72, 3, 36, NULL);
+INSERT INTO `guru_mapel` VALUES (286, 9, 86, 3, 35, NULL);
+INSERT INTO `guru_mapel` VALUES (287, 9, 86, 3, 36, NULL);
+INSERT INTO `guru_mapel` VALUES (288, 9, 86, 3, 32, NULL);
+INSERT INTO `guru_mapel` VALUES (289, 9, 86, 3, 33, NULL);
+INSERT INTO `guru_mapel` VALUES (290, 9, 86, 3, 34, NULL);
+INSERT INTO `guru_mapel` VALUES (291, 2, 89, 3, 25, NULL);
+INSERT INTO `guru_mapel` VALUES (292, 2, 89, 3, 37, NULL);
+INSERT INTO `guru_mapel` VALUES (293, 2, 60, 3, 33, NULL);
+INSERT INTO `guru_mapel` VALUES (294, 2, 94, 3, 28, NULL);
+INSERT INTO `guru_mapel` VALUES (295, 2, 94, 3, 29, NULL);
+INSERT INTO `guru_mapel` VALUES (296, 2, 94, 3, 30, NULL);
+INSERT INTO `guru_mapel` VALUES (297, 2, 94, 3, 32, NULL);
+INSERT INTO `guru_mapel` VALUES (298, 2, 94, 3, 33, NULL);
+INSERT INTO `guru_mapel` VALUES (299, 24, 34, 3, 25, NULL);
+INSERT INTO `guru_mapel` VALUES (300, 24, 34, 3, 26, NULL);
+INSERT INTO `guru_mapel` VALUES (301, 24, 34, 3, 27, NULL);
+INSERT INTO `guru_mapel` VALUES (302, 24, 34, 3, 28, NULL);
+INSERT INTO `guru_mapel` VALUES (303, 24, 34, 3, 29, NULL);
+INSERT INTO `guru_mapel` VALUES (304, 24, 34, 3, 30, NULL);
+INSERT INTO `guru_mapel` VALUES (305, 24, 34, 3, 31, NULL);
+INSERT INTO `guru_mapel` VALUES (306, 24, 34, 3, 32, NULL);
+INSERT INTO `guru_mapel` VALUES (307, 24, 34, 3, 33, NULL);
+INSERT INTO `guru_mapel` VALUES (308, 19, 74, 3, 31, NULL);
+INSERT INTO `guru_mapel` VALUES (309, 19, 74, 3, 36, NULL);
+INSERT INTO `guru_mapel` VALUES (310, 24, 34, 3, 35, NULL);
+INSERT INTO `guru_mapel` VALUES (311, 24, 34, 3, 36, NULL);
+INSERT INTO `guru_mapel` VALUES (312, 24, 34, 3, 37, NULL);
+INSERT INTO `guru_mapel` VALUES (313, 24, 34, 3, 38, NULL);
+INSERT INTO `guru_mapel` VALUES (314, 19, 72, 3, 31, NULL);
+INSERT INTO `guru_mapel` VALUES (315, 12, 60, 3, 31, NULL);
+INSERT INTO `guru_mapel` VALUES (316, 20, 72, 3, 34, NULL);
+INSERT INTO `guru_mapel` VALUES (317, 21, 74, 3, 34, NULL);
+INSERT INTO `guru_mapel` VALUES (318, 25, 36, 3, 28, NULL);
+INSERT INTO `guru_mapel` VALUES (319, 25, 60, 3, 36, NULL);
+INSERT INTO `guru_mapel` VALUES (323, 8, 83, 3, 25, NULL);
+INSERT INTO `guru_mapel` VALUES (324, 25, 69, 3, 31, NULL);
+INSERT INTO `guru_mapel` VALUES (325, 8, 83, 3, 37, NULL);
+INSERT INTO `guru_mapel` VALUES (327, 8, 84, 3, 28, NULL);
+INSERT INTO `guru_mapel` VALUES (328, 25, 69, 3, 36, NULL);
+INSERT INTO `guru_mapel` VALUES (329, 8, 84, 3, 29, NULL);
+INSERT INTO `guru_mapel` VALUES (330, 8, 84, 3, 30, NULL);
+INSERT INTO `guru_mapel` VALUES (331, 26, 44, 3, 37, NULL);
+INSERT INTO `guru_mapel` VALUES (332, 26, 44, 3, 38, NULL);
+INSERT INTO `guru_mapel` VALUES (333, 8, 84, 3, 32, NULL);
+INSERT INTO `guru_mapel` VALUES (334, 26, 44, 3, 27, NULL);
+INSERT INTO `guru_mapel` VALUES (335, 8, 84, 3, 33, NULL);
+INSERT INTO `guru_mapel` VALUES (336, 26, 44, 3, 35, NULL);
+INSERT INTO `guru_mapel` VALUES (337, 26, 44, 3, 36, NULL);
+INSERT INTO `guru_mapel` VALUES (338, 30, 108, 3, 25, NULL);
+INSERT INTO `guru_mapel` VALUES (339, 30, 108, 3, 37, NULL);
+INSERT INTO `guru_mapel` VALUES (340, 26, 44, 3, 32, NULL);
+INSERT INTO `guru_mapel` VALUES (341, 26, 44, 3, 33, NULL);
+INSERT INTO `guru_mapel` VALUES (343, 26, 44, 3, 34, NULL);
+INSERT INTO `guru_mapel` VALUES (344, 30, 36, 3, 35, NULL);
+INSERT INTO `guru_mapel` VALUES (345, 28, 40, 3, 37, NULL);
+INSERT INTO `guru_mapel` VALUES (346, 30, 36, 3, 36, NULL);
+INSERT INTO `guru_mapel` VALUES (347, 28, 40, 3, 38, NULL);
+INSERT INTO `guru_mapel` VALUES (348, 30, 36, 3, 34, NULL);
+INSERT INTO `guru_mapel` VALUES (349, 28, 40, 3, 27, NULL);
+INSERT INTO `guru_mapel` VALUES (350, 30, 112, 3, 27, NULL);
+INSERT INTO `guru_mapel` VALUES (351, 28, 40, 3, 35, NULL);
+INSERT INTO `guru_mapel` VALUES (352, 28, 40, 3, 36, NULL);
+INSERT INTO `guru_mapel` VALUES (353, 29, 86, 3, 25, NULL);
+INSERT INTO `guru_mapel` VALUES (354, 29, 86, 3, 26, NULL);
+INSERT INTO `guru_mapel` VALUES (355, 29, 86, 3, 28, NULL);
+INSERT INTO `guru_mapel` VALUES (356, 29, 86, 3, 29, NULL);
+INSERT INTO `guru_mapel` VALUES (357, 29, 86, 3, 30, NULL);
+INSERT INTO `guru_mapel` VALUES (358, 29, 63, 3, 26, NULL);
+INSERT INTO `guru_mapel` VALUES (359, 29, 63, 3, 38, NULL);
+INSERT INTO `guru_mapel` VALUES (360, 29, 86, 3, 31, NULL);
+INSERT INTO `guru_mapel` VALUES (361, 29, 86, 3, 37, NULL);
+INSERT INTO `guru_mapel` VALUES (362, 29, 86, 3, 38, NULL);
+INSERT INTO `guru_mapel` VALUES (363, 29, 86, 3, 27, NULL);
+INSERT INTO `guru_mapel` VALUES (364, 29, 86, 3, 34, NULL);
+INSERT INTO `guru_mapel` VALUES (365, 29, 86, 3, 32, NULL);
+INSERT INTO `guru_mapel` VALUES (366, 29, 86, 3, 33, NULL);
+INSERT INTO `guru_mapel` VALUES (367, 29, 86, 3, 36, NULL);
+INSERT INTO `guru_mapel` VALUES (368, 29, 86, 3, 35, NULL);
+INSERT INTO `guru_mapel` VALUES (369, 31, 84, 3, 35, NULL);
+INSERT INTO `guru_mapel` VALUES (370, 31, 94, 3, 35, NULL);
+INSERT INTO `guru_mapel` VALUES (371, 31, 60, 3, 35, NULL);
+INSERT INTO `guru_mapel` VALUES (372, 31, 60, 3, 34, NULL);
 
 -- ----------------------------
 -- Table structure for hari
@@ -1377,16 +1427,7 @@ CREATE TABLE `hobi_pegawai`  (
   `aktif` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `kapan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_hobi_pegawai`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
-
--- ----------------------------
--- Records of hobi_pegawai
--- ----------------------------
-INSERT INTO `hobi_pegawai` VALUES (1, 24, 'H1', 'A', '2');
-INSERT INTO `hobi_pegawai` VALUES (2, 24, 'H2', 'A3', 'W');
-INSERT INTO `hobi_pegawai` VALUES (3, 25, 'putbol', 'aktif', '2001');
-INSERT INTO `hobi_pegawai` VALUES (4, 26, 'putbol', 'aktif', '2001');
-INSERT INTO `hobi_pegawai` VALUES (5, 27, 'putbol', 'aktif', '2001');
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for induk_akun
@@ -1427,12 +1468,7 @@ CREATE TABLE `input_nilai_keterampilan`  (
   `idkelas_fk` int(11) NULL DEFAULT NULL,
   `idjenisketerampilan_fk` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id_input_nilai_keterampilan`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
-
--- ----------------------------
--- Records of input_nilai_keterampilan
--- ----------------------------
-INSERT INTO `input_nilai_keterampilan` VALUES (1, 14, 1, '6834858519', 2, 11, 1);
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for input_nilai_pas
@@ -1446,12 +1482,7 @@ CREATE TABLE `input_nilai_pas`  (
   `idguru_fk` int(11) NULL DEFAULT NULL,
   `idkelas_fk` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id_input_nilai_pas`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
-
--- ----------------------------
--- Records of input_nilai_pas
--- ----------------------------
-INSERT INTO `input_nilai_pas` VALUES (1, 14, 1, '804571518', 2, 11);
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for input_nilai_pengetahuan
@@ -1465,13 +1496,11 @@ CREATE TABLE `input_nilai_pengetahuan`  (
   `idguru_fk` int(11) NULL DEFAULT NULL,
   `idkelas_fk` int(11) NULL DEFAULT NULL,
   `idjenispengetahuan_fk` int(11) NULL DEFAULT NULL,
+  `kode` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `keterangan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `idkd_fk` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id_input_nilai_pengetahuan`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
-
--- ----------------------------
--- Records of input_nilai_pengetahuan
--- ----------------------------
-INSERT INTO `input_nilai_pengetahuan` VALUES (1, 14, 1, '6848538749', 2, 11, 1);
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for input_nilai_pts
@@ -1536,24 +1565,423 @@ CREATE TABLE `jadwal_guru`  (
   `create_at` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP,
   `idtahunajaran_fk` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id_jadwal_guru`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 19 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
--- Records of jadwal_guru
+-- Table structure for jadwal_pelajaran
 -- ----------------------------
-INSERT INTO `jadwal_guru` VALUES (6, 2, 1, '7', '14', '2021-04-27 13:00:26', 1);
-INSERT INTO `jadwal_guru` VALUES (7, 2, 2, '7', '14', '2021-04-27 13:00:35', 1);
-INSERT INTO `jadwal_guru` VALUES (8, 2, 3, '8', '14', '2021-04-27 13:00:47', 1);
-INSERT INTO `jadwal_guru` VALUES (9, 2, 4, '7', '13', '2021-05-06 09:21:16', 1);
-INSERT INTO `jadwal_guru` VALUES (10, 10, 1, '9', '15', '2021-05-06 09:21:42', 1);
-INSERT INTO `jadwal_guru` VALUES (11, 10, 2, '9', '15', '2021-05-06 09:22:06', 1);
-INSERT INTO `jadwal_guru` VALUES (12, 10, 3, '10', '15', '2021-05-06 09:22:15', 1);
-INSERT INTO `jadwal_guru` VALUES (13, 10, 4, '9', '15', '2021-05-06 09:22:34', 1);
-INSERT INTO `jadwal_guru` VALUES (14, 10, 5, '8', '14', '2021-05-06 09:22:43', 1);
-INSERT INTO `jadwal_guru` VALUES (15, 15, 1, '8', '15', '2021-05-06 09:22:59', 1);
-INSERT INTO `jadwal_guru` VALUES (16, 15, 4, '7', '15', '2021-05-06 09:23:05', 1);
-INSERT INTO `jadwal_guru` VALUES (17, 7, 4, '8', '10', '2021-05-06 10:13:41', 1);
-INSERT INTO `jadwal_guru` VALUES (18, 9, 6, '7', '13', '2021-05-08 10:27:00', 1);
+DROP TABLE IF EXISTS `jadwal_pelajaran`;
+CREATE TABLE `jadwal_pelajaran`  (
+  `id_jadwal_pelajaran` int(11) NOT NULL AUTO_INCREMENT,
+  `idgurumapel_fk` int(11) NULL DEFAULT NULL,
+  `idhari_fk` int(11) NULL DEFAULT NULL,
+  `idjampelajaran_fk` int(11) NULL DEFAULT NULL,
+  PRIMARY KEY (`id_jadwal_pelajaran`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 438 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of jadwal_pelajaran
+-- ----------------------------
+INSERT INTO `jadwal_pelajaran` VALUES (32, 323, 1, 7);
+INSERT INTO `jadwal_pelajaran` VALUES (33, 323, 1, 8);
+INSERT INTO `jadwal_pelajaran` VALUES (34, 338, 1, 5);
+INSERT INTO `jadwal_pelajaran` VALUES (35, 338, 1, 6);
+INSERT INTO `jadwal_pelajaran` VALUES (36, 353, 1, 9);
+INSERT INTO `jadwal_pelajaran` VALUES (37, 353, 1, 10);
+INSERT INTO `jadwal_pelajaran` VALUES (38, 224, 2, 5);
+INSERT INTO `jadwal_pelajaran` VALUES (39, 224, 2, 6);
+INSERT INTO `jadwal_pelajaran` VALUES (40, 240, 2, 7);
+INSERT INTO `jadwal_pelajaran` VALUES (41, 240, 2, 8);
+INSERT INTO `jadwal_pelajaran` VALUES (42, 254, 2, 9);
+INSERT INTO `jadwal_pelajaran` VALUES (43, 254, 2, 10);
+INSERT INTO `jadwal_pelajaran` VALUES (44, 249, 3, 5);
+INSERT INTO `jadwal_pelajaran` VALUES (45, 249, 3, 6);
+INSERT INTO `jadwal_pelajaran` VALUES (46, 323, 3, 7);
+INSERT INTO `jadwal_pelajaran` VALUES (47, 323, 3, 8);
+INSERT INTO `jadwal_pelajaran` VALUES (48, 353, 3, 9);
+INSERT INTO `jadwal_pelajaran` VALUES (49, 353, 3, 10);
+INSERT INTO `jadwal_pelajaran` VALUES (50, 268, 4, 5);
+INSERT INTO `jadwal_pelajaran` VALUES (51, 268, 4, 6);
+INSERT INTO `jadwal_pelajaran` VALUES (52, 268, 4, 7);
+INSERT INTO `jadwal_pelajaran` VALUES (53, 291, 4, 8);
+INSERT INTO `jadwal_pelajaran` VALUES (54, 291, 4, 9);
+INSERT INTO `jadwal_pelajaran` VALUES (55, 291, 4, 10);
+INSERT INTO `jadwal_pelajaran` VALUES (56, 299, 5, 5);
+INSERT INTO `jadwal_pelajaran` VALUES (57, 299, 5, 6);
+INSERT INTO `jadwal_pelajaran` VALUES (58, 249, 5, 7);
+INSERT INTO `jadwal_pelajaran` VALUES (59, 249, 5, 8);
+INSERT INTO `jadwal_pelajaran` VALUES (60, 304, 1, 5);
+INSERT INTO `jadwal_pelajaran` VALUES (61, 304, 1, 6);
+INSERT INTO `jadwal_pelajaran` VALUES (62, 232, 1, 7);
+INSERT INTO `jadwal_pelajaran` VALUES (63, 232, 1, 8);
+INSERT INTO `jadwal_pelajaran` VALUES (64, 296, 1, 9);
+INSERT INTO `jadwal_pelajaran` VALUES (65, 296, 1, 10);
+INSERT INTO `jadwal_pelajaran` VALUES (66, 358, 1, 5);
+INSERT INTO `jadwal_pelajaran` VALUES (67, 358, 1, 6);
+INSERT INTO `jadwal_pelajaran` VALUES (68, 354, 1, 7);
+INSERT INTO `jadwal_pelajaran` VALUES (69, 354, 1, 8);
+INSERT INTO `jadwal_pelajaran` VALUES (70, 300, 1, 9);
+INSERT INTO `jadwal_pelajaran` VALUES (71, 300, 1, 10);
+INSERT INTO `jadwal_pelajaran` VALUES (72, 357, 2, 5);
+INSERT INTO `jadwal_pelajaran` VALUES (73, 357, 2, 6);
+INSERT INTO `jadwal_pelajaran` VALUES (74, 250, 2, 5);
+INSERT INTO `jadwal_pelajaran` VALUES (75, 250, 2, 6);
+INSERT INTO `jadwal_pelajaran` VALUES (76, 358, 2, 7);
+INSERT INTO `jadwal_pelajaran` VALUES (77, 358, 2, 8);
+INSERT INTO `jadwal_pelajaran` VALUES (78, 241, 2, 9);
+INSERT INTO `jadwal_pelajaran` VALUES (79, 241, 2, 10);
+INSERT INTO `jadwal_pelajaran` VALUES (80, 228, 2, 7);
+INSERT INTO `jadwal_pelajaran` VALUES (81, 228, 2, 8);
+INSERT INTO `jadwal_pelajaran` VALUES (82, 247, 2, 9);
+INSERT INTO `jadwal_pelajaran` VALUES (83, 247, 2, 10);
+INSERT INTO `jadwal_pelajaran` VALUES (84, 330, 3, 5);
+INSERT INTO `jadwal_pelajaran` VALUES (85, 330, 3, 6);
+INSERT INTO `jadwal_pelajaran` VALUES (86, 244, 3, 7);
+INSERT INTO `jadwal_pelajaran` VALUES (87, 244, 3, 8);
+INSERT INTO `jadwal_pelajaran` VALUES (88, 272, 3, 9);
+INSERT INTO `jadwal_pelajaran` VALUES (89, 272, 3, 10);
+INSERT INTO `jadwal_pelajaran` VALUES (90, 330, 4, 5);
+INSERT INTO `jadwal_pelajaran` VALUES (91, 330, 4, 6);
+INSERT INTO `jadwal_pelajaran` VALUES (92, 247, 4, 7);
+INSERT INTO `jadwal_pelajaran` VALUES (93, 247, 4, 8);
+INSERT INTO `jadwal_pelajaran` VALUES (94, 259, 4, 9);
+INSERT INTO `jadwal_pelajaran` VALUES (95, 259, 4, 10);
+INSERT INTO `jadwal_pelajaran` VALUES (96, 272, 5, 5);
+INSERT INTO `jadwal_pelajaran` VALUES (97, 272, 5, 6);
+INSERT INTO `jadwal_pelajaran` VALUES (98, 358, 3, 5);
+INSERT INTO `jadwal_pelajaran` VALUES (99, 358, 3, 6);
+INSERT INTO `jadwal_pelajaran` VALUES (100, 274, 3, 7);
+INSERT INTO `jadwal_pelajaran` VALUES (101, 274, 3, 8);
+INSERT INTO `jadwal_pelajaran` VALUES (102, 296, 5, 7);
+INSERT INTO `jadwal_pelajaran` VALUES (103, 296, 5, 8);
+INSERT INTO `jadwal_pelajaran` VALUES (104, 250, 3, 9);
+INSERT INTO `jadwal_pelajaran` VALUES (105, 250, 3, 10);
+INSERT INTO `jadwal_pelajaran` VALUES (106, 255, 4, 5);
+INSERT INTO `jadwal_pelajaran` VALUES (107, 255, 4, 6);
+INSERT INTO `jadwal_pelajaran` VALUES (108, 225, 4, 7);
+INSERT INTO `jadwal_pelajaran` VALUES (109, 225, 4, 8);
+INSERT INTO `jadwal_pelajaran` VALUES (110, 274, 4, 9);
+INSERT INTO `jadwal_pelajaran` VALUES (111, 274, 4, 10);
+INSERT INTO `jadwal_pelajaran` VALUES (112, 305, 1, 5);
+INSERT INTO `jadwal_pelajaran` VALUES (113, 305, 1, 6);
+INSERT INTO `jadwal_pelajaran` VALUES (114, 354, 5, 5);
+INSERT INTO `jadwal_pelajaran` VALUES (115, 354, 5, 6);
+INSERT INTO `jadwal_pelajaran` VALUES (116, 358, 5, 7);
+INSERT INTO `jadwal_pelajaran` VALUES (117, 358, 5, 8);
+INSERT INTO `jadwal_pelajaran` VALUES (118, 233, 1, 7);
+INSERT INTO `jadwal_pelajaran` VALUES (119, 233, 1, 8);
+INSERT INTO `jadwal_pelajaran` VALUES (120, 315, 1, 9);
+INSERT INTO `jadwal_pelajaran` VALUES (121, 315, 1, 10);
+INSERT INTO `jadwal_pelajaran` VALUES (122, 327, 1, 5);
+INSERT INTO `jadwal_pelajaran` VALUES (123, 327, 1, 6);
+INSERT INTO `jadwal_pelajaran` VALUES (124, 294, 1, 7);
+INSERT INTO `jadwal_pelajaran` VALUES (125, 294, 1, 8);
+INSERT INTO `jadwal_pelajaran` VALUES (126, 270, 1, 9);
+INSERT INTO `jadwal_pelajaran` VALUES (127, 270, 1, 10);
+INSERT INTO `jadwal_pelajaran` VALUES (128, 360, 2, 5);
+INSERT INTO `jadwal_pelajaran` VALUES (129, 360, 2, 6);
+INSERT INTO `jadwal_pelajaran` VALUES (130, 229, 2, 7);
+INSERT INTO `jadwal_pelajaran` VALUES (131, 229, 2, 8);
+INSERT INTO `jadwal_pelajaran` VALUES (132, 257, 2, 5);
+INSERT INTO `jadwal_pelajaran` VALUES (133, 257, 2, 6);
+INSERT INTO `jadwal_pelajaran` VALUES (134, 248, 2, 9);
+INSERT INTO `jadwal_pelajaran` VALUES (135, 248, 2, 10);
+INSERT INTO `jadwal_pelajaran` VALUES (136, 270, 2, 7);
+INSERT INTO `jadwal_pelajaran` VALUES (137, 270, 2, 8);
+INSERT INTO `jadwal_pelajaran` VALUES (138, 294, 2, 9);
+INSERT INTO `jadwal_pelajaran` VALUES (139, 294, 2, 10);
+INSERT INTO `jadwal_pelajaran` VALUES (140, 314, 3, 5);
+INSERT INTO `jadwal_pelajaran` VALUES (141, 314, 3, 6);
+INSERT INTO `jadwal_pelajaran` VALUES (142, 242, 3, 5);
+INSERT INTO `jadwal_pelajaran` VALUES (143, 242, 3, 6);
+INSERT INTO `jadwal_pelajaran` VALUES (144, 245, 3, 7);
+INSERT INTO `jadwal_pelajaran` VALUES (145, 245, 3, 8);
+INSERT INTO `jadwal_pelajaran` VALUES (146, 226, 3, 7);
+INSERT INTO `jadwal_pelajaran` VALUES (147, 226, 3, 8);
+INSERT INTO `jadwal_pelajaran` VALUES (148, 302, 3, 9);
+INSERT INTO `jadwal_pelajaran` VALUES (149, 302, 3, 10);
+INSERT INTO `jadwal_pelajaran` VALUES (150, 315, 3, 9);
+INSERT INTO `jadwal_pelajaran` VALUES (151, 315, 3, 10);
+INSERT INTO `jadwal_pelajaran` VALUES (152, 324, 4, 5);
+INSERT INTO `jadwal_pelajaran` VALUES (153, 324, 4, 6);
+INSERT INTO `jadwal_pelajaran` VALUES (154, 248, 4, 7);
+INSERT INTO `jadwal_pelajaran` VALUES (155, 248, 4, 8);
+INSERT INTO `jadwal_pelajaran` VALUES (156, 260, 4, 9);
+INSERT INTO `jadwal_pelajaran` VALUES (157, 260, 4, 10);
+INSERT INTO `jadwal_pelajaran` VALUES (158, 308, 5, 5);
+INSERT INTO `jadwal_pelajaran` VALUES (159, 308, 5, 6);
+INSERT INTO `jadwal_pelajaran` VALUES (160, 277, 5, 7);
+INSERT INTO `jadwal_pelajaran` VALUES (161, 277, 5, 8);
+INSERT INTO `jadwal_pelajaran` VALUES (162, 261, 1, 5);
+INSERT INTO `jadwal_pelajaran` VALUES (163, 261, 1, 6);
+INSERT INTO `jadwal_pelajaran` VALUES (164, 273, 1, 7);
+INSERT INTO `jadwal_pelajaran` VALUES (165, 273, 1, 8);
+INSERT INTO `jadwal_pelajaran` VALUES (166, 208, 1, 9);
+INSERT INTO `jadwal_pelajaran` VALUES (167, 208, 1, 10);
+INSERT INTO `jadwal_pelajaran` VALUES (168, 333, 2, 5);
+INSERT INTO `jadwal_pelajaran` VALUES (169, 333, 2, 6);
+INSERT INTO `jadwal_pelajaran` VALUES (170, 306, 2, 7);
+INSERT INTO `jadwal_pelajaran` VALUES (171, 306, 2, 8);
+INSERT INTO `jadwal_pelajaran` VALUES (172, 236, 3, 5);
+INSERT INTO `jadwal_pelajaran` VALUES (173, 236, 3, 6);
+INSERT INTO `jadwal_pelajaran` VALUES (174, 306, 3, 7);
+INSERT INTO `jadwal_pelajaran` VALUES (175, 306, 3, 8);
+INSERT INTO `jadwal_pelajaran` VALUES (176, 297, 3, 9);
+INSERT INTO `jadwal_pelajaran` VALUES (177, 297, 3, 10);
+INSERT INTO `jadwal_pelajaran` VALUES (178, 297, 4, 5);
+INSERT INTO `jadwal_pelajaran` VALUES (179, 297, 4, 6);
+INSERT INTO `jadwal_pelajaran` VALUES (180, 333, 4, 7);
+INSERT INTO `jadwal_pelajaran` VALUES (181, 333, 4, 8);
+INSERT INTO `jadwal_pelajaran` VALUES (182, 340, 4, 9);
+INSERT INTO `jadwal_pelajaran` VALUES (183, 340, 4, 10);
+INSERT INTO `jadwal_pelajaran` VALUES (184, 208, 5, 5);
+INSERT INTO `jadwal_pelajaran` VALUES (185, 208, 5, 6);
+INSERT INTO `jadwal_pelajaran` VALUES (186, 340, 5, 7);
+INSERT INTO `jadwal_pelajaran` VALUES (187, 340, 5, 8);
+INSERT INTO `jadwal_pelajaran` VALUES (188, 209, 1, 5);
+INSERT INTO `jadwal_pelajaran` VALUES (189, 209, 1, 6);
+INSERT INTO `jadwal_pelajaran` VALUES (190, 262, 1, 7);
+INSERT INTO `jadwal_pelajaran` VALUES (191, 262, 1, 8);
+INSERT INTO `jadwal_pelajaran` VALUES (192, 335, 1, 9);
+INSERT INTO `jadwal_pelajaran` VALUES (193, 335, 1, 10);
+INSERT INTO `jadwal_pelajaran` VALUES (194, 307, 2, 5);
+INSERT INTO `jadwal_pelajaran` VALUES (195, 307, 2, 6);
+INSERT INTO `jadwal_pelajaran` VALUES (196, 298, 2, 7);
+INSERT INTO `jadwal_pelajaran` VALUES (197, 298, 2, 8);
+INSERT INTO `jadwal_pelajaran` VALUES (198, 209, 2, 9);
+INSERT INTO `jadwal_pelajaran` VALUES (199, 209, 2, 10);
+INSERT INTO `jadwal_pelajaran` VALUES (200, 341, 3, 5);
+INSERT INTO `jadwal_pelajaran` VALUES (201, 341, 3, 6);
+INSERT INTO `jadwal_pelajaran` VALUES (202, 293, 3, 7);
+INSERT INTO `jadwal_pelajaran` VALUES (203, 293, 3, 8);
+INSERT INTO `jadwal_pelajaran` VALUES (204, 237, 3, 9);
+INSERT INTO `jadwal_pelajaran` VALUES (205, 237, 3, 10);
+INSERT INTO `jadwal_pelajaran` VALUES (206, 341, 4, 5);
+INSERT INTO `jadwal_pelajaran` VALUES (207, 341, 4, 6);
+INSERT INTO `jadwal_pelajaran` VALUES (208, 335, 4, 9);
+INSERT INTO `jadwal_pelajaran` VALUES (209, 335, 4, 10);
+INSERT INTO `jadwal_pelajaran` VALUES (210, 298, 5, 5);
+INSERT INTO `jadwal_pelajaran` VALUES (211, 298, 5, 6);
+INSERT INTO `jadwal_pelajaran` VALUES (212, 307, 5, 7);
+INSERT INTO `jadwal_pelajaran` VALUES (213, 307, 5, 8);
+INSERT INTO `jadwal_pelajaran` VALUES (214, 292, 1, 11);
+INSERT INTO `jadwal_pelajaran` VALUES (215, 292, 1, 12);
+INSERT INTO `jadwal_pelajaran` VALUES (216, 339, 1, 13);
+INSERT INTO `jadwal_pelajaran` VALUES (217, 339, 1, 14);
+INSERT INTO `jadwal_pelajaran` VALUES (218, 331, 2, 11);
+INSERT INTO `jadwal_pelajaran` VALUES (219, 331, 2, 12);
+INSERT INTO `jadwal_pelajaran` VALUES (220, 325, 2, 15);
+INSERT INTO `jadwal_pelajaran` VALUES (221, 325, 2, 16);
+INSERT INTO `jadwal_pelajaran` VALUES (222, 312, 3, 11);
+INSERT INTO `jadwal_pelajaran` VALUES (223, 312, 3, 12);
+INSERT INTO `jadwal_pelajaran` VALUES (224, 252, 3, 13);
+INSERT INTO `jadwal_pelajaran` VALUES (225, 252, 3, 14);
+INSERT INTO `jadwal_pelajaran` VALUES (226, 269, 3, 15);
+INSERT INTO `jadwal_pelajaran` VALUES (227, 269, 3, 16);
+INSERT INTO `jadwal_pelajaran` VALUES (228, 292, 4, 11);
+INSERT INTO `jadwal_pelajaran` VALUES (229, 292, 4, 12);
+INSERT INTO `jadwal_pelajaran` VALUES (230, 325, 4, 13);
+INSERT INTO `jadwal_pelajaran` VALUES (231, 325, 4, 14);
+INSERT INTO `jadwal_pelajaran` VALUES (232, 266, 4, 15);
+INSERT INTO `jadwal_pelajaran` VALUES (233, 266, 4, 16);
+INSERT INTO `jadwal_pelajaran` VALUES (234, 252, 5, 11);
+INSERT INTO `jadwal_pelajaran` VALUES (235, 252, 5, 12);
+INSERT INTO `jadwal_pelajaran` VALUES (236, 345, 5, 13);
+INSERT INTO `jadwal_pelajaran` VALUES (237, 345, 5, 14);
+INSERT INTO `jadwal_pelajaran` VALUES (238, 269, 5, 15);
+INSERT INTO `jadwal_pelajaran` VALUES (239, 269, 5, 16);
+INSERT INTO `jadwal_pelajaran` VALUES (240, 359, 1, 11);
+INSERT INTO `jadwal_pelajaran` VALUES (241, 359, 1, 12);
+INSERT INTO `jadwal_pelajaran` VALUES (242, 275, 1, 13);
+INSERT INTO `jadwal_pelajaran` VALUES (243, 275, 1, 14);
+INSERT INTO `jadwal_pelajaran` VALUES (244, 332, 2, 11);
+INSERT INTO `jadwal_pelajaran` VALUES (245, 332, 2, 12);
+INSERT INTO `jadwal_pelajaran` VALUES (246, 359, 2, 15);
+INSERT INTO `jadwal_pelajaran` VALUES (247, 359, 2, 16);
+INSERT INTO `jadwal_pelajaran` VALUES (248, 313, 3, 11);
+INSERT INTO `jadwal_pelajaran` VALUES (249, 313, 3, 12);
+INSERT INTO `jadwal_pelajaran` VALUES (250, 253, 3, 13);
+INSERT INTO `jadwal_pelajaran` VALUES (251, 253, 3, 14);
+INSERT INTO `jadwal_pelajaran` VALUES (252, 359, 3, 15);
+INSERT INTO `jadwal_pelajaran` VALUES (253, 359, 3, 16);
+INSERT INTO `jadwal_pelajaran` VALUES (254, 275, 4, 11);
+INSERT INTO `jadwal_pelajaran` VALUES (255, 275, 4, 12);
+INSERT INTO `jadwal_pelajaran` VALUES (256, 359, 4, 13);
+INSERT INTO `jadwal_pelajaran` VALUES (257, 359, 4, 14);
+INSERT INTO `jadwal_pelajaran` VALUES (258, 267, 4, 15);
+INSERT INTO `jadwal_pelajaran` VALUES (259, 267, 4, 16);
+INSERT INTO `jadwal_pelajaran` VALUES (260, 253, 5, 11);
+INSERT INTO `jadwal_pelajaran` VALUES (261, 253, 5, 12);
+INSERT INTO `jadwal_pelajaran` VALUES (262, 347, 5, 13);
+INSERT INTO `jadwal_pelajaran` VALUES (263, 347, 5, 14);
+INSERT INTO `jadwal_pelajaran` VALUES (264, 359, 5, 15);
+INSERT INTO `jadwal_pelajaran` VALUES (265, 359, 5, 16);
+INSERT INTO `jadwal_pelajaran` VALUES (266, 350, 1, 11);
+INSERT INTO `jadwal_pelajaran` VALUES (267, 350, 1, 12);
+INSERT INTO `jadwal_pelajaran` VALUES (268, 334, 2, 11);
+INSERT INTO `jadwal_pelajaran` VALUES (269, 334, 2, 12);
+INSERT INTO `jadwal_pelajaran` VALUES (270, 276, 2, 15);
+INSERT INTO `jadwal_pelajaran` VALUES (271, 276, 2, 16);
+INSERT INTO `jadwal_pelajaran` VALUES (274, 251, 3, 13);
+INSERT INTO `jadwal_pelajaran` VALUES (275, 251, 3, 14);
+INSERT INTO `jadwal_pelajaran` VALUES (276, 276, 3, 15);
+INSERT INTO `jadwal_pelajaran` VALUES (277, 276, 3, 16);
+INSERT INTO `jadwal_pelajaran` VALUES (278, 276, 4, 11);
+INSERT INTO `jadwal_pelajaran` VALUES (279, 276, 4, 12);
+INSERT INTO `jadwal_pelajaran` VALUES (280, 276, 4, 13);
+INSERT INTO `jadwal_pelajaran` VALUES (281, 276, 4, 14);
+INSERT INTO `jadwal_pelajaran` VALUES (282, 256, 4, 15);
+INSERT INTO `jadwal_pelajaran` VALUES (283, 256, 4, 16);
+INSERT INTO `jadwal_pelajaran` VALUES (286, 251, 5, 11);
+INSERT INTO `jadwal_pelajaran` VALUES (287, 251, 5, 12);
+INSERT INTO `jadwal_pelajaran` VALUES (288, 349, 5, 13);
+INSERT INTO `jadwal_pelajaran` VALUES (289, 349, 5, 14);
+INSERT INTO `jadwal_pelajaran` VALUES (290, 276, 5, 15);
+INSERT INTO `jadwal_pelajaran` VALUES (291, 276, 5, 16);
+INSERT INTO `jadwal_pelajaran` VALUES (294, 310, 1, 11);
+INSERT INTO `jadwal_pelajaran` VALUES (295, 310, 1, 12);
+INSERT INTO `jadwal_pelajaran` VALUES (296, 234, 1, 15);
+INSERT INTO `jadwal_pelajaran` VALUES (297, 234, 1, 16);
+INSERT INTO `jadwal_pelajaran` VALUES (298, 344, 2, 13);
+INSERT INTO `jadwal_pelajaran` VALUES (299, 344, 2, 14);
+INSERT INTO `jadwal_pelajaran` VALUES (300, 264, 2, 15);
+INSERT INTO `jadwal_pelajaran` VALUES (301, 264, 2, 16);
+INSERT INTO `jadwal_pelajaran` VALUES (302, 351, 3, 15);
+INSERT INTO `jadwal_pelajaran` VALUES (303, 351, 3, 16);
+INSERT INTO `jadwal_pelajaran` VALUES (304, 336, 5, 13);
+INSERT INTO `jadwal_pelajaran` VALUES (305, 336, 5, 14);
+INSERT INTO `jadwal_pelajaran` VALUES (306, 344, 5, 15);
+INSERT INTO `jadwal_pelajaran` VALUES (307, 344, 5, 16);
+INSERT INTO `jadwal_pelajaran` VALUES (308, 239, 1, 11);
+INSERT INTO `jadwal_pelajaran` VALUES (309, 239, 1, 12);
+INSERT INTO `jadwal_pelajaran` VALUES (310, 265, 1, 15);
+INSERT INTO `jadwal_pelajaran` VALUES (311, 265, 1, 16);
+INSERT INTO `jadwal_pelajaran` VALUES (312, 278, 2, 11);
+INSERT INTO `jadwal_pelajaran` VALUES (313, 278, 2, 12);
+INSERT INTO `jadwal_pelajaran` VALUES (314, 285, 2, 13);
+INSERT INTO `jadwal_pelajaran` VALUES (315, 285, 2, 14);
+INSERT INTO `jadwal_pelajaran` VALUES (316, 346, 2, 15);
+INSERT INTO `jadwal_pelajaran` VALUES (317, 346, 2, 16);
+INSERT INTO `jadwal_pelajaran` VALUES (318, 337, 3, 11);
+INSERT INTO `jadwal_pelajaran` VALUES (319, 337, 3, 12);
+INSERT INTO `jadwal_pelajaran` VALUES (320, 278, 3, 13);
+INSERT INTO `jadwal_pelajaran` VALUES (321, 278, 3, 14);
+INSERT INTO `jadwal_pelajaran` VALUES (322, 311, 3, 15);
+INSERT INTO `jadwal_pelajaran` VALUES (323, 311, 3, 16);
+INSERT INTO `jadwal_pelajaran` VALUES (324, 346, 4, 11);
+INSERT INTO `jadwal_pelajaran` VALUES (325, 346, 4, 12);
+INSERT INTO `jadwal_pelajaran` VALUES (326, 319, 4, 13);
+INSERT INTO `jadwal_pelajaran` VALUES (327, 319, 4, 14);
+INSERT INTO `jadwal_pelajaran` VALUES (328, 328, 4, 15);
+INSERT INTO `jadwal_pelajaran` VALUES (329, 328, 4, 16);
+INSERT INTO `jadwal_pelajaran` VALUES (330, 319, 5, 11);
+INSERT INTO `jadwal_pelajaran` VALUES (331, 319, 5, 12);
+INSERT INTO `jadwal_pelajaran` VALUES (332, 309, 5, 13);
+INSERT INTO `jadwal_pelajaran` VALUES (333, 309, 5, 14);
+INSERT INTO `jadwal_pelajaran` VALUES (334, 352, 5, 15);
+INSERT INTO `jadwal_pelajaran` VALUES (335, 352, 5, 16);
+INSERT INTO `jadwal_pelajaran` VALUES (336, 207, 1, 11);
+INSERT INTO `jadwal_pelajaran` VALUES (337, 207, 1, 12);
+INSERT INTO `jadwal_pelajaran` VALUES (338, 238, 1, 13);
+INSERT INTO `jadwal_pelajaran` VALUES (339, 238, 1, 14);
+INSERT INTO `jadwal_pelajaran` VALUES (340, 348, 1, 15);
+INSERT INTO `jadwal_pelajaran` VALUES (341, 348, 1, 16);
+INSERT INTO `jadwal_pelajaran` VALUES (342, 263, 2, 11);
+INSERT INTO `jadwal_pelajaran` VALUES (343, 263, 2, 12);
+INSERT INTO `jadwal_pelajaran` VALUES (344, 343, 2, 13);
+INSERT INTO `jadwal_pelajaran` VALUES (345, 343, 2, 14);
+INSERT INTO `jadwal_pelajaran` VALUES (346, 279, 3, 11);
+INSERT INTO `jadwal_pelajaran` VALUES (347, 279, 3, 12);
+INSERT INTO `jadwal_pelajaran` VALUES (348, 343, 3, 13);
+INSERT INTO `jadwal_pelajaran` VALUES (349, 343, 3, 14);
+INSERT INTO `jadwal_pelajaran` VALUES (350, 316, 3, 15);
+INSERT INTO `jadwal_pelajaran` VALUES (351, 316, 3, 16);
+INSERT INTO `jadwal_pelajaran` VALUES (352, 207, 4, 11);
+INSERT INTO `jadwal_pelajaran` VALUES (353, 207, 4, 12);
+INSERT INTO `jadwal_pelajaran` VALUES (354, 348, 4, 13);
+INSERT INTO `jadwal_pelajaran` VALUES (355, 348, 4, 14);
+INSERT INTO `jadwal_pelajaran` VALUES (356, 280, 4, 15);
+INSERT INTO `jadwal_pelajaran` VALUES (357, 280, 4, 16);
+INSERT INTO `jadwal_pelajaran` VALUES (358, 279, 5, 11);
+INSERT INTO `jadwal_pelajaran` VALUES (359, 279, 5, 12);
+INSERT INTO `jadwal_pelajaran` VALUES (360, 317, 5, 15);
+INSERT INTO `jadwal_pelajaran` VALUES (361, 317, 5, 16);
+INSERT INTO `jadwal_pelajaran` VALUES (362, 361, 1, 15);
+INSERT INTO `jadwal_pelajaran` VALUES (363, 361, 1, 16);
+INSERT INTO `jadwal_pelajaran` VALUES (364, 361, 2, 13);
+INSERT INTO `jadwal_pelajaran` VALUES (365, 361, 2, 14);
+INSERT INTO `jadwal_pelajaran` VALUES (366, 362, 1, 15);
+INSERT INTO `jadwal_pelajaran` VALUES (367, 362, 1, 16);
+INSERT INTO `jadwal_pelajaran` VALUES (368, 362, 2, 13);
+INSERT INTO `jadwal_pelajaran` VALUES (369, 362, 2, 14);
+INSERT INTO `jadwal_pelajaran` VALUES (370, 355, 4, 5);
+INSERT INTO `jadwal_pelajaran` VALUES (371, 355, 4, 6);
+INSERT INTO `jadwal_pelajaran` VALUES (372, 318, 4, 7);
+INSERT INTO `jadwal_pelajaran` VALUES (373, 318, 4, 8);
+INSERT INTO `jadwal_pelajaran` VALUES (374, 230, 4, 9);
+INSERT INTO `jadwal_pelajaran` VALUES (375, 230, 4, 10);
+INSERT INTO `jadwal_pelajaran` VALUES (376, 364, 5, 13);
+INSERT INTO `jadwal_pelajaran` VALUES (377, 364, 5, 14);
+INSERT INTO `jadwal_pelajaran` VALUES (378, 318, 5, 5);
+INSERT INTO `jadwal_pelajaran` VALUES (379, 318, 5, 6);
+INSERT INTO `jadwal_pelajaran` VALUES (380, 227, 1, 5);
+INSERT INTO `jadwal_pelajaran` VALUES (381, 227, 1, 6);
+INSERT INTO `jadwal_pelajaran` VALUES (382, 327, 5, 7);
+INSERT INTO `jadwal_pelajaran` VALUES (383, 327, 5, 8);
+INSERT INTO `jadwal_pelajaran` VALUES (384, 303, 1, 7);
+INSERT INTO `jadwal_pelajaran` VALUES (385, 303, 1, 8);
+INSERT INTO `jadwal_pelajaran` VALUES (386, 231, 1, 9);
+INSERT INTO `jadwal_pelajaran` VALUES (387, 231, 1, 10);
+INSERT INTO `jadwal_pelajaran` VALUES (388, 295, 2, 5);
+INSERT INTO `jadwal_pelajaran` VALUES (389, 295, 2, 6);
+INSERT INTO `jadwal_pelajaran` VALUES (390, 329, 2, 7);
+INSERT INTO `jadwal_pelajaran` VALUES (391, 329, 2, 8);
+INSERT INTO `jadwal_pelajaran` VALUES (392, 271, 2, 9);
+INSERT INTO `jadwal_pelajaran` VALUES (393, 271, 2, 10);
+INSERT INTO `jadwal_pelajaran` VALUES (394, 295, 3, 5);
+INSERT INTO `jadwal_pelajaran` VALUES (395, 295, 3, 6);
+INSERT INTO `jadwal_pelajaran` VALUES (396, 246, 3, 7);
+INSERT INTO `jadwal_pelajaran` VALUES (397, 246, 3, 8);
+INSERT INTO `jadwal_pelajaran` VALUES (398, 243, 3, 9);
+INSERT INTO `jadwal_pelajaran` VALUES (399, 243, 3, 10);
+INSERT INTO `jadwal_pelajaran` VALUES (400, 246, 4, 5);
+INSERT INTO `jadwal_pelajaran` VALUES (401, 246, 4, 6);
+INSERT INTO `jadwal_pelajaran` VALUES (402, 258, 4, 7);
+INSERT INTO `jadwal_pelajaran` VALUES (403, 258, 4, 8);
+INSERT INTO `jadwal_pelajaran` VALUES (404, 356, 4, 9);
+INSERT INTO `jadwal_pelajaran` VALUES (405, 356, 4, 10);
+INSERT INTO `jadwal_pelajaran` VALUES (406, 329, 5, 5);
+INSERT INTO `jadwal_pelajaran` VALUES (407, 329, 5, 6);
+INSERT INTO `jadwal_pelajaran` VALUES (408, 271, 5, 7);
+INSERT INTO `jadwal_pelajaran` VALUES (409, 271, 5, 8);
+INSERT INTO `jadwal_pelajaran` VALUES (410, 301, 3, 11);
+INSERT INTO `jadwal_pelajaran` VALUES (411, 301, 3, 12);
+INSERT INTO `jadwal_pelajaran` VALUES (412, 365, 2, 9);
+INSERT INTO `jadwal_pelajaran` VALUES (413, 365, 2, 10);
+INSERT INTO `jadwal_pelajaran` VALUES (414, 366, 4, 7);
+INSERT INTO `jadwal_pelajaran` VALUES (415, 366, 4, 8);
+INSERT INTO `jadwal_pelajaran` VALUES (416, 363, 1, 15);
+INSERT INTO `jadwal_pelajaran` VALUES (417, 363, 1, 16);
+INSERT INTO `jadwal_pelajaran` VALUES (418, 363, 2, 13);
+INSERT INTO `jadwal_pelajaran` VALUES (419, 363, 2, 14);
+INSERT INTO `jadwal_pelajaran` VALUES (420, 367, 1, 13);
+INSERT INTO `jadwal_pelajaran` VALUES (421, 367, 1, 14);
+INSERT INTO `jadwal_pelajaran` VALUES (422, 368, 3, 13);
+INSERT INTO `jadwal_pelajaran` VALUES (423, 368, 3, 14);
+INSERT INTO `jadwal_pelajaran` VALUES (424, 310, 3, 11);
+INSERT INTO `jadwal_pelajaran` VALUES (425, 310, 3, 12);
+INSERT INTO `jadwal_pelajaran` VALUES (426, 369, 1, 13);
+INSERT INTO `jadwal_pelajaran` VALUES (427, 369, 1, 14);
+INSERT INTO `jadwal_pelajaran` VALUES (428, 369, 2, 11);
+INSERT INTO `jadwal_pelajaran` VALUES (429, 369, 2, 12);
+INSERT INTO `jadwal_pelajaran` VALUES (430, 371, 4, 11);
+INSERT INTO `jadwal_pelajaran` VALUES (431, 371, 4, 12);
+INSERT INTO `jadwal_pelajaran` VALUES (432, 369, 4, 13);
+INSERT INTO `jadwal_pelajaran` VALUES (433, 369, 4, 14);
+INSERT INTO `jadwal_pelajaran` VALUES (434, 370, 4, 15);
+INSERT INTO `jadwal_pelajaran` VALUES (435, 370, 4, 16);
+INSERT INTO `jadwal_pelajaran` VALUES (436, 371, 5, 11);
+INSERT INTO `jadwal_pelajaran` VALUES (437, 371, 5, 12);
 
 -- ----------------------------
 -- Table structure for jam
@@ -1572,6 +2000,35 @@ CREATE TABLE `jam`  (
 -- ----------------------------
 INSERT INTO `jam` VALUES (1, '1', '08.30', '10.00');
 INSERT INTO `jam` VALUES (2, '2', '10.30', '12.00');
+
+-- ----------------------------
+-- Table structure for jam_pelajaran
+-- ----------------------------
+DROP TABLE IF EXISTS `jam_pelajaran`;
+CREATE TABLE `jam_pelajaran`  (
+  `id_jam_pelajaran` int(11) NOT NULL AUTO_INCREMENT,
+  `nama` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `jam_mulai` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `jam_selesai` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `idtahunajaran_fk` int(11) NULL DEFAULT NULL,
+  PRIMARY KEY (`id_jam_pelajaran`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 17 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of jam_pelajaran
+-- ----------------------------
+INSERT INTO `jam_pelajaran` VALUES (5, '1', '08.30', '09.00', 3);
+INSERT INTO `jam_pelajaran` VALUES (6, '2', '09.00', '09.30', 3);
+INSERT INTO `jam_pelajaran` VALUES (7, '3', '09.30', '10.00', 3);
+INSERT INTO `jam_pelajaran` VALUES (8, '4', '10.00', '10.30', 3);
+INSERT INTO `jam_pelajaran` VALUES (9, '5', '10.30', '11.00', 3);
+INSERT INTO `jam_pelajaran` VALUES (10, '6', '11.00', '11.30', 3);
+INSERT INTO `jam_pelajaran` VALUES (11, '7', '13.00', '13.30', 3);
+INSERT INTO `jam_pelajaran` VALUES (12, '8', '13.30', '14.00', 3);
+INSERT INTO `jam_pelajaran` VALUES (13, '9', '14.00', '14.30', 3);
+INSERT INTO `jam_pelajaran` VALUES (14, '10', '14.30', '15.00', 3);
+INSERT INTO `jam_pelajaran` VALUES (15, '11', '15.00', '15.30', 3);
+INSERT INTO `jam_pelajaran` VALUES (16, '12', '15.30', '16.00', 3);
 
 -- ----------------------------
 -- Table structure for jenis_keterampilan
@@ -1664,6 +2121,21 @@ INSERT INTO `jenis_penilaian` VALUES (3, 'Pengetahuan', 'KD 3');
 INSERT INTO `jenis_penilaian` VALUES (4, 'Keterampilan', 'KD 4');
 
 -- ----------------------------
+-- Table structure for jurnal_guru
+-- ----------------------------
+DROP TABLE IF EXISTS `jurnal_guru`;
+CREATE TABLE `jurnal_guru`  (
+  `id_jurnal_guru` int(11) NOT NULL AUTO_INCREMENT,
+  `idguru_fk` int(11) NULL DEFAULT NULL,
+  `idkelas_fk` int(11) NULL DEFAULT NULL,
+  `idmapel_fk` int(11) NULL DEFAULT NULL,
+  `idtahunajaran_fk` int(11) NULL DEFAULT NULL,
+  `tanggal` date NULL DEFAULT NULL,
+  `uraian` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  PRIMARY KEY (`id_jurnal_guru`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
 -- Table structure for jurusan
 -- ----------------------------
 DROP TABLE IF EXISTS `jurusan`;
@@ -1672,7 +2144,7 @@ CREATE TABLE `jurusan`  (
   `jurusan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `singkatan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_jurusan`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of jurusan
@@ -1681,6 +2153,7 @@ INSERT INTO `jurusan` VALUES (1, 'Teknik Komputer dan Jaringan', 'TKJ');
 INSERT INTO `jurusan` VALUES (2, 'Rekayasa Perangkat Lunak', 'RPL');
 INSERT INTO `jurusan` VALUES (3, 'Multimedia', 'MM');
 INSERT INTO `jurusan` VALUES (4, 'Agribisnis Pengolahan Hasil Pertanian', 'APHP');
+INSERT INTO `jurusan` VALUES (5, 'Desain Komunikasi Visual', 'DKV');
 
 -- ----------------------------
 -- Table structure for kd
@@ -1700,21 +2173,7 @@ CREATE TABLE `kd`  (
   INDEX `idtingkat_fk`(`idkelas_fk`) USING BTREE,
   INDEX `idjenispenilaian_fk`(`idjenispenilaian_fk`) USING BTREE,
   INDEX `idsemester_fk`(`idmatapelajaran_fk`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
-
--- ----------------------------
--- Records of kd
--- ----------------------------
-INSERT INTO `kd` VALUES (1, 11, 3, 14, '', '3.1. Mengenal Bahasa Pemrograman', 11, 2, 1);
-INSERT INTO `kd` VALUES (2, 11, 4, 14, '', '4.1. Mempraktikan bahasa pemrograman', 11, 2, 1);
-INSERT INTO `kd` VALUES (3, 11, 3, 14, '', '3.2, Mengenal Variabel dan Tipe Data', 12, 2, 1);
-INSERT INTO `kd` VALUES (4, 11, 4, 14, '', '4.2 Mempraktikan Variabel dan Tipe Data', 12, 2, 1);
-INSERT INTO `kd` VALUES (5, 11, 3, 14, '', '3.3, Mengenal konstanta', 13, 2, 1);
-INSERT INTO `kd` VALUES (6, 11, 4, 14, '', '4.3 Mempraktikan konstanta', 13, 2, 1);
-INSERT INTO `kd` VALUES (7, 13, 3, 14, '', 'Mengenal Dasar Pemrograman', 14, 2, 1);
-INSERT INTO `kd` VALUES (8, 13, 4, 14, '', 'Mempraktikan Dasar Pemrograman', 14, 2, 1);
-INSERT INTO `kd` VALUES (9, 13, 3, 14, '', 'Mengenal Variabel dan Tipe Data', 15, 2, 1);
-INSERT INTO `kd` VALUES (10, 13, 4, 14, '', 'Mempraktikan Variabel dan Tipe Data', 15, 2, 1);
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for kelas
@@ -1730,25 +2189,55 @@ CREATE TABLE `kelas`  (
   PRIMARY KEY (`id_kelas`) USING BTREE,
   INDEX `idtingkat_fk`(`idtingkat_fk`) USING BTREE,
   CONSTRAINT `kelas_ibfk_1` FOREIGN KEY (`idtingkat_fk`) REFERENCES `tingkat` (`id_tingkat`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 25 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 39 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of kelas
 -- ----------------------------
-INSERT INTO `kelas` VALUES (11, 'X TKJ 1 Putra', 1, '2020-08-18 08:47:40', 1, 1);
-INSERT INTO `kelas` VALUES (12, 'X TKJ Putri', 1, '2020-08-18 08:47:53', 1, 1);
-INSERT INTO `kelas` VALUES (13, 'X RPL Putra', 1, '2020-08-18 08:48:14', 2, 1);
-INSERT INTO `kelas` VALUES (14, 'X RPL Putri', 1, '2020-08-18 08:48:30', 2, 1);
-INSERT INTO `kelas` VALUES (15, 'X MM Putra', 1, '2020-08-18 08:49:55', 3, 1);
-INSERT INTO `kelas` VALUES (16, 'X MM Putri', 1, '2020-08-18 08:50:12', 3, 1);
-INSERT INTO `kelas` VALUES (17, 'X APHP Putra', 1, '2020-08-18 08:50:30', 4, 1);
-INSERT INTO `kelas` VALUES (18, 'X APHP Putri', 1, '2020-08-18 08:50:49', 4, 1);
-INSERT INTO `kelas` VALUES (19, 'XI TKJ 1', 2, '2020-08-18 08:51:41', 1, 1);
-INSERT INTO `kelas` VALUES (20, 'XI TKJ 2', 2, '2020-08-18 08:52:03', 1, 1);
-INSERT INTO `kelas` VALUES (21, 'XII TKJ 1', 3, '2020-08-18 08:52:17', 1, 1);
-INSERT INTO `kelas` VALUES (22, 'XII TKJ 2', 3, '2020-08-18 08:52:30', 1, 1);
-INSERT INTO `kelas` VALUES (23, 'XI APHP', 2, '2020-08-18 08:54:28', 4, 1);
-INSERT INTO `kelas` VALUES (24, 'XII APHP', 3, '2020-08-18 08:54:44', 4, 1);
+INSERT INTO `kelas` VALUES (25, 'X TKJ 1', 1, '2021-07-31 12:55:19', 1, 3);
+INSERT INTO `kelas` VALUES (26, 'X DKV 1', 1, '2021-07-31 12:55:34', 5, 3);
+INSERT INTO `kelas` VALUES (27, 'X APHP 1', 1, '2021-07-31 12:55:53', 4, 3);
+INSERT INTO `kelas` VALUES (28, 'XI TKJ 1', 2, '2021-07-31 12:56:09', 1, 3);
+INSERT INTO `kelas` VALUES (29, 'XI TKJ 2', 2, '2021-07-31 12:56:21', 1, 3);
+INSERT INTO `kelas` VALUES (30, 'XI TKJ 3', 2, '2021-07-31 12:56:34', 1, 3);
+INSERT INTO `kelas` VALUES (31, 'XI APHP 1', 2, '2021-07-31 12:56:49', 4, 3);
+INSERT INTO `kelas` VALUES (32, 'XII TKJ 1', 3, '2021-07-31 12:57:06', 1, 3);
+INSERT INTO `kelas` VALUES (33, 'XII TKJ 2', 3, '2021-07-31 12:57:18', 1, 3);
+INSERT INTO `kelas` VALUES (34, 'XII APHP 1', 3, '2021-07-31 12:57:32', 4, 3);
+INSERT INTO `kelas` VALUES (35, 'XI TKJ PI', 2, '2021-07-31 13:05:07', 1, 3);
+INSERT INTO `kelas` VALUES (36, 'XI APHP PI', 2, '2021-07-31 13:05:26', 4, 3);
+INSERT INTO `kelas` VALUES (37, 'X TKJ 2', 1, '2021-07-31 14:12:43', 1, 3);
+INSERT INTO `kelas` VALUES (38, 'X DKV 2', 1, '2021-07-31 14:12:57', 5, 3);
+
+-- ----------------------------
+-- Table structure for kelas_erapor
+-- ----------------------------
+DROP TABLE IF EXISTS `kelas_erapor`;
+CREATE TABLE `kelas_erapor`  (
+  `id_kelas_erapor` int(11) NOT NULL AUTO_INCREMENT,
+  `idkelas_fk` int(11) NULL DEFAULT NULL,
+  `iderapor_fk` int(11) NULL DEFAULT NULL,
+  PRIMARY KEY (`id_kelas_erapor`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Table structure for kelas_oas
+-- ----------------------------
+DROP TABLE IF EXISTS `kelas_oas`;
+CREATE TABLE `kelas_oas`  (
+  `id_kelas_oas` int(11) NOT NULL AUTO_INCREMENT,
+  `idkelas_fk` int(11) NULL DEFAULT NULL,
+  `idoas_fk` int(11) NULL DEFAULT NULL,
+  PRIMARY KEY (`id_kelas_oas`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of kelas_oas
+-- ----------------------------
+INSERT INTO `kelas_oas` VALUES (1, 21, 1);
+INSERT INTO `kelas_oas` VALUES (2, 22, 1);
+INSERT INTO `kelas_oas` VALUES (3, 23, 1);
+INSERT INTO `kelas_oas` VALUES (4, 24, 1);
 
 -- ----------------------------
 -- Table structure for kompetensi_pkg
@@ -1759,7 +2248,7 @@ CREATE TABLE `kompetensi_pkg`  (
   `kompetensi` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `idtahunajaran_fk` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id_kompetensi_pkg`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of kompetensi_pkg
@@ -1768,6 +2257,7 @@ INSERT INTO `kompetensi_pkg` VALUES (1, 'Pedagogik', 1);
 INSERT INTO `kompetensi_pkg` VALUES (3, 'Kepribadian', 1);
 INSERT INTO `kompetensi_pkg` VALUES (4, 'Sosial', 1);
 INSERT INTO `kompetensi_pkg` VALUES (5, 'Profesional', 1);
+INSERT INTO `kompetensi_pkg` VALUES (6, 'Pendidikan', 1);
 
 -- ----------------------------
 -- Table structure for kursus_pegawai
@@ -1783,21 +2273,7 @@ CREATE TABLE `kursus_pegawai`  (
   `keterangan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `idguru_fk` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id_kursus_pegawai`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
-
--- ----------------------------
--- Records of kursus_pegawai
--- ----------------------------
-INSERT INTO `kursus_pegawai` VALUES (1, 'kk1', 10, 12, 1, 'NASIONAL', 'TIDAK ADA', '23');
-INSERT INTO `kursus_pegawai` VALUES (2, 'KK2', 1, 2, 3, 'L', 'P', '23');
-INSERT INTO `kursus_pegawai` VALUES (3, 'kk1', 10, 12, 1, 'NASIONAL', 'TIDAK ADA', '24');
-INSERT INTO `kursus_pegawai` VALUES (4, 'KK2', 1, 2, 3, 'L', 'P', '24');
-INSERT INTO `kursus_pegawai` VALUES (5, 'b.ind', 5, 2, 4, 'nasional', '-', '25');
-INSERT INTO `kursus_pegawai` VALUES (6, 'mtk', 2, 2, 1, 'malang', 'tidak', '25');
-INSERT INTO `kursus_pegawai` VALUES (7, 'b.ind', 5, 2, 4, 'nasional', '-', '26');
-INSERT INTO `kursus_pegawai` VALUES (8, 'mtk', 2, 2, 1, 'malang', 'tidak', '26');
-INSERT INTO `kursus_pegawai` VALUES (9, 'b.ind', 5, 2, 4, 'nasional', '-', '27');
-INSERT INTO `kursus_pegawai` VALUES (10, 'mtk', 2, 2, 1, 'malang', 'tidak', '27');
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for learning
@@ -1822,16 +2298,7 @@ CREATE TABLE `learning`  (
   CONSTRAINT `learning_ibfk_1` FOREIGN KEY (`idmatapelajaran_fk`) REFERENCES `mata_pelajaran` (`id_mata_pelajaran`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `learning_ibfk_2` FOREIGN KEY (`iduser_fk`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `learning_ibfk_3` FOREIGN KEY (`idtingkat_fk`) REFERENCES `tingkat` (`id_tingkat`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
-
--- ----------------------------
--- Records of learning
--- ----------------------------
-INSERT INTO `learning` VALUES (1, 1, 999, '<p><strong>Pengertian Variabel</strong></p>\r\n<p>Variabel adalah suatu tempat yang berfungsi untuk menyimpan nilai atau&nbsp;<a href=\"https://www.belajarcpp.com/tutorial/konstanta/\">konstanta</a>. nilai tersebut biasanya di dapat dari masukan pengguna, programmer, lingkungan, atau merupakan hasil dari proses program.</p>\r\n<p>Variabel yang telah kita buat merupakan sebuah memori pada&nbsp;<a href=\"https://www.belajarcpp.com/tutorial/komputer/\">komputer</a>. Di dalam komputer, tepatnya pada memori komputer, sebenarnya terdapat banyak sekali memori yang tersusun yang memiliki alamat sebagai penanda memori. Alamat memori diwakili dengan&nbsp;<a href=\"https://www.belajarcpp.com/tutorial/sistem-bilangan/\">bilangan&nbsp;</a><em>hexadecimal</em>&nbsp;dan setiap alamat mewakili satu bit.</p>\r\n<p>Variabel adalah suatu tempat yang berfungsi untuk menyimpan nilai atau&nbsp;<a href=\"https://www.belajarcpp.com/tutorial/konstanta/\">konstanta</a>. nilai tersebut biasanya di dapat dari masukan pengguna, programmer, lingkungan, atau merupakan hasil dari proses program.</p>\r\n<p>Variabel yang telah kita buat merupakan sebuah memori pada&nbsp;<a href=\"https://www.belajarcpp.com/tutorial/komputer/\">komputer</a>. Di dalam komputer, tepatnya pada memori komputer, sebenarnya terdapat banyak sekali memori yang tersusun yang memiliki alamat sebagai penanda memori. Alamat memori diwakili dengan&nbsp;<a href=\"https://www.belajarcpp.com/tutorial/sistem-bilangan/\">bilangan&nbsp;</a><em>hexadecimal</em>&nbsp;dan setiap alamat mewakili satu bit.</p>\r\n<p><strong>Deklarasi Variabel</strong></p>\r\n<p>Deklarasi variabel adalah proses mendirikan atau pembuatan variabel dalam kode program. Untuk mendirikan variabel kita membutuhkan sebuah&nbsp;<a href=\"https://www.belajarcpp.com/tutorial/tipe-data/\">tipe data</a>&nbsp;yang berguna untuk mewakili bentuk nilai yang akan disimpan dan sebuah nama (<em><a href=\"https://www.belajarcpp.com/tutorial/identifier/\">identifier</a></em>) sebagai pengenal.</p>\r\n<p><u>Bentuk Penulisan</u></p>\r\n<div>\r\n<div id=\"highlighter_719294\" class=\"syntaxhighlighter cpp\">\r\n<table border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n<tbody>\r\n<tr>\r\n<td class=\"gutter\">\r\n<div class=\"line number1 index0 alt2\">1</div>\r\n</td>\r\n<td class=\"code\">\r\n<div class=\"container\">\r\n<div class=\"line number1 index0 alt2\"><code class=\"cpp plain\">tipe_data identitas;</code></div>\r\n</div>\r\n</td>\r\n</tr>\r\n</tbody>\r\n</table>\r\n</div>\r\n</div>\r\n<p><u>Contoh Penulisan</u></p>\r\n<div>\r\n<div id=\"highlighter_189378\" class=\"syntaxhighlighter cpp\">\r\n<table border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n<tbody>\r\n<tr>\r\n<td class=\"gutter\">\r\n<div class=\"line number1 index0 alt2\">1</div>\r\n</td>\r\n<td class=\"code\">\r\n<div class=\"container\">\r\n<div class=\"line number1 index0 alt2\"><code class=\"cpp color1 bold\">int</code> <code class=\"cpp plain\">umur;</code></div>\r\n</div>\r\n</td>\r\n</tr>\r\n</tbody>\r\n</table>\r\n</div>\r\n</div>\r\n<p>Pada contoh di atas kita nyatakan bahwa akan kita dirikan sebuah variabel yang dapat menyimpan data dalam bentuk&nbsp;<em>integer</em>&nbsp;dengan nama pengenal adalah&nbsp;<code>umur</code>.</p>\r\n<p>Anda dapat membuat variabel tanpa nilai atau anda juga bisa langsung menyertakan nilai pada saat deklarasi variabel, pemberial nilai saat deklarasi disebut sebagai&nbsp;<a href=\"https://www.belajarcpp.com/tutorial/inisialisasi/\">inisialisasi</a>.</p>\r\n<p><u>Bentuk Penulisan</u></p>\r\n<div>\r\n<div id=\"highlighter_507061\" class=\"syntaxhighlighter cpp\">\r\n<table border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n<tbody>\r\n<tr>\r\n<td class=\"gutter\">\r\n<div class=\"line number1 index0 alt2\">1</div>\r\n</td>\r\n<td class=\"code\">\r\n<div class=\"container\">\r\n<div class=\"line number1 index0 alt2\"><code class=\"cpp plain\">Tipe_data identitas = inisialisasi;</code></div>\r\n</div>\r\n</td>\r\n</tr>\r\n</tbody>\r\n</table>\r\n</div>\r\n</div>\r\n<p><u>Contoh Penulisan</u></p>\r\n<div>\r\n<div id=\"highlighter_182468\" class=\"syntaxhighlighter cpp\">\r\n<table border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n<tbody>\r\n<tr>\r\n<td class=\"gutter\">\r\n<div class=\"line number1 index0 alt2\">1</div>\r\n</td>\r\n<td class=\"code\">\r\n<div class=\"container\">\r\n<div class=\"line number1 index0 alt2\"><code class=\"cpp color1 bold\">int</code> <code class=\"cpp plain\">umur = 21;</code></div>\r\n</div>\r\n</td>\r\n</tr>\r\n</tbody>\r\n</table>\r\n</div>\r\n</div>\r\n<p>Sebuah deklarasi merupakan sebuah pernyataan, Setiap kali pendeklarasian variabel harus diakhiri dengan tanda titik koma&nbsp;<code>;</code>.</p>\r\n<p><em><strong>Peraturan Pembuatan Variabel</strong></em></p>\r\n<p>Dalam peraturan pemberian identitas variabel dapat terdiri dari huruf, angka dan karakter&nbsp;<code>_</code>. nama variabel harus dimulai dengan huruf atau tanda garis bawah&nbsp;<code>_</code>. dan juga huruf besar dan huruf kecil dalam pemrograman C++ akan dianggap beda meskipun memiliki nama yang sama karena C++ merupakan Bahasa Pemrograman&nbsp;<em>Case-Sensitive</em></p>\r\n<p>Ada satu peraturan lainnya dalam pemberian nama pada variabel yaitu tidak boleh menggunakan spasi saat penamaan variabel.</p>\r\n<p>tapi jika nama tersebut memiliki dua kata atau lebih dan ingin tetap menamakanya dengan kata terpisah supaya mudah dibaca, anda tidak bisa menulis namanya menggunakan spasi tapi anda bisa menggantikan spasi dengan tanda&nbsp;<code>_&nbsp;</code>. ini dapat mempermudah anda dalam pembacaan nama yang lebih dari 1 kata.</p>\r\n<p>Peraturan terakhir adalah nama variabel tidak boleh diawali dengan angka atau menggunakan operator aritmetika. contoh penulisan yang benar adalah:</p>\r\n<div>\r\n<div id=\"highlighter_938542\" class=\"syntaxhighlighter cpp\">\r\n<table border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n<tbody>\r\n<tr>\r\n<td class=\"gutter\">\r\n<div class=\"line number1 index0 alt2\">1</div>\r\n<div class=\"line number2 index1 alt1\">2</div>\r\n<div class=\"line number3 index2 alt2\">3</div>\r\n</td>\r\n<td class=\"code\">\r\n<div class=\"container\">\r\n<div class=\"line number1 index0 alt2\"><code class=\"cpp plain\">belajarcpp</code></div>\r\n<div class=\"line number2 index1 alt1\"><code class=\"cpp plain\">belajar_cpp</code></div>\r\n<div class=\"line number3 index2 alt2\"><code class=\"cpp plain\">belajarCpp5</code></div>\r\n</div>\r\n</td>\r\n</tr>\r\n</tbody>\r\n</table>\r\n<p><strong>Jenis Tipe Data</strong></p>\r\n<p>Dalam mendirikan sebuah variabel kita akan membutuhkan tipe data untuk menentukan bentuk dari nilai yang dapat disimpan dalam variabel tersebut. Tipe data variable secara umum bisa dibedakan menjadi tiga, yaitu:</p>\r\n<p><u><strong>Variabel Numerik:</strong></u>&nbsp;Memungkinkan pengguna menyimpan data dalam bentuk angka atau bilangan. Variabel numerik dapat dibagi menjadi beberapa bagian yaitu : Bilangan Bulat (<em>Integer</em>&nbsp;<code>int</code>), Bilangan Desimal Berpresisi Tunggal (<em>Floating Point</em>&nbsp;<code>float</code>). Bilangan Desimal Berpresisi Ganda (<em>Double Precision</em>&nbsp;<code>double</code>).</p>\r\n<p><strong>Variabel&nbsp;<em>Text</em>:</strong>&nbsp;memungkinkan pengguna untuk menyimpan data berbentuk karakter. Bahasa pemrograman C++ menyediakan beberapa tipe data untuk variabel jenis ini, seperti&nbsp;<code>char</code>&nbsp;(<em>Character</em>&nbsp;/ Karakter tunggal),&nbsp;<code>string</code>&nbsp;(kumpulan dari karakter atau kata) dll.</p>\r\n<p><strong><em>Boolean</em>:&nbsp;</strong>merupakan jenis yang hanya dapat mewakili satu dari dua pilihan yaitu 1 (<em>True</em>) atau 0 (<em>False</em>). Pada pemrograman C++ kita dapat gunakan tipe data jenis ini, dengan memberikan keyword&nbsp;<code>bool</code>.</p>\r\n</div>\r\n<p><strong>Pembuatan variabel :</strong></p>\r\n<div>\r\n<p><u>Contoh penulisan</u></p>\r\n<div>\r\n<div id=\"highlighter_526249\" class=\"syntaxhighlighter cpp\">\r\n<table border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n<tbody>\r\n<tr>\r\n<td class=\"gutter\">\r\n<div class=\"line number1 index0 alt2\">1</div>\r\n<div class=\"line number2 index1 alt1\">2</div>\r\n</td>\r\n<td class=\"code\">\r\n<div class=\"container\">\r\n<div class=\"line number1 index0 alt2\"><code class=\"cpp color1 bold\">int</code> <code class=\"cpp plain\">x, i, p;</code></div>\r\n<div class=\"line number2 index1 alt1\"><code class=\"cpp color1 bold\">double</code> <code class=\"cpp plain\">a, b, c;</code></div>\r\n</div>\r\n</td>\r\n</tr>\r\n</tbody>\r\n</table>\r\n</div>\r\n</div>\r\n<p>Hal ini sangat berguna karena tidak memakan banyak baris dalam mendirikan banyak variabel.</p>\r\n<p><u>Contoh pendeklarasian banyak variable dengan Inisialisasi :</u></p>\r\n<div>\r\n<div id=\"highlighter_441598\" class=\"syntaxhighlighter cpp\">\r\n<table border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n<tbody>\r\n<tr>\r\n<td class=\"gutter\">\r\n<div class=\"line number1 index0 alt2\">1</div>\r\n<div class=\"line number2 index1 alt1\">2</div>\r\n</td>\r\n<td class=\"code\">\r\n<div class=\"container\">\r\n<div class=\"line number1 index0 alt2\"><code class=\"cpp color1 bold\">int</code> <code class=\"cpp plain\">x=10, y=21;</code></div>\r\n<div class=\"line number2 index1 alt1\"><code class=\"cpp plain\">string nama =</code><code class=\"cpp string\">\"Belajar C++ \"</code><code class=\"cpp plain\">, website=&rdquo;belajarcpp.com&rdquo;;</code></div>\r\n</div>\r\n</td>\r\n</tr>\r\n</tbody>\r\n</table>\r\n</div>\r\n</div>\r\n<p><strong>Tabel Macam-macam Tipe Data.</strong></p>\r\n<table>\r\n<thead>\r\n<tr>\r\n<th>Tipe Data</th>\r\n<th>Bentuk Penulisan</th>\r\n</tr>\r\n</thead>\r\n<tbody>\r\n<tr>\r\n<td><em>Boolean</em></td>\r\n<td><code>bool</code></td>\r\n</tr>\r\n<tr>\r\n<td><em>Character</em></td>\r\n<td><code>char</code></td>\r\n</tr>\r\n<tr>\r\n<td><em>String</em></td>\r\n<td><code>string</code></td>\r\n</tr>\r\n<tr>\r\n<td><em>Integer</em></td>\r\n<td><code>int</code></td>\r\n</tr>\r\n<tr>\r\n<td><em>Floating Point</em></td>\r\n<td><code>float</code></td>\r\n</tr>\r\n<tr>\r\n<td><em>Double Floating Point</em></td>\r\n<td><code>double</code></td>\r\n</tr>\r\n</tbody>\r\n</table>\r\n<p><u>Bentuk Penulisan</u></p>\r\n<div>\r\n<div id=\"highlighter_457289\" class=\"syntaxhighlighter cpp\">\r\n<table border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n<tbody>\r\n<tr>\r\n<td class=\"gutter\">\r\n<div class=\"line number1 index0 alt2\">1</div>\r\n</td>\r\n<td class=\"code\">\r\n<div class=\"container\">\r\n<div class=\"line number1 index0 alt2\"><code class=\"cpp plain\">tipedata nama_variable=inisialisasi;</code></div>\r\n</div>\r\n</td>\r\n</tr>\r\n</tbody>\r\n</table>\r\n</div>\r\n</div>\r\n<p><u>Contoh Penulisan:</u></p>\r\n<div>\r\n<div id=\"highlighter_700776\" class=\"syntaxhighlighter cpp\">\r\n<table border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n<tbody>\r\n<tr>\r\n<td class=\"gutter\">\r\n<div class=\"line number1 index0 alt2\">1</div>\r\n<div class=\"line number2 index1 alt1\">2</div>\r\n<div class=\"line number3 index2 alt2\">3</div>\r\n<div class=\"line number4 index3 alt1\">4</div>\r\n<div class=\"line number5 index4 alt2\">5</div>\r\n<div class=\"line number6 index5 alt1\">6</div>\r\n</td>\r\n<td class=\"code\">\r\n<div class=\"container\">\r\n<div class=\"line number1 index0 alt2\"><code class=\"cpp color1 bold\">bool</code> <code class=\"cpp plain\">variabelBool = 0, variabel_boolean;</code></div>\r\n<div class=\"line number2 index1 alt1\"><code class=\"cpp color1 bold\">char</code> <code class=\"cpp plain\">variabelChar, variabel_char = </code><code class=\"cpp string\">\'a\'</code><code class=\"cpp plain\">;</code></div>\r\n<div class=\"line number3 index2 alt2\"><code class=\"cpp plain\">string variabelString = </code><code class=\"cpp string\">\"Belajar Cpp\"</code><code class=\"cpp plain\">, variabel_string;</code></div>\r\n<div class=\"line number4 index3 alt1\"><code class=\"cpp color1 bold\">int</code> <code class=\"cpp plain\">variabelInt, variabel_int = 9;</code></div>\r\n<div class=\"line number5 index4 alt2\"><code class=\"cpp color1 bold\">float</code> <code class=\"cpp plain\">variabelFloat = 20,9, variabel_float;</code></div>\r\n<div class=\"line number6 index5 alt1\"><code class=\"cpp color1 bold\">double</code> <code class=\"cpp plain\">variabelDouble, variabel_double = 90,0;</code></div>\r\n</div>\r\n</td>\r\n</tr>\r\n</tbody>\r\n</table>\r\n</div>\r\n</div>\r\n<p><u>Contoh Program</u></p>\r\n<div>\r\n<div id=\"highlighter_435667\" class=\"syntaxhighlighter cpp\">\r\n<table border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n<tbody>\r\n<tr>\r\n<td class=\"gutter\">\r\n<div class=\"line number1 index0 alt2\">1</div>\r\n<div class=\"line number2 index1 alt1\">2</div>\r\n<div class=\"line number3 index2 alt2\">3</div>\r\n<div class=\"line number4 index3 alt1\">4</div>\r\n<div class=\"line number5 index4 alt2\">5</div>\r\n<div class=\"line number6 index5 alt1\">6</div>\r\n<div class=\"line number7 index6 alt2\">7</div>\r\n<div class=\"line number8 index7 alt1\">8</div>\r\n<div class=\"line number9 index8 alt2\">9</div>\r\n<div class=\"line number10 index9 alt1\">10</div>\r\n<div class=\"line number11 index10 alt2\">11</div>\r\n<div class=\"line number12 index11 alt1\">12</div>\r\n<div class=\"line number13 index12 alt2\">13</div>\r\n<div class=\"line number14 index13 alt1\">14</div>\r\n<div class=\"line number15 index14 alt2\">15</div>\r\n<div class=\"line number16 index15 alt1\">16</div>\r\n<div class=\"line number17 index16 alt2\">17</div>\r\n<div class=\"line number18 index17 alt1\">18</div>\r\n<div class=\"line number19 index18 alt2\">19</div>\r\n</td>\r\n<td class=\"code\">\r\n<div class=\"container\">\r\n<div class=\"line number1 index0 alt2\"><code class=\"cpp preprocessor\">#include &lt;iostream&gt;</code></div>\r\n<div class=\"line number2 index1 alt1\"><code class=\"cpp keyword bold\">using</code> <code class=\"cpp keyword bold\">namespace</code> <code class=\"cpp plain\">std;</code></div>\r\n<div class=\"line number3 index2 alt2\">&nbsp;</div>\r\n<div class=\"line number4 index3 alt1\"><code class=\"cpp color1 bold\">int</code> <code class=\"cpp plain\">main ()</code></div>\r\n<div class=\"line number5 index4 alt2\"><code class=\"cpp plain\">{</code></div>\r\n<div class=\"line number6 index5 alt1\"><code class=\"cpp comments\">// Pendeklarasian variabel:</code></div>\r\n<div class=\"line number7 index6 alt2\"><code class=\"cpp color1 bold\">int</code> <code class=\"cpp plain\">a, b = 2;</code></div>\r\n<div class=\"line number8 index7 alt1\"><code class=\"cpp color1 bold\">int</code> <code class=\"cpp plain\">hasil;</code></div>\r\n<div class=\"line number9 index8 alt2\">&nbsp;</div>\r\n<div class=\"line number10 index9 alt1\"><code class=\"cpp comments\">// Operasi</code></div>\r\n<div class=\"line number11 index10 alt2\"><code class=\"cpp plain\">a = 5; </code><code class=\"cpp comments\">//Assignment Operator bukan inisialisasi</code></div>\r\n<div class=\"line number12 index11 alt1\"><code class=\"cpp plain\">a = a + 1;</code></div>\r\n<div class=\"line number13 index12 alt2\"><code class=\"cpp plain\">hasil = a - b;</code></div>\r\n<div class=\"line number14 index13 alt1\">&nbsp;</div>\r\n<div class=\"line number15 index14 alt2\"><code class=\"cpp comments\">//Output hasil operasi di atas</code></div>\r\n<div class=\"line number16 index15 alt1\"><code class=\"cpp plain\">cout &lt;&lt;</code><code class=\"cpp string\">\"Hasil dari operasi variabel adalah :\"</code><code class=\"cpp plain\">&lt;&lt;hasil;</code></div>\r\n<div class=\"line number17 index16 alt2\">&nbsp;</div>\r\n<div class=\"line number18 index17 alt1\"><code class=\"cpp keyword bold\">return</code> <code class=\"cpp plain\">0;</code></div>\r\n<div class=\"line number19 index18 alt2\"><code class=\"cpp plain\">}</code></div>\r\n</div>\r\n</td>\r\n</tr>\r\n</tbody>\r\n</table>\r\n</div>\r\n<p>&nbsp;</p>\r\n<p><strong>Tugas :</strong></p>\r\n<p>Saat ini semua negara sedang menghadapi wabah covid19, dibutuhkan sebuah aplikasi yang bisa mendeteksi apakah seseorang terkena covid19 atau tidak. untuk mengetahui dia terkena covid19 adalah jika suhunya lebih dari 38 derajat celcius. coba buat program yang bisa menampung suhu dan tampilkan suhu tersebut..</p>\r\n</div>\r\n</div>\r\n<p><strong>NOTE<br />Anda bisa menggunakan compiler online yang disediakan SMK di link <a href=\"http://elearning.smkitasy-syadzili.sch.id/\">http://elearning.smkitasy-syadzili.sch.id/</a></strong></p>\r\n<p>&nbsp;</p>\r\n</div>', 2, NULL, 1, 'Variabel dan Tipe Data C++', '2020-06-17 18:04:31', 1);
-INSERT INTO `learning` VALUES (2, 1, 999, '<div>Salah satu permasalahan yang pasti akan dijumpai dalam pembuatan program adalah suatu percabangan. Percabangan yang dimaksud di sini tidak lain adalah suatu pemilihan statemen yang akan di eksekusi dimana pemilihan tersebut berdasarkan kondisi tertentu. Di dalam C++, terdapat 2 jenis struktur blok (blok program) yang digunakan untuk mengimplementasikan suatu percabangan, yaitu dengan menggunakan struktur if dan struktur switch. Struktur if sendiri pada artikel ini akan dibagi menjadi 4 yaitu : pernyataan if satu kondisi, pernyataan&nbsp;if dua kondisi / if-else, pernyataan&nbsp;if lebih dari dua kondisi / if-else majemuk dan pernyataan&nbsp;if bersarang / nested if.</div>\r\n<div>&nbsp;</div>\r\n<div>Statemen-statemen yang ada dalam sebuah blok percabangan akan dieksekusi hanya jika kondisi yang didefinisikan bernilai benar (terpenuhi). Artinya jika kondisi bernilai salah (tidak terpenuhi), maka statemen-statemen tersebut tidak akan dieksekusi atau akan diabaikan oleh compiler.</div>\r\n<div>&nbsp;</div>\r\n<div>Untuk memahami konsep percabangan, perhatikan kalimat dibawah ini:</div>\r\n<blockquote class=\"tr_bq\">\r\n<p>&nbsp;\"Jika Budi mendapat ranking satu maka Budi akan dibelikan sepatu baru\"</p>\r\n</blockquote>\r\n<div>Coba sobat amati, pada kalimat diatas yang merupakan kondisi adalah mendapat ranking satu. Pada kasus ini sepatu baru hanya akan dibeli jika Budi mendapat ranking satu. Sebaliknya, jika tidak mendapat ranking satu, maka sepatu baru pun tidak akan dibelikan.</div>\r\n<div>&nbsp;</div>\r\n<div>\r\n<p><strong>Macam-macam operator yang digunakan.</strong></p>\r\n<p><strong>Operator Relasi</strong>&nbsp;- Operator ini digunakan untuk membandingkan 2 buah data untuk mendepatkan kondisi benar (TRUE) atau salah (FALSE). Berikut daftarnya:</p>\r\n<table>\r\n<thead>\r\n<tr>\r\n<th>Operator</th>\r\n<th>Keterangan</th>\r\n</tr>\r\n</thead>\r\n<tbody>\r\n<tr>\r\n<td>==</td>\r\n<td>Sama dengan</td>\r\n</tr>\r\n<tr>\r\n<td>!=</td>\r\n<td>Tidak sama dengan</td>\r\n</tr>\r\n<tr>\r\n<td>&lt;</td>\r\n<td>Kurang dari</td>\r\n</tr>\r\n<tr>\r\n<td>&gt;</td>\r\n<td>Lebih dari</td>\r\n</tr>\r\n<tr>\r\n<td>&lt;=</td>\r\n<td>Kurang dari atau sama dengan</td>\r\n</tr>\r\n<tr>\r\n<td>&gt;=</td>\r\n<td>Lebih dari atau sama dengan</td>\r\n</tr>\r\n</tbody>\r\n</table>\r\n<p><strong>Operator Logika</strong>&nbsp;- Faktanya, terkadang kita dihadapkan kondisi yang memiliki lebih dari satu syarat. Jika anda mengalami hal yang sama maka gunakan operator berikut:</p>\r\n<table>\r\n<thead>\r\n<tr>\r\n<th>Operator</th>\r\n<th>Keterangan</th>\r\n</tr>\r\n</thead>\r\n<tbody>\r\n<tr>\r\n<td>&amp;&amp;</td>\r\n<td>And (Semua kondisi harus bernilai benar)</td>\r\n</tr>\r\n<tr>\r\n<td>||</td>\r\n<td>Or (Salah satu harus bernilai benar)</td>\r\n</tr>\r\n<tr>\r\n<td>!</td>\r\n<td>Not (Kebalikan dari kondisi sebenarnya)</td>\r\n</tr>\r\n</tbody>\r\n</table>\r\n</div>\r\n<div>\r\n<div>\r\n<h2>1. Pernyataan IF Satu Kondisi</h2>\r\n<p>Seperti yang sudah kita ketahui, pernyataan percabangan dipakai untuk memecahkan persoalan dengan cara mengambil suatu keputusan dari berbagai pernyataan yang ada. Untuk keperluan pengambilan keputusan, Dev-C++ menyediakan beberapa perintah salah satunya adalah if satu kondisi. Pernyataan if satu kondisi mempunyai pengertian, \"Jika kondisi bernilai benar, maka perintah akan dikerjakan dan jika kondisi bernilai salah, maka perintah akan diabaikan\".</p>\r\n</div>\r\n<div>&nbsp;</div>\r\n<ul>\r\n<li>Jika kondisi bernilai benar, maka perintah akan dikerjakan.</li>\r\n<li>Jika kondisi bernilai salah, maka perintah tidak akan dikerjakan</li>\r\n</ul>\r\n<div>Pengertian tersebut dapat dicerminkan melalui diagram alir berikut ini:</div>\r\n<table class=\"tr-caption-container\" cellspacing=\"0\" cellpadding=\"0\" align=\"center\">\r\n<tbody>\r\n<tr>\r\n<td><a href=\"https://3.bp.blogspot.com/-DqIL6POdmqA/WQyd2hpXa8I/AAAAAAAAAgg/k6UdoguQWREYtc3fB-INUtOFce5KvKvuwCLcB/s1600/diagram%2Balir%2Bpernyataan%2Bif.JPG\"><img title=\"diagram alir pernyataan if satu kondisi\" src=\"https://3.bp.blogspot.com/-DqIL6POdmqA/WQyd2hpXa8I/AAAAAAAAAgg/k6UdoguQWREYtc3fB-INUtOFce5KvKvuwCLcB/s400/diagram%2Balir%2Bpernyataan%2Bif.JPG\" alt=\"diagram alir pernyataan if satu kondisi\" width=\"318\" height=\"400\" border=\"0\" /></a></td>\r\n</tr>\r\n<tr>\r\n<td class=\"tr-caption\">Diagram alir pernyataan if satu kondisi</td>\r\n</tr>\r\n</tbody>\r\n</table>\r\n<div>&nbsp;</div>\r\n<div><strong>Struktur If Satu Kondisi</strong></div>\r\n<div>Struktur if satu kondisi merupakan struktur yang paling sederhana karena hanya melibatkan sebuah ekspresi yang akan diperiksa.</div>\r\n<div>&nbsp;</div>\r\n<div>Bentuk umum dari struktur percabangan if satu kondisi adalah sebagai berikut:</div>\r\n<div>\r\n<blockquote class=\"tr_bq\">\r\n<p>&nbsp;// Jika terdapat lebih dari satu pernyataan / statemen<br />if (kondisi){<br />Statemen/Pernyataan;<br />Statemen/Pernyataan;<br />}</p>\r\n<p>// Jika hanya terdapat satu statemen<br />// Dapat ditulis sebagai berikut<br />if (kondisi) Statemen;</p>\r\n</blockquote>\r\n</div>\r\n<div>&nbsp;</div>\r\n<div><strong>Contoh Program dengan Struktur If Satu Kondisi</strong></div>\r\n<div>\r\n<p>Berikut beberapa contoh program yang menerapkan struktur if satu kondisi seperti yang telah kami jelaskan diatas:</p>\r\n<table class=\"tr-caption-container\" cellspacing=\"0\" cellpadding=\"0\" align=\"center\">\r\n<tbody>\r\n<tr>\r\n<td><a href=\"https://3.bp.blogspot.com/-BnPVQhakg9I/WQ1Oh7jhxtI/AAAAAAAAAgw/p_ucl2J8yz8VEt2PkzP1Y5yTmjSyA36tQCLcB/s1600/Contoh%2BProgram%2BI%2Bdengan%2BStruktur%2BIf%2BSatu%2BKondisi.JPG\"><img title=\"Contoh Program I dengan Struktur If Satu Kondisi\" src=\"https://3.bp.blogspot.com/-BnPVQhakg9I/WQ1Oh7jhxtI/AAAAAAAAAgw/p_ucl2J8yz8VEt2PkzP1Y5yTmjSyA36tQCLcB/s400/Contoh%2BProgram%2BI%2Bdengan%2BStruktur%2BIf%2BSatu%2BKondisi.JPG\" alt=\"Contoh Program I dengan Struktur If Satu Kondisi\" width=\"400\" height=\"186\" border=\"0\" /></a></td>\r\n</tr>\r\n<tr>\r\n<td class=\"tr-caption\">Contoh Program I dengan Struktur If Satu Kondisi</td>\r\n</tr>\r\n</tbody>\r\n</table>\r\n<blockquote class=\"tr_bq\">\r\n<p>&nbsp;#include &lt;iostream&gt;</p>\r\n<p>using namespace std;</p>\r\n<p>int main()<br />{<br />int bilangan;</p>\r\n<p>// Memberikan informasi agar user memasukkan<br />// Sebuah bilangan bulat<br />cout&lt;&lt;\"\\t== Program Bilangan Positif ==\\n\\n\";<br />cout&lt;&lt;\"Masukkan bilangan : \";</p>\r\n<p>// Membaca nilai yang dimasukkan dari keyboard<br />// Dan disimpan ke variabel Bilangan<br />cin&gt;&gt;bilangan;</p>\r\n<p>// Program ini merupakan contoh if satu kondisi<br />// Akan menampilkan sebuah teks jika<br />// Bilangan yang dimasukkan &gt; 0<br /><strong>&nbsp; &nbsp;</strong>if(bilangan &gt; 0){<br />cout&lt;&lt;\"\\nAnda memasukkan bilangan Positif\\n\";<br />cout&lt;&lt;\"Bilangan tersebut adalah \"&lt;&lt;bilangan;<br /><strong>}</strong></p>\r\n<p>return 0;<br />}</p>\r\n</blockquote>\r\n</div>\r\n<div>\r\n<h2>2. Pernyataan IF Dua Kondisi</h2>\r\n<div>\r\n<p>Struktur percabangan if dua kondisi / if-else sedikit lebih kompleks bila dibandingkan dengan struktur if yang hanya memiliki satu buah kondisi. Sebenarnya konsepnya juga sederhana, yaitu pada struktur jenis ini terdapat sebuah statemen khusus yang berfungsi untuk mengatasi kejadia apabila kondisi yang didefinisikan tersebut bernilai salah (tidak terpenuhi).</p>\r\n</div>\r\n<div>Artinya dalam pernyataan if dua kondisi \"Jika kondisi bernilai benar, maka perintah-1 akan dikerjakan dan jika kondisi bernilai salah (tidak terpenuhi) maka akan mengerjakan perintah-2\".</div>\r\n<div>&nbsp;</div>\r\n<div>Dari pengertian tersebut dapat dicerminkan melalui diagram alir berikut ini.</div>\r\n<table class=\"tr-caption-container\" cellspacing=\"0\" cellpadding=\"0\" align=\"center\">\r\n<tbody>\r\n<tr>\r\n<td><a href=\"https://2.bp.blogspot.com/-0gVVnWXYIXM/WQ2LELGIMwI/AAAAAAAAAhQ/EbRPslqcTLMPAVdb5hC9E87Q8Fav2C2zQCLcB/s1600/diagram%2Balir%2Bpernyataan%2Bif%2Bdua%2Bkondisi.JPG\"><img title=\"diagram alir pernyataan if dua kondisi\" src=\"https://2.bp.blogspot.com/-0gVVnWXYIXM/WQ2LELGIMwI/AAAAAAAAAhQ/EbRPslqcTLMPAVdb5hC9E87Q8Fav2C2zQCLcB/s400/diagram%2Balir%2Bpernyataan%2Bif%2Bdua%2Bkondisi.JPG\" alt=\"diagram alir pernyataan if dua kondisi\" width=\"400\" height=\"365\" border=\"0\" /></a></td>\r\n</tr>\r\n<tr>\r\n<td class=\"tr-caption\">diagram alir pernyataan if dua kondisi</td>\r\n</tr>\r\n</tbody>\r\n</table>\r\n<div>&nbsp;</div>\r\n<div><strong>Struktur If Dua Kondisi (If Else)</strong></div>\r\n<div>Bentuk umum dari struktur percabangan dengan dua kondisi adalah sebagai berikut:</div>\r\n<blockquote class=\"tr_bq\">\r\n<p>&nbsp;if (kondisi){<br />Statemen_jika_kondisi_terpenuhi;<br />}<br />else{<br />Statemen_jika_kondisi_tidak_terpenuhi;<br />}</p>\r\n</blockquote>\r\n<div><strong>Contoh program dengan Struktur If Dua Kondisi (If Else)</strong></div>\r\n<div>Berikut beberapa contoh program yang menerapkan struktur if dua kondisi seperti yang telah kami jelaskan diatas:</div>\r\n<table class=\"tr-caption-container\" cellspacing=\"0\" cellpadding=\"0\" align=\"center\">\r\n<tbody>\r\n<tr>\r\n<td><a href=\"https://2.bp.blogspot.com/-Q53W_QO9HoE/WQ2LEN8D-OI/AAAAAAAAAhU/aBmDplWyoykWHR8stXpoiW-5EeaHduJ7wCEw/s1600/Contoh%2BProgram%2BI%2Bdengan%2BStruktur%2BIf%2BDua%2BKondisi.JPG\"><img title=\"Contoh Program I dengan Struktur If Dua Kondisi\" src=\"https://2.bp.blogspot.com/-Q53W_QO9HoE/WQ2LEN8D-OI/AAAAAAAAAhU/aBmDplWyoykWHR8stXpoiW-5EeaHduJ7wCEw/s400/Contoh%2BProgram%2BI%2Bdengan%2BStruktur%2BIf%2BDua%2BKondisi.JPG\" alt=\"Contoh Program I dengan Struktur If Dua Kondisi\" width=\"400\" height=\"205\" border=\"0\" /></a></td>\r\n</tr>\r\n<tr>\r\n<td class=\"tr-caption\">Contoh Program I dengan Struktur If Dua Kondisi</td>\r\n</tr>\r\n</tbody>\r\n</table>\r\n<div>\r\n<blockquote class=\"tr_bq\">\r\n<p>&nbsp;#include &lt;iostream&gt;</p>\r\n<p>using namespace std;</p>\r\n<p>int main()<br />{<br />int bilangan;</p>\r\n<p>// Memberikan informasi agar user memasukkan<br />// Sebuah bilangan bulat<br />cout&lt;&lt;\"\\t== Program Bilangan Positif ==\\n\\n\";<br />cout&lt;&lt;\"Masukkan bilangan : \";</p>\r\n<p>// Membaca nilai yang dimasukkan dari keyboard<br />// Dan disimpan ke variabel Bilangan<br />cin&gt;&gt;bilangan;</p>\r\n<p>// Program ini merupakan contoh if dua kondisi<br />if(bilangan &gt; 0){<br />cout&lt;&lt;\"\\nAnda memasukkan bilangan Positif\\n\";<br />cout&lt;&lt;\"Bilangan tersebut adalah \"&lt;&lt;bilangan;<br />}<br />else{<br />cout&lt;&lt;\"\\nAnda memasukkan bilangan kurang dari 1\";<br />cout&lt;&lt;\"\\nBilangan tersebut adalah \"&lt;&lt;bilangan;<br />}</p>\r\n<p>return 0;<br />}</p>\r\n</blockquote>\r\n<h2>3. Pernyataan IF Lebih Dari Dua Kondisi</h2>\r\n<div>Struktur percabangan if lebih dari dua kondisi / if-else majemuk merupakan struktur percabangan yang biasanya membingunggkan para programmer pemula. Percabangan If-else majemuk sebenarnya merupakan pengembangan dari struktur if dua kondisi, karena percabangan ini akan menambahkan (menyisipkan) satu atau lebih kondisi ke dalamnya.<br /><img class=\"alignnone size-full wp-image-742\" src=\"https://smkitasy-syadzili.sch.id/wp-content/uploads/2020/02/Untitled-Diagram.jpg\" alt=\"\" width=\"341\" height=\"391\" /><br />Artinya dalam pernyataan if lebih dari dua kondisi: Jika kondisi1 bernilai benar, maka perintah-1 akan dikerjakan, jika kondisi1 salah maka akan mengecek kondisi2 dan jika kondisi2 bernilai benar, maka perintah-2 akan dikerjakan, jika kondisi2 juga salah maka akan mengecek kondisi berikutnya dan akan mengerjakan perintah pada struktur blok yang memiliki kondisi bernilai benar. Seandainya tidak ada kondisi yang bernilai benar, maka akan mengerjakan perintah yang berada pada struktur blok else. untuk lebih jelasnya mari kita perhatikan struktur if-else majemuk dibawah ini.<strong>Struktur If Lebih Dari Dua Kondisi / If-Else Majemuk</strong><br />Bentuk umum dari struktur percabangan If yang memiliki lebih dari dua kondisi adalah sebagai berikut:\r\n<blockquote class=\"tr_bq\">\r\n<p>&nbsp;if(kondisi1){<br />Statemen_jika_kondisi1_terpenuhi;<br />}<br />else if(kondisi2){<br />Statemen_jika_kondisi2_terpenuhi;<br />}<br />else if(kondisi3){<br />Statemen_jika_kondisi3_terpenuhi;<br />}<br />else if(kondisi4){<br />Statemen_jika_kondisi4_terpenuhi;<br />}<br />.....<br />else{<br />Statemen_jika_semua_kondisi_tidak_terpenuhi;<br />}</p>\r\n</blockquote>\r\n<p><strong>Contoh Program dengan Struktur If Lebih Dari Dua Kondisi / If-Else Majemuk</strong><br />Untuk lebih memahami konsep dari struktur percabangan if-else majemuk, berikut kami sajikan beberapa contoh program yang mengimplementasikan hal tersebut.</p>\r\n<table class=\"tr-caption-container\" cellspacing=\"0\" cellpadding=\"0\" align=\"center\">\r\n<tbody>\r\n<tr>\r\n<td><a href=\"https://4.bp.blogspot.com/-3FBx503uOlY/WQ874zaYq4I/AAAAAAAAAhk/7ur6USbfQxUQPy4DptDBtQ1Y3BHJCSAawCPcB/s1600/Contoh%2BProgram%2BI%2Bdengan%2BStruktur%2BIf%2BLebih%2BDari%2BDua%2BKondisi%2Batau%2BIf-Else%2BMajemuk.JPG\"><img title=\"Contoh Program I dengan Struktur If Lebih Dari Dua Kondisi atau If-Else Majemuk\" src=\"https://4.bp.blogspot.com/-3FBx503uOlY/WQ874zaYq4I/AAAAAAAAAhk/7ur6USbfQxUQPy4DptDBtQ1Y3BHJCSAawCPcB/s400/Contoh%2BProgram%2BI%2Bdengan%2BStruktur%2BIf%2BLebih%2BDari%2BDua%2BKondisi%2Batau%2BIf-Else%2BMajemuk.JPG\" alt=\"Contoh Program I dengan Struktur If Lebih Dari Dua Kondisi atau If-Else Majemuk\" width=\"400\" height=\"200\" border=\"0\" /></a></td>\r\n</tr>\r\n<tr>\r\n<td class=\"tr-caption\">Contoh Program I dengan Struktur If Lebih Dari Dua Kondisi atau If-Else Majemuk</td>\r\n</tr>\r\n</tbody>\r\n</table>\r\n<blockquote class=\"tr_bq\">\r\n<p>&nbsp;#include &lt;iostream&gt;</p>\r\n<p>using namespace std;</p>\r\n<p>int main()<br />{<br />int bilangan;</p>\r\n<p>// Memberikan informasi agar user memasukkan<br />// Sebuah bilangan<br />cout&lt;&lt;\"\\t== Program Tentukan Bilangan ==\\n\\n\";<br />cout&lt;&lt;\"Masukkan bilangan : \";</p>\r\n<p>// Membaca nilai yang dimasukkan dari keyboard<br />// Dan disimpan ke variabel Bilangan<br />cin&gt;&gt;bilangan;</p>\r\n<p>// Program ini merupakan<br />// Contoh if lebih dari dua kondisi<br />if(bilangan &gt; 0){<br />cout&lt;&lt;\"\\nAnda memasukan bilangan Positif\\n\";<br />cout&lt;&lt;\"Bilangan tersebut adalah \"&lt;&lt;bilangan;<br />}<br />else if (bilangan &lt; 0){<br />cout&lt;&lt;\"\\nAnda memasukan bilangan Negatif\\n\";<br />cout&lt;&lt;\"Bilangan tersebut adalah \"&lt;&lt;bilangan;<br />}<br />else{<br />cout&lt;&lt;\"\\nAnda memasukkan bilangan NOL\\n\";<br />}</p>\r\n<p>return 0;<br />}</p>\r\n</blockquote>\r\n</div>\r\n<div>\r\n<h2>4. Pernyataan IF Bersarang</h2>\r\n<div>Struktur percabangan if bersarang / nested if merupakan struktur if yang paling komplek, karena merupakan perluasan dan kombinasi dari berbagai struktur if lainnya. Konsep dari percabangan ini adalah terdapat Struktur If yang berada didalam Struktur If lainnya. Artinya dalam pernyataan If bersarang jika kondisi If yang paling luar (paling atas) bernilai benar, maka kondisi If yang berada didalamnya baru akan dilihat (di cek).<br /><img class=\"alignnone size-full wp-image-743\" src=\"https://smkitasy-syadzili.sch.id/wp-content/uploads/2020/02/Untitled-Diagram-1.jpg\" alt=\"\" width=\"458\" height=\"471\" /><br /><strong>Struktur If Bersarang / Nested If</strong><br />Bentuk umum dari struktur If bersarang / &nbsp;struktur if yang berada di dalam struktur if lainnya adalah sebagai berikut:</div>\r\n</div>\r\n<div>\r\n<blockquote class=\"tr_bq\">\r\n<p>&nbsp;if(kondisi1){<br />if(kondisi1a){<br />Statemen_jika_kondisi1_dan_1a_terpenuhi;<br />}<br />else if(kondisi1b){<br />Statemen_jika_kondisi1_dan_1b_terpenuhi;<br />}<br />.....<br />else{<br />Statemen_jika_hanya_kondisi1_yang_terpenuhi;<br />}<br />}<br />else if(kondisi2){<br />if(kondisi2a){<br />Statemen_jika_kondisi2_dan_2a_terpenuhi;<br />}<br />else if(kondisi2b){<br />Statemen_jika_kondisi2_dan_2b_terpenuhi;<br />}<br />.....<br />else{<br />Statemen_jika_hanya_kondisi2_yang_terpenuhi;<br />}<br />}<br />else if(kondisi3){<br />Statemen_jika_kondisi3_terpenuhi;<br />}<br />.....<br />else{<br />Statemen_jika_semua_kondisi_tidak_terpenuhi;<br />}</p>\r\n</blockquote>\r\n</div>\r\n<h2>5. Pernyataan Switch-Case</h2>\r\n<div>Selain menggunakan pernyataan If, C++ juga menawarkan kepada kita untuk dapat melakukan percabangan (pemilihan) dengan menggunakan pernyataan Switch-Case.</div>\r\n<div>Sama seperti pernyataan If-Else, pernyataan Switch-Case juga merupakan pernyataan yang digunakan untuk menjalankan salah satu pernyataan dari beberapa kemungkinan pernyataan, Namun penggunaan pernyataan Switch-Case lebih sempit, karena perintah ini haya digunakan untuk memeriksa data yang bertipe integer atau karakter.</div>\r\n<p><strong>Struktur Switch-Case</strong><br />Bentuk umum penggunaan pernyataan Switch-Case adalah sebagai berikut:</p>\r\n<blockquote class=\"tr_bq\">\r\n<p>&nbsp;switch(ekspresi){<br />case nilai_konstanta1:<br />Statemen_atau_Perintah;<br />break;<br />case nilai_konstanta2:<br />Statemen_atau_Perintah;<br />break;<br />case nilai_konstanta3:<br />Statemen_atau_Perintah;<br />break;<br />.....<br />case nilai_konstantaN:<br />Statemen_atau_Perintah;<br />break;<br />default:<br />Statemen_alternatif;<br />}</p>\r\n</blockquote>\r\n</div>\r\n<p>Sumber : http://www.materidosen.com/2017/05/5-macam-operasi-percabangan-c-lengkap.html</p>\r\n</div>\r\n</div>', 2, NULL, 1, 'Percabangan C++', '2020-06-17 18:04:31', 1);
-INSERT INTO `learning` VALUES (3, 1, 999, '<p>Apa yang akan kamu lakukan saat disuruh mencetak kalimat berulang-ulang?</p>\r\n<p>Misalnya:</p>\r\n<p>Tolong tampilkan kalimat&nbsp;<code>\"Tutorial Pemrograman C++!\"</code>&nbsp;sebanyak 10x ke layar!</p>\r\n<p>Mungkin kamu akan menggunakan&nbsp;<code>cout</code>&nbsp;sebanyak 10 kali seperti ini:</p>\r\n<div class=\"highlight\">\r\n<pre><code class=\"language-cpp\" data-lang=\"cpp\">#include &lt;iostream&gt;\r\nusing namespace std;\r\n\r\nint main(){\r\n    cout &lt;&lt; \"Tutorial Pemrograman C++!\" &lt;&lt; endl;\r\n    cout &lt;&lt; \"Tutorial Pemrograman C++!\" &lt;&lt; endl;\r\n    cout &lt;&lt; \"Tutorial Pemrograman C++!\" &lt;&lt; endl;\r\n    cout &lt;&lt; \"Tutorial Pemrograman C++!\" &lt;&lt; endl;\r\n    cout &lt;&lt; \"Tutorial Pemrograman C++!\" &lt;&lt; endl;\r\n    cout &lt;&lt; \"Tutorial Pemrograman C++!\" &lt;&lt; endl;\r\n    cout &lt;&lt; \"Tutorial Pemrograman C++!\" &lt;&lt; endl;\r\n    cout &lt;&lt; \"Tutorial Pemrograman C++!\" &lt;&lt; endl;\r\n    cout &lt;&lt; \"Tutorial Pemrograman C++!\" &lt;&lt; endl;\r\n    cout &lt;&lt; \"Tutorial Pemrograman C++!\" &lt;&lt; endl;\r\n    return 0;\r\n}\r\n</code></pre>\r\n</div>\r\n<p>Hasilnya:</p>\r\n<p><img class=\"blur-up lazyload mb-3 img-fluid lazyloaded\" src=\"https://www.petanikode.com/img/cpp/loop/manual-loop.png\" alt=\"Perulangan manual dengan printf\" data-sizes=\"auto\" data-src=\"/img/cpp/loop/manual-loop.png\" /></p>\r\n<p>Apakah boleh seperti ini?</p>\r\n<p>Ya, boleh-boleh saja.</p>\r\n<p>Tapi&hellip;</p>\r\n<p>Bagaimana kalau nanti mau menampilkan sebanyak&nbsp;<code>1000</code>&nbsp;kali.</p>\r\n<p>Pasti capek donk ngetiknya.</p>\r\n<p>Karena itu, kita harus menggunakan&nbsp;<strong>perulangan</strong>.</p>\r\n<div class=\"my-5 adsense blur-up lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded lazyloaded\">&nbsp;</div>\r\n<p>Perulangan akan membantu kita mengeksekusi kode yang berulang-ulang, berapapun yang kita mau.</p>\r\n<p>Ada empat macam bentuk perulangan pada C.</p>\r\n<p>Secara umum, dibagi menjadi dua kelompok.</p>\r\n<p>Yaitu:&nbsp;<em>counted loop</em>&nbsp;dan&nbsp;<em>uncounted loop</em>.</p>\r\n<p>Perbedaanya:</p>\r\n<ul>\r\n<li><strong>Counted Loop</strong>&nbsp;merupakan perulangan yang jelas dan sudah tentu banyak kali perulangannya.</li>\r\n<li>Sedangkan&nbsp;<strong>Uncounted Loop</strong>, merupakan perulangan yang tidak jelas berapa kali ia harus mengulang.</li>\r\n</ul>\r\n<p>&nbsp;</p>\r\n<p>Perulangan yang termasuk dalam&nbsp;<em>Counted Loop</em>:</p>\r\n<ol>\r\n<li>Perulangan For</li>\r\n</ol>\r\n<p>Perulangan yang termasuk dalam&nbsp;<em>Uncounted Loop</em>:</p>\r\n<ol>\r\n<li>Perulangan While</li>\r\n<li>Perulangan Do/While</li>\r\n</ol>\r\n<p>Mari kita bahas satu per satu&hellip;</p>\r\n<h2 id=\"1-blok-perulangan-for\">1. Blok Perulangan For</h2>\r\n<p>Perulangan&nbsp;<code>for</code>&nbsp;merupakan perulangan yang termasuk dalam&nbsp;<em>couted loop</em>, karena sudah jelas berapa kali ia akan mengulang.</p>\r\n<figure class=\"figure mb-3 img-thumbnail rounded-0\"><img class=\"lazyload blur-up figure-img img-fluid mb-0 lazyloaded\" src=\"https://www.petanikode.com/img/c/loop/flowchart-for.webp\" alt=\"Flowchart perulangan for\" data-src=\"/img/c/loop/flowchart-for.webp\" />\r\n<figcaption class=\"figure-caption text-center my-2\">Flowchart perulangan for</figcaption>\r\n</figure>\r\n<p>Bentuknya kodenya seperti ini:</p>\r\n<div class=\"highlight\">\r\n<pre><code class=\"language-c\" data-lang=\"c\">for(int i = 0; i &lt; 10; i++){\r\n    printf(\"Perulangan ke-%i\\n\", i);\r\n}\r\n</code></pre>\r\n</div>\r\n<p>Yang perlu diperhatikan adalah kondisi yang ada di dalam kurung setelah kata&nbsp;<code>for</code>.</p>\r\n<p>Kondisi ini akan menentukan:</p>\r\n<ul>\r\n<li>Hitungan akan dimulai dari&nbsp;<code>0</code>&nbsp;(<code>i = 0</code>);</li>\r\n<li>Hitungannya sampai berapa? Sampai&nbsp;<code>i &lt; 10</code>;</li>\r\n<li>Lalu di setiap perulangan&nbsp;<code>i</code>&nbsp;akan bertambah&nbsp;<code>+1</code>&nbsp;(<code>i++</code>).</li>\r\n</ul>\r\n<p>Variabel&nbsp;<code>i</code>&nbsp;pada perulangan&nbsp;<code>for</code>&nbsp;berfungsi untuk menyimpan nilai hitungan.</p>\r\n<p>Jadi setiap perulangan dilakukan nilai&nbsp;<code>i</code>&nbsp;akan selalu bertambah satu. Karena kita menentukannya di bagian&nbsp;<code>i++</code>.</p>\r\n<p>Contoh program loop dengan for:</p>\r\n<div class=\"highlight\">\r\n<pre><code class=\"language-cpp\" data-lang=\"cpp\">#include &lt;iostream&gt;\r\nusing namespace std;\r\n\r\nint main(){\r\n    for(int i = 0; i &lt; 10; i++){\r\n        printf(\"Perulangan ke-%i\\n\", i);\r\n    }\r\n\r\n    return 0;\r\n}\r\n</code></pre>\r\n</div>\r\n<p>Ini hasil outputnya:</p>\r\n<p><img class=\"blur-up lazyload mb-3 img-fluid lazyloaded\" src=\"https://www.petanikode.com/img/c/loop/for-loop.webp\" alt=\"Perulangan For pada bahasa C\" data-sizes=\"auto\" data-src=\"/img/c/loop/for-loop.webp\" /></p>\r\n<p>Apakah nama variabelnya harus selalu&nbsp;<code>i</code>?</p>\r\n<p>Tidak.</p>\r\n<p>Kita juga bisa menggunakan nama lain.</p>\r\n<p>Misalnya:</p>\r\n<div class=\"highlight\">\r\n<pre><code class=\"language-cpp\" data-lang=\"cpp\">#include &lt;iostream&gt;\r\nusing namespace std;\r\n\r\nint main(){\r\n    for(int counter = 0; counter &lt; 10; counter += 2){\r\n        printf(\"Perulangan ke-%i\\n\", counter);\r\n    }\r\n\r\n    return 0;\r\n}\r\n</code></pre>\r\n</div>\r\n<p>Pada contoh tersebut, kita melakukan perulangan dimulai dari nol&nbsp;<code>0</code>. Lalu di setiap perulangan nilai variabel&nbsp;<code>couter</code>&nbsp;akan ditambah 2 (<code>counter+=2</code>).</p>\r\n<p>Hasilnya:</p>\r\n<p><img class=\"blur-up lazyload mb-3 img-fluid lazyloaded\" src=\"https://www.petanikode.com/img/cpp/loop/for-2.png\" alt=\"Perulangan For pada bahasa C++\" data-sizes=\"auto\" data-src=\"/img/cpp/loop/for-2.png\" /></p>\r\n<p>Bagaimana kalau&nbsp;<em>counter</em>&nbsp;perulangannya dimulai dari akanga yang lebih besar sampai yang ke paling kecil?</p>\r\n<p>Ini biasanya kita buat saat ingin menghitung mundur&hellip;</p>\r\n<p>Caranya gampang.</p>\r\n<p>Kita tinggal isi nilai counter dengan nilai terbesarnya.</p>\r\n<p>Misalnya kita akan mulai hitungan dari&nbsp;<code>10</code>&nbsp;sampai ke&nbsp;<code>0</code>.</p>\r\n<p>Maka nilai&nbsp;<code>counter</code>, kita isi awalnya dengan&nbsp;<code>10</code>.</p>\r\n<p>Lalu di kondisi perbandingannya, kita berikan&nbsp;<code>counter &gt; 0</code>. Artinya perulangan akan dilakukan selama nilai counter lebih besar dari&nbsp;<code>0</code>.</p>\r\n<p>Lalu kita kurangi (<code>-1</code>) nilai counter di setiap perulangan (<code>counter--</code>).</p>\r\n<div class=\"highlight\">\r\n<pre><code class=\"language-cpp\" data-lang=\"cpp\">for(int counter = 10; counter &gt; 0; counter--){\r\n    printf(\"Perulangan ke-%i\\n\", counter);\r\n}\r\n</code></pre>\r\n</div>\r\n<p>Hasilnya:</p>\r\n<p><img class=\"blur-up lazyload mb-3 img-fluid lazyloaded\" src=\"https://www.petanikode.com/img/c/loop/for-downto.webp\" alt=\"Perulangan for dengan hitung mundur\" data-sizes=\"auto\" data-src=\"/img/c/loop/for-downto.webp\" /></p>\r\n<p>Mengapa tidak sampai nol (<code>0</code>)?</p>\r\n<p>Karena kondisi yang kita berikan&nbsp;<code>counter &gt; 0</code>. Apabila&nbsp;<code>counter</code>&nbsp;bernilai&nbsp;<code>0</code>, maka kondisi ini akan menjadi&nbsp;<code>false</code>.</p>\r\n<p>Kecuali kita menggunakan operator lebih besar sama dengan (<code>&gt;=</code>), maka jika&nbsp;<code>counter</code>&nbsp;bernilai&nbsp;<code>0</code>, kondisi akan menjadi&nbsp;<code>true</code>.</p>\r\n<h2 id=\"2-perulangan-while-pada-c\">2. Perulangan While pada C++</h2>\r\n<p>Perulangan&nbsp;<code>while</code>&nbsp;merupakan perulangan yang termasuk dalam perulangan&nbsp;<em>uncounted loop</em>.</p>\r\n<p>Perulangan&nbsp;<code>while</code>&nbsp;juga dapat menjadi perulangan yang&nbsp;<em>counted loop</em>&nbsp;dengan memberikan&nbsp;<em>counter</em>&nbsp;di dalamnya.</p>\r\n<p>Bentuk flow chart-nya sama seperti&nbsp;<em>flow chart for</em>.</p>\r\n<figure class=\"figure mb-3 img-thumbnail rounded-0\"><img class=\"lazyload blur-up figure-img img-fluid mb-0 lazyloaded\" src=\"https://www.petanikode.com/img/c/loop/flowchart-for.webp\" alt=\"Flowchart perulangan while\" data-src=\"/img/c/loop/flowchart-for.webp\" />\r\n<figcaption class=\"figure-caption text-center my-2\">Flowchart perulangan while</figcaption>\r\n</figure>\r\n<p>Untuk memahami perulangan ini&hellip;</p>\r\n<p>&hellip;mari kita coba lihat contohnya:</p>\r\n<div class=\"highlight\">\r\n<pre><code class=\"language-cpp\" data-lang=\"cpp\">#include &lt;iostream&gt;\r\nusing namespace std;\r\n\r\nint main(){\r\n    char ulangi = \'y\';\r\n    int counter = 0;\r\n\r\n    // perulangan while\r\n    while(ulangi == \'y\'){\r\n        printf(\"Apakah kamu mau mengulang?\\n\");\r\n        printf(\"Jawab (y/t): \");\r\n        cin &gt;&gt; ulangi;\r\n\r\n        // increment counter\r\n        counter++;\r\n    }\r\n\r\n    printf(\"\\n\\n----------\\n\");\r\n    printf(\"Perulangan Selesai!\\n\");\r\n    printf(\"Kamu mengulang sebanyak %i kali.\\n\", counter);\r\n\r\n    return 0;\r\n}\r\n</code></pre>\r\n</div>\r\n<p>Hasilnya:</p>\r\n<p><img class=\"blur-up lazyload mb-3 img-fluid lazyloaded\" src=\"https://www.petanikode.com/img/c/loop/while.webp\" alt=\"Perulangan while pada C++\" data-sizes=\"auto\" data-src=\"/img/c/loop/while.webp\" /></p>\r\n<p>Coba perhatikan blok kode&nbsp;<code>while</code>:</p>\r\n<div class=\"highlight\">\r\n<pre><code class=\"language-cpp\" data-lang=\"cpp\">// perulangan while\r\nwhile(ulangi == \'y\'){\r\n    printf(\"Apakah kamu mau mengulang?\\n\");\r\n    printf(\"Jawab (y/t): \");\r\n    cin &gt;&gt; ulangi;\r\n    // increment counter\r\n    counter++;\r\n}\r\n</code></pre>\r\n</div>\r\n<p>Di sana&hellip; Perulangan akan terjadi selama variabel&nbsp;<code>ulangi</code>&nbsp;brenilai&nbsp;<code>y</code>.</p>\r\n<p>Lalu kita menggunakan fungsi&nbsp;<code>scanf()</code>&nbsp;untuk mengambil input.</p>\r\n<p>Selama kita menjawab&nbsp;<strong>y</strong>&nbsp;pada input, maka perulangan akan terus dilakukan.</p>\r\n<p>Tapi kalau kita jawab yang lain, maka perulangan akan dihentikan.</p>\r\n<p>Karena kondisi perulangannya tidak terpenuhi.</p>\r\n<h2 id=\"3-perulangan-dowhile-pada-c\">3. Perulangan Do/While pada C++</h2>\r\n<p>Perulangan&nbsp;<code>do/while</code>&nbsp;sama seperti perulangan&nbsp;<code>while</code>.</p>\r\n<p>Perbedaanya:</p>\r\n<p>Perulangan&nbsp;<code>do/while</code>&nbsp;akan melakukan perulangan sebanyak&nbsp;<code>1</code>&nbsp;kali terlebih dahulu, lalu mengecek kondisi yang ada di dalam kurung&nbsp;<code>while</code>.</p>\r\n<p>Flow chart perulangan do/while:</p>\r\n<p><img class=\"blur-up lazyload mb-3 img-fluid lazyloaded\" src=\"https://www.petanikode.com/img/c/loop/flowchart-dowhile.webp\" alt=\"Flowchart perulangan do/while\" data-sizes=\"auto\" data-src=\"/img/c/loop/flowchart-dowhile.webp\" /></p>\r\n<p>Bentuk kodenya seperti ini:</p>\r\n<div class=\"highlight\">\r\n<pre><code class=\"language-javascript\" data-lang=\"javascript\">do {\r\n    // blok kode yang akan diulang\r\n} while (&lt;kondisi&gt;);\r\n</code></pre>\r\n</div>\r\n<p>Jadi perbedaanya:</p>\r\n<blockquote>\r\n<p>Perulangan&nbsp;<code>do/while</code>&nbsp;akan mengecek kondisi di belakang (sesudah mengulang), sedangkan&nbsp;<code>while</code>&nbsp;akan mencek kondisi di depan atau awal (sbelum mengulang).</p>\r\n</blockquote>\r\n<p>Mari kita coba lihat contohnya:</p>\r\n<div class=\"highlight\">\r\n<pre><code class=\"language-cpp\" data-lang=\"cpp\">#include &lt;iostream&gt;\r\nusing namespace std;\r\n\r\nint main(){\r\n    char ulangi = \'y\';\r\n    int counter = 0;\r\n\r\n    do {\r\n        printf(\"Apakah kamu mau mengulang?\\n\");\r\n        printf(\"Jawab (y/t): \");\r\n        cin &gt;&gt; ulangi;\r\n\r\n        // increment counter\r\n        counter++;\r\n    } while(ulangi == \'y\');\r\n\r\n    printf(\"\\n\\n----------\\n\");\r\n    printf(\"Perulangan Selesai!\\n\");\r\n    printf(\"Kamu mengulang sebanyak %i kali.\\n\", counter);\r\n\r\n    return 0;\r\n}\r\n</code></pre>\r\n</div>\r\n<p>Contoh tersebut sama seperti contoh pada perulangan&nbsp;<code>while</code>.</p>\r\n<p>Saat perulangan pertama, cobalah untuk membatalkan perulangannya dengan menjawab&nbsp;<code>t</code>.</p>\r\n<p>Maka hasilnya:</p>\r\n<p><img class=\"blur-up lazyload mb-3 img-fluid lazyloaded\" src=\"https://www.petanikode.com/img/c/loop/do-while.webp\" alt=\"Perulangan Do While\" data-sizes=\"auto\" data-src=\"/img/c/loop/do-while.webp\" /></p>\r\n<h2 id=\"4-perulangan-bersarang-nested-loop\">4. Perulangan Bersarang&nbsp;<em>(Nested Loop)</em></h2>\r\n<p>Di dalam blok perulangan, kita juga dapat membuat perulangan.</p>\r\n<p>Ini disebut dengan&nbsp;<em>nested loop</em>&nbsp;atau perulangan bersarang atau perulangan di dalam perualangan.</p>\r\n<p>Mari kita coba lihat contohnya:</p>\r\n<div class=\"highlight\">\r\n<pre><code class=\"language-cpp\" data-lang=\"cpp\">#include &lt;iostream&gt;\r\nusing namespace std;\r\n\r\nint main(){\r\n    for(int i = 0; i &lt; 10; i++){\r\n        for(int j = 0; j &lt; 10; j++){\r\n            printf(\"Perulangan ke (%d, %d)\\n\", i, j);\r\n        }\r\n    }\r\n\r\n    return 0;\r\n}\r\n</code></pre>\r\n</div>\r\n<p>Hasilnya:</p>\r\n<p><img class=\"blur-up lazyload mb-3 img-fluid lazyloaded\" src=\"https://www.petanikode.com/img/c/loop/nested-loop.webp\" alt=\"Perulangan bersarang pada C++\" data-sizes=\"auto\" data-src=\"/img/c/loop/nested-loop.webp\" /></p>\r\n<p>Pada perulangan tersebut, kita menggunakan dua perulangan&nbsp;<code>for</code>.</p>\r\n<p>Perulangan pertama menggunakan variabel&nbsp;<code>i</code>&nbsp;sebagai&nbsp;<em>counter</em>, sedangkan perultangan kedua menggunakan variabel&nbsp;<code>j</code>&nbsp;sebagai&nbsp;<em>counter</em>.</p>\r\n<h2 id=\"apa-selanjutnya\">Apa Selanjutnya?</h2>\r\n<p>Intinya perulangan digunakan untuk melakukan pengulangan. Ini merupakan hal dasar yang harus dipahami setiap programmer.</p>\r\n<p>Karena ke depan, kita akan banyak menggunakannya dalam membuat program dengan C++.</p>\r\n<p>Yang perlu diingat, perulangan itu ada dua macam:&nbsp;<em>Counted loop</em>&nbsp;dan&nbsp;<em>uncounted loop</em>.</p>\r\n<p>Selamat belajar&hellip;</p>', 2, 'ASD123', 1, 'Perulangan C++', '2020-06-17 18:04:31', 1);
-INSERT INTO `learning` VALUES (4, 1, 999, '<p>Halo sahabat programmer, kali ini kita saya kembali membagikan contoh program&nbsp;<em><strong>bubble sort&nbsp;</strong></em>dengan&nbsp;<a href=\"https://kelasprogrammer.com/category/c/\">C++</a>. Mungkin ketika kalian belajar algoritma atau struktur data teknik&nbsp;<strong>pengurutan bubble sort</strong>&nbsp;ini akan kalian pelajari. Selain&nbsp;<strong><em>bubble sort</em></strong>&nbsp;masih terdapat banyak jenis pengurutan yang lain seperti&nbsp;<em>insertion sort, selection sort,merge sort</em>&nbsp;dan lainnya. Jika diperlukan akan saya bahas pada postingan-postingan selanjutnya.</p>\r\n<h2>Pengertian Pengurutan (Sorting)</h2>\r\n<p>Pengurutan atau&nbsp;<em>sorting&nbsp;</em>adalah suatu proses penyusunan data yang akan disusun menurut pola/aturan tertentu. Terdapat 2 bentuk pengurutan yang dilakukan yaitu:</p>\r\n<ul>\r\n<li>Pengurutan naik&nbsp;<em>(ascending)</em>&nbsp;mengurutkan data dari nilai yang terkecil atau yang terendah ke nilai yang lebih besar/tinggi.</li>\r\n<li>Pengurutan turun&nbsp;<em>(descending)</em>&nbsp;adalah kebalikan dari pengurutan ascending dimana data akan diurutkan dari yang terbesar ke yang terkecil.</li>\r\n</ul>\r\n<p>&nbsp;</p>\r\n<h2>Algoritma Bubble Sort</h2>\r\n<p><strong>Metode Bubble sort</strong>&nbsp;adalah salah satu jenis algoritma pengurutan yang paling sederhana dan mudah baik dalam konsep dan penerapannya didalam program. Bubble sort terinspirasi dari namanya &lsquo;gelembung&rsquo; dimana berat jenis gelembung&nbsp;<strong>lebih kecil</strong>&nbsp;dari berat air sehingga akan mengapung&nbsp;<strong>diatas</strong>&nbsp;permukaan., lewat ilustrasi inilah metode bubble sort bekerja.</p>\r\n<h2>Cara Kerja Algoritma Bubble Sort</h2>\r\n<p><strong>Algoritma bubble sort</strong>&nbsp;bekerja dengan cara membandingkan data dari elemen data yang pertama dibandingkan tepat pada elemen berikutnya hingga elemen ke-n (n adalah banyaknya jumlah data). Bila saat dibandingkan terdapat nilai yang lebih kecil dari elemen pertama maka posisinya akan ditukar. Nilai tersebut akan terus dibandingkan hingga sampai pada elemen ke-n, ini menjadi&nbsp;<strong>iterasi/tahap pertama</strong>&nbsp;pada proses pengurutannya. Hasil pengurutan pada tahap pertama akan menjadi acuan pada iterasi tahap berikutnya dimana nilai pada elemen pertama tidak akan dibandingkan lagi dengan elemen yang lain. Pada tahap/iterasi kedua ini nilai pada elemen ke-2 akan dibandingkan dengan cara yang sama pada iterasi yang pertama. Iterasi akan terus dilakukan hingga nilai pada setiap elemen terurut sesuai aturan (dalam hal ini saya menggunakan aturan&nbsp;<em>ascending</em>).</p>\r\n<h3>Contoh:</h3>\r\n<pre class=\"wp-block-code prettyprinted\"><code class=\" prettyprinted\"><span class=\"pln\">data</span><span class=\"pun\">[</span><span class=\"lit\">1</span><span class=\"pun\">]=</span><span class=\"lit\">3</span><span class=\"pun\">;</span><span class=\"pln\">\r\ndata</span><span class=\"pun\">[</span><span class=\"lit\">2</span><span class=\"pun\">]=</span><span class=\"lit\">7</span><span class=\"pun\">;</span><span class=\"pln\">\r\ndata</span><span class=\"pun\">[</span><span class=\"lit\">3</span><span class=\"pun\">]=</span><span class=\"lit\">4</span><span class=\"pun\">;</span><span class=\"pln\">\r\ndata</span><span class=\"pun\">[</span><span class=\"lit\">4</span><span class=\"pun\">]=</span><span class=\"lit\">2</span><span class=\"pun\">;</span><span class=\"pln\">\r\ndata</span><span class=\"pun\">[</span><span class=\"lit\">5</span><span class=\"pun\">]=</span><span class=\"lit\">1</span><span class=\"pun\">;</span></code></pre>\r\n<p>Perhatikan diatas kita mempunyai 5 elemen data, kita akan coba urutkan dengan teknik bubble sort secara&nbsp;<em>ascending&nbsp;</em>lewat langkah-langkah berikut:</p>\r\n<ul>\r\n<li>Data[1] akan dibandingkan dengan data[2] jika nilai dari data[1] lebih besar dari data[2] maka posisinya akan ditukar.</li>\r\n<li>data[1] selanjutnya akan terus dibandingkan dengan data[3],data[4] dan data[5]. Apabila nilai dari data[1] lebih besar maka posisinya akan terus ditukar.</li>\r\n<li>Ketika data[1] telah selesai membandingkan dengan semua data yang ada, selanjutnya data[2] akan dibandingkan lagi dengan data[3],data[4] dan data[5]. cara kerjanya sama bila nilai pada data[2] lebih besar dengan data yang dibandingkan maka posisinya akan ditukar. Pada tahap ini data[1] sudah tidak dibandingkan lagi karena sudah mempati posisi pengurutan yang tepat.</li>\r\n<li>Proses pembandingan data akan terus berjalan hingga memenuhi urutan yang diinginkan.</li>\r\n</ul>\r\n<p>Artikel lainnya :&nbsp;<a title=\"Contoh program C++ Fungsi dan Prosedur\" href=\"https://kelasprogrammer.com/contoh-program-cpp-fungsi-dan-prosedur/\">Contoh program C++ Fungsi dan Prosedur</a></p>\r\n<h2>Implementasi Kedalam Program c++</h2>\r\n<pre class=\"wp-block-code prettyprinted\"><code class=\" prettyprinted\"><span class=\"com\">#include</span> <span class=\"str\">&lt;iostream&gt;</span>\r\n<span class=\"com\">#include</span> <span class=\"str\">&lt;conio.h&gt;</span>\r\n<span class=\"kwd\">using</span> <span class=\"kwd\">namespace</span><span class=\"pln\"> std</span><span class=\"pun\">;</span>\r\n    <span class=\"kwd\">int</span><span class=\"pln\"> data</span><span class=\"pun\">[</span><span class=\"lit\">10</span><span class=\"pun\">],</span><span class=\"pln\"> data2</span><span class=\"pun\">[</span><span class=\"lit\">10</span><span class=\"pun\">];</span>\r\n    <span class=\"kwd\">int</span><span class=\"pln\"> n</span><span class=\"pun\">;</span>\r\n    \r\n<span class=\"kwd\">int</span><span class=\"pln\"> tukar </span><span class=\"pun\">(</span><span class=\"kwd\">int</span><span class=\"pln\"> a</span><span class=\"pun\">,</span><span class=\"kwd\">int</span><span class=\"pln\"> b</span><span class=\"pun\">){</span>\r\n    <span class=\"kwd\">int</span><span class=\"pln\"> t</span><span class=\"pun\">;</span><span class=\"pln\">\r\n    t</span><span class=\"pun\">=</span><span class=\"pln\">data</span><span class=\"pun\">[</span><span class=\"pln\">b</span><span class=\"pun\">];</span><span class=\"pln\">\r\n    data</span><span class=\"pun\">[</span><span class=\"pln\">b</span><span class=\"pun\">]=</span><span class=\"pln\">data</span><span class=\"pun\">[</span><span class=\"pln\">a</span><span class=\"pun\">];</span><span class=\"pln\">\r\n    data</span><span class=\"pun\">[</span><span class=\"pln\">a</span><span class=\"pun\">]=</span><span class=\"pln\">t</span><span class=\"pun\">;</span>\r\n<span class=\"pun\">}</span>\r\n\r\n<span class=\"kwd\">int</span><span class=\"pln\"> input</span><span class=\"pun\">(){</span><span class=\"pln\">\r\n    cout</span><span class=\"pun\">&lt;&lt;</span><span class=\"str\">\"Masukan Jumlah Data = \"</span><span class=\"pun\">;</span><span class=\"pln\">\r\ncin</span><span class=\"pun\">&gt;&gt;</span><span class=\"pln\">n</span><span class=\"pun\">;</span><span class=\"pln\">\r\n\r\ncout</span><span class=\"pun\">&lt;&lt;</span><span class=\"pln\">endl</span><span class=\"pun\">;</span>\r\n    \r\n    <span class=\"kwd\">for</span> <span class=\"pun\">(</span><span class=\"kwd\">int</span><span class=\"pln\"> i</span><span class=\"pun\">=</span><span class=\"lit\">0</span><span class=\"pun\">;</span><span class=\"pln\">i</span><span class=\"pun\">&lt;</span><span class=\"pln\">n</span><span class=\"pun\">;</span><span class=\"pln\">i</span><span class=\"pun\">++){</span><span class=\"pln\">\r\n    	cout</span><span class=\"pun\">&lt;&lt;</span><span class=\"str\">\"Masukan Data Ke-\"</span><span class=\"pun\">&lt;&lt;</span><span class=\"pln\">i</span><span class=\"pun\">+</span><span class=\"lit\">1</span><span class=\"pun\">&lt;&lt;</span><span class=\"str\">\" = \"</span><span class=\"pun\">;</span><span class=\"pln\">\r\n    	cin</span><span class=\"pun\">&gt;&gt;</span><span class=\"pln\">data</span><span class=\"pun\">[</span><span class=\"pln\">i</span><span class=\"pun\">];</span><span class=\"pln\">\r\n    	\r\n    	data2</span><span class=\"pun\">[</span><span class=\"pln\">i</span><span class=\"pun\">]=</span><span class=\"pln\">data</span><span class=\"pun\">[</span><span class=\"pln\">i</span><span class=\"pun\">];</span>\r\n	<span class=\"pun\">}</span><span class=\"pln\">\r\n	cout</span><span class=\"pun\">&lt;&lt;</span><span class=\"pln\">endl</span><span class=\"pun\">;</span>	\r\n<span class=\"pun\">}</span>\r\n\r\n<span class=\"kwd\">int</span><span class=\"pln\"> tampil</span><span class=\"pun\">(){</span>\r\n	<span class=\"kwd\">for</span> <span class=\"pun\">(</span><span class=\"kwd\">int</span><span class=\"pln\"> i</span><span class=\"pun\">=</span><span class=\"lit\">0</span><span class=\"pun\">;</span><span class=\"pln\">i</span><span class=\"pun\">&lt;</span><span class=\"pln\">n</span><span class=\"pun\">;</span><span class=\"pln\">i</span><span class=\"pun\">++){</span><span class=\"pln\">\r\n	     cout</span><span class=\"pun\">&lt;&lt;</span><span class=\"str\">\"[\"</span><span class=\"pun\">&lt;&lt;</span><span class=\"pln\">data</span><span class=\"pun\">[</span><span class=\"pln\">i</span><span class=\"pun\">]&lt;&lt;</span><span class=\"str\">\"] \"</span><span class=\"pun\">;</span>\r\n	<span class=\"pun\">}</span><span class=\"pln\">\r\n	cout</span><span class=\"pun\">&lt;&lt;</span><span class=\"pln\">endl</span><span class=\"pun\">;</span>\r\n<span class=\"pun\">}</span>\r\n\r\n<span class=\"kwd\">int</span><span class=\"pln\"> bubble_sort</span><span class=\"pun\">(){</span>\r\n	<span class=\"kwd\">for</span> <span class=\"pun\">(</span><span class=\"kwd\">int</span><span class=\"pln\"> i</span><span class=\"pun\">=</span><span class=\"lit\">1</span><span class=\"pun\">;</span><span class=\"pln\"> i</span><span class=\"pun\">&lt;</span><span class=\"pln\">n</span><span class=\"pun\">;</span><span class=\"pln\">i</span><span class=\"pun\">++){</span>\r\n		<span class=\"kwd\">for</span> <span class=\"pun\">(</span><span class=\"kwd\">int</span><span class=\"pln\"> j</span><span class=\"pun\">=</span><span class=\"pln\">n</span><span class=\"pun\">-</span><span class=\"lit\">1</span><span class=\"pun\">;</span><span class=\"pln\"> j</span><span class=\"pun\">&gt;=</span><span class=\"pln\">i</span><span class=\"pun\">;</span><span class=\"pln\">j</span><span class=\"pun\">--){</span>\r\n			<span class=\"kwd\">if</span> <span class=\"pun\">(</span><span class=\"pln\">data</span><span class=\"pun\">[</span><span class=\"pln\">j</span><span class=\"pun\">]&lt;</span><span class=\"pln\">data</span><span class=\"pun\">[</span><span class=\"pln\">j</span><span class=\"pun\">-</span><span class=\"lit\">1</span><span class=\"pun\">]){</span><span class=\"pln\">\r\n				tukar</span><span class=\"pun\">(</span><span class=\"pln\">j</span><span class=\"pun\">,</span><span class=\"pln\">j</span><span class=\"pun\">-</span><span class=\"lit\">1</span><span class=\"pun\">);</span>\r\n			<span class=\"pun\">}</span>\r\n		<span class=\"pun\">}</span><span class=\"pln\">\r\n		tampil</span><span class=\"pun\">();</span>\r\n	<span class=\"pun\">}</span><span class=\"pln\">\r\n	cout</span><span class=\"pun\">&lt;&lt;</span><span class=\"pln\">endl</span><span class=\"pun\">;</span>\r\n<span class=\"pun\">}</span>\r\n\r\n\r\n<span class=\"kwd\">int</span><span class=\"pln\"> main</span><span class=\"pun\">()</span>\r\n  <span class=\"pun\">{</span><span class=\"pln\">\r\n  	cout</span><span class=\"pun\">&lt;&lt;</span><span class=\"str\">\"ALGORITMA BUBBLE SORT\"</span><span class=\"pun\">&lt;&lt;</span><span class=\"pln\">endl</span><span class=\"pun\">;</span><span class=\"pln\">\r\n  	cout</span><span class=\"pun\">&lt;&lt;</span><span class=\"str\">\"----------------------\"</span><span class=\"pun\">&lt;&lt;</span><span class=\"pln\">endl</span><span class=\"pun\">;</span><span class=\"pln\">\r\n	input</span><span class=\"pun\">();</span><span class=\"pln\">\r\n	cout</span><span class=\"pun\">&lt;&lt;</span><span class=\"str\">\"Proses Bubble Sort\"</span><span class=\"pun\">&lt;&lt;</span><span class=\"pln\">endl</span><span class=\"pun\">;</span><span class=\"pln\">\r\n	tampil</span><span class=\"pun\">();</span><span class=\"pln\">\r\n	bubble_sort</span><span class=\"pun\">();</span><span class=\"pln\">\r\n  getch</span><span class=\"pun\">();</span>\r\n  <span class=\"pun\">}</span></code></pre>\r\n<h3>Hasil Output</h3>\r\n<div class=\"wp-block-image\">\r\n<figure class=\"aligncenter is-resized\"><img class=\"wp-image-4027\" src=\"https://kelasprogrammer.com/wp-content/uploads/2020/01/Contoh-Program-C-Bubble-Sort.png\" sizes=\"(max-width: 352px) 100vw, 352px\" srcset=\"https://kelasprogrammer.com/wp-content/uploads/2020/01/Contoh-Program-C-Bubble-Sort.png 469w, https://kelasprogrammer.com/wp-content/uploads/2020/01/Contoh-Program-C-Bubble-Sort-290x300.png 290w\" alt=\"contoh program c++ algoritma bubble sort\" width=\"352\" height=\"365\" /></figure>\r\n</div>\r\n<p>Perhatikan dari hasil output diatas pada tahap pertama data[1] dibandingkan dengan data lainnya, apabila data[1] lebih besar maka posisinya akan ditukar, jika dilihat data[1] lebih besar dari data[4] dan data[5] karena data[5] memili nilai yang paling rendah dibandingkan dengan data[4] maka posisi yang ditukar adalah dengan data[5]. Pada tahap kedua data[2] dibandingkan lagi dengan data-data lainnya didapati bahwa data[2] lebih besar dengan data[5] maka posisinya ditukar. Pada tahap ketiga data[3] dibandingkan dengan data[4] dan data[5], kalo dilihat data[3] memang tidak lebih besar dari data[4] dan data[5] sehingga proses berlanjut dengan membandingkan data[4] dan data[5] data[4] ternyata lebih besar dari data[5] sehingga posisinya ditukar. akhir kita menemukan hasil akhir dari proses pengurutan data dengan bubble sort dari deretan data 3-7-4-2-1 menjadi1-2-3-4-7.</p>', 2, NULL, 1, 'Sorting C++', '2020-06-22 19:00:11', NULL);
-INSERT INTO `learning` VALUES (5, 1, 999, '<p>Searching adalah metode pencarian informasi dalam suatu aplikasi dengan suatu kunci (key). Pencarian diperlukan untuk mencari informasi khusus dari table pada saat lokasi yang pasti dari informasi tersebut sebelumnya tidak diketahui.<br /><a name=\"more\"></a><br />Pencarian selalu dinyatakan dengan referensi pada adanya sekelompok data yang tersimpan secara terorganisasi, kelompok data tersebut kita sebut table.<br />Pada metode searhcing (pencarian) ada 2 teknik yang digunakan yaitu :<br />Pencarian sekuensial (Sequential search) dan pencarian biner (Binary search).<br /><br /><strong>1. Pencarain sekuensial (sequential search)</strong><br />Pencarian sekuensial (sequensial search) atau sering disebut pencarian linier menggunakan prinsip sebagai berikut : data yang ada dibandingkan satu persatu secara berurutan dengan yang dicari.<br />Pada dasarnya, pencarian ini hanya melakukan pegulangan dari 1 sampai dengan jumlah data. Pada setiap perulangan, dibandingkan data ke-i dengan yang dicari. Apabila sama, berarti data telah ditemukan. Sebalikanya apabila sampai akhir pengulangan, tidak ada yang sama berarti data tidak ada.<br /><br />Algoritma Linear Searching</p>\r\n<ol>\r\n<li>Input x (data yang dicari)</li>\r\n<li>Bandingkan x dengan data ke-i sampai n</li>\r\n<li>Jika ada data yang sama dengan x maka cetak pesan \"ada\"</li>\r\n<li>Jika tidak ada data yang sama dengan x cetak pesan \"tidak ada\"</li>\r\n</ol>\r\n<div>&nbsp;</div>\r\n<div>&nbsp;</div>\r\n<div><strong>2. Pencarian Bagi Dua (Binary Search)</strong></div>\r\n<div>Salah satu keuntungan data yang terurut adalah memudah pencarian, yang dalam hal ini adalah pencarian bagi dua. Sebenarnya dalam kehidupan sehari-hari kita sering menerapkan algoritma ini. Untuk mencari kata tertentu dalam kamus (misalnya kamus bahasa inggris), kita tidak membuka kamus tersebut dari halaman awal sampai halaman akhir satu persatu, namaun kita mencari dengan cara membelah atau membagi halaman-halaman buku tersebut. Begitu seterusnya sampai kita menemukan kata yang dicari</div>\r\n<div><strong>? Langkah 1:</strong></div>\r\n<div>\r\n<div class=\"su-note\">\r\n<div class=\"su-note-inner su-clearfix\">Bagi 2 elemen larik pada elemen tengah. Elemen tengah adalah elemen dengan indeks k = (Ia+Ib) div 2. (Elemen tengah , L[K], membagi larik menajdi 2 bagian L [Ia...k-1] dan bagian kanan L[k+1...Ib])</div>\r\n</div>\r\n</div>\r\n<div><strong>?&nbsp;Langkah 2:</strong></div>\r\n<div>\r\n<div class=\"su-note\">\r\n<div class=\"su-note-inner su-clearfix\">Periksa apakah L[k]=X. Jika L[k]=X, pencarian dihentikan sebab X sudah ditemukan, tetapi jika tidak, harus ditentukan apakah pencarian pada larik bagian kiri atau larik bagian kanan. Jika L[k] &lt; X maka pencarian dilakukan pada larik kiri. Sebaliknya jika L[k]&gt;X maka pencarian dilakukan pada larik bagian kanan.</div>\r\n</div>\r\n</div>\r\n<div><strong>?&nbsp;Langkah 3:</strong></div>\r\n<div>\r\n<div class=\"su-note\">\r\n<div class=\"su-note-inner su-clearfix\">Ulangi langkah 1 sampai X atau Ia&gt;Ib.</div>\r\n</div>\r\n</div>\r\n<div>&nbsp;</div>\r\n<div>&nbsp;</div>\r\n<div>\r\n<h2 id=\"toc_2\">Contoh Program</h2>\r\n</div>\r\n<div>\r\n<div class=\"su-note\">\r\n<div class=\"su-note-inner su-clearfix\"><strong>Contoh ke-1 Program pencarian sekuensial menggunakan algoritma linier searching</strong></div>\r\n</div>\r\nCobalah program pencarian sekuensial dibawah ini menggunakan algoritma linier searching. Amati dan analisis program tersebut.</div>\r\n<div><strong>Source code :</strong><br />\r\n<pre>#include &lt;iostream&gt;<br /><br />using namespace std;<br /><br />main(){<br />    int i;<br />    int cari, ketemu;<br />    int A[100];<br /><br />    cout&lt;&lt;\"PROGRAM SEARCHING Liniear\\n\";<br />    cout&lt;&lt;\"masukan 7 buah data : \\n\\n\";<br />    for(i=1; i&lt;=7; i++)<br />    {<br />        cout&lt;&lt;\"masukan data ke-\"&lt;&lt;i&lt;&lt;\" = \";<br />        cin&gt;&gt;A[i];<br />    }<br />    cout&lt;&lt;endl;<br />    cout&lt;&lt;\"Input bilangan yang cari : \";cin&gt;&gt;cari;<br />    cout&lt;&lt;endl;<br /><br />    ketemu=0;<br />    for(i=0; i&lt;=7; i++)<br />    {<br />        if (A[i]==cari)<br />        {<br />            ketemu=1;<br />            cout&lt;&lt;\"Data ditemukan pada indeks ke-\"&lt;&lt;i&lt;&lt;endl;<br />        }<br />    }<br />    if(ketemu==0)<br />    {<br />        cout&lt;&lt;\"Data tidak ditemukan\"&lt;&lt;endl;<br />    }<br />}</pre>\r\n<div>\r\n<ul class=\"button\">\r\n<li><a class=\"demo\" href=\"http://cpp.sh/6dct5\" target=\"_blank\" rel=\"noopener\">DEMO</a></li>\r\n</ul>\r\n</div>\r\n<strong>Running program :</strong></div>\r\n<div><a href=\"https://3.bp.blogspot.com/-0NYtSUz0egA/XHu7EdSc7hI/AAAAAAAAFRo/c3ZRrc6ICaIEjtYcQhOFNm1SwdhxZrxFgCK4BGAYYCw/s1600/gbr1.png\"><img title=\"Program pencarian sekuensial menggunakan algoritma linier searching\" src=\"https://3.bp.blogspot.com/-0NYtSUz0egA/XHu7EdSc7hI/AAAAAAAAFRo/c3ZRrc6ICaIEjtYcQhOFNm1SwdhxZrxFgCK4BGAYYCw/s1600/gbr1.png\" alt=\"Program pencarian sekuensial menggunakan algoritma linier searching\" border=\"0\" /></a><br /><br /></div>\r\n<div>&nbsp;</div>\r\n<div>\r\n<div class=\"su-note\">\r\n<div class=\"su-note-inner su-clearfix\"><strong>Contoh ke-2 Program pencarian biner (binary search)&nbsp;</strong></div>\r\n</div>\r\nCobalah program pencarian biner (binary search) sebagai implementasi algoritma binary search. Amati dan analisis program bersebut</div>\r\n<div>\r\n<div>\r\n<div><strong>Source code :</strong></div>\r\n<pre>#include &lt;iostream&gt;<br /><br />using namespace std;<br />main(){<br />    const int arraySize=5;<br />    int target;<br />    int array[arraySize]={1,2,3,4,5};<br />    int first, mid, last;<br /><br />    cout&lt;&lt;\"Masukan angka yang dicari: \";cin&gt;&gt;target;<br />    first=0; //Initialize first and last variables.<br />    last=2;<br /><br />    while(first&lt;=last)<br />    {<br />        mid=(first+last)/2;<br />        if(target&gt;array[mid])<br />        {<br />            first=mid+1;<br />        }else if(target&lt;array[mid])<br />        {<br />            last=mid+1;<br />        }else{<br />            first=last+1;<br />        }<br />    }<br />    if(target==array[mid])<br />    {<br />        cout&lt;&lt;\"Angka ditemukan.\"&lt;&lt;endl;<br />    }else{<br />        cout&lt;&lt;\"Angka tidak ditemukan.\"&lt;&lt;endl;<br />    }<br />}</pre>\r\n<div>\r\n<ul class=\"button\">\r\n<li><a class=\"demo\" href=\"http://cpp.sh/3ddvw\" target=\"_blank\" rel=\"noopener\">DEMO</a></li>\r\n</ul>\r\n</div>\r\n<div><strong>Running program :</strong></div>\r\n</div>\r\n</div>\r\n<div><a href=\"https://3.bp.blogspot.com/-bBqPzecDsMI/XHu7lOAp2FI/AAAAAAAAFR0/7mSqICk4QtYe-fVAbIVKJrgBf7z09ycgQCK4BGAYYCw/s1600/gbr1.png\"><img title=\"program pencarian biner (binary search) \" src=\"https://3.bp.blogspot.com/-bBqPzecDsMI/XHu7lOAp2FI/AAAAAAAAFR0/7mSqICk4QtYe-fVAbIVKJrgBf7z09ycgQCK4BGAYYCw/s1600/gbr1.png\" alt=\"program pencarian biner (binary search) \" border=\"0\" /></a></div>\r\n<div>&nbsp;</div>\r\n<div>&nbsp;</div>\r\n<div>&nbsp;</div>\r\n<div>&nbsp;</div>\r\n<div>\r\n<h2 id=\"toc_3\">Tugas</h2>\r\n</div>\r\n<div>\r\n<ol>\r\n<li>Buatlah algoritma dan program yang dapat mengecek apakah sebuah karakter ada dalam kata yang telah input ?</li>\r\n<li>Buatlah algoritma dan progam yang dapat mengecek apakah sebuah kata ada dalam kalimat yang telah input ?</li>\r\n<li>Buatlah algoritma dan program yang dapat menghitung banyakntya huruf vokal dan konsonan dalam sebuah kalaimat</li>\r\n<li>Modifikasi program soal nomor 4, selain menghitung banyaknya huruf vokal dan konsonan dalam sebuah kalimat, juga dapat menghitung banyaknya angka dalam kalimat tersebut.</li>\r\n</ol>\r\n<div>&nbsp;</div>\r\n</div>', 2, NULL, 1, 'Searching C++', '2020-06-22 19:02:36', NULL);
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for login_attempts
@@ -1880,42 +2347,35 @@ CREATE TABLE `mata_pelajaran`  (
   `mata_pelajaran` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `kode` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `idjenismatapelajaran_fk` int(11) NULL DEFAULT NULL,
+  `jKode` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id_mata_pelajaran`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 31 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 113 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of mata_pelajaran
 -- ----------------------------
-INSERT INTO `mata_pelajaran` VALUES (1, 'Bahasa Inggris', 'BING', 1);
-INSERT INTO `mata_pelajaran` VALUES (2, 'Fisika', 'FIS', 4);
-INSERT INTO `mata_pelajaran` VALUES (3, 'Matematika', 'MTK', 1);
-INSERT INTO `mata_pelajaran` VALUES (4, 'Bahasa Indonesia', 'BIND', 1);
-INSERT INTO `mata_pelajaran` VALUES (5, 'Administrasi Infrastruktur Jaringan', 'AIJ', 3);
-INSERT INTO `mata_pelajaran` VALUES (6, 'Administrasi Sistem Jaringan', 'ASJ', 3);
-INSERT INTO `mata_pelajaran` VALUES (7, 'Produk Kreatif dan Kewirausahaan', 'PK-KWU', 3);
-INSERT INTO `mata_pelajaran` VALUES (8, 'Sistem Komputer dan Digital', 'SISKOMDIG', 4);
-INSERT INTO `mata_pelajaran` VALUES (9, 'Kimia', 'KIMIA', 4);
-INSERT INTO `mata_pelajaran` VALUES (10, 'Pendidikan Jasmani Olahraga dan Kesehatan', 'PJOK', 2);
-INSERT INTO `mata_pelajaran` VALUES (11, 'Pendidikan Pancasila dan Kewarganegaraan', 'PPKN', 1);
-INSERT INTO `mata_pelajaran` VALUES (12, 'Sistem Komputer', 'SISKOM', 5);
-INSERT INTO `mata_pelajaran` VALUES (13, 'Komputer dan Jaringan Dasar', 'KJD', 5);
-INSERT INTO `mata_pelajaran` VALUES (14, 'Pemrograman Dasar', 'PROGDAS', 5);
-INSERT INTO `mata_pelajaran` VALUES (15, 'Dasar Desain Grafis', 'DDG', 5);
-INSERT INTO `mata_pelajaran` VALUES (16, 'Biologi', 'BIOLOGI', 4);
-INSERT INTO `mata_pelajaran` VALUES (17, 'PPHH', 'PPHH', 6);
-INSERT INTO `mata_pelajaran` VALUES (18, 'Teknologi Layanan Jaringan', 'TLJ', 5);
-INSERT INTO `mata_pelajaran` VALUES (19, 'PPHN', 'PPHN', 5);
-INSERT INTO `mata_pelajaran` VALUES (20, 'PPKPH', 'PPKPH', 5);
-INSERT INTO `mata_pelajaran` VALUES (21, 'KPPP', 'KPPP', 5);
-INSERT INTO `mata_pelajaran` VALUES (22, 'DPMHP', 'DPMHP', 5);
-INSERT INTO `mata_pelajaran` VALUES (23, 'Teknologi Jaringan Berbasis Luas', 'TJBL', 5);
-INSERT INTO `mata_pelajaran` VALUES (24, 'DPBHP', 'DPBHP', 5);
-INSERT INTO `mata_pelajaran` VALUES (25, 'DPPHP', 'DPPHP', 5);
-INSERT INTO `mata_pelajaran` VALUES (26, 'Pendidikan Agama Islam', 'PAI', 1);
-INSERT INTO `mata_pelajaran` VALUES (27, 'Bahasa ARAB', 'BA', 6);
-INSERT INTO `mata_pelajaran` VALUES (28, 'Bahasa Daerah', 'BD', 6);
-INSERT INTO `mata_pelajaran` VALUES (29, 'Seni Budaya', 'Senbud', 2);
-INSERT INTO `mata_pelajaran` VALUES (30, 'Sejarah Indonesia', 'SI', 1);
+INSERT INTO `mata_pelajaran` VALUES (32, 'Mapel Terpadu', 'MT', NULL, NULL);
+INSERT INTO `mata_pelajaran` VALUES (34, 'Matematika', 'MTK', NULL, NULL);
+INSERT INTO `mata_pelajaran` VALUES (36, 'Aplikasi Komputer', 'APK', NULL, NULL);
+INSERT INTO `mata_pelajaran` VALUES (40, 'PJOK', 'PJOK', NULL, NULL);
+INSERT INTO `mata_pelajaran` VALUES (43, 'Bahasa Daerah', 'BD', NULL, NULL);
+INSERT INTO `mata_pelajaran` VALUES (44, 'Bahasa Inggris', 'BING', NULL, NULL);
+INSERT INTO `mata_pelajaran` VALUES (48, 'Simdig', 'Simdig', NULL, NULL);
+INSERT INTO `mata_pelajaran` VALUES (58, 'DPK3 TKJ (DDG)', 'DDG', NULL, NULL);
+INSERT INTO `mata_pelajaran` VALUES (60, 'PKWU', 'PKWU', NULL, NULL);
+INSERT INTO `mata_pelajaran` VALUES (63, 'DBK DKV', 'DBKDKV', NULL, NULL);
+INSERT INTO `mata_pelajaran` VALUES (65, 'DPK APHP', 'DPKAPHP', NULL, NULL);
+INSERT INTO `mata_pelajaran` VALUES (66, 'PPHN', 'PPHN', NULL, NULL);
+INSERT INTO `mata_pelajaran` VALUES (69, 'PPHH', 'PPHH', NULL, NULL);
+INSERT INTO `mata_pelajaran` VALUES (72, 'PPKPH', 'PPKPH', NULL, NULL);
+INSERT INTO `mata_pelajaran` VALUES (74, 'KPPP', 'KPPP', NULL, NULL);
+INSERT INTO `mata_pelajaran` VALUES (83, 'DPK1 TKJ', 'DPK 1 TKJ', NULL, NULL);
+INSERT INTO `mata_pelajaran` VALUES (84, 'KK1 TKJ', 'KK 1 TKJ', NULL, NULL);
+INSERT INTO `mata_pelajaran` VALUES (86, 'Bahasa Indonesia', 'BIND', NULL, NULL);
+INSERT INTO `mata_pelajaran` VALUES (89, 'DPK2 TKJ (DasProg)', 'Progdas', NULL, NULL);
+INSERT INTO `mata_pelajaran` VALUES (94, 'KK2 TKJ', 'KK 2 TKJ', NULL, NULL);
+INSERT INTO `mata_pelajaran` VALUES (108, 'FISKIM (Fisika, Kimia)', 'FISKIM', NULL, NULL);
+INSERT INTO `mata_pelajaran` VALUES (112, 'BIOLOGI', 'BIO', NULL, NULL);
 
 -- ----------------------------
 -- Table structure for materi
@@ -1932,20 +2392,7 @@ CREATE TABLE `materi`  (
   `idmatapelajaran_fk` int(11) NULL DEFAULT NULL,
   `trans_code` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_materi`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 16 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
-
--- ----------------------------
--- Records of materi
--- ----------------------------
-INSERT INTO `materi` VALUES (7, 'Jaringan Dasar', '', '', 21, 2, 1, 5, '779125875');
-INSERT INTO `materi` VALUES (8, 'Fiber Optic', '', '', 21, 2, 1, 5, '5595721733');
-INSERT INTO `materi` VALUES (9, 'Administrasi Jaringan', '', '', 21, 2, 1, 5, '988317668');
-INSERT INTO `materi` VALUES (10, 'Jaringan', '', '', 22, 2, 1, 5, '3627289635');
-INSERT INTO `materi` VALUES (11, 'Dasar Pemrograman', '', '', 11, 2, 1, 14, '6869325930');
-INSERT INTO `materi` VALUES (12, 'Variabel dan Tipe Data', '', '', 11, 2, 1, 14, '1206746946');
-INSERT INTO `materi` VALUES (13, 'Konstanta', '', '', 11, 2, 1, 14, '292181955');
-INSERT INTO `materi` VALUES (14, 'Dasar Pemrograman', '', '', 13, 2, 1, 14, '4641037352');
-INSERT INTO `materi` VALUES (15, 'Variabel dan Tipe Data', '', '', 13, 2, 1, 14, '2943316709');
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for media
@@ -1994,48 +2441,7 @@ CREATE TABLE `nilai_keterampilan`  (
   `create_at` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP,
   `idkd_fk` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id_nilai_keterampilan`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 38 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
-
--- ----------------------------
--- Records of nilai_keterampilan
--- ----------------------------
-INSERT INTO `nilai_keterampilan` VALUES (1, 38, 10, '0', 1, '2020-12-28 20:10:24', 2);
-INSERT INTO `nilai_keterampilan` VALUES (2, 39, 11, '1', 1, '2020-12-28 20:10:24', 2);
-INSERT INTO `nilai_keterampilan` VALUES (3, 40, 12, '2', 1, '2020-12-28 20:10:24', 2);
-INSERT INTO `nilai_keterampilan` VALUES (4, 41, 13, '3', 1, '2020-12-28 20:10:24', 2);
-INSERT INTO `nilai_keterampilan` VALUES (5, 42, 14, '4', 1, '2020-12-28 20:10:24', 2);
-INSERT INTO `nilai_keterampilan` VALUES (6, 43, 15, '5', 1, '2020-12-28 20:10:24', 2);
-INSERT INTO `nilai_keterampilan` VALUES (7, 44, 16, '6', 1, '2020-12-28 20:10:24', 2);
-INSERT INTO `nilai_keterampilan` VALUES (8, 45, 17, '7', 1, '2020-12-28 20:10:24', 2);
-INSERT INTO `nilai_keterampilan` VALUES (9, 46, 18, '8', 1, '2020-12-28 20:10:24', 2);
-INSERT INTO `nilai_keterampilan` VALUES (10, 47, 19, '9', 1, '2020-12-28 20:10:24', 2);
-INSERT INTO `nilai_keterampilan` VALUES (11, 48, 20, '10', 1, '2020-12-28 20:10:24', 2);
-INSERT INTO `nilai_keterampilan` VALUES (12, 49, 21, '11', 1, '2020-12-28 20:10:24', 2);
-INSERT INTO `nilai_keterampilan` VALUES (13, 50, 22, '12', 1, '2020-12-28 20:10:24', 2);
-INSERT INTO `nilai_keterampilan` VALUES (14, 51, 23, '13', 1, '2020-12-28 20:10:24', 2);
-INSERT INTO `nilai_keterampilan` VALUES (15, 52, 24, '14', 1, '2020-12-28 20:10:24', 2);
-INSERT INTO `nilai_keterampilan` VALUES (16, 53, 25, '15', 1, '2020-12-28 20:10:24', 2);
-INSERT INTO `nilai_keterampilan` VALUES (17, 54, 26, '16', 1, '2020-12-28 20:10:24', 2);
-INSERT INTO `nilai_keterampilan` VALUES (18, 55, 27, '17', 1, '2020-12-28 20:10:24', 2);
-INSERT INTO `nilai_keterampilan` VALUES (19, 56, 28, '18', 1, '2020-12-28 20:10:24', 2);
-INSERT INTO `nilai_keterampilan` VALUES (20, 57, 29, '19', 1, '2020-12-28 20:10:24', 2);
-INSERT INTO `nilai_keterampilan` VALUES (21, 58, 30, '20', 1, '2020-12-28 20:10:24', 2);
-INSERT INTO `nilai_keterampilan` VALUES (22, 59, 31, '21', 1, '2020-12-28 20:10:24', 2);
-INSERT INTO `nilai_keterampilan` VALUES (23, 60, 32, '22', 1, '2020-12-28 20:10:24', 2);
-INSERT INTO `nilai_keterampilan` VALUES (24, 61, 33, '23', 1, '2020-12-28 20:10:24', 2);
-INSERT INTO `nilai_keterampilan` VALUES (25, 62, 34, '24', 1, '2020-12-28 20:10:24', 2);
-INSERT INTO `nilai_keterampilan` VALUES (26, 63, 35, '25', 1, '2020-12-28 20:10:24', 2);
-INSERT INTO `nilai_keterampilan` VALUES (27, 64, 36, '26', 1, '2020-12-28 20:10:24', 2);
-INSERT INTO `nilai_keterampilan` VALUES (28, 65, 37, '27', 1, '2020-12-28 20:10:24', 2);
-INSERT INTO `nilai_keterampilan` VALUES (29, 66, 38, '28', 1, '2020-12-28 20:10:24', 2);
-INSERT INTO `nilai_keterampilan` VALUES (30, 67, 39, '29', 1, '2020-12-28 20:10:24', 2);
-INSERT INTO `nilai_keterampilan` VALUES (31, 68, 40, '30', 1, '2020-12-28 20:10:24', 2);
-INSERT INTO `nilai_keterampilan` VALUES (32, 69, 41, '31', 1, '2020-12-28 20:10:24', 2);
-INSERT INTO `nilai_keterampilan` VALUES (33, 70, 42, '32', 1, '2020-12-28 20:10:24', 2);
-INSERT INTO `nilai_keterampilan` VALUES (34, 71, 43, '33', 1, '2020-12-28 20:10:24', 2);
-INSERT INTO `nilai_keterampilan` VALUES (35, 72, 44, '34', 1, '2020-12-28 20:10:24', 2);
-INSERT INTO `nilai_keterampilan` VALUES (36, 73, 45, '35', 1, '2020-12-28 20:10:24', 2);
-INSERT INTO `nilai_keterampilan` VALUES (37, 74, 46, '36', 1, '2020-12-28 20:10:24', 2);
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for nilai_pas
@@ -2049,48 +2455,7 @@ CREATE TABLE `nilai_pas`  (
   `idinputnilaipas_fk` int(11) NULL DEFAULT NULL,
   `create_at` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_nilai_pas`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 38 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
-
--- ----------------------------
--- Records of nilai_pas
--- ----------------------------
-INSERT INTO `nilai_pas` VALUES (1, 38, 80, '0', 1, '2020-12-28 14:40:46');
-INSERT INTO `nilai_pas` VALUES (2, 39, 80, '1', 1, '2020-12-28 14:40:46');
-INSERT INTO `nilai_pas` VALUES (3, 40, 80, '2', 1, '2020-12-28 14:40:46');
-INSERT INTO `nilai_pas` VALUES (4, 41, 80, '3', 1, '2020-12-28 14:40:46');
-INSERT INTO `nilai_pas` VALUES (5, 42, 80, '4', 1, '2020-12-28 14:40:46');
-INSERT INTO `nilai_pas` VALUES (6, 43, 80, '5', 1, '2020-12-28 14:40:46');
-INSERT INTO `nilai_pas` VALUES (7, 44, 80, '6', 1, '2020-12-28 14:40:46');
-INSERT INTO `nilai_pas` VALUES (8, 45, 80, '7', 1, '2020-12-28 14:40:46');
-INSERT INTO `nilai_pas` VALUES (9, 46, 80, '8', 1, '2020-12-28 14:40:46');
-INSERT INTO `nilai_pas` VALUES (10, 47, 80, '9', 1, '2020-12-28 14:40:46');
-INSERT INTO `nilai_pas` VALUES (11, 48, 80, '10', 1, '2020-12-28 14:40:46');
-INSERT INTO `nilai_pas` VALUES (12, 49, 80, '11', 1, '2020-12-28 14:40:46');
-INSERT INTO `nilai_pas` VALUES (13, 50, 80, '12', 1, '2020-12-28 14:40:46');
-INSERT INTO `nilai_pas` VALUES (14, 51, 80, '13', 1, '2020-12-28 14:40:46');
-INSERT INTO `nilai_pas` VALUES (15, 52, 80, '14', 1, '2020-12-28 14:40:46');
-INSERT INTO `nilai_pas` VALUES (16, 53, 80, '15', 1, '2020-12-28 14:40:46');
-INSERT INTO `nilai_pas` VALUES (17, 54, 80, '16', 1, '2020-12-28 14:40:46');
-INSERT INTO `nilai_pas` VALUES (18, 55, 80, '17', 1, '2020-12-28 14:40:46');
-INSERT INTO `nilai_pas` VALUES (19, 56, 80, '18', 1, '2020-12-28 14:40:46');
-INSERT INTO `nilai_pas` VALUES (20, 57, 80, '19', 1, '2020-12-28 14:40:46');
-INSERT INTO `nilai_pas` VALUES (21, 58, 80, '20', 1, '2020-12-28 14:40:46');
-INSERT INTO `nilai_pas` VALUES (22, 59, 80, '21', 1, '2020-12-28 14:40:46');
-INSERT INTO `nilai_pas` VALUES (23, 60, 80, '22', 1, '2020-12-28 14:40:46');
-INSERT INTO `nilai_pas` VALUES (24, 61, 80, '23', 1, '2020-12-28 14:40:46');
-INSERT INTO `nilai_pas` VALUES (25, 62, 80, '24', 1, '2020-12-28 14:40:46');
-INSERT INTO `nilai_pas` VALUES (26, 63, 80, '25', 1, '2020-12-28 14:40:46');
-INSERT INTO `nilai_pas` VALUES (27, 64, 80, '26', 1, '2020-12-28 14:40:46');
-INSERT INTO `nilai_pas` VALUES (28, 65, 80, '27', 1, '2020-12-28 14:40:46');
-INSERT INTO `nilai_pas` VALUES (29, 66, 80, '28', 1, '2020-12-28 14:40:46');
-INSERT INTO `nilai_pas` VALUES (30, 67, 80, '29', 1, '2020-12-28 14:40:46');
-INSERT INTO `nilai_pas` VALUES (31, 68, 80, '30', 1, '2020-12-28 14:40:46');
-INSERT INTO `nilai_pas` VALUES (32, 69, 80, '31', 1, '2020-12-28 14:40:46');
-INSERT INTO `nilai_pas` VALUES (33, 70, 80, '32', 1, '2020-12-28 14:40:46');
-INSERT INTO `nilai_pas` VALUES (34, 71, 80, '33', 1, '2020-12-28 14:40:46');
-INSERT INTO `nilai_pas` VALUES (35, 72, 80, '34', 1, '2020-12-28 14:40:46');
-INSERT INTO `nilai_pas` VALUES (36, 73, 80, '35', 1, '2020-12-28 14:40:46');
-INSERT INTO `nilai_pas` VALUES (37, 74, 80, '36', 1, '2020-12-28 14:40:46');
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for nilai_pengetahuan
@@ -2105,48 +2470,7 @@ CREATE TABLE `nilai_pengetahuan`  (
   `create_at` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP,
   `idkd_fk` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id_nilai_pengetahuan`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 38 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
-
--- ----------------------------
--- Records of nilai_pengetahuan
--- ----------------------------
-INSERT INTO `nilai_pengetahuan` VALUES (1, 38, 50, '0', 1, '2020-12-28 14:49:42', 1);
-INSERT INTO `nilai_pengetahuan` VALUES (2, 39, 51, '1', 1, '2020-12-28 14:49:42', 1);
-INSERT INTO `nilai_pengetahuan` VALUES (3, 40, 52, '2', 1, '2020-12-28 14:49:42', 1);
-INSERT INTO `nilai_pengetahuan` VALUES (4, 41, 53, '3', 1, '2020-12-28 14:49:42', 1);
-INSERT INTO `nilai_pengetahuan` VALUES (5, 42, 54, '4', 1, '2020-12-28 14:49:42', 1);
-INSERT INTO `nilai_pengetahuan` VALUES (6, 43, 55, '5', 1, '2020-12-28 14:49:42', 1);
-INSERT INTO `nilai_pengetahuan` VALUES (7, 44, 56, '6', 1, '2020-12-28 14:49:42', 1);
-INSERT INTO `nilai_pengetahuan` VALUES (8, 45, 57, '7', 1, '2020-12-28 14:49:42', 1);
-INSERT INTO `nilai_pengetahuan` VALUES (9, 46, 58, '8', 1, '2020-12-28 14:49:42', 1);
-INSERT INTO `nilai_pengetahuan` VALUES (10, 47, 59, '9', 1, '2020-12-28 14:49:42', 1);
-INSERT INTO `nilai_pengetahuan` VALUES (11, 48, 60, '10', 1, '2020-12-28 14:49:42', 1);
-INSERT INTO `nilai_pengetahuan` VALUES (12, 49, 61, '11', 1, '2020-12-28 14:49:42', 1);
-INSERT INTO `nilai_pengetahuan` VALUES (13, 50, 62, '12', 1, '2020-12-28 14:49:42', 1);
-INSERT INTO `nilai_pengetahuan` VALUES (14, 51, 63, '13', 1, '2020-12-28 14:49:42', 1);
-INSERT INTO `nilai_pengetahuan` VALUES (15, 52, 64, '14', 1, '2020-12-28 14:49:42', 1);
-INSERT INTO `nilai_pengetahuan` VALUES (16, 53, 65, '15', 1, '2020-12-28 14:49:42', 1);
-INSERT INTO `nilai_pengetahuan` VALUES (17, 54, 66, '16', 1, '2020-12-28 14:49:42', 1);
-INSERT INTO `nilai_pengetahuan` VALUES (18, 55, 67, '17', 1, '2020-12-28 14:49:42', 1);
-INSERT INTO `nilai_pengetahuan` VALUES (19, 56, 68, '18', 1, '2020-12-28 14:49:42', 1);
-INSERT INTO `nilai_pengetahuan` VALUES (20, 57, 69, '19', 1, '2020-12-28 14:49:42', 1);
-INSERT INTO `nilai_pengetahuan` VALUES (21, 58, 70, '20', 1, '2020-12-28 14:49:42', 1);
-INSERT INTO `nilai_pengetahuan` VALUES (22, 59, 71, '21', 1, '2020-12-28 14:49:42', 1);
-INSERT INTO `nilai_pengetahuan` VALUES (23, 60, 72, '22', 1, '2020-12-28 14:49:42', 1);
-INSERT INTO `nilai_pengetahuan` VALUES (24, 61, 73, '23', 1, '2020-12-28 14:49:42', 1);
-INSERT INTO `nilai_pengetahuan` VALUES (25, 62, 74, '24', 1, '2020-12-28 14:49:42', 1);
-INSERT INTO `nilai_pengetahuan` VALUES (26, 63, 75, '25', 1, '2020-12-28 14:49:42', 1);
-INSERT INTO `nilai_pengetahuan` VALUES (27, 64, 76, '26', 1, '2020-12-28 14:49:42', 1);
-INSERT INTO `nilai_pengetahuan` VALUES (28, 65, 77, '27', 1, '2020-12-28 14:49:42', 1);
-INSERT INTO `nilai_pengetahuan` VALUES (29, 66, 78, '28', 1, '2020-12-28 14:49:42', 1);
-INSERT INTO `nilai_pengetahuan` VALUES (30, 67, 79, '29', 1, '2020-12-28 14:49:42', 1);
-INSERT INTO `nilai_pengetahuan` VALUES (31, 68, 80, '30', 1, '2020-12-28 14:49:42', 1);
-INSERT INTO `nilai_pengetahuan` VALUES (32, 69, 81, '31', 1, '2020-12-28 14:49:42', 1);
-INSERT INTO `nilai_pengetahuan` VALUES (33, 70, 82, '32', 1, '2020-12-28 14:49:42', 1);
-INSERT INTO `nilai_pengetahuan` VALUES (34, 71, 83, '33', 1, '2020-12-28 14:49:42', 1);
-INSERT INTO `nilai_pengetahuan` VALUES (35, 72, 84, '34', 1, '2020-12-28 14:49:42', 1);
-INSERT INTO `nilai_pengetahuan` VALUES (36, 73, 85, '35', 1, '2020-12-28 14:49:42', 1);
-INSERT INTO `nilai_pengetahuan` VALUES (37, 74, 86, '36', 1, '2020-12-28 14:49:42', 1);
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for nilai_pkg
@@ -2189,6 +2513,25 @@ CREATE TABLE `notulensi_rapat`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
+-- Table structure for oas
+-- ----------------------------
+DROP TABLE IF EXISTS `oas`;
+CREATE TABLE `oas`  (
+  `id_oas` int(11) NOT NULL AUTO_INCREMENT,
+  `tanggal_mulai` date NULL DEFAULT NULL,
+  `tanggal_selesai` date NULL DEFAULT NULL,
+  `keterangan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `is_active` int(11) NULL DEFAULT NULL,
+  `kode` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  PRIMARY KEY (`id_oas`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of oas
+-- ----------------------------
+INSERT INTO `oas` VALUES (1, '2021-06-03', '2021-06-14', 'asdkasdlkaskj', 1, 'ASD123');
+
+-- ----------------------------
 -- Table structure for organisasi_pegawai
 -- ----------------------------
 DROP TABLE IF EXISTS `organisasi_pegawai`;
@@ -2199,22 +2542,7 @@ CREATE TABLE `organisasi_pegawai`  (
   `tahun` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `idguru_fk` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id_organisasi_pegawai`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
-
--- ----------------------------
--- Records of organisasi_pegawai
--- ----------------------------
-INSERT INTO `organisasi_pegawai` VALUES (1, 'O1', 'J1', '2010', 24);
-INSERT INTO `organisasi_pegawai` VALUES (2, 'O2', 'J2', '2011', 24);
-INSERT INTO `organisasi_pegawai` VALUES (3, 'fip', 'asd', '2001', 25);
-INSERT INTO `organisasi_pegawai` VALUES (4, 'aa', 'd', '2003', 25);
-INSERT INTO `organisasi_pegawai` VALUES (5, 'ere', 'ere', '2005', 25);
-INSERT INTO `organisasi_pegawai` VALUES (6, 'fip', 'asd', '2001', 26);
-INSERT INTO `organisasi_pegawai` VALUES (7, 'aa', 'd', '2003', 26);
-INSERT INTO `organisasi_pegawai` VALUES (8, 'ere', 'ere', '2005', 26);
-INSERT INTO `organisasi_pegawai` VALUES (9, 'fip', 'asd', '2001', 27);
-INSERT INTO `organisasi_pegawai` VALUES (10, 'aa', 'd', '2003', 27);
-INSERT INTO `organisasi_pegawai` VALUES (11, 'ere', 'ere', '2005', 27);
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for pelanggaran_siswa
@@ -2227,13 +2555,12 @@ CREATE TABLE `pelanggaran_siswa`  (
   `idpoinpelanggaran_fk` int(11) NULL DEFAULT NULL,
   `idsiswa_fk` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id_pelanggaran_siswa`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of pelanggaran_siswa
 -- ----------------------------
-INSERT INTO `pelanggaran_siswa` VALUES (1, '2020-12-16', 'Tidak Menggunakan sabuk', 2, 95);
-INSERT INTO `pelanggaran_siswa` VALUES (2, '2020-12-16', 'Tidak berseragam pramuka', 1, 95);
+INSERT INTO `pelanggaran_siswa` VALUES (1, '2021-08-04', 'membawa dan memberi rokok saat disekolah ', 26, 318);
 
 -- ----------------------------
 -- Table structure for pembayaran_spp
@@ -2248,13 +2575,7 @@ CREATE TABLE `pembayaran_spp`  (
   `tanggal` date NULL DEFAULT NULL,
   `create_at` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_pembayaran_spp`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
-
--- ----------------------------
--- Records of pembayaran_spp
--- ----------------------------
-INSERT INTO `pembayaran_spp` VALUES (1, 95, 10, 2020, 500000, '2020-12-11', '2020-12-11 20:47:56');
-INSERT INTO `pembayaran_spp` VALUES (2, 95, 11, 2020, 5000, '2020-12-08', '2020-12-11 20:48:55');
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for pendaftaran
@@ -2352,21 +2673,7 @@ CREATE TABLE `pendidikan_pegawai`  (
   `berijazah` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `tahun` int(255) NULL DEFAULT NULL,
   PRIMARY KEY (`id_pendidikan_pegawai`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
-
--- ----------------------------
--- Records of pendidikan_pegawai
--- ----------------------------
-INSERT INTO `pendidikan_pegawai` VALUES (1, 23, 'jp1', 'y', 2020);
-INSERT INTO `pendidikan_pegawai` VALUES (2, 23, 'jp2', 'b', 2020);
-INSERT INTO `pendidikan_pegawai` VALUES (3, 24, 'jp1', 'y', 2020);
-INSERT INTO `pendidikan_pegawai` VALUES (4, 24, 'jp2', 'b', 2020);
-INSERT INTO `pendidikan_pegawai` VALUES (5, 25, 'smk', 'ya', 2020);
-INSERT INTO `pendidikan_pegawai` VALUES (6, 25, 'd3', 'ya', 2020);
-INSERT INTO `pendidikan_pegawai` VALUES (7, 26, 'smk', 'ya', 2020);
-INSERT INTO `pendidikan_pegawai` VALUES (8, 26, 'd3', 'ya', 2020);
-INSERT INTO `pendidikan_pegawai` VALUES (9, 27, 'smk', 'ya', 2020);
-INSERT INTO `pendidikan_pegawai` VALUES (10, 27, 'd3', 'ya', 2020);
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for penilaian_kinerja_guru
@@ -2381,17 +2688,7 @@ CREATE TABLE `penilaian_kinerja_guru`  (
   `create_at` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP,
   `trans_code` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_penilaian_kinerja_guru`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
-
--- ----------------------------
--- Records of penilaian_kinerja_guru
--- ----------------------------
-INSERT INTO `penilaian_kinerja_guru` VALUES (2, 2, 5, 2021, 1, '2021-05-30 10:15:38', '18748');
-INSERT INTO `penilaian_kinerja_guru` VALUES (3, 6, 5, 2021, 1, '2021-05-31 16:30:54', '32453');
-INSERT INTO `penilaian_kinerja_guru` VALUES (5, 7, 5, 2021, 1, '2021-05-31 17:02:59', '76585');
-INSERT INTO `penilaian_kinerja_guru` VALUES (6, 10, 5, 2021, 1, '2021-05-31 17:08:46', '52575');
-INSERT INTO `penilaian_kinerja_guru` VALUES (8, 2, 4, 2021, 1, '2021-05-31 17:56:21', '97789');
-INSERT INTO `penilaian_kinerja_guru` VALUES (9, 2, 3, 2021, 1, '2021-05-31 17:57:55', '30426');
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for persentase_guru
@@ -2444,15 +2741,53 @@ CREATE TABLE `poin_pelanggaran`  (
   `poin` int(20) NULL DEFAULT NULL,
   `kode_pelanggaran` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_poin_pelanggaran`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 43 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of poin_pelanggaran
 -- ----------------------------
-INSERT INTO `poin_pelanggaran` VALUES (1, 1, 'Tidak menggunakan seragam', 5, 'A1');
-INSERT INTO `poin_pelanggaran` VALUES (2, 2, 'Tidak menggunakan atribut lengkap', 3, 'A2');
-INSERT INTO `poin_pelanggaran` VALUES (3, 1, 'T', 9, 'A001');
-INSERT INTO `poin_pelanggaran` VALUES (4, 2, 'Terlambat datang', 5, 'A002');
+INSERT INTO `poin_pelanggaran` VALUES (1, 2, 'Datang terlambat di sekolah / masuk kelas', 10, 'A1');
+INSERT INTO `poin_pelanggaran` VALUES (2, 2, 'keluar kelas tanpa izin ', 10, 'A2');
+INSERT INTO `poin_pelanggaran` VALUES (3, 2, 'Tidak mengikuti kegiatan ekstrakulikuler', 10, 'A3');
+INSERT INTO `poin_pelanggaran` VALUES (4, 2, 'berada di kantin pada waktu pergantian jam KBM', 10, 'A4');
+INSERT INTO `poin_pelanggaran` VALUES (5, 2, 'makan di dalam kelas saat KBM', 10, 'A5');
+INSERT INTO `poin_pelanggaran` VALUES (6, 2, 'membeli makanan saat KBM', 10, 'A6');
+INSERT INTO `poin_pelanggaran` VALUES (7, 2, 'ngobrol/ribut di dalam kelas ketika KBM berlangsung', 10, 'A7');
+INSERT INTO `poin_pelanggaran` VALUES (8, 1, 'Berpakaian seragam dengan atribut tidak lengkap dan tidak rapi', 10, 'A8');
+INSERT INTO `poin_pelanggaran` VALUES (9, 2, 'Tidak membawa peralatan belajar dengan lengkap ', 10, 'A9');
+INSERT INTO `poin_pelanggaran` VALUES (10, 2, 'Berhias/berdandan berlebihan bagi siswa putri', 10, 'A10');
+INSERT INTO `poin_pelanggaran` VALUES (11, 2, 'Memakai perhiasan berlebihan bagi siswa putri ', 10, 'A11');
+INSERT INTO `poin_pelanggaran` VALUES (12, 2, 'Membuang sampah tidak pada tempatnya ', 10, 'A12');
+INSERT INTO `poin_pelanggaran` VALUES (13, 2, 'piket kelas tidak melaksanakan tugasnya', 10, 'A13');
+INSERT INTO `poin_pelanggaran` VALUES (14, 2, 'tidak masuk sekolah tanpa keterangan', 20, 'B1');
+INSERT INTO `poin_pelanggaran` VALUES (15, 2, 'membuat izin/ surat palsu ', 20, 'B2');
+INSERT INTO `poin_pelanggaran` VALUES (16, 2, 'Keluar/meninggalkan sekolah tanpa izin ', 20, 'B3');
+INSERT INTO `poin_pelanggaran` VALUES (17, 2, 'Tidak mengikuti Upacara ', 20, 'B4');
+INSERT INTO `poin_pelanggaran` VALUES (18, 2, 'kehadiran tanpa keterangan ', 20, 'B5');
+INSERT INTO `poin_pelanggaran` VALUES (19, 2, 'melindungi teman yang salah', 20, 'B6');
+INSERT INTO `poin_pelanggaran` VALUES (20, 2, 'Memakai gelang atau kalung bagi siswa putra', 20, 'B7');
+INSERT INTO `poin_pelanggaran` VALUES (21, 2, 'Menggunakan Handpone (HP) pada jam KBM', 20, 'B8');
+INSERT INTO `poin_pelanggaran` VALUES (22, 1, 'Rambut gondrong/tidak rapi bagi siswa putra ', 20, 'A9');
+INSERT INTO `poin_pelanggaran` VALUES (23, 2, 'Berbicara kotor atau kasar', 20, 'A12');
+INSERT INTO `poin_pelanggaran` VALUES (24, 2, 'mencoret-coret sarana atau prasarana sekolah', 20, 'A13');
+INSERT INTO `poin_pelanggaran` VALUES (25, 2, 'Merusak sarana dan prasarana sekolah', 35, 'C2.1.1');
+INSERT INTO `poin_pelanggaran` VALUES (26, 2, 'Membawa dan Merokok di lingkungan sekolah atau sedang mengenakan pakaian sekolah', 35, 'C2.2');
+INSERT INTO `poin_pelanggaran` VALUES (27, 2, 'Melakukan pemerasan kepada siswa lain', 35, 'C2.3 ');
+INSERT INTO `poin_pelanggaran` VALUES (28, 2, 'Membawa buku / media porno', 35, 'C2.4');
+INSERT INTO `poin_pelanggaran` VALUES (29, 2, 'Bersikap tidak sopan / menentang guru', 35, 'C2.5');
+INSERT INTO `poin_pelanggaran` VALUES (30, 2, 'membawa/ menyebarkan selebaran yang menimbulkan keresahan ', 35, 'C2.6 ');
+INSERT INTO `poin_pelanggaran` VALUES (31, 2, 'Berkelahi / main hakim sendiri', 35, 'C2.8 ');
+INSERT INTO `poin_pelanggaran` VALUES (32, 2, 'Menganiaya / memukul siswa lain ', 35, 'C2.8 ');
+INSERT INTO `poin_pelanggaran` VALUES (33, 2, 'membawa senjata tajam tanpa sepengetahuan pihak sekolah', 35, 'C2.9');
+INSERT INTO `poin_pelanggaran` VALUES (34, 2, 'memalsukan tanda tangan guru/wali kelas/guru piket/kepala sekolah', 50, 'D1');
+INSERT INTO `poin_pelanggaran` VALUES (35, 2, 'Mengambil /mencuri milik orang lain', 50, 'D2');
+INSERT INTO `poin_pelanggaran` VALUES (36, 2, 'Berurusan dengan yang berwajib karena melakukan kejahatan', 50, 'D3');
+INSERT INTO `poin_pelanggaran` VALUES (37, 2, 'mengikuti organisasi terlarang', 50, 'D4');
+INSERT INTO `poin_pelanggaran` VALUES (38, 2, 'melakukan pemukulan terhadap guru', 50, 'D5');
+INSERT INTO `poin_pelanggaran` VALUES (39, 2, 'membawa/mengkonsumsi minuman keras atau obat terlarang (Narkoba)', 50, 'D7');
+INSERT INTO `poin_pelanggaran` VALUES (40, 2, 'merubah/ memalsukan raport', 50, 'D7');
+INSERT INTO `poin_pelanggaran` VALUES (41, 2, 'melakukan prilaku asusila, prilaku tidak semenana atau hubungan diluar nikah', 50, 'D8');
+INSERT INTO `poin_pelanggaran` VALUES (42, 2, 'Menikah / kawin dalam masa pendidikan sekolah ', 50, 'D9');
 
 -- ----------------------------
 -- Table structure for ppdb
@@ -2490,12 +2825,7 @@ CREATE TABLE `ppdb`  (
   `status` int(255) NULL DEFAULT 0,
   `create_at` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_ppdb`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 22 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
-
--- ----------------------------
--- Records of ppdb
--- ----------------------------
-INSERT INTO `ppdb` VALUES (21, 'rendy', '123', '2020-12-04', 'DSN Sonosari ', 'rendyyanisusanto@gmail.com', '084994664558', 'Malang', '65162', '165', '56', 'Sugianto', '1956', '081334791464', 'Sri Indahyani', '123123', '00', '1988', 'L', '5', '9', '3', '3', '1', '2', '555', '718979097', '1231', NULL, '2020-12-04 21:18:35');
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for predikat_nilai
@@ -2554,26 +2884,7 @@ CREATE TABLE `presensi_guru`  (
   `create_at` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP,
   `idtahunajaran_fk` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id_presensi_guru`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 32 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
-
--- ----------------------------
--- Records of presensi_guru
--- ----------------------------
-INSERT INTO `presensi_guru` VALUES (15, 2, '2021-04-01', '07:00:00', '11:00:00', '2021-05-08 12:06:37', 1);
-INSERT INTO `presensi_guru` VALUES (16, 2, '2021-04-05', '07:00:00', '11:00:00', '2021-05-08 12:06:45', 1);
-INSERT INTO `presensi_guru` VALUES (17, 2, '2021-04-06', '07:00:00', '11:00:00', '2021-05-08 12:06:57', 1);
-INSERT INTO `presensi_guru` VALUES (18, 2, '2021-04-07', '07:00:00', '11:00:00', '2021-05-08 12:07:05', 1);
-INSERT INTO `presensi_guru` VALUES (19, 2, '2021-04-08', '07:00:00', '11:00:00', '2021-05-08 12:12:01', 1);
-INSERT INTO `presensi_guru` VALUES (20, 2, '2021-04-12', '07:00:00', '11:00:00', '2021-05-08 12:12:14', 1);
-INSERT INTO `presensi_guru` VALUES (21, 2, '2021-04-13', '07:00:00', '11:00:00', '2021-05-08 12:12:29', 1);
-INSERT INTO `presensi_guru` VALUES (22, 2, '2021-04-14', '07:00:00', '11:00:00', '2021-05-08 12:13:57', 1);
-INSERT INTO `presensi_guru` VALUES (23, 2, '2021-04-15', '07:00:00', '11:00:00', '2021-05-08 12:14:08', 1);
-INSERT INTO `presensi_guru` VALUES (24, 2, '2021-04-19', '07:00:00', '11:00:00', '2021-05-08 12:16:31', 1);
-INSERT INTO `presensi_guru` VALUES (25, 2, '2021-04-20', '07:00:00', '11:00:00', '2021-05-08 12:16:42', 1);
-INSERT INTO `presensi_guru` VALUES (26, 2, '2021-04-21', '07:00:00', '11:00:00', '2021-05-08 12:16:54', 1);
-INSERT INTO `presensi_guru` VALUES (27, 2, '2021-04-22', '07:00:00', '11:00:00', '2021-05-08 12:17:05', 1);
-INSERT INTO `presensi_guru` VALUES (29, 2, '2021-04-27', '07:00:00', '11:00:00', '2021-05-08 12:17:25', 1);
-INSERT INTO `presensi_guru` VALUES (31, 2, '2021-04-29', '07:00:00', '11:00:00', '2021-05-08 12:17:49', 1);
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for presensi_harian
@@ -2590,48 +2901,709 @@ CREATE TABLE `presensi_harian`  (
   `idtahunajaran_fk` int(11) NULL DEFAULT NULL,
   `idkelas_fk` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id_presensi_harian`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 112 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 699 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of presensi_harian
 -- ----------------------------
-INSERT INTO `presensi_harian` VALUES (75, 1, 38, 'A', '', '2021-04-27', '2021-04-27 10:34:35', 1, 11);
-INSERT INTO `presensi_harian` VALUES (76, 1, 39, 'S', '', '2021-04-27', '2021-04-27 10:34:36', 1, 11);
-INSERT INTO `presensi_harian` VALUES (77, 1, 40, 'A', '', '2021-04-27', '2021-04-27 10:34:36', 1, 11);
-INSERT INTO `presensi_harian` VALUES (78, 1, 41, 'M', '', '2021-04-27', '2021-04-27 10:34:36', 1, 11);
-INSERT INTO `presensi_harian` VALUES (79, 1, 42, 'M', '', '2021-04-27', '2021-04-27 10:34:36', 1, 11);
-INSERT INTO `presensi_harian` VALUES (80, 1, 43, 'M', '', '2021-04-27', '2021-04-27 10:34:36', 1, 11);
-INSERT INTO `presensi_harian` VALUES (81, 1, 44, 'M', '', '2021-04-27', '2021-04-27 10:34:36', 1, 11);
-INSERT INTO `presensi_harian` VALUES (82, 1, 45, 'I', '', '2021-04-27', '2021-04-27 10:34:36', 1, 11);
-INSERT INTO `presensi_harian` VALUES (83, 1, 46, 'M', '', '2021-04-27', '2021-04-27 10:34:36', 1, 11);
-INSERT INTO `presensi_harian` VALUES (84, 1, 47, 'S', '', '2021-04-27', '2021-04-27 10:34:36', 1, 11);
-INSERT INTO `presensi_harian` VALUES (85, 1, 48, 'M', '', '2021-04-27', '2021-04-27 10:34:36', 1, 11);
-INSERT INTO `presensi_harian` VALUES (86, 1, 49, 'M', '', '2021-04-27', '2021-04-27 10:34:36', 1, 11);
-INSERT INTO `presensi_harian` VALUES (87, 1, 50, 'M', '', '2021-04-27', '2021-04-27 10:34:36', 1, 11);
-INSERT INTO `presensi_harian` VALUES (88, 1, 51, 'M', '', '2021-04-27', '2021-04-27 10:34:36', 1, 11);
-INSERT INTO `presensi_harian` VALUES (89, 1, 52, 'M', '', '2021-04-27', '2021-04-27 10:34:36', 1, 11);
-INSERT INTO `presensi_harian` VALUES (90, 1, 53, 'M', '', '2021-04-27', '2021-04-27 10:34:36', 1, 11);
-INSERT INTO `presensi_harian` VALUES (91, 1, 54, 'M', '', '2021-04-27', '2021-04-27 10:34:36', 1, 11);
-INSERT INTO `presensi_harian` VALUES (92, 1, 55, 'M', '', '2021-04-27', '2021-04-27 10:34:36', 1, 11);
-INSERT INTO `presensi_harian` VALUES (93, 1, 56, 'M', '', '2021-04-27', '2021-04-27 10:34:36', 1, 11);
-INSERT INTO `presensi_harian` VALUES (94, 1, 57, 'M', '', '2021-04-27', '2021-04-27 10:34:37', 1, 11);
-INSERT INTO `presensi_harian` VALUES (95, 1, 58, 'M', '', '2021-04-27', '2021-04-27 10:34:37', 1, 11);
-INSERT INTO `presensi_harian` VALUES (96, 1, 59, 'M', '', '2021-04-27', '2021-04-27 10:34:37', 1, 11);
-INSERT INTO `presensi_harian` VALUES (97, 1, 60, 'M', '', '2021-04-27', '2021-04-27 10:34:37', 1, 11);
-INSERT INTO `presensi_harian` VALUES (98, 1, 61, 'M', '', '2021-04-27', '2021-04-27 10:34:37', 1, 11);
-INSERT INTO `presensi_harian` VALUES (99, 1, 62, 'M', '', '2021-04-27', '2021-04-27 10:34:37', 1, 11);
-INSERT INTO `presensi_harian` VALUES (100, 1, 63, 'M', '', '2021-04-27', '2021-04-27 10:34:37', 1, 11);
-INSERT INTO `presensi_harian` VALUES (101, 1, 64, 'M', '', '2021-04-27', '2021-04-27 10:34:37', 1, 11);
-INSERT INTO `presensi_harian` VALUES (102, 1, 65, 'M', '', '2021-04-27', '2021-04-27 10:34:37', 1, 11);
-INSERT INTO `presensi_harian` VALUES (103, 1, 66, 'M', '', '2021-04-27', '2021-04-27 10:34:37', 1, 11);
-INSERT INTO `presensi_harian` VALUES (104, 1, 67, 'M', '', '2021-04-27', '2021-04-27 10:34:37', 1, 11);
-INSERT INTO `presensi_harian` VALUES (105, 1, 68, 'M', '', '2021-04-27', '2021-04-27 10:34:37', 1, 11);
-INSERT INTO `presensi_harian` VALUES (106, 1, 69, 'M', '', '2021-04-27', '2021-04-27 10:34:37', 1, 11);
-INSERT INTO `presensi_harian` VALUES (107, 1, 70, 'M', '', '2021-04-27', '2021-04-27 10:34:37', 1, 11);
-INSERT INTO `presensi_harian` VALUES (108, 1, 71, 'M', '', '2021-04-27', '2021-04-27 10:34:37', 1, 11);
-INSERT INTO `presensi_harian` VALUES (109, 1, 72, 'A', '', '2021-04-27', '2021-04-27 10:34:37', 1, 11);
-INSERT INTO `presensi_harian` VALUES (110, 1, 73, 'A', '', '2021-04-27', '2021-04-27 10:34:37', 1, 11);
-INSERT INTO `presensi_harian` VALUES (111, 1, 74, 'A', '', '2021-04-27', '2021-04-27 10:34:37', 1, 11);
+INSERT INTO `presensi_harian` VALUES (1, 94, 378, 'M', '', '2021-08-04', '2021-08-04 11:27:41', 3, 32);
+INSERT INTO `presensi_harian` VALUES (2, 94, 379, 'M', '', '2021-08-04', '2021-08-04 11:27:41', 3, 32);
+INSERT INTO `presensi_harian` VALUES (3, 94, 380, 'M', '', '2021-08-04', '2021-08-04 11:27:41', 3, 32);
+INSERT INTO `presensi_harian` VALUES (4, 94, 381, 'M', '', '2021-08-04', '2021-08-04 11:27:41', 3, 32);
+INSERT INTO `presensi_harian` VALUES (5, 94, 382, 'M', '', '2021-08-04', '2021-08-04 11:27:41', 3, 32);
+INSERT INTO `presensi_harian` VALUES (6, 94, 383, 'M', '', '2021-08-04', '2021-08-04 11:27:41', 3, 32);
+INSERT INTO `presensi_harian` VALUES (7, 94, 384, 'M', '', '2021-08-04', '2021-08-04 11:27:41', 3, 32);
+INSERT INTO `presensi_harian` VALUES (8, 94, 385, 'M', '', '2021-08-04', '2021-08-04 11:27:41', 3, 32);
+INSERT INTO `presensi_harian` VALUES (9, 94, 386, 'M', '', '2021-08-04', '2021-08-04 11:27:41', 3, 32);
+INSERT INTO `presensi_harian` VALUES (10, 94, 387, 'M', '', '2021-08-04', '2021-08-04 11:27:41', 3, 32);
+INSERT INTO `presensi_harian` VALUES (11, 94, 388, 'M', '', '2021-08-04', '2021-08-04 11:27:41', 3, 32);
+INSERT INTO `presensi_harian` VALUES (12, 94, 389, 'M', '', '2021-08-04', '2021-08-04 11:27:41', 3, 32);
+INSERT INTO `presensi_harian` VALUES (13, 94, 390, 'M', '', '2021-08-04', '2021-08-04 11:27:42', 3, 32);
+INSERT INTO `presensi_harian` VALUES (14, 94, 391, 'M', '', '2021-08-04', '2021-08-04 11:27:42', 3, 32);
+INSERT INTO `presensi_harian` VALUES (15, 94, 392, 'M', '', '2021-08-04', '2021-08-04 11:27:42', 3, 32);
+INSERT INTO `presensi_harian` VALUES (16, 94, 393, 'M', '', '2021-08-04', '2021-08-04 11:27:42', 3, 32);
+INSERT INTO `presensi_harian` VALUES (17, 94, 394, 'M', '', '2021-08-04', '2021-08-04 11:27:42', 3, 32);
+INSERT INTO `presensi_harian` VALUES (18, 94, 395, 'M', '', '2021-08-04', '2021-08-04 11:27:42', 3, 32);
+INSERT INTO `presensi_harian` VALUES (19, 94, 396, 'M', '', '2021-08-04', '2021-08-04 11:27:42', 3, 32);
+INSERT INTO `presensi_harian` VALUES (20, 94, 397, 'M', '', '2021-08-04', '2021-08-04 11:27:42', 3, 32);
+INSERT INTO `presensi_harian` VALUES (21, 94, 398, 'M', '', '2021-08-04', '2021-08-04 11:27:42', 3, 32);
+INSERT INTO `presensi_harian` VALUES (22, 94, 399, 'M', '', '2021-08-04', '2021-08-04 11:27:42', 3, 32);
+INSERT INTO `presensi_harian` VALUES (23, 94, 400, 'M', '', '2021-08-04', '2021-08-04 11:27:42', 3, 32);
+INSERT INTO `presensi_harian` VALUES (24, 94, 378, 'M', '', '2021-08-05', '2021-08-05 10:13:15', 3, 32);
+INSERT INTO `presensi_harian` VALUES (25, 94, 379, 'M', '', '2021-08-05', '2021-08-05 10:13:15', 3, 32);
+INSERT INTO `presensi_harian` VALUES (26, 94, 380, 'M', '', '2021-08-05', '2021-08-05 10:13:15', 3, 32);
+INSERT INTO `presensi_harian` VALUES (27, 94, 381, 'M', '', '2021-08-05', '2021-08-05 10:13:15', 3, 32);
+INSERT INTO `presensi_harian` VALUES (28, 94, 382, 'M', '', '2021-08-05', '2021-08-05 10:13:15', 3, 32);
+INSERT INTO `presensi_harian` VALUES (29, 94, 383, 'M', '', '2021-08-05', '2021-08-05 10:13:15', 3, 32);
+INSERT INTO `presensi_harian` VALUES (30, 94, 384, 'M', '', '2021-08-05', '2021-08-05 10:13:15', 3, 32);
+INSERT INTO `presensi_harian` VALUES (31, 94, 385, 'S', '', '2021-08-05', '2021-08-05 10:13:15', 3, 32);
+INSERT INTO `presensi_harian` VALUES (32, 94, 386, 'M', '', '2021-08-05', '2021-08-05 10:13:15', 3, 32);
+INSERT INTO `presensi_harian` VALUES (33, 94, 387, 'M', '', '2021-08-05', '2021-08-05 10:13:15', 3, 32);
+INSERT INTO `presensi_harian` VALUES (34, 94, 388, 'M', '', '2021-08-05', '2021-08-05 10:13:15', 3, 32);
+INSERT INTO `presensi_harian` VALUES (35, 94, 389, 'M', '', '2021-08-05', '2021-08-05 10:13:15', 3, 32);
+INSERT INTO `presensi_harian` VALUES (36, 94, 390, 'M', '', '2021-08-05', '2021-08-05 10:13:16', 3, 32);
+INSERT INTO `presensi_harian` VALUES (37, 94, 391, 'M', '', '2021-08-05', '2021-08-05 10:13:16', 3, 32);
+INSERT INTO `presensi_harian` VALUES (38, 94, 392, 'M', '', '2021-08-05', '2021-08-05 10:13:16', 3, 32);
+INSERT INTO `presensi_harian` VALUES (39, 94, 393, 'M', '', '2021-08-05', '2021-08-05 10:13:16', 3, 32);
+INSERT INTO `presensi_harian` VALUES (40, 94, 394, 'M', '', '2021-08-05', '2021-08-05 10:13:16', 3, 32);
+INSERT INTO `presensi_harian` VALUES (41, 94, 395, 'M', '', '2021-08-05', '2021-08-05 10:13:16', 3, 32);
+INSERT INTO `presensi_harian` VALUES (42, 94, 396, 'M', '', '2021-08-05', '2021-08-05 10:13:16', 3, 32);
+INSERT INTO `presensi_harian` VALUES (43, 94, 397, 'M', '', '2021-08-05', '2021-08-05 10:13:16', 3, 32);
+INSERT INTO `presensi_harian` VALUES (44, 94, 398, 'M', '', '2021-08-05', '2021-08-05 10:13:16', 3, 32);
+INSERT INTO `presensi_harian` VALUES (45, 94, 399, 'M', '', '2021-08-05', '2021-08-05 10:13:16', 3, 32);
+INSERT INTO `presensi_harian` VALUES (46, 94, 400, 'M', '', '2021-08-05', '2021-08-05 10:13:16', 3, 32);
+INSERT INTO `presensi_harian` VALUES (47, 89, 433, 'M', '', '2021-08-05', '2021-08-05 11:17:59', 3, 25);
+INSERT INTO `presensi_harian` VALUES (48, 89, 435, 'M', '', '2021-08-05', '2021-08-05 11:17:59', 3, 25);
+INSERT INTO `presensi_harian` VALUES (49, 89, 437, 'M', '', '2021-08-05', '2021-08-05 11:17:59', 3, 25);
+INSERT INTO `presensi_harian` VALUES (50, 89, 439, 'M', '', '2021-08-05', '2021-08-05 11:17:59', 3, 25);
+INSERT INTO `presensi_harian` VALUES (51, 89, 441, 'M', '', '2021-08-05', '2021-08-05 11:17:59', 3, 25);
+INSERT INTO `presensi_harian` VALUES (52, 89, 443, 'M', '', '2021-08-05', '2021-08-05 11:17:59', 3, 25);
+INSERT INTO `presensi_harian` VALUES (53, 89, 445, 'M', '', '2021-08-05', '2021-08-05 11:17:59', 3, 25);
+INSERT INTO `presensi_harian` VALUES (54, 89, 447, 'M', '', '2021-08-05', '2021-08-05 11:17:59', 3, 25);
+INSERT INTO `presensi_harian` VALUES (55, 89, 449, 'M', '', '2021-08-05', '2021-08-05 11:17:59', 3, 25);
+INSERT INTO `presensi_harian` VALUES (56, 89, 451, 'M', '', '2021-08-05', '2021-08-05 11:17:59', 3, 25);
+INSERT INTO `presensi_harian` VALUES (57, 89, 453, 'M', '', '2021-08-05', '2021-08-05 11:17:59', 3, 25);
+INSERT INTO `presensi_harian` VALUES (58, 89, 455, 'M', '', '2021-08-05', '2021-08-05 11:17:59', 3, 25);
+INSERT INTO `presensi_harian` VALUES (59, 89, 457, 'M', '', '2021-08-05', '2021-08-05 11:17:59', 3, 25);
+INSERT INTO `presensi_harian` VALUES (60, 89, 459, 'M', '', '2021-08-05', '2021-08-05 11:17:59', 3, 25);
+INSERT INTO `presensi_harian` VALUES (61, 89, 461, 'M', '', '2021-08-05', '2021-08-05 11:17:59', 3, 25);
+INSERT INTO `presensi_harian` VALUES (62, 89, 463, 'M', '', '2021-08-05', '2021-08-05 11:17:59', 3, 25);
+INSERT INTO `presensi_harian` VALUES (63, 89, 465, 'M', '', '2021-08-05', '2021-08-05 11:17:59', 3, 25);
+INSERT INTO `presensi_harian` VALUES (64, 89, 467, 'M', '', '2021-08-05', '2021-08-05 11:18:00', 3, 25);
+INSERT INTO `presensi_harian` VALUES (65, 89, 469, 'M', '', '2021-08-05', '2021-08-05 11:18:00', 3, 25);
+INSERT INTO `presensi_harian` VALUES (66, 89, 471, 'M', '', '2021-08-05', '2021-08-05 11:18:00', 3, 25);
+INSERT INTO `presensi_harian` VALUES (67, 89, 472, 'M', '', '2021-08-05', '2021-08-05 11:18:00', 3, 25);
+INSERT INTO `presensi_harian` VALUES (68, 89, 475, 'M', '', '2021-08-05', '2021-08-05 11:18:00', 3, 25);
+INSERT INTO `presensi_harian` VALUES (69, 89, 478, 'M', '', '2021-08-05', '2021-08-05 11:18:00', 3, 25);
+INSERT INTO `presensi_harian` VALUES (70, 89, 480, 'M', '', '2021-08-05', '2021-08-05 11:18:00', 3, 25);
+INSERT INTO `presensi_harian` VALUES (71, 89, 482, 'M', '', '2021-08-05', '2021-08-05 11:18:00', 3, 25);
+INSERT INTO `presensi_harian` VALUES (72, 89, 484, 'M', '', '2021-08-05', '2021-08-05 11:18:00', 3, 25);
+INSERT INTO `presensi_harian` VALUES (73, 89, 486, 'M', '', '2021-08-05', '2021-08-05 11:18:00', 3, 25);
+INSERT INTO `presensi_harian` VALUES (74, 89, 488, 'M', '', '2021-08-05', '2021-08-05 11:18:00', 3, 25);
+INSERT INTO `presensi_harian` VALUES (75, 89, 490, 'M', '', '2021-08-05', '2021-08-05 11:18:00', 3, 25);
+INSERT INTO `presensi_harian` VALUES (76, 89, 491, 'M', '', '2021-08-05', '2021-08-05 11:18:00', 3, 25);
+INSERT INTO `presensi_harian` VALUES (77, 58, 433, 'S', '', '2021-08-05', '2021-08-05 11:23:34', 3, 25);
+INSERT INTO `presensi_harian` VALUES (78, 58, 435, 'A', '', '2021-08-05', '2021-08-05 11:23:34', 3, 25);
+INSERT INTO `presensi_harian` VALUES (79, 58, 437, 'M', '', '2021-08-05', '2021-08-05 11:23:34', 3, 25);
+INSERT INTO `presensi_harian` VALUES (80, 58, 439, 'M', '', '2021-08-05', '2021-08-05 11:23:34', 3, 25);
+INSERT INTO `presensi_harian` VALUES (81, 58, 441, 'M', '', '2021-08-05', '2021-08-05 11:23:34', 3, 25);
+INSERT INTO `presensi_harian` VALUES (82, 58, 443, 'M', '', '2021-08-05', '2021-08-05 11:23:34', 3, 25);
+INSERT INTO `presensi_harian` VALUES (83, 58, 445, 'M', '', '2021-08-05', '2021-08-05 11:23:34', 3, 25);
+INSERT INTO `presensi_harian` VALUES (84, 58, 447, 'M', '', '2021-08-05', '2021-08-05 11:23:34', 3, 25);
+INSERT INTO `presensi_harian` VALUES (85, 58, 449, 'M', '', '2021-08-05', '2021-08-05 11:23:34', 3, 25);
+INSERT INTO `presensi_harian` VALUES (86, 58, 451, 'M', '', '2021-08-05', '2021-08-05 11:23:34', 3, 25);
+INSERT INTO `presensi_harian` VALUES (87, 58, 453, 'M', '', '2021-08-05', '2021-08-05 11:23:34', 3, 25);
+INSERT INTO `presensi_harian` VALUES (88, 58, 455, 'M', '', '2021-08-05', '2021-08-05 11:23:34', 3, 25);
+INSERT INTO `presensi_harian` VALUES (89, 58, 457, 'M', '', '2021-08-05', '2021-08-05 11:23:35', 3, 25);
+INSERT INTO `presensi_harian` VALUES (90, 58, 459, 'M', '', '2021-08-05', '2021-08-05 11:23:35', 3, 25);
+INSERT INTO `presensi_harian` VALUES (91, 58, 461, 'M', '', '2021-08-05', '2021-08-05 11:23:35', 3, 25);
+INSERT INTO `presensi_harian` VALUES (92, 58, 463, 'M', '', '2021-08-05', '2021-08-05 11:23:35', 3, 25);
+INSERT INTO `presensi_harian` VALUES (93, 58, 465, 'M', '', '2021-08-05', '2021-08-05 11:23:35', 3, 25);
+INSERT INTO `presensi_harian` VALUES (94, 58, 467, 'M', '', '2021-08-05', '2021-08-05 11:23:35', 3, 25);
+INSERT INTO `presensi_harian` VALUES (95, 58, 469, 'M', '', '2021-08-05', '2021-08-05 11:23:35', 3, 25);
+INSERT INTO `presensi_harian` VALUES (96, 58, 471, 'M', '', '2021-08-05', '2021-08-05 11:23:35', 3, 25);
+INSERT INTO `presensi_harian` VALUES (97, 58, 472, 'M', '', '2021-08-05', '2021-08-05 11:23:35', 3, 25);
+INSERT INTO `presensi_harian` VALUES (98, 58, 475, 'M', '', '2021-08-05', '2021-08-05 11:23:35', 3, 25);
+INSERT INTO `presensi_harian` VALUES (99, 58, 478, 'M', '', '2021-08-05', '2021-08-05 11:23:35', 3, 25);
+INSERT INTO `presensi_harian` VALUES (100, 58, 480, 'M', '', '2021-08-05', '2021-08-05 11:23:35', 3, 25);
+INSERT INTO `presensi_harian` VALUES (101, 58, 482, 'M', '', '2021-08-05', '2021-08-05 11:23:35', 3, 25);
+INSERT INTO `presensi_harian` VALUES (102, 58, 484, 'M', '', '2021-08-05', '2021-08-05 11:23:35', 3, 25);
+INSERT INTO `presensi_harian` VALUES (103, 58, 486, 'M', '', '2021-08-05', '2021-08-05 11:23:35', 3, 25);
+INSERT INTO `presensi_harian` VALUES (104, 58, 488, 'M', '', '2021-08-05', '2021-08-05 11:23:35', 3, 25);
+INSERT INTO `presensi_harian` VALUES (105, 58, 490, 'M', '', '2021-08-05', '2021-08-05 11:23:35', 3, 25);
+INSERT INTO `presensi_harian` VALUES (106, 58, 491, 'M', '', '2021-08-05', '2021-08-05 11:23:35', 3, 25);
+INSERT INTO `presensi_harian` VALUES (107, 84, 314, 'M', '', '2021-08-05', '2021-08-05 11:27:27', 3, 30);
+INSERT INTO `presensi_harian` VALUES (108, 84, 315, 'A', '', '2021-08-05', '2021-08-05 11:27:27', 3, 30);
+INSERT INTO `presensi_harian` VALUES (109, 84, 316, 'M', '', '2021-08-05', '2021-08-05 11:27:27', 3, 30);
+INSERT INTO `presensi_harian` VALUES (110, 84, 317, 'M', '', '2021-08-05', '2021-08-05 11:27:27', 3, 30);
+INSERT INTO `presensi_harian` VALUES (111, 84, 318, 'A', '', '2021-08-05', '2021-08-05 11:27:27', 3, 30);
+INSERT INTO `presensi_harian` VALUES (112, 84, 319, 'A', '', '2021-08-05', '2021-08-05 11:27:28', 3, 30);
+INSERT INTO `presensi_harian` VALUES (113, 84, 320, 'M', '', '2021-08-05', '2021-08-05 11:27:28', 3, 30);
+INSERT INTO `presensi_harian` VALUES (114, 84, 321, 'M', '', '2021-08-05', '2021-08-05 11:27:28', 3, 30);
+INSERT INTO `presensi_harian` VALUES (115, 84, 322, 'M', '', '2021-08-05', '2021-08-05 11:27:28', 3, 30);
+INSERT INTO `presensi_harian` VALUES (116, 84, 323, 'M', '', '2021-08-05', '2021-08-05 11:27:28', 3, 30);
+INSERT INTO `presensi_harian` VALUES (117, 84, 324, 'M', '', '2021-08-05', '2021-08-05 11:27:28', 3, 30);
+INSERT INTO `presensi_harian` VALUES (118, 84, 325, 'M', '', '2021-08-05', '2021-08-05 11:27:28', 3, 30);
+INSERT INTO `presensi_harian` VALUES (119, 84, 326, 'M', '', '2021-08-05', '2021-08-05 11:27:28', 3, 30);
+INSERT INTO `presensi_harian` VALUES (120, 84, 327, 'M', '', '2021-08-05', '2021-08-05 11:27:28', 3, 30);
+INSERT INTO `presensi_harian` VALUES (121, 84, 328, 'M', '', '2021-08-05', '2021-08-05 11:27:28', 3, 30);
+INSERT INTO `presensi_harian` VALUES (122, 84, 329, 'A', '', '2021-08-05', '2021-08-05 11:27:28', 3, 30);
+INSERT INTO `presensi_harian` VALUES (123, 84, 330, 'A', '', '2021-08-05', '2021-08-05 11:27:28', 3, 30);
+INSERT INTO `presensi_harian` VALUES (124, 84, 331, 'A', '', '2021-08-05', '2021-08-05 11:27:28', 3, 30);
+INSERT INTO `presensi_harian` VALUES (125, 84, 332, 'A', '', '2021-08-05', '2021-08-05 11:27:28', 3, 30);
+INSERT INTO `presensi_harian` VALUES (126, 84, 333, 'A', '', '2021-08-05', '2021-08-05 11:27:28', 3, 30);
+INSERT INTO `presensi_harian` VALUES (127, 84, 334, 'A', '', '2021-08-05', '2021-08-05 11:27:28', 3, 30);
+INSERT INTO `presensi_harian` VALUES (128, 36, 314, 'M', '', '2021-08-05', '2021-08-05 11:30:05', 3, 30);
+INSERT INTO `presensi_harian` VALUES (129, 36, 315, 'A', '', '2021-08-05', '2021-08-05 11:30:05', 3, 30);
+INSERT INTO `presensi_harian` VALUES (130, 36, 316, 'M', '', '2021-08-05', '2021-08-05 11:30:05', 3, 30);
+INSERT INTO `presensi_harian` VALUES (131, 36, 317, 'A', '', '2021-08-05', '2021-08-05 11:30:05', 3, 30);
+INSERT INTO `presensi_harian` VALUES (132, 36, 318, 'A', '', '2021-08-05', '2021-08-05 11:30:06', 3, 30);
+INSERT INTO `presensi_harian` VALUES (133, 36, 319, 'M', '', '2021-08-05', '2021-08-05 11:30:06', 3, 30);
+INSERT INTO `presensi_harian` VALUES (134, 36, 320, 'M', '', '2021-08-05', '2021-08-05 11:30:06', 3, 30);
+INSERT INTO `presensi_harian` VALUES (135, 36, 321, 'M', '', '2021-08-05', '2021-08-05 11:30:06', 3, 30);
+INSERT INTO `presensi_harian` VALUES (136, 36, 322, 'M', '', '2021-08-05', '2021-08-05 11:30:06', 3, 30);
+INSERT INTO `presensi_harian` VALUES (137, 36, 323, 'M', '', '2021-08-05', '2021-08-05 11:30:06', 3, 30);
+INSERT INTO `presensi_harian` VALUES (138, 36, 324, 'M', '', '2021-08-05', '2021-08-05 11:30:06', 3, 30);
+INSERT INTO `presensi_harian` VALUES (139, 36, 325, 'M', '', '2021-08-05', '2021-08-05 11:30:06', 3, 30);
+INSERT INTO `presensi_harian` VALUES (140, 36, 326, 'M', '', '2021-08-05', '2021-08-05 11:30:06', 3, 30);
+INSERT INTO `presensi_harian` VALUES (141, 36, 327, 'M', '', '2021-08-05', '2021-08-05 11:30:06', 3, 30);
+INSERT INTO `presensi_harian` VALUES (142, 36, 328, 'M', '', '2021-08-05', '2021-08-05 11:30:06', 3, 30);
+INSERT INTO `presensi_harian` VALUES (143, 36, 329, 'A', '', '2021-08-05', '2021-08-05 11:30:06', 3, 30);
+INSERT INTO `presensi_harian` VALUES (144, 36, 330, 'A', '', '2021-08-05', '2021-08-05 11:30:06', 3, 30);
+INSERT INTO `presensi_harian` VALUES (145, 36, 331, 'M', '', '2021-08-05', '2021-08-05 11:30:06', 3, 30);
+INSERT INTO `presensi_harian` VALUES (146, 36, 332, 'A', '', '2021-08-05', '2021-08-05 11:30:07', 3, 30);
+INSERT INTO `presensi_harian` VALUES (147, 36, 333, 'A', '', '2021-08-05', '2021-08-05 11:30:07', 3, 30);
+INSERT INTO `presensi_harian` VALUES (148, 36, 334, 'A', '', '2021-08-05', '2021-08-05 11:30:07', 3, 30);
+INSERT INTO `presensi_harian` VALUES (149, 84, 378, 'M', '', '2021-08-05', '2021-08-05 11:33:12', 3, 32);
+INSERT INTO `presensi_harian` VALUES (150, 84, 379, 'M', '', '2021-08-05', '2021-08-05 11:33:12', 3, 32);
+INSERT INTO `presensi_harian` VALUES (151, 84, 380, 'M', '', '2021-08-05', '2021-08-05 11:33:12', 3, 32);
+INSERT INTO `presensi_harian` VALUES (152, 84, 381, 'M', '', '2021-08-05', '2021-08-05 11:33:12', 3, 32);
+INSERT INTO `presensi_harian` VALUES (153, 84, 382, 'M', '', '2021-08-05', '2021-08-05 11:33:12', 3, 32);
+INSERT INTO `presensi_harian` VALUES (154, 84, 383, 'M', '', '2021-08-05', '2021-08-05 11:33:13', 3, 32);
+INSERT INTO `presensi_harian` VALUES (155, 84, 384, 'M', '', '2021-08-05', '2021-08-05 11:33:13', 3, 32);
+INSERT INTO `presensi_harian` VALUES (156, 84, 385, 'S', '', '2021-08-05', '2021-08-05 11:33:13', 3, 32);
+INSERT INTO `presensi_harian` VALUES (157, 84, 386, 'M', '', '2021-08-05', '2021-08-05 11:33:13', 3, 32);
+INSERT INTO `presensi_harian` VALUES (158, 84, 387, 'M', '', '2021-08-05', '2021-08-05 11:33:13', 3, 32);
+INSERT INTO `presensi_harian` VALUES (159, 84, 388, 'M', '', '2021-08-05', '2021-08-05 11:33:13', 3, 32);
+INSERT INTO `presensi_harian` VALUES (160, 84, 389, 'M', '', '2021-08-05', '2021-08-05 11:33:13', 3, 32);
+INSERT INTO `presensi_harian` VALUES (161, 84, 390, 'M', '', '2021-08-05', '2021-08-05 11:33:13', 3, 32);
+INSERT INTO `presensi_harian` VALUES (162, 84, 391, 'M', '', '2021-08-05', '2021-08-05 11:33:13', 3, 32);
+INSERT INTO `presensi_harian` VALUES (163, 84, 392, 'M', '', '2021-08-05', '2021-08-05 11:33:13', 3, 32);
+INSERT INTO `presensi_harian` VALUES (164, 84, 393, 'M', '', '2021-08-05', '2021-08-05 11:33:13', 3, 32);
+INSERT INTO `presensi_harian` VALUES (165, 84, 394, 'M', '', '2021-08-05', '2021-08-05 11:33:13', 3, 32);
+INSERT INTO `presensi_harian` VALUES (166, 84, 395, 'M', '', '2021-08-05', '2021-08-05 11:33:13', 3, 32);
+INSERT INTO `presensi_harian` VALUES (167, 84, 396, 'M', '', '2021-08-05', '2021-08-05 11:33:13', 3, 32);
+INSERT INTO `presensi_harian` VALUES (168, 84, 397, 'M', '', '2021-08-05', '2021-08-05 11:33:13', 3, 32);
+INSERT INTO `presensi_harian` VALUES (169, 84, 398, 'M', '', '2021-08-05', '2021-08-05 11:33:13', 3, 32);
+INSERT INTO `presensi_harian` VALUES (170, 84, 399, 'M', '', '2021-08-05', '2021-08-05 11:33:13', 3, 32);
+INSERT INTO `presensi_harian` VALUES (171, 84, 400, 'M', '', '2021-08-05', '2021-08-05 11:33:13', 3, 32);
+INSERT INTO `presensi_harian` VALUES (172, 44, 378, 'M', '', '2021-08-05', '2021-08-05 11:33:27', 3, 32);
+INSERT INTO `presensi_harian` VALUES (173, 44, 379, 'M', '', '2021-08-05', '2021-08-05 11:33:27', 3, 32);
+INSERT INTO `presensi_harian` VALUES (174, 44, 380, 'M', '', '2021-08-05', '2021-08-05 11:33:27', 3, 32);
+INSERT INTO `presensi_harian` VALUES (175, 44, 381, 'M', '', '2021-08-05', '2021-08-05 11:33:27', 3, 32);
+INSERT INTO `presensi_harian` VALUES (176, 44, 382, 'M', '', '2021-08-05', '2021-08-05 11:33:27', 3, 32);
+INSERT INTO `presensi_harian` VALUES (177, 44, 383, 'M', '', '2021-08-05', '2021-08-05 11:33:27', 3, 32);
+INSERT INTO `presensi_harian` VALUES (178, 44, 384, 'M', '', '2021-08-05', '2021-08-05 11:33:27', 3, 32);
+INSERT INTO `presensi_harian` VALUES (179, 44, 385, 'S', '', '2021-08-05', '2021-08-05 11:33:27', 3, 32);
+INSERT INTO `presensi_harian` VALUES (180, 44, 386, 'M', '', '2021-08-05', '2021-08-05 11:33:28', 3, 32);
+INSERT INTO `presensi_harian` VALUES (181, 44, 387, 'M', '', '2021-08-05', '2021-08-05 11:33:28', 3, 32);
+INSERT INTO `presensi_harian` VALUES (182, 44, 388, 'M', '', '2021-08-05', '2021-08-05 11:33:28', 3, 32);
+INSERT INTO `presensi_harian` VALUES (183, 44, 389, 'M', '', '2021-08-05', '2021-08-05 11:33:28', 3, 32);
+INSERT INTO `presensi_harian` VALUES (184, 44, 390, 'M', '', '2021-08-05', '2021-08-05 11:33:28', 3, 32);
+INSERT INTO `presensi_harian` VALUES (185, 44, 391, 'M', '', '2021-08-05', '2021-08-05 11:33:28', 3, 32);
+INSERT INTO `presensi_harian` VALUES (186, 44, 392, 'M', '', '2021-08-05', '2021-08-05 11:33:28', 3, 32);
+INSERT INTO `presensi_harian` VALUES (187, 44, 393, 'M', '', '2021-08-05', '2021-08-05 11:33:28', 3, 32);
+INSERT INTO `presensi_harian` VALUES (188, 44, 394, 'M', '', '2021-08-05', '2021-08-05 11:33:28', 3, 32);
+INSERT INTO `presensi_harian` VALUES (189, 44, 395, 'M', '', '2021-08-05', '2021-08-05 11:33:28', 3, 32);
+INSERT INTO `presensi_harian` VALUES (190, 44, 396, 'M', '', '2021-08-05', '2021-08-05 11:33:28', 3, 32);
+INSERT INTO `presensi_harian` VALUES (191, 44, 397, 'M', '', '2021-08-05', '2021-08-05 11:33:28', 3, 32);
+INSERT INTO `presensi_harian` VALUES (192, 44, 398, 'M', '', '2021-08-05', '2021-08-05 11:33:28', 3, 32);
+INSERT INTO `presensi_harian` VALUES (193, 44, 399, 'M', '', '2021-08-05', '2021-08-05 11:33:28', 3, 32);
+INSERT INTO `presensi_harian` VALUES (194, 44, 400, 'M', '', '2021-08-05', '2021-08-05 11:33:28', 3, 32);
+INSERT INTO `presensi_harian` VALUES (195, 36, 293, 'M', '', '2021-08-05', '2021-08-05 11:36:55', 3, 29);
+INSERT INTO `presensi_harian` VALUES (196, 36, 294, 'M', '', '2021-08-05', '2021-08-05 11:36:55', 3, 29);
+INSERT INTO `presensi_harian` VALUES (197, 36, 295, 'M', '', '2021-08-05', '2021-08-05 11:36:55', 3, 29);
+INSERT INTO `presensi_harian` VALUES (198, 36, 296, 'M', '', '2021-08-05', '2021-08-05 11:36:55', 3, 29);
+INSERT INTO `presensi_harian` VALUES (199, 36, 297, 'A', '', '2021-08-05', '2021-08-05 11:36:55', 3, 29);
+INSERT INTO `presensi_harian` VALUES (200, 36, 298, 'A', '', '2021-08-05', '2021-08-05 11:36:55', 3, 29);
+INSERT INTO `presensi_harian` VALUES (201, 36, 299, 'M', '', '2021-08-05', '2021-08-05 11:36:55', 3, 29);
+INSERT INTO `presensi_harian` VALUES (202, 36, 300, 'M', '', '2021-08-05', '2021-08-05 11:36:55', 3, 29);
+INSERT INTO `presensi_harian` VALUES (203, 36, 301, 'I', '', '2021-08-05', '2021-08-05 11:36:55', 3, 29);
+INSERT INTO `presensi_harian` VALUES (204, 36, 302, 'M', '', '2021-08-05', '2021-08-05 11:36:55', 3, 29);
+INSERT INTO `presensi_harian` VALUES (205, 36, 303, 'M', '', '2021-08-05', '2021-08-05 11:36:55', 3, 29);
+INSERT INTO `presensi_harian` VALUES (206, 36, 304, 'M', '', '2021-08-05', '2021-08-05 11:36:55', 3, 29);
+INSERT INTO `presensi_harian` VALUES (207, 36, 305, 'M', '', '2021-08-05', '2021-08-05 11:36:55', 3, 29);
+INSERT INTO `presensi_harian` VALUES (208, 36, 306, 'M', '', '2021-08-05', '2021-08-05 11:36:55', 3, 29);
+INSERT INTO `presensi_harian` VALUES (209, 36, 307, 'M', '', '2021-08-05', '2021-08-05 11:36:55', 3, 29);
+INSERT INTO `presensi_harian` VALUES (210, 36, 308, 'M', '', '2021-08-05', '2021-08-05 11:36:56', 3, 29);
+INSERT INTO `presensi_harian` VALUES (211, 36, 309, 'I', '', '2021-08-05', '2021-08-05 11:36:56', 3, 29);
+INSERT INTO `presensi_harian` VALUES (212, 36, 310, 'M', '', '2021-08-05', '2021-08-05 11:36:56', 3, 29);
+INSERT INTO `presensi_harian` VALUES (213, 36, 311, 'M', '', '2021-08-05', '2021-08-05 11:36:56', 3, 29);
+INSERT INTO `presensi_harian` VALUES (214, 36, 312, 'M', '', '2021-08-05', '2021-08-05 11:36:56', 3, 29);
+INSERT INTO `presensi_harian` VALUES (215, 36, 313, 'M', '', '2021-08-05', '2021-08-05 11:36:56', 3, 29);
+INSERT INTO `presensi_harian` VALUES (216, 32, 293, 'M', '', '2021-08-05', '2021-08-05 11:37:43', 3, 29);
+INSERT INTO `presensi_harian` VALUES (217, 32, 294, 'M', '', '2021-08-05', '2021-08-05 11:37:43', 3, 29);
+INSERT INTO `presensi_harian` VALUES (218, 32, 295, 'M', '', '2021-08-05', '2021-08-05 11:37:43', 3, 29);
+INSERT INTO `presensi_harian` VALUES (219, 32, 296, 'M', '', '2021-08-05', '2021-08-05 11:37:43', 3, 29);
+INSERT INTO `presensi_harian` VALUES (220, 32, 297, 'A', '', '2021-08-05', '2021-08-05 11:37:43', 3, 29);
+INSERT INTO `presensi_harian` VALUES (221, 32, 298, 'A', '', '2021-08-05', '2021-08-05 11:37:43', 3, 29);
+INSERT INTO `presensi_harian` VALUES (222, 32, 299, 'M', '', '2021-08-05', '2021-08-05 11:37:43', 3, 29);
+INSERT INTO `presensi_harian` VALUES (223, 32, 300, 'M', '', '2021-08-05', '2021-08-05 11:37:43', 3, 29);
+INSERT INTO `presensi_harian` VALUES (224, 32, 301, 'I', '', '2021-08-05', '2021-08-05 11:37:43', 3, 29);
+INSERT INTO `presensi_harian` VALUES (225, 32, 302, 'M', '', '2021-08-05', '2021-08-05 11:37:43', 3, 29);
+INSERT INTO `presensi_harian` VALUES (226, 32, 303, 'M', '', '2021-08-05', '2021-08-05 11:37:43', 3, 29);
+INSERT INTO `presensi_harian` VALUES (227, 32, 304, 'M', '', '2021-08-05', '2021-08-05 11:37:43', 3, 29);
+INSERT INTO `presensi_harian` VALUES (228, 32, 305, 'M', '', '2021-08-05', '2021-08-05 11:37:43', 3, 29);
+INSERT INTO `presensi_harian` VALUES (229, 32, 306, 'M', '', '2021-08-05', '2021-08-05 11:37:44', 3, 29);
+INSERT INTO `presensi_harian` VALUES (230, 32, 307, 'M', '', '2021-08-05', '2021-08-05 11:37:44', 3, 29);
+INSERT INTO `presensi_harian` VALUES (231, 32, 308, 'M', '', '2021-08-05', '2021-08-05 11:37:44', 3, 29);
+INSERT INTO `presensi_harian` VALUES (232, 32, 309, 'I', '', '2021-08-05', '2021-08-05 11:37:44', 3, 29);
+INSERT INTO `presensi_harian` VALUES (233, 32, 310, 'M', '', '2021-08-05', '2021-08-05 11:37:44', 3, 29);
+INSERT INTO `presensi_harian` VALUES (234, 32, 311, 'M', '', '2021-08-05', '2021-08-05 11:37:44', 3, 29);
+INSERT INTO `presensi_harian` VALUES (235, 32, 312, 'M', '', '2021-08-05', '2021-08-05 11:37:44', 3, 29);
+INSERT INTO `presensi_harian` VALUES (236, 32, 313, 'M', '', '2021-08-05', '2021-08-05 11:37:44', 3, 29);
+INSERT INTO `presensi_harian` VALUES (237, 86, 293, 'M', '', '2021-08-05', '2021-08-05 11:38:05', 3, 29);
+INSERT INTO `presensi_harian` VALUES (238, 86, 294, 'M', '', '2021-08-05', '2021-08-05 11:38:06', 3, 29);
+INSERT INTO `presensi_harian` VALUES (239, 86, 295, 'M', '', '2021-08-05', '2021-08-05 11:38:06', 3, 29);
+INSERT INTO `presensi_harian` VALUES (240, 86, 296, 'M', '', '2021-08-05', '2021-08-05 11:38:06', 3, 29);
+INSERT INTO `presensi_harian` VALUES (241, 86, 297, 'A', '', '2021-08-05', '2021-08-05 11:38:06', 3, 29);
+INSERT INTO `presensi_harian` VALUES (242, 86, 298, 'A', '', '2021-08-05', '2021-08-05 11:38:06', 3, 29);
+INSERT INTO `presensi_harian` VALUES (243, 86, 299, 'M', '', '2021-08-05', '2021-08-05 11:38:06', 3, 29);
+INSERT INTO `presensi_harian` VALUES (244, 86, 300, 'M', '', '2021-08-05', '2021-08-05 11:38:06', 3, 29);
+INSERT INTO `presensi_harian` VALUES (245, 86, 301, 'I', '', '2021-08-05', '2021-08-05 11:38:06', 3, 29);
+INSERT INTO `presensi_harian` VALUES (246, 86, 302, 'M', '', '2021-08-05', '2021-08-05 11:38:06', 3, 29);
+INSERT INTO `presensi_harian` VALUES (247, 86, 303, 'M', '', '2021-08-05', '2021-08-05 11:38:06', 3, 29);
+INSERT INTO `presensi_harian` VALUES (248, 86, 304, 'M', '', '2021-08-05', '2021-08-05 11:38:06', 3, 29);
+INSERT INTO `presensi_harian` VALUES (249, 86, 305, 'M', '', '2021-08-05', '2021-08-05 11:38:06', 3, 29);
+INSERT INTO `presensi_harian` VALUES (250, 86, 306, 'M', '', '2021-08-05', '2021-08-05 11:38:06', 3, 29);
+INSERT INTO `presensi_harian` VALUES (251, 86, 307, 'M', '', '2021-08-05', '2021-08-05 11:38:06', 3, 29);
+INSERT INTO `presensi_harian` VALUES (252, 86, 308, 'M', '', '2021-08-05', '2021-08-05 11:38:07', 3, 29);
+INSERT INTO `presensi_harian` VALUES (253, 86, 309, 'I', '', '2021-08-05', '2021-08-05 11:38:07', 3, 29);
+INSERT INTO `presensi_harian` VALUES (254, 86, 310, 'M', '', '2021-08-05', '2021-08-05 11:38:07', 3, 29);
+INSERT INTO `presensi_harian` VALUES (255, 86, 311, 'M', '', '2021-08-05', '2021-08-05 11:38:07', 3, 29);
+INSERT INTO `presensi_harian` VALUES (256, 86, 312, 'M', '', '2021-08-05', '2021-08-05 11:38:07', 3, 29);
+INSERT INTO `presensi_harian` VALUES (257, 86, 313, 'M', '', '2021-08-05', '2021-08-05 11:38:07', 3, 29);
+INSERT INTO `presensi_harian` VALUES (258, 36, 275, 'M', '', '2021-08-05', '2021-08-05 11:42:04', 3, 28);
+INSERT INTO `presensi_harian` VALUES (259, 36, 276, 'M', '', '2021-08-05', '2021-08-05 11:42:04', 3, 28);
+INSERT INTO `presensi_harian` VALUES (260, 36, 277, 'M', '', '2021-08-05', '2021-08-05 11:42:04', 3, 28);
+INSERT INTO `presensi_harian` VALUES (261, 36, 278, 'M', '', '2021-08-05', '2021-08-05 11:42:04', 3, 28);
+INSERT INTO `presensi_harian` VALUES (262, 36, 279, 'M', '', '2021-08-05', '2021-08-05 11:42:04', 3, 28);
+INSERT INTO `presensi_harian` VALUES (263, 36, 280, 'M', '', '2021-08-05', '2021-08-05 11:42:04', 3, 28);
+INSERT INTO `presensi_harian` VALUES (264, 36, 281, 'M', '', '2021-08-05', '2021-08-05 11:42:04', 3, 28);
+INSERT INTO `presensi_harian` VALUES (265, 36, 282, 'M', '', '2021-08-05', '2021-08-05 11:42:04', 3, 28);
+INSERT INTO `presensi_harian` VALUES (266, 36, 283, 'M', '', '2021-08-05', '2021-08-05 11:42:05', 3, 28);
+INSERT INTO `presensi_harian` VALUES (267, 36, 284, 'M', '', '2021-08-05', '2021-08-05 11:42:05', 3, 28);
+INSERT INTO `presensi_harian` VALUES (268, 36, 285, 'M', '', '2021-08-05', '2021-08-05 11:42:05', 3, 28);
+INSERT INTO `presensi_harian` VALUES (269, 36, 286, 'M', '', '2021-08-05', '2021-08-05 11:42:05', 3, 28);
+INSERT INTO `presensi_harian` VALUES (270, 36, 287, 'M', '', '2021-08-05', '2021-08-05 11:42:05', 3, 28);
+INSERT INTO `presensi_harian` VALUES (271, 36, 288, 'M', '', '2021-08-05', '2021-08-05 11:42:05', 3, 28);
+INSERT INTO `presensi_harian` VALUES (272, 36, 289, 'M', '', '2021-08-05', '2021-08-05 11:42:05', 3, 28);
+INSERT INTO `presensi_harian` VALUES (273, 36, 290, 'A', '', '2021-08-05', '2021-08-05 11:42:05', 3, 28);
+INSERT INTO `presensi_harian` VALUES (274, 36, 291, 'M', '', '2021-08-05', '2021-08-05 11:42:05', 3, 28);
+INSERT INTO `presensi_harian` VALUES (275, 36, 292, 'M', '', '2021-08-05', '2021-08-05 11:42:05', 3, 28);
+INSERT INTO `presensi_harian` VALUES (276, 86, 275, 'M', '', '2021-08-05', '2021-08-05 11:42:38', 3, 28);
+INSERT INTO `presensi_harian` VALUES (277, 86, 276, 'M', '', '2021-08-05', '2021-08-05 11:42:39', 3, 28);
+INSERT INTO `presensi_harian` VALUES (278, 86, 277, 'M', '', '2021-08-05', '2021-08-05 11:42:39', 3, 28);
+INSERT INTO `presensi_harian` VALUES (279, 86, 278, 'M', '', '2021-08-05', '2021-08-05 11:42:39', 3, 28);
+INSERT INTO `presensi_harian` VALUES (280, 86, 279, 'M', '', '2021-08-05', '2021-08-05 11:42:39', 3, 28);
+INSERT INTO `presensi_harian` VALUES (281, 86, 280, 'M', '', '2021-08-05', '2021-08-05 11:42:39', 3, 28);
+INSERT INTO `presensi_harian` VALUES (282, 86, 281, 'M', '', '2021-08-05', '2021-08-05 11:42:39', 3, 28);
+INSERT INTO `presensi_harian` VALUES (283, 86, 282, 'M', '', '2021-08-05', '2021-08-05 11:42:39', 3, 28);
+INSERT INTO `presensi_harian` VALUES (284, 86, 283, 'M', '', '2021-08-05', '2021-08-05 11:42:39', 3, 28);
+INSERT INTO `presensi_harian` VALUES (285, 86, 284, 'M', '', '2021-08-05', '2021-08-05 11:42:39', 3, 28);
+INSERT INTO `presensi_harian` VALUES (286, 86, 285, 'M', '', '2021-08-05', '2021-08-05 11:42:39', 3, 28);
+INSERT INTO `presensi_harian` VALUES (287, 86, 286, 'M', '', '2021-08-05', '2021-08-05 11:42:39', 3, 28);
+INSERT INTO `presensi_harian` VALUES (288, 86, 287, 'M', '', '2021-08-05', '2021-08-05 11:42:39', 3, 28);
+INSERT INTO `presensi_harian` VALUES (289, 86, 288, 'M', '', '2021-08-05', '2021-08-05 11:42:39', 3, 28);
+INSERT INTO `presensi_harian` VALUES (290, 86, 289, 'M', '', '2021-08-05', '2021-08-05 11:42:39', 3, 28);
+INSERT INTO `presensi_harian` VALUES (291, 86, 290, 'A', '', '2021-08-05', '2021-08-05 11:42:39', 3, 28);
+INSERT INTO `presensi_harian` VALUES (292, 86, 291, 'M', '', '2021-08-05', '2021-08-05 11:42:39', 3, 28);
+INSERT INTO `presensi_harian` VALUES (293, 86, 292, 'M', '', '2021-08-05', '2021-08-05 11:42:39', 3, 28);
+INSERT INTO `presensi_harian` VALUES (294, 43, 275, 'M', '', '2021-08-05', '2021-08-05 11:42:57', 3, 28);
+INSERT INTO `presensi_harian` VALUES (295, 43, 276, 'M', '', '2021-08-05', '2021-08-05 11:42:57', 3, 28);
+INSERT INTO `presensi_harian` VALUES (296, 43, 277, 'M', '', '2021-08-05', '2021-08-05 11:42:57', 3, 28);
+INSERT INTO `presensi_harian` VALUES (297, 43, 278, 'M', '', '2021-08-05', '2021-08-05 11:42:58', 3, 28);
+INSERT INTO `presensi_harian` VALUES (298, 43, 279, 'M', '', '2021-08-05', '2021-08-05 11:42:58', 3, 28);
+INSERT INTO `presensi_harian` VALUES (299, 43, 280, 'M', '', '2021-08-05', '2021-08-05 11:42:58', 3, 28);
+INSERT INTO `presensi_harian` VALUES (300, 43, 281, 'M', '', '2021-08-05', '2021-08-05 11:42:58', 3, 28);
+INSERT INTO `presensi_harian` VALUES (301, 43, 282, 'M', '', '2021-08-05', '2021-08-05 11:42:58', 3, 28);
+INSERT INTO `presensi_harian` VALUES (302, 43, 283, 'M', '', '2021-08-05', '2021-08-05 11:42:58', 3, 28);
+INSERT INTO `presensi_harian` VALUES (303, 43, 284, 'M', '', '2021-08-05', '2021-08-05 11:42:58', 3, 28);
+INSERT INTO `presensi_harian` VALUES (304, 43, 285, 'M', '', '2021-08-05', '2021-08-05 11:42:58', 3, 28);
+INSERT INTO `presensi_harian` VALUES (305, 43, 286, 'M', '', '2021-08-05', '2021-08-05 11:42:58', 3, 28);
+INSERT INTO `presensi_harian` VALUES (306, 43, 287, 'M', '', '2021-08-05', '2021-08-05 11:42:58', 3, 28);
+INSERT INTO `presensi_harian` VALUES (307, 43, 288, 'M', '', '2021-08-05', '2021-08-05 11:42:58', 3, 28);
+INSERT INTO `presensi_harian` VALUES (308, 43, 289, 'M', '', '2021-08-05', '2021-08-05 11:42:58', 3, 28);
+INSERT INTO `presensi_harian` VALUES (309, 43, 290, 'A', '', '2021-08-05', '2021-08-05 11:42:59', 3, 28);
+INSERT INTO `presensi_harian` VALUES (310, 43, 291, 'M', '', '2021-08-05', '2021-08-05 11:42:59', 3, 28);
+INSERT INTO `presensi_harian` VALUES (311, 43, 292, 'M', '', '2021-08-05', '2021-08-05 11:42:59', 3, 28);
+INSERT INTO `presensi_harian` VALUES (312, 44, 402, 'M', '', '2021-08-05', '2021-08-05 11:48:14', 3, 33);
+INSERT INTO `presensi_harian` VALUES (313, 44, 403, 'M', '', '2021-08-05', '2021-08-05 11:48:14', 3, 33);
+INSERT INTO `presensi_harian` VALUES (314, 44, 404, 'S', '', '2021-08-05', '2021-08-05 11:48:14', 3, 33);
+INSERT INTO `presensi_harian` VALUES (315, 44, 405, 'M', '', '2021-08-05', '2021-08-05 11:48:14', 3, 33);
+INSERT INTO `presensi_harian` VALUES (316, 44, 406, 'M', '', '2021-08-05', '2021-08-05 11:48:15', 3, 33);
+INSERT INTO `presensi_harian` VALUES (317, 44, 407, 'M', '', '2021-08-05', '2021-08-05 11:48:15', 3, 33);
+INSERT INTO `presensi_harian` VALUES (318, 44, 408, 'M', '', '2021-08-05', '2021-08-05 11:48:15', 3, 33);
+INSERT INTO `presensi_harian` VALUES (319, 44, 409, 'M', '', '2021-08-05', '2021-08-05 11:48:15', 3, 33);
+INSERT INTO `presensi_harian` VALUES (320, 44, 410, 'M', '', '2021-08-05', '2021-08-05 11:48:15', 3, 33);
+INSERT INTO `presensi_harian` VALUES (321, 44, 411, 'M', '', '2021-08-05', '2021-08-05 11:48:15', 3, 33);
+INSERT INTO `presensi_harian` VALUES (322, 44, 412, 'M', '', '2021-08-05', '2021-08-05 11:48:15', 3, 33);
+INSERT INTO `presensi_harian` VALUES (323, 44, 413, 'A', '', '2021-08-05', '2021-08-05 11:48:15', 3, 33);
+INSERT INTO `presensi_harian` VALUES (324, 44, 414, 'M', '', '2021-08-05', '2021-08-05 11:48:15', 3, 33);
+INSERT INTO `presensi_harian` VALUES (325, 44, 415, 'M', '', '2021-08-05', '2021-08-05 11:48:15', 3, 33);
+INSERT INTO `presensi_harian` VALUES (326, 44, 416, 'A', '', '2021-08-05', '2021-08-05 11:48:15', 3, 33);
+INSERT INTO `presensi_harian` VALUES (327, 44, 417, 'M', '', '2021-08-05', '2021-08-05 11:48:15', 3, 33);
+INSERT INTO `presensi_harian` VALUES (328, 44, 418, 'M', '', '2021-08-05', '2021-08-05 11:48:15', 3, 33);
+INSERT INTO `presensi_harian` VALUES (329, 44, 419, 'M', '', '2021-08-05', '2021-08-05 11:48:15', 3, 33);
+INSERT INTO `presensi_harian` VALUES (330, 44, 420, 'M', '', '2021-08-05', '2021-08-05 11:48:15', 3, 33);
+INSERT INTO `presensi_harian` VALUES (331, 44, 421, 'M', '', '2021-08-05', '2021-08-05 11:48:15', 3, 33);
+INSERT INTO `presensi_harian` VALUES (332, 44, 422, 'M', '', '2021-08-05', '2021-08-05 11:48:15', 3, 33);
+INSERT INTO `presensi_harian` VALUES (333, 44, 423, 'M', '', '2021-08-05', '2021-08-05 11:48:16', 3, 33);
+INSERT INTO `presensi_harian` VALUES (334, 44, 424, 'M', '', '2021-08-05', '2021-08-05 11:48:16', 3, 33);
+INSERT INTO `presensi_harian` VALUES (335, 84, 402, 'M', '', '2021-08-05', '2021-08-05 11:48:41', 3, 33);
+INSERT INTO `presensi_harian` VALUES (336, 84, 403, 'M', '', '2021-08-05', '2021-08-05 11:48:41', 3, 33);
+INSERT INTO `presensi_harian` VALUES (337, 84, 404, 'S', '', '2021-08-05', '2021-08-05 11:48:41', 3, 33);
+INSERT INTO `presensi_harian` VALUES (338, 84, 405, 'M', '', '2021-08-05', '2021-08-05 11:48:41', 3, 33);
+INSERT INTO `presensi_harian` VALUES (339, 84, 406, 'M', '', '2021-08-05', '2021-08-05 11:48:41', 3, 33);
+INSERT INTO `presensi_harian` VALUES (340, 84, 407, 'M', '', '2021-08-05', '2021-08-05 11:48:42', 3, 33);
+INSERT INTO `presensi_harian` VALUES (341, 84, 408, 'M', '', '2021-08-05', '2021-08-05 11:48:42', 3, 33);
+INSERT INTO `presensi_harian` VALUES (342, 84, 409, 'M', '', '2021-08-05', '2021-08-05 11:48:42', 3, 33);
+INSERT INTO `presensi_harian` VALUES (343, 84, 410, 'M', '', '2021-08-05', '2021-08-05 11:48:42', 3, 33);
+INSERT INTO `presensi_harian` VALUES (344, 84, 411, 'M', '', '2021-08-05', '2021-08-05 11:48:42', 3, 33);
+INSERT INTO `presensi_harian` VALUES (345, 84, 412, 'M', '', '2021-08-05', '2021-08-05 11:48:42', 3, 33);
+INSERT INTO `presensi_harian` VALUES (346, 84, 413, 'A', '', '2021-08-05', '2021-08-05 11:48:42', 3, 33);
+INSERT INTO `presensi_harian` VALUES (347, 84, 414, 'M', '', '2021-08-05', '2021-08-05 11:48:42', 3, 33);
+INSERT INTO `presensi_harian` VALUES (348, 84, 415, 'M', '', '2021-08-05', '2021-08-05 11:48:42', 3, 33);
+INSERT INTO `presensi_harian` VALUES (349, 84, 416, 'A', '', '2021-08-05', '2021-08-05 11:48:42', 3, 33);
+INSERT INTO `presensi_harian` VALUES (350, 84, 417, 'M', '', '2021-08-05', '2021-08-05 11:48:42', 3, 33);
+INSERT INTO `presensi_harian` VALUES (351, 84, 418, 'M', '', '2021-08-05', '2021-08-05 11:48:42', 3, 33);
+INSERT INTO `presensi_harian` VALUES (352, 84, 419, 'M', '', '2021-08-05', '2021-08-05 11:48:42', 3, 33);
+INSERT INTO `presensi_harian` VALUES (353, 84, 420, 'M', '', '2021-08-05', '2021-08-05 11:48:42', 3, 33);
+INSERT INTO `presensi_harian` VALUES (354, 84, 421, 'M', '', '2021-08-05', '2021-08-05 11:48:42', 3, 33);
+INSERT INTO `presensi_harian` VALUES (355, 84, 422, 'M', '', '2021-08-05', '2021-08-05 11:48:43', 3, 33);
+INSERT INTO `presensi_harian` VALUES (356, 84, 423, 'M', '', '2021-08-05', '2021-08-05 11:48:43', 3, 33);
+INSERT INTO `presensi_harian` VALUES (357, 84, 424, 'M', '', '2021-08-05', '2021-08-05 11:48:43', 3, 33);
+INSERT INTO `presensi_harian` VALUES (358, 86, 402, 'M', '', '2021-08-05', '2021-08-05 11:49:07', 3, 33);
+INSERT INTO `presensi_harian` VALUES (359, 86, 403, 'M', '', '2021-08-05', '2021-08-05 11:49:07', 3, 33);
+INSERT INTO `presensi_harian` VALUES (360, 86, 404, 'S', '', '2021-08-05', '2021-08-05 11:49:07', 3, 33);
+INSERT INTO `presensi_harian` VALUES (361, 86, 405, 'M', '', '2021-08-05', '2021-08-05 11:49:07', 3, 33);
+INSERT INTO `presensi_harian` VALUES (362, 86, 406, 'M', '', '2021-08-05', '2021-08-05 11:49:07', 3, 33);
+INSERT INTO `presensi_harian` VALUES (363, 86, 407, 'M', '', '2021-08-05', '2021-08-05 11:49:07', 3, 33);
+INSERT INTO `presensi_harian` VALUES (364, 86, 408, 'M', '', '2021-08-05', '2021-08-05 11:49:07', 3, 33);
+INSERT INTO `presensi_harian` VALUES (365, 86, 409, 'M', '', '2021-08-05', '2021-08-05 11:49:07', 3, 33);
+INSERT INTO `presensi_harian` VALUES (366, 86, 410, 'M', '', '2021-08-05', '2021-08-05 11:49:07', 3, 33);
+INSERT INTO `presensi_harian` VALUES (367, 86, 411, 'M', '', '2021-08-05', '2021-08-05 11:49:07', 3, 33);
+INSERT INTO `presensi_harian` VALUES (368, 86, 412, 'M', '', '2021-08-05', '2021-08-05 11:49:08', 3, 33);
+INSERT INTO `presensi_harian` VALUES (369, 86, 413, 'A', '', '2021-08-05', '2021-08-05 11:49:08', 3, 33);
+INSERT INTO `presensi_harian` VALUES (370, 86, 414, 'M', '', '2021-08-05', '2021-08-05 11:49:08', 3, 33);
+INSERT INTO `presensi_harian` VALUES (371, 86, 415, 'M', '', '2021-08-05', '2021-08-05 11:49:08', 3, 33);
+INSERT INTO `presensi_harian` VALUES (372, 86, 416, 'A', '', '2021-08-05', '2021-08-05 11:49:08', 3, 33);
+INSERT INTO `presensi_harian` VALUES (373, 86, 417, 'M', '', '2021-08-05', '2021-08-05 11:49:08', 3, 33);
+INSERT INTO `presensi_harian` VALUES (374, 86, 418, 'M', '', '2021-08-05', '2021-08-05 11:49:08', 3, 33);
+INSERT INTO `presensi_harian` VALUES (375, 86, 419, 'M', '', '2021-08-05', '2021-08-05 11:49:08', 3, 33);
+INSERT INTO `presensi_harian` VALUES (376, 86, 420, 'M', '', '2021-08-05', '2021-08-05 11:49:08', 3, 33);
+INSERT INTO `presensi_harian` VALUES (377, 86, 421, 'M', '', '2021-08-05', '2021-08-05 11:49:08', 3, 33);
+INSERT INTO `presensi_harian` VALUES (378, 86, 422, 'M', '', '2021-08-05', '2021-08-05 11:49:08', 3, 33);
+INSERT INTO `presensi_harian` VALUES (379, 86, 423, 'M', '', '2021-08-05', '2021-08-05 11:49:08', 3, 33);
+INSERT INTO `presensi_harian` VALUES (380, 86, 424, 'M', '', '2021-08-05', '2021-08-05 11:49:08', 3, 33);
+INSERT INTO `presensi_harian` VALUES (381, 32, 314, 'M', '', '2021-08-05', '2021-08-05 11:53:06', 3, 30);
+INSERT INTO `presensi_harian` VALUES (382, 32, 315, 'A', '', '2021-08-05', '2021-08-05 11:53:07', 3, 30);
+INSERT INTO `presensi_harian` VALUES (383, 32, 316, 'M', '', '2021-08-05', '2021-08-05 11:53:07', 3, 30);
+INSERT INTO `presensi_harian` VALUES (384, 32, 317, 'A', '', '2021-08-05', '2021-08-05 11:53:07', 3, 30);
+INSERT INTO `presensi_harian` VALUES (385, 32, 318, 'M', '', '2021-08-05', '2021-08-05 11:53:07', 3, 30);
+INSERT INTO `presensi_harian` VALUES (386, 32, 319, 'M', '', '2021-08-05', '2021-08-05 11:53:07', 3, 30);
+INSERT INTO `presensi_harian` VALUES (387, 32, 320, 'M', '', '2021-08-05', '2021-08-05 11:53:07', 3, 30);
+INSERT INTO `presensi_harian` VALUES (388, 32, 321, 'M', '', '2021-08-05', '2021-08-05 11:53:07', 3, 30);
+INSERT INTO `presensi_harian` VALUES (389, 32, 322, 'M', '', '2021-08-05', '2021-08-05 11:53:07', 3, 30);
+INSERT INTO `presensi_harian` VALUES (390, 32, 323, 'M', '', '2021-08-05', '2021-08-05 11:53:07', 3, 30);
+INSERT INTO `presensi_harian` VALUES (391, 32, 324, 'M', '', '2021-08-05', '2021-08-05 11:53:07', 3, 30);
+INSERT INTO `presensi_harian` VALUES (392, 32, 325, 'M', '', '2021-08-05', '2021-08-05 11:53:07', 3, 30);
+INSERT INTO `presensi_harian` VALUES (393, 32, 326, 'M', '', '2021-08-05', '2021-08-05 11:53:07', 3, 30);
+INSERT INTO `presensi_harian` VALUES (394, 32, 327, 'M', '', '2021-08-05', '2021-08-05 11:53:07', 3, 30);
+INSERT INTO `presensi_harian` VALUES (395, 32, 328, 'M', '', '2021-08-05', '2021-08-05 11:53:07', 3, 30);
+INSERT INTO `presensi_harian` VALUES (396, 32, 329, 'A', '', '2021-08-05', '2021-08-05 11:53:08', 3, 30);
+INSERT INTO `presensi_harian` VALUES (397, 32, 330, 'A', '', '2021-08-05', '2021-08-05 11:53:08', 3, 30);
+INSERT INTO `presensi_harian` VALUES (398, 32, 331, 'M', '', '2021-08-05', '2021-08-05 11:53:08', 3, 30);
+INSERT INTO `presensi_harian` VALUES (399, 32, 332, 'A', '', '2021-08-05', '2021-08-05 11:53:08', 3, 30);
+INSERT INTO `presensi_harian` VALUES (400, 32, 333, 'A', '', '2021-08-05', '2021-08-05 11:53:08', 3, 30);
+INSERT INTO `presensi_harian` VALUES (401, 32, 334, 'A', '', '2021-08-05', '2021-08-05 11:53:08', 3, 30);
+INSERT INTO `presensi_harian` VALUES (402, 32, 497, 'M', '', '2021-08-05', '2021-08-05 11:54:08', 3, 26);
+INSERT INTO `presensi_harian` VALUES (403, 32, 498, 'M', '', '2021-08-05', '2021-08-05 11:54:08', 3, 26);
+INSERT INTO `presensi_harian` VALUES (404, 32, 499, 'M', '', '2021-08-05', '2021-08-05 11:54:08', 3, 26);
+INSERT INTO `presensi_harian` VALUES (405, 32, 500, 'M', '', '2021-08-05', '2021-08-05 11:54:08', 3, 26);
+INSERT INTO `presensi_harian` VALUES (406, 32, 501, 'M', '', '2021-08-05', '2021-08-05 11:54:08', 3, 26);
+INSERT INTO `presensi_harian` VALUES (407, 32, 502, 'M', '', '2021-08-05', '2021-08-05 11:54:08', 3, 26);
+INSERT INTO `presensi_harian` VALUES (408, 32, 503, 'M', '', '2021-08-05', '2021-08-05 11:54:08', 3, 26);
+INSERT INTO `presensi_harian` VALUES (409, 32, 504, 'M', '', '2021-08-05', '2021-08-05 11:54:08', 3, 26);
+INSERT INTO `presensi_harian` VALUES (410, 32, 505, 'M', '', '2021-08-05', '2021-08-05 11:54:08', 3, 26);
+INSERT INTO `presensi_harian` VALUES (411, 32, 506, 'M', '', '2021-08-05', '2021-08-05 11:54:08', 3, 26);
+INSERT INTO `presensi_harian` VALUES (412, 32, 507, 'M', '', '2021-08-05', '2021-08-05 11:54:08', 3, 26);
+INSERT INTO `presensi_harian` VALUES (413, 32, 508, 'M', '', '2021-08-05', '2021-08-05 11:54:08', 3, 26);
+INSERT INTO `presensi_harian` VALUES (414, 32, 509, 'M', '', '2021-08-05', '2021-08-05 11:54:08', 3, 26);
+INSERT INTO `presensi_harian` VALUES (415, 32, 510, 'M', '', '2021-08-05', '2021-08-05 11:54:08', 3, 26);
+INSERT INTO `presensi_harian` VALUES (416, 32, 511, 'M', '', '2021-08-05', '2021-08-05 11:54:08', 3, 26);
+INSERT INTO `presensi_harian` VALUES (417, 40, 497, 'M', '', '2021-08-05', '2021-08-05 11:54:32', 3, 26);
+INSERT INTO `presensi_harian` VALUES (418, 40, 498, 'M', '', '2021-08-05', '2021-08-05 11:54:32', 3, 26);
+INSERT INTO `presensi_harian` VALUES (419, 40, 499, 'M', '', '2021-08-05', '2021-08-05 11:54:32', 3, 26);
+INSERT INTO `presensi_harian` VALUES (420, 40, 500, 'M', '', '2021-08-05', '2021-08-05 11:54:33', 3, 26);
+INSERT INTO `presensi_harian` VALUES (421, 40, 501, 'M', '', '2021-08-05', '2021-08-05 11:54:33', 3, 26);
+INSERT INTO `presensi_harian` VALUES (422, 40, 502, 'M', '', '2021-08-05', '2021-08-05 11:54:33', 3, 26);
+INSERT INTO `presensi_harian` VALUES (423, 40, 503, 'M', '', '2021-08-05', '2021-08-05 11:54:33', 3, 26);
+INSERT INTO `presensi_harian` VALUES (424, 40, 504, 'M', '', '2021-08-05', '2021-08-05 11:54:33', 3, 26);
+INSERT INTO `presensi_harian` VALUES (425, 40, 505, 'M', '', '2021-08-05', '2021-08-05 11:54:33', 3, 26);
+INSERT INTO `presensi_harian` VALUES (426, 40, 506, 'M', '', '2021-08-05', '2021-08-05 11:54:33', 3, 26);
+INSERT INTO `presensi_harian` VALUES (427, 40, 507, 'M', '', '2021-08-05', '2021-08-05 11:54:33', 3, 26);
+INSERT INTO `presensi_harian` VALUES (428, 40, 508, 'M', '', '2021-08-05', '2021-08-05 11:54:33', 3, 26);
+INSERT INTO `presensi_harian` VALUES (429, 40, 509, 'M', '', '2021-08-05', '2021-08-05 11:54:33', 3, 26);
+INSERT INTO `presensi_harian` VALUES (430, 40, 510, 'M', '', '2021-08-05', '2021-08-05 11:54:33', 3, 26);
+INSERT INTO `presensi_harian` VALUES (431, 40, 511, 'M', '', '2021-08-05', '2021-08-05 11:54:33', 3, 26);
+INSERT INTO `presensi_harian` VALUES (432, 63, 497, 'M', '', '2021-08-05', '2021-08-05 11:54:41', 3, 26);
+INSERT INTO `presensi_harian` VALUES (433, 63, 498, 'M', '', '2021-08-05', '2021-08-05 11:54:41', 3, 26);
+INSERT INTO `presensi_harian` VALUES (434, 63, 499, 'M', '', '2021-08-05', '2021-08-05 11:54:41', 3, 26);
+INSERT INTO `presensi_harian` VALUES (435, 63, 500, 'M', '', '2021-08-05', '2021-08-05 11:54:41', 3, 26);
+INSERT INTO `presensi_harian` VALUES (436, 63, 501, 'M', '', '2021-08-05', '2021-08-05 11:54:41', 3, 26);
+INSERT INTO `presensi_harian` VALUES (437, 63, 502, 'M', '', '2021-08-05', '2021-08-05 11:54:41', 3, 26);
+INSERT INTO `presensi_harian` VALUES (438, 63, 503, 'M', '', '2021-08-05', '2021-08-05 11:54:41', 3, 26);
+INSERT INTO `presensi_harian` VALUES (439, 63, 504, 'M', '', '2021-08-05', '2021-08-05 11:54:41', 3, 26);
+INSERT INTO `presensi_harian` VALUES (440, 63, 505, 'M', '', '2021-08-05', '2021-08-05 11:54:41', 3, 26);
+INSERT INTO `presensi_harian` VALUES (441, 63, 506, 'M', '', '2021-08-05', '2021-08-05 11:54:42', 3, 26);
+INSERT INTO `presensi_harian` VALUES (442, 63, 507, 'M', '', '2021-08-05', '2021-08-05 11:54:42', 3, 26);
+INSERT INTO `presensi_harian` VALUES (443, 63, 508, 'M', '', '2021-08-05', '2021-08-05 11:54:42', 3, 26);
+INSERT INTO `presensi_harian` VALUES (444, 63, 509, 'M', '', '2021-08-05', '2021-08-05 11:54:42', 3, 26);
+INSERT INTO `presensi_harian` VALUES (445, 63, 510, 'M', '', '2021-08-05', '2021-08-05 11:54:42', 3, 26);
+INSERT INTO `presensi_harian` VALUES (446, 63, 511, 'M', '', '2021-08-05', '2021-08-05 11:54:42', 3, 26);
+INSERT INTO `presensi_harian` VALUES (447, 69, 335, 'M', '', '2021-08-05', '2021-08-05 11:55:03', 3, 31);
+INSERT INTO `presensi_harian` VALUES (448, 69, 336, 'A', '', '2021-08-05', '2021-08-05 11:55:03', 3, 31);
+INSERT INTO `presensi_harian` VALUES (449, 69, 337, 'M', '', '2021-08-05', '2021-08-05 11:55:03', 3, 31);
+INSERT INTO `presensi_harian` VALUES (450, 69, 338, 'M', '', '2021-08-05', '2021-08-05 11:55:03', 3, 31);
+INSERT INTO `presensi_harian` VALUES (451, 69, 339, 'M', '', '2021-08-05', '2021-08-05 11:55:03', 3, 31);
+INSERT INTO `presensi_harian` VALUES (452, 69, 340, 'M', '', '2021-08-05', '2021-08-05 11:55:03', 3, 31);
+INSERT INTO `presensi_harian` VALUES (453, 69, 341, 'M', '', '2021-08-05', '2021-08-05 11:55:03', 3, 31);
+INSERT INTO `presensi_harian` VALUES (454, 36, 335, 'M', '', '2021-08-05', '2021-08-05 11:55:13', 3, 31);
+INSERT INTO `presensi_harian` VALUES (455, 36, 336, 'A', '', '2021-08-05', '2021-08-05 11:55:13', 3, 31);
+INSERT INTO `presensi_harian` VALUES (456, 36, 337, 'M', '', '2021-08-05', '2021-08-05 11:55:13', 3, 31);
+INSERT INTO `presensi_harian` VALUES (457, 36, 338, 'M', '', '2021-08-05', '2021-08-05 11:55:13', 3, 31);
+INSERT INTO `presensi_harian` VALUES (458, 36, 339, 'M', '', '2021-08-05', '2021-08-05 11:55:13', 3, 31);
+INSERT INTO `presensi_harian` VALUES (459, 36, 340, 'M', '', '2021-08-05', '2021-08-05 11:55:13', 3, 31);
+INSERT INTO `presensi_harian` VALUES (460, 36, 341, 'M', '', '2021-08-05', '2021-08-05 11:55:13', 3, 31);
+INSERT INTO `presensi_harian` VALUES (461, 32, 335, 'M', '', '2021-08-05', '2021-08-05 11:55:24', 3, 31);
+INSERT INTO `presensi_harian` VALUES (462, 32, 336, 'A', '', '2021-08-05', '2021-08-05 11:55:25', 3, 31);
+INSERT INTO `presensi_harian` VALUES (463, 32, 337, 'M', '', '2021-08-05', '2021-08-05 11:55:25', 3, 31);
+INSERT INTO `presensi_harian` VALUES (464, 32, 338, 'M', '', '2021-08-05', '2021-08-05 11:55:25', 3, 31);
+INSERT INTO `presensi_harian` VALUES (465, 32, 339, 'M', '', '2021-08-05', '2021-08-05 11:55:25', 3, 31);
+INSERT INTO `presensi_harian` VALUES (466, 32, 340, 'M', '', '2021-08-05', '2021-08-05 11:55:25', 3, 31);
+INSERT INTO `presensi_harian` VALUES (467, 32, 341, 'M', '', '2021-08-05', '2021-08-05 11:55:25', 3, 31);
+INSERT INTO `presensi_harian` VALUES (468, 89, 492, 'M', '', '2021-08-05', '2021-08-05 13:11:39', 3, 37);
+INSERT INTO `presensi_harian` VALUES (469, 89, 493, 'M', '', '2021-08-05', '2021-08-05 13:11:39', 3, 37);
+INSERT INTO `presensi_harian` VALUES (470, 89, 494, 'M', '', '2021-08-05', '2021-08-05 13:11:39', 3, 37);
+INSERT INTO `presensi_harian` VALUES (471, 89, 495, 'M', '', '2021-08-05', '2021-08-05 13:11:39', 3, 37);
+INSERT INTO `presensi_harian` VALUES (472, 89, 496, 'M', '', '2021-08-05', '2021-08-05 13:11:39', 3, 37);
+INSERT INTO `presensi_harian` VALUES (473, 83, 492, 'M', '', '2021-08-05', '2021-08-05 14:23:29', 3, 37);
+INSERT INTO `presensi_harian` VALUES (474, 83, 493, 'M', '', '2021-08-05', '2021-08-05 14:23:29', 3, 37);
+INSERT INTO `presensi_harian` VALUES (475, 83, 494, 'M', '', '2021-08-05', '2021-08-05 14:23:29', 3, 37);
+INSERT INTO `presensi_harian` VALUES (476, 83, 495, 'M', '', '2021-08-05', '2021-08-05 14:23:29', 3, 37);
+INSERT INTO `presensi_harian` VALUES (477, 83, 496, 'M', '', '2021-08-05', '2021-08-05 14:23:30', 3, 37);
+INSERT INTO `presensi_harian` VALUES (478, 32, 492, 'M', '', '2021-08-05', '2021-08-05 14:23:46', 3, 37);
+INSERT INTO `presensi_harian` VALUES (479, 32, 493, 'M', '', '2021-08-05', '2021-08-05 14:23:46', 3, 37);
+INSERT INTO `presensi_harian` VALUES (480, 32, 494, 'M', '', '2021-08-05', '2021-08-05 14:23:46', 3, 37);
+INSERT INTO `presensi_harian` VALUES (481, 32, 495, 'M', '', '2021-08-05', '2021-08-05 14:23:46', 3, 37);
+INSERT INTO `presensi_harian` VALUES (482, 32, 496, 'M', '', '2021-08-05', '2021-08-05 14:23:46', 3, 37);
+INSERT INTO `presensi_harian` VALUES (483, 60, 342, 'M', '', '2021-08-05', '2021-08-05 15:44:30', 3, 35);
+INSERT INTO `presensi_harian` VALUES (484, 60, 343, 'M', '', '2021-08-05', '2021-08-05 15:44:30', 3, 35);
+INSERT INTO `presensi_harian` VALUES (485, 60, 344, 'M', '', '2021-08-05', '2021-08-05 15:44:30', 3, 35);
+INSERT INTO `presensi_harian` VALUES (486, 60, 345, 'S', '', '2021-08-05', '2021-08-05 15:44:30', 3, 35);
+INSERT INTO `presensi_harian` VALUES (487, 60, 346, 'M', '', '2021-08-05', '2021-08-05 15:44:30', 3, 35);
+INSERT INTO `presensi_harian` VALUES (488, 60, 347, 'M', '', '2021-08-05', '2021-08-05 15:44:30', 3, 35);
+INSERT INTO `presensi_harian` VALUES (489, 60, 348, 'M', '', '2021-08-05', '2021-08-05 15:44:30', 3, 35);
+INSERT INTO `presensi_harian` VALUES (490, 60, 349, 'M', '', '2021-08-05', '2021-08-05 15:44:30', 3, 35);
+INSERT INTO `presensi_harian` VALUES (491, 60, 350, 'M', '', '2021-08-05', '2021-08-05 15:44:30', 3, 35);
+INSERT INTO `presensi_harian` VALUES (492, 60, 351, 'S', '', '2021-08-05', '2021-08-05 15:44:30', 3, 35);
+INSERT INTO `presensi_harian` VALUES (493, 60, 352, 'M', '', '2021-08-05', '2021-08-05 15:44:30', 3, 35);
+INSERT INTO `presensi_harian` VALUES (494, 60, 353, 'I', '', '2021-08-05', '2021-08-05 15:44:30', 3, 35);
+INSERT INTO `presensi_harian` VALUES (495, 60, 354, 'M', '', '2021-08-05', '2021-08-05 15:44:31', 3, 35);
+INSERT INTO `presensi_harian` VALUES (496, 60, 355, 'M', '', '2021-08-05', '2021-08-05 15:44:31', 3, 35);
+INSERT INTO `presensi_harian` VALUES (497, 60, 356, 'M', '', '2021-08-05', '2021-08-05 15:44:31', 3, 35);
+INSERT INTO `presensi_harian` VALUES (498, 60, 357, 'M', '', '2021-08-05', '2021-08-05 15:44:31', 3, 35);
+INSERT INTO `presensi_harian` VALUES (499, 60, 358, 'M', '', '2021-08-05', '2021-08-05 15:44:31', 3, 35);
+INSERT INTO `presensi_harian` VALUES (500, 60, 359, 'M', '', '2021-08-05', '2021-08-05 15:44:31', 3, 35);
+INSERT INTO `presensi_harian` VALUES (501, 60, 360, 'M', '', '2021-08-05', '2021-08-05 15:44:31', 3, 35);
+INSERT INTO `presensi_harian` VALUES (502, 60, 361, 'M', '', '2021-08-05', '2021-08-05 15:44:31', 3, 35);
+INSERT INTO `presensi_harian` VALUES (503, 60, 362, 'M', '', '2021-08-05', '2021-08-05 15:44:31', 3, 35);
+INSERT INTO `presensi_harian` VALUES (504, 84, 342, 'M', '', '2021-08-05', '2021-08-05 15:45:03', 3, 35);
+INSERT INTO `presensi_harian` VALUES (505, 84, 343, 'M', '', '2021-08-05', '2021-08-05 15:45:03', 3, 35);
+INSERT INTO `presensi_harian` VALUES (506, 84, 344, 'M', '', '2021-08-05', '2021-08-05 15:45:03', 3, 35);
+INSERT INTO `presensi_harian` VALUES (507, 84, 345, 'S', '', '2021-08-05', '2021-08-05 15:45:03', 3, 35);
+INSERT INTO `presensi_harian` VALUES (508, 84, 346, 'M', '', '2021-08-05', '2021-08-05 15:45:03', 3, 35);
+INSERT INTO `presensi_harian` VALUES (509, 84, 347, 'M', '', '2021-08-05', '2021-08-05 15:45:03', 3, 35);
+INSERT INTO `presensi_harian` VALUES (510, 84, 348, 'M', '', '2021-08-05', '2021-08-05 15:45:03', 3, 35);
+INSERT INTO `presensi_harian` VALUES (511, 84, 349, 'M', '', '2021-08-05', '2021-08-05 15:45:03', 3, 35);
+INSERT INTO `presensi_harian` VALUES (512, 84, 350, 'M', '', '2021-08-05', '2021-08-05 15:45:03', 3, 35);
+INSERT INTO `presensi_harian` VALUES (513, 84, 351, 'S', '', '2021-08-05', '2021-08-05 15:45:03', 3, 35);
+INSERT INTO `presensi_harian` VALUES (514, 84, 352, 'M', '', '2021-08-05', '2021-08-05 15:45:03', 3, 35);
+INSERT INTO `presensi_harian` VALUES (515, 84, 353, 'I', '', '2021-08-05', '2021-08-05 15:45:03', 3, 35);
+INSERT INTO `presensi_harian` VALUES (516, 84, 354, 'M', '', '2021-08-05', '2021-08-05 15:45:03', 3, 35);
+INSERT INTO `presensi_harian` VALUES (517, 84, 355, 'M', '', '2021-08-05', '2021-08-05 15:45:04', 3, 35);
+INSERT INTO `presensi_harian` VALUES (518, 84, 356, 'M', '', '2021-08-05', '2021-08-05 15:45:04', 3, 35);
+INSERT INTO `presensi_harian` VALUES (519, 84, 357, 'M', '', '2021-08-05', '2021-08-05 15:45:04', 3, 35);
+INSERT INTO `presensi_harian` VALUES (520, 84, 358, 'M', '', '2021-08-05', '2021-08-05 15:45:04', 3, 35);
+INSERT INTO `presensi_harian` VALUES (521, 84, 359, 'M', '', '2021-08-05', '2021-08-05 15:45:04', 3, 35);
+INSERT INTO `presensi_harian` VALUES (522, 84, 360, 'M', '', '2021-08-05', '2021-08-05 15:45:04', 3, 35);
+INSERT INTO `presensi_harian` VALUES (523, 84, 361, 'M', '', '2021-08-05', '2021-08-05 15:45:04', 3, 35);
+INSERT INTO `presensi_harian` VALUES (524, 84, 362, 'M', '', '2021-08-05', '2021-08-05 15:45:04', 3, 35);
+INSERT INTO `presensi_harian` VALUES (525, 94, 342, 'M', '', '2021-08-05', '2021-08-05 15:45:42', 3, 35);
+INSERT INTO `presensi_harian` VALUES (526, 94, 343, 'M', '', '2021-08-05', '2021-08-05 15:45:42', 3, 35);
+INSERT INTO `presensi_harian` VALUES (527, 94, 344, 'M', '', '2021-08-05', '2021-08-05 15:45:42', 3, 35);
+INSERT INTO `presensi_harian` VALUES (528, 94, 345, 'S', '', '2021-08-05', '2021-08-05 15:45:42', 3, 35);
+INSERT INTO `presensi_harian` VALUES (529, 94, 346, 'M', '', '2021-08-05', '2021-08-05 15:45:42', 3, 35);
+INSERT INTO `presensi_harian` VALUES (530, 94, 347, 'M', '', '2021-08-05', '2021-08-05 15:45:42', 3, 35);
+INSERT INTO `presensi_harian` VALUES (531, 94, 348, 'M', '', '2021-08-05', '2021-08-05 15:45:42', 3, 35);
+INSERT INTO `presensi_harian` VALUES (532, 94, 349, 'M', '', '2021-08-05', '2021-08-05 15:45:42', 3, 35);
+INSERT INTO `presensi_harian` VALUES (533, 94, 350, 'M', '', '2021-08-05', '2021-08-05 15:45:42', 3, 35);
+INSERT INTO `presensi_harian` VALUES (534, 94, 351, 'S', '', '2021-08-05', '2021-08-05 15:45:42', 3, 35);
+INSERT INTO `presensi_harian` VALUES (535, 94, 352, 'M', '', '2021-08-05', '2021-08-05 15:45:42', 3, 35);
+INSERT INTO `presensi_harian` VALUES (536, 94, 353, 'I', '', '2021-08-05', '2021-08-05 15:45:42', 3, 35);
+INSERT INTO `presensi_harian` VALUES (537, 94, 354, 'M', '', '2021-08-05', '2021-08-05 15:45:42', 3, 35);
+INSERT INTO `presensi_harian` VALUES (538, 94, 355, 'M', '', '2021-08-05', '2021-08-05 15:45:43', 3, 35);
+INSERT INTO `presensi_harian` VALUES (539, 94, 356, 'M', '', '2021-08-05', '2021-08-05 15:45:43', 3, 35);
+INSERT INTO `presensi_harian` VALUES (540, 94, 357, 'M', '', '2021-08-05', '2021-08-05 15:45:43', 3, 35);
+INSERT INTO `presensi_harian` VALUES (541, 94, 358, 'M', '', '2021-08-05', '2021-08-05 15:45:43', 3, 35);
+INSERT INTO `presensi_harian` VALUES (542, 94, 359, 'M', '', '2021-08-05', '2021-08-05 15:45:43', 3, 35);
+INSERT INTO `presensi_harian` VALUES (543, 94, 360, 'M', '', '2021-08-05', '2021-08-05 15:45:43', 3, 35);
+INSERT INTO `presensi_harian` VALUES (544, 94, 361, 'M', '', '2021-08-05', '2021-08-05 15:45:43', 3, 35);
+INSERT INTO `presensi_harian` VALUES (545, 94, 362, 'M', '', '2021-08-05', '2021-08-05 15:45:43', 3, 35);
+INSERT INTO `presensi_harian` VALUES (546, 34, 426, 'M', '', '2021-08-05', '2021-08-05 16:01:47', 3, 34);
+INSERT INTO `presensi_harian` VALUES (547, 34, 427, 'M', '', '2021-08-05', '2021-08-05 16:01:47', 3, 34);
+INSERT INTO `presensi_harian` VALUES (548, 34, 428, 'M', '', '2021-08-05', '2021-08-05 16:01:47', 3, 34);
+INSERT INTO `presensi_harian` VALUES (549, 34, 429, 'M', '', '2021-08-05', '2021-08-05 16:01:47', 3, 34);
+INSERT INTO `presensi_harian` VALUES (550, 34, 430, 'M', '', '2021-08-05', '2021-08-05 16:01:47', 3, 34);
+INSERT INTO `presensi_harian` VALUES (551, 34, 431, 'M', '', '2021-08-05', '2021-08-05 16:01:47', 3, 34);
+INSERT INTO `presensi_harian` VALUES (552, 34, 533, 'M', '', '2021-08-05', '2021-08-05 16:01:47', 3, 34);
+INSERT INTO `presensi_harian` VALUES (553, 34, 534, 'M', '', '2021-08-05', '2021-08-05 16:01:47', 3, 34);
+INSERT INTO `presensi_harian` VALUES (554, 34, 535, 'M', '', '2021-08-05', '2021-08-05 16:01:47', 3, 34);
+INSERT INTO `presensi_harian` VALUES (555, 34, 536, 'I', '', '2021-08-05', '2021-08-05 16:01:47', 3, 34);
+INSERT INTO `presensi_harian` VALUES (556, 34, 537, 'M', '', '2021-08-05', '2021-08-05 16:01:47', 3, 34);
+INSERT INTO `presensi_harian` VALUES (557, 34, 538, 'M', '', '2021-08-05', '2021-08-05 16:01:47', 3, 34);
+INSERT INTO `presensi_harian` VALUES (558, 34, 539, 'M', '', '2021-08-05', '2021-08-05 16:01:47', 3, 34);
+INSERT INTO `presensi_harian` VALUES (559, 34, 540, 'M', '', '2021-08-05', '2021-08-05 16:01:47', 3, 34);
+INSERT INTO `presensi_harian` VALUES (560, 34, 541, 'M', '', '2021-08-05', '2021-08-05 16:01:47', 3, 34);
+INSERT INTO `presensi_harian` VALUES (561, 34, 542, 'M', '', '2021-08-05', '2021-08-05 16:01:48', 3, 34);
+INSERT INTO `presensi_harian` VALUES (562, 34, 543, 'M', '', '2021-08-05', '2021-08-05 16:01:48', 3, 34);
+INSERT INTO `presensi_harian` VALUES (563, 34, 544, 'M', '', '2021-08-05', '2021-08-05 16:01:48', 3, 34);
+INSERT INTO `presensi_harian` VALUES (564, 34, 545, 'M', '', '2021-08-05', '2021-08-05 16:01:48', 3, 34);
+INSERT INTO `presensi_harian` VALUES (565, 34, 546, 'M', '', '2021-08-05', '2021-08-05 16:01:48', 3, 34);
+INSERT INTO `presensi_harian` VALUES (566, 34, 547, 'M', '', '2021-08-05', '2021-08-05 16:01:48', 3, 34);
+INSERT INTO `presensi_harian` VALUES (567, 34, 548, 'M', '', '2021-08-05', '2021-08-05 16:01:48', 3, 34);
+INSERT INTO `presensi_harian` VALUES (568, 36, 426, 'M', '', '2021-08-05', '2021-08-05 16:02:44', 3, 34);
+INSERT INTO `presensi_harian` VALUES (569, 36, 427, 'M', '', '2021-08-05', '2021-08-05 16:02:44', 3, 34);
+INSERT INTO `presensi_harian` VALUES (570, 36, 428, 'M', '', '2021-08-05', '2021-08-05 16:02:44', 3, 34);
+INSERT INTO `presensi_harian` VALUES (571, 36, 429, 'M', '', '2021-08-05', '2021-08-05 16:02:44', 3, 34);
+INSERT INTO `presensi_harian` VALUES (572, 36, 430, 'M', '', '2021-08-05', '2021-08-05 16:02:44', 3, 34);
+INSERT INTO `presensi_harian` VALUES (573, 36, 431, 'M', '', '2021-08-05', '2021-08-05 16:02:44', 3, 34);
+INSERT INTO `presensi_harian` VALUES (574, 36, 533, 'M', '', '2021-08-05', '2021-08-05 16:02:44', 3, 34);
+INSERT INTO `presensi_harian` VALUES (575, 36, 534, 'M', '', '2021-08-05', '2021-08-05 16:02:44', 3, 34);
+INSERT INTO `presensi_harian` VALUES (576, 36, 535, 'M', '', '2021-08-05', '2021-08-05 16:02:44', 3, 34);
+INSERT INTO `presensi_harian` VALUES (577, 36, 536, 'I', '', '2021-08-05', '2021-08-05 16:02:44', 3, 34);
+INSERT INTO `presensi_harian` VALUES (578, 36, 537, 'M', '', '2021-08-05', '2021-08-05 16:02:45', 3, 34);
+INSERT INTO `presensi_harian` VALUES (579, 36, 538, 'M', '', '2021-08-05', '2021-08-05 16:02:45', 3, 34);
+INSERT INTO `presensi_harian` VALUES (580, 36, 539, 'M', '', '2021-08-05', '2021-08-05 16:02:45', 3, 34);
+INSERT INTO `presensi_harian` VALUES (581, 36, 540, 'M', '', '2021-08-05', '2021-08-05 16:02:45', 3, 34);
+INSERT INTO `presensi_harian` VALUES (582, 36, 541, 'M', '', '2021-08-05', '2021-08-05 16:02:45', 3, 34);
+INSERT INTO `presensi_harian` VALUES (583, 36, 542, 'M', '', '2021-08-05', '2021-08-05 16:02:45', 3, 34);
+INSERT INTO `presensi_harian` VALUES (584, 36, 543, 'M', '', '2021-08-05', '2021-08-05 16:02:45', 3, 34);
+INSERT INTO `presensi_harian` VALUES (585, 36, 544, 'M', '', '2021-08-05', '2021-08-05 16:02:45', 3, 34);
+INSERT INTO `presensi_harian` VALUES (586, 36, 545, 'M', '', '2021-08-05', '2021-08-05 16:02:45', 3, 34);
+INSERT INTO `presensi_harian` VALUES (587, 36, 546, 'M', '', '2021-08-05', '2021-08-05 16:02:45', 3, 34);
+INSERT INTO `presensi_harian` VALUES (588, 36, 547, 'M', '', '2021-08-05', '2021-08-05 16:02:45', 3, 34);
+INSERT INTO `presensi_harian` VALUES (589, 36, 548, 'M', '', '2021-08-05', '2021-08-05 16:02:45', 3, 34);
+INSERT INTO `presensi_harian` VALUES (590, 69, 426, 'M', '', '2021-08-05', '2021-08-05 16:03:16', 3, 34);
+INSERT INTO `presensi_harian` VALUES (591, 69, 427, 'M', '', '2021-08-05', '2021-08-05 16:03:16', 3, 34);
+INSERT INTO `presensi_harian` VALUES (592, 69, 428, 'M', '', '2021-08-05', '2021-08-05 16:03:16', 3, 34);
+INSERT INTO `presensi_harian` VALUES (593, 69, 429, 'M', '', '2021-08-05', '2021-08-05 16:03:16', 3, 34);
+INSERT INTO `presensi_harian` VALUES (594, 69, 430, 'M', '', '2021-08-05', '2021-08-05 16:03:16', 3, 34);
+INSERT INTO `presensi_harian` VALUES (595, 69, 431, 'M', '', '2021-08-05', '2021-08-05 16:03:16', 3, 34);
+INSERT INTO `presensi_harian` VALUES (596, 69, 533, 'M', '', '2021-08-05', '2021-08-05 16:03:17', 3, 34);
+INSERT INTO `presensi_harian` VALUES (597, 69, 534, 'M', '', '2021-08-05', '2021-08-05 16:03:17', 3, 34);
+INSERT INTO `presensi_harian` VALUES (598, 69, 535, 'M', '', '2021-08-05', '2021-08-05 16:03:17', 3, 34);
+INSERT INTO `presensi_harian` VALUES (599, 69, 536, 'I', '', '2021-08-05', '2021-08-05 16:03:17', 3, 34);
+INSERT INTO `presensi_harian` VALUES (600, 69, 537, 'M', '', '2021-08-05', '2021-08-05 16:03:17', 3, 34);
+INSERT INTO `presensi_harian` VALUES (601, 69, 538, 'M', '', '2021-08-05', '2021-08-05 16:03:17', 3, 34);
+INSERT INTO `presensi_harian` VALUES (602, 69, 539, 'M', '', '2021-08-05', '2021-08-05 16:03:17', 3, 34);
+INSERT INTO `presensi_harian` VALUES (603, 69, 540, 'M', '', '2021-08-05', '2021-08-05 16:03:17', 3, 34);
+INSERT INTO `presensi_harian` VALUES (604, 69, 541, 'M', '', '2021-08-05', '2021-08-05 16:03:17', 3, 34);
+INSERT INTO `presensi_harian` VALUES (605, 69, 542, 'M', '', '2021-08-05', '2021-08-05 16:03:17', 3, 34);
+INSERT INTO `presensi_harian` VALUES (606, 69, 543, 'M', '', '2021-08-05', '2021-08-05 16:03:17', 3, 34);
+INSERT INTO `presensi_harian` VALUES (607, 69, 544, 'M', '', '2021-08-05', '2021-08-05 16:03:17', 3, 34);
+INSERT INTO `presensi_harian` VALUES (608, 69, 545, 'M', '', '2021-08-05', '2021-08-05 16:03:17', 3, 34);
+INSERT INTO `presensi_harian` VALUES (609, 69, 546, 'M', '', '2021-08-05', '2021-08-05 16:03:17', 3, 34);
+INSERT INTO `presensi_harian` VALUES (610, 69, 547, 'M', '', '2021-08-05', '2021-08-05 16:03:17', 3, 34);
+INSERT INTO `presensi_harian` VALUES (611, 69, 548, 'M', '', '2021-08-05', '2021-08-05 16:03:17', 3, 34);
+INSERT INTO `presensi_harian` VALUES (612, 36, 363, 'A', '', '2021-08-05', '2021-08-05 16:08:54', 3, 36);
+INSERT INTO `presensi_harian` VALUES (613, 36, 364, 'A', '', '2021-08-05', '2021-08-05 16:08:54', 3, 36);
+INSERT INTO `presensi_harian` VALUES (614, 36, 365, 'M', '', '2021-08-05', '2021-08-05 16:08:54', 3, 36);
+INSERT INTO `presensi_harian` VALUES (615, 36, 366, 'M', '', '2021-08-05', '2021-08-05 16:08:54', 3, 36);
+INSERT INTO `presensi_harian` VALUES (616, 36, 367, 'M', '', '2021-08-05', '2021-08-05 16:08:54', 3, 36);
+INSERT INTO `presensi_harian` VALUES (617, 36, 368, 'A', '', '2021-08-05', '2021-08-05 16:08:54', 3, 36);
+INSERT INTO `presensi_harian` VALUES (618, 36, 369, 'A', '', '2021-08-05', '2021-08-05 16:08:54', 3, 36);
+INSERT INTO `presensi_harian` VALUES (619, 36, 370, 'A', '', '2021-08-05', '2021-08-05 16:08:54', 3, 36);
+INSERT INTO `presensi_harian` VALUES (620, 36, 371, 'A', '', '2021-08-05', '2021-08-05 16:08:55', 3, 36);
+INSERT INTO `presensi_harian` VALUES (621, 36, 372, 'M', '', '2021-08-05', '2021-08-05 16:08:55', 3, 36);
+INSERT INTO `presensi_harian` VALUES (622, 36, 373, 'A', '', '2021-08-05', '2021-08-05 16:08:55', 3, 36);
+INSERT INTO `presensi_harian` VALUES (623, 36, 374, 'A', '', '2021-08-05', '2021-08-05 16:08:55', 3, 36);
+INSERT INTO `presensi_harian` VALUES (624, 36, 375, 'M', '', '2021-08-05', '2021-08-05 16:08:55', 3, 36);
+INSERT INTO `presensi_harian` VALUES (625, 36, 376, 'M', '', '2021-08-05', '2021-08-05 16:08:55', 3, 36);
+INSERT INTO `presensi_harian` VALUES (626, 36, 377, 'M', '', '2021-08-05', '2021-08-05 16:08:55', 3, 36);
+INSERT INTO `presensi_harian` VALUES (627, 60, 363, 'A', '', '2021-08-05', '2021-08-05 16:09:29', 3, 36);
+INSERT INTO `presensi_harian` VALUES (628, 60, 364, 'A', '', '2021-08-05', '2021-08-05 16:09:29', 3, 36);
+INSERT INTO `presensi_harian` VALUES (629, 60, 365, 'M', '', '2021-08-05', '2021-08-05 16:09:29', 3, 36);
+INSERT INTO `presensi_harian` VALUES (630, 60, 366, 'M', '', '2021-08-05', '2021-08-05 16:09:29', 3, 36);
+INSERT INTO `presensi_harian` VALUES (631, 60, 367, 'M', '', '2021-08-05', '2021-08-05 16:09:29', 3, 36);
+INSERT INTO `presensi_harian` VALUES (632, 60, 368, 'A', '', '2021-08-05', '2021-08-05 16:09:29', 3, 36);
+INSERT INTO `presensi_harian` VALUES (633, 60, 369, 'A', '', '2021-08-05', '2021-08-05 16:09:29', 3, 36);
+INSERT INTO `presensi_harian` VALUES (634, 60, 370, 'A', '', '2021-08-05', '2021-08-05 16:09:29', 3, 36);
+INSERT INTO `presensi_harian` VALUES (635, 60, 371, 'A', '', '2021-08-05', '2021-08-05 16:09:29', 3, 36);
+INSERT INTO `presensi_harian` VALUES (636, 60, 372, 'M', '', '2021-08-05', '2021-08-05 16:09:29', 3, 36);
+INSERT INTO `presensi_harian` VALUES (637, 60, 373, 'A', '', '2021-08-05', '2021-08-05 16:09:29', 3, 36);
+INSERT INTO `presensi_harian` VALUES (638, 60, 374, 'A', '', '2021-08-05', '2021-08-05 16:09:30', 3, 36);
+INSERT INTO `presensi_harian` VALUES (639, 60, 375, 'M', '', '2021-08-05', '2021-08-05 16:09:30', 3, 36);
+INSERT INTO `presensi_harian` VALUES (640, 60, 376, 'M', '', '2021-08-05', '2021-08-05 16:09:30', 3, 36);
+INSERT INTO `presensi_harian` VALUES (641, 60, 377, 'M', '', '2021-08-05', '2021-08-05 16:09:30', 3, 36);
+INSERT INTO `presensi_harian` VALUES (642, 69, 363, 'A', '', '2021-08-05', '2021-08-05 16:10:11', 3, 36);
+INSERT INTO `presensi_harian` VALUES (643, 69, 364, 'A', '', '2021-08-05', '2021-08-05 16:10:11', 3, 36);
+INSERT INTO `presensi_harian` VALUES (644, 69, 365, 'M', '', '2021-08-05', '2021-08-05 16:10:11', 3, 36);
+INSERT INTO `presensi_harian` VALUES (645, 69, 366, 'M', '', '2021-08-05', '2021-08-05 16:10:11', 3, 36);
+INSERT INTO `presensi_harian` VALUES (646, 69, 367, 'M', '', '2021-08-05', '2021-08-05 16:10:11', 3, 36);
+INSERT INTO `presensi_harian` VALUES (647, 69, 368, 'A', '', '2021-08-05', '2021-08-05 16:10:11', 3, 36);
+INSERT INTO `presensi_harian` VALUES (648, 69, 369, 'A', '', '2021-08-05', '2021-08-05 16:10:11', 3, 36);
+INSERT INTO `presensi_harian` VALUES (649, 69, 370, 'A', '', '2021-08-05', '2021-08-05 16:10:11', 3, 36);
+INSERT INTO `presensi_harian` VALUES (650, 69, 371, 'A', '', '2021-08-05', '2021-08-05 16:10:11', 3, 36);
+INSERT INTO `presensi_harian` VALUES (651, 69, 372, 'M', '', '2021-08-05', '2021-08-05 16:10:11', 3, 36);
+INSERT INTO `presensi_harian` VALUES (652, 69, 373, 'A', '', '2021-08-05', '2021-08-05 16:10:11', 3, 36);
+INSERT INTO `presensi_harian` VALUES (653, 69, 374, 'A', '', '2021-08-05', '2021-08-05 16:10:12', 3, 36);
+INSERT INTO `presensi_harian` VALUES (654, 69, 375, 'M', '', '2021-08-05', '2021-08-05 16:10:12', 3, 36);
+INSERT INTO `presensi_harian` VALUES (655, 69, 376, 'M', '', '2021-08-05', '2021-08-05 16:10:12', 3, 36);
+INSERT INTO `presensi_harian` VALUES (656, 69, 377, 'M', '', '2021-08-05', '2021-08-05 16:10:12', 3, 36);
+INSERT INTO `presensi_harian` VALUES (657, 65, 520, 'A', '', '2021-08-05', '2021-08-05 16:15:15', 3, 27);
+INSERT INTO `presensi_harian` VALUES (658, 65, 521, 'M', '', '2021-08-05', '2021-08-05 16:15:15', 3, 27);
+INSERT INTO `presensi_harian` VALUES (659, 65, 522, 'M', '', '2021-08-05', '2021-08-05 16:15:15', 3, 27);
+INSERT INTO `presensi_harian` VALUES (660, 65, 523, 'I', '', '2021-08-05', '2021-08-05 16:15:15', 3, 27);
+INSERT INTO `presensi_harian` VALUES (661, 65, 524, 'M', '', '2021-08-05', '2021-08-05 16:15:15', 3, 27);
+INSERT INTO `presensi_harian` VALUES (662, 65, 525, 'M', '', '2021-08-05', '2021-08-05 16:15:15', 3, 27);
+INSERT INTO `presensi_harian` VALUES (663, 65, 526, 'I', '', '2021-08-05', '2021-08-05 16:15:15', 3, 27);
+INSERT INTO `presensi_harian` VALUES (664, 65, 527, 'M', '', '2021-08-05', '2021-08-05 16:15:15', 3, 27);
+INSERT INTO `presensi_harian` VALUES (665, 65, 528, 'M', '', '2021-08-05', '2021-08-05 16:15:15', 3, 27);
+INSERT INTO `presensi_harian` VALUES (666, 65, 529, 'M', '', '2021-08-05', '2021-08-05 16:15:15', 3, 27);
+INSERT INTO `presensi_harian` VALUES (667, 65, 530, 'M', '', '2021-08-05', '2021-08-05 16:15:15', 3, 27);
+INSERT INTO `presensi_harian` VALUES (668, 65, 531, 'M', '', '2021-08-05', '2021-08-05 16:15:16', 3, 27);
+INSERT INTO `presensi_harian` VALUES (669, 65, 532, 'M', '', '2021-08-05', '2021-08-05 16:15:16', 3, 27);
+INSERT INTO `presensi_harian` VALUES (670, 32, 520, 'A', '', '2021-08-05', '2021-08-05 16:16:02', 3, 27);
+INSERT INTO `presensi_harian` VALUES (671, 32, 521, 'M', '', '2021-08-05', '2021-08-05 16:16:02', 3, 27);
+INSERT INTO `presensi_harian` VALUES (672, 32, 522, 'M', '', '2021-08-05', '2021-08-05 16:16:02', 3, 27);
+INSERT INTO `presensi_harian` VALUES (673, 32, 523, 'I', '', '2021-08-05', '2021-08-05 16:16:02', 3, 27);
+INSERT INTO `presensi_harian` VALUES (674, 32, 524, 'M', '', '2021-08-05', '2021-08-05 16:16:02', 3, 27);
+INSERT INTO `presensi_harian` VALUES (675, 32, 525, 'M', '', '2021-08-05', '2021-08-05 16:16:02', 3, 27);
+INSERT INTO `presensi_harian` VALUES (676, 32, 526, 'I', '', '2021-08-05', '2021-08-05 16:16:02', 3, 27);
+INSERT INTO `presensi_harian` VALUES (677, 32, 527, 'M', '', '2021-08-05', '2021-08-05 16:16:02', 3, 27);
+INSERT INTO `presensi_harian` VALUES (678, 32, 528, 'M', '', '2021-08-05', '2021-08-05 16:16:02', 3, 27);
+INSERT INTO `presensi_harian` VALUES (679, 32, 529, 'M', '', '2021-08-05', '2021-08-05 16:16:02', 3, 27);
+INSERT INTO `presensi_harian` VALUES (680, 32, 530, 'M', '', '2021-08-05', '2021-08-05 16:16:02', 3, 27);
+INSERT INTO `presensi_harian` VALUES (681, 32, 531, 'M', '', '2021-08-05', '2021-08-05 16:16:03', 3, 27);
+INSERT INTO `presensi_harian` VALUES (682, 32, 532, 'M', '', '2021-08-05', '2021-08-05 16:16:03', 3, 27);
+INSERT INTO `presensi_harian` VALUES (683, 63, 512, 'M', '', '2021-08-05', '2021-08-05 16:16:12', 3, 38);
+INSERT INTO `presensi_harian` VALUES (684, 63, 513, 'M', '', '2021-08-05', '2021-08-05 16:16:12', 3, 38);
+INSERT INTO `presensi_harian` VALUES (685, 63, 514, 'M', '', '2021-08-05', '2021-08-05 16:16:12', 3, 38);
+INSERT INTO `presensi_harian` VALUES (686, 63, 515, 'M', '', '2021-08-05', '2021-08-05 16:16:12', 3, 38);
+INSERT INTO `presensi_harian` VALUES (687, 63, 516, 'M', '', '2021-08-05', '2021-08-05 16:16:12', 3, 38);
+INSERT INTO `presensi_harian` VALUES (688, 63, 517, 'M', '', '2021-08-05', '2021-08-05 16:16:12', 3, 38);
+INSERT INTO `presensi_harian` VALUES (689, 63, 518, 'M', '', '2021-08-05', '2021-08-05 16:16:12', 3, 38);
+INSERT INTO `presensi_harian` VALUES (690, 63, 519, 'M', '', '2021-08-05', '2021-08-05 16:16:12', 3, 38);
+INSERT INTO `presensi_harian` VALUES (691, 32, 512, 'M', '', '2021-08-05', '2021-08-05 16:16:23', 3, 38);
+INSERT INTO `presensi_harian` VALUES (692, 32, 513, 'M', '', '2021-08-05', '2021-08-05 16:16:23', 3, 38);
+INSERT INTO `presensi_harian` VALUES (693, 32, 514, 'M', '', '2021-08-05', '2021-08-05 16:16:23', 3, 38);
+INSERT INTO `presensi_harian` VALUES (694, 32, 515, 'M', '', '2021-08-05', '2021-08-05 16:16:23', 3, 38);
+INSERT INTO `presensi_harian` VALUES (695, 32, 516, 'M', '', '2021-08-05', '2021-08-05 16:16:23', 3, 38);
+INSERT INTO `presensi_harian` VALUES (696, 32, 517, 'M', '', '2021-08-05', '2021-08-05 16:16:23', 3, 38);
+INSERT INTO `presensi_harian` VALUES (697, 32, 518, 'M', '', '2021-08-05', '2021-08-05 16:16:23', 3, 38);
+INSERT INTO `presensi_harian` VALUES (698, 32, 519, 'M', '', '2021-08-05', '2021-08-05 16:16:24', 3, 38);
 
 -- ----------------------------
 -- Table structure for presensi_rapor
@@ -2646,85 +3618,7 @@ CREATE TABLE `presensi_rapor`  (
   `alpha` int(255) NULL DEFAULT NULL,
   `sakit` int(255) NULL DEFAULT NULL,
   PRIMARY KEY (`id_presensi_rapor`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 112 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
-
--- ----------------------------
--- Records of presensi_rapor
--- ----------------------------
-INSERT INTO `presensi_rapor` VALUES (38, 2, 38, 11, 10, 20, 10);
-INSERT INTO `presensi_rapor` VALUES (39, 2, 39, 11, 2, 2, 2);
-INSERT INTO `presensi_rapor` VALUES (40, 2, 40, 11, 3, 3, 3);
-INSERT INTO `presensi_rapor` VALUES (41, 2, 41, 11, 4, 4, 4);
-INSERT INTO `presensi_rapor` VALUES (42, 2, 42, 11, 5, 5, 5);
-INSERT INTO `presensi_rapor` VALUES (43, 2, 43, 11, 6, 6, 6);
-INSERT INTO `presensi_rapor` VALUES (44, 2, 44, 11, 7, 7, 7);
-INSERT INTO `presensi_rapor` VALUES (45, 2, 45, 11, 8, 8, 8);
-INSERT INTO `presensi_rapor` VALUES (46, 2, 46, 11, 9, 9, 9);
-INSERT INTO `presensi_rapor` VALUES (47, 2, 47, 11, 10, 10, 10);
-INSERT INTO `presensi_rapor` VALUES (48, 2, 48, 11, 11, 11, 11);
-INSERT INTO `presensi_rapor` VALUES (49, 2, 49, 11, 12, 12, 12);
-INSERT INTO `presensi_rapor` VALUES (50, 2, 50, 11, 13, 13, 13);
-INSERT INTO `presensi_rapor` VALUES (51, 2, 51, 11, 14, 14, 14);
-INSERT INTO `presensi_rapor` VALUES (52, 2, 52, 11, 15, 15, 15);
-INSERT INTO `presensi_rapor` VALUES (53, 2, 53, 11, 16, 16, 16);
-INSERT INTO `presensi_rapor` VALUES (54, 2, 54, 11, 17, 17, 17);
-INSERT INTO `presensi_rapor` VALUES (55, 2, 55, 11, 18, 18, 18);
-INSERT INTO `presensi_rapor` VALUES (56, 2, 56, 11, 19, 19, 19);
-INSERT INTO `presensi_rapor` VALUES (57, 2, 57, 11, 20, 20, 20);
-INSERT INTO `presensi_rapor` VALUES (58, 2, 58, 11, 21, 21, 21);
-INSERT INTO `presensi_rapor` VALUES (59, 2, 59, 11, 22, 22, 22);
-INSERT INTO `presensi_rapor` VALUES (60, 2, 60, 11, 23, 23, 23);
-INSERT INTO `presensi_rapor` VALUES (61, 2, 61, 11, 24, 24, 24);
-INSERT INTO `presensi_rapor` VALUES (62, 2, 62, 11, 25, 25, 25);
-INSERT INTO `presensi_rapor` VALUES (63, 2, 63, 11, 26, 26, 26);
-INSERT INTO `presensi_rapor` VALUES (64, 2, 64, 11, 27, 27, 27);
-INSERT INTO `presensi_rapor` VALUES (65, 2, 65, 11, 28, 28, 28);
-INSERT INTO `presensi_rapor` VALUES (66, 2, 66, 11, 29, 29, 29);
-INSERT INTO `presensi_rapor` VALUES (67, 2, 67, 11, 30, 30, 30);
-INSERT INTO `presensi_rapor` VALUES (68, 2, 68, 11, 31, 31, 31);
-INSERT INTO `presensi_rapor` VALUES (69, 2, 69, 11, 32, 32, 32);
-INSERT INTO `presensi_rapor` VALUES (70, 2, 70, 11, 33, 33, 33);
-INSERT INTO `presensi_rapor` VALUES (71, 2, 71, 11, 34, 34, 34);
-INSERT INTO `presensi_rapor` VALUES (72, 2, 72, 11, 35, 35, 35);
-INSERT INTO `presensi_rapor` VALUES (73, 2, 73, 11, 36, 36, 36);
-INSERT INTO `presensi_rapor` VALUES (74, 2, 74, 11, 37, 37, 37);
-INSERT INTO `presensi_rapor` VALUES (75, 2, 38, 11, 10, 20, 10);
-INSERT INTO `presensi_rapor` VALUES (76, 2, 39, 11, 2, 2, 2);
-INSERT INTO `presensi_rapor` VALUES (77, 2, 40, 11, 3, 3, 3);
-INSERT INTO `presensi_rapor` VALUES (78, 2, 41, 11, 4, 4, 4);
-INSERT INTO `presensi_rapor` VALUES (79, 2, 42, 11, 5, 5, 5);
-INSERT INTO `presensi_rapor` VALUES (80, 2, 43, 11, 6, 6, 6);
-INSERT INTO `presensi_rapor` VALUES (81, 2, 44, 11, 7, 7, 7);
-INSERT INTO `presensi_rapor` VALUES (82, 2, 45, 11, 8, 8, 8);
-INSERT INTO `presensi_rapor` VALUES (83, 2, 46, 11, 9, 9, 9);
-INSERT INTO `presensi_rapor` VALUES (84, 2, 47, 11, 10, 10, 10);
-INSERT INTO `presensi_rapor` VALUES (85, 2, 48, 11, 11, 11, 11);
-INSERT INTO `presensi_rapor` VALUES (86, 2, 49, 11, 12, 12, 12);
-INSERT INTO `presensi_rapor` VALUES (87, 2, 50, 11, 13, 13, 13);
-INSERT INTO `presensi_rapor` VALUES (88, 2, 51, 11, 14, 14, 14);
-INSERT INTO `presensi_rapor` VALUES (89, 2, 52, 11, 15, 15, 15);
-INSERT INTO `presensi_rapor` VALUES (90, 2, 53, 11, 16, 16, 16);
-INSERT INTO `presensi_rapor` VALUES (91, 2, 54, 11, 17, 17, 17);
-INSERT INTO `presensi_rapor` VALUES (92, 2, 55, 11, 18, 18, 18);
-INSERT INTO `presensi_rapor` VALUES (93, 2, 56, 11, 19, 19, 19);
-INSERT INTO `presensi_rapor` VALUES (94, 2, 57, 11, 20, 20, 20);
-INSERT INTO `presensi_rapor` VALUES (95, 2, 58, 11, 21, 21, 21);
-INSERT INTO `presensi_rapor` VALUES (96, 2, 59, 11, 22, 22, 22);
-INSERT INTO `presensi_rapor` VALUES (97, 2, 60, 11, 23, 23, 23);
-INSERT INTO `presensi_rapor` VALUES (98, 2, 61, 11, 24, 24, 24);
-INSERT INTO `presensi_rapor` VALUES (99, 2, 62, 11, 25, 25, 25);
-INSERT INTO `presensi_rapor` VALUES (100, 2, 63, 11, 26, 26, 26);
-INSERT INTO `presensi_rapor` VALUES (101, 2, 64, 11, 27, 27, 27);
-INSERT INTO `presensi_rapor` VALUES (102, 2, 65, 11, 28, 28, 28);
-INSERT INTO `presensi_rapor` VALUES (103, 2, 66, 11, 29, 29, 29);
-INSERT INTO `presensi_rapor` VALUES (104, 2, 67, 11, 30, 30, 30);
-INSERT INTO `presensi_rapor` VALUES (105, 2, 68, 11, 31, 31, 31);
-INSERT INTO `presensi_rapor` VALUES (106, 2, 69, 11, 32, 32, 32);
-INSERT INTO `presensi_rapor` VALUES (107, 2, 70, 11, 33, 33, 33);
-INSERT INTO `presensi_rapor` VALUES (108, 2, 71, 11, 34, 34, 34);
-INSERT INTO `presensi_rapor` VALUES (109, 2, 72, 11, 35, 35, 35);
-INSERT INTO `presensi_rapor` VALUES (110, 2, 73, 11, 36, 36, 36);
-INSERT INTO `presensi_rapor` VALUES (111, 2, 74, 11, 37, 37, 37);
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for profil_website
@@ -2752,13 +3646,15 @@ CREATE TABLE `profil_website`  (
   `breadcrumb_elements` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `nama` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `kota` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `negara` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL
+  `negara` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `lng` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `lat` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL
 ) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of profil_website
 -- ----------------------------
-INSERT INTO `profil_website` VALUES ('VOHISA', 'Jl. Istana Mekar Wangi Utama No 1P-Q', '085894632505', 'logo-w.png', 'bulb.png', 'undefined', 'Shop with the nature, Please shop with me', '<p>The Balance Small Business makes launching and managing your own business easy. It is home to experts who provide clear, practical advice on entrepreneurship and management. Whether you&rsquo;re just starting up or you want to take your company to the next level, our 20-year-strong library of more than 7,000 pieces of content will answer your questions and turn your business dreams into reality.</p>\n\n<p><a href=\"https://www.thebalancesmb.com/\">The Balance</a>&nbsp;is part of The Balance family of sites, including&nbsp;<a href=\"https://www.thebalance.com/\" rel=\"noopener\" target=\"_blank\">The Balance</a>&nbsp;and&nbsp;<a href=\"https://www.thebalancecareers.com/\" rel=\"noopener\" target=\"_blank\">The Balance Careers</a>, covering personal finance, career, and small business topics. With more than 24 million monthly visitors, The Balance is among the top-10 largest finance properties as measured by comScore, a leading Internet measurement company. Our more than 50 expert writers have extensive qualifications and expertise in their topics, including MBAs, PhDs, CFPs, other advanced degrees and professional certifications.</p>\n\n<p>The Balance family of sites have been honored by multiple awards in the last year, including&nbsp;<a href=\"https://www.tellyawards.com/winners/2017/short-form-social/general-education-discovery\" rel=\"noopener nofollow\" target=\"_blank\">The Telly Awards</a>,&nbsp;<a href=\"https://www.communicatorawards.com/\" rel=\"noopener nofollow\" target=\"_blank\">The Communicator Awards</a>, and&nbsp;<a href=\"https://www.editorandpublisher.com/news/editor-publisher-announces-the-2017-eppy-award-finalists/\" rel=\"noopener nofollow\" target=\"_blank\">Eppy Awards</a>.</p>\n', 'hallo@smkitasy-syadzili.sch.id', 'Daniel Elvanda Yohanes', 'undefined', 'undefined', 'undefined', 'undefined', 'a00ae551dd485419a57db462a6ae30b9.jpg', 'Halo Admin, Saya ingin bertanya/membeli/.....', 'd797c14a0070235734508b7d9f409395.jpg', '&copy; 2019. <a href=\"#\">Core Master</a> by<a href=\"https://myber.co.id\" target=\"_blank\">Myber</a>', 'Core Master', 'Klinik Sekarpuro', 'Malang', 'Indonesia');
+INSERT INTO `profil_website` VALUES ('VOHISA', 'Jl. Istana Mekar Wangi Utama No 1P-Q', '085894632505', 'logo-w.png', 'bulb.png', 'undefined', 'Shop with the nature, Please shop with me', '<p>The Balance Small Business makes launching and managing your own business easy. It is home to experts who provide clear, practical advice on entrepreneurship and management. Whether you&rsquo;re just starting up or you want to take your company to the next level, our 20-year-strong library of more than 7,000 pieces of content will answer your questions and turn your business dreams into reality.</p>\n\n<p><a href=\"https://www.thebalancesmb.com/\">The Balance</a>&nbsp;is part of The Balance family of sites, including&nbsp;<a href=\"https://www.thebalance.com/\" rel=\"noopener\" target=\"_blank\">The Balance</a>&nbsp;and&nbsp;<a href=\"https://www.thebalancecareers.com/\" rel=\"noopener\" target=\"_blank\">The Balance Careers</a>, covering personal finance, career, and small business topics. With more than 24 million monthly visitors, The Balance is among the top-10 largest finance properties as measured by comScore, a leading Internet measurement company. Our more than 50 expert writers have extensive qualifications and expertise in their topics, including MBAs, PhDs, CFPs, other advanced degrees and professional certifications.</p>\n\n<p>The Balance family of sites have been honored by multiple awards in the last year, including&nbsp;<a href=\"https://www.tellyawards.com/winners/2017/short-form-social/general-education-discovery\" rel=\"noopener nofollow\" target=\"_blank\">The Telly Awards</a>,&nbsp;<a href=\"https://www.communicatorawards.com/\" rel=\"noopener nofollow\" target=\"_blank\">The Communicator Awards</a>, and&nbsp;<a href=\"https://www.editorandpublisher.com/news/editor-publisher-announces-the-2017-eppy-award-finalists/\" rel=\"noopener nofollow\" target=\"_blank\">Eppy Awards</a>.</p>\n', 'hallo@smkitasy-syadzili.sch.id', 'Daniel Elvanda Yohanes', 'undefined', 'undefined', 'undefined', 'undefined', 'a00ae551dd485419a57db462a6ae30b9.jpg', 'Halo Admin, Saya ingin bertanya/membeli/.....', 'd797c14a0070235734508b7d9f409395.jpg', '&copy; 2019. <a href=\"#\">Core Master</a> by<a href=\"https://myber.co.id\" target=\"_blank\">Myber</a>', 'Core Master', 'Klinik Sekarpuro', 'Malang', 'Indonesia', '112.73825732378461', '-7.970847116561175');
 
 -- ----------------------------
 -- Table structure for provinces
@@ -2841,12 +3737,7 @@ CREATE TABLE `quiz`  (
   PRIMARY KEY (`id_quiz`) USING BTREE,
   INDEX `idmatapelajaran_fk`(`idmatapelajaran_fk`) USING BTREE,
   CONSTRAINT `quiz_ibfk_1` FOREIGN KEY (`idmatapelajaran_fk`) REFERENCES `mata_pelajaran` (`id_mata_pelajaran`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
-
--- ----------------------------
--- Records of quiz
--- ----------------------------
-INSERT INTO `quiz` VALUES (2, 'Dasar C++', 0, '123', 1, 1, 2);
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for riwayat_kerja_pns_pegawai
@@ -2861,21 +3752,7 @@ CREATE TABLE `riwayat_kerja_pns_pegawai`  (
   `terhitung_mulai` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `keterangan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_riwayat_kerja_pns_pegawai`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
-
--- ----------------------------
--- Records of riwayat_kerja_pns_pegawai
--- ----------------------------
-INSERT INTO `riwayat_kerja_pns_pegawai` VALUES (1, 23, 'RPNS1', 'D', '123', 'R', '13');
-INSERT INTO `riwayat_kerja_pns_pegawai` VALUES (2, 23, 'RPNS2', 'L', '32', 'L', 'J');
-INSERT INTO `riwayat_kerja_pns_pegawai` VALUES (3, 24, 'RPNS1', 'D', '123', 'R', '13');
-INSERT INTO `riwayat_kerja_pns_pegawai` VALUES (4, 24, 'RPNS2', 'L', '32', 'L', 'J');
-INSERT INTO `riwayat_kerja_pns_pegawai` VALUES (5, 25, 'v', 'aas', '2000', '2001', 'ad');
-INSERT INTO `riwayat_kerja_pns_pegawai` VALUES (6, 25, 'Vi', 'we', '60000', '2003', 're');
-INSERT INTO `riwayat_kerja_pns_pegawai` VALUES (7, 26, 'v', 'aas', '2000', '2001', 'ad');
-INSERT INTO `riwayat_kerja_pns_pegawai` VALUES (8, 26, 'Vi', 'we', '60000', '2003', 're');
-INSERT INTO `riwayat_kerja_pns_pegawai` VALUES (9, 27, 'v', 'aas', '2000', '2001', 'ad');
-INSERT INTO `riwayat_kerja_pns_pegawai` VALUES (10, 27, 'Vi', 'we', '60000', '2003', 're');
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for riwayat_kerja_swasta_pegawai
@@ -2888,19 +3765,23 @@ CREATE TABLE `riwayat_kerja_swasta_pegawai`  (
   `tahun` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `keterangan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_riwayat_kerja_swasta_pegawai`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
--- Records of riwayat_kerja_swasta_pegawai
+-- Table structure for rpp
 -- ----------------------------
-INSERT INTO `riwayat_kerja_swasta_pegawai` VALUES (1, 24, 'RS1', '2012', 'D');
-INSERT INTO `riwayat_kerja_swasta_pegawai` VALUES (2, 24, 'RS2', '2010', 'W');
-INSERT INTO `riwayat_kerja_swasta_pegawai` VALUES (3, 25, 'guru', '2001', 'smk it');
-INSERT INTO `riwayat_kerja_swasta_pegawai` VALUES (4, 25, 'kerja', '2009', 'op');
-INSERT INTO `riwayat_kerja_swasta_pegawai` VALUES (5, 26, 'guru', '2001', 'smk it');
-INSERT INTO `riwayat_kerja_swasta_pegawai` VALUES (6, 26, 'kerja', '2009', 'op');
-INSERT INTO `riwayat_kerja_swasta_pegawai` VALUES (7, 27, 'guru', '2001', 'smk it');
-INSERT INTO `riwayat_kerja_swasta_pegawai` VALUES (8, 27, 'kerja', '2009', 'op');
+DROP TABLE IF EXISTS `rpp`;
+CREATE TABLE `rpp`  (
+  `id_rpp` int(11) NOT NULL AUTO_INCREMENT,
+  `idguru_fk` int(11) NULL DEFAULT NULL,
+  `idtahunajaran_fk` int(11) NULL DEFAULT NULL,
+  `idkelas_fk` int(11) NULL DEFAULT NULL,
+  `idmateri_fk` int(11) NULL DEFAULT NULL,
+  `alokasi_waktu` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `file` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `idmatapelajaran_fk` int(11) NULL DEFAULT NULL,
+  PRIMARY KEY (`id_rpp`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for ruangan
@@ -3046,243 +3927,283 @@ CREATE TABLE `siswa`  (
   `jumlah_saudara` int(255) NULL DEFAULT NULL,
   `jenis_kelamin` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_siswa`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 270 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 549 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of siswa
 -- ----------------------------
-INSERT INTO `siswa` VALUES (38, '101010', 'ABU ABDUL UKAIL', 11, 1, 'islam', '', '', '', '', '', '', '', 'Malang', '2021-04-12', 'Ya', '', '', '', '', '', '', NULL, NULL, '', '', '0000-00-00', '', '', '', '', '', '0000-00-00', '', '', '', 0, 0, 0, NULL, 0, 'L');
-INSERT INTO `siswa` VALUES (39, '123', 'ACHMAD BALYAN  SYAUQILLAH', 11, 1, 'islam', '', '', '', '', '', '', '', '', '0000-00-00', 'Ya', '', '', '', '', '', '', NULL, NULL, '', '', '0000-00-00', '', '', '', '', '', '0000-00-00', '', '', '', 0, 0, 0, NULL, 0, 'L');
-INSERT INTO `siswa` VALUES (40, '123', 'ACHMAD KOMARUDIN', 11, 1, 'islam', '', '', '', '', '', '', '', '', '0000-00-00', 'Ya', '', '', '', '', '', '', NULL, NULL, '', '', '0000-00-00', '', '', '', '', '', '0000-00-00', '', '', '', 0, 0, 0, NULL, 0, 'L');
-INSERT INTO `siswa` VALUES (41, '', 'ACHMAD ZAIDAN LAZUARDI', 11, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (42, '', 'ADEL AIDE CANBERRA MUHAMMAD', 11, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (43, '', 'AFFANDIARTA AL MUSTOFA', 11, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (44, '', 'AKBAR HASIM', 11, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (45, '', 'ALTHOFANDI DHIFAN FAJRIN', 11, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (46, '', 'ANANDA PANGESTU RIZKY', 11, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (47, '', 'BARIZUL HAQ AHMAD', 11, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (48, '', 'CHAIS JUNASOR', 11, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (49, '', 'CHOIRU MAZKURI RAHMAN', 11, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (50, '', 'DURRY ABIYYU NAWWAF', 11, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (51, '', 'DWI ILHAM TABAH SAMUDRA', 11, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (52, '', 'FACHRIS FIRMAN RAMADHANI', 11, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (53, '', 'JEFRI SAPUTRO', 11, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (54, '', 'M FARID MUKHOROFI AKBAR', 11, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (55, '', 'M HANIF ZAMZAM', 11, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (56, '', 'M IRFAUR RIZKI', 11, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (57, '', 'M NAUFAL ADDAUFI', 11, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (58, '', 'M. RIFAN ARIL SABRILLA', 11, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (59, '', 'M. SEPTIAN RIZKY WIJAYA', 11, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (60, '', 'MOCHAMAD ULUL ALBAB', 11, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (61, '', 'MUCHAMAD ANTON ARDIYANSAH', 11, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (62, '', 'MUCHAMMAD ILYAS GHOFUR', 11, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (63, '', 'MUHAMMAD FATIH ZAMZAMI', 11, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (64, '', 'MUHAMMAD HUSNI MUBAROK', 11, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (65, '', 'MUHAMMAD KUMOLOJATI AL-GHOZALI', 11, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (66, '', 'MUHAMMAD SYAIFUR RIDHO', 11, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (67, '', 'MUHAMMAD VIKKY NURSYAHRONI', 11, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (68, '', 'MUKHAMMAD CHUDORI RAMADHAN', 11, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (69, '', 'RIZKY AJI BAYU SAMPURNA', 11, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (70, '', 'SYAHRUL FADLI AL MUBAROK', 11, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (71, '', 'SYAHRUL MUBAROQ', 11, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (72, '', 'TEGAR ILYASA', 11, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (73, '', 'ACHMAD AUDI RIZKI', 11, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (74, '', 'REVANZA PUTRA MAULIDANI', 11, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (75, '', 'ACHMAD ZACKY', 15, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (76, '', 'ADAM RAHMATULLOH', 15, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (77, '', 'AHMAD WILDAN MAULANA', 15, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (78, '', 'ALI ASHAR', 15, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (79, '', 'AMAR DJATI DIMAS NUGRAHA', 15, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (80, '', 'DHIMAS FIRMANSYAH', 15, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (81, '', 'KHANAYA EL FARRADZ HARAHAP', 15, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (82, '', 'MOCH. THORIQ ADIL LAIDE K.K', 15, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (83, '', 'MOCHAMMAD RIZA WIDYA CHESTA ABADI', 15, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (84, '', 'MUHAMMAD MUHIBBIL ILMI', 15, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (85, '', 'MUNAWIRUL FUADI', 15, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (86, '', 'NAUFAL AZFA MAULIDIAN', 15, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (87, '', 'RIZKI AGUNG WIBOWO', 15, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (88, '', 'SATRIA YUDHA PAMUNGKAS', 15, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (89, '', 'MISBAHUL RAFLI ALFANDI', 15, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (90, '', 'HANIF ASKAR DZIKIER', 15, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (91, '', 'ACHMAD DAFFAA SYIFA\'UN FADHILLAH', 13, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (92, '', 'ACHMAD DIAUDDIN', 13, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (93, '', 'ACHMAD FADHEL IRSYAD ZAKARIA', 13, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (94, '', 'ACHMAD SIDIQ', 13, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (95, '', 'AHMAD ABBAS FAIDILLAH', 13, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (96, '', 'AHMAD FARHAN BINTARO ALAMSYAH', 13, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (97, '', 'DIMAS DWITYA KUSUMA', 13, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (98, '', 'EKANATA WICAKSONO NUR KAMID', 13, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (99, '', 'IMAM GHOZALI', 13, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (100, '', 'I\'TADUL MUROQIY', 13, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (101, '', 'ILHAM FAHMIANSYAH', 13, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (102, '', 'M. FERDY MAULIDAN', 13, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (103, '', 'MOHAMMAD DZULKIFLI AFRIZAL AHMAD', 13, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (104, '', 'MUHAMMAD HAMZAH ALBATAMY', 13, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (105, '', 'MUHAMMAD MUJAHID ARRIDHO', 13, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (106, '', 'MUHAMMAD NUKMAN ZAINUDDIN', 13, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (107, '', 'ADEL WIBISONO', 17, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (108, '', 'AHMAD NURUDIN ISLAM', 17, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (109, '', 'AQIP IRVAN PURNOMO', 17, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (110, '', 'MUHAMMAD AMRY YUSRON', 17, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (111, '', 'MUHAMMAD FATKHUROHMAN', 17, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (112, '', 'NANDA FRIMA SETIAWAN', 17, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (113, '', 'RAFIANO ZHAKIRI', 17, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (114, '', 'ADITAMI FITRIA', 16, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (115, '', 'DEWI NAYLUL MUFIDAH', 16, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (116, '', 'JENNY CITRA HANDAYANI', 16, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (117, '', 'KHIKMATUL MAKHLUFI ANANTA', 16, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (118, '', 'NABILA FAUZI', 16, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (119, '', 'RAHAF FITRIA', 16, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (120, '', 'SINDI AULIA WARDANI', 16, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (121, '', 'AMELIA DIAN LESTARI', 14, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (122, '', 'AYU DUWI AGUSTINA', 14, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (123, '', 'FADILA AULIA SARI', 14, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (124, '', 'FATIMAH AZZAHRA', 14, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (125, '', 'MAGHFIROH BARIDATUL AFWIYA', 14, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (126, '', 'SYAYLA HANIF FAIZUNA', 14, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (127, '', 'TSALISATUL MAULIDAH', 14, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (128, '', 'VIDIA SARI', 14, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (129, '', 'ANASTASYA STEFANIE QURROTA A\'YUN', 18, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (130, '', 'AZIZATUL MAHMUDA', 18, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (131, '', 'FAMELIA NAILUN NAJWA', 18, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (132, '', 'FIORENTINA RAMADHANI', 18, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (133, '', 'INDANA ZULFA', 18, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (134, '', 'MAYANG AWRELIYA SAKHA SOMALLA', 18, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (135, '', 'NABILAH ZAHRAH ISFANTI', 18, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (136, '', 'NADZIFATUL KHOIRISMA', 18, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (137, '', 'NAILLA KUSUMA YULIANT PUTRI', 18, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (138, '', 'PUTRI SAKINATUS SHOLICHAH', 18, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (139, '', 'RANI LESTARI', 18, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (140, '', 'SANIA NURFARIKHA', 18, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (141, '', 'SAVIRA PUTRI NURHALISA', 18, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (142, '', 'SHIRLI TAHTA ADHILALI', 18, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (143, '', 'USWATUN KHASANAH', 18, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (144, '', 'WARI\'AH KHUSNANIYAH', 18, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (145, '', 'ZILDJIAN DZUN NUR\'AIN AZ-ZAHRA', 18, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (146, '', 'ACHMAD ARISY FIRMANSYAH', 19, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (147, '', 'ABDUL MU\'ID', 19, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (148, '', 'AHMAD ARIFIN ILHAM ', 19, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (149, '', 'ACHMAD BAHRUL ULUM MARZUQI', 19, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (150, '', 'ACHMAD MA\'RIFATUL FIQHI', 19, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (151, '', 'ACHMAD NIZAR', 19, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (152, '', 'ACHMAD NU\'MAN MAQBUL', 19, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (153, '', 'ACHMAD YUSRON', 19, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (154, '', 'AHMAD FARIHUR ROMADHONI', 19, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (155, '', 'ALVIO TREINADI', 19, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (156, '', 'FEBYAN AZIMMY IQBAL MAULIDANI', 19, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (157, '', 'HENDRI ', 19, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (158, '', 'MOCHAMMAD AFIEH RAZALI', 19, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (159, '', 'MUHAMMAD BIRUL WALIDAIN', 19, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (160, '', 'M.IRFAN ASROFI', 19, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (161, '', 'MOCH IRFAN SATRIO', 19, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (162, '', 'MUHAMAD IZZUDDIN FAHMI ABIDIN', 19, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (163, '', 'MUHAMMAD LUKMAN HAKIM', 19, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (164, '', 'M. MUHAIMIN ', 19, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (165, '', 'MUHAMMAD RAFLI', 19, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (166, '', 'MUHAMMAD SHOBIRIN ', 19, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (167, '', 'M. SYAIFUDDIN ZUHRI', 19, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (168, '', 'SULBI RAHMAT', 19, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (169, '', 'TEKAD INDRA PAMUNGKAS', 19, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (170, '', 'ABDUL AZIZ', 20, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (171, '', 'BAYU SATRIO PAMUNGKAS', 20, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (172, '', 'DANDI SETYOKO', 20, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (173, '', 'EMRIZAL HAMED BASSELA', 20, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (174, '', 'FIRDAUS REYHAN PRAMUDYA ANANTA', 20, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (175, '', 'HAMAM ALWI', 20, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (176, '', 'IZUL HABIBULLOH', 20, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (177, '', 'MIFTAHUS SURUR ALHISY', 20, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (178, '', 'MOCH. MAULANA RAMADHAN', 20, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (179, '', 'MOCHAMMAD IMAM FATONI', 20, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (180, '', 'MUHAMMAD BAHARUDIN MA\'RUF', 20, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (181, '', 'MUHAMMAD BINTANG RABBANI', 20, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (182, '', 'MUHAMMAD KHOIRUL ANTARIKSA', 20, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (183, '', 'MUHAMMAD MINANUR ROHMAN', 20, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (184, '', 'MUHAMMAD NAUFAL SYAFIQ AKHSANI', 20, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (185, '', 'MUHAMMAD PUTRA MAULIDANI', 20, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (186, '', 'MUHAMMAD RIF\'AN ZULKIFLI', 20, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (187, '', 'MUHAMMAD UBAIDILLAH', 20, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (188, '', 'NANDA NURUS SHOLIHIN ', 20, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (189, '', 'OSCAR GONZALES PIRY', 20, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (190, '', 'RENDI FERDIANTO', 20, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (191, '', 'ROCHIT SANTOSO', 20, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (192, '', 'SATRIA YUDHA PURNAMA ', 20, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (193, '', 'SUGENG SLAMET RIDHO\'I', 20, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (194, '', 'AFIFATUS SA\'DIAH', 23, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (195, '', 'AINUR ROHMAH', 23, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (196, '', 'AMILATUS SHOLIHAH', 23, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (197, '', 'ARIS FADHILAH', 23, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (198, '', 'DINI SEFIYAH', 23, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (199, '', 'INTAN SODIMIRANDA', 23, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (200, '', 'JUNDA ALIFIA RAHMAWATI', 23, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (201, '', 'KHOIRUN NISA AMALIA', 23, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (202, '', 'MAULIDATUN NABILA', 23, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (203, '', 'NASYWA NUR FILDZAH', 23, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (204, '', 'NIKEN HAYU WARDANI', 23, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (205, '', 'SAFINATUL ISLAMIYAH', 23, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (206, '', 'SAFITRI', 23, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (207, '', 'SHOFY MUFIDATUL UMMAH', 23, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (208, '', 'ZUHAUL FIKRIYAH', 23, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (209, '', 'ZUHRUFUL HIKMATUZ ZAHRO', 23, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (210, '', 'VIA NIKMATUL IZZA', 23, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (211, '', 'AHMAD BUSTONUL FAIDLIN', 21, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (212, '', 'DENI SYAPUTRA ', 21, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (213, '', 'FIKRI RAHMAT MAULANA', 21, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (214, '', 'FIQIH ABDILLAH SAIFUL MUSTOFA', 21, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (215, '', 'IKMAL WAFIQ ARAFAT', 21, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (216, '', 'MOCH AGUS HERMANSYAH', 21, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (217, '', 'M. AIMAR NUR ABABIEL', 21, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (218, '', 'MOCH. ALIEF WAHYUDI', 21, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (219, '', 'M. AMIEN QUTHBI', 21, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (220, '', 'MUHAMMAD HASAN ALI MAULANA', 21, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (221, '', 'M. HILDAN ISFANDIARI', 21, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (222, '', 'M. ILHAM HALIK MAULANA', 21, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (223, '', 'MUHAMMAD IQBAL ZAMZAMI', 21, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (224, '', 'M. IRFAN MUZAKKY', 21, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (225, '', 'M. NIZAR ASROFI', 21, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (226, '', 'M. NURIZ NURZAMAN', 21, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (227, '', 'M. RIFQILLAH MAZID', 21, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (228, '', 'MUHAMAD SHOFIYUDDIN \'AINURRIDLO', 21, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (229, '', 'M. YUSRIL', 21, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (230, '', 'MISBAKHUL MUNIR', 21, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (231, '', 'MUFTI ALI SHOLIHIN', 21, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (232, '', 'MUHAMMAD RAFLI ISRO\'I', 21, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (233, '', 'AHMAD ARIF SYAR\'I', 22, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (234, '', 'ABDILLAH KAMAL PASYA', 22, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (235, '', 'ANANDA MIHDAN', 22, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (236, '', 'HILDAN ACHMAD', 22, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (237, '', 'MUH. ALFAN FIKRI ADITAMA', 22, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (238, '', 'M. ARDI FIRMANSYAH', 22, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (239, '', 'MOHAMMAT FAIZUL M', 22, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (240, '', 'MUHAMMAD HAVID AMINUDIN', 22, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (241, '', 'MUHAMMAD HILMI IBROHIM', 22, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (242, '', 'MUHAMMAD MA\'RUF SHOFIUDIN', 22, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (243, '', 'MUKHAMAD SYAHRUL AZIZI', 22, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (244, '', 'MUHAMMAD SYARIFFUDIN', 22, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (245, '', 'M. TAUFIKUR ROHMAN', 22, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (246, '', 'MUHAMMAD ZAINUL ARIFIN', 22, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (247, '', 'M. ZIDANE ILMAN NAFI\' AL-ADHA', 22, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (248, '', 'MOCH. ARIF MUKLIS', 22, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (249, '', 'REZA AKBAR TAUFANI', 22, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (250, '', 'RIDHO ABDI IMANULLOH', 22, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (251, '', 'SULTON ABDUL AZIZ', 22, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (252, '', 'VILLORIAND ADIAZ DIVANA', 22, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (253, '', 'YUSUF BAKHTIAR', 22, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (254, '', 'ZAINAL ABIDIN', 22, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (255, '', 'ANNISA JIHAN FIRDAUS', 24, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (256, '', 'ARIFAH QURROTA A\'YUN', 24, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (257, '', 'ARINA MANASIKANA', 24, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (258, '', 'CHELSEA RAMADHANI', 24, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (259, '', 'ERICKA MAHDANIA AL FAIRUZZABADI', 24, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (260, '', 'FADILLA NURUSSIVA', 24, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (261, '', 'FATIMATUS ZAHRO', 24, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (262, '', 'FITRI FATCHIYAH', 24, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (263, '', 'KAYYIS MAS\'UDAH', 24, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (264, '', 'KHALYMATUS SA\'DIYAH', 24, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (265, '', 'LULUK MAFIROH', 24, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (266, '', 'MEY MAULIDIA', 24, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (267, '', 'MUBAROKATUN', 24, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (268, '', 'NOFA ALIFIYA', 24, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `siswa` VALUES (269, '', 'SAFIRA YUNITA FRESTANTI', 24, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (275, NULL, 'AHMAD WILDAN MAULANA', 28, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (276, NULL, 'AKBAR HASIM', 28, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (277, NULL, 'ALTOFFANDI DHIFAN FAJRIN', 28, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (278, NULL, 'DIMAS DWITYA KUSUMA', 28, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (279, NULL, 'DWI ILHAM TABAH SAMUDRA', 28, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (280, NULL, 'FACHRIS FIRMAN RAMADHANI', 28, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (281, NULL, 'IMAM GHOZALI', 28, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (282, NULL, 'JEFRY SAPUTRO', 28, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (283, NULL, 'M FARID MUKHOROFI AKBAR', 28, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (284, NULL, 'M NAUFAL ADDAUFI', 28, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (285, NULL, 'M. FERDY MAULIDAN', 28, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (286, NULL, 'MOCHAMMAD RIZA WIDYA CHESTA ABADI', 28, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (287, NULL, 'MUHAMMAD FATIH ZAMZAMI', 28, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (288, NULL, 'MUHAMMAD KUMOLOJATI AL-GHOZALI', 28, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (289, NULL, 'MUHAMMAD NUKMAN ZAINUDDIN', 28, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (290, NULL, 'NAUFAL AZFA MAULIDIAN', 28, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (291, NULL, 'RIZKI AGUNG WIBOWO', 28, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (292, NULL, 'SYAHRUL MUBAROQ', 28, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (293, NULL, 'ADAM RAHMATULLOH', 29, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (294, NULL, 'AHMAD ABBAS FAIDILLAH', 29, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (295, NULL, 'AHMAD FARHAN BINTARO ALAMSYAH', 29, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (296, NULL, 'ALI ASHAR', 29, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (297, NULL, 'DURRY ABIYYU NAWWAF', 29, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (298, NULL, 'HANIF ASKAR DZIKIER', 29, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (299, NULL, 'I\'TADUL MUROQIY', 29, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (300, NULL, 'KHANAYA EL FARRADZ HARAHAP', 29, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (301, NULL, 'M HANIF ZAMZAM', 29, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (302, NULL, 'M IRFAUR RIZKI', 29, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (303, NULL, 'M. SEPTIAN RIZKY WIJAYA', 29, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (304, NULL, 'MOCHAMAD ULUL ALBAB', 29, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (305, NULL, 'MUCHAMMAD ILYAS GHOFUR', 29, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (306, NULL, 'MUHAMMAD HAMZAH ALBATAMY', 29, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (307, NULL, 'MUHAMMAD HUSNI MUBAROK', 29, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (308, NULL, 'MUHAMMAD MUHIBBIL ILMI', 29, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (309, NULL, 'MUHAMMAD MUJAHID ARIDHO', 29, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (310, NULL, 'MUHAMMAD SYAIFUR RIDHO', 29, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (311, NULL, 'RIZKY AJI BAYU SAMPURNA', 29, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (312, NULL, 'SATRIA YUDHA PAMUNGKAS', 29, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (313, NULL, 'SYAHRUL FADLI AL MUBAROK', 29, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (314, NULL, 'ACHMAD AUDI RIZKY', 30, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (315, NULL, 'ACHMAD BALYAN  SYAUQILLAH', 30, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (316, NULL, 'ACHMAD FADHEL IRSYAD ZAKARIA', 30, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (317, NULL, 'ACHMAD ZACKY', 30, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (318, NULL, 'ADEL AIDE CANBERRA MUHAMMAD', 30, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (319, NULL, 'AMAR DJATI DIMAS NUGRAHA', 30, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (320, NULL, 'BARIZUL HAQ AHMAD', 30, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (321, NULL, 'CHAIS JUNASOR', 30, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (322, NULL, 'CHOIRU MAZKURI RAHMAN', 30, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (323, NULL, 'DHIMAS FIRMANSYAH', 30, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (324, NULL, 'ILHAM FAHMIANSYAH', 30, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (325, NULL, 'MISBAHUL RAFLI ALFANDI', 30, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (326, NULL, 'MOCH. THORIQ ADIL LAIDE KAMMARUZZAMAN KHOLIK', 30, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (327, NULL, 'MOHAMMAD DZULKIFLI AFRIZAL AHMAD', 30, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (328, NULL, 'MUHAMMAD VIKKY NURSYAHRONI', 30, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (329, NULL, 'MUNAWIRUL FUADI', 30, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (330, NULL, 'REVANZA PUTRA RAMADHANI', 30, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (331, NULL, 'TEGAR ILYASA', 30, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (332, NULL, 'M. IRFAN ASROFI', 30, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (333, NULL, 'TEKAD INDRA PAMUNGKAS', 30, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (334, NULL, 'SULBI RAHMAT', 30, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (335, NULL, 'ADEL WIBISONO', 31, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (336, NULL, 'AHMAD NURUDIN ISLAMI', 31, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (337, NULL, 'AQIB IRVAN PURNOMO', 31, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (338, NULL, 'MUHAMMAD AMRY YUSRON', 31, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (339, NULL, 'MUKHAMAD FATKHUROHMAN', 31, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (340, NULL, 'NANDA FRIMA SETIAWAN', 31, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (341, NULL, 'RAFIANO ZHAKIRI', 31, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (342, NULL, 'AMELIA DIAN LESTARI', 35, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (343, NULL, 'AYU DUWI AGUSTINA', 35, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (344, NULL, 'FADILA AULIA SARI', 35, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (345, NULL, 'FATIMAH AZZAHRA', 35, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (346, NULL, 'MAGHFIROH BARIDATUL AFWIYA', 35, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (347, NULL, 'SYAYLA HANIF FAIZUNA', 35, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (348, NULL, 'TSALISATUL MAULIDAH', 35, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (349, NULL, 'VIDIA SARI', 35, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (350, NULL, 'DEWI NAYLUL MUFIDAH', 35, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (351, NULL, 'JENNY CITRA HANDAYANI', 35, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (352, NULL, 'KHIKMATUL MAKHLUFI ANANTA', 35, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (353, NULL, 'NABILA FAUZI', 35, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (354, NULL, 'RAHAF FITRIA', 35, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (355, NULL, 'SINDI AULIA WARDANI', 35, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (356, NULL, 'GIUR RAUDHAH', 35, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (357, NULL, 'NAJWA FATIMAH ASMAWI', 35, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (358, NULL, 'NINIK KURNIAWATI', 35, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (359, NULL, 'PUTRI AULIA RAMADHANTI', 35, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (360, NULL, 'SAFIRATUL AZHAR', 35, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (361, NULL, 'SYARIFAH KHODIJAH', 35, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (362, NULL, 'UMI HABIBAH', 35, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (363, NULL, 'ADITAMI FITRIA', 36, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (364, NULL, 'ANASTASYA STEFANIE QURROTA A\'YUN', 36, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (365, NULL, 'AZIZATUL MAHMUDA', 36, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (366, NULL, 'FAMELIA NAILUN NAJWA', 36, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (367, NULL, 'FIORENTINA RAMADHANI', 36, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (368, NULL, 'INDANA ZULFA', 36, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (369, NULL, 'MAYANG AWRELIYA SAKHA SOMALLA', 36, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (370, NULL, 'NABILAH ZAHRAH ISFANTI', 36, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (371, NULL, 'NAILLA KUSUMA YULIANT PUTRI', 36, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (372, NULL, 'RANI LESTARI', 36, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (373, NULL, 'SANIA NURFARIKHA', 36, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (374, NULL, 'SAVIRA PUTRI NURHALISA', 36, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (375, NULL, 'SIRLI TAHTA DHILALI', 36, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (376, NULL, 'USWATUN KHASANAH', 36, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (377, NULL, 'ZILDJIAN DZUN NUR\'AIN AZ-ZAHRA', 36, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (378, NULL, 'ABDUL AZIZ', 32, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (379, NULL, 'ACHMAD ARISY FIRMANSYAH', 32, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (380, NULL, 'ACHMAD BAHRUL ULUM MARZUQI', 32, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (381, NULL, 'ACHMAD MA\'RIFATUL FIQHI', 32, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (382, NULL, 'ACHMAD YUSRON', 32, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (383, NULL, 'AHMAD ARIFIN ILHAM ', 32, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (384, NULL, 'AHMAD FARIHUR ROMDLONI', 32, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (385, NULL, 'DANDI SETYOKO', 32, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (386, NULL, 'EMRIZAL HAMED BASSELA', 32, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (387, NULL, 'HAMMAM ALWY', 32, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (388, NULL, 'M. MUHAIMIN ', 32, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (389, NULL, 'MIFTAH HUSURUR ALHISYI', 32, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (390, NULL, 'MOCH. IRFAN SATRIO', 32, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (391, NULL, 'MOCH. MAULANA RAMADHAN', 32, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (392, NULL, 'MOCHAMMAD AFIEH RAZALI', 32, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (393, NULL, 'MOCHAMMAD IMAM FATONI', 32, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (394, NULL, 'MUHAMMAD KHOIRUL ANTARIKSA', 32, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (395, NULL, 'MUHAMMAD RIF\'AN ZULKIFLI', 32, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (396, NULL, 'MUHAMMAD SHOBIRIN ', 32, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (397, NULL, 'MUHAMMAD SYAIFUDDIN ZUHRI', 32, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (398, NULL, 'NANDA NURUS SHOLIHIN ', 32, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (399, NULL, 'RENDI FERDIANTO', 32, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (400, NULL, 'FERDIAN WAHYU NUGROHO', 32, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (402, NULL, 'ABDUL MU\'ID', 33, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (403, NULL, 'ACHMAD NU\'MAN MAQBUL', 33, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (404, NULL, 'AHMAD NIZAR', 33, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (405, NULL, 'ALVIO TREINADI', 33, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (406, NULL, 'BAYU SATRIYO PAMUNGKAS', 33, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (407, NULL, 'FEBYAN AZIMMY IQBAL MAULIDHANI', 33, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (408, NULL, 'FIRDAUS REYHAN PRAMUDYA ANANTA', 33, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (409, NULL, 'HENDRI ', 33, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (410, NULL, 'IZUL HABIBULLOH', 33, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (411, NULL, 'MUHAMAD IZZUDDIN FAHMI ABIDIN', 33, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (412, NULL, 'MUHAMAD PUTRA MAULIDANI', 33, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (413, NULL, 'MUHAMMAD BAHARUDIN MA\'RUF', 33, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (414, NULL, 'MUHAMMAD BINTANG RABBANI', 33, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (415, NULL, 'MUHAMMAD BIRRUL WALIDAIN', 33, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (416, NULL, 'MUHAMMAD LUKMAN HAKIM', 33, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (417, NULL, 'MUHAMMAD MINANUR ROHMAN', 33, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (418, NULL, 'MUHAMMAD NAUFAL SYAFIQ AKHSANI', 33, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (419, NULL, 'MUHAMMAD RAFLI', 33, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (420, NULL, 'MUHAMMAD UBAIDILLAH', 33, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (421, NULL, 'OSCAR GONZALES PIRY', 33, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (422, NULL, 'ROCHIT SANTOSO', 33, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (423, NULL, 'SATRIA YUDHA PURNAMA ', 33, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (424, NULL, 'SUGENG SLAMET RIDHO\'I', 33, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (426, NULL, 'DINI NAFISA', 34, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (427, NULL, 'IRBAH RIZQIYAH IMAMATUL MAULA', 34, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (428, NULL, 'NESA HAMIVA EL- GAZWA', 34, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (429, NULL, 'NOVA ZULFA SAFANAH', 34, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (430, NULL, 'SAFINAH ANNAJAH', 34, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (431, NULL, 'TUHFATUL MARDIYYAH', 34, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (432, NULL, 'ACHMAD THORIQ AL-AYYUBI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (433, NULL, 'ACHMAD THORIQ AL-AYYUBI', 25, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (434, NULL, 'ALIEF RISKI SETIAWAN', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (435, NULL, 'ALIEF RISKI SETIAWAN', 25, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (436, NULL, 'BAGUS SANDIARTA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (437, NULL, 'BAGUS SANDIARTA', 25, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (438, NULL, 'CAHYA INDRA LUKMANA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (439, NULL, 'CAHYA INDRA LUKMANA', 25, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (440, NULL, 'DANIEL DECO NAJHAN ZALFA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (441, NULL, 'DANIEL DECO NAJHAN ZALFA', 25, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (442, NULL, 'DHONI AHMAD MUHAJJIR', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (443, NULL, 'DHONI AHMAD MUHAJJIR', 25, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (444, NULL, 'DZIKRU ROZAQ', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (445, NULL, 'DZIKRU ROZAQ', 25, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (446, NULL, 'ERLANGGA CAHYA PUTRA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (447, NULL, 'ERLANGGA CAHYA PUTRA', 25, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (448, NULL, 'FARIHIN IKSAN', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (449, NULL, 'FARIHIN IKSAN', 25, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (450, NULL, 'M. DAWAM ROYHANUL MUKAROM', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (451, NULL, 'M. DAWAM ROYHANUL MUKAROM', 25, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (452, NULL, 'M. FIKRY AL MUZAKKY', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (453, NULL, 'M. FIKRY AL MUZAKKY', 25, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (454, NULL, 'MOCHAMAD ROYKHAN KEN IZZUDIN', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (455, NULL, 'MOCHAMAD ROYKHAN KEN IZZUDIN', 25, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (456, NULL, 'MOCHAMMAD FAQIHUDDIN HUDA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (457, NULL, 'MOCHAMMAD FAQIHUDDIN HUDA', 25, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (458, NULL, 'MOCHAMMAD GIAN HARJA YODHA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (459, NULL, 'MOCHAMMAD GIAN HARJA YODHA', 25, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (460, NULL, 'MOH ALFAN ARIZKI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (461, NULL, 'MOH ALFAN ARIZKI', 25, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (462, NULL, 'MOH. RIZIQ FIRDAUS FADLI ROBBY', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (463, NULL, 'MOH. RIZIQ FIRDAUS FADLI ROBBY', 25, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (464, NULL, 'MOH. SAFI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (465, NULL, 'MOH. SAFI', 25, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (466, NULL, 'MOKHAMAD ZULFIKAR PUTRA IMRON', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (467, NULL, 'MOKHAMAD ZULFIKAR PUTRA IMRON', 25, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (468, NULL, 'MUHAMMAD AFIRIL ARDAN', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (469, NULL, 'MUHAMMAD AFIRIL ARDAN', 25, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (470, NULL, 'MUHAMMAD FIRDAUS', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (471, NULL, 'MUHAMMAD IN\'AM FALAHUDDIN', 25, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (472, NULL, 'MUHAMMAD FIRDAUS', 25, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (473, NULL, 'MUHAMMAD IN\'AM FALAHUDDIN', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (474, NULL, 'MUKHAMAD AMIR AKHSANUL KHOLIQIN', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (475, NULL, 'MUKHAMAD AMIR AKHSANUL KHOLIQIN', 25, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (476, NULL, 'NAIL MAJID SANTOSO', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (477, NULL, 'NAWWAL IRFAN MUHAMMAD', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (478, NULL, 'NAIL MAJID SANTOSO', 25, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (479, NULL, 'NOZA JIMMY PRASETYO', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (480, NULL, 'NAWWAL IRFAN MUHAMMAD', 25, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (481, NULL, 'RAIHAN ALFARIZI', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (482, NULL, 'NOZA JIMMY PRASETYO', 25, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (483, NULL, 'ROISUL AHYER', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (484, NULL, 'RAIHAN ALFARIZI', 25, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (485, NULL, 'SYAHRUL NUR FADHILAH', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (486, NULL, 'ROISUL AHYER', 25, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (487, NULL, 'TERRY ACHMAD VAREL', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (488, NULL, 'SYAHRUL NUR FADHILAH', 25, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (489, NULL, 'TITO MAULANA IBRAHIM', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (490, NULL, 'TERRY ACHMAD VAREL', 25, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (491, NULL, 'TITO MAULANA IBRAHIM', 25, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (492, NULL, 'AGUSTI REVI NUHHA', 37, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (493, NULL, 'AUHA MAY ZIADAH', 37, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (494, NULL, 'DYAH RINI KUSUMAWATI', 37, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (495, NULL, 'KHUSNUL KHOTIMAH PUTRI WIJAYA', 37, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (496, NULL, 'MUTIARA JASMINE JAY RAMADHANI', 37, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (497, NULL, 'A. TAHAR MUZEKY', 26, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (498, NULL, 'ACHMAD WAHYU AL-BAIHAQI', 26, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (499, NULL, 'DHONNY EMRE ROY', 26, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (500, NULL, 'FIDI GAUTAMA VALENTINO ANTOLIN', 26, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (501, NULL, 'FIRZHA IBRAHIM WIDYA NUGROHO', 26, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (502, NULL, 'FITRA AL INSANI', 26, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (503, NULL, 'HABIB MAS\'UD DJAZULI', 26, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (504, NULL, 'HASBI AFRIZAL FAHMI', 26, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (505, NULL, 'MOCH. AZKA AFIFI', 26, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (506, NULL, 'MOH. GHULAM ALFATIH', 26, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (507, NULL, 'MUHAMMAD ROIZU DZUL FIKRI', 26, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (508, NULL, 'MUHAMMAD YASYFI FUADANA', 26, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (509, NULL, 'ROSYID AL AMIR', 26, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (510, NULL, 'WILDAN SALASA', 26, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (511, NULL, 'YAKI\' FATAHILLAH YULSTIAWAN', 26, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (512, NULL, 'ADHELIA PUTRI ISLAMIAH', 38, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (513, NULL, 'AMANDA RAHMAWATI', 38, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (514, NULL, 'CHOIROTUL ULA', 38, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (515, NULL, 'HABIBAH SHOFI FUTUHIL AULIA', 38, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (516, NULL, 'LAILA SHINE TAZKIYATUNNAFS', 38, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (517, NULL, 'NISRINA WASHFA NABILA', 38, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (518, NULL, 'NUR FADILATUS ZAHRO', 38, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (519, NULL, 'SHOFI SAVIRA', 38, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (520, NULL, 'DIKI PUTRA ARDIANSYAH', 27, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (521, NULL, 'AINUN JAMILA', 27, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (522, NULL, 'ANGGITA ROHMAN OCTAFIYA', 27, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (523, NULL, 'AULIA NABILATUZ ZAHRO AL-MAWADAH', 27, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (524, NULL, 'CITRA CHINTIYA SARI', 27, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (525, NULL, 'EKA FARIHATUL AFIANN', 27, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (526, NULL, 'NADIA RAHMA PUTRI', 27, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (527, NULL, 'NAILAL FAROHAH ABIDIN', 27, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (528, NULL, 'NAZLATUS MASDHA', 27, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (529, NULL, 'RENATA SYAKILLA R. S.', 27, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (530, NULL, 'UMI FARIDA ZULFA', 27, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (531, NULL, 'YASINTA HASNA ANWAR', 27, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (532, NULL, 'ZAKYAH NAYLAL IZZAH', 27, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (533, NULL, 'AFIFATUS SA\'DIAH', 34, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (534, NULL, 'AINUR ROHMAH', 34, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (535, NULL, 'AMILATUSSHOLIHAH', 34, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (536, NULL, 'ARIS FADHILAH', 34, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (537, NULL, 'DINI SEFIYAH', 34, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (538, NULL, 'INTAN SODIMIRANDA', 34, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (539, NULL, 'JUNDA ALIFIA RAHMAWATI', 34, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (540, NULL, 'KHOIRUNNISA AMALIA', 34, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (541, NULL, 'MAULIDATUN NABILA', 34, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (542, NULL, 'NASYWA NUR FILDZAH', 34, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (543, NULL, 'SAFINATUL ISLAMIYAH', 34, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (544, NULL, 'SAFITRI', 34, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (545, NULL, 'SHOFY MUFIDATUL UMMAH', 34, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (546, NULL, 'VIA NI\'MATUL IZZA', 34, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (547, NULL, 'ZUHAUL FIKRIYAH', 34, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `siswa` VALUES (548, NULL, 'ZUHRUFUL HIKMATUZ ZAHRO', 34, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for siswa_beasiswa
@@ -3350,7 +4271,7 @@ CREATE TABLE `subkompetensi_pkg`  (
   `subkompetensi` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `kode` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_subkompetensi_pkg`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 15 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 17 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of subkompetensi_pkg
@@ -3369,6 +4290,8 @@ INSERT INTO `subkompetensi_pkg` VALUES (11, 4, 'Bersikap  inklusif,  bertindak  
 INSERT INTO `subkompetensi_pkg` VALUES (12, 4, 'Komunikasi  dengan  sesama  guru,  tenaga  kependidikan,  orang  tua,  peserta didik,  dan  masyarakat', 'K12');
 INSERT INTO `subkompetensi_pkg` VALUES (13, 5, 'Penguasaan  materi,  struktur,  konsep  dan  pola  pikir  keilmuan  yg mendukung  mata  pelajaran  yg  diampu', 'K13');
 INSERT INTO `subkompetensi_pkg` VALUES (14, 5, 'Mengembangkan  keprofesionalan  melalui  tindakan  yang  reflektif ', 'K14');
+INSERT INTO `subkompetensi_pkg` VALUES (15, 6, 'coba', NULL);
+INSERT INTO `subkompetensi_pkg` VALUES (16, 6, 'coba1', NULL);
 
 -- ----------------------------
 -- Table structure for surat_keluar
@@ -3444,13 +4367,14 @@ CREATE TABLE `tahun_ajaran`  (
   `is_active` int(11) NULL DEFAULT NULL,
   `semester` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_tahun_ajaran`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tahun_ajaran
 -- ----------------------------
-INSERT INTO `tahun_ajaran` VALUES (1, '2020/2021', '2020-06-07 10:07:41', 1, 'Ganjil');
+INSERT INTO `tahun_ajaran` VALUES (1, '2020/2021', '2020-06-07 10:07:41', 0, 'Ganjil');
 INSERT INTO `tahun_ajaran` VALUES (2, '2018/2019', '2020-08-03 11:06:13', 0, 'Genap');
+INSERT INTO `tahun_ajaran` VALUES (3, '2021/2022', '2021-07-31 12:26:40', 1, 'Ganjil');
 
 -- ----------------------------
 -- Table structure for tingkat
@@ -3497,33 +4421,35 @@ CREATE TABLE `users`  (
   `table` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
   `is_walas` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 24 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 29 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES (1, '127.0.0.1', 'admin', '$2y$08$mxSDKMRKsKM3IwN6NPoB6.3pQqymDu4ZtGAMIzpw.ppcie3MJM9ty', '', 'hello@admin.com', '', NULL, NULL, NULL, 1268889823, 1622537798, 1, 'admin', 'Yani', 'ADMIN', '085894632505', '3c8f6f36f650d5ce07803470b4f4d4ff.jpg', NULL, NULL, NULL);
-INSERT INTO `users` VALUES (3, '127.0.0.1', 'rendy', '$2y$08$mxSDKMRKsKM3IwN6NPoB6.3pQqymDu4ZtGAMIzpw.ppcie3MJM9ty', '', 'hello@admin.com', '', NULL, NULL, NULL, 1268889823, 1621471641, 1, 'Rendy', 'Yani', 'ADMIN', '085894632505', '3c8f6f36f650d5ce07803470b4f4d4ff.jpg', 2, 'guru', 1);
+INSERT INTO `users` VALUES (1, '127.0.0.1', 'admin', '$2y$08$mxSDKMRKsKM3IwN6NPoB6.3pQqymDu4ZtGAMIzpw.ppcie3MJM9ty', '', 'hello@admin.com', '', NULL, NULL, NULL, 1268889823, 1628152874, 1, 'admin', 'Yani', 'ADMIN', '085894632505', '3c8f6f36f650d5ce07803470b4f4d4ff.jpg', NULL, NULL, NULL);
+INSERT INTO `users` VALUES (3, '127.0.0.1', 'rendy', '$2y$08$OElO/1onJ/wrgc5vc7OfyuYmt6dyEUZVW4oEOzkDJtNoVUXs89.RO', '', 'hello@admin.com', '', NULL, NULL, NULL, 1268889823, 1628143887, 1, 'Rendy', 'Yani', 'ADMIN', '085894632505', '3c8f6f36f650d5ce07803470b4f4d4ff.jpg', 2, 'guru', 1);
 INSERT INTO `users` VALUES (4, '::1', 'is_376326', '$2y$08$btIyb0KsgC.oQwjrEAo.kOtGP2v.HAIe6I7fXaGSi1D8ftrhDAKSK', NULL, 'is_376326@gmail.com', NULL, NULL, NULL, NULL, 1609057333, 1622508531, 1, 'Abdur Rochim, S.Pd.', NULL, NULL, NULL, NULL, 6, 'guru', NULL);
-INSERT INTO `users` VALUES (5, '::1', 'is_559029', '$2y$08$O0X.fpQqfSjoyvdnwkwMGuizSSh2UGVW65nYjY60F3QT4c0cEAU36', NULL, 'is_559029@gmail.com', NULL, NULL, NULL, NULL, 1609057451, 1609141005, 1, 'Avi Hendratmoko, S.Kom.', NULL, NULL, NULL, NULL, 7, 'guru', NULL);
+INSERT INTO `users` VALUES (5, '::1', 'is_559029', '$2y$08$O0X.fpQqfSjoyvdnwkwMGuizSSh2UGVW65nYjY60F3QT4c0cEAU36', NULL, 'is_559029@gmail.com', NULL, NULL, NULL, NULL, 1609057451, 1627881837, 1, 'Avi Hendratmoko, S.Kom.', NULL, NULL, NULL, NULL, 7, 'guru', NULL);
 INSERT INTO `users` VALUES (6, '::1', 'is_692692', '$2y$08$IRAxfjkQv0dssEQI3d6CAeKGJyhxtcvM6jq66D2g681Oe4Z5sFB1S', NULL, 'is_692692@gmail.com', NULL, NULL, NULL, NULL, 1609057777, 1609057789, 1, 'M. Maimun Muzakka', NULL, NULL, NULL, NULL, 8, 'guru', 1);
 INSERT INTO `users` VALUES (7, '::1', 'is_591727', '$2y$08$HRS9vvh3bShD9YQ6TJaaru7ypOsaB4yo8Eigjr0ueEK0A07h/H0Xa', NULL, 'is_591727@gmail.com', NULL, NULL, NULL, NULL, 1609057880, 1609057922, 1, 'Cindy Permata Putri, S.Pd', NULL, NULL, NULL, NULL, 9, 'guru', 1);
-INSERT INTO `users` VALUES (8, '::1', 'is_988975', '$2y$08$wyknxv1J15BzDCWXjEF/hOj8wSYniCCfz/v9CmD6WCAiVTGX2OD.u', NULL, 'is_988975@gmail.com', NULL, NULL, NULL, NULL, 1609058009, 1621504190, 1, 'Roikhatul Uzza, S.Psi', NULL, NULL, NULL, NULL, 10, 'guru', 1);
+INSERT INTO `users` VALUES (8, '::1', 'is_988975', '$2y$08$wyknxv1J15BzDCWXjEF/hOj8wSYniCCfz/v9CmD6WCAiVTGX2OD.u', NULL, 'is_988975@gmail.com', NULL, NULL, NULL, NULL, 1609058009, 1627707443, 1, 'Roikhatul Uzza, S.Psi', NULL, NULL, NULL, NULL, 10, 'guru', 1);
 INSERT INTO `users` VALUES (9, '::1', 'is_513197', '$2y$08$U6OjOMqa4yvru.SqWTqxpur8XEV1fYjGb4N7HV2X2W.bJ3iNBKevG', NULL, 'is_513197@gmail.com', NULL, NULL, NULL, NULL, 1609058110, 1621504214, 1, 'Nur Cholis, S.Pdi', NULL, NULL, NULL, NULL, 12, 'guru', NULL);
 INSERT INTO `users` VALUES (10, '::1', 'is_477147', '$2y$08$a7i0YglvIrBrmFSHLfkGcOLq2bXdyYw6mKQPv0fd5XAdlsGq0xcAm', NULL, 'is_477147@gmail.com', NULL, NULL, NULL, NULL, 1609058143, 1609161762, 1, 'Pohet Bintoto, S.Pd., M.Si.', NULL, NULL, NULL, NULL, 13, 'guru', NULL);
 INSERT INTO `users` VALUES (11, '::1', 'is_281057', '$2y$08$/sh4Fl5e6ERosaRuoY1TbeND.a2ZnIlWcecy164L.HeqgwnPN3CXe', NULL, 'is_281057@gmail.com', NULL, NULL, NULL, NULL, 1609058204, 1609058223, 1, 'Mohammad Nazibullah, M.Pd.', NULL, NULL, NULL, NULL, 14, 'guru', 1);
 INSERT INTO `users` VALUES (12, '::1', 'is_950864', '$2y$08$.zH8VbjS1kSw.AaeZmn3fepcNXga0u1V4crBNyLotssKcA3pheME2', NULL, 'is_950864@gmail.com', NULL, NULL, NULL, NULL, 1609058269, 1609058286, 1, 'Syamsul Arifin, S.Pd.', NULL, NULL, NULL, NULL, 15, 'guru', NULL);
 INSERT INTO `users` VALUES (13, '::1', 'is_64964', '$2y$08$PqXqWLPoMZQxAlRCI3M4sOnRk22Hl1cr3vhTTJhrXNGpH/bQLYXFq', NULL, 'is_64964@gmail.com', NULL, NULL, NULL, NULL, 1609058314, 1609058345, 1, 'M. Mirza Ayatulloh, S.Psi.', NULL, NULL, NULL, NULL, 16, 'guru', 1);
-INSERT INTO `users` VALUES (14, '::1', 'is_56015', '$2y$08$16KcxEJG.1uz/KgEm29SNOJ.JaujRK4gp3qKQlsKK044ZP6jcFBii', NULL, 'is_56015@gmail.com', NULL, NULL, NULL, NULL, 1609058398, 1609141823, 1, 'Sutan Taufik, S.Hum', NULL, NULL, NULL, NULL, 17, 'guru', NULL);
+INSERT INTO `users` VALUES (14, '::1', 'is_56015', '$2y$08$16KcxEJG.1uz/KgEm29SNOJ.JaujRK4gp3qKQlsKK044ZP6jcFBii', NULL, 'is_56015@gmail.com', NULL, NULL, NULL, NULL, 1609058398, 1627707000, 1, 'Sutan Taufik, S.Hum', NULL, NULL, NULL, NULL, 17, 'guru', NULL);
 INSERT INTO `users` VALUES (15, '::1', 'is_427471', '$2y$08$G46TnI8BorORyqzMbNB.Hu/VABmSGTtT8U6uwe2dmNXcoqmhugzam', NULL, 'is_427471@gmail.com', NULL, NULL, NULL, NULL, 1609058453, 1609058465, 1, 'Fatat Alvin D. N. S.', NULL, NULL, NULL, NULL, 18, 'guru', NULL);
-INSERT INTO `users` VALUES (16, '::1', 'is_497512', '$2y$08$RKIXmDz2O2TLJCi.DN3vpuLBEGRXxsu7ALt6S438WHFAJIYJDmAHq', NULL, 'is_497512@gmail.com', NULL, NULL, NULL, NULL, 1609058509, 1609058530, 1, 'Nailatur Rizqiyah S.P.', NULL, NULL, NULL, NULL, 19, 'guru', 1);
+INSERT INTO `users` VALUES (16, '::1', 'is_497512', '$2y$08$RKIXmDz2O2TLJCi.DN3vpuLBEGRXxsu7ALt6S438WHFAJIYJDmAHq', NULL, 'is_497512@gmail.com', NULL, NULL, NULL, NULL, 1609058509, 1627363539, 1, 'Nailatur Rizqiyah S.P.', NULL, NULL, NULL, NULL, 19, 'guru', 1);
 INSERT INTO `users` VALUES (17, '::1', 'is_563268', '$2y$08$/PsZXKIavCasI8.GHz48lugp/SKEJH0oOJaDTek4R17azsPG7HS36', NULL, 'is_563268@gmail.com', NULL, NULL, NULL, NULL, 1609058569, 1609058580, 1, 'Saifudin Mansur, S.TP', NULL, NULL, NULL, NULL, 20, 'guru', NULL);
 INSERT INTO `users` VALUES (18, '::1', 'is_372371', '$2y$08$/XfJfdVqXX0mE2KYNf6GfOPSPbhkd12YM9UjPIi1G1397y72JqPVq', NULL, 'is_372371@gmail.com', NULL, NULL, NULL, NULL, 1609058613, 1609058633, 1, 'Faridatuz Zakiyah, S.TP', NULL, NULL, NULL, NULL, 21, 'guru', NULL);
-INSERT INTO `users` VALUES (19, '::1', 'is_242171', '$2y$08$2WPrn6dI0XcyCJuP.uLZcOLrZGmWDGX1xRPoJuXAbHtvmZ3zN38ba', NULL, 'is_242171@gmail.com', NULL, NULL, NULL, NULL, 1609058682, 1609058717, 1, 'Muhammad Iwan Wahyudi, S.Pd.', NULL, NULL, NULL, NULL, 22, 'guru', NULL);
-INSERT INTO `users` VALUES (20, '::1', 'is_762679', '$2y$08$ZtDOeaL3wDh.2/pHqMqfRed1krO5F.qkgeQEHqXGhXuvMQxkrzKBu', NULL, 'is_762679@gmail.com', NULL, NULL, NULL, NULL, 1609058788, 1609058797, 1, 'Muhammad Yasminto, S.Pd.', NULL, NULL, NULL, NULL, 23, 'guru', NULL);
 INSERT INTO `users` VALUES (21, '::1', 'is_641841', '$2y$08$VaKYWH0thKssaW0N70np/et8ev9WGT52gnpH7QKkh93mdVg3Af91q', NULL, 'is_641841@gmail.com', NULL, NULL, NULL, NULL, 1609058827, 1609923386, 1, 'Muhammad Ali Saifudin, S.Pd.', NULL, NULL, NULL, '5.png', 24, 'guru', 1);
-INSERT INTO `users` VALUES (22, '::1', 'is_454070', '$2y$08$5L1Y0/zyAbZls1E2oA83huR6S9SRORbmqY9IEFQhHZVZ7tQqjZin2', NULL, 'is_454070@gmail.com', NULL, NULL, NULL, NULL, 1609058904, 1610152477, 1, 'M. Faiz Zidni Mubarok, S.Pt', NULL, NULL, NULL, NULL, 25, 'guru', 1);
-INSERT INTO `users` VALUES (23, '::1', 'is_998856', '$2y$08$rTEqZyBWEcSveu75gLWTHurjCs2TBYHG5..sb9Vk8qmODZmx2Sqpu', NULL, 'is_998856@gmail.com', NULL, NULL, NULL, NULL, 1609059002, 1609059058, 1, 'Fahmi Jamaludin, S.T.', NULL, NULL, NULL, NULL, 26, 'guru', 1);
+INSERT INTO `users` VALUES (22, '::1', 'is_454070', '$2y$08$5L1Y0/zyAbZls1E2oA83huR6S9SRORbmqY9IEFQhHZVZ7tQqjZin2', NULL, 'is_454070@gmail.com', NULL, NULL, NULL, NULL, 1609058904, 1628135150, 1, 'M. Faiz Zidni Mubarok, S.Pt', NULL, NULL, NULL, NULL, 25, 'guru', 1);
+INSERT INTO `users` VALUES (24, '::1', 'izza', '$2y$08$nHh9egHLyygkRFc8Xl.uB.w2JEarInC3ePV3jVN276bPw/IOgP4QG', NULL, 'is_61570@gmail.com', NULL, NULL, NULL, NULL, 1624851517, 1628141889, 1, 'Roikhatul Uzza, S.Psi', NULL, NULL, NULL, NULL, 10, 'guru', NULL);
+INSERT INTO `users` VALUES (25, '::1', 'is_246926', '$2y$08$wM5W8aGU71EIVzTVS5z1dOesg0I7IhJvlL0t7Bu2UJ3DG3qmKdSZi', NULL, 'is_246926@gmail.com', NULL, NULL, NULL, NULL, 1624884922, 1625555216, 1, 'Mohammad Nazibullah, M.Pd.', NULL, NULL, NULL, NULL, 14, 'guru', NULL);
+INSERT INTO `users` VALUES (26, '::1', 'is_392276', '$2y$08$D245ZxeAISJSajYA6he8EOipxKJ2JVADYzDu2/VlvjQkAvKOTvjJi', NULL, 'is_392276@gmail.com', NULL, NULL, NULL, NULL, 1624886187, 1624886200, 1, 'Nur Azizah', NULL, NULL, NULL, NULL, 27, 'guru', NULL);
+INSERT INTO `users` VALUES (27, '::1', 'is_757889', '$2y$08$latMTTUrul.0YwJ.zeBnxONH8QQTtYdCNsqmfEf/QwKqkTZba0qpe', NULL, 'is_757889@gmail.com', NULL, NULL, NULL, NULL, 1627878671, 1627878683, 1, 'Andiani Kristanti, S.Pd', NULL, NULL, NULL, NULL, 26, 'guru', NULL);
+INSERT INTO `users` VALUES (28, '192.168.1.31', 'is_300779', '$2y$08$blURRIDzZ3MeP3EJDhPim.JwMwNrZ/D2//JjXE2lyZYUgQ9gbPsdS', NULL, 'is_300779@gmail.com', NULL, NULL, NULL, NULL, 1627878862, 1627878886, 1, 'Na\'ilah Fauziyah, S.Pd.', NULL, NULL, NULL, NULL, 30, 'guru', NULL);
 
 -- ----------------------------
 -- Table structure for users_groups
@@ -3539,7 +4465,7 @@ CREATE TABLE `users_groups`  (
   INDEX `fk_users_groups_groups1_idx`(`group_id`) USING BTREE,
   CONSTRAINT `users_groups_ibfk_1` FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   CONSTRAINT `users_groups_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
-) ENGINE = InnoDB AUTO_INCREMENT = 24 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 29 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of users_groups
@@ -3561,11 +4487,13 @@ INSERT INTO `users_groups` VALUES (15, 15, 3);
 INSERT INTO `users_groups` VALUES (16, 16, 3);
 INSERT INTO `users_groups` VALUES (17, 17, 3);
 INSERT INTO `users_groups` VALUES (18, 18, 3);
-INSERT INTO `users_groups` VALUES (19, 19, 3);
-INSERT INTO `users_groups` VALUES (20, 20, 3);
 INSERT INTO `users_groups` VALUES (21, 21, 3);
 INSERT INTO `users_groups` VALUES (22, 22, 3);
-INSERT INTO `users_groups` VALUES (23, 23, 3);
+INSERT INTO `users_groups` VALUES (24, 24, 4);
+INSERT INTO `users_groups` VALUES (25, 25, 8);
+INSERT INTO `users_groups` VALUES (26, 26, 7);
+INSERT INTO `users_groups` VALUES (27, 27, 3);
+INSERT INTO `users_groups` VALUES (28, 28, 3);
 
 -- ----------------------------
 -- Table structure for wali_kelas
@@ -3577,241 +4505,103 @@ CREATE TABLE `wali_kelas`  (
   `idtahunajaran_fk` int(11) NULL DEFAULT NULL,
   `idkelas_fk` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id_wali_kelas`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 15 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 17 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of wali_kelas
 -- ----------------------------
-INSERT INTO `wali_kelas` VALUES (2, 2, 1, 11);
-INSERT INTO `wali_kelas` VALUES (3, 26, 1, 15);
-INSERT INTO `wali_kelas` VALUES (4, 25, 1, 13);
-INSERT INTO `wali_kelas` VALUES (5, 25, 1, 17);
-INSERT INTO `wali_kelas` VALUES (6, 10, 1, 14);
-INSERT INTO `wali_kelas` VALUES (7, 10, 1, 16);
-INSERT INTO `wali_kelas` VALUES (8, 10, 1, 18);
-INSERT INTO `wali_kelas` VALUES (9, 14, 1, 19);
-INSERT INTO `wali_kelas` VALUES (10, 24, 1, 20);
-INSERT INTO `wali_kelas` VALUES (11, 19, 1, 23);
-INSERT INTO `wali_kelas` VALUES (12, 8, 1, 21);
-INSERT INTO `wali_kelas` VALUES (13, 16, 1, 22);
-INSERT INTO `wali_kelas` VALUES (14, 9, 1, 24);
+INSERT INTO `wali_kelas` VALUES (15, 2, 3, 30);
+INSERT INTO `wali_kelas` VALUES (16, 2, 3, 35);
 
 -- ----------------------------
 -- View structure for v_bank_soal_quiz
 -- ----------------------------
 DROP VIEW IF EXISTS `v_bank_soal_quiz`;
-CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_bank_soal_quiz` AS SELECT
-bank_soal.id_bank_soal,
-bank_soal.soal,
-bank_soal.time_soal,
-bank_soal.code_soal,
-bank_soal.idmatapelajaran_fk,
-bank_soal.idguru_fk,
-question_cas.id_question_cas,
-question_cas.type,
-question_cas.idbanksoal_fk,
-question_cas.idquiz_fk
-FROM
-bank_soal
-INNER JOIN question_cas ON question_cas.idbanksoal_fk = bank_soal.id_bank_soal ;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_bank_soal_quiz` AS select `bank_soal`.`id_bank_soal` AS `id_bank_soal`,`bank_soal`.`soal` AS `soal`,`bank_soal`.`time_soal` AS `time_soal`,`bank_soal`.`code_soal` AS `code_soal`,`bank_soal`.`idmatapelajaran_fk` AS `idmatapelajaran_fk`,`bank_soal`.`idguru_fk` AS `idguru_fk`,`question_cas`.`id_question_cas` AS `id_question_cas`,`question_cas`.`type` AS `type`,`question_cas`.`idbanksoal_fk` AS `idbanksoal_fk`,`question_cas`.`idquiz_fk` AS `idquiz_fk` from (`bank_soal` join `question_cas` on(`question_cas`.`idbanksoal_fk` = `bank_soal`.`id_bank_soal`)) ;
 
 -- ----------------------------
--- View structure for v_guru_mapel
+-- View structure for v_buku_pemanggilan_siswa
 -- ----------------------------
-DROP VIEW IF EXISTS `v_guru_mapel`;
-CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_guru_mapel` AS SELECT
-guru.id_guru,
-guru.nama,
-guru.nip,
-guru.alamat,
-guru.agama,
-guru.foto,
-guru.pendidikan_terakhir,
-guru.instansi,
-guru.fb,
-guru.ig,
-guru.twitter,
-guru.youtube,
-guru.jabatan,
-guru.email,
-guru.no_hp,
-guru_mapel.id_guru_mapel,
-guru_mapel.idguru_fk,
-guru_mapel.idmapel_fk,
-guru_mapel.idkelas_fk,
-mata_pelajaran.id_mata_pelajaran,
-mata_pelajaran.mata_pelajaran,
-mata_pelajaran.kode,
-kelas.id_kelas,
-kelas.kelas,
-kelas.idtingkat_fk,
-kelas.create_at,
-kelas.idjurusan_fk,
-kelas.idtahunajaran_fk,
-tahun_ajaran.id_tahun_ajaran,
-tahun_ajaran.tahun_ajaran,
-tahun_ajaran.is_active,
-tahun_ajaran.semester,
-mata_pelajaran.idjenismatapelajaran_fk
-FROM
-guru
-INNER JOIN guru_mapel ON guru_mapel.idguru_fk = guru.id_guru
-INNER JOIN mata_pelajaran ON guru_mapel.idmapel_fk = mata_pelajaran.id_mata_pelajaran
-INNER JOIN kelas ON kelas.id_kelas = guru_mapel.idkelas_fk
-INNER JOIN tahun_ajaran ON tahun_ajaran.id_tahun_ajaran = guru_mapel.idtahunajaran_fk ;
+DROP VIEW IF EXISTS `v_buku_pemanggilan_siswa`;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_buku_pemanggilan_siswa` AS select `buku_pemanggilan_siswa`.`id_buku_pemanggilan_siswa` AS `id_buku_pemanggilan_siswa`,`buku_pemanggilan_siswa`.`idsiswa_fk` AS `idsiswa_fk`,`buku_pemanggilan_siswa`.`masalah` AS `masalah`,`buku_pemanggilan_siswa`.`pemecahan` AS `pemecahan`,`buku_pemanggilan_siswa`.`tindak_lanjut` AS `tindak_lanjut`,`buku_pemanggilan_siswa`.`keterangan` AS `keterangan`,`buku_pemanggilan_siswa`.`tanggal` AS `tanggal`,`buku_pemanggilan_siswa`.`kode_pemanggilan` AS `kode_pemanggilan`,`siswa`.`id_siswa` AS `id_siswa`,`siswa`.`nis` AS `nis`,`siswa`.`nama` AS `nama`,`siswa`.`idkelas_fk` AS `idkelas_fk`,`siswa`.`idjurusan_fk` AS `idjurusan_fk`,`siswa`.`agama` AS `agama`,`siswa`.`nisn` AS `nisn`,`siswa`.`no_ijazah_sekolah_asal` AS `no_ijazah_sekolah_asal`,`siswa`.`no_skhun_sekolah_asal` AS `no_skhun_sekolah_asal`,`siswa`.`no_un_sekolah_asal` AS `no_un_sekolah_asal`,`siswa`.`no_kk` AS `no_kk`,`siswa`.`npsn_sekolah_asal` AS `npsn_sekolah_asal`,`siswa`.`nama_sekolah_asal` AS `nama_sekolah_asal`,`siswa`.`tempat_lahir` AS `tempat_lahir`,`siswa`.`tanggal_lahir` AS `tanggal_lahir`,`siswa`.`berkebutuhan_khusus` AS `berkebutuhan_khusus`,`siswa`.`alamat` AS `alamat`,`siswa`.`dusun` AS `dusun`,`siswa`.`rt` AS `rt`,`siswa`.`rw` AS `rw`,`siswa`.`kelurahan` AS `kelurahan`,`siswa`.`foto` AS `foto`,`siswa`.`idprovince_fk` AS `idprovince_fk`,`siswa`.`idcities_fk` AS `idcities_fk`,`siswa`.`nama_ayah` AS `nama_ayah`,`siswa`.`tempat_lahir_ayah` AS `tempat_lahir_ayah`,`siswa`.`tanggal_lahir_ayah` AS `tanggal_lahir_ayah`,`siswa`.`pendidikan_ayah` AS `pendidikan_ayah`,`siswa`.`pekerjaan_ayah` AS `pekerjaan_ayah`,`siswa`.`penghasilan_ayah` AS `penghasilan_ayah`,`siswa`.`nama_ibu` AS `nama_ibu`,`siswa`.`tempat_lahir_ibu` AS `tempat_lahir_ibu`,`siswa`.`tanggal_lahir_ibu` AS `tanggal_lahir_ibu`,`siswa`.`pendidikan_ibu` AS `pendidikan_ibu`,`siswa`.`pekerjaan_ibu` AS `pekerjaan_ibu`,`siswa`.`penghasilan_ibu` AS `penghasilan_ibu`,`siswa`.`tinggi_badan` AS `tinggi_badan`,`siswa`.`berat_badan` AS `berat_badan`,`siswa`.`jarak_ke_sekolah` AS `jarak_ke_sekolah`,`siswa`.`waktu_ke_sekolah` AS `waktu_ke_sekolah`,`siswa`.`jumlah_saudara` AS `jumlah_saudara`,`siswa`.`jenis_kelamin` AS `jenis_kelamin` from (`buku_pemanggilan_siswa` join `siswa` on(`siswa`.`id_siswa` = `buku_pemanggilan_siswa`.`idsiswa_fk`)) ;
 
 -- ----------------------------
--- View structure for v_nilai_keterampilan
+-- View structure for v_catatan_siswa
 -- ----------------------------
-DROP VIEW IF EXISTS `v_nilai_keterampilan`;
-CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_nilai_keterampilan` AS SELECT
-input_nilai_keterampilan.id_input_nilai_keterampilan,
-input_nilai_keterampilan.idmatapelajaran_fk,
-input_nilai_keterampilan.idtahunajaran_fk,
-input_nilai_keterampilan.trans_code,
-input_nilai_keterampilan.idguru_fk,
-input_nilai_keterampilan.idkelas_fk,
-input_nilai_keterampilan.idjenisketerampilan_fk,
-nilai_keterampilan.id_nilai_keterampilan,
-nilai_keterampilan.idsiswa_fk,
-nilai_keterampilan.nilai,
-nilai_keterampilan.idinputnilaiketerampilan_fk,
-nilai_keterampilan.create_at,
-nilai_keterampilan.idkd_fk
-FROM
-input_nilai_keterampilan
-INNER JOIN nilai_keterampilan ON input_nilai_keterampilan.id_input_nilai_keterampilan = nilai_keterampilan.idinputnilaiketerampilan_fk ;
-
--- ----------------------------
--- View structure for v_nilai_pas
--- ----------------------------
-DROP VIEW IF EXISTS `v_nilai_pas`;
-CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_nilai_pas` AS SELECT
-input_nilai_pas.id_input_nilai_pas,
-input_nilai_pas.idmatapelajaran_fk,
-input_nilai_pas.idtahunajaran_fk,
-input_nilai_pas.trans_code,
-input_nilai_pas.idguru_fk,
-input_nilai_pas.idkelas_fk,
-nilai_pas.id_nilai_pas,
-nilai_pas.idsiswa_fk,
-nilai_pas.nilai,
-nilai_pas.idinputnilaipas_fk,
-nilai_pas.create_at
-FROM
-input_nilai_pas
-INNER JOIN nilai_pas ON input_nilai_pas.id_input_nilai_pas = nilai_pas.idinputnilaipas_fk ;
-
--- ----------------------------
--- View structure for v_nilai_pengetahuan
--- ----------------------------
-DROP VIEW IF EXISTS `v_nilai_pengetahuan`;
-CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_nilai_pengetahuan` AS SELECT
-nilai_pengetahuan.id_nilai_pengetahuan,
-nilai_pengetahuan.idsiswa_fk,
-nilai_pengetahuan.nilai,
-nilai_pengetahuan.idinputnilaipengetahuan_fk,
-nilai_pengetahuan.create_at,
-nilai_pengetahuan.idkd_fk,
-input_nilai_pengetahuan.id_input_nilai_pengetahuan,
-input_nilai_pengetahuan.idmatapelajaran_fk,
-input_nilai_pengetahuan.idtahunajaran_fk,
-input_nilai_pengetahuan.trans_code,
-input_nilai_pengetahuan.idguru_fk,
-input_nilai_pengetahuan.idkelas_fk,
-input_nilai_pengetahuan.idjenispengetahuan_fk
-FROM
-nilai_pengetahuan
-INNER JOIN input_nilai_pengetahuan ON input_nilai_pengetahuan.id_input_nilai_pengetahuan = nilai_pengetahuan.idinputnilaipengetahuan_fk ;
-
--- ----------------------------
--- View structure for v_nilai_pts
--- ----------------------------
-DROP VIEW IF EXISTS `v_nilai_pts`;
-CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_nilai_pts` AS SELECT
-input_nilai_pts.id_input_nilai_pts,
-input_nilai_pts.idmatapelajaran_fk,
-input_nilai_pts.idtahunajaran_fk,
-input_nilai_pts.trans_code,
-input_nilai_pts.idguru_fk,
-input_nilai_pts.idkelas_fk,
-nilai_pts.id_nilai_pts,
-nilai_pts.idsiswa_fk,
-nilai_pts.nilai,
-nilai_pts.idinputnilaipts_fk,
-nilai_pts.create_at
-FROM
-input_nilai_pts
-INNER JOIN nilai_pts ON input_nilai_pts.id_input_nilai_pts = nilai_pts.idinputnilaipts_fk ;
-
--- ----------------------------
--- View structure for v_pelanggaran_siswa
--- ----------------------------
-DROP VIEW IF EXISTS `v_pelanggaran_siswa`;
-CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_pelanggaran_siswa` AS SELECT
-pelanggaran_siswa.id_pelanggaran_siswa,
-pelanggaran_siswa.tanggal,
-pelanggaran_siswa.uraian_pelanggaran,
-pelanggaran_siswa.idpoinpelanggaran_fk,
-pelanggaran_siswa.idsiswa_fk,
-poin_pelanggaran.id_poin_pelanggaran,
-poin_pelanggaran.idjenispelanggaran_fk,
-poin_pelanggaran.nama_pelanggaran,
-poin_pelanggaran.poin,
-poin_pelanggaran.kode_pelanggaran,
-jenis_pelanggaran.id_jenis_pelanggaran,
-jenis_pelanggaran.jenis_pelanggaran
-FROM
-pelanggaran_siswa
-LEFT JOIN poin_pelanggaran ON poin_pelanggaran.id_poin_pelanggaran = pelanggaran_siswa.idpoinpelanggaran_fk
-LEFT JOIN jenis_pelanggaran ON jenis_pelanggaran.id_jenis_pelanggaran = poin_pelanggaran.idjenispelanggaran_fk ;
-
--- ----------------------------
--- View structure for v_pkg
--- ----------------------------
-DROP VIEW IF EXISTS `v_pkg`;
-CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_pkg` AS SELECT
-component_penilaian_kinerja_guru.idpenilaiankinerjaguru_fk,
-penilaian_kinerja_guru.id_penilaian_kinerja_guru,
-penilaian_kinerja_guru.idguru_fk,
-penilaian_kinerja_guru.bulan,
-penilaian_kinerja_guru.tahun,
-penilaian_kinerja_guru.idtahunajaran_fk,
-penilaian_kinerja_guru.create_at,
-penilaian_kinerja_guru.trans_code,
-component_penilaian_kinerja_guru.id_component_penilaian_kinerja_guru,
-component_penilaian_kinerja_guru.idsubkompetensipkg_fk,
-component_penilaian_kinerja_guru.nilai
-FROM
-penilaian_kinerja_guru
-INNER JOIN component_penilaian_kinerja_guru ON penilaian_kinerja_guru.id_penilaian_kinerja_guru = component_penilaian_kinerja_guru.idpenilaiankinerjaguru_fk ;
-
--- ----------------------------
--- View structure for v_poin_pelanggaran
--- ----------------------------
-DROP VIEW IF EXISTS `v_poin_pelanggaran`;
-CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_poin_pelanggaran` AS SELECT
-poin_pelanggaran.id_poin_pelanggaran,
-poin_pelanggaran.idjenispelanggaran_fk,
-poin_pelanggaran.nama_pelanggaran,
-poin_pelanggaran.poin,
-poin_pelanggaran.kode_pelanggaran,
-jenis_pelanggaran.id_jenis_pelanggaran,
-jenis_pelanggaran.jenis_pelanggaran
-FROM
-poin_pelanggaran
-INNER JOIN jenis_pelanggaran ON jenis_pelanggaran.id_jenis_pelanggaran = poin_pelanggaran.idjenispelanggaran_fk ;
-
--- ----------------------------
--- View structure for v_siswa_jurusan
--- ----------------------------
-DROP VIEW IF EXISTS `v_siswa_jurusan`;
-CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_siswa_jurusan` AS SELECT
+DROP VIEW IF EXISTS `v_catatan_siswa`;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_catatan_siswa` AS SELECT
+catatan_siswa.id_catatan_siswa,
+catatan_siswa.idsiswa_fk,
+catatan_siswa.idkelas_fk,
+catatan_siswa.idguru_fk,
+catatan_siswa.tanggal,
+catatan_siswa.uraian,
+catatan_siswa.teruskan_ke,
+catatan_siswa.idtahunajaran_fk,
+catatan_siswa.idmapel_fk,
 siswa.id_siswa,
 siswa.nis,
 siswa.nama,
-siswa.idkelas_fk,
 siswa.idjurusan_fk,
+siswa.agama,
+siswa.nisn,
+siswa.no_ijazah_sekolah_asal,
+siswa.no_skhun_sekolah_asal,
+siswa.no_un_sekolah_asal,
+siswa.no_kk,
+siswa.npsn_sekolah_asal,
+siswa.nama_sekolah_asal,
+siswa.tempat_lahir,
+siswa.tanggal_lahir,
+siswa.berkebutuhan_khusus,
+siswa.alamat,
+siswa.dusun,
+siswa.rt,
+siswa.rw,
+siswa.kelurahan,
+siswa.foto,
+siswa.idprovince_fk,
+siswa.idcities_fk,
+siswa.nama_ayah,
+siswa.tempat_lahir_ayah,
+siswa.tanggal_lahir_ayah,
+siswa.pendidikan_ayah,
+siswa.pekerjaan_ayah,
+siswa.penghasilan_ayah,
+siswa.nama_ibu,
+siswa.tempat_lahir_ibu,
+siswa.tanggal_lahir_ibu,
+siswa.pendidikan_ibu,
+siswa.pekerjaan_ibu,
+siswa.penghasilan_ibu,
+siswa.tinggi_badan,
+siswa.berat_badan,
+siswa.jarak_ke_sekolah,
+siswa.waktu_ke_sekolah,
+siswa.jumlah_saudara,
+siswa.jenis_kelamin
+FROM
+catatan_siswa
+INNER JOIN siswa ON catatan_siswa.idsiswa_fk = siswa.id_siswa ;
+
+-- ----------------------------
+-- View structure for v_catatan_siswa_harian
+-- ----------------------------
+DROP VIEW IF EXISTS `v_catatan_siswa_harian`;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_catatan_siswa_harian` AS SELECT
+catatan_siswa.id_catatan_siswa,
+catatan_siswa.idsiswa_fk,
+catatan_siswa.idkelas_fk,
+catatan_siswa.idguru_fk,
+catatan_siswa.tanggal,
+catatan_siswa.uraian,
+catatan_siswa.teruskan_ke,
+catatan_siswa.idtahunajaran_fk,
+catatan_siswa.idmapel_fk,
+catatan_siswa.is_tindakan,
+siswa.id_siswa,
+siswa.nis,
+siswa.nama,
 siswa.agama,
 siswa.nisn,
 siswa.no_ijazah_sekolah_asal,
@@ -3853,37 +4643,123 @@ kelas.id_kelas,
 kelas.kelas,
 kelas.idtingkat_fk,
 kelas.create_at,
-kelas.idtahunajaran_fk,
-jurusan.id_jurusan,
-jurusan.jurusan,
-jurusan.singkatan
+kelas.idjurusan_fk,
+guru.id_guru,
+guru.nama as nama_guru,
+guru.nip,
+guru.alamat as alamat_guru,
+mata_pelajaran.idjenismatapelajaran_fk,
+mata_pelajaran.id_mata_pelajaran,
+mata_pelajaran.mata_pelajaran,
+mata_pelajaran.kode
 FROM
-siswa
-INNER JOIN kelas ON kelas.id_kelas = siswa.idkelas_fk
-INNER JOIN jurusan ON jurusan.id_jurusan = siswa.idjurusan_fk ;
+catatan_siswa
+LEFT JOIN siswa ON catatan_siswa.idsiswa_fk = siswa.id_siswa
+LEFT JOIN kelas ON catatan_siswa.idkelas_fk = kelas.kelas
+LEFT JOIN guru ON catatan_siswa.idguru_fk = guru.id_guru
+LEFT JOIN mata_pelajaran ON catatan_siswa.idmapel_fk = mata_pelajaran.id_mata_pelajaran ;
+
+-- ----------------------------
+-- View structure for v_guru_mapel
+-- ----------------------------
+DROP VIEW IF EXISTS `v_guru_mapel`;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_guru_mapel` AS select `guru`.`id_guru` AS `id_guru`,`guru`.`nama` AS `nama`,`guru`.`nip` AS `nip`,`guru`.`alamat` AS `alamat`,`guru`.`agama` AS `agama`,`guru`.`foto` AS `foto`,`guru`.`pendidikan_terakhir` AS `pendidikan_terakhir`,`guru`.`instansi` AS `instansi`,`guru`.`fb` AS `fb`,`guru`.`ig` AS `ig`,`guru`.`twitter` AS `twitter`,`guru`.`youtube` AS `youtube`,`guru`.`jabatan` AS `jabatan`,`guru`.`email` AS `email`,`guru`.`no_hp` AS `no_hp`,`guru_mapel`.`id_guru_mapel` AS `id_guru_mapel`,`guru_mapel`.`idguru_fk` AS `idguru_fk`,`guru_mapel`.`idmapel_fk` AS `idmapel_fk`,`guru_mapel`.`idkelas_fk` AS `idkelas_fk`,`mata_pelajaran`.`id_mata_pelajaran` AS `id_mata_pelajaran`,`mata_pelajaran`.`mata_pelajaran` AS `mata_pelajaran`,`mata_pelajaran`.`kode` AS `kode`,`kelas`.`id_kelas` AS `id_kelas`,`kelas`.`kelas` AS `kelas`,`kelas`.`idtingkat_fk` AS `idtingkat_fk`,`kelas`.`create_at` AS `create_at`,`kelas`.`idjurusan_fk` AS `idjurusan_fk`,`kelas`.`idtahunajaran_fk` AS `idtahunajaran_fk`,`tahun_ajaran`.`id_tahun_ajaran` AS `id_tahun_ajaran`,`tahun_ajaran`.`tahun_ajaran` AS `tahun_ajaran`,`tahun_ajaran`.`is_active` AS `is_active`,`tahun_ajaran`.`semester` AS `semester`,`mata_pelajaran`.`idjenismatapelajaran_fk` AS `idjenismatapelajaran_fk` from ((((`guru` join `guru_mapel` on(`guru_mapel`.`idguru_fk` = `guru`.`id_guru`)) join `mata_pelajaran` on(`guru_mapel`.`idmapel_fk` = `mata_pelajaran`.`id_mata_pelajaran`)) join `kelas` on(`kelas`.`id_kelas` = `guru_mapel`.`idkelas_fk`)) join `tahun_ajaran` on(`tahun_ajaran`.`id_tahun_ajaran` = `guru_mapel`.`idtahunajaran_fk`)) ;
+
+-- ----------------------------
+-- View structure for v_jadwal_pelajaran
+-- ----------------------------
+DROP VIEW IF EXISTS `v_jadwal_pelajaran`;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_jadwal_pelajaran` AS SELECT
+jadwal_pelajaran.id_jadwal_pelajaran,
+jadwal_pelajaran.idgurumapel_fk,
+jadwal_pelajaran.idhari_fk,
+jadwal_pelajaran.idjampelajaran_fk,
+guru_mapel.id_guru_mapel,
+guru_mapel.idguru_fk,
+guru_mapel.idmapel_fk,
+guru_mapel.idkelas_fk,
+(select nama from guru where id_guru = idguru_fk) AS nama_guru,
+(select nip from guru where id_guru = idguru_fk) AS nip,
+(select kode from mata_pelajaran where idmapel_fk = id_mata_pelajaran) AS kode_pelajaran,
+(select mata_pelajaran from mata_pelajaran where idmapel_fk = id_mata_pelajaran) AS mata_pelajaran,
+hari.id_hari,
+hari.hari,
+hari.`code`,
+jam_pelajaran.id_jam_pelajaran,
+jam_pelajaran.nama,
+jam_pelajaran.jam_mulai,
+jam_pelajaran.jam_selesai,
+kelas.id_kelas,
+kelas.kelas,
+kelas.idtingkat_fk,
+kelas.create_at,
+kelas.idjurusan_fk,
+kelas.idtahunajaran_fk
+FROM
+jadwal_pelajaran
+INNER JOIN guru_mapel ON jadwal_pelajaran.idgurumapel_fk = guru_mapel.id_guru_mapel
+INNER JOIN hari ON hari.id_hari = jadwal_pelajaran.idhari_fk
+INNER JOIN jam_pelajaran ON jam_pelajaran.id_jam_pelajaran = jadwal_pelajaran.idjampelajaran_fk
+INNER JOIN kelas ON guru_mapel.idkelas_fk = kelas.id_kelas ;
+
+-- ----------------------------
+-- View structure for v_nilai_keterampilan
+-- ----------------------------
+DROP VIEW IF EXISTS `v_nilai_keterampilan`;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_nilai_keterampilan` AS select `input_nilai_keterampilan`.`id_input_nilai_keterampilan` AS `id_input_nilai_keterampilan`,`input_nilai_keterampilan`.`idmatapelajaran_fk` AS `idmatapelajaran_fk`,`input_nilai_keterampilan`.`idtahunajaran_fk` AS `idtahunajaran_fk`,`input_nilai_keterampilan`.`trans_code` AS `trans_code`,`input_nilai_keterampilan`.`idguru_fk` AS `idguru_fk`,`input_nilai_keterampilan`.`idkelas_fk` AS `idkelas_fk`,`input_nilai_keterampilan`.`idjenisketerampilan_fk` AS `idjenisketerampilan_fk`,`nilai_keterampilan`.`id_nilai_keterampilan` AS `id_nilai_keterampilan`,`nilai_keterampilan`.`idsiswa_fk` AS `idsiswa_fk`,`nilai_keterampilan`.`nilai` AS `nilai`,`nilai_keterampilan`.`idinputnilaiketerampilan_fk` AS `idinputnilaiketerampilan_fk`,`nilai_keterampilan`.`create_at` AS `create_at`,`nilai_keterampilan`.`idkd_fk` AS `idkd_fk` from (`input_nilai_keterampilan` join `nilai_keterampilan` on(`input_nilai_keterampilan`.`id_input_nilai_keterampilan` = `nilai_keterampilan`.`idinputnilaiketerampilan_fk`)) ;
+
+-- ----------------------------
+-- View structure for v_nilai_pas
+-- ----------------------------
+DROP VIEW IF EXISTS `v_nilai_pas`;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_nilai_pas` AS select `input_nilai_pas`.`id_input_nilai_pas` AS `id_input_nilai_pas`,`input_nilai_pas`.`idmatapelajaran_fk` AS `idmatapelajaran_fk`,`input_nilai_pas`.`idtahunajaran_fk` AS `idtahunajaran_fk`,`input_nilai_pas`.`trans_code` AS `trans_code`,`input_nilai_pas`.`idguru_fk` AS `idguru_fk`,`input_nilai_pas`.`idkelas_fk` AS `idkelas_fk`,`nilai_pas`.`id_nilai_pas` AS `id_nilai_pas`,`nilai_pas`.`idsiswa_fk` AS `idsiswa_fk`,`nilai_pas`.`nilai` AS `nilai`,`nilai_pas`.`idinputnilaipas_fk` AS `idinputnilaipas_fk`,`nilai_pas`.`create_at` AS `create_at` from (`input_nilai_pas` join `nilai_pas` on(`input_nilai_pas`.`id_input_nilai_pas` = `nilai_pas`.`idinputnilaipas_fk`)) ;
+
+-- ----------------------------
+-- View structure for v_nilai_pengetahuan
+-- ----------------------------
+DROP VIEW IF EXISTS `v_nilai_pengetahuan`;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_nilai_pengetahuan` AS select `nilai_pengetahuan`.`id_nilai_pengetahuan` AS `id_nilai_pengetahuan`,`nilai_pengetahuan`.`idsiswa_fk` AS `idsiswa_fk`,`nilai_pengetahuan`.`nilai` AS `nilai`,`nilai_pengetahuan`.`idinputnilaipengetahuan_fk` AS `idinputnilaipengetahuan_fk`,`nilai_pengetahuan`.`create_at` AS `create_at`,`nilai_pengetahuan`.`idkd_fk` AS `idkd_fk`,`input_nilai_pengetahuan`.`id_input_nilai_pengetahuan` AS `id_input_nilai_pengetahuan`,`input_nilai_pengetahuan`.`idmatapelajaran_fk` AS `idmatapelajaran_fk`,`input_nilai_pengetahuan`.`idtahunajaran_fk` AS `idtahunajaran_fk`,`input_nilai_pengetahuan`.`trans_code` AS `trans_code`,`input_nilai_pengetahuan`.`idguru_fk` AS `idguru_fk`,`input_nilai_pengetahuan`.`idkelas_fk` AS `idkelas_fk`,`input_nilai_pengetahuan`.`idjenispengetahuan_fk` AS `idjenispengetahuan_fk` from (`nilai_pengetahuan` join `input_nilai_pengetahuan` on(`input_nilai_pengetahuan`.`id_input_nilai_pengetahuan` = `nilai_pengetahuan`.`idinputnilaipengetahuan_fk`)) ;
+
+-- ----------------------------
+-- View structure for v_nilai_pts
+-- ----------------------------
+DROP VIEW IF EXISTS `v_nilai_pts`;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_nilai_pts` AS select `input_nilai_pts`.`id_input_nilai_pts` AS `id_input_nilai_pts`,`input_nilai_pts`.`idmatapelajaran_fk` AS `idmatapelajaran_fk`,`input_nilai_pts`.`idtahunajaran_fk` AS `idtahunajaran_fk`,`input_nilai_pts`.`trans_code` AS `trans_code`,`input_nilai_pts`.`idguru_fk` AS `idguru_fk`,`input_nilai_pts`.`idkelas_fk` AS `idkelas_fk`,`nilai_pts`.`id_nilai_pts` AS `id_nilai_pts`,`nilai_pts`.`idsiswa_fk` AS `idsiswa_fk`,`nilai_pts`.`nilai` AS `nilai`,`nilai_pts`.`idinputnilaipts_fk` AS `idinputnilaipts_fk`,`nilai_pts`.`create_at` AS `create_at` from (`input_nilai_pts` join `nilai_pts` on(`input_nilai_pts`.`id_input_nilai_pts` = `nilai_pts`.`idinputnilaipts_fk`)) ;
+
+-- ----------------------------
+-- View structure for v_pelanggaran_siswa
+-- ----------------------------
+DROP VIEW IF EXISTS `v_pelanggaran_siswa`;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_pelanggaran_siswa` AS select `pelanggaran_siswa`.`id_pelanggaran_siswa` AS `id_pelanggaran_siswa`,`pelanggaran_siswa`.`tanggal` AS `tanggal`,`pelanggaran_siswa`.`uraian_pelanggaran` AS `uraian_pelanggaran`,`pelanggaran_siswa`.`idpoinpelanggaran_fk` AS `idpoinpelanggaran_fk`,`pelanggaran_siswa`.`idsiswa_fk` AS `idsiswa_fk`,`poin_pelanggaran`.`id_poin_pelanggaran` AS `id_poin_pelanggaran`,`poin_pelanggaran`.`idjenispelanggaran_fk` AS `idjenispelanggaran_fk`,`poin_pelanggaran`.`nama_pelanggaran` AS `nama_pelanggaran`,`poin_pelanggaran`.`poin` AS `poin`,`poin_pelanggaran`.`kode_pelanggaran` AS `kode_pelanggaran`,`jenis_pelanggaran`.`id_jenis_pelanggaran` AS `id_jenis_pelanggaran`,`jenis_pelanggaran`.`jenis_pelanggaran` AS `jenis_pelanggaran` from ((`pelanggaran_siswa` left join `poin_pelanggaran` on(`poin_pelanggaran`.`id_poin_pelanggaran` = `pelanggaran_siswa`.`idpoinpelanggaran_fk`)) left join `jenis_pelanggaran` on(`jenis_pelanggaran`.`id_jenis_pelanggaran` = `poin_pelanggaran`.`idjenispelanggaran_fk`)) ;
+
+-- ----------------------------
+-- View structure for v_pkg
+-- ----------------------------
+DROP VIEW IF EXISTS `v_pkg`;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_pkg` AS select `component_penilaian_kinerja_guru`.`idpenilaiankinerjaguru_fk` AS `idpenilaiankinerjaguru_fk`,`penilaian_kinerja_guru`.`id_penilaian_kinerja_guru` AS `id_penilaian_kinerja_guru`,`penilaian_kinerja_guru`.`idguru_fk` AS `idguru_fk`,`penilaian_kinerja_guru`.`bulan` AS `bulan`,`penilaian_kinerja_guru`.`tahun` AS `tahun`,`penilaian_kinerja_guru`.`idtahunajaran_fk` AS `idtahunajaran_fk`,`penilaian_kinerja_guru`.`create_at` AS `create_at`,`penilaian_kinerja_guru`.`trans_code` AS `trans_code`,`component_penilaian_kinerja_guru`.`id_component_penilaian_kinerja_guru` AS `id_component_penilaian_kinerja_guru`,`component_penilaian_kinerja_guru`.`idsubkompetensipkg_fk` AS `idsubkompetensipkg_fk`,`component_penilaian_kinerja_guru`.`nilai` AS `nilai` from (`penilaian_kinerja_guru` join `component_penilaian_kinerja_guru` on(`penilaian_kinerja_guru`.`id_penilaian_kinerja_guru` = `component_penilaian_kinerja_guru`.`idpenilaiankinerjaguru_fk`)) ;
+
+-- ----------------------------
+-- View structure for v_poin_pelanggaran
+-- ----------------------------
+DROP VIEW IF EXISTS `v_poin_pelanggaran`;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_poin_pelanggaran` AS select `poin_pelanggaran`.`id_poin_pelanggaran` AS `id_poin_pelanggaran`,`poin_pelanggaran`.`idjenispelanggaran_fk` AS `idjenispelanggaran_fk`,`poin_pelanggaran`.`nama_pelanggaran` AS `nama_pelanggaran`,`poin_pelanggaran`.`poin` AS `poin`,`poin_pelanggaran`.`kode_pelanggaran` AS `kode_pelanggaran`,`jenis_pelanggaran`.`id_jenis_pelanggaran` AS `id_jenis_pelanggaran`,`jenis_pelanggaran`.`jenis_pelanggaran` AS `jenis_pelanggaran` from (`poin_pelanggaran` join `jenis_pelanggaran` on(`jenis_pelanggaran`.`id_jenis_pelanggaran` = `poin_pelanggaran`.`idjenispelanggaran_fk`)) ;
+
+-- ----------------------------
+-- View structure for v_poin_pelanggaran_siswa
+-- ----------------------------
+DROP VIEW IF EXISTS `v_poin_pelanggaran_siswa`;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_poin_pelanggaran_siswa` AS select id_siswa, nisn, nis, nama, (select sum(poin) from v_pelanggaran_siswa where idsiswa_fk = id_siswa) as poin from siswa where (select sum(poin) from v_pelanggaran_siswa where idsiswa_fk = id_siswa) > 0 ;
+
+-- ----------------------------
+-- View structure for v_siswa_jurusan
+-- ----------------------------
+DROP VIEW IF EXISTS `v_siswa_jurusan`;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_siswa_jurusan` AS select `siswa`.`id_siswa` AS `id_siswa`,`siswa`.`nis` AS `nis`,`siswa`.`nama` AS `nama`,`siswa`.`idkelas_fk` AS `idkelas_fk`,`siswa`.`idjurusan_fk` AS `idjurusan_fk`,`siswa`.`agama` AS `agama`,`siswa`.`nisn` AS `nisn`,`siswa`.`no_ijazah_sekolah_asal` AS `no_ijazah_sekolah_asal`,`siswa`.`no_skhun_sekolah_asal` AS `no_skhun_sekolah_asal`,`siswa`.`no_un_sekolah_asal` AS `no_un_sekolah_asal`,`siswa`.`no_kk` AS `no_kk`,`siswa`.`npsn_sekolah_asal` AS `npsn_sekolah_asal`,`siswa`.`nama_sekolah_asal` AS `nama_sekolah_asal`,`siswa`.`tempat_lahir` AS `tempat_lahir`,`siswa`.`tanggal_lahir` AS `tanggal_lahir`,`siswa`.`berkebutuhan_khusus` AS `berkebutuhan_khusus`,`siswa`.`alamat` AS `alamat`,`siswa`.`dusun` AS `dusun`,`siswa`.`rt` AS `rt`,`siswa`.`rw` AS `rw`,`siswa`.`kelurahan` AS `kelurahan`,`siswa`.`foto` AS `foto`,`siswa`.`idprovince_fk` AS `idprovince_fk`,`siswa`.`idcities_fk` AS `idcities_fk`,`siswa`.`nama_ayah` AS `nama_ayah`,`siswa`.`tempat_lahir_ayah` AS `tempat_lahir_ayah`,`siswa`.`tanggal_lahir_ayah` AS `tanggal_lahir_ayah`,`siswa`.`pendidikan_ayah` AS `pendidikan_ayah`,`siswa`.`pekerjaan_ayah` AS `pekerjaan_ayah`,`siswa`.`penghasilan_ayah` AS `penghasilan_ayah`,`siswa`.`nama_ibu` AS `nama_ibu`,`siswa`.`tempat_lahir_ibu` AS `tempat_lahir_ibu`,`siswa`.`tanggal_lahir_ibu` AS `tanggal_lahir_ibu`,`siswa`.`pendidikan_ibu` AS `pendidikan_ibu`,`siswa`.`pekerjaan_ibu` AS `pekerjaan_ibu`,`siswa`.`penghasilan_ibu` AS `penghasilan_ibu`,`siswa`.`tinggi_badan` AS `tinggi_badan`,`siswa`.`berat_badan` AS `berat_badan`,`siswa`.`jarak_ke_sekolah` AS `jarak_ke_sekolah`,`siswa`.`waktu_ke_sekolah` AS `waktu_ke_sekolah`,`siswa`.`jumlah_saudara` AS `jumlah_saudara`,`siswa`.`jenis_kelamin` AS `jenis_kelamin`,`kelas`.`id_kelas` AS `id_kelas`,`kelas`.`kelas` AS `kelas`,`kelas`.`idtingkat_fk` AS `idtingkat_fk`,`kelas`.`create_at` AS `create_at`,`kelas`.`idtahunajaran_fk` AS `idtahunajaran_fk`,`jurusan`.`id_jurusan` AS `id_jurusan`,`jurusan`.`jurusan` AS `jurusan`,`jurusan`.`singkatan` AS `singkatan` from ((`siswa` join `kelas` on(`kelas`.`id_kelas` = `siswa`.`idkelas_fk`)) join `jurusan` on(`jurusan`.`id_jurusan` = `siswa`.`idjurusan_fk`)) ;
 
 -- ----------------------------
 -- View structure for v_walas
 -- ----------------------------
 DROP VIEW IF EXISTS `v_walas`;
-CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_walas` AS SELECT
-wali_kelas.id_wali_kelas,
-wali_kelas.idguru_fk,
-wali_kelas.idtahunajaran_fk,
-wali_kelas.idkelas_fk,
-kelas.id_kelas,
-kelas.kelas,
-kelas.idtingkat_fk,
-kelas.idjurusan_fk,
-tingkat.id_tingkat,
-tingkat.tingkat,
-jurusan.id_jurusan,
-jurusan.jurusan,
-jurusan.singkatan
-FROM
-wali_kelas
-LEFT JOIN kelas ON wali_kelas.idkelas_fk = kelas.id_kelas
-LEFT JOIN tingkat ON kelas.idtingkat_fk = tingkat.id_tingkat
-LEFT JOIN jurusan ON kelas.idjurusan_fk = jurusan.id_jurusan ;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_walas` AS select `wali_kelas`.`id_wali_kelas` AS `id_wali_kelas`,`wali_kelas`.`idguru_fk` AS `idguru_fk`,`wali_kelas`.`idtahunajaran_fk` AS `idtahunajaran_fk`,`wali_kelas`.`idkelas_fk` AS `idkelas_fk`,`kelas`.`id_kelas` AS `id_kelas`,`kelas`.`kelas` AS `kelas`,`kelas`.`idtingkat_fk` AS `idtingkat_fk`,`kelas`.`idjurusan_fk` AS `idjurusan_fk`,`tingkat`.`id_tingkat` AS `id_tingkat`,`tingkat`.`tingkat` AS `tingkat`,`jurusan`.`id_jurusan` AS `id_jurusan`,`jurusan`.`jurusan` AS `jurusan`,`jurusan`.`singkatan` AS `singkatan` from (((`wali_kelas` left join `kelas` on(`wali_kelas`.`idkelas_fk` = `kelas`.`id_kelas`)) left join `tingkat` on(`kelas`.`idtingkat_fk` = `tingkat`.`id_tingkat`)) left join `jurusan` on(`kelas`.`idjurusan_fk` = `jurusan`.`id_jurusan`)) ;
 
 SET FOREIGN_KEY_CHECKS = 1;
