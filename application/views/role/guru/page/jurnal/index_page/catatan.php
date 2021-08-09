@@ -27,6 +27,7 @@
 		</div>
 	</div>
 	<div class="col-md-12">
+		<div class="table-responsive">
 		<table class="table table-bordered table-framed table-xxs">
 			<thead>
 				<tr>
@@ -57,6 +58,7 @@
 				} ?>
 			</tbody>
 		</table>
+		</div>
 	</div>
 </div>
 

@@ -1,6 +1,13 @@
+<style type="text/css">
+	
+</style>
 <form  action="Presensi_harian/save_presensi_harian" id="app-absen-save" method="POST">
-
-<table class="table table-bordered table-xxs table-framed">
+<input type="hidden" name="idkelas_fk" value="<?php echo $data_get['kelas']['id_kelas'] ?>">
+<input type="hidden" name="tanggal" value="<?php echo date('Y-m-d') ?>">
+<input type="hidden" name="idmatapelajaran_fk" value="<?php echo $data_get['mata_pelajaran']['id_mata_pelajaran'] ?>">
+<input type="hidden" name="idtahunajaran_fk" value="<?php echo $data_get['tahun_ajaran']['id_tahun_ajaran']; ?>" class="form-control input-xs">
+<div class="table-responsive">
+<table class="table table-bordered table-xxs table-framed" style="width: 100%;">
 	<thead>
 		<tr>
 			<th class="sticky" width="20%">NIS</th>
@@ -12,10 +19,7 @@
 		</tr>
 	</thead>
 	<tbody>
-		<input type="hidden" name="idkelas_fk" value="<?php echo $data_get['kelas']['id_kelas'] ?>">
-		<input type="hidden" name="tanggal" value="<?php echo date('Y-m-d') ?>">
-		<input type="hidden" name="idmatapelajaran_fk" value="<?php echo $data_get['mata_pelajaran']['id_mata_pelajaran'] ?>">
-		<input type="hidden" name="idtahunajaran_fk" value="<?php echo $data_get['tahun_ajaran']['id_tahun_ajaran']; ?>" class="form-control input-xs">
+		
 		<?php foreach ($data_get['siswa'] as $key => $value): ?>
 		<tr>
 			<input type="hidden" name="data[<?php echo $key ?>][idsiswa_fk]" value="<?php echo $value['siswa']['id_siswa'] ?>">
@@ -29,6 +33,7 @@
 		<?php endforeach ?>
 	</tbody>
 </table>
+</div>
 <hr>
 <button class="btn btn-success btn-absen-submit" type="submit"><i class=" icon-floppy-disk"></i> Simpan</button>
 </form>

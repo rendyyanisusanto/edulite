@@ -16,6 +16,16 @@
 </div>
 
 <?php endif ?>
+<?php if ($this->agent->is_mobile()): ?>
+	<div class="row" style="margin-bottom: 3%;">
+		<div class="col-sm-6 col-xs-6" style="margin-bottom: 3%;">
+			<a type="button" class="btn btn-warning btn-block btn-float"><i class="icon-magazine"></i> <span>Presensi App</span></a>
+		</div>
+		<div class="col-sm-6 col-xs-6" style="margin-bottom: 3%;">
+			<a type="button" class="btn btn-info btn-block btn-float"><i class="icon-search4"></i> <span>KI/KD App</span></a>
+		</div>
+	</div>
+<?php endif ?>
 <?php if (count($data_get['mapel_hari_ini']) > 0): ?>
 	
 <div class="row">

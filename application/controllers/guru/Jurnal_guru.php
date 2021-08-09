@@ -35,7 +35,12 @@ class Jurnal_guru extends MY_Controller {
 				'presensi' => !empty($presensi) ? $presensi : []
 			];
  		}
-		$this->my_view(['role/guru/page/jurnal/index_page/absen'],$data);
+ 		if ($this->agent->is_mobile()) {
+ 			$this->my_view(['role/guru/page_mobile/jurnal/index_page/absen'],$data);
+ 		}else{
+ 			$this->my_view(['role/guru/page/jurnal/index_page/absen'],$data);
+ 		}
+		
 	}
 	public function jurnal_guru_set($idmapel)
 	{
