@@ -1,4 +1,5 @@
 <script type="text/javascript">
+    var btn_abs;
     $( "#app-proses" ).on('submit',function( e ) {
         e.preventDefault();
             blockui($('.panel-head'));
@@ -31,9 +32,16 @@
     }
     $(document).on('click', '.btn-absen', function(e){
         e.stopImmediatePropagation();
+        btn_abs = $(this);
         var idmapel = $(this).data('idmapel');
-        send_ajax('Presensi_harian/absen/'+$(this).data('idmapel')).then(function(data){
+
+        btn_abs.attr('disabled', true);
+        btn_abs.html('<i class="icon-spinner"></i>');
+
+        send_ajax('Presensi_harian/absen/'+$(this).data('idmapel')+'/'+$('.tanggal').val()).then(function(data){
             
+            btn_abs.attr('disabled', false);
+            btn_abs.html('<i class="icon-eye"></i>');
             $('.idmapel_form').val(idmapel);
             $('.modal-body').html(data);
             $('.tglabsen').val($('.tanggal').val());
@@ -46,6 +54,8 @@
     $(document).on('submit', '#app-absen-save', function(e){
         e.preventDefault();
         e.stopImmediatePropagation();
+        btn_abs.attr('disabled', true);
+        btn_abs.html('<i class="icon-spinner"></i>');
         var idmapel = $('.idmapel_form').val();
                 $('.btn-absen-submit').attr('disabled', 'true');
                 $('.btn-absen-submit').html('<i class="icon-spinner"></i> Menunggu Proses');
@@ -53,7 +63,7 @@
             send_ajax_file( $(this).attr('action')+'/'+idmapel,form_data).then( function(data){
                 toastr.success('Data berhasil proses, Refresh untuk melihat perubahan');
                 setTimeout(function(){ 
-
+                    
                     $('#modal_absen').modal('toggle');
                     call_jadwal();
                 }, 1000);

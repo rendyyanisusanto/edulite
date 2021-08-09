@@ -45,7 +45,7 @@ class presensi_harian extends MY_Controller {
 		$data['kelas']		=	$this->my_where('kelas', [])->result_array();
 		$this->my_view(['role/admin/page/presensi_harian/presensi_siswa/index','role/admin/page/presensi_harian/presensi_siswa/js'],$data);
 	}
-	public function absen($idmapel)
+	public function absen($idmapel, $tanggal)
 	{
 		$data['account']	=	$this->get_user_account();
 		$mapel_get			=	$this->my_where('v_jadwal_pelajaran', ['id_jadwal_pelajaran'=>$idmapel])->row_array();
@@ -55,14 +55,14 @@ class presensi_harian extends MY_Controller {
 		$data['mata_pelajaran']		=	$this->my_where('mata_pelajaran', ['id_mata_pelajaran'=>$mapel_get['idmapel_fk']])->row_array();
 		$data['dt_guru']	=	$this->get_guru();
 		$data['siswa'] = [];
-		
+
 		foreach ($siswa as $key => $value) {
 			$presensi = $this->my_where('presensi_harian', [
 				'idsiswa_fk' 			=> 	$value['id_siswa'],
 				'idtahunajaran_fk'		=>	$mapel_get['idtahunajaran_fk'],
 				'idkelas_fk'			=>	$mapel_get['idkelas_fk'],
 				'idmatapelajaran_fk'	=>	$mapel_get['idmapel_fk'],
-				'tanggal' 				=>	date('Y-m-d')
+				'tanggal' 				=>	$tanggal
 			])->row_array();
 
 			$data['siswa'][] = [
@@ -121,6 +121,8 @@ class presensi_harian extends MY_Controller {
 			$this->my_view(['role/admin/page/presensi_harian/presensi_siswa/jadwal'],$data);
 
 			# code...
+		}else{
+			echo "<center><h3>Tidak ada jadwal untuk hari ini</h3></center>";
 		}
 	}
 	public function proses_rekap()
@@ -131,12 +133,45 @@ class presensi_harian extends MY_Controller {
 		$siswa		=	$this->my_where('siswa', ['idkelas_fk'=>$_POST['idkelas_fk']])->result_array();
 		$data['kelas']		=	$this->my_where('kelas', ['id_kelas'=>$_POST['idkelas_fk']])->row_array();
 		$data['siswa'] = [];
-		$data['mata_pelajaran'] = $this->my_where('mata_pelajaran', ['id_mata_pelajaran'=>$_POST['idmatapelajaran_fk']])->row_array();
+		// $data['mata_pelajaran'] = $this->my_where('mata_pelajaran', ['id_mata_pelajaran'=>$_POST['idmatapelajaran_fk']])->row_array();
 		$data['bulan'] = $_POST['tanggal'];
 		$data['idkelas_fk'] = $_POST['idkelas_fk'];
 		$data['all_day'] 	= cal_days_in_month(CAL_GREGORIAN, date_format(date_create($_POST['tanggal']), "m"), date_format(date_create($_POST['tanggal']), "Y"));
 
 		if ($_POST['tipe'] == 0) {
+			$mapel_hari_ini 	=	$this->my_where('v_jadwal_pelajaran', 
+				[
+					'code' 					=> date_format(date_create($_POST['tanggal']),'N'),
+					'idtahunajaran_fk'		=>	$_POST['idtahunajaran_fk'],
+					'idkelas_fk'			=>	$_POST['idkelas_fk'],
+				])->result_array();
+			$data['mapel_hari_ini']	=	$mapel_hari_ini;
+			foreach ($siswa as $key => $value) {
+				
+				$presensi = [];
+				
+				foreach ($mapel_hari_ini as $key_mapel => $value_mapel) {
+					$presensi[$key_mapel] = $this->my_where('presensi_harian', [
+								'idsiswa_fk' 			=> 	$value['id_siswa'],
+								'idtahunajaran_fk'		=>	$_POST['idtahunajaran_fk'],
+								'idkelas_fk'			=>	$_POST['idkelas_fk'],
+								'MONTH(tanggal)'		=>	date_format(date_create($_POST['tanggal']), "m"),
+								'YEAR(tanggal)'			=>	date_format(date_create($_POST['tanggal']), "Y"),
+								'DAY(tanggal)'			=>	date_format(date_create($_POST['tanggal']), "d"),
+								'idmatapelajaran_fk' 	=> 	$value_mapel['idmapel_fk'],
+							])->row_array();
+				
+				}
+				$data['siswa'][] = [
+					'siswa' => $value,
+					'presensi' => !empty($presensi) ? $presensi : []
+				];
+
+				// print_r($presensi);
+	 		}
+			$this->my_view(['role/admin/page/presensi_harian/rekap/list_siswa_0'],$data);
+		} elseif($_POST['tipe'] == 1){
+
 			foreach ($siswa as $key => $value) {
 				$all_day 		= cal_days_in_month(CAL_GREGORIAN, date_format(date_create($_POST['tanggal']), "m"), date_format(date_create($_POST['tanggal']), "Y"));
 				$presensi = [];
@@ -157,7 +192,9 @@ class presensi_harian extends MY_Controller {
 				];
 	 		}
 			$this->my_view(['role/admin/page/presensi_harian/rekap/list_siswa'],$data);
-		} elseif($_POST['tipe'] == 1){
+			
+		} elseif($_POST['tipe'] == 2){
+
 			foreach ($siswa as $key => $value) {
 				$a = $this->my_where('presensi_harian', [
 								'idsiswa_fk' 			=> 	$value['id_siswa'],
@@ -341,6 +378,12 @@ class presensi_harian extends MY_Controller {
 			}
 		    echo json_encode($send);
 		}
+	}
+
+	public function get_laporan_tipe($tipe='')
+	{
+		$data =[];
+		$this->my_view(['role/admin/page/presensi_harian/rekap/p'.$tipe], $data);
 	}
 
 }
