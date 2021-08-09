@@ -1,4 +1,9 @@
 <style type="text/css">
+
+				* {
+					    -webkit-print-color-adjust: exact !important;   /* Chrome, Safari, Edge */
+					    color-adjust: exact !important;                 /*Firefox*/
+					}
 				.sticky {
 					position: sticky;
 					top:0;
@@ -20,6 +25,7 @@
 				}
 
 			@media print {
+
     			.tx-dg {
     				background: red;
     			}

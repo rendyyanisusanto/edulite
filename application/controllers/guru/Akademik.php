@@ -27,7 +27,8 @@ class akademik extends MY_Controller {
 		$data['tahun_ajaran']		=	$this->my_where('tahun_ajaran', [])->result_array();
 		$data['mata_pelajaran']		=	$this->my_where('mata_pelajaran', [])->result_array();
 		$data['mapel'] 		= 	$this->my_where('v_guru_mapel', ['id_guru'=>$data['account']['anggota_id']])->result_array();
-		$this->my_view(['role/guru/page/akademik/presensi_siswa/index','role/guru/page/akademik/presensi_siswa/js'],$data);
+
+ 			$this->my_view(['role/guru/page/akademik/presensi_siswa/index','role/guru/page/akademik/presensi_siswa/js'],$data);
 	}
 
 	public function jurnal()
@@ -94,7 +95,11 @@ class akademik extends MY_Controller {
 					'presensi' => !empty($presensi) ? $presensi : []
 				];
 	 		}
-			$this->my_view(['role/guru/page/akademik/presensi_siswa/absen'],$data);
+	 		if ($this->agent->is_mobile()) {
+				$this->my_view(['role/guru/page_mobile/akademik/presensi_siswa/absen'],$data);
+	 		}else{
+	 			$this->my_view(['role/guru/page/akademik/presensi_siswa/absen'],$data);
+	 		}
 		}
 		else{
 			echo "<center><h3>Tidak ada jadwal pelajaran</h3></center>";
@@ -234,7 +239,11 @@ class akademik extends MY_Controller {
 				'presensi' => !empty($presensi) ? $presensi : []
 			];
  		}
-		$this->my_view(['role/guru/page/akademik/presensi_siswa/absen'],$data);
+ 		if ($this->agent->is_mobile()) {
+				$this->my_view(['role/guru/page_mobile/akademik/presensi_siswa/absen'],$data);
+	 		}else{
+	 			$this->my_view(['role/guru/page/akademik/presensi_siswa/absen'],$data);
+	 		}
 
 	}
 
