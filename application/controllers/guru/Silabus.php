@@ -19,9 +19,26 @@ class silabus extends MY_Controller {
 		$data['param'] 		= 	$this->arr;
 		$data['guru']		=	$this->my_where('guru', ['id_guru'=>$data['account']['anggota_id']])->row_array();
 		$data['tahun_ajaran']		=	$this->my_where('tahun_ajaran', [])->result_array();
+		
 		$data['dt_guru']	=	$this->get_guru();
+		// print_r($data['dt_guru']);
 		$this->my_view(['role/guru/page/silabus/index_page/index','role/guru/page/silabus/index_page/js'],$data);
 	}
+
+	function get_silabus()
+	{
+		$data['dt_guru']	=	$this->get_guru();
+		$data['tahun_ajaran']		=	$this->my_where('tahun_ajaran', ['is_active'=>1])->row_array();
+		$data['set_guru']	=	[];
+		foreach ($data['dt_guru']['mapel'] as $key => $value) {
+			$data['set_guru'][] = [
+				'dt_guru'	=>	$value,
+				'silabus'	=>	$this->my_where("silabus", ['idguru_fk'=>$value['id_guru'],'idtahunajaran_fk'=>$data['tahun_ajaran']['id_tahun_ajaran'], 'idtingkat_fk'=>$value['idtingkat_fk'], 'idjurusan_fk'=>$value['idjurusan_fk']])->row_array()
+			];
+		}
+		$this->my_view(['role/guru/page/silabus/index_page/silabus'],$data);
+	}
+
 
 	function add_page()
 	{

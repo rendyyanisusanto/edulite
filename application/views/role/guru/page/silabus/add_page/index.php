@@ -22,17 +22,7 @@
 					</select>
 				</div>
 			</div>
-			<div class="form-group">
-				<label class="col-lg-3 control-label">Materi:</label>
-				<div class="col-lg-9">
-					<div class="set_materi">
-						<select required="" class="form-control " name="materi">
-							<option>Pilih Kelas/Materi Dulu</option>
-						</select>
-					</div>
-					
-				</div>
-			</div>
+			
 			<div class="form-group">
 				<label class="col-lg-3 control-label">File:</label>
 				<div class="col-lg-9">
