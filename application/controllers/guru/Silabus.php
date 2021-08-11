@@ -33,7 +33,7 @@ class silabus extends MY_Controller {
 		foreach ($data['dt_guru']['mapel'] as $key => $value) {
 			$data['set_guru'][] = [
 				'dt_guru'	=>	$value,
-				'silabus'	=>	$this->my_where("silabus", ['idguru_fk'=>$value['id_guru'],'idtahunajaran_fk'=>$data['tahun_ajaran']['id_tahun_ajaran'], 'idtingkat_fk'=>$value['idtingkat_fk'], 'idjurusan_fk'=>$value['idjurusan_fk']])->row_array()
+				'silabus'	=>	$this->my_where("silabus", ['idguru_fk'=>$value['id_guru'],'idtahunajaran_fk'=>$data['tahun_ajaran']['id_tahun_ajaran'], 'idtingkat_fk'=>$value['idtingkat_fk'],'idmatapelajaran_fk'=>$value['idmapel_fk'], 'idjurusan_fk'=>$value['idjurusan_fk']])->row_array()
 			];
 		}
 		$this->my_view(['role/guru/page/silabus/index_page/silabus'],$data);
@@ -95,26 +95,48 @@ class silabus extends MY_Controller {
 		echo $send;
 	}
 
-	function simpan_data()
+	function save_file()
 	{
 
 		$account	=	$this->get_user_account();
 		$file = $this->save_media([
-			'path'	=>	"./include/media/silabus/",
-			'filename' => 'file',
+				'path'	=>	"./include/media/silabus/",
+				'filename' => 'silabus',
 		]);
-
-		$kelasmapel = explode('/', $_POST['kelas_mapel']);
-		$data = [
+		$tahun_ajaran = $this->my_where('tahun_ajaran', ['is_active'=>1])->row_array();
+		if ($this->my_where('silabus', [
 			'idguru_fk'				=>	$account['anggota_id'],
-			'idtahunajaran_fk'		=>	$_POST['idtahunajaran_fk'],
-			'idkelas_fk'			=>	$kelasmapel[1],
-			'idmateri_fk'			=>	$_POST['idmateri_fk'],
-			'file'					=>	((isset($file)) ? $file['file_name'] : ''),
-			'idmatapelajaran_fk'	=>	$kelasmapel[0]
-		];
+			'idtahunajaran_fk'		=>	$tahun_ajaran['id_tahun_ajaran'],
+			'idtingkat_fk'			=>	$_POST['idtingkat_fk'],
+			'idjurusan_fk'			=>	$_POST['idjurusan_fk'],
+			'idmatapelajaran_fk'	=>	$_POST['idmatapelajaran_fk'],
+		])->num_rows() > 0) {
+			$this->my_update('silabus', [ 
+				'file'					=>	((isset($file)) ? $file['file_name'] : '')
+				],
+				[
+					'idguru_fk'				=>	$account['anggota_id'],
+					'idtahunajaran_fk'		=>	$tahun_ajaran['id_tahun_ajaran'],
+					'idtingkat_fk'			=>	$_POST['idtingkat_fk'],
+					'idjurusan_fk'			=>	$_POST['idjurusan_fk'],
+					'idmatapelajaran_fk'	=>	$_POST['idmatapelajaran_fk'],
+				]
+				);
+		}else{
+			$data = [
+				'idguru_fk'				=>	$account['anggota_id'],
+				'idtahunajaran_fk'		=>	$tahun_ajaran['id_tahun_ajaran'],
+				'idtingkat_fk'			=>	$_POST['idtingkat_fk'],
+				'idjurusan_fk'			=>	$_POST['idjurusan_fk'],
+				'idmatapelajaran_fk'	=>	$_POST['idmatapelajaran_fk'],
+				'file'					=>	((isset($file)) ? $file['file_name'] : ''),
+			];
 
-		$this->save_data('silabus', $data);
+			$this->save_data('silabus', $data);
+		}
+		
+		
+		
 	}
 	
 }
