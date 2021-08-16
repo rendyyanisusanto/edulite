@@ -10,6 +10,23 @@
 					font-family: Consolas,monaco,monospace;
 					font-size: 13px;
 				}
+				@media print {
+
+	    			.bg-danger {
+	    				background: red;
+	    				color: white;
+	    			}
+
+	    			.bg-warning {
+	    				background: orange;
+	    				color: white;
+	    			}
+
+	    			.bg-success {
+	    				background: green;
+	    				color: white;
+	    			}
+	    		}
 </style>
 <div class="panel panel-body">
 	<center><h3>Total Presensi Siswa Mapel <?php echo ' Kelas '.$data_get['kelas']['kelas'] ?> Periode <?= $data_get['bulan'] ?></h3></center>
