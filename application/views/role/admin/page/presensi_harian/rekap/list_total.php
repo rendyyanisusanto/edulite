@@ -12,7 +12,7 @@
 				}
 </style>
 <div class="panel panel-body">
-	<center><h3>Total Presensi Siswa Mapel <?php echo $data_get['mata_pelajaran']['mata_pelajaran'].' Kelas '.$data_get['kelas']['kelas'] ?> Periode <?= $data_get['bulan'] ?></h3></center>
+	<center><h3>Total Presensi Siswa Mapel <?php echo ' Kelas '.$data_get['kelas']['kelas'] ?> Periode <?= $data_get['bulan'] ?></h3></center>
 	
 	<div class="table-responsive">
 	<table class="" style="overflow: scroll;width: 100%;">
