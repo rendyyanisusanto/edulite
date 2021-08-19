@@ -33,16 +33,16 @@
   </li>
   <?php if (!empty($user_account['is_walas'])): ?>
     <li class="navigation-header"><span>Wali Kelas</span> <i class="icon-menu" title="Page kits"></i></li>
-    <li>
+    <!-- <li>
       <a href="#"><i class="icon-book"></i> <span>Rapor</span></a>
       <ul>
-        <li><a href="Absensi/get_data" class="app-item">Presensi Rapor</a></li><!-- 
+        <li><a href="Absensi/get_data" class="app-item">Presensi Rapor</a></li>
         <li><a href="Absensi/get_data" class="app-item">Catatan Akademik</a></li>
-        <li><a href="Absensi/get_data" class="app-item">Pengembangan Karakter</a></li> -->
+        <li><a href="Absensi/get_data" class="app-item">Pengembangan Karakter</a></li>
         <li><a href="Rapor/rapor_index" class="app-item">Rapor</a></li>
         <li><a href="Rapor/rapor_online_index" class="app-item">Rapor Online</a></li>
       </ul>
-    </li>
+    </li> -->
     <li>
       <a href="#"><i class="icon-book"></i> <span>Presensi Harian</span></a>
       <ul>

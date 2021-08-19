@@ -27,6 +27,7 @@
 				
 			</div>
 			<div class="modal-footer">
+				<button type="button" class="btn btn-danger btn-close" ><i class="icon-close2"></i> Tutup</button>
 				<button type="submit" class="btn-success btn btn-submit">Simpan</button>
 			</div>
 			</form>

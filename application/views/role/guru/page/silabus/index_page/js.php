@@ -14,6 +14,10 @@
     	$('#modal_silabus').modal('toggle');
     })
 
+    $(document).on('click','.btn-close', function(e){
+        $('#modal_silabus').modal('toggle');
+    });
+
     $( "#app-submit" ).on('submit',function( e ) {
 	    e.stopImmediatePropagation();
 	    e.preventDefault();

@@ -10,9 +10,49 @@
 					font-family: Consolas,monaco,monospace;
 					font-size: 10px;
 				}
+				@media print {
+
+    			.text-danger {
+    				color: red;
+    			}
+
+    			.text-warning {
+    				color: orange;
+    			}
+
+    			.text-success {
+    				color: green;
+    			}
+
+    			.sticky {
+					position: sticky;
+					top:0;
+					background: white;
+				}
+				.text-table {
+					padding: 5px;
+					border: 1px solid gray;
+					font-family: Consolas,monaco,monospace;
+					font-size: 10px;
+					font-weight: bold;
+				}
+				.text-td {
+					padding: 5px;
+					border: 1px solid gray;
+					font-family: Consolas,monaco,monospace;
+					font-size: 13px;
+					font-weight: bold;
+				}
+				.text-center {
+					text-align: center;
+				}
+				.tx-sc {
+					color: green;
+				}
+  			}
 </style>
 <div class="panel panel-body">
-	<center><h3>Presensi Siswa Mapel <?php echo $data_get['mata_pelajaran']['mata_pelajaran'].' Kelas '.$data_get['kelas']['kelas'] ?> Periode <?= $data_get['bulan'] ?></h3></center>
+	<center><h3>Presensi Siswa <?php echo ' Kelas '.$data_get['kelas']['kelas'] ?> Periode <?= $data_get['bulan'] ?></h3></center>
 	
 	<div class="table-responsive">
 	<table class="" style="overflow: scroll;width: 100%;">
