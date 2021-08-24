@@ -10,8 +10,8 @@ class users extends MY_Controller {
 			'title'				=>	'Halaman users',
 			'table'				=>	'users',
 			'column'			=>	[ 'anggota_id','username', 'first_name','table'],
-			'column_order'		=>	[ 'id','username', 'first_name','table'],
-			'column_search'		=>	[ 'id','username', 'first_name','table'],
+			'column_order'		=>	[ 'anggota_id','username', 'first_name','table'],
+			'column_search'		=>	[ 'anggota_id','username', 'first_name','table'],
 			'order'				=>	['id'	=>	'DESC'],
 			'id'				=>	'id'
 	];
