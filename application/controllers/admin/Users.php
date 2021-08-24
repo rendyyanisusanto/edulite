@@ -9,7 +9,7 @@ class users extends MY_Controller {
 	public $arr = [
 			'title'				=>	'Halaman users',
 			'table'				=>	'users',
-			'column'			=>	[ 'id','username', 'first_name','table'],
+			'column'			=>	[ 'anggota_id','username', 'first_name','table'],
 			'column_order'		=>	[ 'id','username', 'first_name','table'],
 			'column_search'		=>	[ 'id','username', 'first_name','table'],
 			'order'				=>	['id'	=>	'DESC'],
