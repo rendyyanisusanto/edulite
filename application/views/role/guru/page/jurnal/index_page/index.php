@@ -19,8 +19,10 @@
 				<tr>
 					<td class="bg-primary">Jam Ke-</td>
 					<td class="bg-info"><?= $data_get['mapel_hari_ini']['nama'] ?> (<?= $data_get['mapel_hari_ini']['jam_mulai'] ?> - <?= $data_get['mapel_hari_ini']['jam_selesai'] ?>)</td>
+
 				</tr>
 			</table>
+			<input type="hidden" class="idmapel_set" value="<?php echo $data_get['mapel_hari_ini']['id_jadwal_pelajaran'] ?>" name="idmapel">
 		</div>
 	</div>
 </div>

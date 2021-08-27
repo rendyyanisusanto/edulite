@@ -48,7 +48,7 @@
 						<?php foreach ($data_get['mapel_hari_ini'] as $value): ?>
 							<tr>
 								<td><?= (++$no); ?></td>
-								<td><a href="Jurnal_guru/jurnal/<?= $value['mapel']['id_jadwal_pelajaran'] ?>" class="app-item">Mata Pelajaran <?= '<b>'.$value['mapel']['kode_pelajaran'].'<b> Kelas <b>'.$value['mapel']['kelas'].'</b> Jam Ke-'.$value['mapel']['nama'] ?></a></td>
+								<td><a href="Jurnal_guru/jurnal/<?= $value['mapel']['id_jadwal_pelajaran'] ?>" class="app-item">Mata Pelajaran <?= '<b>'.$value['mapel']['kode_pelajaran'].'('.$value['mapel']['id_jadwal_pelajaran'].')'.'<b> Kelas <b>'.$value['mapel']['kelas'].'</b> Jam Ke-'.$value['mapel']['nama'] ?></a></td>
 								<td><b class="<?php echo ($value['absen']>0) ? 'text-success icon-checkmark2' : 'text-danger icon-close2'; ?>"></b></td>
 								<td><b class="<?php echo ($value['jurnal_guru']>0) ? 'text-success icon-checkmark2' : 'text-danger icon-close2'; ?>"></b></td>
 								<td><b class="<?php echo ($value['catatan_siswa']>0) ? 'text-success icon-checkmark2' : 'text-danger icon-close2'; ?>"></b></td>

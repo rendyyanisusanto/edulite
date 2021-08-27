@@ -28,7 +28,8 @@
         e.stopImmediatePropagation();
                 $('.btn-jurnal-submit').attr('disabled', 'true');
                 $('.btn-jurnal-submit').html('<i class="icon-spinner"></i> Menunggu Proses');
-                var idmapel='<?php echo $data_get['mapel_hari_ini']['id_jadwal_pelajaran'] ?>';
+                var idmapel=$('.idmapel_set').val();
+                // alert(idmapel);
            var form_data = new FormData(this);
             send_ajax_file( $(this).attr('action')+'/'+idmapel,form_data).then( function(data){
                 toastr.success('Data berhasil proses, Refresh untuk melihat perubahan');

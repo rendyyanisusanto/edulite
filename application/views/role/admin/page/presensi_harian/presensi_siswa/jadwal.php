@@ -10,6 +10,7 @@
 						<tr>
 							<th width="1%">No</th>
 							<th>KLS</th>
+							<th>GURU</th>
 							<th>MAPEL</th>
 							<th width="1%">JAM</th>
 							<th width="1%">Abs</th>
@@ -22,6 +23,7 @@
 							<tr>
 								<td><?= (++$no); ?></td>
 								<td><?php echo $value['mapel']['kelas']; ?></td>
+								<td><?php echo $value['mapel']['nama_guru'] ?></td>
 								<td><?php echo $value['mapel']['kode_pelajaran']; ?></td>
 								<td><?php echo $value['mapel']['nama'] ?></td>
 								<!-- <td><a href="Jurnal_guru/jurnal/<?= $value['mapel']['id_jadwal_pelajaran'] ?>" class="app-item"><?= '<b>'.$value['mapel']['kode_pelajaran'].'<b> Kelas <b>'.$value['mapel']['kelas'].'</b> Jam Ke-'.$value['mapel']['nama'] ?></a></td> -->

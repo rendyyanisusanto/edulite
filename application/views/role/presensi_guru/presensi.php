@@ -1,4 +1,4 @@
-<table class="table table-framed table-bordered">
+<table style="" class="table table-framed table-xs table-bordered">
 	<thead>
 		<tr>
 			<th>No</th>

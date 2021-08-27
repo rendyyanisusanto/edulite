@@ -110,6 +110,7 @@ class presensi_harian extends MY_Controller {
 		foreach ($mapel_hari_ini as $key => $value) {
 				$data['mapel_hari_ini'][] =[
 					'mapel'		=>		$value,
+					'nama_guru'				=>	$value['nama_guru'],
 					'absen'		=>		$this->my_where('presensi_harian', [
 						'idmatapelajaran_fk'	=> $value['idmapel_fk'],
 						'tanggal'				=>	$_POST['tanggal'],	
@@ -119,8 +120,6 @@ class presensi_harian extends MY_Controller {
 				]; 
 			}
 			$this->my_view(['role/admin/page/presensi_harian/presensi_siswa/jadwal'],$data);
-
-			# code...
 		}else{
 			echo "<center><h3>Tidak ada jadwal untuk hari ini</h3></center>";
 		}
