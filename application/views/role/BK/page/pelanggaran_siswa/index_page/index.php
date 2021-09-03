@@ -17,8 +17,8 @@
         <a class="btn bg-success-400 btn-labeled legitRipple" id="edit-btn"><b><i class="icon-pencil4"></i></b> Edit</a>
         <a class="btn bg-danger-400 btn-labeled legitRipple" id="del-btn"><b><i class="icon-bin"></i></b> Hapus</a>
         
-        <a class="btn bg-purple-400 btn-labeled legitRipple" id="cetak-btn"><b><i class="icon-printer"></i></b> Print</a>
-        <a class="btn bg-info-400 btn-labeled legitRipple" target="__blank" href="<?php echo $data_get['param']['table'] ?>/print_hari_ini"><b><i class="icon-printer2"></i></b> Print hari ini</a>
+        <a class="btn bg-purple-400 btn-labeled app-item legitRipple" href="<?php echo $data_get['param']['table'] ?>/cetak"><b><i class="icon-printer"></i></b> Print</a>
+        
         <a  href="<?php echo $data_get['param']['table'] ?>/cetak_kartu" class="btn app-item bg-warning-400 btn-labeled legitRipple" id="cetak-kartu-btn"><b><i class="icon-printer"></i></b> Print Kartu Kendali Siswa</a>
         <hr>
         <div class="table-responsive">

@@ -64,6 +64,35 @@ class pelanggaran_siswa extends MY_Controller {
 		$this->my_view(['role/BK/page/pelanggaran_siswa/print_page/cetak_kartu','role/BK/page/pelanggaran_siswa/print_page/js_kartu'],$data);
 	}
 
+	public function set_laporan()
+	{
+		$data = [];
+		$this->my_view(['role/BK/page/pelanggaran_siswa/print_page/p'.$_POST['tipe']],$data);
+	}
+
+	public function print_pelanggaran()
+	{
+		$data = [];
+		$data['pelanggaran']	=	[];
+
+		if ($_POST['tipe'] == 0) {
+			$data['pelanggaran']	=	$this->my_where('v_pelanggaran_siswa', ['tanggal' => $_POST['tanggal']])->result_array();
+		}else if($_POST['tipe'] == 2){
+			$data['pelanggaran']	=	$this->my_where('v_pelanggaran_siswa', [
+				'MONTH(tanggal)'		=>	date_format(date_create($_POST['tanggal']), "m"),
+				'YEAR(tanggal)'			=>	date_format(date_create($_POST['tanggal']), "Y"),
+			])->result_array();
+		}
+		$this->my_view(['role/BK/page/pelanggaran_siswa/print_page/table_pelanggaran'],$data);
+	}
+
+	public function cetak()
+	{
+		$data['account']	=	$this->get_user_account();
+		$data['param'] 		= 	$this->arr;
+		$this->my_view(['role/BK/page/pelanggaran_siswa/print_page/cetak','role/BK/page/pelanggaran_siswa/print_page/js_cetak'],$data);
+	}
+
 
 	public function edit_page($id)
 	{
