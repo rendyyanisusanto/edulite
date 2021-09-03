@@ -99,6 +99,12 @@
     </ul>
   </li>
   <li>
+    <a href="#"><i class=" icon-book"></i> <span>Pengaturan Lain</span></a>
+    <ul>
+      <li><a href="Wali_kelas/get_data" class="app-item">Setting Wali Kelas</a></li>
+    </ul>
+  </li>
+  <li>
    <!-- Kesiswaan -->
    <li class="navigation-header"><span>Kesiswaan</span> <i class="icon-menu" title="Page kits"></i></li>
    <li>
