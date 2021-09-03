@@ -76,8 +76,10 @@ class pelanggaran_siswa extends MY_Controller {
 		$data['pelanggaran']	=	[];
 
 		if ($_POST['tipe'] == 0) {
+			$data['periode']		=	'Tanggal '.$_POST['tanggal'];
 			$data['pelanggaran']	=	$this->my_where('v_pelanggaran_siswa', ['tanggal' => $_POST['tanggal']])->result_array();
 		}else if($_POST['tipe'] == 2){
+			$data['periode']		=	'Bulan '.date_format(date_create($_POST['tanggal']), "m").' Tahun '.date_format(date_create($_POST['tanggal']), "Y");
 			$data['pelanggaran']	=	$this->my_where('v_pelanggaran_siswa', [
 				'MONTH(tanggal)'		=>	date_format(date_create($_POST['tanggal']), "m"),
 				'YEAR(tanggal)'			=>	date_format(date_create($_POST['tanggal']), "Y"),
