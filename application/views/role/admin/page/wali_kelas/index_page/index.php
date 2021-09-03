@@ -34,7 +34,7 @@
 				<b><h3 class="modal-title"></h3></b>
 			</div>
 			<div class="modal-body">
-				<input type="" class="id_kelas" name="id_kelas">
+				<input type="hidden" class="id_kelas" name="id_kelas">
 				<label>Guru</label>
 				<br>
 				<select class="form-control" name="id_guru">
