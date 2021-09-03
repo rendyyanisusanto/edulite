@@ -1,5 +1,5 @@
 <script type="text/javascript">
-    $( "#app-proses" ).on('submit',function( e ) {
+	$( "#app-proses" ).on('submit',function( e ) {
         e.preventDefault();
             blockui($('.panel-head'));
             blockui($('.proses-absen'));

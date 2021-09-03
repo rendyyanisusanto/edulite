@@ -1,3 +1,6 @@
+<style type="text/css">
+  
+</style>
 <div class="row">
   <div class="col-md-6">
     <div class="panel panel-body panel-head">
@@ -9,7 +12,7 @@
               <select class="form-control" name="idkelas_fk">
                 <?php foreach ($data_get['dt_guru']['walas'] as $key => $value): ?>
                 <option value="<?php echo $value['id_kelas'] ?>"><?php echo $value['kelas'] ?></option>
-                <?php endforeach ?>
+              <?php endforeach ?>
               </select>
             </td>
           </tr>
@@ -29,7 +32,8 @@
           <!-- <option value="1">Laporan Presensi Mingguan</option> -->
           <option value="2">Laporan Presensi Bulanan</option>
           <!-- <option value="3">Laporan Per Mapel Bulanan</option> -->
-          <option value="4">Laporan Total Presensi Bulanan</option>
+          <option value="4">Laporan Total Presensi Bulanan(Hitungan Jam Pelajaran)</option>
+          <option value="5">Laporan Total Presensi Bulanan(Hitungan Hari)</option>
         </select>
 
         <div class="p-next">
