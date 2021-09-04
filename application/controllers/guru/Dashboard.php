@@ -6,6 +6,7 @@ class Dashboard extends MY_Controller {
 	public function get_data()
 	{
 		$data				=	$this->get_guru();
+		$data['event']		=	$this->my_where('v_presensi_event', ['idguru_fk'=>$data['guru']['id_guru'], 'tanggal'=>date('Y-m-d')])->result_array();
 		$data['mapel_hari_ini']	= [];	
 		$mapel_hari_ini 	=	$this->my_where('v_jadwal_pelajaran', ['idguru_fk' => $data['guru']['id_guru'], 'code' => date('N')])->result_array();
 

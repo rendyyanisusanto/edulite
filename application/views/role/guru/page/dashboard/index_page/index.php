@@ -16,14 +16,20 @@
 </div>
 
 <?php endif ?>
-<?php if ($this->agent->is_mobile()): ?>
-	<div class="row" style="margin-bottom: 3%;">
-		<div class="col-sm-6 col-xs-6" style="margin-bottom: 3%;">
-			<a type="button" class="btn btn-warning btn-block btn-float"><i class="icon-magazine"></i> <span>Presensi App</span></a>
-		</div>
-		<div class="col-sm-6 col-xs-6" style="margin-bottom: 3%;">
-			<a type="button" class="btn btn-info btn-block btn-float"><i class="icon-search4"></i> <span>KI/KD App</span></a>
-		</div>
+<?php if (count($data_get['event'])>0): ?>
+	
+	<div class="row">
+		
+			<div class="alert alert-warning">
+				<b>Event Hari ini</b> :
+				<ul>
+					<?php foreach ($data_get['event'] as $key => $value): ?>
+						<li><?php echo $value['event'] ?> (<a href="Event/detail/<?php echo $value['id_event'] ?>" class="app-item">Konfirmasi Kehadiran</a>)</li>
+					<?php endforeach ?>
+				</ul>
+				
+			</div>
+		
 	</div>
 <?php endif ?>
 <?php if (count($data_get['mapel_hari_ini']) > 0): ?>
