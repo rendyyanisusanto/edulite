@@ -16,6 +16,31 @@
 </div>
 
 <?php endif ?>
+<?php if ($data_get['jadwal_guru'] > 0): ?>
+	<div class="row">
+		<div class="alert alert-info">
+			<b>Anda hari ini ada jadwal:</b>
+			<br>
+			<?php if (isset($data_get['presensi'])){ ?>
+				<?php if (!empty($data_get['presensi']['jam_masuk']) && $data_get['presensi']['jam_masuk'] !== '00:00:00' ){ ?>
+					Anda sudah check in (<?php echo $data_get['presensi']['jam_masuk'] ?>) <br>
+				<?php }else{ ?>
+					<button class="btn btn-success btn-check" data-status="0" type="button">Check IN</button>
+				<?php } ?>
+				<?php if (!empty($data_get['presensi']['jam_keluar']) && $data_get['presensi']['jam_keluar'] !== '00:00:00' ){ ?>
+					Anda sudah check out (<?php echo $data_get['presensi']['jam_keluar'] ?>)
+				<?php }else{ ?>
+					<button class="btn btn-danger btn-check" data-status="1" type="button">Check OUT</button>
+				<?php } ?>
+			<?php }else{ ?>
+				<button class="btn btn-success btn-check" data-status="0" type="button">Check IN</button>
+				<button class="btn btn-danger btn-check" data-status="1" type="button">Check OUT</button>
+			<?php } ?>
+			
+			
+		</div>
+	</div>
+<?php endif ?>
 <?php if (count($data_get['event'])>0): ?>
 	
 	<div class="row">

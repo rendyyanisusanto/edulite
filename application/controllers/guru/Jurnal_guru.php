@@ -44,7 +44,7 @@ class Jurnal_guru extends MY_Controller {
 	}
 	public function jurnal_guru_set($idmapel)
 	{
-		$mapel_get			=	$this->my_where('v_jadwal_pelajaran', ['id_jadwal_pelajaran'=>$idmapel])->row_array();
+		$mapel_get					=	$this->my_where('v_jadwal_pelajaran', ['id_jadwal_pelajaran'=>$idmapel])->row_array();
 		$data['jurnal_guru']		=	$this->my_where('jurnal_guru', [
 											'idguru_fk'			=>	$mapel_get['idguru_fk'],
 											'idkelas_fk'		=>	$mapel_get['idkelas_fk'],

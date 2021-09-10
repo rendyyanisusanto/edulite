@@ -8,8 +8,11 @@ class Dashboard extends MY_Controller {
 		$data				=	$this->get_guru();
 		$data['event']		=	$this->my_where('v_presensi_event', ['idguru_fk'=>$data['guru']['id_guru'], 'tanggal'=>date('Y-m-d')])->result_array();
 		$data['mapel_hari_ini']	= [];	
-		$mapel_hari_ini 	=	$this->my_where('v_jadwal_pelajaran', ['idguru_fk' => $data['guru']['id_guru'], 'code' => date('N')])->result_array();
 
+		$data['tahun_ajaran']	=	$this->tahun_ajaran_aktif();
+		$mapel_hari_ini 	=	$this->my_where('v_jadwal_pelajaran', ['idguru_fk' => $data['guru']['id_guru'], 'code' => date('N')])->result_array();
+		$data['jadwal_guru']	=  $this->cek_jadwal_guru_hari_ini($data['guru']['id_guru'], $data['tahun_ajaran']['id_tahun_ajaran']);
+		$data['presensi']		=	$this->cek_presensi_guru_hari_ini($data['guru']['id_guru'], $data['tahun_ajaran']['id_tahun_ajaran']);
 		foreach ($mapel_hari_ini as $key => $value) {
 			$data['mapel_hari_ini'][] =[
 				'mapel'		=>		$value,
@@ -37,5 +40,60 @@ class Dashboard extends MY_Controller {
 		$data['cek_kd']		=	$this->cek_kd();
 		$data['tahun_ajaran']	=	$this->tahun_ajaran_aktif();
 		$this->my_view(['role/guru/page/dashboard/index_page/index','role/guru/page/dashboard/index_page/js'],$data);
+	}
+
+	function check()
+	{
+		$guru				=	$this->get_guru();
+		$send 				=	'';
+		$status				=	$_POST['status'];
+		$tahun_ajaran		=	$this->my_where('tahun_ajaran',['is_active'=>1])->row_array();
+		$data = [
+			'idguru_fk'			=>	$guru['guru']['id_guru'],
+			'tanggal'			=>	date('Y-m-d'),
+			'jam_masuk'			=>	($status == 0) ? date('H:i:s'):'',
+			'jam_keluar'		=>	($status == 1) ? date('H:i:s'):'',
+			'idtahunajaran_fk'	=>	$tahun_ajaran['id_tahun_ajaran']
+		];
+
+		$cek = $this->my_where('presensi_guru', [
+			'idguru_fk'			=>	$guru['guru']['id_guru'],
+			'tanggal'			=>	date('Y-m-d'),
+			'idtahunajaran_fk'	=>	$tahun_ajaran['id_tahun_ajaran']
+		]);
+
+		if ($cek->num_rows() == 0) {
+			if ($this->save_data('presensi_guru', $data)) {
+				# code...
+			}
+		}else{
+			$row = $cek->row_array();
+			if ($status == 1) {
+
+				if (empty($row['jam_keluar']) || $row['jam_keluar']== '00:00:00') {
+					
+					$this->my_update('presensi_guru', ['jam_keluar'=>date('H:i:s')], [
+						'idguru_fk'			=>	$guru['guru']['id_guru'],
+						'tanggal'			=>	date('Y-m-d'),
+						'idtahunajaran_fk'	=>	$tahun_ajaran['id_tahun_ajaran']
+					]);
+
+				}
+			}
+			if ($status == 0) {
+				if (empty($row['jam_masuk']) || $row['jam_masuk']== '00:00:00') {
+					$this->my_update('presensi_guru', ['jam_masuk'=>date('H:i:s')], [
+						'idguru_fk'			=>	$guru['guru']['id_guru'],
+						'tanggal'			=>	date('Y-m-d'),
+						'idtahunajaran_fk'	=>	$tahun_ajaran['id_tahun_ajaran']
+					]);
+				}
+			}
+			
+
+			
+		}
+
+		echo json_encode($send);
 	}
 }
