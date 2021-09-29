@@ -10,9 +10,12 @@
             <td class="bg-blue-800">Kelas</td>
             <td class="bg-teal">
               <select class="form-control" name="idkelas_fk">
-                <?php foreach ($data_get['kelas'] as $key => $value): ?>
-                <option value="<?php echo $value['id_kelas'] ?>"><?php echo $value['kelas'] ?></option>
+                <?php foreach ($data_get['detail_kaprog'] as $key => $value): ?>
+                <?php foreach ($value['kelas'] as $key_kelas => $value_kelas): ?>
+                  <option value="<?php echo $value_kelas['id_kelas'] ?>"><?php echo $value_kelas['kelas'] ?></option>
                 <?php endforeach ?>
+                
+              <?php endforeach ?>
               </select>
             </td>
           </tr>
@@ -29,10 +32,9 @@
         <select class="form-control tipe" required="" name="tipe">
           <option value="">Pilih Tipe Laporan</option>
           <option value="0">Laporan Presensi Harian</option>
-          <option value="3">Laporan Presensi Mingguan</option>
+          <!-- <option value="1">Laporan Presensi Mingguan</option> -->
           <option value="2">Laporan Presensi Bulanan</option>
           <!-- <option value="3">Laporan Per Mapel Bulanan</option> -->
-          <option value="1">Laporan Total Presensi Mingguan(Hitungan Jam Pelajaran)</option>
           <option value="4">Laporan Total Presensi Bulanan(Hitungan Jam Pelajaran)</option>
           <option value="5">Laporan Total Presensi Bulanan(Hitungan Hari)</option>
         </select>

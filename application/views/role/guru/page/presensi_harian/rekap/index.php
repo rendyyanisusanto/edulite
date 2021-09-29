@@ -29,9 +29,10 @@
         <select class="form-control tipe" required="" name="tipe">
           <option value="">Pilih Tipe Laporan</option>
           <option value="0">Laporan Presensi Harian</option>
-          <!-- <option value="1">Laporan Presensi Mingguan</option> -->
+          <option value="3">Laporan Presensi mingguan</option>
           <option value="2">Laporan Presensi Bulanan</option>
           <!-- <option value="3">Laporan Per Mapel Bulanan</option> -->
+          <option value="1">Laporan Total Presensi Mingguan(Hitungan Jam Pelajaran)</option>
           <option value="4">Laporan Total Presensi Bulanan(Hitungan Jam Pelajaran)</option>
           <option value="5">Laporan Total Presensi Bulanan(Hitungan Hari)</option>
         </select>

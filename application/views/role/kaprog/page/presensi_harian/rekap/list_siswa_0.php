@@ -65,25 +65,6 @@
 	<center><h3>Presensi Siswa <?php echo ' Kelas '.$data_get['kelas']['kelas'] ?> Tanggal <?= $data_get['bulan'] ?></h3></center>
 	
 	<div class="table-responsive">
-
-	<div class="table-responsive">
-	<table class="table table-xxs table-bordered table-framed" style="width: 50%;">
-		<tr>
-			<td class='text-table' width="30%">Jenis Laporan</td>
-			<td class='text-table' style="font-weight: bold;">Harian</td>
-		</tr>
-		<tr>
-			<td class='text-table' >Kelas</td>
-			<td class='text-table' style="font-weight: bold;"><?php echo $data_get['kelas']['kelas'] ?></td>
-		</tr>
-		<tr>
-			<td class='text-table' >Tanggal</td>
-			<td class='text-table' style="font-weight: bold;"><?php echo date_format(date_create($data_get['bulan']), "d/m/Y") ?></td>
-		</tr>
-		
-	</table>
-	<hr>
-
 	<table class="" style="overflow: scroll;width: 100%;">
 		<thead>
 			<tr>

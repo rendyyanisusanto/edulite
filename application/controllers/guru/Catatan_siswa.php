@@ -28,7 +28,36 @@ class catatan_siswa extends MY_Controller {
 	public function get_catatan()
 	{
 		$guru = $this->get_guru();
+		$walas = [];
+		foreach ($guru['walas'] as $key => $value) {
+			$walas[$key] = $value['idkelas_fk'];
+		}
+		$data['catatan']	=	$this->db->query('select * from v_catatan_siswa_new where idkelas_fk IN ('.implode(',', $walas).')')->result_array();
+		
+		$this->my_view(['role/guru/page/catatan_siswa/index_page/table_catatan'], $data);
+	}
 
-		// $catatan_siswa = $t
+	function tindakan($id_catatan="")
+	{
+		$data['account']	=	$this->get_user_account();
+		$data['param'] 		= 	$this->arr;
+		$data['catatan_siswa']	=	$this->my_where('v_catatan_siswa_new', ['id_catatan_siswa'=>$id_catatan])->row_array();
+		$this->my_view(['role/guru/page/catatan_siswa/tindakan/index','role/guru/page/catatan_siswa/tindakan/js'],$data);	
+	}
+	function simpan_data(){
+		$data = [
+			'idcatatansiswa_fk'	=>	$_POST['idcatatansiswa_fk'],
+			'tanggal'			=>	$_POST['tanggal'],
+			'tindakan'			=>	$_POST['tindakan']
+		];
+
+		if ($this->save_data('tindakan_catatan_siswa', $data)) {
+			// code...
+		}
+	}
+	function get_data_catatan($id_catatan=""){
+		$data['tindakan']	=	$this->my_where('tindakan_catatan_siswa', ['idcatatansiswa_fk'=>$id_catatan])->result_array();
+
+		$this->my_view(['role/guru/page/catatan_siswa/tindakan/data_tindakan'], $data);
 	}
 }

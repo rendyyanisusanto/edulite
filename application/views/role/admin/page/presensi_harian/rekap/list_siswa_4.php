@@ -53,14 +53,13 @@
 </style>
 <div class="panel panel-body">
 	<center><h3>Presensi Siswa <?php echo ' Kelas '.$data_get['kelas']['kelas'] ?> Periode <?= $data_get['bulan'] ?></h3></center>
-	
-	<div class="table-responsive">
+
 
 	<div class="table-responsive">
 	<table class="table table-xxs table-bordered table-framed" style="width: 50%;">
 		<tr>
 			<td class='text-table' width="30%">Jenis Laporan</td>
-			<td class='text-table' style="font-weight: bold;">Bulanan</td>
+			<td class='text-table' style="font-weight: bold;">Mingguan</td>
 		</tr>
 		<tr>
 			<td class='text-table' >Kelas</td>
@@ -70,6 +69,10 @@
 			<td class='text-table' >Bulan/Tahun</td>
 			<td class='text-table' style="font-weight: bold;"><?php echo date_format(date_create($data_get['bulan']), "m/Y") ?></td>
 		</tr>
+		<tr>
+			<td class='text-table' >Minggu</td>
+			<td class='text-table' style="font-weight: bold;"><?php echo date_format(date_create($data_get['bulan']), "W") ?></td>
+		</tr>
 	</table>
 	<hr>
 	<table class="" style="overflow: scroll;width: 100%;">
@@ -77,32 +80,31 @@
 			<tr>
 				<th class='text-table text-center' rowspan="2" width="10%">NIS</th>
 				<th class='text-table text-center' rowspan="2" style="width: 20% !important;">Nama</th>
-				<th  class='text-table text-center' colspan="<?php echo $data_get['all_day'] ?>">Tanggal</th>
-				
-				<th class='text-table text-center' rowspan="2" width="3%">M</th>
+				<th class="text-table text-center" colspan="<?php echo iterator_count($data_get['tg']) ?>">Tanggal</th>
 
-				<th class='text-table text-center' rowspan="2" width="3%">TM</th>
+				<th class='text-table text-center' rowspan="2" style="width: 3% !important;">M</th>
+				<th class='text-table text-center' rowspan="2" style="width: 3% !important;">TM</th>
 			</tr>
 			<tr>
-				<?php for ($i=1; $i <= $data_get['all_day'] ; $i++) { 
-					echo "<th class='text-table text-center' width='25px'>".$i."</th>";
+				<?php foreach ($data_get['tg'] as $key => $value) { 
+					echo "<th class='text-table text-center' width='25px'>".$value->format("d")."</th>";
 				} ?>
 			</tr>
 		</thead>
 		<tbody>
-			<?php foreach ($data_get['siswa'] as $key => $value): ?>
+			<?php foreach ($data_get['siswa'] as $key => $value){ ?>
 			<tr>
 				<td class="text-table"><?php echo $value['siswa']['nis'] ?></td>
 				<td class="text-table" ><?php echo $value['siswa']['nama'] ?></td>
-				<?php for ($i=1; $i <= $data_get['all_day'] ; $i++) { 
-
-					if ((isset($value['presensi'][$i]['presensi']))) {
-						if ($value['presensi'][$i]['presensi'] == "M") {
+				<?php  foreach ($value['presensi'] as $key2 => $value2) { 
+				// print_r($value2['presensi']);  
+					if (isset($value2['presensi'])&&(!empty($value2['presensi']))) {
+						if ($value2['presensi'] == "M") {
 								echo "<td width='25px' class='text-table text-center'><b class='text-success'>√</b></td>";
-						}elseif ($value['presensi'][$i]['presensi'] == "A") {
+						}elseif ($value2['presensi'] == "A") {
 								echo "<td width='25px' class='text-table text-center'><b class='text-danger'>X</b></td>";
 						}else{
-								echo "<td width='25px' class='text-table text-center'><b class='text-info'>".$value['presensi'][$i]['presensi']."</b></td>";
+								echo "<td width='25px' class='text-table text-center'><b class='text-info'>".$value2['presensi']."</b></td>";
 						}	
 					}else{
 						echo "<td width='25px' class='text-table'></td>";
@@ -112,7 +114,7 @@
 				<td class="text-table text-center"><?php echo $value['m'] ?></td>
 				<td class="text-table text-center"><?php echo $value['tm'] ?></td>
 			</tr>
-			<?php endforeach ?>
+			<?php } ?>
 		</tbody>
 	</table>
 </div>
