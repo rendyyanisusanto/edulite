@@ -42,47 +42,29 @@ class persentase_guru extends MY_Controller {
 	{
 
 		$tahun_ajaran		=	$this->my_where('tahun_ajaran',['is_active'=>1])->row_array();
-		$data = [
-			'idguru_fk'			=>	$_POST['idguru_fk'],
-			'tanggal'			=>	$_POST['tanggal'],
-			'jam_masuk'			=>	($_POST['status'] == 0) ? $_POST['pukul']:'',
-			'jam_keluar'		=>	($_POST['status'] == 1) ? $_POST['pukul']:'',
-			'idtahunajaran_fk'	=>	$tahun_ajaran['id_tahun_ajaran']
-		];
+		
+		foreach ($_POST['data'] as $key => $value) {
+			$data_set = [
+				'idguru_fk'			=>	$value['id_guru'],
+				'persentase'		=>	$value['persentase'],
+				'idtahunajaran_fk'	=>	$tahun_ajaran['id_tahun_ajaran']
+			];
 
-		$cek = $this->my_where('presensi_guru', [
-			'idguru_fk'			=>	$_POST['idguru_fk'],
-			'tanggal'			=>	$_POST['tanggal'],
-			'idtahunajaran_fk'	=>	$tahun_ajaran['id_tahun_ajaran']
-		]);
+			if ($this->my_where('persentase_guru', [
+				'idguru_fk'			=>	$value['id_guru'],
+				'idtahunajaran_fk'	=>	$tahun_ajaran['id_tahun_ajaran']
+			])->num_rows() < 1) {
+				$this->save_data('persentase_guru', $data_set);
+			}else{
+				$data_query = $this->my_where('persentase_guru', 
+			[
+				'idguru_fk'			=>	$value['id_guru'],
+				'idtahunajaran_fk'	=>	$tahun_ajaran['id_tahun_ajaran']
+			])->row_array();
 
-		if ($cek->num_rows() == 0) {
-			if ($this->save_data('presensi_guru', $data)) {
-				# code...
+				$this->my_update('persentase_guru', $data_set, ['id_persentase_guru'=>$data_query['id_persentase_guru']]);
 			}
-		}else{
-			if ($_POST['status'] == 1) {
-				if ($cek->row_array()['jam_keluar'] == '00:00:00') {
-				
-					$this->my_update('presensi_guru', ['jam_keluar'=>$_POST['pukul']], [
-						'idguru_fk'			=>	$_POST['idguru_fk'],
-						'tanggal'			=>	$_POST['tanggal'],
-						'idtahunajaran_fk'	=>	$tahun_ajaran['id_tahun_ajaran']
-					]);
-				}
-			}
-			if ($_POST['status'] == 0) {
-				if ($cek->row_array()['jam_masuk'] == '00:00:00') {
-					$this->my_update('presensi_guru', ['jam_masuk'=>$_POST['pukul']], [
-						'idguru_fk'			=>	$_POST['idguru_fk'],
-						'tanggal'			=>	$_POST['tanggal'],
-						'idtahunajaran_fk'	=>	$tahun_ajaran['id_tahun_ajaran']
-					]);
-				}
-			}
-			
-
-			
+		
 		}
 
 		echo json_encode($_POST);
