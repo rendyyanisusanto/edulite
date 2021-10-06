@@ -55,13 +55,14 @@ class presensi_guru extends MY_Controller {
 			foreach ($jadwal_guru as $key => $value_jadwal) {
 				$kumulatif += $this->total_day($_POST['bulan'],date('Y'), $value_jadwal['idhari_fk']);
 			}
-			$presensi_guru = $this->my_where('presensi_guru', ['idguru_fk'=>$value['id_guru'], 'MONTH(tanggal)'=>$_POST['bulan']])->num_rows();
+			$p_q = $this->my_where('presensi_guru', ['idguru_fk'=>$value['id_guru'], 'MONTH(tanggal)'=>$_POST['bulan']])->num_rows();
+			$presensi_guru = ($p_q > $kumulatif) ? $kumulatif : $p_q;
 			$data['persentase_guru'][] = [
 				'guru' => $value,
 				'kumulatif'=>$kumulatif,
 				'presensi_guru'=>$presensi_guru,
 				'persentase' => (($persentase_guru->num_rows() > 0) ? $persentase_guru->row_array() : [] ),
-				'rekap_persentase' => ($presensi_guru == 0) ? 0 : (number_format((($presensi_guru/$kumulatif) * 100), 0,'','')),
+				'rekap_persentase' => ($presensi_guru == 0) ? 0 : (number_format($presensi_guru/$kumulatif, 0,'',''))
 			]; 
 		}
 		$data['bulan'] = $_POST['bulan'];
