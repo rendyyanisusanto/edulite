@@ -62,7 +62,7 @@ class presensi_guru extends MY_Controller {
 				'kumulatif'=>$kumulatif,
 				'presensi_guru'=>$presensi_guru,
 				'persentase' => (($persentase_guru->num_rows() > 0) ? $persentase_guru->row_array() : [] ),
-				'rekap_persentase' => ($presensi_guru == 0) ? 0 : (number_format($presensi_guru/$kumulatif, 0,'',''))
+				'rekap_persentase' => ($presensi_guru == 0) ? 0 : (number_format((($presensi_guru/$kumulatif)*100), 0,'',''))
 			]; 
 		}
 		$data['bulan'] = $_POST['bulan'];
