@@ -539,5 +539,16 @@ class presensi_harian extends MY_Controller {
 		$data =[];
 		$this->my_view(['role/admin/page/presensi_harian/rekap/p'.$tipe], $data);
 	}
-
+	function wa($idmapel)
+	{
+		$data['account']	=	$this->get_user_account();
+		$mapel_get			=	$this->my_where('v_jadwal_pelajaran', ['id_jadwal_pelajaran'=>$idmapel])->row_array();
+		$data['tahun_ajaran']		=	$this->my_where('tahun_ajaran', ['id_tahun_ajaran'=>$mapel_get['idtahunajaran_fk']])->row_array();
+		$siswa		=	$this->my_where('siswa', ['idkelas_fk'=>$mapel_get['idkelas_fk']])->result_array();
+		$data['kelas']		=	$this->my_where('kelas', ['id_kelas'=>$mapel_get['idkelas_fk']])->row_array();
+		$data['guru']		=	$this->my_where('guru', ['id_guru'=>$mapel_get['idguru_fk']])->row_array();
+		$data['mata_pelajaran']		=	$this->my_where('mata_pelajaran', ['id_mata_pelajaran'=>$mapel_get['idmapel_fk']])->row_array();
+		$this->curl->simple_post('http://localhost:8000/send-message', ['number'=>$data['guru']['no_hp'].'@c.us', 
+			'message'=>'Hay '.$data['guru']['nama'].', Anda belum melakukan presensi Mapel '.$data['mata_pelajaran']['mata_pelajaran'].' Kelas '.$data['kelas']['kelas']]);
+	}
 }

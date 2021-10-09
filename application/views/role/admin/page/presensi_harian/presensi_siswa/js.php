@@ -50,6 +50,17 @@
         });
 
     });
+    $(document).on('click', '.btn-wa', function(e){
+        e.stopImmediatePropagation();
+        btn_abs = $(this);
+        var idmapel = $(this).data('idmapel');
+
+        send_ajax('Presensi_harian/wa/'+$(this).data('idmapel'),{}).then(function(data){
+            
+
+        });
+
+    });
     
     $(document).on('submit', '#app-absen-save', function(e){
         e.preventDefault();

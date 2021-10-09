@@ -128,8 +128,16 @@ class presensi_guru extends MY_Controller {
 
 		if ($cek->num_rows() == 0) {
 			if ($this->save_data('presensi_guru', $data)) {
-				# code...
+				$guru = $this->my_where('guru', ['id_guru'=>$_POST['idguru_fk']])->row_array();
+
+				$this->curl->simple_post('http://localhost:8000/send-message', 
+					[
+						'number'	=>	$guru['no_hp'].'@c.us', 
+						'message'	=>	'Hay '.$guru['nama'].', Anda sudah melakukan presensi pada pukul '.$_POST['pukul']
+					]
+					);
 			}
+			
 		}else{
 			if ($_POST['status'] == 1) {
 				if ($cek->row_array()['jam_keluar'] == '00:00:00') {

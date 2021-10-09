@@ -55,8 +55,9 @@ class presensi_guru extends MY_Controller {
 			foreach ($jadwal_guru as $key => $value_jadwal) {
 				$kumulatif += $this->total_day($_POST['bulan'],date('Y'), $value_jadwal['idhari_fk']);
 			}
+			$total_pres = $this->db->query("select count(distinct(tanggal)) as jml from presensi_guru where idguru_fk=".$value['id_guru']." and MONTH(tanggal) = ".$_POST['bulan'])->row_array();
 			$p_q = $this->my_where('presensi_guru', ['idguru_fk'=>$value['id_guru'], 'MONTH(tanggal)'=>$_POST['bulan']])->num_rows();
-			$presensi_guru = ($p_q > $kumulatif) ? $kumulatif : $p_q;
+			$presensi_guru = ($total_pres['jml'] > $kumulatif) ? $kumulatif : $total_pres['jml'];
 			$data['persentase_guru'][] = [
 				'guru' => $value,
 				'kumulatif'=>$kumulatif,
@@ -71,8 +72,6 @@ class presensi_guru extends MY_Controller {
 	}
 	public function history($id_guru="" ,$bulan="", $tahun=""){
 		$hari 			= [];
-		
-		
 		$all_day 		= cal_days_in_month(CAL_GREGORIAN, $bulan, $tahun);
 
 		for ($i=1; $i <= $all_day ; $i++) { 
@@ -123,7 +122,15 @@ class presensi_guru extends MY_Controller {
 
 		if ($cek->num_rows() == 0) {
 			if ($this->save_data('presensi_guru', $data)) {
-				# code...
+				
+				$guru = $this->my_where('guru', ['id_guru'=>$_POST['idguru_fk']])->row_array();
+
+				$this->curl->simple_post('http://localhost:8000/send-message', 
+					[
+						'number'	=>	$guru['no_hp'].'@c.us', 
+						'message'	=>	'Hay '.$guru['nama'].', Anda sudah melakukan presensi pada pukul '.$_POST['pukul']
+					]
+					);
 			}
 		}else{
 			if ($_POST['status'] == 1) {

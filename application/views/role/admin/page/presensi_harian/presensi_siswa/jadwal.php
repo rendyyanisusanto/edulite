@@ -15,6 +15,7 @@
 							<th width="1%">JAM</th>
 							<th width="1%">Abs</th>
 							<th width="1%">#</th>
+							<th width="1%">#</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -30,6 +31,8 @@
 								<td><b class="<?php echo ($value['absen']>0) ? 'text-success icon-checkmark2' : 'text-danger icon-close2'; ?>"></b></td>
 								
 								<td><button class="btn btn-success btn-sm btn-absen" data-idmapel="<?= $value['mapel']['id_jadwal_pelajaran'] ?>" type="button" ><i class="icon-eye"></i></button></td>
+							
+								<td><button class="btn btn-warning btn-sm btn-wa" data-idmapel="<?= $value['mapel']['id_jadwal_pelajaran'] ?>" type="button" ><i class="icon-eye"></i></button></td>
 							</tr>
 						<?php endforeach ?>
 					</tbody>
