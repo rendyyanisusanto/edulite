@@ -17,7 +17,7 @@
 
 <?php endif ?>
 <?php if ($data_get['jadwal_guru'] > 0): ?>
-	<div class="row">
+	<!-- <div class="row">
 		<div class="alert alert-info">
 			<b>Anda hari ini ada jadwal:</b>
 			<br>
@@ -39,7 +39,7 @@
 			
 			
 		</div>
-	</div>
+	</div> -->
 <?php endif ?>
 <?php if (count($data_get['event'])>0): ?>
 	
