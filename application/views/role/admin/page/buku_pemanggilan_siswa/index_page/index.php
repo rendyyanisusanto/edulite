@@ -21,7 +21,7 @@
         <a class="btn bg-info-400 btn-labeled legitRipple" target="__blank" href="buku_pemanggilan_siswa/print_hari_ini"><b><i class="icon-printer2"></i></b> Print hari ini</a>
         <hr>
         <div class="table-responsive">
-        <table class="table" width="100%" id="tabel-data">
+        <table class="table table-framed table-xs" width="100%" id="tabel-data">
           <thead>
             <tr>
               <th width="1%">#</th>
@@ -31,7 +31,7 @@
               <th>Masalah</th>
               <th>Pemecahan</th>
               <th>Tindak Lanjut</th>
-              <th>Keterangan</th>
+              <th>#</th>
             </tr>
           </thead>
         </table>

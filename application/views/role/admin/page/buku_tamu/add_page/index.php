@@ -5,6 +5,8 @@
 <div class="row">
 	<div class="col-md-12">
 		<div class="panel panel-body">
+
+			<center><h3><b>Halaman Tambah Buku Tamu</b></h3></center>
 			<fieldset>
 	            <div class="form-group">
 	              <label class="col-lg-3 control-label">Tanggal:</label>
@@ -22,20 +24,20 @@
 	            <div class="form-group">
 	              <label class="col-lg-3 control-label">Alamat:</label>
 	              <div class="col-lg-9">
-	                <input type="text" name="alamat" class="form-control"  placeholder="Input here......">
+	                <input type="text" name="alamat" class="form-control"  required="" placeholder="Input here......">
 	              </div>
 	            </div>
 
 	            <div class="form-group">
 	              <label class="col-lg-3 control-label">Jabatan:</label>
 	              <div class="col-lg-9">
-	              	<input type="text" name="jabatan" class="form-control"  placeholder="Input here......">
+	              	<input type="text" name="jabatan" class="form-control"  required="" placeholder="Input here......">
 	              </div>
 	            </div>
 	            <div class="form-group">
 	              <label class="col-lg-3 control-label">Keperluan:</label>
 	              <div class="col-lg-9">
-	              	<textarea name="keperluan" class="form-control" id="keperluan" ></textarea>
+	              	<textarea name="keperluan" class="form-control" required="" id="keperluan" ></textarea>
 	                
 	              </div>
 	            </div>

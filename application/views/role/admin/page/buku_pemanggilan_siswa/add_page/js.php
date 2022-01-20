@@ -28,7 +28,7 @@
 	            $(".se-pre-con").fadeOut("slow");
 	            // console.log(data);
 	            toastr.success('Data berhasil ditambahkan, Refresh untuk melihat perubahan');
-	            set_content('<?php echo $data_get['param']['table'] ?>/get_data');
+	            set_content('buku_pemanggilan_siswa/get_data');
 	        });
 	    return false;
 	});

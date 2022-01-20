@@ -21,12 +21,12 @@
         <a class="btn bg-info-400 btn-labeled legitRipple" target="__blank" href="<?php echo $data_get['param']['table'] ?>/print_hari_ini"><b><i class="icon-printer2"></i></b> Print hari ini</a>
         <hr>
         <div class="table-responsive">
-        <table class="table" width="100%" id="tabel-data">
+        <table class="table table-framed table-xxs" width="100%" id="tabel-data">
           <thead>
             <tr>
               <th width="1%">#</th>
+              <th>Kode</th>
               <th width="15%">Tanggal</th>
-              <th width="10%">Arsip</th>
               <th width="25%">Pengirim</th>
               <th>Perihal</th>
               <th>No Surat</th>

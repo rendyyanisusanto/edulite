@@ -3,6 +3,8 @@
 <div class="row">
 	<div class="col-md-12">
 		<div class="panel panel-body">
+
+			<center><h3><b>Halaman Tambah Surat Keluar</b></h3></center>
 			<fieldset>
 	            
 	            <div class="form-group">

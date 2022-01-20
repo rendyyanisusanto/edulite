@@ -5,6 +5,7 @@
 		<div class="panel panel-body">
 			<fieldset>
 	            
+			<center><h3><b>Halaman Edit Surat Keluar</b></h3></center>
                 <input type="hidden"  name="id_surat_keluar" value="<?php echo $data_get['surat_keluar']['id_surat_keluar'] ?>">
 	            <div class="form-group">
 	              <label class="col-lg-3 control-label">Kode Arsip</label>

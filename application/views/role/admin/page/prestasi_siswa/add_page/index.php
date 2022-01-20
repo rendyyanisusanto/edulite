@@ -5,6 +5,8 @@
 <div class="row">
 	<div class="col-md-12">
 		<div class="panel panel-body">
+
+			<center><h3><b>Halaman Tambah Prestasi Siswa</b></h3></center>
 			<fieldset>
 	            
 
@@ -26,7 +28,7 @@
 	            <div class="form-group">
 	              <label class="col-lg-3 control-label">Lomba</label>
 	              <div class="col-lg-4">
-	              	<textarea class="form-control" name="lomba"></textarea>
+	              	<textarea class="form-control" required="" name="lomba"></textarea>
 	              </div>
 	            </div>
 	            <div class="form-group">

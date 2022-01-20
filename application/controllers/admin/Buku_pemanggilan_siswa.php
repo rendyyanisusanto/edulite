@@ -9,9 +9,9 @@ class buku_pemanggilan_siswa extends MY_Controller {
 	public $arr = [
 			'title'				=>	'Halaman buku_pemanggilan_siswa',
 			'table'				=>	'v_buku_pemanggilan_siswa',
-			'column'			=>	['kode_arsip','tujuan','tanggal_surat','perihal','no_surat'],
-			'column_order'		=>	[ 'id_buku_pemanggilan_siswa','kode_arsip','tujuan','tanggal_surat','perihal','no_surat'],
-			'column_search'		=>	[ 'id_buku_pemanggilan_siswa','kode_arsip','tujuan','tanggal_surat','perihal','no_surat'],
+			'column'			=>	['kode_pemanggilan','tanggal','nama','masalah','pemecahan'],
+			'column_order'		=>	[ 'id_buku_pemanggilan_siswa','kode_pemanggilan','tanggal','nama','masalah','pemecahan'],
+			'column_search'		=>	[ 'id_buku_pemanggilan_siswa','kode_pemanggilan','tanggal','nama','masalah','pemecahan'],
 			'order'				=>	['id_buku_pemanggilan_siswa'	=>	'DESC'],
 			'id'				=>	'id_buku_pemanggilan_siswa'
 	];
@@ -75,7 +75,6 @@ class buku_pemanggilan_siswa extends MY_Controller {
 	function update_data()
 	{
 		$data = [
-			'idsiswa_fk' 	=> $_POST['idsiswa_fk'],
 			'masalah' 		=> $_POST['masalah'],
 			'pemecahan' => $_POST['pemecahan'],
 			'tindak_lanjut' 		=> $_POST['tindak_lanjut'],
@@ -212,7 +211,7 @@ class buku_pemanggilan_siswa extends MY_Controller {
             $row[]		=	!empty($field['masalah']) ? $field['masalah'] : '-';
             $row[]		=	!empty($field['pemecahan']) ? $field['pemecahan'] : '-';
             $row[]		=	!empty($field['tindak_lanjut']) ? $field['tindak_lanjut'] : '-';
-            $row[]		=	!empty($field['keterangan']) ? $field['keterangan'] : '-';
+            $row[]		=	'<a href="'.base_url('admin/buku_pemanggilan_siswa/cetak_bukti/'.$field['id_buku_pemanggilan_siswa']).'" target="__blank">Cetak Bukti</a>';
 
             $data[]     =   $row;
         }
@@ -244,5 +243,15 @@ class buku_pemanggilan_siswa extends MY_Controller {
 	     }
 
       	echo json_encode($data);
+	}
+	function cetak_bukti($id)
+	{
+		if (isset($id)) {
+				$data['param'] 		= 	$this->arr;
+				$data['buku_pemanggilan_siswa'] = 	$this->my_where('v_buku_pemanggilan_siswa',['id_buku_pemanggilan_siswa'=>$id])->row_array();
+				$this->my_view(['role/admin/page/buku_pemanggilan_siswa/print_page/index'],$data);
+		} else {
+			$this->get_data();
+		}
 	}
 }

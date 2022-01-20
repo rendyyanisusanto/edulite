@@ -45,6 +45,7 @@ class prestasi_siswa extends MY_Controller {
 		if (isset($id)) {
 				$data['param'] 		= 	$this->arr;
 				$data['prestasi_siswa'] = 	$this->my_where('prestasi_siswa',['id_prestasi_siswa'=>$id])->row_array();
+				$data['siswa']			=	$this->my_where('siswa', ['id_siswa'=>$data['prestasi_siswa']['idsiswa_fk']])->row_array();
 				$this->my_view(['role/admin/page/prestasi_siswa/edit_page/index','role/admin/page/prestasi_siswa/edit_page/js'],$data);
 		} else {
 			$this->get_data();
@@ -77,8 +78,6 @@ class prestasi_siswa extends MY_Controller {
 	function update_data()
 	{
 		$data = [
-			
-			'idsiswa_fk'					=> $_POST['idsiswa_fk'],
 			'prestasi'						=> $_POST['prestasi'],
 			'lomba'							=> $_POST['lomba'],
 			'tahun'							=> $_POST['tahun'],
@@ -110,8 +109,8 @@ class prestasi_siswa extends MY_Controller {
 		public function print_hari_ini()
 		{
 				$data['param'] 		= 	$this->arr;
-				$data['prestasi_siswa'] 	= $this->db->query('SELECT * FROM `prestasi_siswa` where date(tanggal_surat) = DATE(NOW())')->result_array();
-				$this->load->view('role/admin/page/prestasi_siswa/print/print_surat',$data);
+				$data['prestasi_siswa'] 	= $this->db->query('SELECT * FROM `v_prestasi_siswa` ')->result_array();
+				$this->load->view('role/admin/page/prestasi_siswa/print/index',$data);
 		}
 		function cetak_page()
 		{
@@ -200,7 +199,8 @@ class prestasi_siswa extends MY_Controller {
 
 	public function datatable()
 	{
-        $_POST['frm']   =   $this->arr;
+	   $_POST['frm']   =   $this->arr;
+
         $list           =   $this->mod_datatable->get_datatables();
         $data           =   array();
         $no             =   $_POST['start'];

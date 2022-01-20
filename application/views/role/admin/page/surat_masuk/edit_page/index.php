@@ -4,6 +4,8 @@
 <div class="row">
 	<div class="col-md-12">
 		<div class="panel panel-body">
+
+			<center><h3><b>Halaman Edit Surat Masuk</b></h3></center>
 			<fieldset>
 	            
                 <input type="hidden"  name="id_surat_masuk" value="<?php echo $data_get['surat_masuk']['id_surat_masuk'] ?>">

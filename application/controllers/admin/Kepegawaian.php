@@ -9,9 +9,9 @@ class kepegawaian extends MY_Controller {
 	public $arr = [
 			'title'				=>	'Halaman kepegawaian',
 			'table'				=>	'guru',
-			'column'			=>	['nama','nip','alamat','perihal','no_surat'],
-			'column_order'		=>	[ 'id_guru','nama','nip','alamat','perihal','no_surat'],
-			'column_search'		=>	[ 'id_guru','nama','nip','alamat','perihal','no_surat'],
+			'column'			=>	['nama','nip','alamat','no_hp','kode_pegawai'],
+			'column_order'		=>	[ 'id_guru','nama','nip','alamat','no_hp','kode_pegawai'],
+			'column_search'		=>	[ 'id_guru','nama','nip','alamat','no_hp','kode_pegawai'],
 			'order'				=>	['id_guru'	=>	'DESC'],
 			'id'				=>	'id_guru'
 	];
@@ -422,8 +422,9 @@ class kepegawaian extends MY_Controller {
             $no++;
             $row        =   array();
             $row[]      =   '<input type="checkbox" name="get-check" value="'.$field['id_guru'].'"></input>';
-            $row[]		=	'<a href="kepegawaian/detail_page/'.$field['id_guru'].'" class="app-item"><b>'.strtoupper($field['kode_pegawai']).'</b></a>';
             $row[]		=	!empty($field['foto']) ? "<img class='img' style='width:80px;height:100px;' src='".base_url('include/media/foto_pegawai/'.$field['foto'])."'></img>" : "<img class='img' style='max-width:100px;' src='".base_url('include/media/default_image/noimage.png')."'></img>"; 
+            $row[]		=	'<a href="kepegawaian/detail_page/'.$field['id_guru'].'" class="app-item"><b>'.strtoupper($field['kode_pegawai']).'</b></a>';
+            
             $row[]		=	!empty($field['nama']) ? strtoupper($field['nama']) : '-';
             $row[]		=	!empty($field['alamat']) ? strtoupper($field['alamat']) : '-';
             $row[]		=	!empty($field['no_hp']) ? $field['no_hp'] : '-';

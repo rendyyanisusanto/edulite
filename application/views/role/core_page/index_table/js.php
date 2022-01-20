@@ -73,7 +73,7 @@
                 toastr.error('PILIH SATU DATA');
             }else{
                 
-                set_content('<?php echo $data_get['param']['table'] ?>/edit_page',{send_data:$("input[name='get-check']:checked").val()});
+                // set_content('<?php echo $data_get['param']['table'] ?>/edit_page',{send_data:$("input[name='get-check']:checked").val()});
             }
     });
 

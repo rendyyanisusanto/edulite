@@ -21,7 +21,9 @@ class buku_tamu extends MY_Controller {
 	*/
 	public function get_data()
 	{
-		$this->display_view();
+		$data['account']	=	$this->get_user_account();
+		$data['param'] 		= 	$this->arr;
+		$this->my_view(['role/admin/page/buku_tamu/index_page/index','role/admin/page/buku_tamu/index_page/js'],$data);
 	}
 
 	public function add_page()
@@ -32,17 +34,12 @@ class buku_tamu extends MY_Controller {
 		$this->my_view(['role/admin/page/buku_tamu/add_page/index','role/admin/page/buku_tamu/add_page/js'],$data);
 	}
 
-	public function edit_page()
+	public function edit_page($id)
 	{
-		$dt = $this->arr;
-		if (isset($_POST['send_data'])) {
-			$data_edit=[];
-				$data_set = $this->my_where($dt['table'],[$dt['id']=>$_POST['send_data']])->row_array();
-				foreach ($dt['column_order'] as $keycolumn => $value_column) {
-					$data_edit[$value_column]	= $data_set[$value_column];
-				}
-			$data['data_edit']	=	$data_edit;
-			$this->display_view('edit_page', $data);
+		if (isset($id)) {
+				$data['param'] 		= 	$this->arr;
+				$data['buku_tamu'] = 	$this->my_where('buku_tamu',['id_buku_tamu'=>$id])->row_array();
+				$this->my_view(['role/admin/page/buku_tamu/edit_page/index','role/admin/page/buku_tamu/edit_page/js'],$data);
 		} else {
 			$this->get_data();
 		}
@@ -70,10 +67,15 @@ class buku_tamu extends MY_Controller {
 	function update_data()
 	{
 		$dt = $this->arr;
-		$data=[];
-		foreach ($dt['column'] as $key => $value) {
-			$data[$value] = $_POST[$value];
-		}
+		$data=[
+			'nama'		=>	$_POST['nama'],
+			'alamat'	=> 	$_POST['alamat'],
+			'jabatan'	=>	$_POST['jabatan'],
+			'keperluan'	=>	$_POST['keperluan'],
+			'saran'		=>	$_POST['saran'],
+			'tanggal'	=>	$_POST['tanggal']
+		];
+		
 		if ($this->my_update($dt['table'],$data,[$dt['id']=>$_POST[$dt['id']]])) {
 			$this->get_data();
 		}	else 	{
@@ -185,7 +187,32 @@ class buku_tamu extends MY_Controller {
 
 	public function datatable()
 	{
-        echo json_encode($this->call_datatable($this->arr));
+       $_POST['frm']   =   $this->arr;
+
+        $list           =   $this->mod_datatable->get_datatables();
+        $data           =   array();
+        $no             =   $_POST['start'];
+        foreach ($list as $field) {
+            $no++;
+            $row        =   array();
+            $row[]      =   '<input type="checkbox" name="get-check" value="'.$field['id_buku_tamu'].'"></input>';
+            $row[]		=	!empty($field['tanggal']) ? date_format(date_create($field['tanggal']), 'd-m-Y') : '-';
+            $row[]		=	!empty($field['nama']) ? strtoupper($field['nama']) : '-';
+            $row[]		=	!empty($field['alamat']) ? $field['alamat'] : '-';
+            $row[]		=	!empty($field['jabatan']) ? $field['jabatan'] : '-';
+            $row[]		=	!empty($field['keperluan']) ? $field['keperluan'] : '-';
+            $row[]		=	!empty($field['saran']) ? $field['saran'] : '-';
+
+            $data[]     =   $row;
+        }
+        $output = array(
+            "draw" => $_POST['draw'],
+            "recordsTotal" => $this->mod_datatable->count_all(),
+            "recordsFiltered" => $this->mod_datatable->count_filtered(),
+            "data" => $data,
+        );
+
+        echo json_encode($output);
 	}
 	
 	

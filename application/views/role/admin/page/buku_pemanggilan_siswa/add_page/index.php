@@ -29,25 +29,25 @@
 	            <div class="form-group">
 	              <label class="col-lg-3 control-label">Masalah</label>
 	              <div class="col-lg-4">
-	              	<textarea class="form-control" name="masalah" placeholder="Input here......"></textarea>
+	              	<textarea class="form-control" required="" name="masalah" placeholder="Input here......"></textarea>
 	              </div>
 	            </div>
 	            <div class="form-group">
 	              <label class="col-lg-3 control-label">Pemecahan</label>
 	              <div class="col-lg-4">
-	              	<textarea class="form-control" name="pemecahan" placeholder="Input here......"></textarea>
+	              	<textarea class="form-control" required="" name="pemecahan" placeholder="Input here......"></textarea>
 	              </div>
 	            </div>
 	            <div class="form-group">
 	              <label class="col-lg-3 control-label">Tindak lanjut</label>
 	              <div class="col-lg-4">
-	              	<textarea class="form-control" name="tindak_lanjut" placeholder="Input here......"></textarea>
+	              	<textarea class="form-control" required="" name="tindak_lanjut" placeholder="Input here......"></textarea>
 	              </div>
 	            </div>
 	            <div class="form-group">
 	              <label class="col-lg-3 control-label">Keterangan</label>
 	              <div class="col-lg-4">
-	              	<textarea class="form-control" name="keterangan" placeholder="Input here......"></textarea>
+	              	<textarea class="form-control" required="" name="keterangan" placeholder="Input here......"></textarea>
 	              </div>
 	            </div>
 
