@@ -36,6 +36,17 @@
       <li><a href="Penerimaan/persebaran_alumni" class="app-item">Transaksi Pengeluaran</a></li>
     </ul>
   </li>
+  <li class="navigation-header"><span>Laporan & Statistik</span> <i class="icon-menu" title="Page kits"></i></li>
+  <li>
+    <a href="#"><i class="icon-stack-text"></i> <span>Laporan Keuangan</span></a>
+    <ul>
+      <li><a href="Laba_rugi/get_data" class="app-item">Laba Rugi</a></li>
+      <li><a href="Neraca/get_data" class="app-item">Neraca</a></li>
+      <li><a href="Jurnal_umum/get_data" class="app-item">Jurnal Umum</a></li>
+      <li><a href="Buku_besar/get_data" class="app-item">Buku Besar</a></li>
+    </ul>
+  </li>
+
   <li class="navigation-header"><span>Setting kits</span> <i class="icon-menu" title="Page kits"></i></li>
   
   <li>

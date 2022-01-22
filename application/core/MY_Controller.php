@@ -265,7 +265,7 @@ class MY_Controller extends CI_Controller {
                         'keterangan'    =>  $data['keterangan'],
                         'table'         =>  $data['table'],
                         'idtable_fk'    =>  $data['idtable_fk'],
-                        'akun'          =>  $value['akun'],
+                        'idakun_fk'          =>  $value['akun'],
                         'debit'         =>  $value['debit'],
                         'kredit'        =>  $value['kredit'],
                     ];

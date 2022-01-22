@@ -7,6 +7,7 @@ class Penerimaan extends MY_Controller {
 	{
 		$data['account']	=	$this->get_user_account();
 		$data['jenis_penerimaan'] =	$this->my_where('jenis_penerimaan', [])->result_array();
+		
 		$this->my_view(['role/bendahara/page/penerimaan/index_page/index','role/bendahara/page/penerimaan/index_page/js'],$data);
 	}
 	public function get_siswa()
@@ -30,25 +31,137 @@ class Penerimaan extends MY_Controller {
 	}
 	function proses_penerimaan(){
 		if (isset($_POST)) {
-			$data['tanggungan'] =	$this->my_where('v_jenis_penerimaan', ['idsiswa_fk'=>$_POST['id']])->result_array();
+			$data['tanggungan'] =	$this->my_where('v_tanggungan_siswa', ['idsiswa_fk'=>$_POST['id']])->result_array();
 			$data['siswa']		=	$this->my_where('v_siswa_jurusan', ['id_siswa'=>$_POST['id']])->row_array();
 			$data['jenis_penerimaan']	=	$this->my_where('jenis_penerimaan',[])->result_array();
-			$this->my_view(['role/bendahara/page/penerimaan/index_page/proses_penerimaan','role/bendahara/page/penerimaan/index_page/list_tanggungan'],$data);
+			if (!empty($data['tanggungan'])) {
+				$this->my_view(['role/bendahara/page/penerimaan/index_page/proses_penerimaan','role/bendahara/page/penerimaan/index_page/list_tanggungan'],$data);
+			}else{
+				$this->my_view(['role/bendahara/page/penerimaan/index_page/proses_tanggungan'],$data);
+			}
 		}
 	}
 	function save_transaksi()
 	{
+		$jumlah =(int) preg_replace("/[^0-9]/", "", $_POST['jumlah']);
+		$diskon =(int) preg_replace("/[^0-9]/", "", $_POST['diskon']);
 		$data = [
 			'idsiswa_fk'					=> $_POST['idsiswa_fk'],
 			'idjenispenerimaan_fk'			=> $_POST['idjenispenerimaan_fk'],
 			'metode_pembayaran'				=> $_POST['metode_pembayaran'],
 			'tanggal'						=> $_POST['tanggal'],
 			'catatan'						=> $_POST['catatan'],
-			'jumlah'						=> $_POST['jumlah'],
+			'jumlah'						=> $jumlah,
+			'invoice'						=> $_POST['invoice'],
+			'diskon'						=> $diskon
 		];
 
 		if ($this->save_data('penerimaan', $data)) {
 			
+			/*
+			tunai
+				Kas 				20000	0
+				Pendapatan			0		20000
+			
+			utang
+				kas 				10000	0
+				piutang				10000	0
+			*/
+
+				$get_penerimaan			=	$this->my_where('v_jenis_penerimaan', ['id_jenis_penerimaan'=>$_POST['idjenispenerimaan_fk']])->row_array();
+				$penerimaan 			=	$this->my_where('penerimaan', $data)->row_array();
+				$siswa 					=	$this->my_where('siswa', ['id_siswa'=>$_POST['idsiswa_fk']])->row_array();
+				$rand_jurnal 			= rand(1,9999999);
+				$component_jurnal 		= [
+									[
+										'akun'			=>	$get_penerimaan['kas'],
+										'debit'			=>	(($diskon > 0) ? ($jumlah-$diskon) : $jumlah),
+										'kredit'		=>	0
+									],
+									[
+										'akun'			=>	$get_penerimaan['piutang'],
+										'debit'			=>	0 ,
+										'kredit'		=>	$jumlah,
+									]
+							];
+				if ($_POST['diskon'] > 0) {
+					$component_jurnal[] = [
+										'akun'			=>	$get_penerimaan['diskon'],
+										'debit'			=>	$diskon ,
+										'kredit'		=>	0,
+					];
+				}
+				$data_jurnal 			= [
+							'ref'			=>	$rand_jurnal,
+							'keterangan'	=>	'Pembayaran tanggungan '.$get_penerimaan['nama'].' siswa a/n '.$siswa['nama'],
+							'table'			=>	'penerimaan',
+							'idtable_fk' 	=>	$penerimaan['id_penerimaan'],
+							'referensi'		=> $component_jurnal
+						];
+				if (!empty($data_jurnal)) {
+					$this->save_my_jurnal($data_jurnal);	
+				}	
+
+		}
+
+
+	}
+	function save_tanggungan(){
+		foreach ($_POST['data'] as $key => $value) {
+			$inv = rand(1,9999999);
+			$data = [
+				'idsiswa_fk' => $_POST['idsiswa_fk'],
+				'idjenispenerimaan_fk'	=>	$value['id_jenis_penerimaan'],
+				'jumlah'	=>	$value['jumlah'],
+				'invoice'		=>	$inv
+			];
+			if($this->save_data('tanggungan_siswa', $data)){
+				/*
+				tunai
+					Piutang 			20000	0
+					Pendapatan			0		20000
+				
+				*/
+
+				$get_penerimaan			=	$this->my_where('v_jenis_penerimaan', ['id_jenis_penerimaan'=>$value['id_jenis_penerimaan']])->row_array();
+				$tanggungan 			=	$this->my_where('tanggungan_siswa', $data)->row_array();
+				$siswa 					=	$this->my_where('siswa', ['id_siswa'=>$_POST['idsiswa_fk']])->row_array();
+				$rand_jurnal 			= rand(1,9999999);
+				$component_jurnal 		= [
+									[
+										'akun'			=>	$get_penerimaan['piutang'],
+										'debit'			=>	(($get_penerimaan['snpiutang'] == 'D') ? $value['jumlah'] : 0),
+										'kredit'		=>	(($get_penerimaan['snpiutang'] == 'K') ? $value['jumlah'] : 0),
+									],
+									[
+										'akun'			=>	$get_penerimaan['pendapatan'],
+										'debit'			=>	(($get_penerimaan['snpendapatan'] == 'D') ? $value['jumlah'] : 0),
+										'kredit'		=>	(($get_penerimaan['snpendapatan'] == 'K') ? $value['jumlah'] : 0),
+									]
+							];
+				
+				$data_jurnal 			= [
+							'ref'			=>	$rand_jurnal,
+							'keterangan'	=>	'Pendataan pembayaran tanggungan '.$get_penerimaan['nama'].' siswa a/n '.$siswa['nama'],
+							'table'			=>	'tanggungan',
+							'idtable_fk' 	=>	$tanggungan['id_tanggungan_siswa'],
+							'referensi'		=> $component_jurnal
+						];
+				if (!empty($data_jurnal)) {
+					$this->save_my_jurnal($data_jurnal);	
+				}	
+			}
+
+			
+
+		}
+		echo json_encode($_POST);
+	}
+
+	public function get_code()
+	{
+		if (isset($_POST)) {
+				echo json_encode($this->generate_code($this->my_where('jenis_penerimaan',['id_jenis_penerimaan'=>$_POST['id']])->row_array()['template_nota']));
 		}
 	}
 }

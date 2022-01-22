@@ -26,12 +26,17 @@
 		<form action="Penerimaan/save_transaksi" method="POST" id="app-submit">
 		<input type="hidden" name="idsiswa_fk" value="<?= $data_get['siswa']['id_siswa'] ?>">
 		<label>Jenis Pembayaran</label>
-		<select class="form-control" required  name="idjenispenerimaan_fk">
+		<select class="form-control jenis_penerimaan" required  name="idjenispenerimaan_fk">
+			<option value="">Pilih Jenis Pembayaran</option>
 			<?php foreach ($data_get['jenis_penerimaan'] as $value): ?>
 				<option value="<?= $value['id_jenis_penerimaan'] ?>"><?= $value['nama'] ?></option>
 			<?php endforeach ?>
 		</select>
 		<br>
+		<label>Invoice</label>
+		<input type="text" class="form-control invoice" placeholder="Tambahkan invoice disini ..." name="invoice">
+		<br>
+
 		<label>Metode Pembayaran : </label>
 		<input type="radio"  name="metode_pembayaran" value="Tunai" checked=""> Langsung[Tunai]
 		<input type="radio"  name="metode_pembayaran"  value="Transfer"> Rekening[Transfer]
@@ -43,7 +48,18 @@
 		<input type="date" name="tanggal"  required class="form-control">
 		<br>
 		<label>Jumlah Bayar</label>
-		<input type="number" name="jumlah"  required value="0" class="form-control">
+		<div class="input-group">
+			<span class="input-group-addon">Rp.</span>
+			<input type="text" name="jumlah" required value="0" class="form-control jumlah">
+		</div>
+		
+		<br>
+		<label>Diskon</label>
+		<div class="input-group">
+			<span class="input-group-addon">Rp.</span>
+			<input type="text" name="diskon" required value="0" class="form-control diskon">
+		</div>
+		
 		<br>
 
 		<button class="btn btn-success btn-submit" type="submit"><i class="icon-floppy-disk"></i> Simpan Transaksi</button>
