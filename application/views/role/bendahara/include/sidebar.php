@@ -17,7 +17,7 @@
   <li>
     <a href="#"><i class="icon-file-text2"></i> <span>Penerimaan</span></a>
     <ul>
-      <li><a href="Jenis_penerimaan/get_data" class="app-item">Jenis Penerimaan</a></li>
+      <li><a href="Jenis_penerimaan/get_data" class="app-item">Jenis Tanggungan Siswa</a></li>
       <li><a href="Penerimaan/get_data" class="app-item">Transaksi Tanggungan Siswa</a></li>
       <li><a href="Penerimaan_lain/get_data" class="app-item">Transaksi Penerimaan Lain</a></li>
     </ul>
