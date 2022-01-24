@@ -47,8 +47,12 @@
 				<td><?= (++$no) ?></td>
 				<td><?= '('.$value['no_ref'].') '.$value['nama'] ?></td>
 				<td><?= ($value['saldo_normal'] == 'K' ) ? '<span class="label label-danger">Kredit</span>' : '<span class="label label-success">Debit</span>' ; ?></td>
-				<td><button data-id_akun="<?= $value['id_akun'] ?>" data-saldo_normal = "<?= $value['saldo_normal'] ?>" data-no_ref="<?= $value['no_ref'] ?>" data-nama="<?= $value['nama'] ?>" class="btn btn-xs btn-edit btn-success"><i class="icon-pencil"></i></button></td>
-				<td><button class="btn btn-xs btn-danger btn-delete" type="button" data-id_akun="<?= $value['id_akun'] ?>" data-nama="<?= $value['nama'] ?>"><i class="icon-trash"></i></button></td>
+				<td><?php if ($value['is_edit'] == 1): ?>
+					<button data-id_akun="<?= $value['id_akun'] ?>" data-saldo_normal = "<?= $value['saldo_normal'] ?>" data-no_ref="<?= $value['no_ref'] ?>" data-nama="<?= $value['nama'] ?>" class="btn btn-xs btn-edit btn-success"><i class="icon-pencil"></i></button>
+				<?php endif ?>
+				</td>
+				<td>
+					<?php if ($value['is_edit'] == 1): ?> <button class="btn btn-xs btn-danger btn-delete" type="button" data-id_akun="<?= $value['id_akun'] ?>" data-nama="<?= $value['nama'] ?>"><i class="icon-trash"></i></button><?php endif ?></td>
 			</tr>
 			<?php endforeach ?>
 		</tbody>

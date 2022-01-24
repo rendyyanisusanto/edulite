@@ -16,7 +16,7 @@ $(document).on('click', '.btn-setting-pasien', function(){
     $('#modal-pasien').modal('toggle');
 });
 $(document).on('click','.filter-setting', function(e){
-    line_chart('Dashboard/line_rekam_medis','.panel-stats-pasien','line_pasien',$('#app-submit-pasien').serialize());
+    line_chart('Dashboard/line_penerimaan','.panel-stats-pasien','line_pasien',$('#app-submit-pasien').serialize());
     $('#modal-pasien').modal('toggle');
 })
 
@@ -33,7 +33,7 @@ $(document).on('change', '.tipe', function(e){
     $('.dtvalue').val($(this).find(':selected').data('dtvalue'));
 })
 /*echart*/
-line_chart('Dashboard/line_rekam_medis','.panel-stats-pasien','line_pasien',{'tipe':'D','data_tipe':'','dtvalue':'Y-m-d'});
+line_chart('Dashboard/line_penerimaan','.panel-stats-pasien','line_pasien',{'tipe':'D','data_tipe':'','dtvalue':'Y-m-d'});
 line_chart('Dashboard/line_keuangan','.panel-stats-keuangan','line_keuangan',{'tipe':'D','data_tipe':'date','dtvalue':'Y-m-d'});
 
 function line_chart(url, panel,id, param) {

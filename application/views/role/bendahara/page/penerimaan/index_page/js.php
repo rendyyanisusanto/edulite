@@ -31,6 +31,7 @@
 
 			send_ajax($(this).attr('action'), $(this).serialize()).then(function(data){
 				toastr.success("data berhasil ditambahkan");
+				get_proses();
 			})
 
 			return false;

@@ -28,8 +28,8 @@
 		<label>Jenis Pembayaran</label>
 		<select class="form-control jenis_penerimaan" required  name="idjenispenerimaan_fk">
 			<option value="">Pilih Jenis Pembayaran</option>
-			<?php foreach ($data_get['jenis_penerimaan'] as $value): ?>
-				<option value="<?= $value['id_jenis_penerimaan'] ?>"><?= $value['nama'] ?></option>
+			<?php foreach ($data_get['tanggungan'] as $value): ?>
+				<option value="<?= $value['id_jenis_penerimaan'] ?>"><?= $value['nama'] ?> (Sisa Rp. <?= number_format(($value['jumlah']-$value['pembayaran']),0,'.','.') ?>)</option>
 			<?php endforeach ?>
 		</select>
 		<br>
@@ -45,7 +45,7 @@
 		<input type="text" class="form-control" placeholder="Tambahkan catatan disini ..." name="catatan">
 		<br>
 		<label>Tanggal</label>
-		<input type="date" name="tanggal"  required class="form-control">
+		<input type="date" name="tanggal" value="<?= date('Y-m-d'); ?>" required class="form-control">
 		<br>
 		<label>Jumlah Bayar</label>
 		<div class="input-group">

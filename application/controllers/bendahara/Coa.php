@@ -22,6 +22,7 @@ class Coa extends MY_Controller {
 				'nama'				=>	$_POST['nama'],
 				'idindukakun_fk'	=>	$_POST['idindukakun_fk'],
 				'saldo_normal'		=>	$_POST['saldo_normal'],
+				'is_edit'			=> 	1
 			];
 			if ($this->save_data('akun', $data)) {
 				

@@ -59,7 +59,7 @@
 	            <div class="form-group">
 	              <label class="col-lg-3 control-label">Template Nota</label>
 	              <div class="col-lg-4">
-	              	<input type="template_nota" class="form-control" name="text" required placeholder="Input here......">
+	              	<input type="text" value="INV/BYR/{date}/{rand}" class="form-control" name="template_nota" required placeholder="Input here......">
 	              </div>
 	            </div>
 	            

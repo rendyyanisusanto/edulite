@@ -31,9 +31,22 @@ class Penerimaan extends MY_Controller {
 	}
 	function proses_penerimaan(){
 		if (isset($_POST)) {
-			$data['tanggungan'] =	$this->my_where('v_tanggungan_siswa', ['idsiswa_fk'=>$_POST['id']])->result_array();
-			$data['siswa']		=	$this->my_where('v_siswa_jurusan', ['id_siswa'=>$_POST['id']])->row_array();
+			$tanggungan 				= 	$this->my_where('v_tanggungan_siswa', ['idsiswa_fk'=>$_POST['id']])->result_array();
+			$data['siswa']				=	$this->my_where('v_siswa_jurusan', ['id_siswa'=>$_POST['id']])->row_array();
 			$data['jenis_penerimaan']	=	$this->my_where('jenis_penerimaan',[])->result_array();
+			$data['tanggungan']			=	[];
+			$this->db->order_by('tanggal', 'DESC');
+			$data['histori_pembayaran']	=	$this->my_where('v_penerimaan', ['idsiswa_fk'=>$_POST['id']])->result_array();
+			foreach ($tanggungan as $value) {
+				$pembayaran = $this->db->select('sum(jumlah) as jml')->get_where('penerimaan', ['idsiswa_fk'=>$_POST['id'], 'idjenispenerimaan_fk'=>$value['id_jenis_penerimaan']])->row_array();
+				$data['tanggungan'][]	=	[
+					'id_jenis_penerimaan'	=>	$value['idjenispenerimaan_fk'],
+					'nama'		=>	$value['nama'],
+					'jumlah'	=>	$value['jumlah'],
+					'pembayaran'	=>	$pembayaran['jml']
+				];
+
+			}
 			if (!empty($data['tanggungan'])) {
 				$this->my_view(['role/bendahara/page/penerimaan/index_page/proses_penerimaan','role/bendahara/page/penerimaan/index_page/list_tanggungan'],$data);
 			}else{

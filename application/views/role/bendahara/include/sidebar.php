@@ -10,8 +10,8 @@
     <a href="#"><i class="icon-book"></i> <span>Referensi</span></a>
     <ul>
       <li><a href="Coa/get_data" class="app-item">Chart of Account</a></li>
-      <li><a href="Tahun_buku/get_data" class="app-item">Tahun Buku</a></li>
-      <li><a href="Tutup_buku/catatan_siswa" class="app-item">Tutup Buku</a></li>
+      <!-- <li><a href="Tahun_buku/get_data" class="app-item">Tahun Buku</a></li>
+      <li><a href="Tutup_buku/catatan_siswa" class="app-item">Tutup Buku</a></li> -->
     </ul>
   </li>
   <li>
@@ -19,21 +19,13 @@
     <ul>
       <li><a href="Jenis_penerimaan/get_data" class="app-item">Jenis Tanggungan Siswa</a></li>
       <li><a href="Penerimaan/get_data" class="app-item">Transaksi Tanggungan Siswa</a></li>
-      <li><a href="Penerimaan_lain/get_data" class="app-item">Transaksi Penerimaan Lain</a></li>
+      <li><a href="Pemasukan_lain/get_data" class="app-item">Transaksi Penerimaan Lain</a></li>
     </ul>
   </li>
   <li>
     <a href="#"><i class="icon-pencil6"></i> <span>Pengeluaran</span></a>
     <ul>
-      <li><a href="Jenis_penerimaan/get_data" class="app-item">Jenis Pengeluaran</a></li>
-      <li><a href="Penerimaan/persebaran_alumni" class="app-item">Transaksi Pengeluaran</a></li>
-    </ul>
-  </li>
-  <li>
-    <a href="#"><i class="icon-magazine"></i> <span>Pengeluaran</span></a>
-    <ul>
-      <li><a href="Jenis_penerimaan/get_data" class="app-item">Jenis Pengeluaran</a></li>
-      <li><a href="Penerimaan/persebaran_alumni" class="app-item">Transaksi Pengeluaran</a></li>
+      <li><a href="Pengeluaran_lain/get_data" class="app-item">Transaksi Pengeluaran</a></li>
     </ul>
   </li>
   <li class="navigation-header"><span>Laporan & Statistik</span> <i class="icon-menu" title="Page kits"></i></li>
