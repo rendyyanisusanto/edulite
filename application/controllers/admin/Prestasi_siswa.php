@@ -15,14 +15,6 @@ class prestasi_siswa extends MY_Controller {
 			'order'				=>	['id_prestasi_siswa'	=>	'DESC'],
 			'id'				=>	'id_prestasi_siswa'
 	];
-
-
-
-
-
-
-
-
 	/*
 		CHANGE PAGE
 	*/

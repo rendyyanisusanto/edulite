@@ -169,14 +169,56 @@ class buku_tamu extends MY_Controller {
 		    {
 		    	
 	            $param  =   [
-	                'filename'			=>		'Jadwal Kegiatan Sekolah',
-	                'data_obj'			=>		$data_set->result(),
+	                'filename'			=>		'Buku Tamu',
+	                'data_obj'			=>		$data_set->result_array(),
 	                'header_table'		=>		$dt['column'],
 	                'print_field'		=>		$dt['column']
 	            ];
 
-	            $this->my_export_excel($param);
-	        
+	            
+	            $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
+				$spreadsheet = $reader->load("include/template/excel/format_cetak_buku_tamu.xlsx");
+				// $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load();
+				//change it
+				$sheet = $spreadsheet->getActiveSheet();
+				//write it again to Filesystem with the same name (=replace)
+				$no = 13;
+				$styleArray = array(
+				    'borders' => array(
+				        'allBorders' => array(
+				            'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+				            
+				        ),
+				    ),
+				);
+				foreach ($param['data_obj'] as $key => $value) {
+					$abj = 'A';
+					foreach ($param['header_table'] as $key_header => $value_header) {
+						$sheet->setCellValue($abj.($no), $value[$value_header]);
+						$abj++;
+					}
+					
+					$sheet->getStyle('A'.$no.':'.$abj.$no)->applyFromArray($styleArray);
+
+					$no ++;
+				}
+				ob_start();
+				$writer = new Xlsx($spreadsheet);
+				$fileName = "Buku Tamu.xlsx";
+				header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+		        header('Content-Disposition: attachment; filename="'. urlencode($fileName).'"');
+		        $writer->save('php://output');
+
+		        $xlsData = ob_get_contents();
+       			ob_end_clean();
+	        	$response =  array(
+		            'status' => TRUE,
+		            'file' => "data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,".base64_encode($xlsData)
+		        );
+	        	echo json_encode($response);
+	        	// echo "<a target='__blank' href='".$response['file']."'>Download</a>";
+		    }else if($_POST['tipe_laporan'] == 'website'){
+		    	
 		    }
 
 		}

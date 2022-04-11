@@ -422,5 +422,46 @@ class MY_Controller extends CI_Controller {
         }
     }
 
+    // Keuangan
+
+    public function get_from_account($where_set=[], $akun_number)
+    {
+        $coa = $this->db->where('id_coa', $akun_number)->get('coa')->result_array();
+        $akun = [];
+        $cash_set = 0;
+        foreach ($coa as $key => $value_coa) {
+            $induk = $this->my_where('induk_akun', ['idcoa_fk'=>$value_coa['id_coa']])->result_array();
+            foreach ($induk as $key => $value_induk) {
+                $akun = $this->my_where('akun', ['idindukakun_fk'=>$value_induk['id_induk_akun']])->result_array();
+                foreach ($akun as $key => $value) {
+                    $select = ($value['saldo_normal'] == 'D') ? 'sum(debit)-sum(kredit) as cash' : 'sum(kredit)-sum(debit) as cash';
+                    $this->db->select($select);
+                    $this->db->where('idakun_fk', $value['id_akun']);
+                    foreach ($where_set as $key2 => $value2) {
+                        $this->db->where($value2['key_app'],$value2['value_app']);
+                    }
+                    $cek = $this->db->get('jurnal_umum');
+                    $jurnal = $cek->row_array(); 
+
+                    $cash = (!empty($jurnal['cash']))?$jurnal['cash']:0;
+                    
+                    $cash_set += $cash;
+                }
+            }
+        }
+        
+        return $cash_set;
+    }
+    public function get_penerimaan($where_set=[])
+    {
+            $this->db->select('*');
+            foreach ($where_set as $key2 => $value2) {
+                $this->db->where($value2['key_app'],$value2['value_app']);
+            }
+            $cek = $this->db->get('penerimaan');
+
+            return $cek->num_rows();
+    }
+
 
 }

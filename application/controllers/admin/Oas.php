@@ -33,10 +33,18 @@ class oas extends MY_Controller {
 		$data['account']	=	$this->get_user_account();
 		$data['param'] 		= 	$this->arr;
 		$data['oas']		=	$this->my_where('oas', ['id_oas'=>$id_oas])->row_array();
-		$data['kelas_oas']	=	$this->db->query('select *, (select kelas from kelas where kelas.id_kelas = idkelas_fk) as kelas from kelas_oas where idoas_fk='.$id_oas)->result_array();
-		$this->my_view(['role/admin/page/oas/index_page/detail','role/admin/page/oas/index_page/modal','role/admin/page/oas/index_page/js_detail'],$data);
+		$data['kelas_oas']	=	$this->db->query('select *, (select id_oas_kelas from oas_kelas where oas_kelas.idkelas_fk=id_kelas) as id_oas_kelas from kelas')->result_array();
+		$data['mata_pelajaran']	=	$this->my_where('mata_pelajaran',[])->result_array();
+		$this->my_view(['role/admin/page/oas/index_page/detail','role/admin/page/oas/index_page/modal_bank_soal','role/admin/page/oas/index_page/js_detail'],$data);
 	}
+	public function get_bank_soal()
+	{
+		$value=$_POST['txt'];
+		$data['bank']	=	$this->db->like('soal', $value)->or_like('code_soal', $value)->limit(3)->get('bank_soal')->result_array();
 
+
+		$this->my_view(['role/admin/page/oas/index_page/view_soal'],$data);
+	}
 	public function datatable()
 	{
         $_POST['frm']   =   $this->arr;
@@ -85,18 +93,23 @@ class oas extends MY_Controller {
 	}
 
 	function simpan_data(){
-		$file_pdf = $this->save_media([
-			'path'	=>	"./include/media/oas/",
-			'filename' => 'pdf_file',
-		]);
 
 		$data = [
-			'file_oas'		=>	((isset($file_pdf)) ? $file_pdf['file_name'] : ''),
-			'idsiswa_fk'	=>	$_POST['id_siswa'],
-			'status'		=>	$_POST['status'],
-			'is_active'		=>	0
+			'tanggal_mulai'		=>	$_POST['tanggal_mulai'],
+			'tanggal_selesai'	=>	$_POST['tanggal_selesai'],
+			'keterangan'		=>	$_POST['keterangan'],
+			'is_active'			=> 1,
+			'kode'				=>	$_POST['kode'],
+			'idmapel_fk'		=>	$_POST['idmapel_fk'],
 		];
-		$this->save_data('file_oas', $data);
+
+		$this->my_update('oas', $data, ['id_oas'=>$_POST['id_oas']]);
+		// Kelas
+		$this->db->delete('oas_kelas', ['idoas_fk'=>$_POST['id_oas']]);
+		foreach ($_POST['idkelas_fk'] as $key => $value) {
+			$this->save_data('oas_kelas', ['idkelas_fk'=>$value, 'idoas_fk'=>$_POST['id_oas']]);
+		}
+		echo json_encode($_POST);
 	}
 
 	function ubah_data()
@@ -107,6 +120,31 @@ class oas extends MY_Controller {
 		];
 
 		$this->my_update('file_oas', $data, ['id_file_oas'=>$_POST['id_file_oas']]);
+	}
+
+	public function add_soal_bank()
+	{
+		if (isset($_POST['id_oas'])) {
+			$data 	=	[
+				'idoas_fk'	=>	$_POST['id_oas'],
+				'idbanksoal_fk'	=>	$_POST['id_soal']
+			];
+
+			$this->save_data('oas_soal', $data);
+		}
+	}
+
+	public function get_table_soal($id_oas='')
+	{
+		$data['oas_soal'] = $this->my_where('v_oas_soal',[])->result_array();
+
+		$this->my_view(['role/admin/page/oas/index_page/table_soal'],$data);
+	}
+	public function delete_soal($value='')
+	{
+		if ($_POST['id']) {
+			$this->db->delete('oas_soal', ['id_oas_soal'=>$_POST['id']]);
+		}
 	}
 }
 ?>

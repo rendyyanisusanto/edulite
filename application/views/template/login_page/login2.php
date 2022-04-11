@@ -56,7 +56,7 @@
 
 				<li>
 					<a href="#">
-						<i class="icon-user-tie"></i> <span class="visible-xs-inline-block position-right"> Contact admin</span>
+						<i class="icon-user-tie"></i> <span class="visible-xs-inline-block position-right"> Contasct admin</span>
 					</a>
 				</li>
 

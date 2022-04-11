@@ -21,7 +21,7 @@
        
         <hr>
         <div class="table-responsive">
-        <table class="table" width="100%" id="tabel-data">
+        <table class="table table-xxs table-framed" width="100%" id="tabel-data">
           <thead>
             <tr>
               <th width="1%">#</th>

@@ -111,6 +111,7 @@
    <li>
       <a href="#"><i class="icon-user-check"></i> <span>Data Siswa</span></a>
       <ul>
+        <li><a href="Siswa/import_page" class="app-item">Import Siswa</a></li>
         <li><a href="Siswa/get_data" class="app-item">Semua Siswa</a></li>
         <li><a href="Siswa/perkelas" class="app-item">Data Siswa Perkelas</a></li>
         <li><a href="Presensi_harian/presensi_siswa" class="app-item">Presensi Siswa</a></li>

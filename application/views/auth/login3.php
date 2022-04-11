@@ -104,11 +104,16 @@
 						</div>
 
 						<div class="form-group">
+							<?php if (!empty($this->session->flashdata('message'))): ?>
+								
+							
+							<center><span class="label label-danger">Warning : <?php echo $this->session->flashdata('message'); ?></span></center> 
+							<?php endif ?><br>
 							<button type="submit" class="btn bg-pink-400 btn-block">Sign in <i class="icon-circle-right2 position-right"></i></button>
 						</div>
 
 						<div class="text-center">
-							<a href="login_password_recover.html">Forgot password?</a>
+							<!-- <a href="login_password_recover.html">Forgot password?</a> -->
 						</div>
 					</div>
 				<?php echo form_close();?>

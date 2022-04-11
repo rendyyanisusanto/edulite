@@ -26,6 +26,15 @@ class siswa extends MY_Controller {
 		$this->my_view(['role/kesiswaan/page/siswa/index_page/index','role/kesiswaan/page/siswa/index_page/js'],$data);
 	}
 
+	public function import_page()
+	{
+		$data['kelas']		=	$this->my_where('kelas', [])->result_array();
+		$data['jurusan']	=	$this->my_where('jurusan', [])->result_array();
+		$data['province']	=	$this->my_where('provinces', [])->result_array();
+		$data['account']	=	$this->get_user_account();
+		$data['param'] 		= 	$this->arr;
+		$this->my_view(['role/admin/page/siswa/import_page/index','role/admin/page/siswa/import_page/js'],$data);
+	}
 	public function add_page()
 	{
 		$data['kelas']		=	$this->my_where('kelas', [])->result_array();
@@ -418,15 +427,26 @@ class siswa extends MY_Controller {
 
 	function get_kelas()
 	{
-		$id 	= (isset($_POST['id'])) ? $_POST['id'] : 0;
-		$idkelas = (isset($_POST['idkelas'])) ? $_POST['idkelas'] : '';
-		$get 	= $this->my_where('kelas', ['idjurusan_fk'=>$id])->result_array();
-		$send = '<select data-placeholder="Pilih Jurusan terlebih dahulu" name="idkelas_fk" class="select kelas">';
-		foreach ($get as $key => $value) {
-			$send.='<option '.(($idkelas == $value['id_kelas']) ? 'selected' : '').' value="'.$value['id_kelas'].'">'.$value['kelas'].'</option>';
+		$id 		= (isset($_POST['id'])) ? $_POST['id'] : 0;
+		$idkelas 	= (isset($_POST['idkelas'])) ? $_POST['idkelas'] : '';
+		$get 		= $this->my_where('kelas', ['idjurusan_fk'=>$id]);
+		$send 		= "";
+		if ($get->num_rows() > 0) {
+			$get = $get->result_array();
+
+			$send = '<select data-placeholder="Pilih Kelas" name="idkelas_fk" required class="select kelas">';
+			$send .= '<option value="">Pilih Kelas</option>';
+			foreach ($get as $key => $value) {
+				$send.='<option '.(($idkelas == $value['id_kelas']) ? 'selected' : '').' value="'.$value['id_kelas'].'">'.$value['kelas'].'</option>';
+			}
+			$send .='</select>';
+			$send .= "<script>$('.select').select2();</script>";
+		}else{
+			$send 	= "<code>Tidak ada data</code>";
 		}
-		$send .='</select>';
-		$send .= "<script>$('.select').select2();</script>";
+		
+		
+		
 
 		echo $send;
 	}
@@ -463,23 +483,38 @@ class siswa extends MY_Controller {
 			$sheetData = $spreadsheet->getActiveSheet()->toArray();
 			for($i = 13 ;$i < count($sheetData);$i++)
 			{
-		        $nama = $sheetData[$i]['1'];
-		        $kelas = $sheetData[$i]['2'];
-		        $alamat = $sheetData[$i]['3'];
+		        $nama 			= $sheetData[$i]['1'];
+		        $nis 			= $sheetData[$i]['2'];
+		        $nisn 			= $sheetData[$i]['3'];
+		        $agama 			= $sheetData[$i]['4'];
+		        $no_ijazah 		= $sheetData[$i]['5'];
+		        $tempat_lahir 	= $sheetData[$i]['6'];
+		        $tanggal_lahir 	= $sheetData[$i]['7'];
 		        if (isset($sheetData[$i]['1'])) {
 		        	$send [] = [
-						'nama' 					=>  (!empty($sheetData[$i]['1'])) ? $sheetData[$i]['1'] : '',
-						'nis'					=>	(!empty($sheetData[$i]['2'])) ? $sheetData[$i]['2'] : '',
-						'idkelas_fk'			=>	$_POST['idkelas_fk']
+						'nama' 					=>  (!empty($nama)) ? $nama : '',
+						'nis'					=>	(!empty($nis)) ? $nis : '',
+						'nisn'					=>	(!empty($nisn)) ? $nisn : '',
+						'agama'					=>	(!empty($agama)) ? $agama : '',
+						'no_ijazah'				=>	(!empty($no_ijazah)) ? $no_ijazah : '',
+						'tempat_lahir'			=>	(!empty($tempat_lahir)) ? $tempat_lahir : '',
+						'tanggal_lahir'			=>	(!empty($tanggal_lahir)) ? $tanggal_lahir : '',
+						// 'idkelas_fk'			=>	$_POST['idkelas_fk']
 					];
 		        }
 		        
 		    }
 			
-
-			$this->save_data_batch('siswa', $send);
-		    echo json_encode($sheetData);
+		    // print_r($send);
+			// $this->save_data_batch('siswa', $send);
+		    // echo json_encode($sheetData);
+		    // echo "assd";
+		    $send	=	array_map('array_filter', $send);
+		    $send 	=	array_filter($send);
+		    $data['siswa']	=	$send;
+			$this->my_view(['role/admin/page/siswa/import_page/proses_import'],$data);
 		}
+		// print_r($_FILES);
 	}
 	public function download_file_siswa($id_kelas='')
 	{
@@ -489,7 +524,8 @@ class siswa extends MY_Controller {
 		$kelas 		=	$this->my_where('kelas', ['id_kelas'=>$id_kelas])->row_array();
 		//change it
 		$sheet = $spreadsheet->getActiveSheet();
-		$sheet->setCellValue('A10', $kelas['kelas']);
+		$sheet->setCellValue('B9', $kelas['id_kelas']);
+		$sheet->setCellValue('B10', $kelas['kelas']);
 
 		//write it again to Filesystem with the same name (=replace)
 		$writer = new Xlsx($spreadsheet);
@@ -498,4 +534,21 @@ class siswa extends MY_Controller {
         header('Content-Disposition: attachment; filename="'. urlencode($fileName).'"');
         $writer->save('php://output');
 	}
+	public function import_siswa_submit()
+	{
+		$send = [];
+		foreach ($_POST['dt'] as $key => $value) {
+			$send	=	[
+				'nis' => $value['nis'],
+				'nama' => $value['nama'],
+				'nisn' => $value['nisn'],
+				'idkelas_fk'	=>	$_POST['idkelas_fk'],
+				'idjurusan_fk' => $_POST['idjurusan_fk']
+			];
+
+			$this->save_data('siswa', $send);
+		}
+		echo json_encode($_POST['dt']);
+	}
+
 }

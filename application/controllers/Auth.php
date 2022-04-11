@@ -86,7 +86,7 @@ class Auth extends MY_Controller
 			}
 			else
 			{
-					// $this->session->set_flashdata('message', "Password atau Username salah");
+					$this->session->set_flashdata('message', "Password atau Username salah");
 					// print_r($this->ion_auth->login($this->input->post('identity'), $this->input->post('password'), $remember));
 
 					// echo $this->input->post('identity');

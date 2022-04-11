@@ -95,8 +95,9 @@
       </ul> -->
 
       <div class="navbar-right">
-        <p class="navbar-text">Morning, <?php echo ucfirst($user_account['username']) ?>!</p>
-        <p class="navbar-text"><span class="label bg-success">Online</span></p>
+        <!-- <p class="navbar-text"><span class="label bg-success"><i class="icon-menu"></i><?php echo $this->agent->browser(); ?></span></p>
+        <p class="navbar-text"><span class="label bg-success"><i class="icon-menu"></i> <?php echo ucfirst($user_groups['name']) ?>!</span></p>
+        <p class="navbar-text"><span class="label bg-info"><?php echo $this->agent->platform(); ?></span></p> -->
         
         <ul class="nav navbar-nav">       
           <!-- <li class="dropdown">

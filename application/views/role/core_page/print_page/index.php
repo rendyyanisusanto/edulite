@@ -41,7 +41,7 @@
 		                    </select>
 						</td>
 					</tr>
-					<tr>
+					<tr style="display: none" class="posisi">
 						<td>Posisi</td>
 						<td>
 							<select class="form-control" name="posisi" id="posisi">
@@ -53,7 +53,7 @@
 					</tr>
 				</table>
 				<hr>
-				<button id="cek" class="btn btn-success">Ekspor</button>
+				<button id="cek" class="btn btn-success" type="button"><i class="icon-spinner"></i> Proses Ekspor</button>
 			</div>
 		</div>
 	</div>
@@ -90,7 +90,9 @@
 	<div class="col-xs-12">
 		<div class="panel panel-flat">
 			<div class="panel-body">
-				<div id="display_dialog"></div>
+				<div id="display_dialog">
+					<div class="alert alert-warning"><b>Info :</b> Pilih terlebih dahulu data dan format cetak data. setelah melakukan proses maka akan ditampilkan pada panel ini</div>
+				</div>
 			</div>
 		</div>
 	</div>
