@@ -1,4 +1,4 @@
-<script src="<?php echo base_url('include/template/limitless/')?>/global_assets/js/plugins/forms/selects/select2.min.js"></script>
+<script src="<?php echo base_url('include/template/dashboard/')?>/js/plugins/forms/selects/select2.min.js"></script>
 <div class="row">
 	<div class="col-md-4">
 		<div class="panel panel-body">

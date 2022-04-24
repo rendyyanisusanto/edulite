@@ -101,7 +101,7 @@ class prestasi_siswa extends MY_Controller {
 		public function print_hari_ini()
 		{
 				$data['param'] 		= 	$this->arr;
-				$data['prestasi_siswa'] 	= $this->db->query('SELECT * FROM `v_prestasi_siswa` ')->result_array();
+				$data['prestasi_siswa'] 	= $this->db->query('SELECT * FROM `v_prestasi_siswa`')->result_array();
 				$this->load->view('role/admin/page/prestasi_siswa/print/index',$data);
 		}
 		function cetak_page()
@@ -121,7 +121,9 @@ class prestasi_siswa extends MY_Controller {
 				$data['sum_selected']		=	count($_POST['send_data']);
 				$data['input_selected']		=	implode(',', $_POST['send_data']);
 			}
-			$this->my_view(['role/admin/page/prestasi_siswa/print_page/index','role/admin/page/prestasi_siswa/print_page/js'],$data);
+			// $this->my_view(['role/admin/page/prestasi_siswa/print_page/index','role/admin/page/prestasi_siswa/print_page/js'],$data);
+			
+			$this->display_view('print_page', $data);
 			
 		}
 
@@ -146,8 +148,9 @@ class prestasi_siswa extends MY_Controller {
 					$this->db->or_where($dt['id'], $value);
 				}
 			}
-
-			$data_set = $this->my_where($dt['table'],$where_send);
+			$this->db->where('create_at >=',$_POST['tanggal_mulai']);
+			$this->db->where('create_at <=',$_POST['tanggal_sampai']);
+			$data_set = $this->db->get_where($dt['table'],$where_send);
 			
 			$url	=	($_POST['laporan']	==	'data')	?	'role/core_page/print_page/cetak_data'	:	'role/core_page/print_page/cetak_kartu';
 			
@@ -161,7 +164,7 @@ class prestasi_siswa extends MY_Controller {
 	                	"param"		=>	$dt
 	                ],
 	                'name'			=>	md5(rand(0,9999999)),
-	                'pos' 			=> 'landscape'
+	                'pos' 			=> $_POST['posisi']
 	            ];
 
 	            $this->my_pdf($param);
@@ -172,16 +175,64 @@ class prestasi_siswa extends MY_Controller {
 
 		    {
 		    	
-	            $param  =   [
-	                'filename'			=>		'Jadwal Kegiatan Sekolah',
-	                'data_obj'			=>		$data_set->result(),
+				$param  =   [
+	                'filename'			=>		'Prestasi Siswa',
+	                'data_obj'			=>		$data_set->result_array(),
 	                'header_table'		=>		$dt['column'],
 	                'print_field'		=>		$dt['column']
 	            ];
 
-	            $this->my_export_excel($param);
+	            
+	            $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
+				$spreadsheet = $reader->load("include/template/excel/format_cetak_prestasi_siswa.xlsx");
+				// $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load();
+				//change it
+				$sheet = $spreadsheet->getActiveSheet();
+				//write it again to Filesystem with the same name (=replace)
+				$no = 13;
+				$styleArray = array(
+				    'borders' => array(
+				        'allBorders' => array(
+				            'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+				            
+				        ),
+				    ),
+				);
+				foreach ($param['data_obj'] as $key => $value) {
+					$abj = 'A';
+					foreach ($param['header_table'] as $key_header => $value_header) {
+						$sheet->setCellValue($abj.($no), $value[$value_header]);
+						$abj++;
+					}
+					
+					$sheet->getStyle('A'.$no.':'.$abj.$no)->applyFromArray($styleArray);
+
+					$no ++;
+				}
+				ob_start();
+				$writer = new Xlsx($spreadsheet);
+				$fileName = "Prestasi Siswa.xlsx";
+				header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+		        header('Content-Disposition: attachment; filename="'. urlencode($fileName).'"');
+		        $writer->save('php://output');
+
+		        $xlsData = ob_get_contents();
+       			ob_end_clean();
+	        	$response =  array(
+		            'status' => TRUE,
+		            'file' => "data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,".base64_encode($xlsData)
+		        );
+	        	echo json_encode($response);
 	        
-		    }
+		    }else if ($_POST['tipe_laporan'] == 'website'){
+				$param  =   [
+	                'filename'			=>		'Prestasi Siswa',
+	                'data_obj'			=>		$data_set->result_array(),
+	                'header_table'		=>		$dt['column'],
+	                'print_field'		=>		$dt['column']
+	            ];
+				$this->my_view(['role/core_page/print_page/cetak_website'],$param);
+			}
 
 		}
 

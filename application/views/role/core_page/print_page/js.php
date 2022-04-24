@@ -8,16 +8,15 @@
                 type: "POST",
                 data: $('#frm-set').serialize(),
                 success: function (ans) {
-                    
-                    
                     $(".se-pre-con").fadeOut("slow");
                     if ($('#tipe_laporan').val() == 'pdf') {
                         $( "#display_dialog").html('<div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item" src="<?php echo base_url('include/pdf_temp/') ?>'+ans+'.pdf"></iframe></div>');
                     } else if($('#tipe_laporan').val() == 'excel') {
                         var rsp = JSON.parse(ans);
                         // window.location(rsp.file, '__blank');
-                       $("#display_dialog").html('<a target="__blank" href="'+rsp.file+'">Download Buku Tamu</a>');
+                       $("#display_dialog").html('<a target="__blank" href="'+rsp.file+'">Download File Excel</a>');
                     } else if($('#tipe_laporan').val() == 'website'){
+                        // alert();
                         $('#display_dialog').html(ans);
                     }
                 },
@@ -43,5 +42,32 @@
         }else{
             $('.posisi').css('display', 'none');
         }
+
+        if (this.value == 'website') {
+
+        }
     });
+    $(document).on('click', '.btn-cetak-web', function(e){
+        e.stopImmediatePropagation();
+        var divToPrint=document.getElementById('DivIdToPrint');
+
+          var newWin=window.open('','Print-Window');
+           var htmlToPrint = '' +
+            '<style type="text/css">' +
+            'table{width:100%;}'+
+            'table th, table td {' +
+            'border:1px solid #000;' +
+            'padding;0.5em;' +
+            '}' +
+            '</style>';
+            htmlToPrint += divToPrint.outerHTML;
+
+          newWin.document.open();
+
+          newWin.document.write(htmlToPrint);
+          newWin.print();
+          newWin.document.close();
+
+          setTimeout(function(){newWin.close();},10);
+    })
 </script>

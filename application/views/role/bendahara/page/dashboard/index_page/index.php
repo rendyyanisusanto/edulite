@@ -1,4 +1,4 @@
-<script src="<?php echo base_url('include/template/limitless/')?>global_assets/js/plugins/visualization/echarts/echarts.min.js"></script>
+<script src="<?php echo base_url('include/template/dashboard/')?>/js/plugins/visualization/echarts/echarts.min.js"></script>
 <div class="row">
 	<div class="col-md-12">
 		<div class="stats">

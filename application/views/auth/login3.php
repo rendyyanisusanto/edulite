@@ -9,27 +9,23 @@
 
 	<!-- Global stylesheets -->
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
-	<link href="<?php echo base_url('include/template/limitless/')?>global_assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
-	<link href="<?php echo base_url('include/template/limitless/')?>assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-	<link href="<?php echo base_url('include/template/limitless/')?>assets/css/core.min.css" rel="stylesheet" type="text/css">
-	<link href="<?php echo base_url('include/template/limitless/')?>assets/css/components.min.css" rel="stylesheet" type="text/css">
-	<link href="<?php echo base_url('include/template/limitless/')?>assets/css/colors.min.css" rel="stylesheet" type="text/css">
+	<link href="<?php echo base_url('include/template/dashboard/')?>icomoon/styles.css" rel="stylesheet" type="text/css">
+	<link href="<?php echo base_url('include/template/dashboard/')?>css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="<?php echo base_url('include/template/dashboard/')?>css/core.min.css" rel="stylesheet" type="text/css">
+	<link href="<?php echo base_url('include/template/dashboard/')?>css/components.min.css" rel="stylesheet" type="text/css">
+	<link href="<?php echo base_url('include/template/dashboard/')?>css/colors.min.css" rel="stylesheet" type="text/css">
 	<!-- /global stylesheets -->
 <link rel="icon" href="<?php echo base_url('include/media/'.$profil_website['logo'])?>">
 	<!-- Core JS files -->
-	<script src="<?php echo base_url('include/template/limitless/')?>global_assets/js/plugins/loaders/pace.min.js"></script>
-	<script src="<?php echo base_url('include/template/limitless/')?>global_assets/js/core/libraries/jquery.min.js"></script>
-	<script src="<?php echo base_url('include/template/limitless/')?>global_assets/js/core/libraries/bootstrap.min.js"></script>
-	<script src="<?php echo base_url('include/template/limitless/')?>global_assets/js/plugins/loaders/blockui.min.js"></script>
-	<script src="<?php echo base_url('include/template/limitless/')?>global_assets/js/plugins/ui/nicescroll.min.js"></script>
-	<script src="<?php echo base_url('include/template/limitless/')?>global_assets/js/plugins/ui/drilldown.js"></script>
+	<script src="<?php echo base_url('include/template/dashboard/')?>js/plugins/loaders/pace.min.js"></script>
+	<script src="<?php echo base_url('include/template/dashboard/')?>js/core/libraries/jquery.min.js"></script>
+	<script src="<?php echo base_url('include/template/dashboard/')?>js/core/libraries/bootstrap.min.js"></script>
 	<!-- /core JS files -->
 
 
 	<!-- Theme JS files -->
-	<script src="<?php echo base_url('include/template/limitless/')?>assets/js/app.js"></script>
+	<script src="<?php echo base_url('include/template/dashboard/')?>js/app.js"></script>
 
-	<script src="<?php echo base_url('include/template/limitless/')?>global_assets/js/plugins/ui/ripple.min.js"></script>
 	<!-- /theme JS files -->
 
 </head>

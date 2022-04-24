@@ -18,9 +18,11 @@
     <a href="#"><i class="icon-coin-dollar"></i> <span>Keuangan</span></a>
     <ul>
       <li><a href="coa/get_data" class="app-item">Chart of Account</a></li>
-      <li><a href="Penerimaan/spp" class="app-item">Pembayaran SPP</a></li>
-      <li><a href="Penerimaan/tanggungan" class="app-item">Tanggungan Siswa</a></li>
-      <li><a href="Pembayaran/get_data" class="app-item">Pembayaran Lain</a></li>
+      <li><a href="Jenis_penerimaan/get_data" class="app-item">Jenis Tanggungan Siswa</a></li>
+      <!-- <li><a href="Penerimaan/add_data" class="app-item">Tambah Transaksi Tanggungan Siswa</a></li> -->
+      <li><a href="Penerimaan/get_data" class="app-item">Transaksi Tanggungan Siswa</a></li>
+      <li><a href="Pemasukan_lain/get_data" class="app-item">Transaksi Penerimaan Lain</a></li>
+      <li><a href="Pengeluaran_lain/get_data" class="app-item">Transaksi Pengeluaran</a></li>
     </ul>
   </li>
   
@@ -33,8 +35,6 @@
       <li><a href="Pelanggaran_siswa/poin_pelanggaran_setup" class="app-item">Point Pelanggaran</a></li>
     </ul>
   </li>
-
-  
 
   <li>
     <a href="#"><i class="icon-book"></i> <span>PPDB</span></a>
@@ -124,7 +124,7 @@
       </ul>
     </li>
    <!-- /Kesiswaan -->
-  <li class="navigation-header"><span>External App</span> <i class="icon-menu" title="Page kits"></i></li>
+  <!-- <li class="navigation-header"><span>External App</span> <i class="icon-menu" title="Page kits"></i></li>
   <li>
     <a href="#"><i class=" icon-paste4"></i> <span>Online Assesment System</span></a>
     <ul>
@@ -136,7 +136,7 @@
     <ul>
       <li><a href="Erapor/get_data" class="app-item">Tambah Jadwal E-rapor</a></li>
     </ul>
-  </li>
+  </li> -->
   <li class="navigation-header"><span>Setting kits</span> <i class="icon-menu" title="Page kits"></i></li>
   <li>
     <a href="#"><i class="icon-stack2"></i> <span>Master</span></a>
@@ -153,11 +153,10 @@
   </li>
   <li>
     <a href="#"><i class="icon-users2"></i> <span>Account</span></a>
-    
     <ul>
       <li><a href="users/get_data" class="app-item">User</a></li>
       <li><a href="Profil_website/get_data" class="app-item">Role</a></li>
   </li>
-  <li><a href="Media/get_data" class="app-item"><i class="icon-stack-picture"></i> <span>Media</span></a></li>
+  <!-- <li><a href="Media/get_data" class="app-item"><i class="icon-stack-picture"></i> <span>Media</span></a></li> -->
   <!-- /page kits -->
 </ul>

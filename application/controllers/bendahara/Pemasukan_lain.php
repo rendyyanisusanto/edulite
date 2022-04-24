@@ -8,9 +8,9 @@ class pemasukan_lain extends MY_Controller {
 	public $arr = [
 			'title'				=>	'Halaman pemasukan_lain',
 			'table'				=>	'pemasukan_lain',
-			'column'			=>	[ 'trans_code'],
-			'column_order'		=>	[ 'id_pemasukan_lain','trans_code'],
-			'column_search'		=>	[ 'id_pemasukan_lain','trans_code'],
+			'column'			=>	[ 'trans_code','keterangan','tanggal','total'],
+			'column_order'		=>	[ 'id_pemasukan_lain','trans_code','keterangan','tanggal','total'],
+			'column_search'		=>	[ 'id_pemasukan_lain','trans_code','keterangan','tanggal','total'],
 			'order'				=>	['id_pemasukan_lain'	=>	'DESC'],
 			'id'				=>	'id_pemasukan_lain'
 	];
@@ -224,10 +224,12 @@ class pemasukan_lain extends MY_Controller {
             $row        =   array();
 
             $row[]      =   '<input type="checkbox" name="get-check" value="'.$field['id_pemasukan_lain'].'"></input>';
-            $row[]		=	$field['tanggal'];
+            $row[]		=	date_format(date_create($field['tanggal']), 'd-M-Y');
             $row[]		=	'<b class="text-danger">'.$field['trans_code'].'</b>';
             $row[]		=	$field['keterangan'];
-            $row[]		=	'<button class="btn btn-success btn-dtl btn-sm" data-id="'.$field['id_pemasukan_lain'].'" type="button" ><i class="icon-eye"></i></button>';
+            $row[]		=	'<b>Rp. '.number_format($field['total'], 0,'.','.').'</b>';
+            $row[]		=	'<button class="btn btn-success btn-dtl btn-xs" data-id="'.$field['id_pemasukan_lain'].'" type="button" ><i class="icon-eye"></i></button>';
+            $row[]		=	'<a class="btn btn-primary btn-xs" href="'.base_url('bendahara/pemasukan_lain/cetak_struk/'.$field['id_pemasukan_lain']).'" target="__blank" ><i class="icon-printer"></i></a>';
             $data[]     =   $row;
         }
         $output = array(
@@ -282,6 +284,15 @@ class pemasukan_lain extends MY_Controller {
 		$send .= '</table>';
 		echo $send;
 	}
+
+	function cetak_struk($id_pemasukan_lain='')
+	{
+		$data['profil']		=	$this->mod->get_profil_website();
+		$data['pemasukan_lain']	=	$this->my_where('pemasukan_lain', ['id_pemasukan_lain'=>$id_pemasukan_lain])->row_array();
+		$data['detail_pemasukan_lain']	=	$this->my_where('detail_pemasukan_lain', ['idpemasukanlain_fk'=>$id_pemasukan_lain])->result_array();
+		$this->load->view('role/bendahara/page/pemasukan_lain/index_page/cetak_struk', $data);
+	}
+	
 
 	
 	

@@ -98,7 +98,12 @@ class buku_tamu extends MY_Controller {
 	/*
 		PRINT DATA
 	*/
-		
+		public function print_hari_ini()
+		{
+				$data['param'] 		= 	$this->arr;
+				$data['buku_tamu'] 	= $this->db->query('SELECT * FROM `buku_tamu` where date(tanggal) = now()')->result_array();
+				$this->load->view('role/admin/page/buku_tamu/print/index',$data);
+		}
 		function cetak_page()
 		{
 			$dt = $this->arr;
@@ -143,7 +148,9 @@ class buku_tamu extends MY_Controller {
 				}
 			}
 
-			$data_set = $this->my_where($dt['table'],$where_send);
+			$this->db->where('tanggal >=',$_POST['tanggal_mulai']);
+			$this->db->where('tanggal <=',$_POST['tanggal_sampai']);
+			$data_set = $this->db->get_where($dt['table'],$where_send);
 			
 			$url	=	($_POST['laporan']	==	'data')	?	'role/core_page/print_page/cetak_data'	:	'role/core_page/print_page/cetak_kartu';
 			
@@ -157,7 +164,7 @@ class buku_tamu extends MY_Controller {
 	                	"param"		=>	$dt
 	                ],
 	                'name'			=>	md5(rand(0,9999999)),
-	                'pos' 			=> 'landscape'
+	                'pos' 			=> $_POST['posisi']
 	            ];
 
 	            $this->my_pdf($param);
@@ -217,9 +224,15 @@ class buku_tamu extends MY_Controller {
 		        );
 	        	echo json_encode($response);
 	        	// echo "<a target='__blank' href='".$response['file']."'>Download</a>";
-		    }else if($_POST['tipe_laporan'] == 'website'){
-		    	
-		    }
+		    }else if ($_POST['tipe_laporan'] == 'website'){
+				$param  =   [
+	                'filename'			=>		'Prestasi Siswa',
+	                'data_obj'			=>		$data_set->result_array(),
+	                'header_table'		=>		$dt['column'],
+	                'print_field'		=>		$dt['column']
+	            ];
+				$this->my_view(['role/core_page/print_page/cetak_website'],$param);
+			}
 
 		}
 

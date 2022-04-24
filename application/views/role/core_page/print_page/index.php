@@ -1,6 +1,6 @@
 <form id="frm-set">
 <div class="row">
-	<div class="col-xs-6">
+	<div class="col-md-6 col-sm-12 col-xs-12">
 		<div class="panel panel-flat">
 			<div class="panel-body">
 				<table class="table table-bordered table-xxs">
@@ -36,7 +36,7 @@
 							<select class="form-control" name="tipe_laporan" id="tipe_laporan">
 		                      <option> Pilih </option>
 		                      <option value="pdf"> PDF </option>
-		                      <option value="web"> Cetak Website </option>
+		                      <option value="website"> Cetak Website </option>
 		                      <option value="excel"> Excel </option>
 		                    </select>
 						</td>
@@ -51,14 +51,26 @@
 		                    </select>
 						</td>
 					</tr>
+					<tr>
+						<td>Tanggal Mulai</td>
+						<td>
+							<input type="date" class="form-control" name="tanggal_mulai">
+						</td>
+					</tr>
+					<tr>
+						<td>Tanggal Sampai</td>
+						<td>
+							<input type="date" class="form-control" name="tanggal_sampai">
+						</td>
+					</tr>
 				</table>
 				<hr>
 				<button id="cek" class="btn btn-success" type="button"><i class="icon-spinner"></i> Proses Ekspor</button>
 			</div>
 		</div>
 	</div>
-	<div class="col-xs-6">
-			<div class="panel panel-flat">
+	<div class="col-md-6 col-sm-12 col-xs-12">
+			<!-- <div class="panel panel-flat">
 				<div class="panel-body">
 					<center><h4><u><b>Field yang dicetak</b></u></h4></center>
 					<br>
@@ -66,7 +78,7 @@
 						<input type="checkbox" checked="true" name="field[]" value="<?php echo $value ?>"> <?php echo $value ?>  
 					<?php endforeach ?>
 				</div>
-			</div>
+			</div> -->
 		<div class="filter" style="display: none;">
 
 			<div class="panel panel-flat">
