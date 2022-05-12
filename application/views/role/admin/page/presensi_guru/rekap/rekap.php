@@ -19,7 +19,11 @@
 				<td><?php echo (!empty($value['persentase'])) ? $value['persentase']['persentase'] : "";  ?>%</td>
 				<td><?php echo $value['kumulatif'] ?></td>
 				<td><?php echo $value['presensi_guru'] ?></td>
-				<td><?php echo ($value['rekap_persentase'] < $value['persentase']['persentase']) ? '<b class="text-danger">'.$value['rekap_persentase'].'</b>' : '<b class="text-success" >'.$value['rekap_persentase'].'</b>' ?>%</td>
+				<td>
+					<?php if (isset($value['persentase']['persentase'])): ?>
+						<?php echo ($value['rekap_persentase'] < $value['persentase']['persentase']) ? '<b class="text-danger">'.$value['rekap_persentase'].'</b>' : '<b class="text-success" >'.$value['rekap_persentase'].'</b>' ?>%
+					<?php endif ?>
+				</td>
 			</tr>
 			<?php endforeach ?>
 		</tbody>

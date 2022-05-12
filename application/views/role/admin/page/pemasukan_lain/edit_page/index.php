@@ -1,48 +1,47 @@
 
-<form class="form-horizontal" action="<?php echo $data_get['param']['table'] ?>/simpan_data" id="app-submit" method="POST">
+<form class="form-horizontal" action="<?php echo $data_get['param']['table'] ?>/update_data" id="app-submit" method="POST">
 
 <div class="row">
 	<div class="col-md-8">
 		<div class="panel panel-body">
+			<input type="hidden" name="id_pemasukan_lain" value="<?= $data_get['pemasukan_lain']['id_pemasukan_lain'] ?>">
 			<div class="form-group">
               <label class="col-lg-3 control-label">Kode:</label>
               <div class="col-lg-4">
-                <input type="text" name="trans_code" value="P<?php echo rand(0,9999999) ?>" class="form-control" required placeholder="Input here......">
+                <input type="text" name="trans_code" value="<?php echo $data_get['pemasukan_lain']['trans_code']; ?>" class="form-control" required placeholder="Input here......">
               </div>
             </div>
             <div class="form-group">
               <label class="col-lg-3 control-label">Tanggal:</label>
               <div class="col-lg-4">
-                <input type="date" name="tanggal" value="P<?php echo rand(0,9999999) ?>" class="form-control" required placeholder="Input here......">
+                <input type="date" name="tanggal" value="<?php echo $data_get['pemasukan_lain']['tanggal']; ?>" class="form-control" required placeholder="Input here......">
               </div>
             </div>
             <div class="form-group">
               <label class="col-lg-3 control-label">Akun Kas:</label>
               <div class="col-lg-4">
-                <select class="form-control" name="jenis_kas">
+                <select class="form-control" name="akun_kas">
                 	<?php foreach ($data_get['akun_kas'] as $value): ?>
-                		<option value="<?= $value['id_akun'] ?>"><?= "[".$value['no_ref']."] ".$value['nama'] ?></option>
+                		<option <?= ($data_get['pemasukan_lain']['akun_kas'] == $value['id_akun']) ? "selected" : "" ; ?> value="<?= $value['id_akun'] ?>"><?= "[".$value['no_ref']."] ".$value['nama'] ?></option>
                 	<?php endforeach ?>
                 </select>
               </div>
             </div>
             <div class="form-group">
-              <label class="col-lg-3 control-label">Jenis Pengeluaran:</label>
+              <label class="col-lg-3 control-label">Akun Beban:</label>
               <div class="col-lg-4">
-                <select class="form-control" name="jenis">
+                <select class="form-control" name="akun_beban">
                 	<?php foreach ($data_get['akun_beban'] as $value): ?>
-                		<option value="<?= $value['id_akun'] ?>"><?= "[".$value['no_ref']."] ".$value['nama'] ?></option>
+                		<option <?= ($data_get['pemasukan_lain']['akun_beban'] == $value['id_akun']) ? "selected" : "" ; ?> value="<?= $value['id_akun'] ?>"><?= "[".$value['no_ref']."] ".$value['nama'] ?></option>
                 	<?php endforeach ?>
                 </select>
-
               </div>
-              <b class="col-lg-5 text-danger">*(Pilihan jenis akan berpengaruh ke akun keuangan)</b>
             </div>
-            
+
             <div class="form-group">
-              <label class="col-lg-3 control-label">Keperluan:</label>
+              <label class="col-lg-3 control-label">Keterangan:</label>
               <div class="col-lg-9">
-                <input type="text" name="keterangan" class="form-control" required placeholder="Input here......">
+                <input type="text" name="keterangan" value="<?php echo $data_get['pemasukan_lain']['keterangan']; ?>" class="form-control" required placeholder="Input here......">
               </div>
             </div>
 
@@ -66,9 +65,21 @@
 					</tr>
 				</thead>
 				<tbody>
+					<?php if (!empty($data_get['detail_pemasukan_lain'])){ ?>
+						<?php foreach ($data_get['detail_pemasukan_lain'] as $value): ?>
+							<?php $no = rand(0,99999); ?>
+							<tr id="tr<?= $no ?>">
+								<td><button class="btn btn-xs btn-danger btn-dl-item" data-rowid="<?= $no ?>" type="button"><i class="icon-trash"></i></button></td>
+								<td><input type="text" name="detail[<?= $no ?>][keterangan]" value="<?= $value['keterangan'] ?>" class="form-control"></td>
+								<td><input type="number" name="detail[<?= $no ?>][jumlah]" value="<?= (int)$value['jumlah'] ?>"  class="form-control inp-jml" ></td>
+							</tr>
+						<?php endforeach ?>
+						
+					<?php }else{ ?>
 					<tr class="empty-data">
 						<td colspan="3"><center><b>Data masih kosong</b></center></td>
 					</tr>
+					<?php } ?>
 				</tbody>
 			</table>
 			<br>
@@ -84,7 +95,7 @@
 					</div>
 					<div class="col-md-9" >
 						<div style="float: right;">
-							<a href="Kartu_stok/get_data" class="app-item btn btn-danger"><i class="icon-arrow-left7"></i> Kembali</a>
+							<a href="pemasukan_lain/get_data" class="app-item btn btn-danger"><i class="icon-arrow-left7"></i> Kembali</a>
 							<button type="submit" class="btn btn-success"><i class="icon-floppy-disk"></i> Simpan</button>
 						</div>
 					</div>

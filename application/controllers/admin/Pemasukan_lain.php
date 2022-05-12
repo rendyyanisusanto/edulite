@@ -39,22 +39,19 @@ class pemasukan_lain extends MY_Controller {
 		$this->my_view(['role/admin/page/pemasukan_lain/add_page/index','role/admin/page/pemasukan_lain/add_page/js'],$data);
 	}
 
-	public function edit_page()
+	public function edit_page($id)
 	{
-		$dt = $this->arr;
-		if (isset($_POST['send_data'])) {
-			$data_edit=[];
-				$data_set = $this->my_where($dt['table'],[$dt['id']=>$_POST['send_data']])->row_array();
-				foreach ($dt['column_order'] as $keycolumn => $value_column) {
-					$data_edit[$value_column]	= $data_set[$value_column];
-				}
-			$data['data_edit']	=	$data_edit;
-			$this->display_view('edit_page', $data);
+		if (isset($id)) {
+				$data['param'] 					= 	$this->arr;
+				$data['akun_beban']		=	$this->db->where('idindukakun_fk', 7)->or_where('idindukakun_fk', 8)->get('akun')->result_array();
+				$data['akun_kas']		=	$this->my_where('akun', ['idindukakun_fk'=>1])->result_array();
+				$data['pemasukan_lain'] 		= 	$this->my_where('pemasukan_lain',['id_pemasukan_lain'=>$id])->row_array();
+				$data['detail_pemasukan_lain']	=	$this->my_where('detail_pemasukan_lain', ['idpemasukanlain_fk'=>$id])->result_array();
+				$this->my_view(['role/admin/page/pemasukan_lain/edit_page/index','role/admin/page/pemasukan_lain/edit_page/js'],$data);
 		} else {
 			$this->get_data();
 		}
 	}
-
 	/*
 		ADD DATA
 	*/
@@ -99,16 +96,30 @@ class pemasukan_lain extends MY_Controller {
 
 	function update_data()
 	{
-		$dt = $this->arr;
-		$data=[];
-		foreach ($dt['column'] as $key => $value) {
-			$data[$value] = $_POST[$value];
-		}
-		if ($this->my_update($dt['table'],$data,[$dt['id']=>$_POST[$dt['id']]])) {
-			$this->get_data();
+		$data = [
+			'trans_code' 	=>	$_POST['trans_code'],
+			'tanggal'		=>	$_POST['tanggal'],
+			'keterangan'	=>	$_POST['keterangan'],
+			'akun_kas'		=>	$_POST['akun_kas'],
+			'akun_beban'	=>	$_POST['akun_beban'],
+			'total'			=>	$_POST['total']
+		];
+		if ($this->my_update('pemasukan_lain', $data, ['id_pemasukan_lain'=>$_POST['id_pemasukan_lain']])) {
+			$this->db->delete('detail_pemasukan_lain', ['idpemasukanlain_fk'=>$_POST['id_pemasukan_lain']]);
+			$pemasukan_lain = $this->my_where('pemasukan_lain', $data)->row_array();
+
+			foreach ($_POST['detail'] as $key => $value) {
+				$data_detail = [
+					'idpemasukanlain_fk'	=>	$pemasukan_lain['id_pemasukan_lain'],
+					'keterangan'			=>	$value['keterangan'],
+					'jumlah'				=>	$value['jumlah']
+				];
+				$this->save_data('detail_pemasukan_lain', $data_detail);
+			}
 		}	else 	{
 			echo "error";
 		}
+		echo json_encode($_POST);
 	}
 
 	/*
@@ -117,9 +128,9 @@ class pemasukan_lain extends MY_Controller {
 
 	function hapus()
 	{
-		$dt = $this->arr;
-		
-			$this->db->delete($dt['table'],[$dt['id']=>$_POST['id']]);
+		foreach ($_POST['data_get'] as $key => $value) {
+			$this->db->delete('pemasukan_lain',['id_pemasukan_lain'=>$value]);
+		}
 		
 	}
 
@@ -292,5 +303,8 @@ class pemasukan_lain extends MY_Controller {
 		$data['detail_pemasukan_lain']	=	$this->my_where('detail_pemasukan_lain', ['idpemasukanlain_fk'=>$id_pemasukan_lain])->result_array();
 		$this->load->view('role/admin/page/pemasukan_lain/index_page/cetak_struk', $data);
 	}
-	
+	function cetak_hari_ini(){
+		$data['pemasukan_lain']	=	$this->my_where('pemasukan_lain', ['date(tanggal)'=>date('Y-m-d')])->result_array();
+		$this->load->view('role/admin/page/pemasukan_lain/index_page/print', $data);
+	}
 }

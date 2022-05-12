@@ -38,7 +38,7 @@ class Penilaian_kinerja_guru extends MY_Controller {
 		$data['guru'] 		= 	$this->my_where('guru', ['id_guru'=>$id_guru])->row_array();
 		$data['periode']	=	$periode;
 
-		$kompetensi_pkg				=	$this->my_where('kompetensi_pkg',[])->result_array();
+		$kompetensi_pkg				=	$this->my_where('kompetensi_pkg',['idtahunajaran_fk'=>$idtahunajaran_fk])->result_array();
 		$data['indikator_pkg'] = [];
 		foreach ($kompetensi_pkg as $key => $value) {
 			$subkompetensi_pkg 	= 	$this->my_where('subkompetensi_pkg', ['idkompetensipkg_fk'=>$value['id_kompetensi_pkg']])->result_array();
@@ -82,7 +82,7 @@ class Penilaian_kinerja_guru extends MY_Controller {
 		$data['guru'] 				= 	$this->my_where('guru', ['id_guru'=>$_POST['id_guru']])->row_array();
 		$data['tahun_ajaran'] 		= 	$this->my_where('tahun_ajaran', ['id_tahun_ajaran'=>$_POST['id_tahun_ajaran']])->row_array();
 		$data['periode']			=	$_POST['periode'];
-		$kompetensi_pkg				=	$this->my_where('kompetensi_pkg',[])->result_array();
+		$kompetensi_pkg				=	$this->my_where('kompetensi_pkg',['idtahunajaran_fk'=>$_POST['id_tahun_ajaran']])->result_array();
 		$data['indikator_pkg']		=	[];
 		foreach ($kompetensi_pkg as $key => $value) {
 			$subkompetensi_pkg = $this->my_where('subkompetensi_pkg', ['idkompetensipkg_fk'=>$value['id_kompetensi_pkg']])->result_array();	
@@ -147,7 +147,7 @@ class Penilaian_kinerja_guru extends MY_Controller {
 
 	function set_pkg()
 	{
-		$kompetensi_pkg				=	$this->my_where('kompetensi_pkg',[])->result_array();
+		$kompetensi_pkg				=	$this->my_where('kompetensi_pkg',['idtahunajaran_fk'=>$_POST['tahun_ajaran']])->result_array();
 		$data['indikator_pkg']		=	[];
 
 
@@ -191,10 +191,11 @@ class Penilaian_kinerja_guru extends MY_Controller {
 	function proses_report()
 	{
 		$data['guru'] 				= 	$this->my_where('guru', [])->result_array();
-		$data['c_sub'] 				= 	$this->my_where('subkompetensi_pkg', [])->num_rows();
+		$data['c_sub'] 				= 	0;
+		
 		$data['tahun_ajaran'] 		= 	$this->my_where('tahun_ajaran', ['id_tahun_ajaran'=>$_POST['id_tahun_ajaran']])->row_array();
 		$data['periode']			=	$_POST['periode'];
-		$kompetensi_pkg				=	$this->my_where('kompetensi_pkg',[])->result_array();
+		$kompetensi_pkg				=	$this->my_where('kompetensi_pkg',['idtahunajaran_fk'=>$_POST['id_tahun_ajaran']])->result_array();
 		$data['indikator_pkg']		=	[];
 		$data['all']				=	[];
 		foreach ($kompetensi_pkg as $key => $value) {
@@ -206,22 +207,29 @@ class Penilaian_kinerja_guru extends MY_Controller {
 			];
 		}
 		foreach ($data['guru'] as $value) {
-			$subkompetensi_pkg = $this->my_where('subkompetensi_pkg', [])->result_array();	
+				
 			$all_sub = [];
 			$total = 0;
-			foreach ($subkompetensi_pkg as $key => $value_sub) {
-				$get_pkg = $this->my_where('v_pkg', [
-							'idguru_fk'	=>	$value['id_guru'],
-							'bulan'		=>	date_format(date_create($_POST['periode']),"m" ),
-							'tahun'		=>	date_format(date_create($_POST['periode']),"Y" ),
-							'idtahunajaran_fk'	=>	$_POST['id_tahun_ajaran'],
-							'idsubkompetensipkg_fk'	=>	$value_sub['id_subkompetensi_pkg']
-						])->row_array();
-				$all_sub[] = [
-					'subkompetensi_pkg' => $value_sub,
-					'nilai'				=>	(isset($get_pkg['nilai'])) ? $get_pkg['nilai'] :'-'
-				];
-				(isset($get_pkg['nilai'])) ? $total+=$get_pkg['nilai'] :$total ;
+			$rowget= 	0;
+			foreach ($kompetensi_pkg as $key_ind => $value_ind) {
+				// 
+				$subkompetensi_pkg = $this->my_where('subkompetensi_pkg', ['idkompetensipkg_fk'=>$value_ind['id_kompetensi_pkg']])->result_array();
+				foreach ($subkompetensi_pkg as $key => $value_sub) {
+
+					$get_pkg = $this->my_where('v_pkg', [
+								'idguru_fk'	=>	$value['id_guru'],
+								'bulan'		=>	date_format(date_create($_POST['periode']),"m" ),
+								'tahun'		=>	date_format(date_create($_POST['periode']),"Y" ),
+								'idtahunajaran_fk'	=>	$_POST['id_tahun_ajaran'],
+								'idsubkompetensipkg_fk'	=>	$value_sub['id_subkompetensi_pkg']
+							])->row_array();
+					$all_sub[] = [
+						'subkompetensi_pkg' => $value_sub,
+						'nilai'				=>	(isset($get_pkg['nilai'])) ? $get_pkg['nilai'] :'-'
+					];
+					(isset($get_pkg['nilai'])) ? $total+=$get_pkg['nilai'] :$total ;
+					$rowget++;
+				}
 			}
 
 			$hasil =  number_format((($total/(count($subkompetensi_pkg) * 4))*100),0,'.','.');
@@ -233,6 +241,7 @@ class Penilaian_kinerja_guru extends MY_Controller {
 				'hasil'	=> number_format((($total/(count($subkompetensi_pkg) * 4))*100),2,'.','.'),
 				'predikat' => $predikat_pkg
 			];
+			$data['c_sub'] 				= 	$rowget;
 		}
 		$this->my_view(['role/admin/page/penilaian_kinerja_guru/report_pkg/report_pkg'],$data);
 	}

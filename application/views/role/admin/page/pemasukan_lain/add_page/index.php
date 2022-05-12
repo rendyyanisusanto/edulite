@@ -83,7 +83,6 @@
 					<div class="col-md-9" >
 						<div style="float: right;">
 							<a href="Kartu_stok/get_data" class="app-item btn btn-danger"><i class="icon-arrow-left7"></i> Kembali</a>
-							<button class="btn btn-warning" type="button"><i class="icon-printer"></i> Cetak</button>
 							<button type="submit" class="btn btn-success"><i class="icon-floppy-disk"></i> Simpan</button>
 						</div>
 					</div>

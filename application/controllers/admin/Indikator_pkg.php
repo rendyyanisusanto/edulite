@@ -76,4 +76,11 @@ class Indikator_pkg extends MY_Controller {
 
 		$this->my_view(['role/admin/page/indikator_pkg/index_page/subindikator_pkg'], $data);
 	}
+
+	function delete_indikator($id)
+	{
+		if (!empty($id)) {
+			$this->db->delete('kompetensi_pkg', ['id_kompetensi_pkg'=>$id]);
+		}
+	}
 }

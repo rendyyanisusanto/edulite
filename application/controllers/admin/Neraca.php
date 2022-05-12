@@ -23,7 +23,7 @@ class neraca extends MY_Controller {
 	{
 		$data['account']	=	$this->get_user_account();
 		$data['param']		=	$this->arr;
-		$this->my_view(['role/bendahara/page/neraca/index_page/index','role/bendahara/page/neraca/index_page/js'],$data);
+		$this->my_view(['role/admin/page/neraca/index_page/index','role/admin/page/neraca/index_page/js'],$data);
 	}
 
 	function coa()
@@ -39,7 +39,7 @@ class neraca extends MY_Controller {
 		}
 		$data['akun']	=	$akun;
 		
-		$this->my_view(['role/bendahara/page/neraca/index_page/table'],$data);
+		$this->my_view(['role/admin/page/neraca/index_page/table'],$data);
 	}
 	function induk_akun($data){
 		$send = [];

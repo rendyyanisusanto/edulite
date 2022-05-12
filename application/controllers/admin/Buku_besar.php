@@ -24,7 +24,7 @@ class buku_besar extends MY_Controller {
 		$data['account']	=	$this->get_user_account();
 		$data['param']		=	$this->arr;
 		$data['akun']		=	$this->my_where('akun', [])->result_array();
-		$this->my_view(['role/bendahara/page/buku_besar/index_page/index','role/bendahara/page/buku_besar/index_page/js'],$data);
+		$this->my_view(['role/admin/page/buku_besar/index_page/index','role/admin/page/buku_besar/index_page/js'],$data);
 	}
 
 	function akun()
@@ -50,7 +50,7 @@ class buku_besar extends MY_Controller {
 		}
 		$data['akun']				=	$akun_set;
 		// echo json_encode($data);
-		$this->my_view(['role/bendahara/page/buku_besar/index_page/table'],$data);
+		$this->my_view(['role/admin/page/buku_besar/index_page/table'],$data);
 	}
 	function jurnal_umum($data){
 		

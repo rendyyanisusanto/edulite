@@ -46,4 +46,20 @@
 	        });
 	    return false;
 	});
+	$(document.body).on('click', '.btn-del', function(e){
+		e.stopImmediatePropagation();
+
+		if (confirm("Apakah anda yakin akan menghapus data ini ?") == true) {
+		  	send_ajax('Indikator_pkg/delete_indikator/'+$(this).data('id'),{}).then(function(data){
+		  		send_ajax( $("#app-proses").attr('action'),$("#app-proses").serialize() ).then( function(data){
+
+			    		unblockui($('.panel-ta'));
+			            $('.indikator').html(data);
+			            $('.subindikator').html("");
+			        });
+		  	});
+		} else {
+		  text = "You canceled!";
+		}
+	});
 </script>

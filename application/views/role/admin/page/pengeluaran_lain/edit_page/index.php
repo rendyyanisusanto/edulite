@@ -1,5 +1,5 @@
 
-<form class="form-horizontal" action="<?php echo $data_get['param']['table'] ?>/simpan_data" id="app-submit" method="POST">
+<form class="form-horizontal" action="<?php echo $data_get['param']['table'] ?>/update_data" id="app-submit" method="POST">
 
 <div class="row">
 	<div class="col-md-8">
@@ -7,13 +7,14 @@
 			<div class="form-group">
               <label class="col-lg-3 control-label">Kode:</label>
               <div class="col-lg-4">
-                <input type="text" name="trans_code" value="P<?php echo rand(0,9999999) ?>" class="form-control" required placeholder="Input here......">
+              	<input type="hidden" name="id_pengeluaran_lain" value="<?= $data_get['pengeluaran_lain']['id_pengeluaran_lain'] ?>">
+                <input type="text" name="trans_code" value="<?= $data_get['pengeluaran_lain']['trans_code'] ?>" class="form-control" required placeholder="Input here......">
               </div>
             </div>
             <div class="form-group">
               <label class="col-lg-3 control-label">Tanggal:</label>
               <div class="col-lg-4">
-                <input type="date" name="tanggal" value="P<?php echo rand(0,9999999) ?>" class="form-control" required placeholder="Input here......">
+                <input type="date" name="tanggal" value="<?= $data_get['pengeluaran_lain']['tanggal'] ?>" class="form-control" required placeholder="Input here......">
               </div>
             </div>
             <div class="form-group">
@@ -21,7 +22,7 @@
               <div class="col-lg-4">
                 <select class="form-control" name="jenis_kas">
                 	<?php foreach ($data_get['akun_kas'] as $value): ?>
-                		<option value="<?= $value['id_akun'] ?>"><?= "[".$value['no_ref']."] ".$value['nama'] ?></option>
+                		<option <?= ($data_get['pengeluaran_lain']['jenis_kas'] == $value['id_akun']) ? "selected" : "" ; ?> value="<?= $value['id_akun'] ?>"><?= "[".$value['no_ref']."] ".$value['nama'] ?></option>
                 	<?php endforeach ?>
                 </select>
               </div>
@@ -31,7 +32,7 @@
               <div class="col-lg-4">
                 <select class="form-control" name="jenis">
                 	<?php foreach ($data_get['akun_beban'] as $value): ?>
-                		<option value="<?= $value['id_akun'] ?>"><?= "[".$value['no_ref']."] ".$value['nama'] ?></option>
+                		<option <?= ($data_get['pengeluaran_lain']['jenis'] == $value['id_akun']) ? "selected" : "" ; ?> value="<?= $value['id_akun'] ?>"><?= "[".$value['no_ref']."] ".$value['nama'] ?></option>
                 	<?php endforeach ?>
                 </select>
 
@@ -42,7 +43,7 @@
             <div class="form-group">
               <label class="col-lg-3 control-label">Keperluan:</label>
               <div class="col-lg-9">
-                <input type="text" name="keterangan" class="form-control" required placeholder="Input here......">
+                <input type="text" name="keterangan" value="<?= $data_get['pengeluaran_lain']['keterangan'] ?>" class="form-control" required placeholder="Input here......">
               </div>
             </div>
 
@@ -66,9 +67,21 @@
 					</tr>
 				</thead>
 				<tbody>
+					<?php if (!empty($data_get['detail_pengeluaran_lain'])){ ?>
+						<?php foreach ($data_get['detail_pengeluaran_lain'] as $value): ?>
+							<?php $no = rand(0,99999); ?>
+							<tr id="tr<?= $no ?>">
+								<td><button class="btn btn-xs btn-danger btn-dl-item" data-rowid="<?= $no ?>" type="button"><i class="icon-trash"></i></button></td>
+								<td><input type="text" name="detail[<?= $no ?>][keterangan]" value="<?= $value['keterangan'] ?>" class="form-control"></td>
+								<td><input type="number" name="detail[<?= $no ?>][jumlah]" value="<?= (int)$value['jumlah'] ?>"  class="form-control inp-jml" ></td>
+							</tr>
+						<?php endforeach ?>
+						
+					<?php }else{ ?>
 					<tr class="empty-data">
 						<td colspan="3"><center><b>Data masih kosong</b></center></td>
 					</tr>
+					<?php } ?>
 				</tbody>
 			</table>
 			<br>

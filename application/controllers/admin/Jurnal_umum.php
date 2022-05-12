@@ -25,7 +25,7 @@ class jurnal_umum extends MY_Controller {
 		/*if you need custom page*/
 
 		$data['account']	=	$this->get_user_account();
-		$this->my_view(['role/bendahara/page/jurnal_umum/index_page/index','role/bendahara/page/jurnal_umum/index_page/js'],$data);
+		$this->my_view(['role/admin/page/jurnal_umum/index_page/index','role/admin/page/jurnal_umum/index_page/js'],$data);
 
 	}
 
@@ -117,7 +117,7 @@ class jurnal_umum extends MY_Controller {
 			}
 
 			$this->display_view('print_page', $data);
-			// $this->my_view(['role/bendahara/page/guru/print_page/index','role/bendahara/page/guru/print_page/js'],$data);
+			// $this->my_view(['role/admin/page/guru/print_page/index','role/admin/page/guru/print_page/js'],$data);
 			
 		}
 
@@ -208,6 +208,6 @@ class jurnal_umum extends MY_Controller {
 			];
 		}
 		$data['find'] = $send;
-		$this->my_view(['role/bendahara/page/jurnal_umum/index_page/table_jurnal'],$data);
+		$this->my_view(['role/admin/page/jurnal_umum/index_page/table_jurnal'],$data);
 	}
 }

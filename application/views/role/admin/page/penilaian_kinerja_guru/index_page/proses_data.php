@@ -63,7 +63,7 @@
 								<!-- /hidden -->
 								<td class="bg-info"><?php echo ++$no; ?></td>
 								<td><?php echo $value_sub['subkompetensi'] ?></td>
-								<td><input type="number" name="data_pkg[<?= $vno ?>][nilai]" class="form-control" min="1" max="4" placeholder="(Angka 1-4)"></td>
+								<td><input type="number" name="data_pkg[<?= $vno ?>][nilai]" required class="form-control" min="1" max="4" placeholder="(Angka 1-4)"></td>
 							</tr>
 							<?php $vno ++; ?>
 						<?php endforeach ?>

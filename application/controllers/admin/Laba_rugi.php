@@ -23,7 +23,7 @@ class laba_rugi extends MY_Controller {
 	{
 		$data['account']	=	$this->get_user_account();
 		$data['param']		=	$this->arr;
-		$this->my_view(['role/bendahara/page/laba_rugi/index_page/index','role/bendahara/page/laba_rugi/index_page/js'],$data);
+		$this->my_view(['role/admin/page/laba_rugi/index_page/index','role/admin/page/laba_rugi/index_page/js'],$data);
 	}
 
 	function coa()
@@ -39,7 +39,7 @@ class laba_rugi extends MY_Controller {
 		}
 		$data['akun']	=	$akun;
 		
-		$this->my_view(['role/bendahara/page/laba_rugi/index_page/table'],$data);
+		$this->my_view(['role/admin/page/laba_rugi/index_page/table'],$data);
 	}
 	function induk_akun($data){
 		$send = [];

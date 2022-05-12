@@ -13,7 +13,7 @@
 	</form>
 
 	<hr>
-	<table class="table table-framed table-indikator">
+	<table class="table table-framed table-xxs table-indikator">
 		<thead>
 			<tr>
 				<th width="5%">No</th>
@@ -24,7 +24,7 @@
 			<?php $no = 0; ?>
 			<?php foreach ($data_get['subindikator'] as $key => $value): ?>
 				<tr>
-					<td><button class="btn btn-danger btn-del btn-sm" data-id="<?php echo $value['id_subkompetensi_pkg'] ?>"><i class="icon-trash"></i></button></td>
+					<td><button class="btn btn-danger btn-del-sub btn-xs" data-id="<?php echo $value['id_subkompetensi_pkg'] ?>"><i class="icon-trash"></i></button></td>
 					<td><?php echo $value['subkompetensi'] ?></td>
 				</tr>
 			<?php endforeach ?>
