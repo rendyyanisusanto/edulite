@@ -53,7 +53,9 @@ class pelanggaran_siswa extends MY_Controller {
 	{
 		if (isset($id)) {
 				$data['param'] 		= 	$this->arr;
+				$data['poinpelanggaran']	=	$this->my_where('poin_pelanggaran',[])->result_array();
 				$data['pelanggaran_siswa'] = 	$this->my_where('pelanggaran_siswa',['id_pelanggaran_siswa'=>$id])->row_array();
+				$data['siswa']				=	$this->my_where('siswa', ['id_siswa'=>$data['pelanggaran_siswa']['idsiswa_fk']])->row_array();
 				$this->my_view(['role/admin/page/pelanggaran_siswa/edit_page/index','role/admin/page/pelanggaran_siswa/edit_page/js'],$data);
 		} else {
 			$this->get_data();
@@ -93,6 +95,19 @@ class pelanggaran_siswa extends MY_Controller {
 		}
 	}
 
+	public function update_poin()
+	{	
+		$data = [
+			'idjenispelanggaran_fk' 				=> $_POST['idjenispelanggaran_fk'],
+			'nama_pelanggaran' 						=> $_POST['nama_pelanggaran'],
+			'poin' 									=> $_POST['poin'],
+			'kode_pelanggaran' 						=> $_POST['kode_pelanggaran'],
+		];
+
+		if ($this->my_update('poin_pelanggaran', $data, ['id_poin_pelanggaran'=>$_POST['id']])) {
+			echo "Success";
+		}
+	}
 
 	/*
 		EDIT DATA
@@ -101,14 +116,10 @@ class pelanggaran_siswa extends MY_Controller {
 	function update_data()
 	{
 		$data = [
-			'idsiswa_fk' 	=> $_POST['idsiswa_fk'],
-			'masalah' 		=> $_POST['masalah'],
-			'pemecahan' => $_POST['pemecahan'],
-			'tindak_lanjut' 		=> $_POST['tindak_lanjut'],
-			'keterangan' 		=> $_POST['keterangan'],
-			'tanggal' 		=> $_POST['tanggal'],
-			'kode_pemanggilan' 		=> $_POST['kode_pemanggilan'],
-	];
+			'uraian_pelanggaran' 		=> $_POST['uraian_pelanggaran'],
+			'idpoinpelanggaran_fk' 		=> $_POST['idpoinpelanggaran_fk'],
+			'tanggal' 					=> $_POST['tanggal'],
+		];
 		if ($this->my_update('pelanggaran_siswa',$data,['id_pelanggaran_siswa'=>$_POST['id_pelanggaran_siswa']])) {
 			// print_r(((isset($foto)) ? $foto['file_name'] : $_POST['foto_before']));
 		}	else 	{
@@ -268,11 +279,17 @@ class pelanggaran_siswa extends MY_Controller {
         foreach ($list as $field) {
             $no++;
             $row        =   array();
-            $row[]		=	'';
             $row[]		=	!empty($field['kode_pelanggaran']) ? $field['kode_pelanggaran'] : '-';
             $row[]		=	!empty($field['nama_pelanggaran']) ? $field['nama_pelanggaran'] : '-';
             $row[]		=	!empty($field['jenis_pelanggaran']) ? $field['jenis_pelanggaran'] : '-';
             $row[]		=	!empty($field['poin']) ? $field['poin'] : '-';
+            $row[]		=	'<button type="button" data-id="'.$field['id_poin_pelanggaran'].'" 
+            			data-kode_pelanggaran="'.$field['kode_pelanggaran'].'"
+            			data-nama_pelanggaran="'.$field['nama_pelanggaran'].'"
+            			data-idjenispelanggaran_fk="'.$field['idjenispelanggaran_fk'].'"
+            			data-poin="'.$field['poin'].'"
+            class="btn btn-xs btn-edit btn-success"><i class="icon-pencil3"></i></button>';
+            $row[]		=	'<button type="button" class="btn btn-xs btn-hps btn-danger"><i class="icon-trash"></i></button>';
             $data[]     =   $row;
         }
         $output = array(
@@ -284,7 +301,6 @@ class pelanggaran_siswa extends MY_Controller {
 
         echo json_encode($output);
 	}
-	
 	public function get_siswa()
 	{
 		$searchTerm = $this->input->post('searchTerm');

@@ -239,7 +239,7 @@ class pemasukan_lain extends MY_Controller {
             $row[]		=	'<b class="text-danger">'.$field['trans_code'].'</b>';
             $row[]		=	$field['keterangan'];
             $row[]		=	'<b >Rp. '.number_format($field['total'], 0,'.','.').'</b>';
-            $row[]		=	'<button class="btn btn-success btn-dtl btn-xs" data-id="'.$field['id_pemasukan_lain'].'" type="button" ><i class="icon-eye"></i></button>';
+            $row[]		=	'<button class="btn btn-success btn-dtl-pemasukan btn-xs" data-id="'.$field['id_pemasukan_lain'].'" type="button" ><i class="icon-eye"></i></button>';
             $row[]		=	'<a class="btn btn-primary btn-xs" href="'.base_url('admin/pemasukan_lain/cetak_struk/'.$field['id_pemasukan_lain']).'" target="__blank" ><i class="icon-printer"></i></a>';
             $data[]     =   $row;
         }
@@ -275,19 +275,21 @@ class pemasukan_lain extends MY_Controller {
 		
 		$detail		=	$this->my_where('detail_pemasukan_lain',['idpemasukanlain_fk' => $id])->result_array();
 
-		$send = '<table class="table table-framed table-xs">';
+		$send = '<table class="table table-framed table-xxs">';
 		$send .= '<thead>';
 		$send .= '<tr>';
-		$send .= '	<th>Keterangan</th>';
-		$send .= '	<th>Jumlah</th>';
+		$send .= '  <th width="2%" class="bg-primary">No</th>';
+		$send .= '	<th class="bg-primary">Keterangan</th>';
+		$send .= '	<th  class="bg-primary">Jumlah</th>';
 		$send .= '</tr>';
 		$send .= '</thead>';
 		$send .= '<tbody>';
-
+		$no = 0;
 			foreach ($detail as $key => $value) {
 				$send .= '<tr>';
+				$send .= '<td class="bg-blue">'.(++$no).'</td>';
 				$send .= '<td>'.$value['keterangan'].'</td>';
-				$send .= '<td>Rp. '.number_format($value['jumlah'],0,'','.').'</td>';
+				$send .= '<td><b>Rp. '.number_format($value['jumlah'],0,'','.').'</b></td>';
 				$send .= '</tr>';
 			}
 

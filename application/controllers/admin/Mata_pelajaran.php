@@ -9,9 +9,9 @@ class mata_pelajaran extends MY_Controller {
 	public $arr = [
 			'title'				=>	'Halaman mata_pelajaran',
 			'table'				=>	'mata_pelajaran',
-			'column'			=>	[ 'mata_pelajaran'],
-			'column_order'		=>	[ 'id_mata_pelajaran','mata_pelajaran'],
-			'column_search'		=>	[ 'id_mata_pelajaran','mata_pelajaran'],
+			'column'			=>	[ 'mata_pelajaran','kode'],
+			'column_order'		=>	[ 'id_mata_pelajaran','mata_pelajaran','kode'],
+			'column_search'		=>	[ 'id_mata_pelajaran','mata_pelajaran','kode'],
 			'order'				=>	['id_mata_pelajaran'	=>	'DESC'],
 			'id'				=>	'id_mata_pelajaran'
 	];

@@ -481,27 +481,31 @@ class siswa extends MY_Controller {
 		    $send = [];
 		    // $sheetData = $spreadsheet->getActiveSheet();
 			$sheetData = $spreadsheet->getActiveSheet()->toArray();
-			for($i = 13 ;$i < count($sheetData);$i++)
+			for($i = 12 ;$i < count($sheetData);$i++)
 			{
-		        $nama 			= $sheetData[$i]['1'];
-		        $nis 			= $sheetData[$i]['2'];
-		        $nisn 			= $sheetData[$i]['3'];
-		        $agama 			= $sheetData[$i]['4'];
-		        $no_ijazah 		= $sheetData[$i]['5'];
-		        $tempat_lahir 	= $sheetData[$i]['6'];
-		        $tanggal_lahir 	= $sheetData[$i]['7'];
-		        if (isset($sheetData[$i]['1'])) {
-		        	$send [] = [
-						'nama' 					=>  (!empty($nama)) ? $nama : '',
-						'nis'					=>	(!empty($nis)) ? $nis : '',
-						'nisn'					=>	(!empty($nisn)) ? $nisn : '',
-						'agama'					=>	(!empty($agama)) ? $agama : '',
-						'no_ijazah'				=>	(!empty($no_ijazah)) ? $no_ijazah : '',
-						'tempat_lahir'			=>	(!empty($tempat_lahir)) ? $tempat_lahir : '',
-						'tanggal_lahir'			=>	(!empty($tanggal_lahir)) ? $tanggal_lahir : '',
-						// 'idkelas_fk'			=>	$_POST['idkelas_fk']
-					];
-		        }
+				if (!empty($sheetData[$i]['1'])) {
+			        $nama 			= $sheetData[$i]['1'];
+			        $nis 			= (!empty($sheetData[$i]['2'])) ? $sheetData[$i]['2'] : '';
+			        $nisn 			= (!empty($sheetData[$i]['3'])) ? $sheetData[$i]['3'] : '';
+			        $agama 			= (!empty($sheetData[$i]['4'])) ? $sheetData[$i]['4'] : '';
+			        $no_ijazah 		= (!empty($sheetData[$i]['5'])) ? $sheetData[$i]['5'] : '';
+			        $tempat_lahir 	= (!empty($sheetData[$i]['6'])) ? $sheetData[$i]['6'] : '';
+			        $tanggal_lahir 	= (!empty($sheetData[$i]['7'])) ? $sheetData[$i]['7'] : '';
+			        $jenis_kelamin 	= (!empty($sheetData[$i]['8'])) ? $sheetData[$i]['8'] : '';
+			        if (isset($sheetData[$i]['1'])) {
+			        	$send [] = [
+							'nama' 					=>  (!empty($nama)) ? strtoupper($nama) : '',
+							'nis'					=>	(!empty($nis)) ? $nis : '',
+							'nisn'					=>	(!empty($nisn)) ? $nisn : '',
+							'agama'					=>	(!empty($agama)) ? $agama : '',
+							'no_ijazah'				=>	(!empty($no_ijazah)) ? $no_ijazah : '',
+							'tempat_lahir'			=>	(!empty($tempat_lahir)) ? $tempat_lahir : '',
+							'tanggal_lahir'			=>	(!empty($tanggal_lahir)) ? $tanggal_lahir : '',
+							'jenis_kelamin'			=>	(!empty($jenis_kelamin)) ? $jenis_kelamin : '',
+							// 'idkelas_fk'			=>	$_POST['idkelas_fk']
+						];
+			        }
+		    	}
 		        
 		    }
 			
@@ -543,7 +547,9 @@ class siswa extends MY_Controller {
 				'nama' => $value['nama'],
 				'nisn' => $value['nisn'],
 				'idkelas_fk'	=>	$_POST['idkelas_fk'],
-				'idjurusan_fk' => $_POST['idjurusan_fk']
+				'idjurusan_fk'	=>	$_POST['idjurusan_fk'],
+				'tempat_lahir' => $_POST['tempat_lahir'],
+				'jenis_kelamin' => $_POST['jenis_kelamin'],
 			];
 
 			$this->save_data('siswa', $send);

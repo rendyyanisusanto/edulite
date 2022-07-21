@@ -1,4 +1,4 @@
-<script src="<?php echo base_url('include/template/limitless/')?>/global_assets/js/plugins/forms/selects/select2.min.js"></script>
+<script src="<?php echo base_url('include/template/dashboard/')?>/js/plugins/forms/selects/select2.min.js"></script>
 <form class="form-horizontal" action="<?php echo $data_get['param']['table'] ?>/simpan_data" id="app-submit" method="POST">
 <div class="row">
 	<div class="col-md-12">
@@ -31,6 +31,14 @@
 			                
 			                <button type="button" class="btn btn-success btn-proses">Proses</button>
 						</fieldset>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<div class="panel panel-body">
+						<div class="alert alert-info">INFO ! Mohon pastikan data jam pelajaran telah terisi dan sesuai dengan jam pelajaran di sekolah, untuk setting jam pelajaran silahkan klik tombol dibawah
+							<br>
+							<a href="Jam_pelajaran/get_data" class="app-item btn btn-primary"><i class="icon-pencil3"></i> Jam Pelajaran</a>
+						</div>
 					</div>
 				</div>
 			</div>

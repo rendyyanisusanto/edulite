@@ -1,5 +1,7 @@
 <div class="col-md-6">
 	<div class="panel panel-body">
+		<?php if (!empty($data_get['jenis_penerimaan'])){ ?>
+			
 		<div class="alert alert-danger"><b>Warning ! </b>Tanggungan siswa belum di atur. untuk melanjutkan proses pembayaran tanggungan silahkan setting terlebih dahulu tanggungan siswa.</div>
 		<form id="app-tanggungan" action="Penerimaan/save_tanggungan">
 		<input type="hidden" value="<?php echo $data_get['siswa']['id_siswa'] ?>" name="idsiswa_fk">
@@ -30,5 +32,11 @@
 		</table>
 		<button style="margin-top: 2%" class="btn btn-success"><i class="icon-floppy-disk"></i> Simpan Tanggungan</button>
 		</form>
+
+		<?php }else{ ?>
+			<div class="alert alert-danger"><b>Warning ! </b>Jenis Tanggungan belum disetting, harap setting jenis tanggungan terlebih dahulu.</div>
+
+			<a href="Jenis_penerimaan/get_data" class="app-item btn btn-warning"><i class="icon-stack-plus"></i> Setting Jenis Tanggungan</a>
+		<?php } ?>
 	</div>
 </div>

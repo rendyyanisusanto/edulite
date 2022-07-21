@@ -22,7 +22,7 @@
         <a  href="<?php echo $data_get['param']['table'] ?>/cetak_kartu" class="btn app-item bg-warning-400 btn-labeled legitRipple" id="cetak-kartu-btn"><b><i class="icon-printer"></i></b> Print Kartu Kendali Siswa</a>
         <hr>
         <div class="table-responsive">
-        <table class="table" width="100%" id="tabel-data">
+        <table class="table table-framed table-xxs" width="100%" id="tabel-data">
           <thead>
             <tr>
               <th width="1%">#</th>

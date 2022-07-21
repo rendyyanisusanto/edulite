@@ -66,7 +66,7 @@ class kepegawaian extends MY_Controller {
 
 	public function simpan_data()
 	{	
-		$random_code = 'G'.rand(0,999999);
+		// $random_code = 'G'.rand(0,999999);
 		$foto = '';
 		if(file_exists($_FILES['foto']['tmp_name']) || is_uploaded_file($_FILES['foto']['tmp_name'])) {
 			$foto = $this->save_media([
@@ -100,7 +100,7 @@ class kepegawaian extends MY_Controller {
 			'berasal_dari'			=>	$_POST['berasal_dari'],
 			'tanggal_meninggalkan'	=>	$_POST['tanggal_meninggalkan'],
 			'alasan_meninggalkan'	=>	$_POST['alasan_meninggalkan'],
-			'kode_pegawai'			=>	$random_code,
+			'kode_pegawai'			=>	$_POST['kode_pegawai'],
 			'istri'					=>	$_POST['istri'],
 			'status_kepegawaian'	=>	$_POST['status_kepegawaian'],
 			'no_taspen'				=>	$_POST['no_taspen']
@@ -267,6 +267,7 @@ class kepegawaian extends MY_Controller {
 
 
 		$data = [
+			'kode_pegawai'			=>	$_POST['kode_pegawai'],
 			'nama'					=>	$_POST['nama'],
 			'nip'					=>	$_POST['nip'],
 			'alamat'				=>	$_POST['alamat'],

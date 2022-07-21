@@ -1,4 +1,4 @@
-<script src="<?php echo base_url('include/template/limitless/')?>/global_assets/js/plugins/forms/selects/select2.min.js"></script>
+<script src="<?php echo base_url('include/template/dashboard/')?>js/plugins/forms/selects/select2.min.js"></script>
 
 <form class="form-horizontal" action="pelanggaran_siswa/simpan_data" id="app-submit" method="POST">
 

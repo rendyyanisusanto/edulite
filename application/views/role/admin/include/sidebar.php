@@ -36,14 +36,14 @@
     </ul>
   </li>
 
-  <li>
+ <!--  <li>
     <a href="#"><i class="icon-book"></i> <span>PPDB</span></a>
     <ul>
       <li><a href="Ppdb/get_data" class="app-item">Data Pendaftar Baru</a></li>
       <li><a href="Ppdb/list" class="app-item">List Pendaftar Baru</a></li>
     </ul>
   </li>
-
+ -->
  
   <!-- Page kits -->
   <li class="navigation-header"><span>Manajemen Kepegawaian</span> <i class="icon-menu" title="Page kits"></i></li>
@@ -71,7 +71,7 @@
       <li><a href="Persentase_guru/get_data" class="app-item">Data Persentase Guru</a></li>
     </ul>
   </li>
-  <li>
+  <!-- <li>
     <a href="#"><i class="icon-paste4"></i> <span>Buku Kerja Guru</span></a>
     <ul>
       <li><a href="Kd/get_data" class="app-item">Identifikasi KI/KD</a></li>
@@ -81,7 +81,7 @@
       <li><a href="Promes/get_data" class="app-item">Promes</a></li>
       <li><a href="Banksoal/get_data" class="app-item">Bank soal</a></li>
     </ul>
-  </li>
+  </li> -->
   <!-- Kurikulum -->
   <li class="navigation-header"><span>Kurikulum</span> <i class="icon-menu" title="Page kits"></i></li>
   <li>
@@ -152,8 +152,8 @@
     <a href="#"><i class="icon-stack2"></i> <span>Master</span></a>
     <ul>
       <li><a href="Siswa/get_data" class="app-item">Siswa</a></li>
-      <li><a href="Siswa_kelas/get_data" class="app-item">Daftar Siswa Kelas</a></li>
-      <li><a href="Guru/get_data" class="app-item">Guru</a></li>
+      <!-- <li><a href="Siswa_kelas/get_data" class="app-item">Daftar Siswa Kelas</a></li> -->
+      <!-- <li><a href="Guru/get_data" class="app-item">Guru</a></li> -->
       <li><a href="Kelas/get_data" class="app-item">Kelas</a></li>
       <li><a href="Jurusan/get_data" class="app-item">Jurusan</a></li>
       <li><a href="Mata_pelajaran/get_data" class="app-item">Mata Pelajaran</a></li>

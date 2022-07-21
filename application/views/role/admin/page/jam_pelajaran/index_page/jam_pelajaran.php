@@ -7,19 +7,19 @@
 						<label class="col-lg-4 control-label">Nama</label>
 						<div class="col-lg-8">
 							<input type="hidden" name="id_jam_pelajaran" class="id_jam_pelajaran">
-							<input type="text" name="nama" placeholder="Jam ke - 1, 2, 3" class="form-control nama">
+							<input type="text" name="nama" placeholder="Jam ke - 1, 2, 3" required="" class="form-control nama">
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-lg-4 control-label">Jam Mulai</label>
 						<div class="col-lg-8">
-							<input type="text" name="jam_mulai" placeholder="Contoh : 07.00" class="form-control jam_mulai">
+							<input type="text" name="jam_mulai" placeholder="Contoh : 07.00" required="" class="form-control jam_mulai">
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-lg-4 control-label">Jam Selesai</label>
 						<div class="col-lg-8">
-							<input type="text" name="jam_selesai" placeholder="Contoh : 16.00"  class="form-control jam_selesai">
+							<input type="text" name="jam_selesai" placeholder="Contoh : 16.00" required=""  class="form-control jam_selesai">
 						</div>
 					</div>
 					<button type="submit" class="btn btn-success btn-submit"><i class="icon-floppy-disk"></i> Simpan</button>
@@ -28,6 +28,7 @@
 				</form>
 			</div>
 		</div>
+		
 		<div class="col-lg-8">
 			<table class="table table-framed table-bordered table-xxs">
 				<thead>
@@ -40,22 +41,28 @@
 					</tr>
 				</thead>
 				<tbody>
-					<?php foreach ($data_get['jam_pelajaran'] as $key => $value): ?>
-					<tr>
-						<td><?php echo $value['nama'] ?></td>
-						<td><?php echo $value['jam_mulai'] ?></td>
-						<td><?php echo $value['jam_selesai'] ?></td>
-						<td><button type="button"
-							data-id_jam_pelajaran="<?php echo $value['id_jam_pelajaran'] ?>" 
-							data-nama="<?php echo $value['nama'] ?>" 
-							data-jam_mulai="<?php echo $value['jam_mulai'] ?>" 
-							data-jam_selesai="<?php echo $value['jam_selesai'] ?>" 
-							class="btn btn-success btn-xs btn-edit"><i class="icon-pencil"></i></button></td>
-						<td><button type="button"
-							data-id_jam_pelajaran="<?php echo $value['id_jam_pelajaran'] ?>" 
-							class="btn btn-danger btn-xs btn-del"><i class="icon-trash"></i></button></td>
-					</tr>
-					<?php endforeach ?>
+					<?php if (!empty($data_get['jam_pelajaran'])){ ?>
+						
+						<?php foreach ($data_get['jam_pelajaran'] as $key => $value){ ?>
+						<tr>
+							<td><?php echo $value['nama'] ?></td>
+							<td><?php echo $value['jam_mulai'] ?></td>
+							<td><?php echo $value['jam_selesai'] ?></td>
+							<td><button type="button"
+								data-id_jam_pelajaran="<?php echo $value['id_jam_pelajaran'] ?>" 
+								data-nama="<?php echo $value['nama'] ?>" 
+								data-jam_mulai="<?php echo $value['jam_mulai'] ?>" 
+								data-jam_selesai="<?php echo $value['jam_selesai'] ?>" 
+								class="btn btn-success btn-xs btn-edit"><i class="icon-pencil"></i></button></td>
+							<td><button type="button"
+								data-id_jam_pelajaran="<?php echo $value['id_jam_pelajaran'] ?>" 
+								class="btn btn-danger btn-xs btn-del"><i class="icon-trash"></i></button></td>
+						</tr>
+						<?php } ?>
+
+					<?php }else{
+							echo '<tr><td colspan="5"><center>Jam Pelajaran belum disetting</center></tr>';
+						} ?>
 				</tbody>
 			</table>
 		</div>

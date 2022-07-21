@@ -1,6 +1,6 @@
 <div id="modal_add_jadwal" class="modal" tabindex="-1">
 	<form class="form-horizontal" action="<?php echo $data_get['param']['table'] ?>/proses_add_jadwal" id="app-submit-modal" method="POST">
-	<div class="modal-dialog">
+	<div class="modal-dialog  modal-lg">
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -13,7 +13,7 @@
 						<div class="col-lg-8">
 							<select data-placeholder="Pilih Mata Pelajaran" name="idgurumapel_fk" class="select idmapelguru_fk">
 								<?php foreach ($data_get['mapel_guru'] as $key => $value): ?>
-								<option value="<?php echo $value['id_guru_mapel'] ?>"><?php echo $value['nip'].'. '.$value['kode'].' ('.$value['nama'].')' ?></option>
+								<option value="<?php echo $value['id_guru_mapel'] ?>"><?php echo $value['kode_pegawai'].' - '.$value['kode'].' ('.$value['nama'].')' ?></option>
 								<?php endforeach ?>
 							</select>
 						</div>
