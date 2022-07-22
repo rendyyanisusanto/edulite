@@ -30,6 +30,7 @@
               <th width="25%">Pengirim</th>
               <th>Perihal</th>
               <th>No Surat</th>
+              <th width="15%">Arsip</th>
             </tr>
           </thead>
         </table>
