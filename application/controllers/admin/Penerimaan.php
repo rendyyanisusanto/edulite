@@ -28,6 +28,32 @@ class Penerimaan extends MY_Controller {
 		
 		$this->my_view(['role/admin/page/penerimaan/add_page/index','role/admin/page/penerimaan/add_page/js'],$data);
 	}
+	public function setting_tanggungan_siswa()
+	{
+		$data['account']	=	$this->get_user_account();
+		$this->db->limit('50');
+		$data['siswa'] =	$this->my_where('siswa', [])->result_array();
+		
+		$data['jenis_penerimaan'] =	$this->my_where('jenis_penerimaan', [])->result_array();
+		$this->my_view(['role/admin/page/penerimaan/setting_tanggungan_siswa/index','role/admin/page/penerimaan/setting_tanggungan_siswa/modal','role/admin/page/penerimaan/setting_tanggungan_siswa/js'],$data);	
+	}
+	function get_setting()
+	{
+
+		$this->db->limit('50');
+		$siswa =	$this->my_where('v_siswa_jurusan', [])->result_array();
+		$data['tanggungan']			=	[];
+		
+		foreach ($siswa as $value) {
+			$tanggungan 				= 	$this->my_where('v_tanggungan_siswa', ['idsiswa_fk'=>$value['id_siswa']]);
+
+			$data['tanggungan'][] = [
+				'siswa'	=>	$value,
+				'tanggungan_count'	=>	$tanggungan->num_rows()
+			];
+		}
+		$this->my_view(['role/admin/page/penerimaan/setting_tanggungan_siswa/table_siswa'],$data);
+	}
 	public function get_siswa()
 	{
 		$searchTerm = $this->input->post('searchTerm');

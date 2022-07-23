@@ -23,6 +23,9 @@
       <li><a href="Penerimaan/get_data" class="app-item">Transaksi Tanggungan Siswa</a></li>
       <li><a href="Pemasukan_lain/get_data" class="app-item">Transaksi Penerimaan Lain</a></li>
       <li><a href="Pengeluaran_lain/get_data" class="app-item">Transaksi Pengeluaran</a></li>
+      <li class="nav-item-divider"><hr></li>
+      <li><a href="Penerimaan/setting_tanggungan_siswa" class="app-item">Setting Tanggungan Siswa</a></li>
+      <li><a href="Histori_tanggungan_siswa/get_data" class="app-item">Histori Tanggungan Siswa</a></li>
     </ul>
   </li>
   

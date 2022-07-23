@@ -25,6 +25,7 @@
               <th>Nama</th>
               <th>Akun</th>
               <th>Temp. Nota</th>
+              <th>Thn. Ajaran</th>
             </tr>
           </thead>
         </table>

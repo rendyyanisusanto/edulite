@@ -34,6 +34,7 @@ class jenis_penerimaan extends MY_Controller {
 		$data['pendapatan']		=	$this->db->where('idindukakun_fk', 7)->or_where('idindukakun_fk', 8)->get('akun')->result_array();
 		$data['diskon']			=	$this->my_where('akun', ['idindukakun_fk'=>6])->result_array();
 		$data['piutang']		=	$this->my_where('akun', ['idindukakun_fk'=>1])->result_array();
+		$data['tahun_ajaran']		=	$this->my_where('tahun_ajaran', [])->result_array();
 		$this->my_view(['role/admin/page/jenis_penerimaan/add_page/index','role/admin/page/jenis_penerimaan/add_page/js'],$data);
 	}
 	
@@ -46,6 +47,7 @@ class jenis_penerimaan extends MY_Controller {
 				$data['pendapatan']		=	$this->db->where('idindukakun_fk', 7)->or_where('idindukakun_fk', 8)->get('akun')->result_array();
 				$data['diskon']			=	$this->my_where('akun', ['idindukakun_fk'=>6])->result_array();
 				$data['piutang']		=	$this->my_where('akun', ['idindukakun_fk'=>1])->result_array();
+				$data['tahun_ajaran']		=	$this->my_where('tahun_ajaran', [])->result_array();
 				$this->my_view(['role/admin/page/jenis_penerimaan/edit_page/index','role/admin/page/jenis_penerimaan/edit_page/js'],$data);
 		} else {
 			$this->get_data();
@@ -66,6 +68,7 @@ class jenis_penerimaan extends MY_Controller {
 			'diskon' 					=> $_POST['diskon'],
 			'piutang' 					=> $_POST['piutang'],
 			'template_nota' 			=> $_POST['template_nota'],
+			'idtahunajaran_fk' 			=> $_POST['idtahunajaran_fk'],
 		];
 
 		if ($this->save_data('jenis_penerimaan', $data)) {
@@ -86,6 +89,7 @@ class jenis_penerimaan extends MY_Controller {
 			'diskon' 					=> $_POST['diskon'],
 			'piutang' 					=> $_POST['piutang'],
 			'template_nota' 			=> $_POST['template_nota'],
+			'idtahunajaran_fk' 			=> $_POST['idtahunajaran_fk'],
 		];
 		if ($this->my_update('jenis_penerimaan',$data,['id_jenis_penerimaan'=>$_POST['id_jenis_penerimaan']])) {
 			// print_r(((isset($foto)) ? $foto['file_name'] : $_POST['foto_before']));
@@ -116,6 +120,7 @@ class jenis_penerimaan extends MY_Controller {
         foreach ($list as $field) {
             $no++;
             $row        =   array();
+            $tahun_ajaran 		=	$this->my_where('tahun_ajaran', ['id_tahun_ajaran'=>$field['idtahunajaran_fk']])->row_array();
             $kas 		=	$this->my_where('akun', ['id_akun'=>$field['kas']])->row_array();
             $pendapatan 		=	$this->my_where('akun', ['id_akun'=>$field['pendapatan']])->row_array();
             $piutang 		=	$this->my_where('akun', ['id_akun'=>$field['piutang']])->row_array();
@@ -128,8 +133,8 @@ class jenis_penerimaan extends MY_Controller {
             				'<li>diskon : <b>('.$diskon['no_ref'].') '.$diskon['nama'].'</b></li>'.
             				'</ul>'
             ;
-
             $row[]		=	!empty($field['template_nota']) ? $field['template_nota'] : '-';
+            $row[]		=	$tahun_ajaran['tahun_ajaran'];
             $data[]     =   $row;
         }
         $output = array(
