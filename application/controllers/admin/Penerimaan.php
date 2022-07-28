@@ -34,6 +34,9 @@ class Penerimaan extends MY_Controller {
 		$this->db->limit('50');
 		$data['siswa'] =	$this->my_where('siswa', [])->result_array();
 		
+		$data['kelas']		=	$this->my_where('kelas', [])->result_array();
+		$data['jurusan']	=	$this->my_where('jurusan', [])->result_array();
+		$data['tahun_ajaran']		=	$this->my_where('tahun_ajaran',[])->result_array();
 		$data['jenis_penerimaan'] =	$this->my_where('jenis_penerimaan', [])->result_array();
 		$this->my_view(['role/admin/page/penerimaan/setting_tanggungan_siswa/index','role/admin/page/penerimaan/setting_tanggungan_siswa/modal','role/admin/page/penerimaan/setting_tanggungan_siswa/js'],$data);	
 	}
@@ -41,7 +44,7 @@ class Penerimaan extends MY_Controller {
 	{
 
 		$this->db->limit('50');
-		$siswa =	$this->my_where('v_siswa_jurusan', [])->result_array();
+		$siswa =	(!empty($_POST['idkelas'])) ? $this->my_where('v_siswa_jurusan', ['idkelas_fk'=>$_POST['idkelas']])->result_array() : $this->my_where('v_siswa_jurusan', [])->result_array();
 		$data['tanggungan']			=	[];
 		
 		foreach ($siswa as $value) {
@@ -53,6 +56,20 @@ class Penerimaan extends MY_Controller {
 			];
 		}
 		$this->my_view(['role/admin/page/penerimaan/setting_tanggungan_siswa/table_siswa'],$data);
+	}
+	function detail_setting()
+	{
+		$data['siswa']				=	$this->my_where('v_siswa_jurusan', ['id_siswa'=>$_POST['id_siswa']])->row_array();
+		$jenis_penerimaan 			=	$this->my_where('jenis_penerimaan', [])->result_array();
+		$data['jenis_penerimaan'] 	= 	[];
+		foreach ($jenis_penerimaan as $value) {
+			$tanggungan 	=	$this->my_where('tanggungan_siswa', ['idsiswa_fk'=> $_POST['id_siswa'], 'idjenispenerimaan_fk'=>$value['id_jenis_penerimaan']])->row_array();
+			$data['jenis_penerimaan'][] = [
+				'jenis_penerimaan' =>	$value,
+				'tanggungan_siswa' =>	$tanggungan
+			];
+		}
+		$this->my_view(['role/admin/page/penerimaan/setting_tanggungan_siswa/contentform'],$data);
 	}
 	public function get_siswa()
 	{
@@ -167,17 +184,16 @@ class Penerimaan extends MY_Controller {
 		foreach ($_POST['data'] as $key => $value) {
 			$inv = rand(1,9999999);
 			$data = [
-				'idsiswa_fk' => $_POST['idsiswa_fk'],
+				'idsiswa_fk' 			=>  $_POST['idsiswa_fk'],
 				'idjenispenerimaan_fk'	=>	$value['id_jenis_penerimaan'],
-				'jumlah'	=>	$value['jumlah'],
-				'invoice'		=>	$inv
+				'jumlah'				=>	$value['jumlah'],
+				'invoice'				=>	$inv
 			];
 			if($this->save_data('tanggungan_siswa', $data)){
 				/*
 				tunai
 					Piutang 			20000	0
 					Pendapatan			0		20000
-				
 				*/
 
 				$get_penerimaan			=	$this->my_where('v_jenis_penerimaan', ['id_jenis_penerimaan'=>$value['id_jenis_penerimaan']])->row_array();

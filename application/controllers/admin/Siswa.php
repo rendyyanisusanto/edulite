@@ -23,7 +23,14 @@ class siswa extends MY_Controller {
 	{
 		$data['account']	=	$this->get_user_account();
 		$data['param'] 		= 	$this->arr;
-		$this->my_view(['role/kesiswaan/page/siswa/index_page/index','role/kesiswaan/page/siswa/index_page/js'],$data);
+		$this->my_view(['role/admin/page/siswa/index_page/index','role/admin/page/siswa/index_page/js'],$data);
+	}
+	public function mutasi()
+	{
+		$data['account']	=	$this->get_user_account();
+		$data['param'] 		= 	$this->arr;
+		$data['kelas']		=	$this->my_where('kelas', [])->result_array();
+		$this->my_view(['role/admin/page/siswa/mutasi/index','role/admin/page/siswa/mutasi/js'],$data);
 	}
 
 	public function import_page()
@@ -557,4 +564,40 @@ class siswa extends MY_Controller {
 		echo json_encode($_POST['dt']);
 	}
 
+	function get_siswa_mutasi()
+	{
+		$data['account']	=	$this->get_user_account();
+		$data['param'] 		= 	$this->arr;
+		$data['siswa']		=	$this->my_where('siswa', ['idkelas_fk'=>$_POST['idkelas']])->result_array();
+		$data['kelas']		=	$this->my_where('kelas', ['id_kelas'=>$_POST['idkelas']])->row_array();
+		$this->my_view(['role/admin/page/siswa/mutasi/get_siswa'],$data);		
+	}
+
+	function get_kelas_tujuan_mutasi()
+	{
+		$data['account']	=	$this->get_user_account();
+		$data['param'] 		= 	$this->arr;
+		$data['kelas']		=	$this->my_where('kelas', ['id_kelas'=>$_POST['idkelas']])->row_array();
+		$data['siswa']		=	$this->my_where('siswa', ['idkelas_fk'=>$_POST['idkelas']])->result_array();
+		$this->my_view(['role/admin/page/siswa/mutasi/get_kelas_tujuan'],$data);	
+	}
+
+	function proses_pindah()
+	{
+		$kelas_asal = $this->my_where("kelas", ['id_kelas'=>$_POST['idkelas_asal']])->row_array();
+		$kelas_tujuan = $this->my_where("kelas", ['id_kelas'=>$_POST['idkelas_tujuan']])->row_array();
+		$id_siswa = $_POST['idsiswa_fk'];
+
+		$this->save_data("pindah_kelas", [
+			'idsiswa_fk' => $id_siswa,
+			'idkelas_before' => $_POST['idkelas_asal'],
+			'idkelas_after' => $_POST['idkelas_tujuan'],
+		]);
+		$this->my_update("siswa", [
+			'idkelas_fk' => $_POST['idkelas_tujuan'],
+			'idjurusan_fk' => $kelas_tujuan['idjurusan_fk']
+		],[
+			'id_siswa'=>$id_siswa
+		]);
+	}
 }
