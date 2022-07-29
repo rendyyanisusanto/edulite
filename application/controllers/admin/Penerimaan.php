@@ -71,6 +71,11 @@ class Penerimaan extends MY_Controller {
 		}
 		$this->my_view(['role/admin/page/penerimaan/setting_tanggungan_siswa/contentform'],$data);
 	}
+	function modal_setting_all_class(){
+		$data['jenis_penerimaan'] 	= 	$this->my_where('jenis_penerimaan', [])->result_array();
+		$data['kelas']				=	$this->my_where('kelas', ['id_kelas'=>$_POST['idkelas']])->row_array();
+		$this->my_view(['role/admin/page/penerimaan/setting_tanggungan_siswa/contentformallclass'],$data);
+	}
 	public function get_siswa()
 	{
 		$searchTerm = $this->input->post('searchTerm');
@@ -229,6 +234,68 @@ class Penerimaan extends MY_Controller {
 
 		}
 		echo json_encode($_POST);
+	}
+	function save_tanggungan_kelas(){
+		$siswa = $this->my_where("siswa", ['idkelas_fk'=>$_POST['id_kelas']])->result_array();
+		$i = 0;
+		foreach ($siswa as $value_siswa) {
+			foreach ($_POST['data'] as $key => $value) {
+				$get_tanggungan = $this->my_where('tanggungan_siswa', [
+					'idsiswa_fk' 			=>  $value_siswa['id_siswa'],
+					'idjenispenerimaan_fk'	=>	$value['id_jenis_penerimaan'],
+				]);
+
+				if ($get_tanggungan->num_rows() == 0) {
+					$inv = rand(1,9999999);
+					$data = [
+						'idsiswa_fk' 			=>  $value_siswa['id_siswa'],
+						'idjenispenerimaan_fk'	=>	$value['id_jenis_penerimaan'],
+						'jumlah'				=>	$value['jumlah'],
+						'invoice'				=>	$inv
+					];
+					if($this->save_data('tanggungan_siswa', $data)){
+						/*
+						tunai
+							Piutang 			20000	0
+							Pendapatan			0		20000
+						*/
+
+						$get_penerimaan			=	$this->my_where('v_jenis_penerimaan', ['id_jenis_penerimaan'=>$value['id_jenis_penerimaan']])->row_array();
+						$tanggungan 			=	$this->my_where('tanggungan_siswa', $data)->row_array();
+						$siswa 					=	$this->my_where('siswa', ['id_siswa'=>$value_siswa['id_siswa']])->row_array();
+						$rand_jurnal 			= rand(1,9999999);
+						$component_jurnal 		= [
+											[
+												'akun'			=>	$get_penerimaan['piutang'],
+												'debit'			=>	(($get_penerimaan['snpiutang'] == 'D') ? $value['jumlah'] : 0),
+												'kredit'		=>	(($get_penerimaan['snpiutang'] == 'K') ? $value['jumlah'] : 0),
+											],
+											[
+												'akun'			=>	$get_penerimaan['pendapatan'],
+												'debit'			=>	(($get_penerimaan['snpendapatan'] == 'D') ? $value['jumlah'] : 0),
+												'kredit'		=>	(($get_penerimaan['snpendapatan'] == 'K') ? $value['jumlah'] : 0),
+											]
+									];
+						
+						$data_jurnal 			= [
+									'ref'			=>	$rand_jurnal,
+									'keterangan'	=>	'Pendataan pembayaran tanggungan '.$get_penerimaan['nama'].' siswa a/n '.$siswa['nama'],
+									'table'			=>	'tanggungan',
+									'idtable_fk' 	=>	$tanggungan['id_tanggungan_siswa'],
+									'referensi'		=> $component_jurnal
+								];
+						if (!empty($data_jurnal)) {
+							$this->save_my_jurnal($data_jurnal);	
+						}	
+					}
+				}
+				
+			}
+			if ($i == 10) {
+				sleep(1);
+				$i=0;
+			}
+		}
 	}
 	public function datatable()
 	{

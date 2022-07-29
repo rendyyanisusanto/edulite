@@ -26,7 +26,7 @@
       <li class="nav-item-divider"><hr></li>
       <li><a href="Penerimaan/setting_tanggungan_siswa" class="app-item">Setting Tanggungan Siswa</a></li>
       <li><a href="Histori_tanggungan_siswa/get_data" class="app-item">Histori Tanggungan Siswa</a></li>
-      <li><a href="Penerimaan/setting_tanggungan_siswa" class="app-item">Pengaturan Lain</a></li>
+      <!-- <li><a href="Penerimaan/setting_tanggungan_siswa" class="app-item">Pengaturan Lain</a></li> -->
     </ul>
   </li>
   
@@ -124,9 +124,9 @@
     <li>
       <a href="#"><i class="icon-user-check"></i> <span>Kenaikan dan Kelulusan</span></a>
       <ul>
-        <li><a href="Siswa/mutasi" class="app-item">Mutasi Siswa</a></li>
-        <li><a href="Siswa/kenaikan" class="app-item">Kenaikan Kelas</a></li>
-        <li><a href="Siswa/kelulusan" class="app-item">Kelulusan Kelas</a></li>
+        <li><a href="Siswa/mutasi" class="app-item">Pindah Kelas</a></li>
+        <!-- <li><a href="Siswa/kenaikan" class="app-item">Kenaikan Kelas</a></li> -->
+        <!-- <li><a href="Siswa/kelulusan" class="app-item">Kelulusan Kelas</a></li> -->
       </ul>
     </li>
     <li>

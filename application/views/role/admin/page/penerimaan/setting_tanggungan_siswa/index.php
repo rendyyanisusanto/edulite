@@ -16,9 +16,9 @@
 <div class="row">
 	<div class="col-md-12">
 		<div class="panel panel-body">
-			<!-- <button class="btn btn-success btn-add-kelas">Setting 1 kelas</button>
-			<button class="btn btn-primary btn-add-kelas"><i class=""></i>Setting Semua Siswa</button> -->
-			<!-- <hr> -->
+			<button type="button" class="btn btn-success btn-add-kelas">Setting 1 kelas</button>
+			<!-- <button type="button" class="btn btn-primary btn-add-kelas"><i class=""></i>Setting Semua Siswa</button> -->
+			<hr>
 			<div class="data"></div>
 		</div>
 	</div>

@@ -17,18 +17,29 @@
 	});
 	$(document).on('submit', '#app-tanggungan', function(e){
 			e.stopImmediatePropagation();
-
+            blockui($('.modal'));
 			send_ajax($(this).attr('action'), $(this).serialize()).then(function(data){
+            	unblockui($('.modal'));
 				toastr.success("data berhasil ditambahkan");
-
 				$('.modal').modal('toggle');
-
 				get_data();
-			})
-
+			});
 			return false;
 		});
 	$('.idkelas').on('change', function(e){
 		get_data();
-	})
+		$('.btn-add-kelas').text("Setting " + $( ".idkelas option:selected" ).text());
+	});
+	$('.btn-add-kelas').on('click', function(e){
+		if ($('.idkelas').val()!=='') {
+			send_ajax('Penerimaan/modal_setting_all_class', {idkelas:$('.idkelas').val()}).then(function(data){
+				$('.modal').modal('toggle');	
+
+				$('.contentform').html(data)
+			});
+		}else{
+			toastr.error("Pilih kelas terlebih dahulu");
+		}
+		
+	});
 </script>

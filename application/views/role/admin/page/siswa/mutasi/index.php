@@ -25,9 +25,13 @@
 </div>
 <div class="row">
 	<div class="col-md-6">
-		<div class="panel panel-body kelas_asal"></div>
+		<div class="panel panel-body kelas_asal">
+			<div class="alert alert-info"><b>Info</b> : Pilih kelas asal</div>
+		</div>
 	</div>
 	<div class="col-md-6">
-		<div class="panel panel-body kelas_tujuan"></div>
+		<div class="panel panel-body kelas_tujuan">
+			<div class="alert alert-info"><b>Info</b> : Pilih kelas tujuan</div>
+		</div>
 	</div>
 </div>
