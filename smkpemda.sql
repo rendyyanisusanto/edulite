@@ -11,7 +11,7 @@
  Target Server Version : 100138
  File Encoding         : 65001
 
- Date: 28/07/2022 08:10:01
+ Date: 29/07/2022 08:39:55
 */
 
 SET NAMES utf8mb4;
@@ -1429,7 +1429,7 @@ CREATE TABLE `jurnal_umum`  (
   `idtable_fk` int(11) NULL DEFAULT NULL,
   `create_at` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_jurnal_umum`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 33 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 103 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of jurnal_umum
@@ -1466,6 +1466,76 @@ INSERT INTO `jurnal_umum` VALUES (29, '6074511', 4, 150000, 0, 'Pendataan pembay
 INSERT INTO `jurnal_umum` VALUES (30, '6074511', 19, 0, 150000, 'Pendataan pembayaran tanggungan Prakerin siswa a/n ALBET DIMAS NURFENDI PRATAMA', 'tanggungan', 13, '2022-07-27 07:53:08');
 INSERT INTO `jurnal_umum` VALUES (31, '6182932', 1, 150000, 0, 'Pembayaran tanggungan Prakerin siswa a/n ALBET DIMAS NURFENDI PRATAMA', 'penerimaan', 3, '2022-07-27 07:54:00');
 INSERT INTO `jurnal_umum` VALUES (32, '6182932', 4, 0, 150000, 'Pembayaran tanggungan Prakerin siswa a/n ALBET DIMAS NURFENDI PRATAMA', 'penerimaan', 3, '2022-07-27 07:54:00');
+INSERT INTO `jurnal_umum` VALUES (33, '1824773', 4, 100000, 0, 'Pendataan pembayaran tanggungan SPP siswa a/n ADE NOVIYANTI', 'tanggungan', 14, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (34, '1824773', 20, 0, 100000, 'Pendataan pembayaran tanggungan SPP siswa a/n ADE NOVIYANTI', 'tanggungan', 14, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (35, '6833688', 4, 110000, 0, 'Pendataan pembayaran tanggungan DSP siswa a/n ADE NOVIYANTI', 'tanggungan', 15, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (36, '6833688', 19, 0, 110000, 'Pendataan pembayaran tanggungan DSP siswa a/n ADE NOVIYANTI', 'tanggungan', 15, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (37, '1827327', 4, 120000, 0, 'Pendataan pembayaran tanggungan Seragam siswa a/n ADE NOVIYANTI', 'tanggungan', 16, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (38, '1827327', 20, 0, 120000, 'Pendataan pembayaran tanggungan Seragam siswa a/n ADE NOVIYANTI', 'tanggungan', 16, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (39, '893921', 4, 130000, 0, 'Pendataan pembayaran tanggungan Study Tour siswa a/n ADE NOVIYANTI', 'tanggungan', 17, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (40, '893921', 21, 0, 130000, 'Pendataan pembayaran tanggungan Study Tour siswa a/n ADE NOVIYANTI', 'tanggungan', 17, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (41, '2964187', 4, 140000, 0, 'Pendataan pembayaran tanggungan Prakerin siswa a/n ADE NOVIYANTI', 'tanggungan', 18, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (42, '2964187', 19, 0, 140000, 'Pendataan pembayaran tanggungan Prakerin siswa a/n ADE NOVIYANTI', 'tanggungan', 18, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (43, '1320097', 4, 100000, 0, 'Pendataan pembayaran tanggungan SPP siswa a/n AHMAD SYAFARONI', 'tanggungan', 19, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (44, '1320097', 20, 0, 100000, 'Pendataan pembayaran tanggungan SPP siswa a/n AHMAD SYAFARONI', 'tanggungan', 19, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (45, '7412584', 4, 110000, 0, 'Pendataan pembayaran tanggungan DSP siswa a/n AHMAD SYAFARONI', 'tanggungan', 20, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (46, '7412584', 19, 0, 110000, 'Pendataan pembayaran tanggungan DSP siswa a/n AHMAD SYAFARONI', 'tanggungan', 20, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (47, '9241324', 4, 120000, 0, 'Pendataan pembayaran tanggungan Seragam siswa a/n AHMAD SYAFARONI', 'tanggungan', 21, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (48, '9241324', 20, 0, 120000, 'Pendataan pembayaran tanggungan Seragam siswa a/n AHMAD SYAFARONI', 'tanggungan', 21, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (49, '3563845', 4, 130000, 0, 'Pendataan pembayaran tanggungan Study Tour siswa a/n AHMAD SYAFARONI', 'tanggungan', 22, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (50, '3563845', 21, 0, 130000, 'Pendataan pembayaran tanggungan Study Tour siswa a/n AHMAD SYAFARONI', 'tanggungan', 22, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (51, '5703438', 4, 140000, 0, 'Pendataan pembayaran tanggungan Prakerin siswa a/n AHMAD SYAFARONI', 'tanggungan', 23, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (52, '5703438', 19, 0, 140000, 'Pendataan pembayaran tanggungan Prakerin siswa a/n AHMAD SYAFARONI', 'tanggungan', 23, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (53, '8514235', 4, 100000, 0, 'Pendataan pembayaran tanggungan SPP siswa a/n GALING DWI MUSTOMO', 'tanggungan', 24, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (54, '8514235', 20, 0, 100000, 'Pendataan pembayaran tanggungan SPP siswa a/n GALING DWI MUSTOMO', 'tanggungan', 24, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (55, '3413035', 4, 110000, 0, 'Pendataan pembayaran tanggungan DSP siswa a/n GALING DWI MUSTOMO', 'tanggungan', 25, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (56, '3413035', 19, 0, 110000, 'Pendataan pembayaran tanggungan DSP siswa a/n GALING DWI MUSTOMO', 'tanggungan', 25, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (57, '4296492', 4, 120000, 0, 'Pendataan pembayaran tanggungan Seragam siswa a/n GALING DWI MUSTOMO', 'tanggungan', 26, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (58, '4296492', 20, 0, 120000, 'Pendataan pembayaran tanggungan Seragam siswa a/n GALING DWI MUSTOMO', 'tanggungan', 26, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (59, '2876487', 4, 130000, 0, 'Pendataan pembayaran tanggungan Study Tour siswa a/n GALING DWI MUSTOMO', 'tanggungan', 27, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (60, '2876487', 21, 0, 130000, 'Pendataan pembayaran tanggungan Study Tour siswa a/n GALING DWI MUSTOMO', 'tanggungan', 27, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (61, '3025674', 4, 140000, 0, 'Pendataan pembayaran tanggungan Prakerin siswa a/n GALING DWI MUSTOMO', 'tanggungan', 28, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (62, '3025674', 19, 0, 140000, 'Pendataan pembayaran tanggungan Prakerin siswa a/n GALING DWI MUSTOMO', 'tanggungan', 28, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (63, '6767635', 4, 100000, 0, 'Pendataan pembayaran tanggungan SPP siswa a/n MUHAKIM AJI PAMBUDI', 'tanggungan', 29, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (64, '6767635', 20, 0, 100000, 'Pendataan pembayaran tanggungan SPP siswa a/n MUHAKIM AJI PAMBUDI', 'tanggungan', 29, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (65, '9752926', 4, 110000, 0, 'Pendataan pembayaran tanggungan DSP siswa a/n MUHAKIM AJI PAMBUDI', 'tanggungan', 30, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (66, '9752926', 19, 0, 110000, 'Pendataan pembayaran tanggungan DSP siswa a/n MUHAKIM AJI PAMBUDI', 'tanggungan', 30, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (67, '3866329', 4, 120000, 0, 'Pendataan pembayaran tanggungan Seragam siswa a/n MUHAKIM AJI PAMBUDI', 'tanggungan', 31, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (68, '3866329', 20, 0, 120000, 'Pendataan pembayaran tanggungan Seragam siswa a/n MUHAKIM AJI PAMBUDI', 'tanggungan', 31, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (69, '1331069', 4, 130000, 0, 'Pendataan pembayaran tanggungan Study Tour siswa a/n MUHAKIM AJI PAMBUDI', 'tanggungan', 32, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (70, '1331069', 21, 0, 130000, 'Pendataan pembayaran tanggungan Study Tour siswa a/n MUHAKIM AJI PAMBUDI', 'tanggungan', 32, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (71, '8870252', 4, 140000, 0, 'Pendataan pembayaran tanggungan Prakerin siswa a/n MUHAKIM AJI PAMBUDI', 'tanggungan', 33, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (72, '8870252', 19, 0, 140000, 'Pendataan pembayaran tanggungan Prakerin siswa a/n MUHAKIM AJI PAMBUDI', 'tanggungan', 33, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (73, '3229339', 4, 100000, 0, 'Pendataan pembayaran tanggungan SPP siswa a/n OKTAVIA RAMADHANI NURJANAH', 'tanggungan', 34, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (74, '3229339', 20, 0, 100000, 'Pendataan pembayaran tanggungan SPP siswa a/n OKTAVIA RAMADHANI NURJANAH', 'tanggungan', 34, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (75, '58513', 4, 110000, 0, 'Pendataan pembayaran tanggungan DSP siswa a/n OKTAVIA RAMADHANI NURJANAH', 'tanggungan', 35, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (76, '58513', 19, 0, 110000, 'Pendataan pembayaran tanggungan DSP siswa a/n OKTAVIA RAMADHANI NURJANAH', 'tanggungan', 35, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (77, '9974442', 4, 120000, 0, 'Pendataan pembayaran tanggungan Seragam siswa a/n OKTAVIA RAMADHANI NURJANAH', 'tanggungan', 36, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (78, '9974442', 20, 0, 120000, 'Pendataan pembayaran tanggungan Seragam siswa a/n OKTAVIA RAMADHANI NURJANAH', 'tanggungan', 36, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (79, '6396942', 4, 130000, 0, 'Pendataan pembayaran tanggungan Study Tour siswa a/n OKTAVIA RAMADHANI NURJANAH', 'tanggungan', 37, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (80, '6396942', 21, 0, 130000, 'Pendataan pembayaran tanggungan Study Tour siswa a/n OKTAVIA RAMADHANI NURJANAH', 'tanggungan', 37, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (81, '3377039', 4, 140000, 0, 'Pendataan pembayaran tanggungan Prakerin siswa a/n OKTAVIA RAMADHANI NURJANAH', 'tanggungan', 38, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (82, '3377039', 19, 0, 140000, 'Pendataan pembayaran tanggungan Prakerin siswa a/n OKTAVIA RAMADHANI NURJANAH', 'tanggungan', 38, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (83, '659112', 4, 100000, 0, 'Pendataan pembayaran tanggungan SPP siswa a/n RANJANA SEPTIAN RAHMAN', 'tanggungan', 39, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (84, '659112', 20, 0, 100000, 'Pendataan pembayaran tanggungan SPP siswa a/n RANJANA SEPTIAN RAHMAN', 'tanggungan', 39, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (85, '7493958', 4, 110000, 0, 'Pendataan pembayaran tanggungan DSP siswa a/n RANJANA SEPTIAN RAHMAN', 'tanggungan', 40, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (86, '7493958', 19, 0, 110000, 'Pendataan pembayaran tanggungan DSP siswa a/n RANJANA SEPTIAN RAHMAN', 'tanggungan', 40, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (87, '7776669', 4, 120000, 0, 'Pendataan pembayaran tanggungan Seragam siswa a/n RANJANA SEPTIAN RAHMAN', 'tanggungan', 41, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (88, '7776669', 20, 0, 120000, 'Pendataan pembayaran tanggungan Seragam siswa a/n RANJANA SEPTIAN RAHMAN', 'tanggungan', 41, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (89, '367965', 4, 130000, 0, 'Pendataan pembayaran tanggungan Study Tour siswa a/n RANJANA SEPTIAN RAHMAN', 'tanggungan', 42, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (90, '367965', 21, 0, 130000, 'Pendataan pembayaran tanggungan Study Tour siswa a/n RANJANA SEPTIAN RAHMAN', 'tanggungan', 42, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (91, '6197509', 4, 140000, 0, 'Pendataan pembayaran tanggungan Prakerin siswa a/n RANJANA SEPTIAN RAHMAN', 'tanggungan', 43, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (92, '6197509', 19, 0, 140000, 'Pendataan pembayaran tanggungan Prakerin siswa a/n RANJANA SEPTIAN RAHMAN', 'tanggungan', 43, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (93, '2525338', 4, 100000, 0, 'Pendataan pembayaran tanggungan SPP siswa a/n GALING DWI MUSTOMO', 'tanggungan', 44, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (94, '2525338', 20, 0, 100000, 'Pendataan pembayaran tanggungan SPP siswa a/n GALING DWI MUSTOMO', 'tanggungan', 44, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (95, '6726668', 4, 110000, 0, 'Pendataan pembayaran tanggungan DSP siswa a/n GALING DWI MUSTOMO', 'tanggungan', 45, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (96, '6726668', 19, 0, 110000, 'Pendataan pembayaran tanggungan DSP siswa a/n GALING DWI MUSTOMO', 'tanggungan', 45, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (97, '9982929', 4, 120000, 0, 'Pendataan pembayaran tanggungan Seragam siswa a/n GALING DWI MUSTOMO', 'tanggungan', 46, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (98, '9982929', 20, 0, 120000, 'Pendataan pembayaran tanggungan Seragam siswa a/n GALING DWI MUSTOMO', 'tanggungan', 46, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (99, '2189024', 4, 130000, 0, 'Pendataan pembayaran tanggungan Study Tour siswa a/n GALING DWI MUSTOMO', 'tanggungan', 47, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (100, '2189024', 21, 0, 130000, 'Pendataan pembayaran tanggungan Study Tour siswa a/n GALING DWI MUSTOMO', 'tanggungan', 47, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (101, '2402584', 4, 140000, 0, 'Pendataan pembayaran tanggungan Prakerin siswa a/n GALING DWI MUSTOMO', 'tanggungan', 48, '2022-07-29 08:25:27');
+INSERT INTO `jurnal_umum` VALUES (102, '2402584', 19, 0, 140000, 'Pendataan pembayaran tanggungan Prakerin siswa a/n GALING DWI MUSTOMO', 'tanggungan', 48, '2022-07-29 08:25:27');
 
 -- ----------------------------
 -- Table structure for jurusan
@@ -2972,7 +3042,7 @@ CREATE TABLE `tanggungan_siswa`  (
   `jumlah` double(255, 0) NULL DEFAULT NULL,
   `invoice` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_tanggungan_siswa`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 14 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 49 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tanggungan_siswa
@@ -2990,6 +3060,41 @@ INSERT INTO `tanggungan_siswa` VALUES (10, 594, 2, 5000000, '6983296');
 INSERT INTO `tanggungan_siswa` VALUES (11, 594, 3, 200000, '2141688');
 INSERT INTO `tanggungan_siswa` VALUES (12, 594, 4, 200000, '9163190');
 INSERT INTO `tanggungan_siswa` VALUES (13, 594, 5, 150000, '4215950');
+INSERT INTO `tanggungan_siswa` VALUES (14, 670, 1, 100000, '9201722');
+INSERT INTO `tanggungan_siswa` VALUES (15, 670, 2, 110000, '3922965');
+INSERT INTO `tanggungan_siswa` VALUES (16, 670, 3, 120000, '6520304');
+INSERT INTO `tanggungan_siswa` VALUES (17, 670, 4, 130000, '1412712');
+INSERT INTO `tanggungan_siswa` VALUES (18, 670, 5, 140000, '555949');
+INSERT INTO `tanggungan_siswa` VALUES (19, 671, 1, 100000, '3308568');
+INSERT INTO `tanggungan_siswa` VALUES (20, 671, 2, 110000, '3763810');
+INSERT INTO `tanggungan_siswa` VALUES (21, 671, 3, 120000, '6385423');
+INSERT INTO `tanggungan_siswa` VALUES (22, 671, 4, 130000, '8613372');
+INSERT INTO `tanggungan_siswa` VALUES (23, 671, 5, 140000, '4789721');
+INSERT INTO `tanggungan_siswa` VALUES (24, 672, 1, 100000, '7996833');
+INSERT INTO `tanggungan_siswa` VALUES (25, 672, 2, 110000, '3653897');
+INSERT INTO `tanggungan_siswa` VALUES (26, 672, 3, 120000, '3023358');
+INSERT INTO `tanggungan_siswa` VALUES (27, 672, 4, 130000, '5585699');
+INSERT INTO `tanggungan_siswa` VALUES (28, 672, 5, 140000, '2047940');
+INSERT INTO `tanggungan_siswa` VALUES (29, 673, 1, 100000, '1955578');
+INSERT INTO `tanggungan_siswa` VALUES (30, 673, 2, 110000, '7712370');
+INSERT INTO `tanggungan_siswa` VALUES (31, 673, 3, 120000, '9248825');
+INSERT INTO `tanggungan_siswa` VALUES (32, 673, 4, 130000, '2634831');
+INSERT INTO `tanggungan_siswa` VALUES (33, 673, 5, 140000, '2278308');
+INSERT INTO `tanggungan_siswa` VALUES (34, 674, 1, 100000, '3377440');
+INSERT INTO `tanggungan_siswa` VALUES (35, 674, 2, 110000, '5196230');
+INSERT INTO `tanggungan_siswa` VALUES (36, 674, 3, 120000, '7261596');
+INSERT INTO `tanggungan_siswa` VALUES (37, 674, 4, 130000, '7883059');
+INSERT INTO `tanggungan_siswa` VALUES (38, 674, 5, 140000, '4737071');
+INSERT INTO `tanggungan_siswa` VALUES (39, 675, 1, 100000, '6077230');
+INSERT INTO `tanggungan_siswa` VALUES (40, 675, 2, 110000, '5817166');
+INSERT INTO `tanggungan_siswa` VALUES (41, 675, 3, 120000, '3912563');
+INSERT INTO `tanggungan_siswa` VALUES (42, 675, 4, 130000, '8054522');
+INSERT INTO `tanggungan_siswa` VALUES (43, 675, 5, 140000, '7427516');
+INSERT INTO `tanggungan_siswa` VALUES (44, 676, 1, 100000, '7283395');
+INSERT INTO `tanggungan_siswa` VALUES (45, 676, 2, 110000, '2353407');
+INSERT INTO `tanggungan_siswa` VALUES (46, 676, 3, 120000, '6724227');
+INSERT INTO `tanggungan_siswa` VALUES (47, 676, 4, 130000, '6278426');
+INSERT INTO `tanggungan_siswa` VALUES (48, 676, 5, 140000, '4770120');
 
 -- ----------------------------
 -- Table structure for task
@@ -3108,7 +3213,7 @@ CREATE TABLE `users`  (
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES (1, '127.0.0.1', 'admin', '$2y$08$mxSDKMRKsKM3IwN6NPoB6.3pQqymDu4ZtGAMIzpw.ppcie3MJM9ty', '', 'hello@admin.com', '', NULL, NULL, NULL, 1268889823, 1658921668, 1, 'admin', 'Yani', 'ADMIN', '085894632505', '3c8f6f36f650d5ce07803470b4f4d4ff.jpg', NULL, NULL, NULL, NULL);
+INSERT INTO `users` VALUES (1, '127.0.0.1', 'admin', '$2y$08$mxSDKMRKsKM3IwN6NPoB6.3pQqymDu4ZtGAMIzpw.ppcie3MJM9ty', '', 'hello@admin.com', '', NULL, NULL, NULL, 1268889823, 1659052449, 1, 'admin', 'Yani', 'ADMIN', '085894632505', '3c8f6f36f650d5ce07803470b4f4d4ff.jpg', NULL, NULL, NULL, NULL);
 INSERT INTO `users` VALUES (3, '127.0.0.1', 'rendy', '$2y$08$OElO/1onJ/wrgc5vc7OfyuYmt6dyEUZVW4oEOzkDJtNoVUXs89.RO', '', 'hello@admin.com', '', NULL, NULL, NULL, 1268889823, 1641785033, 1, 'Rendy', 'Yani', 'ADMIN', '085894632505', '3c8f6f36f650d5ce07803470b4f4d4ff.jpg', 2, 'guru', 1, NULL);
 INSERT INTO `users` VALUES (4, '::1', 'is_225661', '$2y$08$9/o/Xc/XlDYWWaWORf7R1OQcZj2.Ng/NB1LecegoOb7NAhGRZibyK', NULL, 'is_225661@gmail.com', NULL, NULL, NULL, NULL, 1658406770, 1658406781, 1, 'ALISSANDRI GARNASIS WIBERTH J, S.Pd', NULL, NULL, NULL, NULL, 1, 'guru', NULL, NULL);
 INSERT INTO `users` VALUES (5, '::1', 'is_26892', '$2y$08$4v5eMLBatWi5p9WjLFBnb.qGR9G0Y1wHOCl4WqNZYNvk/TfqmCvT6', NULL, 'is_26892@gmail.com', NULL, NULL, NULL, NULL, 1658884212, 1658884216, 1, 'ALISSANDRI GARNASIS WIBERTH J, S.Pd', NULL, NULL, NULL, NULL, 1, 'guru', NULL, NULL);
