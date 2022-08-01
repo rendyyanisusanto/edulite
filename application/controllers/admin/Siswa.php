@@ -32,6 +32,15 @@ class siswa extends MY_Controller {
 		$data['kelas']		=	$this->my_where('kelas', [])->result_array();
 		$this->my_view(['role/admin/page/siswa/mutasi/index','role/admin/page/siswa/mutasi/js'],$data);
 	}
+	public function kenaikan()
+	{
+		$data['account']	=	$this->get_user_account();
+		$data['param'] 		= 	$this->arr;
+		$data['tingkat']		=	$this->my_where('tingkat', [])->result_array();
+		$data['jurusan']		=	$this->my_where('jurusan', [])->result_array();
+		$data['kelas']		=	$this->my_where('kelas', [])->result_array();
+		$this->my_view(['role/admin/page/siswa/kenaikan/index','role/admin/page/siswa/kenaikan/js'],$data);
+	}
 
 	public function import_page()
 	{
@@ -451,10 +460,6 @@ class siswa extends MY_Controller {
 		}else{
 			$send 	= "<code>Tidak ada data</code>";
 		}
-		
-		
-		
-
 		echo $send;
 	}
 
@@ -592,6 +597,7 @@ class siswa extends MY_Controller {
 			'idsiswa_fk' => $id_siswa,
 			'idkelas_before' => $_POST['idkelas_asal'],
 			'idkelas_after' => $_POST['idkelas_tujuan'],
+			'keterangan'	=>	$_POST['alasan']
 		]);
 		$this->my_update("siswa", [
 			'idkelas_fk' => $_POST['idkelas_tujuan'],
@@ -599,5 +605,68 @@ class siswa extends MY_Controller {
 		],[
 			'id_siswa'=>$id_siswa
 		]);
+	}
+
+	function proses_naik_kelas()
+	{
+		$kelas_asal = $this->my_where("kelas", ['id_kelas'=>$_POST['idkelas_asal']])->row_array();
+		$kelas_tujuan = $this->my_where("kelas", ['id_kelas'=>$_POST['idkelas_tujuan']])->row_array();
+		$id_siswa = $_POST['idsiswa_fk'];
+
+		$this->save_data("log_kelas_siswa", [
+			'idsiswa_fk' 			=> $id_siswa,
+			'idkelasbefore_fk' 		=> $_POST['idkelas_asal'],
+			'idkelasafter_fk' 		=> $_POST['idkelas_tujuan'],
+			'keterangan'	=>	'',
+			'status'		=>	'NAIK KELAS'
+		]);
+		$this->my_update("siswa", [
+			'idkelas_fk' => $_POST['idkelas_tujuan'],
+			'idjurusan_fk' => $kelas_tujuan['idjurusan_fk']
+		],[
+			'id_siswa'=>$id_siswa
+		]);
+	}
+
+	function get_kelas_kenaikan()
+	{
+		$id 		= (isset($_POST['id_tingkat'])) ? $_POST['id_tingkat'] : 0;
+		$id_jurusan 	= (isset($_POST['id_jurusan'])) ? $_POST['id_jurusan'] : '';
+		$get 		= $this->my_where('kelas', ['idtingkat_fk'=>$id, 'idjurusan_fk'=>$id_jurusan]);
+		$send 		= "";
+		if ($get->num_rows() > 0) {
+			$get = $get->result_array();
+
+			$send = '<select data-placeholder="Pilih Kelas" name="id_kelas" required class="select select_class">';
+			$send .= '<option value="">Pilih Kelas</option>';
+			foreach ($get as $key => $value) {
+				$send.='<option value="'.$value['id_kelas'].'">'.$value['kelas'].'</option>';
+			}
+			$send .='</select>';
+			$send .= "<script>$('.select').select2();</script>";
+		}else{
+			$send 	= "<code>Tidak ada data</code>";
+		}
+		echo $send;
+	}
+	function get_kelas_kenaikan_next()
+	{
+		$id 		= (isset($_POST['id_tingkat'])) ? ($_POST['id_tingkat'] + 1) : 0;
+		$id_jurusan 	= (isset($_POST['id_jurusan'])) ? $_POST['id_jurusan'] : '';
+		$get 		= $this->my_where('kelas', ['idtingkat_fk'=>$id, 'idjurusan_fk'=>$id_jurusan]);
+		$send 		= "";
+		if ($get->num_rows() > 0) {
+			$get = $get->result_array();
+			$send = '<select data-placeholder="Pilih Kelas" name="id_kelas" required class="select select_class_tujuan">';
+			$send .= '<option value="">Pilih Kelas</option>';
+			foreach ($get as $key => $value) {
+				$send.='<option value="'.$value['id_kelas'].'">'.$value['kelas'].'</option>';
+			}
+			$send .='</select>';
+			$send .= "<script>$('.select').select2();</script>";
+		}else{
+			$send 	= "<code>Tidak ada data</code>";
+		}
+		echo $send;
 	}
 }

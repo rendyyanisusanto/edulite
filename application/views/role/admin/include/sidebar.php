@@ -125,8 +125,8 @@
       <a href="#"><i class="icon-user-check"></i> <span>Kenaikan dan Kelulusan</span></a>
       <ul>
         <li><a href="Siswa/mutasi" class="app-item">Pindah Kelas</a></li>
-        <!-- <li><a href="Siswa/kenaikan" class="app-item">Kenaikan Kelas</a></li> -->
-        <!-- <li><a href="Siswa/kelulusan" class="app-item">Kelulusan Kelas</a></li> -->
+        <li><a href="Siswa/kenaikan" class="app-item">Kenaikan Kelas</a></li>
+        <li><a href="Siswa/kelulusan" class="app-item">Kelulusan Kelas</a></li>
       </ul>
     </li>
     <li>

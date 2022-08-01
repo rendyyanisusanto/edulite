@@ -30,12 +30,13 @@
 		e.stopImmediatePropagation()
 		if ($('.select_class_tujuan').val() !== "") {
 			if ($('.select_class').val() !== $('.select_class_tujuan').val()) {
-				if (confirm("Apakah anda yakin memindahkan siswa "+ $(this).data("nama") +" dari kelas "+$(this).data("kelas") + " ke Kelas "+$( ".select_class_tujuan option:selected" ).text()) == true) {
+				if (confirm("Apakah anda yakin memindahkan siswa "+ $(this).data("nama") +" dari kelas "+$(this).data("kelas") + " ke Kelas "+$( ".select_class_tujuan option:selected" ).text() +" dengan Alasan "+$('.alasan'+$(this).data("id")).val()) == true) {
 			  		
 			  		send_ajax("Siswa/proses_pindah",{
-			  			idkelas_asal : $('.select_class').val(),
-			  			idkelas_tujuan : $('.select_class_tujuan').val(),
-			  			idsiswa_fk	: $(this).data("id")
+			  			idkelas_asal 	: $('.select_class').val(),
+			  			idkelas_tujuan 	: $('.select_class_tujuan').val(),
+			  			idsiswa_fk		: $(this).data("id"),
+			  			alasan			: $('.alasan'+$(this).data("id")).val()
 			  		}).then(function(data){
 
             			toastr.success('Data berhasil ditambahkan, Refresh untuk melihat perubahan');
