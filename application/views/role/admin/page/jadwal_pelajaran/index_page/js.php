@@ -24,6 +24,8 @@
 
 		get_jadwal();
 	});
+
+	
 	function get_jadwal()
 	{
 		blockui($('.panel-head'));

@@ -19,8 +19,8 @@
     <ul>
       <li><a href="coa/get_data" class="app-item">Chart of Account</a></li>
       <li><a href="Jenis_penerimaan/get_data" class="app-item">Jenis Tanggungan Siswa</a></li>
-      <!-- <li><a href="Penerimaan/add_data" class="app-item">Tambah Transaksi Tanggungan Siswa</a></li> -->
-      <li><a href="Penerimaan/get_data" class="app-item">Transaksi Tanggungan Siswa</a></li>
+      <!-- <li><a href="Transaksi_tanggungan_siswa/get_data" class="app-item">Transaksi Tanggungan Siswa</a></li> -->
+      <li><a href="Penerimaan/get_data" class="app-item">Transaksi Tanggungan per Item</a></li>
       <li><a href="Pemasukan_lain/get_data" class="app-item">Transaksi Penerimaan Lain</a></li>
       <li><a href="Pengeluaran_lain/get_data" class="app-item">Transaksi Pengeluaran</a></li>
       <li class="nav-item-divider"><hr></li>

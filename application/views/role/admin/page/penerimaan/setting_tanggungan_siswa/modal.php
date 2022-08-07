@@ -11,7 +11,7 @@
 	<div class="panel panel-body">
 		<?php if (!empty($data_get['jenis_penerimaan'])){ ?>
 			
-		<div class="alert alert-danger"><b>Warning ! </b>Tanggungan siswa belum di atur. untuk melanjutkan proses pembayaran tanggungan silahkan setting terlebih dahulu tanggungan siswa.</div>
+		<div class="alert alert-danger"><b>Warning ! </b>Menambah atau mengubah nominal pada jenis tanggungan siswa akan berpengaruh ke jurnal keuangan.</div>
 		<div class="contentform"></div>
 
 		<?php }else{ ?>

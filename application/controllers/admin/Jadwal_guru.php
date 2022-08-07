@@ -39,6 +39,7 @@ class jadwal_guru extends MY_Controller {
 				<div class="panel panel-body">
 					<div class="col-md-12">
 						<div class="panel panel-body">
+							<center><h4 style="font-weight:bold;">Jadwal '.$guru['nama'].'</h4></center>
 							<fieldset>
 								<div class="form-group">
 				                  <label class="col-lg-3 control-label">Hari</label>
@@ -55,13 +56,13 @@ class jadwal_guru extends MY_Controller {
 				                <div class="form-group">
 				                  <label class="col-lg-3 control-label">Jam Mulai</label>
 				                  <div class="col-lg-9">
-				                  	<input type="number" class="form-control jam_mulai" name="jam_mulai">
+				                  	<input type="time" class="form-control jam_mulai" name="jam_mulai">
 				                  </div>
 				                </div>
 				                <div class="form-group">
 				                  <label class="col-lg-3 control-label">Jam Selesai</label>
 				                  <div class="col-lg-9">
-				                  	<input type="number" class="form-control jam_selesai" name="jam_selesai">
+				                  	<input type="time" class="form-control jam_selesai" name="jam_selesai">
 				                  </div>
 				                </div>
 				            </fieldset>
@@ -82,6 +83,9 @@ class jadwal_guru extends MY_Controller {
 						<tbody>
 		';
 		$no = 0;
+		if (count($jadwal_guru) > 0) {
+			
+		
 			foreach ($jadwal_guru as $key => $value) {
 				$hari = $this->my_where('hari', ['id_hari'=>$value['idhari_fk']])->row_array();
 					$send .= '<tr>
@@ -93,6 +97,9 @@ class jadwal_guru extends MY_Controller {
 									<td><button type="button" data-id="'.$value['id_jadwal_guru'].'" class="btn btn-xxs btn-hps btn-danger"><i class="icon-trash"></i></button>
 								</tr>';
 			}
+		}else{
+			$send .= '<tr><td colspan="5"><center><b>Tidak ada data</b></center></td></tr>';
+		}
 		$send .= '
 						</tbody>
 						</div>
