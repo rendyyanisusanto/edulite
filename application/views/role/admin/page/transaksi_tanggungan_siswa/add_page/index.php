@@ -54,7 +54,7 @@
 				</thead>
 				<tbody>
 					<tr class="empty-data">
-						<td colspan="3"><center><b>Data masih kosong</b></center></td>
+						<td colspan="5"><center><b>Data masih kosong</b></center></td>
 					</tr>
 				</tbody>
 			</table>

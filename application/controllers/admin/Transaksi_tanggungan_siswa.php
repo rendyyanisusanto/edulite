@@ -59,36 +59,96 @@ class transaksi_tanggungan_siswa extends MY_Controller {
 
 	public function simpan_data()
 	{	
-		// $foto = $this->save_media([
-		// 	'path'	=>	"./include/media/transaksi_tanggungan_siswa/",
-		// 	'filename' => 'foto',
-		// ]);
-		
 		$data = [
-			'trans_code' 	=>$_POST['trans_code'],
-			'tanggal'		=>$_POST['tanggal'],
-			'keterangan'	=>$_POST['keterangan'],
-			'jenis'			=>	$_POST['jenis'],
-			'jenis_kas'			=>	$_POST['jenis_kas'],
-			'total'			=>	$_POST['total']
+			'idsiswa_fk' 	=>	$_POST['idsiswa_fk'],
+			'tanggal'		=>	$_POST['tanggal'],
+			'invoice'		=>	$_POST['invoice'],
+			'catatan'		=>	$_POST['catatan'],
+			'jumlah'		=>	$_POST['total']
 		];
-		if ($this->save_data('transaksi_tanggungan_siswa', $data)) {
-			$transaksi_tanggungan_siswa = $this->my_where('transaksi_tanggungan_siswa', $data)->row_array();
 
+		if ($this->save_data('transaksi_tanggungan_siswa', $data)) {
+			$datatrs = $this->my_where('transaksi_tanggungan_siswa', $data)->row_array();
 			foreach ($_POST['detail'] as $key => $value) {
-				$data_detail = [
-					'idpengeluaranlain_fk'	=>	$transaksi_tanggungan_siswa['id_transaksi_tanggungan_siswa'],
-					'keterangan'			=>	$value['keterangan'],
-					'jumlah'				=>	$value['jumlah']
+				$detail = [
+					'idtransaksitanggungansiswa_fk'	=>	$datatrs['id_transaksi_tanggungan_siswa'],
+					'idjenispenerimaan_fk'			=>	$value['idjenispenerimaan_fk'],
+					'jumlah'						=>	$value['jumlah']
 				];
-				$this->save_data('detail_transaksi_tanggungan_siswa', $data_detail);
+
+				$this->save_data('detail_transaksi_tanggungan_siswa', $detail);
+
+				$this->add_penerimaan($_POST, $data);
+
 			}
-		}	else 	{
-			echo "error";
 		}
+
 		echo json_encode($_POST);
 	}
 
+	function add_penerimaan($post, $data_value)
+	{
+		$diskon = 0 ;
+
+		$data = [
+			'idsiswa_fk'					=> $post['idsiswa_fk'],
+			'idjenispenerimaan_fk'			=> $data_value['idjenispenerimaan_fk'],
+			'metode_pembayaran'				=> 0,
+			'tanggal'						=> $post['tanggal'],
+			'catatan'						=> $post['catatan'],
+			'jumlah'						=> $data_value['jumlah'],
+			'invoice'						=> $post['invoice'],
+			'diskon'						=> 0
+		];
+
+		if ($this->save_data('penerimaan', $data)) {
+			
+			/*
+			tunai
+				Kas 				20000	0
+				Pendapatan			0		20000
+			
+			utang
+				kas 				10000	0
+				piutang				10000	0
+			*/
+
+				$get_penerimaan			=	$this->my_where('v_jenis_penerimaan', ['id_jenis_penerimaan'=>$data_value['idjenispenerimaan_fk']])->row_array();
+				$penerimaan 			=	$this->my_where('penerimaan', $data)->row_array();
+				$siswa 					=	$this->my_where('siswa', ['id_siswa'=>$post['idsiswa_fk']])->row_array();
+				$rand_jurnal 			= rand(1,9999999);
+				$component_jurnal 		= [
+									[
+										'akun'			=>	$get_penerimaan['kas'],
+										'debit'			=>	(($diskon > 0) ? ($data_value['jumlah']-$diskon) : $data_value['jumlah']),
+										'kredit'		=>	0
+									],
+									[
+										'akun'			=>	$get_penerimaan['piutang'],
+										'debit'			=>	0 ,
+										'kredit'		=>	$data_value['jumlah'],
+									]
+							];
+				if ($diskon > 0) {
+					$component_jurnal[] = [
+										'akun'			=>	$get_penerimaan['diskon'],
+										'debit'			=>	$diskon ,
+										'kredit'		=>	0,
+					];
+				}
+				$data_jurnal 			= [
+							'ref'			=>	$rand_jurnal,
+							'keterangan'	=>	'Pembayaran tanggungan '.$get_penerimaan['nama'].' siswa a/n '.$siswa['nama'],
+							'table'			=>	'penerimaan',
+							'idtable_fk' 	=>	$penerimaan['id_penerimaan'],
+							'referensi'		=> $component_jurnal
+						];
+				if (!empty($data_jurnal)) {
+					$this->save_my_jurnal($data_jurnal);	
+				}	
+
+		}
+	}
 
 	/*
 		EDIT DATA
@@ -100,9 +160,9 @@ class transaksi_tanggungan_siswa extends MY_Controller {
 			'trans_code' 	=>$_POST['trans_code'],
 			'tanggal'		=>$_POST['tanggal'],
 			'keterangan'	=>$_POST['keterangan'],
-			'jenis'			=>	$_POST['jenis'],
-			'jenis_kas'			=>	$_POST['jenis_kas'],
-			'total'			=>	$_POST['total']
+			'jenis'			=>$_POST['jenis'],
+			'jenis_kas'		=>$_POST['jenis_kas'],
+			'total'			=>$_POST['total']
 		];
 		if ($this->my_update('transaksi_tanggungan_siswa', $data, ['id_transaksi_tanggungan_siswa' => $_POST['id_transaksi_tanggungan_siswa']])) {
 			$this->db->delete('detail_transaksi_tanggungan_siswa', ['idpengeluaranlain_fk' => $_POST['id_transaksi_tanggungan_siswa']]);

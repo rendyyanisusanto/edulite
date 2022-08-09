@@ -18,6 +18,10 @@
 	           cache: true
 	         }
 	     });
+	$('.siswa').on('change', function(e){
+		e.stopImmediatePropagation()
+		clear_table();
+	})
 	function add_cart(kode) {
 		// 
 		send_ajax('Transaksi_tanggungan_siswa/add_row', {id:$('.siswa').val()}).then(function(data){
@@ -92,12 +96,25 @@
 		hitung();
 		count_tr();
 	})
-	$(document).on('click','.select-tanggungan', function(e){
+	function clear_table()
+	{
+		$('.tbl-cart tbody tr').remove();
+		count_tr();
+	}
+	$(document).on('change click','.select-tanggungan', function(e){
 		e.stopImmediatePropagation();
 		var rowid = $(this).data('row');
 
 		$('.total'+rowid).val($(this).find(':selected').attr('data-jumlah'));
 		$('.sisa'+rowid).val($(this).find(':selected').attr('data-sisa'));
+		if ($(this).find(':selected').attr('data-sisa') == "0") {
+
+			$('.txtjml'+rowid).attr('disabled', 'true');
+			$('.txtjml'+rowid).attr('placeholder', 'Sudah lunas...');
+		}else{
+			$('.txtjml'+rowid).removeAttr('disabled');
+			$('.txtjml'+rowid).attr('placeholder', '');
+		}
 
 	})
 </script>
