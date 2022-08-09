@@ -78,7 +78,7 @@ class transaksi_tanggungan_siswa extends MY_Controller {
 
 				$this->save_data('detail_transaksi_tanggungan_siswa', $detail);
 
-				$this->add_penerimaan($_POST, $data);
+				$this->add_penerimaan($_POST, $value);
 
 			}
 		}
@@ -93,7 +93,7 @@ class transaksi_tanggungan_siswa extends MY_Controller {
 		$data = [
 			'idsiswa_fk'					=> $post['idsiswa_fk'],
 			'idjenispenerimaan_fk'			=> $data_value['idjenispenerimaan_fk'],
-			'metode_pembayaran'				=> 0,
+			'metode_pembayaran'				=> $post['metode_pembayaran'],
 			'tanggal'						=> $post['tanggal'],
 			'catatan'						=> $post['catatan'],
 			'jumlah'						=> $data_value['jumlah'],
@@ -293,11 +293,12 @@ class transaksi_tanggungan_siswa extends MY_Controller {
         foreach ($list as $field) {
             $no++;
             $row        =   array();
-
+            $siswa 		=	$this->my_where("siswa", ['id_siswa'=>$field['idsiswa_fk']])->row_array();
             $row[]      =   '<input type="checkbox" name="get-check" value="'.$field['id_transaksi_tanggungan_siswa'].'"></input>';
             $row[]		=	date_format(date_create($field['tanggal']), 'd-M-Y');
             $row[]		=	'<b class="text-danger">'.$field['invoice'].'</b>';
-            $row[]		=	$field['catatan'];
+            $row[]		=	"Pembayaran tanggungan siswa a/n ".$siswa['nama'];
+            $row[]		=	'<b class="text-success">Rp. '.number_format($field['jumlah'] , 0, '.','.').'</b>';
             $row[]		=	'<button class="btn btn-success btn-dtl btn-sm" data-id="'.$field['id_transaksi_tanggungan_siswa'].'" type="button" ><i class="icon-eye"></i></button>';
             $data[]     =   $row;
         }

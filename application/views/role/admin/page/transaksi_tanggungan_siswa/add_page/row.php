@@ -10,5 +10,5 @@
 	</td>
 	<td width="10%"><input type="text" disabled="" class="form-control total<?php echo $data_get['rand']; ?>"></td>
 	<td width="10%"><input type="text" disabled="" class="form-control sisa<?php echo $data_get['rand']; ?>"></td>
-	<td><input type="number" name="detail[<?php echo $data_get['rand']; ?>][jumlah]" class="form-control txtjml<?php echo $data_get['rand']; ?> inp-jml" ></td>
+	<td><input type="number" required="" name="detail[<?php echo $data_get['rand']; ?>][jumlah]" class="form-control txtjml<?php echo $data_get['rand']; ?> inp-jml" ></td>
 </tr>

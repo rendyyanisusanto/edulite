@@ -30,6 +30,16 @@
 				</select>
               </div>
             </div>
+            <div class="form-group">
+              <label class="col-lg-3 control-label">Metode Pembayaran:</label>
+              <div class="col-lg-4">
+                <select name="metode_pembayaran" class="form-control">
+                	<option value="TUNAI">Tunai</option>
+                	<option value="TRANSFER">Transfer</option>
+				</select>
+              </div>
+            </div>
+
 
 		</div>
 	</div>
