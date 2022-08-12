@@ -21,12 +21,13 @@ class users extends MY_Controller {
 	*/
 	public function get_data()
 	{
-		$this->display_view();
+		// $this->display_view();
 
 		/*if you need custom page*/
 
-		// $data['account']	=	$this->get_user_account();
-		// $this->my_view(['role/admin/page/siswa/index','role/admin/page/siswa/js_siswa'],$data);
+		$data['param'] 		= 	$this->arr;
+		$data['account']	=	$this->get_user_account();
+		$this->my_view(['role/admin/page/users/index_page/index','role/admin/page/users/index_page/js'],$data);
 
 	}
 
@@ -39,17 +40,15 @@ class users extends MY_Controller {
 		$this->my_view(['role/admin/page/users/add_page/index','role/admin/page/users/add_page/js'],$data);
 	}
 
-	public function edit_page()
+	public function edit_page($id)
 	{
-		$dt = $this->arr;
-		if (isset($_POST['send_data'])) {
-			$data_edit=[];
-				$data_set = $this->my_where($dt['table'],[$dt['id']=>$_POST['send_data']])->row_array();
-				foreach ($dt['column_order'] as $keycolumn => $value_column) {
-					$data_edit[$value_column]	= $data_set[$value_column];
-				}
-			$data['data_edit']	=	$data_edit;
-			$this->display_view('edit_page', $data);
+		if (isset($id)) {
+				$data['param'] 		= 	$this->arr;
+				$data['users'] 		= 	$this->my_where('users',['id'=>$id])->row_array();
+				$data['id']			=	$id;
+				$data['groups']				=	$this->my_where('groups',[])->result_array();
+				$data['users_groups']		=	$this->my_where('users_groups', ['user_id'=>$id])->row_array();
+				$this->my_view(['role/admin/page/users/edit_page/index','role/admin/page/users/edit_page/js'],$data);
 		} else {
 			$this->get_data();
 		}
@@ -82,16 +81,17 @@ class users extends MY_Controller {
 
 	function update_data()
 	{
-		$dt = $this->arr;
-		$data=[];
-		foreach ($dt['column'] as $key => $value) {
-			$data[$value] = $_POST[$value];
+		$id = $_POST['id'];
+		$data = [
+				'username'	=>	$_POST['username'],
+				'first_name'	=>	$_POST['identity_name'],
+			];
+		if (!empty($_POST['password'])) {
+				$data['password']	=	$_POST['password'];
 		}
-		if ($this->my_update($dt['table'],$data,[$dt['id']=>$_POST[$dt['id']]])) {
-			$this->get_data();
-		}	else 	{
-			echo "error";
-		}
+			$this->ion_auth->update($id, $data);
+
+			$this->my_update('users_groups', ['group_id'	=>	$_POST['hak_akses']], ['user_id'=>$id]);
 	}
 
 	/*
