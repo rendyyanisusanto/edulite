@@ -3,12 +3,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		use PhpOffice\PhpSpreadsheet\Spreadsheet;
 		use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
-class alumni extends MY_Controller {
+class Tanggungan_alumni extends MY_Controller {
 	
 
 	public $arr = [
-			'title'				=>	'Halaman alumni',
-			'table'				=>	'alumni',
+			'title'				=>	'Halaman Tanggungan Alumni',
+			'table'				=>	'Tanggungan_alumni',
 			'column'			=>	['nama','tahun_lulus','no_hp','alamat','jurusan'],
 			'column_order'		=>	[ 'id_alumni','nama','tahun_lulus','no_hp','alamat','jurusan'],
 			'column_search'		=>	[ 'id_alumni','nama','tahun_lulus','no_hp','alamat','jurusan'],
@@ -23,14 +23,14 @@ class alumni extends MY_Controller {
 	{
 		$data['account']	=	$this->get_user_account();
 		$data['param'] 		= 	$this->arr;
-		$this->my_view(['role/admin/page/alumni/index_page/index','role/admin/page/alumni/index_page/js'],$data);
+		$this->my_view(['role/admin/page/tanggungan_alumni/index_page/index','role/admin/page/tanggungan_alumni/index_page/js'],$data);
 	}
 
 	public function add_page()
 	{
 		$data['account']	=	$this->get_user_account();
 		$data['param'] 		= 	$this->arr;
-		$this->my_view(['role/admin/page/alumni/add_page/index','role/admin/page/alumni/add_page/js'],$data);
+		$this->my_view(['role/admin/page/tanggungan_alumni/add_page/index','role/admin/page/tanggungan_alumni/add_page/js'],$data);
 	}
 
 	public function edit_page($id)
@@ -51,21 +51,44 @@ class alumni extends MY_Controller {
 
 	public function simpan_data()
 	{	
+
+		$trans_code = rand(0,99999).rand(0,99999);
 		$data = [
-			'nama' 				=> $_POST['nama'],
-			'tahun_lulus' 		=> $_POST['tahun_lulus'],
-			'alamat' 			=> $_POST['alamat'],
-			'no_hp' 			=> $_POST['no_hp'],
-			'kuliah' 			=> $_POST['kuliah'],
-			'longitude'			=> $_POST['lng'],
-			'latitude'			=> $_POST['lat'],
-			'menikah' 			=> $_POST['menikah'],
-			'bekerja' 			=> $_POST['bekerja'],
-			'pesantren' 		=> $_POST['pesantren'],
+			'idalumni_fk' 				=> $_POST['id_alumni'],
+			'keterangan' 				=> $_POST['keterangan'],
+			'jumlah' 					=> $_POST['jumlah'],
+			'trans_code' 				=> $trans_code,
+			'idjenispenerimaan_fk' 		=> $_POST['idjenispenerimaan_fk']
 		];
 
-		if ($this->save_data('alumni', $data)) {
-			echo "Success";
+		if ($this->save_data('tanggungan_alumni', $data)) {
+						$get_penerimaan			=	$this->my_where('v_jenis_penerimaan', ['id_jenis_penerimaan'=>$_POST['idjenispenerimaan_fk']])->row_array();
+						$tanggungan 			=	$this->my_where('tanggungan_alumni', $data)->row_array();
+						$alumni 					=	$this->my_where('alumni', ['id_alumni'=>$_POST['id_alumni']])->row_array();
+						$rand_jurnal 			= rand(1,9999999);
+						$component_jurnal 		= [
+											[
+												'akun'			=>	$get_penerimaan['piutang'],
+												'debit'			=>	(($get_penerimaan['snpiutang'] == 'D') ? $_POST['jumlah'] : 0),
+												'kredit'		=>	(($get_penerimaan['snpiutang'] == 'K') ? $_POST['jumlah'] : 0),
+											],
+											[
+												'akun'			=>	$get_penerimaan['pendapatan'],
+												'debit'			=>	(($get_penerimaan['snpendapatan'] == 'D') ? $_POST['jumlah'] : 0),
+												'kredit'		=>	(($get_penerimaan['snpendapatan'] == 'K') ? $_POST['jumlah'] : 0),
+											]
+									];
+						
+						$data_jurnal 			= [
+									'ref'			=>	$rand_jurnal,
+									'keterangan'	=>	'Pendataan Tanggungan Alumni a/n '.$alumni['nama'],
+									'table'			=>	'tanggungan_alumni',
+									'idtable_fk' 	=>	$tanggungan['id_tanggungan_alumni'],
+									'referensi'		=> $component_jurnal
+								];
+						if (!empty($data_jurnal)) {
+							$this->save_my_jurnal($data_jurnal);	
+						}	
 		}
 	}
 
@@ -198,23 +221,37 @@ class alumni extends MY_Controller {
 
 	public function datatable()
 	{
+		$this->arr['table']	=	"alumni";
         $_POST['frm']   =   $this->arr;
         $list           =   $this->mod_datatable->get_datatables();
         $data           =   array();
         $no             =   $_POST['start'];
         foreach ($list as $field) {
             $no++;
-            $row        =   array();
-            $row[]      =   '<input type="checkbox" name="get-check" value="'.$field['id_alumni'].'"></input>';
-            $row[]		=	!empty($field['nama']) ? strtoupper($field['nama']) : '-';
-            $row[]		=	!empty($field['tahun_lulus']) ? $field['tahun_lulus'] : '-';
-            $row[]		=	!empty($field['alamat']) ? $field['alamat'] : '-';
-            $row[]		=	!empty($field['no_hp']) ? $field['no_hp'] : '-';
-            $row[]		=	'<b>Kuliah </b> : '.(!empty($field['kuliah']) ? $field['kuliah'] : '-').'<br>'.
-            '<b>Menikah </b> : '.(!empty($field['menikah']) ? $field['menikah'] : '-').
-            '<br>'.'<b>Bekerja </b> : '.(!empty($field['bekerja']) ? $field['bekerja'] : '-');
-            $row[]		=	!empty($field['jurusan']) ? $field['jurusan'] : '-';
+			$total_tanggungan = 0;
+            
+            if (!empty($field['is_siswa_id'])) {
+				$tanggungan_siswa 				= 	$this->my_where('v_tanggungan_siswa', ['idsiswa_fk'=>$field['is_siswa_id']])->result_array();
 
+				foreach ($tanggungan_siswa as $value_penerimaan) {
+					$pembayaran = $this->db->select('sum(jumlah) as jml')->get_where('penerimaan', ['idsiswa_fk'=>$field['is_siswa_id'], 'idjenispenerimaan_fk'=>$value_penerimaan['id_jenis_penerimaan']])->row_array();
+					$tanggungan[]	=	[
+						'id_jenis_penerimaan'	=>	$value_penerimaan['id_jenis_penerimaan'],
+						'jumlah'				=>	$value_penerimaan['jumlah'],
+						'nama'					=>	$value_penerimaan['nama'],
+						'pembayaran'			=>	$pembayaran['jml']
+					];
+					$total_tanggungan += ($value_penerimaan['jumlah']-$pembayaran['jml']);
+				}
+            }
+
+            $tanggungan_alumni = $this->db->query('select sum(jumlah) as jml from tanggungan_alumni where idalumni_fk='.$field['id_alumni'])->row_array();
+            $total_tanggungan += ((!empty($tanggungan_alumni['jml'])) ? $tanggungan_alumni['jml'] : 0);
+
+            $row        =   array();
+            $row[]		=	!empty($field['nama']) ? strtoupper($field['nama']) : '-';
+            $row[]		=	'<b class="text-danger">Rp.'.number_format($total_tanggungan, 0, '.','.').'</b>';
+            $row[]      =   '<button class="btn btn-primary btn-xxs btn-proc" data-id="'.$field['id_alumni'].'"><i class="icon-eye"></i></button>';
             $data[]     =   $row;
         }
         $output = array(
@@ -227,5 +264,35 @@ class alumni extends MY_Controller {
         echo json_encode($output);
 	}
 	
-	
+	function content_panel(){
+		$data['alumni'] = $this->my_where('alumni', ['id_alumni'=>$_POST['id_alumni']])->row_array();
+		$status = 0;
+		$total_tanggungan = 0;
+		$tanggungan = [];
+		$data['tanggungan_siswa'] = [];
+
+		$data['jenis_penerimaan'] =	$this->my_where('jenis_penerimaan', [])->result_array();
+		$data['tanggungan_alumni'] = $this->my_where('tanggungan_alumni', ['idalumni_fk'=>$_POST['id_alumni']])->result_array();
+		if (!empty($data['alumni']['is_siswa_id'])) {
+				$tanggungan_siswa 				= 	$this->my_where('v_tanggungan_siswa', ['idsiswa_fk'=>$data['alumni']['is_siswa_id']])->result_array();
+
+				foreach ($tanggungan_siswa as $value_penerimaan) {
+					$pembayaran = $this->db->select('sum(jumlah) as jml')->get_where('penerimaan', ['idsiswa_fk'=>$data['alumni']['is_siswa_id'], 'idjenispenerimaan_fk'=>$value_penerimaan['id_jenis_penerimaan']])->row_array();
+					$tanggungan[]	=	[
+						'id_jenis_penerimaan'	=>	$value_penerimaan['id_jenis_penerimaan'],
+						'jumlah'				=>	$value_penerimaan['jumlah'],
+						'nama'					=>	$value_penerimaan['nama'],
+						'pembayaran'			=>	$pembayaran['jml']
+					];
+					$total_tanggungan += ($value_penerimaan['jumlah']-$pembayaran['jml']);
+				}
+
+				$data['tanggungan_siswa'] = $tanggungan;
+        }
+
+        // print_r($tanggungan_siswa);
+
+		$this->my_view(['role/admin/page/tanggungan_alumni/index_page/content_panel', 'role/admin/page/tanggungan_alumni/index_page/content_panel_alumni'],$data);
+
+	}
 }

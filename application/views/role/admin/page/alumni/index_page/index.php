@@ -30,6 +30,7 @@
               <th width="10%">No Hp</th>
               <th width="25%">Alamat</th>
               <th>Kegiatan</th>
+              <th width="25%">Jurusan</th>
             </tr>
           </thead>
         </table>

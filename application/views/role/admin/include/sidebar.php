@@ -35,8 +35,15 @@
     <ul>
       <li><a href="Buku_pemanggilan_siswa/get_data" class="app-item">Buku Pemanggilan Siswa</a></li>
       <li><a href="Pelanggaran_siswa/get_data" class="app-item">Kartu Kendali Siswa</a></li>
-      <li><a href="Alumni/get_data" class="app-item">Buku Alumni</a></li>
       <li><a href="Pelanggaran_siswa/poin_pelanggaran_setup" class="app-item">Point Pelanggaran</a></li>
+    </ul>
+  </li>
+
+  <li>
+    <a href="#"><i class="icon-notebook"></i> <span>Data Alumni</span></a>
+    <ul>
+      <li><a href="Alumni/get_data" class="app-item">Buku Alumni</a></li>
+      <li><a href="Tanggungan_alumni/get_data" class="app-item">Tanggungan Alumni</a></li>
     </ul>
   </li>
 

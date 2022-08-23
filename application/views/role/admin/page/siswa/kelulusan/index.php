@@ -22,12 +22,15 @@
 				<?php endforeach ?>
 			</select>
 			<br>
-			<label>Pilih Kelas Asal</label>
+			<label style="margin-top: 1%;"> Kelas Asal</label>
 			<div class="select_kelas">
 				<select class="select_class select" name="kelas">
 					<option value="">-- Pilih --</option>
 				</select>
 			</div>
+			<br>
+			<label>Tahun Lulus</label>
+			<input type="number" value="<?= date('Y') ?>" name="tahun_lulus" class="form-control tahun_lulus">
 		</div>
 	</div>
 	<div class="col-md-6">

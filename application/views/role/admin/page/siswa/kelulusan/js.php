@@ -43,12 +43,13 @@
 	}
 	$(document).on('click', '.btn-proc', function(e){
 		e.stopImmediatePropagation()
-		let conf = prompt("Apakah anda yakin akan meluluskan atas nama siswa "+ $(this).data("nama") +" dari kelas "+$(this).data("kelas") + ". Kelulusan kelas akan menghapus seluruh data siswa dalam sistem dan menjadikannya data alumni. ketik YAKIN untuk memprosesnya", "")
+		let conf = prompt("Apakah anda yakin akan meluluskan atas nama siswa "+ $(this).data("nama") +" dari kelas "+$(this).data("kelas") + " pada Tahun "+$('.tahun_lulus').val() + ". Kelulusan kelas akan menghapus seluruh data siswa dalam sistem dan menjadikannya data alumni. ketik YAKIN untuk memprosesnya", "")
 				if ( conf == "YAKIN" ) {
 			  		// alert();
 			  		send_ajax("Siswa/proses_alumni",{
 			  			idkelas_asal : $('.select_class').val(),
-			  			idsiswa_fk	: $(this).data("id")
+			  			idsiswa_fk	: $(this).data("id"),
+			  			tahun_lulus:$('.tahun_lulus').val()
 			  		}).then(function(data){
 
             			toastr.success('Data berhasil ditambahkan, Refresh untuk melihat perubahan');
@@ -56,5 +57,21 @@
 			  		});
 				} 
 			
+	});
+
+	$(document).on('click','.btn-all', function(e){
+		e.stopImmediatePropagation()
+		let conf = prompt("Apakah anda yakin akan meluluskan seluruh siswa dari kelas "+$(this).data("kelas") + " pada Tahun "+$('.tahun_lulus').val() + " . Kelulusan kelas akan menghapus seluruh data siswa dalam sistem dan menjadikannya data alumni. ketik YAKIN untuk memprosesnya", "")
+				if ( conf == "YAKIN" ) {
+			  		// alert();
+			  		send_ajax("Siswa/proses_alumni_kelas",{
+			  			idkelas_asal : $('.select_class').val(),
+			  			tahun_lulus:$('.tahun_lulus').val()
+			  		}).then(function(data){
+
+            			toastr.success('Berhasil meluluskan 1 kelas');
+			  			get_kelas();
+			  		});
+				} 
 	})
 </script>
