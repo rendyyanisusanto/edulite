@@ -58,24 +58,28 @@ class Tanggungan_alumni extends MY_Controller {
 			'keterangan' 				=> $_POST['keterangan'],
 			'jumlah' 					=> $_POST['jumlah'],
 			'trans_code' 				=> $trans_code,
-			'idjenispenerimaan_fk' 		=> $_POST['idjenispenerimaan_fk']
+			'kas'						=> $_POST['kas'],
+			'pendapatan'				=> $_POST['pendapatan'],
+			'diskon'					=> $_POST['diskon'],
+			'piutang' 					=> $_POST['piutang'] 		
 		];
 
 		if ($this->save_data('tanggungan_alumni', $data)) {
-						$get_penerimaan			=	$this->my_where('v_jenis_penerimaan', ['id_jenis_penerimaan'=>$_POST['idjenispenerimaan_fk']])->row_array();
+						$piutang			=	$this->my_where('akun', ['id_akun'=>$_POST['piutang']])->row_array();
+						$pendapatan			=	$this->my_where('akun', ['id_akun'=>$_POST['pendapatan']])->row_array();
 						$tanggungan 			=	$this->my_where('tanggungan_alumni', $data)->row_array();
 						$alumni 					=	$this->my_where('alumni', ['id_alumni'=>$_POST['id_alumni']])->row_array();
 						$rand_jurnal 			= rand(1,9999999);
 						$component_jurnal 		= [
 											[
-												'akun'			=>	$get_penerimaan['piutang'],
-												'debit'			=>	(($get_penerimaan['snpiutang'] == 'D') ? $_POST['jumlah'] : 0),
-												'kredit'		=>	(($get_penerimaan['snpiutang'] == 'K') ? $_POST['jumlah'] : 0),
+												'akun'			=>	$_POST['piutang'],
+												'debit'			=>	(($piutang['saldo_normal'] == 'D') ? $_POST['jumlah'] : 0),
+												'kredit'		=>	(($piutang['saldo_normal'] == 'K') ? $_POST['jumlah'] : 0),
 											],
 											[
-												'akun'			=>	$get_penerimaan['pendapatan'],
-												'debit'			=>	(($get_penerimaan['snpendapatan'] == 'D') ? $_POST['jumlah'] : 0),
-												'kredit'		=>	(($get_penerimaan['snpendapatan'] == 'K') ? $_POST['jumlah'] : 0),
+												'akun'			=>	$_POST['pendapatan'],
+												'debit'			=>	(($pendapatan['saldo_normal'] == 'D') ? $_POST['jumlah'] : 0),
+												'kredit'		=>	(($pendapatan['saldo_normal'] == 'K') ? $_POST['jumlah'] : 0),
 											]
 									];
 						
@@ -100,13 +104,15 @@ class Tanggungan_alumni extends MY_Controller {
 	function update_data()
 	{
 		$data = [
-			'kode_arsip' 	=> $_POST['kode_arsip'],
-			'pengirim' 		=> $_POST['pengirim'],
-			'tanggal_surat' => $_POST['tanggal_surat'],
-			'perihal' 		=> $_POST['perihal'],
-			'no_surat' 		=> $_POST['no_surat'],
+			'idalumni_fk' 				=> $_POST['id_alumni'],
+			'keterangan' 				=> $_POST['keterangan'],
+			'jumlah' 					=> $_POST['jumlah'],
+			'kas'						=> $_POST['kas'],
+			'pendapatan'				=> $_POST['pendapatan'],
+			'diskon'					=> $_POST['diskon'],
+			'piutang' 					=> $_POST['piutang'] 		
 		];
-		if ($this->my_update('alumni',$data,['id_alumni'=>$_POST['id_alumni']])) {
+		if ($this->my_update('tanggungan_alumni',$data,['id_tanggungan_alumni'=>$_POST['id']])) {
 			// print_r(((isset($foto)) ? $foto['file_name'] : $_POST['foto_before']));
 		}	else 	{
 			echo "error";
@@ -117,12 +123,10 @@ class Tanggungan_alumni extends MY_Controller {
 		DELETE DATA
 	*/
 
-	function hapus()
+	function delete_tanggungan()
 	{
-		$dt = $this->arr;
-		foreach ($_POST['data_get'] as $key => $value) {
-			$this->db->delete($dt['table'],[$dt['id']=>$value]);
-		}
+		$id = $_POST['id'];
+		$this->db->delete("tanggungan_alumni",["id_tanggungan_alumni"=>$id]);
 	}
 
 	/*
@@ -290,9 +294,14 @@ class Tanggungan_alumni extends MY_Controller {
 				$data['tanggungan_siswa'] = $tanggungan;
         }
 
+        $data['kas']		=	$this->my_where('akun', ['idindukakun_fk'=>1])->result_array();
+		$data['pendapatan']		=	$this->db->where('idindukakun_fk', 7)->or_where('idindukakun_fk', 8)->get('akun')->result_array();
+		$data['diskon']			=	$this->my_where('akun', ['idindukakun_fk'=>6])->result_array();
+		$data['piutang']		=	$this->my_where('akun', ['idindukakun_fk'=>1])->result_array();
+
         // print_r($tanggungan_siswa);
 
-		$this->my_view(['role/admin/page/tanggungan_alumni/index_page/content_panel', 'role/admin/page/tanggungan_alumni/index_page/content_panel_alumni'],$data);
+		$this->my_view(['role/admin/page/tanggungan_alumni/index_page/content_panel', 'role/admin/page/tanggungan_alumni/index_page/content_panel_alumni', 'role/admin/page/tanggungan_alumni/index_page/modal'],$data);
 
 	}
 }

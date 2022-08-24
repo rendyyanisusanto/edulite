@@ -18,8 +18,9 @@
     <a href="#"><i class="icon-coin-dollar"></i> <span>Keuangan</span></a>
     <ul>
       <li><a href="coa/get_data" class="app-item">Chart of Account</a></li>
-      <li><a href="Jenis_penerimaan/get_data" class="app-item">Jenis Tanggungan Siswa</a></li>
+      <li><a href="Jenis_penerimaan/get_data" class="app-item">Jenis Tanggungan</a></li>
       <li><a href="Transaksi_tanggungan_siswa/get_data" class="app-item">Transaksi Tanggungan Siswa</a></li>
+      <li><a href="Transaksi_tanggungan_alumni/get_data" class="app-item">Transaksi Tanggungan Alumni</a></li>
       <li><a href="Penerimaan/get_data" class="app-item">Transaksi Tanggungan per Item</a></li>
       <li><a href="Pemasukan_lain/get_data" class="app-item">Transaksi Penerimaan Lain</a></li>
       <li><a href="Pengeluaran_lain/get_data" class="app-item">Transaksi Pengeluaran</a></li>

@@ -6,7 +6,7 @@
             "order": [], 
              
             "ajax": {
-                "url": "<?php echo $data_get['param']['table'] ?>/datatable",
+                "url": "transaksi_tanggungan_alumni/datatable",
                 "type": "POST",
             },
  
@@ -20,6 +20,16 @@
     $('#filter_submit').on('click',function(){
         table.ajax.reload();
     });  
+    $(document).on('click', '.btn-dtl-pemasukan', function(e){
+        e.stopImmediatePropagation();
+        // alert(); 
+        send_ajax('transaksi_tanggungan_alumni/get_detail/'+$(this).data("id"),{} ).then( function(data){
+            $('.modal-panel').html(data);
+           $('.modal-title').text("Detail pemasukan")
+            $("#modal_animation").modal('toggle');
+        });
+        
+    })
     $("#del-btn").click(function(){
             var check = [];
             if ($("input[name='get-check']:checked").length==0) {
@@ -44,8 +54,6 @@
                         toastr.options.progressBar = true;
                         toastr.options.closeButton = true;
                         toastr.success('Data berhasil dihapus, Refresh untuk melihat perubahan');
-                        
-
                     },
                     error: function (jXHR, textStatus, errorThrown) {
                         alert(errorThrown);
@@ -107,88 +115,6 @@
                 set_content('<?php echo $data_get['param']['table'] ?>/cetak_page',{send_data:check});
             
     });
-
-    var id_alumni_var = 0;
-
-    $(document).on('click', '.btn-proc', function(e){
-        e.stopImmediatePropagation();
-
-        send_ajax('Tanggungan_alumni/content_panel',{id_alumni:$(this).data('id')}).then(function(data){
-            id_alumni_var = $(this).data('id')
-            $('.content-panel').html(data);
-        })
-    })
-    
-    $(document).on('submit', '#app-submit-modal', function(e){
-        e.stopImmediatePropagation();
-
-        send_ajax('Tanggungan_alumni/simpan_data', $(this).serialize()).then(function(data){
-            $('#modal_add_tanggungan').modal("toggle");
-
-            send_ajax('Tanggungan_alumni/content_panel',{id_alumni:$('.id_alumni').val()}).then(function(data){
-                table.ajax.reload();
-                $('.content-panel').html(data);
-            })
-        })
-
-        
-        return false;
-    })
-
-    $(document).on('submit', '#app-submit-update', function(e){
-        e.stopImmediatePropagation();
-
-        send_ajax('Tanggungan_alumni/update_data', $(this).serialize()).then(function(data){
-            $('#modal_edit_tanggungan').modal("toggle");
-
-            send_ajax('Tanggungan_alumni/content_panel',{id_alumni:$('.id_alumni').val()}).then(function(data){
-                table.ajax.reload();
-                $('.content-panel').html(data);
-            })
-        })
-
-        
-        return false;
-    })
-
-    $(document).on('click', '.btn-add-tanggungan', function(e){
-        e.stopImmediatePropagation();
-
-        $('#modal_add_tanggungan').modal("toggle");
-    })
-
-    $(document).on('click', '.btn-upd-tanggungan', function(e){
-        e.stopImmediatePropagation();
-        $(".id_tanggungan_alumni").val($(this).data('id'));
-        $(".keterangan").val($(this).data('keterangan'));
-        $(".jumlah").val($(this).data('jumlah'));
-        $(".kas").val($(this).data('kas')).change();
-        $(".diskon").val($(this).data('diskon')).change();
-        $(".pendapatan").val($(this).data('pendapatan')).change();
-        $(".piutang").val($(this).data('piutang')).change();
-        $('#modal_edit_tanggungan').modal("toggle");
-    })
-
     
 
-    $(document).on('click', '.btn-del-tanggungan', function(e){
-        var id_alumni = $(this).data("id");
-        if (confirm("Apakah anda yakin menghapus tanggungan - "+ $(this).data("text")) == true) {
-                    
-                    send_ajax("Tanggungan_alumni/delete_tanggungan",{
-                        id  : $(this).data("id")
-                    }).then(function(data){
-                        toastr.success('Data berhasil ditambahkan, Refresh untuk melihat perubahan');
-                        call_func(id_alumni);
-                    });
-       } 
-    })
-
-    function call_func(id_alumni)
-    {
-        send_ajax('Tanggungan_alumni/content_panel',{id_alumni:id_alumni}).then(function(data){
-                table.ajax.reload();
-                $('.content-panel').html(data);
-        })
-    }
 </script>
