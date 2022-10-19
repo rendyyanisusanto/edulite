@@ -43,22 +43,22 @@
 		<div class="row row-seamless btn-block-group">
 			<div class="col-xs-6">
 				<button type="button" class="btn btn-default btn-block btn-float btn-float-lg">
-				<i class="icon-firefox text-warning-600"></i>
-				<span>Firefox</span>
+				<i class="icon-stats-bars2 text-warning-600"></i>
+				<span>Statistik Sekolah</span>
 				</button>
 				<button type="button" class="btn btn-default btn-block btn-float btn-float-lg">
-				<i class="icon-chrome text-success-400"></i>
-				<span>Google Chrome</span>
+				<i class="icon-cash text-success-400"></i>
+				<span>Laporan Keuangan</span>
 				</button>
 			</div>
 			<div class="col-xs-6">
 				<button type="button" class="btn btn-default btn-block btn-float btn-float-lg">
-				<i class="icon-IE text-blue"></i>
-				<span>Internet Explorer</span>
+				<i class="icon-users text-blue"></i>
+				<span>Data Siswa</span>
 				</button>
 				<button type="button" class="btn btn-default btn-block btn-float btn-float-lg">
-				<i class="icon-opera text-danger-400"></i>
-				<span>Opera</span>
+				<i class="icon-user text-danger-400"></i>
+				<span>Presensi Guru</span>
 				</button>
 			</div>
 		</div>
