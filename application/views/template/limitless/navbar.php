@@ -3,7 +3,7 @@
 <div class="se-pre-con" style="display: none;"></div>
   <div class="navbar navbar-default header-highlight">
     <div class="navbar-header">
-      <a class="navbar-brand" style="color:white !important;" href="#">V-APP</a>
+      <a class="navbar-brand" style="color:white !important;" href="#"><?php echo $profil_website['nama_website'] ?></a>
 
       <ul class="nav navbar-nav visible-xs-block">
         <li><a data-toggle="collapse" data-target="#navbar-mobile"><i class="icon-tree5"></i></a></li>
