@@ -5,6 +5,7 @@
 		<div class="panel panel-body">
 			<fieldset>
 	            
+			<center><h3><b>Halaman Edit Surat Keluar</b></h3></center>
                 <input type="hidden"  name="id_surat_keluar" value="<?php echo $data_get['surat_keluar']['id_surat_keluar'] ?>">
 	            <div class="form-group">
 	              <label class="col-lg-3 control-label">Kode Arsip</label>
@@ -41,8 +42,10 @@
 	            <div class="form-group">
 	              <label class="col-lg-3 control-label">File Arsip (Jika ada):</label>
 	              <div class="col-lg-4">
-	                <input type="file" name="file_arsip" class="form-control" >
+	                <input type="file"  capture="user" accept="image/*" name="file_arsip" class="form-control" >
 	                <input type="hidden"  name="file_arsip_before" value="<?php echo $data_get['surat_keluar']['file_arsip'] ?>">
+	                <br>
+	              	<div class="alert alert-info"><b>Info : </b>Gunakan HP untuk mengambil gambar dengan kamera</div>
 	              </div>
 	              <div class="col-lg-4"><?php if (!empty($data_get['surat_keluar']['file_arsip'])): ?>
 	              	<a target="__blank" href="<?php echo base_url('include/media/arsip_surat_keluar/'.$data_get['surat_keluar']['file_arsip']) ?>">Download File Arsip</a>

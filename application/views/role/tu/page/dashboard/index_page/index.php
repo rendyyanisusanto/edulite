@@ -1,9 +1,65 @@
 
+<script src="<?php echo base_url('include/template/dashboard/') ?>js/plugins/visualization/echarts/echarts.min.js"></script>
 <div class="row">
 	<div class="alert alert-success">
 		<marquee>Hallo <b><?php echo $data_get['guru']['nama'] ?></b>, Selamat datang di aplikasi EDULITE milik SMK IT ASY SYADZILI. Hak akses anda saat ini adalah sebagai <b>TU dan Administrasi</b></marquee>
 	</div>
 </div>
+<div class="row">
+	<div class="col-sm-6 col-md-3" >
+	<div class="panel panel-body bg-blue-400 has-bg-image">
+		<div class="media no-margin">
+			<div class="media-body">
+				<h5 class="no-margin text-semibold pendapatan"><?= $data_get['total_pegawai'] ?></h5>
+				<span class="text-uppercase  text-muted">Jumlah Pegawai</span>
+			</div>
+			<div class="media-right media-middle">
+				<i class="icon-coin-dollar icon-3x text-white-400"></i>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="col-sm-6 col-md-3">
+	<div class="panel panel-body bg-blue-400 has-bg-image">
+		<div class="media no-margin">
+			<div class="media-body">
+				<h5 class="no-margin text-semibold"><?= $data_get['buku_tamu'] ?></h5>
+				<span class="text-uppercase text-size-mini text-muted">Tamu Hari ini</span>
+			</div>
+			<div class="media-right media-middle">
+				<i class="icon-wallet icon-3x text-white-400"></i>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="col-sm-6 col-md-3">
+	<div class="panel panel-body bg-danger-400 has-bg-image">
+		<div class="media no-margin">
+			<div class="media-body">
+				<h5 class="no-margin text-semibold"><?= $data_get['surat_masuk'] ?></h5>
+				<span class="text-uppercase text-size-mini text-muted">Surat Masuk Hari Ini</span>
+			</div>
+			<div class="media-right media-middle">
+				<i class="icon-users icon-3x text-white-400"></i>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="col-sm-6 col-md-3">
+	<div class="panel panel-body bg-danger-400 has-bg-image">
+		<div class="media no-margin">
+			<div class="media-body">
+				<h5 class="no-margin text-semibold"><?= $data_get['surat_keluar'] ?></h5>
+				<span class="text-uppercase text-size-mini text-muted">Surat Keluar Hari Ini</span>
+			</div>
+			<div class="media-right media-middle">
+				<i class="icon-user icon-3x text-white-400"></i>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+
 <div class="row">
 	<div class="col-md-4">
 		<div class="content-group">
@@ -50,22 +106,16 @@
 	<div class="col-md-8">
 		<div class="col-md-12">
 			<div class="panel panel-body" style="min-height: 350px;">
-				<b>Catatan Siswa Minggu Ini</b>
+				<b>Jumlah Tamu</b>
 
 				<br>
-
+				<div class="chart-container">
+					<div class="chart has-fixed-height" id="line_values"></div>
+				</div>
 				
 			
 			</div>
 
-		</div>
-		<div class="col-md-12">
-			<div class="panel panel-body">
-				<b>Peringkat Siswa dg Poin Pelanggaran Tertinggi</b>
-				<br>
-
-				
-			</div>
 		</div>
 	</div>
 </div>

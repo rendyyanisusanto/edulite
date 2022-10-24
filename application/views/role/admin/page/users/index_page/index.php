@@ -26,6 +26,11 @@
               <th>ID</th>
               <th>Username</th>
               <th>Name</th>
+              <th>Role</th>
+              <th>C</th>
+              <th>R</th>
+              <th>U</th>
+              <th>D</th>
             </tr>
           </thead>
         </table>

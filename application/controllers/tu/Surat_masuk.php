@@ -51,12 +51,17 @@ class surat_masuk extends MY_Controller {
 
 	public function simpan_data()
 	{	
+		$file_arsip = $this->save_media([
+			'path'	=>	"./include/media/arsip_surat_masuk/",
+			'filename' => 'file_arsip',
+		]);
 		$data = [
 			'kode_arsip' 	=> $_POST['kode_arsip'],
 			'pengirim' 		=> $_POST['pengirim'],
 			'tanggal_surat' => $_POST['tanggal_surat'],
 			'perihal' 		=> $_POST['perihal'],
 			'no_surat' 		=> $_POST['no_surat'],
+			'file_arsip'	=>	((isset($file_arsip)) ? $file_arsip['file_name'] : ''),
 		];
 
 		if ($this->save_data('surat_masuk', $data)) {
@@ -71,12 +76,17 @@ class surat_masuk extends MY_Controller {
 
 	function update_data()
 	{
+		$file_arsip = $this->save_media([
+			'path'	=>	"./include/media/arsip_surat_masuk/",
+			'filename' => 'file_arsip',
+		]);
 		$data = [
 			'kode_arsip' 	=> $_POST['kode_arsip'],
 			'pengirim' 		=> $_POST['pengirim'],
 			'tanggal_surat' => $_POST['tanggal_surat'],
 			'perihal' 		=> $_POST['perihal'],
 			'no_surat' 		=> $_POST['no_surat'],
+			'file_arsip'	=>	((isset($file_arsip)) ? $file_arsip['file_name'] : $_POST['file_arsip_before']),
 		];
 		if ($this->my_update('surat_masuk',$data,['id_surat_masuk'=>$_POST['id_surat_masuk']])) {
 			// print_r(((isset($foto)) ? $foto['file_name'] : $_POST['foto_before']));
@@ -206,6 +216,7 @@ class surat_masuk extends MY_Controller {
             $row[]		=	!empty($field['pengirim']) ? strtoupper($field['pengirim']) : '-';
             $row[]		=	!empty($field['perihal']) ? $field['perihal'] : '-';
             $row[]		=	!empty($field['no_surat']) ? $field['no_surat'] : '-';
+            $row[]		=	!empty($field['file_arsip']) ? '<a href="'.base_url('include/media/arsip_surat_masuk/'.$field['file_arsip']).'" target="__blank">Download Arsip</a>' : '-';
 
             $data[]     =   $row;
         }

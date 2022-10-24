@@ -78,6 +78,23 @@ class Auth extends MY_Controller
 				//if the login is successful
 				//redirect them back to the home page
 				$group_name=$this->ion_auth->get_users_groups()->row();
+
+				$data_modul = [];
+		   
+		        $user_modul = $this->db->get_where('user_modul', ['iduser_fk'=>$this->ion_auth->user()->row()->id])->result_array();
+		        if (!empty($user_modul)) {
+		        	foreach ($user_modul as $value) {
+		        	    // $modul = $this->db->where('modul', ['id_modul'=>$value['idmodul_fk']])->row_array();
+		        	    // $submodul = [];
+		        	    $data_modul[] = [
+		        	    	'modul'	=>	$this->db->get_where('modul', ['id_modul'=>$value['idmodul_fk']])->row_array(),
+		        	    	'submodul' => $this->db->get_where('submodul', ['idmodul_fk'=>$value['idmodul_fk']])->result_array(),
+		        	    ];
+		        	}	
+		        }
+		        
+
+				$this->session->set_userdata('modul', $data_modul);
 				$this->session->set_flashdata('message', $this->ion_auth->messages());
 				// if ($this->ion_auth->) {
 				// 	# code...

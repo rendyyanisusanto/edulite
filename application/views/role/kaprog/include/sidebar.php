@@ -31,7 +31,7 @@
     <ul>
       <li><a href="users/get_data" class="app-item">User</a></li>
       <li><a href="Profil_website/get_data" class="app-item">Role</a></li>
+    </ul>
   </li>
-  <li><a href="Media/get_data" class="app-item"><i class="icon-stack-picture"></i> <span>Media</span></a></li>
   <!-- /page kits -->
 </ul>

@@ -80,7 +80,7 @@ class profil_website extends MY_Controller {
 				'filename' => 'icon',
 			]);
 		}
-		if(is_uploaded_file($_FILES['img_about_us']['tmp_name'])) {
+		if(is_uploaded_file($_FILES['img_prof']['tmp_name'])) {
 			$img_prof = $this->save_media([
 				'path'	=>	"./include/setting_website/img_about_us/",
 				'filename' => 'img_prof',
@@ -111,7 +111,7 @@ class profil_website extends MY_Controller {
 		if(file_exists($_FILES['icon']['tmp_name']) || is_uploaded_file($_FILES['icon']['tmp_name'])) {
 				$data['icon'] = ((isset($icon)) ? $icon['file_name'] : '');
 		}
-		if(is_uploaded_file($_FILES['img_about_us']['tmp_name'])) {
+		if(is_uploaded_file($_FILES['img_prof']['tmp_name'])) {
 				$data['img_about_us'] = ((isset($img_prof)) ? $img_prof['file_name'] : '');
 		}
 

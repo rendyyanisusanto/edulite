@@ -67,6 +67,10 @@ class users extends MY_Controller {
 				'additional_data'	=>	[
 					'first_name'	=>	$_POST['identity_name'],
 					'table'			=>	$_POST['table'],
+					'c'			=>	((isset($_POST['c'])) ? 1 : 0),
+					'r'			=>	((isset($_POST['r'])) ? 1 : 0),
+					'u'			=>	((isset($_POST['u'])) ? 1 : 0),
+					'd'			=>	((isset($_POST['d'])) ? 1 : 0),
 					'anggota_id'	=>	$_POST['user']
 				],
 				'group'	=>	[$_POST['hak_akses']]
@@ -85,6 +89,10 @@ class users extends MY_Controller {
 		$data = [
 				'username'	=>	$_POST['username'],
 				'first_name'	=>	$_POST['identity_name'],
+					'c'			=>	((isset($_POST['c'])) ? 1 : 0),
+					'r'			=>	((isset($_POST['r'])) ? 1 : 0),
+					'u'			=>	((isset($_POST['u'])) ? 1 : 0),
+					'd'			=>	((isset($_POST['d'])) ? 1 : 0),
 			];
 		if (!empty($_POST['password'])) {
 				$data['password']	=	$_POST['password'];
@@ -116,7 +124,34 @@ class users extends MY_Controller {
 
 	public function datatable()
 	{
-        echo json_encode($this->call_datatable($this->arr));
+		$_POST['frm']   =   $this->arr;
+        $list           =   $this->mod_datatable->get_datatables();
+        $data           =   array();
+        $no             =   $_POST['start'];
+        foreach ($list as $field) {
+            $no++;
+            $row        =   array();
+            $users_groups 		=	$this->my_where("users_groups", ['user_id'=>$field['id']])->row_array();
+            $groups 			=	$this->my_where("groups", ['id'=>$users_groups['group_id']])->row_array();
+            $row[]      =   '<input type="checkbox" name="get-check" value="'.$field['id'].'"></input>';
+            $row[]      =   $field['anggota_id'];
+            $row[]		=	$field['username'];
+            $row[]		=	$field['first_name'];
+            $row[]		=	strtoupper($groups['name']);
+            $row[]		=	($field['c'] == 1) ? "<b class='text-success'>YES</b>" :"<b class='text-danger'>NO</b>";
+            $row[]		=	($field['r'] == 1) ? "<b class='text-success'>YES</b>" :"<b class='text-danger'>NO</b>";
+            $row[]		=	($field['u'] == 1) ? "<b class='text-success'>YES</b>" :"<b class='text-danger'>NO</b>";
+            $row[]		=	($field['d'] == 1) ? "<b class='text-success'>YES</b>" :"<b class='text-danger'>NO</b>";
+            $data[]     =   $row;
+        }
+        $output = array(
+            "draw" => $_POST['draw'],
+            "recordsTotal" => $this->mod_datatable->count_all(),
+            "recordsFiltered" => $this->mod_datatable->count_filtered(),
+            "data" => $data,
+        );
+
+        echo json_encode($output);
 	}
 
 	public function get_user()

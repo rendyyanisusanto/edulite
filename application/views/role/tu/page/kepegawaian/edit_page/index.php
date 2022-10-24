@@ -1,5 +1,5 @@
 
-  <script src="<?php echo base_url('include/template/limitless/')?>/global_assets/js/plugins/forms/selects/select2.min.js"></script>
+  <script src="<?php echo base_url('include/template/dashboard/')?>js/plugins/forms/selects/select2.min.js"></script>
 <form class="form-horizontal" action="kepegawaian/update_data" id="app-submit" method="POST">
   <div class="row">
     <div class="col-md-8">
@@ -22,6 +22,12 @@
               <label class="col-lg-6 control-label"><b>A. KETERANGAN PRIBADI</b></label>
             </div>
             <input type="hidden" name="id_guru" value="<?php echo $data_get['guru']['id_guru'] ?>">
+            <div class="form-group">
+              <label class="col-lg-3 control-label">Kode Pegawai:</label>
+              <div class="col-lg-6">
+                <input type="text" name="kode_pegawai" value="<?= (!empty($data_get['guru']['kode_pegawai'])) ? $data_get['guru']['kode_pegawai'] : 'G'.rand(0,999999); ?>" class="form-control"  placeholder="Input here......">
+              </div>
+            </div>
             <div class="form-group">
               <label class="col-lg-3 control-label">1. Nama:</label>
               <div class="col-lg-6">
@@ -451,7 +457,7 @@
         <div class="panel panel-flat">
         <div class="panel-body">
           <button type="submit" class="btn btn-block btn-success legitRipple">Simpan<i class="icon-floppy-disk position-right"></i></button>
-          <a href="<?php echo $data_get['param']['table'] ?>/get_data" class="btn btn-block app-item btn-danger legitRipple">Batal<i class="icon-close2 position-right"></i></a><br>
+          <a href="Kepegawaian/get_data" class="btn btn-block app-item btn-danger legitRipple">Batal<i class="icon-close2 position-right"></i></a><br>
         </div>
       </div>
       </div>

@@ -1,0 +1,42 @@
+<form class="form-horizontal" action="<?php echo $data_get['param']['table'] ?>/simpan_data" id="app-submit" method="POST">
+
+<div class="row">
+	<div class="col-md-12">
+		<div class="panel panel-body">
+
+			<center><h3><b>Halaman Tambah Sosialisasi</b></h3></center>
+			<fieldset>
+	            
+	            <div class="form-group">
+	              <label class="col-lg-3 control-label">Judul</label>
+	              <div class="col-lg-4">
+	              	<input type="text" class="form-control" name="judul" required placeholder="Input here......">
+	              </div>
+	            </div>
+
+	            <div class="form-group">
+	              <label class="col-lg-3 control-label">Keterangan</label>
+	              <div class="col-lg-4">
+	              	<textarea class="form-control" name="keterangan" placeholder="Input here......"></textarea>
+	              </div>
+	            </div>
+	            <div class="form-group">
+	              <label class="col-lg-3 control-label">Tanggal:</label>
+	              <div class="col-lg-4">
+	                <input type="date" name="tanggal" class="form-control" required >
+	              </div>
+	            </div>
+	            <div class="form-group">
+	              <label class="col-lg-3 control-label">File Berkas (Jika ada):</label>
+	              <div class="col-lg-4">
+	                <input type="file"  capture="user"  name="file_arsip" class="form-control" >
+	              	<br>
+	              	<div class="alert alert-info"><b>Info : </b>Gunakan HP untuk mengambil gambar dengan kamera</div>
+	              </div>
+	            </div>
+	            <button class="btn btn-success" type="submit"><i class="icon-floppy-disk"></i> Simpan</button>
+            </fieldset>	
+		</div>
+	</div>
+</div>
+</form>

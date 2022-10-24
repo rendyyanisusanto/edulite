@@ -4,7 +4,8 @@
 	    e.stopImmediatePropagation();
 	    e.preventDefault();
 	    $('.se-pre-con').css('display','block');
-	        send_ajax( $(this).attr('action'),$(this).serialize() ).then( function(data){
+	        var form_data = new FormData(this);
+        send_ajax_file( $(this).attr('action'),form_data).then( function(data){
 	            $(".se-pre-con").fadeOut("slow");
 	            // console.log(data);
 	            toastr.success('Data berhasil ditambahkan, Refresh untuk melihat perubahan');

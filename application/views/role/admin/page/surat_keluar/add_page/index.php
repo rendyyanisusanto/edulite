@@ -42,7 +42,7 @@
 	            <div class="form-group">
 	              <label class="col-lg-3 control-label">File Arsip (Jika ada):</label>
 	              <div class="col-lg-4">
-	                <input type="file"  capture="user" accept="image/*" name="file_arsip" class="form-control" >
+	                <input type="file"  capture="user"  name="file_arsip" class="form-control" >
 	              	<br>
 	              	<div class="alert alert-info"><b>Info : </b>Gunakan HP untuk mengambil gambar dengan kamera</div>
 	              </div>

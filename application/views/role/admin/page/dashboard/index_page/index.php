@@ -95,7 +95,7 @@
 				<div class="panel-heading">
 					<h6 class="panel-title">Latest updates<a class="heading-elements-toggle"><i class="icon-more"></i></a></h6>
 					<div class="heading-elements">
-						<a href="#" class="heading-text">See all →</a>
+						<!-- <a href="#" class="heading-text">See all →</a> -->
 					</div>
 				</div>
 				<div class="panel-body">

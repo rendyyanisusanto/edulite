@@ -39,20 +39,20 @@
             <div class="form-group">
               <label class="col-lg-3 control-label">Identity Name:</label>
               <div class="col-lg-9">
-                <input type="text" name="identity_name" class="form-control identity_name">
+                <input type="text" required="" name="identity_name" class="form-control identity_name">
               </div>
             </div>
             <div class="form-group">
               <label class="col-lg-3 control-label">Username:</label>
               <div class="col-lg-9">
-                <input type="text" name="username" value="<?php echo $data_get['random_username'] ?>" class="form-control">
+                <input type="text" required="" name="username" value="<?php echo $data_get['random_username'] ?>" class="form-control">
               </div>
             </div>
 
             <div class="form-group">
               <label class="col-lg-3 control-label">Password:</label>
               <div class="col-lg-9">
-                <input type="password" name="password" value="<?php echo $data_get['random_username'] ?>" class="form-control">
+                <input type="password" required="" name="password" value="<?php echo $data_get['random_username'] ?>" class="form-control">
               </div>
             </div>
 
@@ -60,12 +60,22 @@
             <div class="form-group">
               <label class="col-lg-3 control-label">Hak Akses:</label>
               <div class="col-lg-9">
-                <select class="form-control" name="hak_akses">
+                <select class="form-control" required="" name="hak_akses">
                   <option value="">Pilih Hak Akses</option>
                   <?php foreach ($data_get['groups'] as $key => $value): ?>
                     <option value="<?php echo $value['id'] ?>"><?php echo ucfirst($value['name']) ?></option>
                   <?php endforeach ?>
                 </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-lg-3 control-label">Fitur:</label>
+              <div class="col-lg-9">
+                <input type="checkbox" name="c" class="" checked> Create <br>
+                <input type="checkbox" name="r" class="" checked> Read <br>
+                <input type="checkbox" name="u" class="" checked> Update <br>
+                <input type="checkbox" name="d" class="" checked> Delete <br>
               </div>
             </div>
             </div>

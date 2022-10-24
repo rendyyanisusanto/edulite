@@ -11,11 +11,14 @@
           <div class="sidebar-user">
             <div class="category-content">
               <div class="media">
-                <a href="#" class="media-left"><img src="<?php echo ($user_account['foto'] == '') ? base_url('include/user_account/'.$user_account['foto']) : base_url('include/template/limitless/global_assets/images/placeholders/placeholder.jpg')?>" class="img-circle img-responsive" alt=""></a>
-                <div class="media-body">
-                  <span class="media-heading text-semibold"><?php echo ucfirst($user_account['username']) ?></span>
+                <a href="#" class="media-left">
+                  <!-- <img src="<?php echo ($user_account['foto'] == '') ? base_url('include/user_account/'.$user_account['foto']) : base_url('include/user_account/default.png')?>" class="img-circle img-responsive" alt=""> -->
+                  <img src="<?php echo base_url('include/user_account/default.png')?>" class="img img-circle img-sm img-responsive" style="width: 36px !important;height: 36px !important;" alt="">
+                </a>
+                <div class="media-body" style="width: 50%;">
+                  <span class="media-heading text-semibold"><?php echo ucfirst($user_account['first_name']) ?></span>
                   <div class="text-size-mini text-muted">
-                    <i class="icon-pin text-size-small"></i> &nbsp;<?php echo ucfirst($user_account['email']) ?>
+                    <?php echo ucfirst($user_account['username']) ?>
                   </div>
                 </div>
 

@@ -37,14 +37,22 @@
               </div>
             </div>
 
-
+            <div class="form-group">
+              <label class="col-lg-3 control-label">Fitur:</label>
+              <div class="col-lg-9">
+                <input type="checkbox" name="c" class="" <?= ($data_get['users']['c']) ? "checked" : ""; ?>> Create <br>
+                <input type="checkbox" name="r" class="" <?= ($data_get['users']['r']) ? "checked" : ""; ?>> Read <br>
+                <input type="checkbox" name="u" class="" <?= ($data_get['users']['u']) ? "checked" : ""; ?>> Update <br>
+                <input type="checkbox" name="d" class="" <?= ($data_get['users']['d']) ? "checked" : ""; ?>> Delete <br>
+              </div>
+            </div>
             <div class="form-group">
               <label class="col-lg-3 control-label">Hak Akses:</label>
               <div class="col-lg-9">
                 <select class="form-control" name="hak_akses">
                   <option value="">Pilih Hak Akses</option>
                   <?php foreach ($data_get['groups'] as $key => $value): ?>
-                    <option <?= ($value['id'] == $data_get['users_groups']['group_id']) ? "selected" : ""; ?> value="<?php echo $value['id'] ?>"><?php echo ucfirst($value['name']) ?></option>
+                    <option <?= ($value['id'] == $data_get['users_groups']['group_id']) ? "selected" : ""; ?> value="<?php echo $value['id'] ?>"><?php echo strtoupper($value['name']) ?></option>
                   <?php endforeach ?>
                 </select>
               </div>

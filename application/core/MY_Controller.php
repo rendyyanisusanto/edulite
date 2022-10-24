@@ -44,6 +44,7 @@ class MY_Controller extends CI_Controller {
         $data['profil_website']     =  $this->mod->get_profil_website(); 
         $data['user_account']       =  $this->ion_auth->user()->row_array();
         $data['user_groups']        =   $this->my_groups();
+        $data['user_modul']         =   $this->session->userdata('modul');
         $data['sidebar']            =   $this->my_sidebar();
         return $data;
     }
@@ -62,6 +63,7 @@ class MY_Controller extends CI_Controller {
     {
         return $this->ion_auth->get_users_groups()->row_array();
     }
+
 
     public function my_view($view,$data_get)
     {

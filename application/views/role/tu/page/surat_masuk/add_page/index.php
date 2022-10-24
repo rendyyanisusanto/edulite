@@ -3,6 +3,8 @@
 <div class="row">
 	<div class="col-md-12">
 		<div class="panel panel-body">
+
+			<center><h3><b>Halaman Tambah Surat Masuk</b></h3></center>
 			<fieldset>
 	            
 	            <div class="form-group">
@@ -35,6 +37,14 @@
 	              <label class="col-lg-3 control-label">Tanggal:</label>
 	              <div class="col-lg-4">
 	                <input type="date" name="tanggal_surat" class="form-control" required >
+	              </div>
+	            </div>
+	            <div class="form-group">
+	              <label class="col-lg-3 control-label">File Arsip (Jika ada):</label>
+	              <div class="col-lg-4">
+	                <input type="file"  capture="user" accept="image/*" name="file_arsip" class="form-control" >
+	              	<br>
+	              	<div class="alert alert-info"><b>Info : </b>Gunakan HP untuk mengambil gambar dengan kamera</div>
 	              </div>
 	            </div>
 	            <button class="btn btn-success" type="submit">Simpan</button>

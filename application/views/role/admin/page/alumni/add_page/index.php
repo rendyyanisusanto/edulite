@@ -30,6 +30,24 @@
 	              	<input type="text" class="form-control" name="alamat" required placeholder="Input here......">
 	              </div>
 	            </div>
+	            <div class="form-group">
+	              <label class="col-lg-3 control-label">Lokasi:</label>
+	              <div class="col-lg-9">
+	                <div id="gmap" style="width: 100%;height: 500px;"></div>
+	              </div>
+	            </div>
+	            <div class="form-group">
+	              <label class="col-lg-3 control-label">Latitude:</label>
+	              <div class="col-lg-9">
+	                <input type="text" required="" name="lat" class="lat form-control">
+	              </div>
+	            </div>
+	            <div class="form-group">
+	              <label class="col-lg-3 control-label">Longitude:</label>
+	              <div class="col-lg-9">
+	                <input type="text" required="" name="lng" class="lng form-control">
+	              </div>
+	            </div>
 	            <div class="panel panel-body">
 	            	<b>Kegiatan saat ini :</b>
 	            	<div class="form-group">

@@ -9,9 +9,9 @@ class alumni extends MY_Controller {
 	public $arr = [
 			'title'				=>	'Halaman alumni',
 			'table'				=>	'alumni',
-			'column'			=>	['nama','tahun_lulus','no_hp','alamat','jurusan'],
-			'column_order'		=>	[ 'id_alumni','nama','tahun_lulus','no_hp','alamat','jurusan'],
-			'column_search'		=>	[ 'id_alumni','nama','tahun_lulus','no_hp','alamat','jurusan'],
+			'column'			=>	['kode_arsip','pengirim','tanggal_surat','perihal','no_surat'],
+			'column_order'		=>	[ 'id_alumni','kode_arsip','pengirim','tanggal_surat','perihal','no_surat'],
+			'column_search'		=>	[ 'id_alumni','kode_arsip','pengirim','tanggal_surat','perihal','no_surat'],
 			'order'				=>	['id_alumni'	=>	'DESC'],
 			'id'				=>	'id_alumni'
 	];
@@ -26,6 +26,14 @@ class alumni extends MY_Controller {
 		$this->my_view(['role/admin/page/alumni/index_page/index','role/admin/page/alumni/index_page/js'],$data);
 	}
 
+	public function persebaran_alumni()
+	{
+
+		$data['account']	=	$this->get_user_account();
+		$data['param'] 		= 	$this->arr;
+		$data['alumni']		=	json_encode($this->my_where('alumni', [])->result_array());
+		$this->my_view(['role/admin/page/alumni/persebaran_page/index','role/admin/page/alumni/persebaran_page/js'],$data);
+	}
 	public function add_page()
 	{
 		$data['account']	=	$this->get_user_account();
@@ -57,11 +65,11 @@ class alumni extends MY_Controller {
 			'alamat' 			=> $_POST['alamat'],
 			'no_hp' 			=> $_POST['no_hp'],
 			'kuliah' 			=> $_POST['kuliah'],
-			'longitude'			=> $_POST['lng'],
-			'latitude'			=> $_POST['lat'],
 			'menikah' 			=> $_POST['menikah'],
 			'bekerja' 			=> $_POST['bekerja'],
 			'pesantren' 		=> $_POST['pesantren'],
+			'lng'				=> $_POST['lng'],
+			'lat'				=> $_POST['lat'],
 		];
 
 		if ($this->save_data('alumni', $data)) {
@@ -77,11 +85,16 @@ class alumni extends MY_Controller {
 	function update_data()
 	{
 		$data = [
-			'kode_arsip' 	=> $_POST['kode_arsip'],
-			'pengirim' 		=> $_POST['pengirim'],
-			'tanggal_surat' => $_POST['tanggal_surat'],
-			'perihal' 		=> $_POST['perihal'],
-			'no_surat' 		=> $_POST['no_surat'],
+			'nama' 				=> $_POST['nama'],
+			'tahun_lulus' 		=> $_POST['tahun_lulus'],
+			'alamat' 			=> $_POST['alamat'],
+			'no_hp' 			=> $_POST['no_hp'],
+			'kuliah' 			=> $_POST['kuliah'],
+			'menikah' 			=> $_POST['menikah'],
+			'bekerja' 			=> $_POST['bekerja'],
+			'pesantren' 		=> $_POST['pesantren'],
+			'lng'				=> $_POST['lng'],
+			'lat'				=> $_POST['lat'],
 		];
 		if ($this->my_update('alumni',$data,['id_alumni'=>$_POST['id_alumni']])) {
 			// print_r(((isset($foto)) ? $foto['file_name'] : $_POST['foto_before']));
@@ -156,7 +169,7 @@ class alumni extends MY_Controller {
 
 			$data_set = $this->my_where($dt['table'],$where_send);
 			
-			$url	=	($_POST['laporan']	==	'data')	?	'role/core_page/print_page/cetak_data'	:	'role/core_page/print_page/cetak_kartu';
+			$url	=	($_POST['laporan']	==	'data')	?	'role/core_page/print_page/cetak_data'	:	'role/core_page/print_page/cetak_karadmin';
 			
 		    if ($_POST['tipe_laporan'] == 'pdf') {
 
@@ -212,8 +225,8 @@ class alumni extends MY_Controller {
             $row[]		=	!empty($field['no_hp']) ? $field['no_hp'] : '-';
             $row[]		=	'<b>Kuliah </b> : '.(!empty($field['kuliah']) ? $field['kuliah'] : '-').'<br>'.
             '<b>Menikah </b> : '.(!empty($field['menikah']) ? $field['menikah'] : '-').
-            '<br>'.'<b>Bekerja </b> : '.(!empty($field['bekerja']) ? $field['bekerja'] : '-');
-            $row[]		=	!empty($field['jurusan']) ? $field['jurusan'] : '-';
+            '<br>'.'<b>Bekerja </b> : '.(!empty($field['bekerja']) ? $field['bekerja'] : '-').
+            '<br>'.'<b>Pesantren </b> : '.(!empty($field['pesantren']) ? $field['pesantren'] : '-').'<br>';
 
             $data[]     =   $row;
         }

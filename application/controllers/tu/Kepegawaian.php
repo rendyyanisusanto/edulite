@@ -9,9 +9,9 @@ class kepegawaian extends MY_Controller {
 	public $arr = [
 			'title'				=>	'Halaman kepegawaian',
 			'table'				=>	'guru',
-			'column'			=>	['nama','nip','alamat','perihal','no_surat'],
-			'column_order'		=>	[ 'id_guru','nama','nip','alamat','perihal','no_surat'],
-			'column_search'		=>	[ 'id_guru','nama','nip','alamat','perihal','no_surat'],
+			'column'			=>	['nama','nip','alamat','no_hp','kode_pegawai'],
+			'column_order'		=>	[ 'id_guru','nama','nip','alamat','no_hp','kode_pegawai'],
+			'column_search'		=>	[ 'id_guru','nama','nip','alamat','no_hp','kode_pegawai'],
 			'order'				=>	['id_guru'	=>	'DESC'],
 			'id'				=>	'id_guru'
 	];
@@ -66,7 +66,7 @@ class kepegawaian extends MY_Controller {
 
 	public function simpan_data()
 	{	
-		$random_code = 'G'.rand(0,999999);
+		// $random_code = 'G'.rand(0,999999);
 		$foto = '';
 		if(file_exists($_FILES['foto']['tmp_name']) || is_uploaded_file($_FILES['foto']['tmp_name'])) {
 			$foto = $this->save_media([
@@ -100,7 +100,7 @@ class kepegawaian extends MY_Controller {
 			'berasal_dari'			=>	$_POST['berasal_dari'],
 			'tanggal_meninggalkan'	=>	$_POST['tanggal_meninggalkan'],
 			'alasan_meninggalkan'	=>	$_POST['alasan_meninggalkan'],
-			'kode_pegawai'			=>	$random_code,
+			'kode_pegawai'			=>	$_POST['kode_pegawai'],
 			'istri'					=>	$_POST['istri'],
 			'status_kepegawaian'	=>	$_POST['status_kepegawaian'],
 			'no_taspen'				=>	$_POST['no_taspen']
@@ -267,6 +267,7 @@ class kepegawaian extends MY_Controller {
 
 
 		$data = [
+			'kode_pegawai'			=>	$_POST['kode_pegawai'],
 			'nama'					=>	$_POST['nama'],
 			'nip'					=>	$_POST['nip'],
 			'alamat'				=>	$_POST['alamat'],
@@ -422,8 +423,9 @@ class kepegawaian extends MY_Controller {
             $no++;
             $row        =   array();
             $row[]      =   '<input type="checkbox" name="get-check" value="'.$field['id_guru'].'"></input>';
-            $row[]		=	'<a href="kepegawaian/detail_page/'.$field['id_guru'].'" class="app-item"><b>'.strtoupper($field['kode_pegawai']).'</b></a>';
             $row[]		=	!empty($field['foto']) ? "<img class='img' style='width:80px;height:100px;' src='".base_url('include/media/foto_pegawai/'.$field['foto'])."'></img>" : "<img class='img' style='max-width:100px;' src='".base_url('include/media/default_image/noimage.png')."'></img>"; 
+            $row[]		=	'<a href="kepegawaian/detail_page/'.$field['id_guru'].'" class="app-item"><b>'.strtoupper($field['kode_pegawai']).'</b></a>';
+            
             $row[]		=	!empty($field['nama']) ? strtoupper($field['nama']) : '-';
             $row[]		=	!empty($field['alamat']) ? strtoupper($field['alamat']) : '-';
             $row[]		=	!empty($field['no_hp']) ? $field['no_hp'] : '-';
