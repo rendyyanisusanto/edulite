@@ -23,9 +23,46 @@ class siswa extends MY_Controller {
 	{
 		$data['account']	=	$this->get_user_account();
 		$data['param'] 		= 	$this->arr;
-		$this->my_view(['role/admin/page/siswa/index_page/index','role/admin/page/siswa/index_page/js'],$data);
+		$this->my_view(['role/kesiswaan/page/siswa/index_page/index','role/kesiswaan/page/siswa/index_page/js'],$data);
+	}
+	public function mutasi()
+	{
+		$data['account']	=	$this->get_user_account();
+		$data['param'] 		= 	$this->arr;
+		$data['kelas']		=	$this->my_where('kelas', [])->result_array();
+		$this->my_view(['role/kesiswaan/page/siswa/mutasi/index','role/kesiswaan/page/siswa/mutasi/js'],$data);
+	}
+	public function kenaikan()
+	{
+		$data['account']	=	$this->get_user_account();
+		$data['param'] 		= 	$this->arr;
+		$data['tingkat']		=	$this->my_where('tingkat', [])->result_array();
+		$data['jurusan']		=	$this->my_where('jurusan', [])->result_array();
+
+		$data['kelas']		=	$this->my_where('kelas', [])->result_array();
+		$this->my_view(['role/kesiswaan/page/siswa/kenaikan/index','role/kesiswaan/page/siswa/kenaikan/js'],$data);
 	}
 
+	public function kelulusan()
+	{
+		$data['account']	=	$this->get_user_account();
+		$data['param'] 		= 	$this->arr;
+		$this->db->order_by('id_tingkat', "DESC");
+		$data['tingkat']		=	$this->my_where('tingkat', [])->result_array();
+		$data['jurusan']		=	$this->my_where('jurusan', [])->result_array();
+		$data['kelas']		=	$this->my_where('kelas', [])->result_array();
+		$this->my_view(['role/kesiswaan/page/siswa/kelulusan/index','role/kesiswaan/page/siswa/kelulusan/js'],$data);
+	}
+
+	public function import_page()
+	{
+		$data['kelas']		=	$this->my_where('kelas', [])->result_array();
+		$data['jurusan']	=	$this->my_where('jurusan', [])->result_array();
+		$data['province']	=	$this->my_where('provinces', [])->result_array();
+		$data['account']	=	$this->get_user_account();
+		$data['param'] 		= 	$this->arr;
+		$this->my_view(['role/kesiswaan/page/siswa/import_page/index','role/kesiswaan/page/siswa/import_page/js'],$data);
+	}
 	public function add_page()
 	{
 		$data['kelas']		=	$this->my_where('kelas', [])->result_array();
@@ -33,7 +70,7 @@ class siswa extends MY_Controller {
 		$data['province']	=	$this->my_where('provinces', [])->result_array();
 		$data['account']	=	$this->get_user_account();
 		$data['param'] 		= 	$this->arr;
-		$this->my_view(['role/admin/page/siswa/add_page/index','role/admin/page/siswa/add_page/js'],$data);
+		$this->my_view(['role/kesiswaan/page/siswa/add_page/index','role/kesiswaan/page/siswa/add_page/js'],$data);
 	}
 	public function perkelas()
 	{
@@ -42,7 +79,7 @@ class siswa extends MY_Controller {
 		$data['province']	=	$this->my_where('provinces', [])->result_array();
 		$data['account']	=	$this->get_user_account();
 		$data['param'] 		= 	$this->arr;
-		$this->my_view(['role/admin/page/siswa/perkelas/index','role/admin/page/siswa/perkelas/js'],$data);
+		$this->my_view(['role/kesiswaan/page/siswa/perkelas/index','role/kesiswaan/page/siswa/perkelas/js'],$data);
 	}
 
 	public function edit_page($id)
@@ -53,7 +90,7 @@ class siswa extends MY_Controller {
 				$data['kelas']		=	$this->my_where('kelas', [])->result_array();
 				$data['jurusan']	=	$this->my_where('jurusan', [])->result_array();
 				$data['province']	=	$this->my_where('provinces', [])->result_array();
-				$this->my_view(['role/admin/page/siswa/edit_page/index','role/admin/page/siswa/edit_page/js'],$data);
+				$this->my_view(['role/kesiswaan/page/siswa/edit_page/index','role/kesiswaan/page/siswa/edit_page/js'],$data);
 		} else {
 			$this->get_data();
 		}
@@ -70,7 +107,7 @@ class siswa extends MY_Controller {
 				$data['jurusan']	=	$this->my_where('jurusan', [])->result_array();
 				$data['province']	=	$this->my_where('provinces', ['id' => $data['siswa']['idprovince_fk']])->row_array();
 				$data['city']		=	$this->my_where('cities', ['id' => $data['siswa']['idcities_fk']])->row_array();
-				$this->my_view(['role/admin/page/siswa/detail_page/index','role/admin/page/siswa/detail_page/js'],$data);
+				$this->my_view(['role/kesiswaan/page/siswa/detail_page/index','role/kesiswaan/page/siswa/detail_page/js'],$data);
 		} else {
 			$this->get_data();
 		}
@@ -80,7 +117,7 @@ class siswa extends MY_Controller {
 	public function upload_page()
 	{
 		$data['account']	=	$this->get_user_account();
-		$this->my_view(['role/admin/page/siswa/upload_page','role/admin/page/siswa/js_upload_page'],$data);
+		$this->my_view(['role/kesiswaan/page/siswa/upload_page','role/kesiswaan/page/siswa/js_upload_page'],$data);
 	}
 	/*
 		ADD DATA
@@ -306,7 +343,7 @@ class siswa extends MY_Controller {
 				$data['jurusan']	=	$this->my_where('jurusan', [])->result_array();
 				$data['province']	=	$this->my_where('provinces', ['id' => $data['siswa']['idprovince_fk']])->row_array();
 				$data['city']		=	$this->my_where('cities', ['id' => $data['siswa']['idcities_fk']])->row_array();
-				$this->load->view('role/admin/page/siswa/print/print_siswa',$data);
+				$this->load->view('role/kesiswaan/page/siswa/print/print_siswa',$data);
 			} else {
 				$this->get_data();
 			}
@@ -418,16 +455,23 @@ class siswa extends MY_Controller {
 
 	function get_kelas()
 	{
-		$id 	= (isset($_POST['id'])) ? $_POST['id'] : 0;
-		$idkelas = (isset($_POST['idkelas'])) ? $_POST['idkelas'] : '';
-		$get 	= $this->my_where('kelas', ['idjurusan_fk'=>$id])->result_array();
-		$send = '<select data-placeholder="Pilih Jurusan terlebih dahulu" name="idkelas_fk" class="select kelas">';
-		foreach ($get as $key => $value) {
-			$send.='<option '.(($idkelas == $value['id_kelas']) ? 'selected' : '').' value="'.$value['id_kelas'].'">'.$value['kelas'].'</option>';
-		}
-		$send .='</select>';
-		$send .= "<script>$('.select').select2();</script>";
+		$id 		= (isset($_POST['id'])) ? $_POST['id'] : 0;
+		$idkelas 	= (isset($_POST['idkelas'])) ? $_POST['idkelas'] : '';
+		$get 		= $this->my_where('kelas', ['idjurusan_fk'=>$id]);
+		$send 		= "";
+		if ($get->num_rows() > 0) {
+			$get = $get->result_array();
 
+			$send = '<select data-placeholder="Pilih Kelas" name="idkelas_fk" required class="select kelas">';
+			$send .= '<option value="">Pilih Kelas</option>';
+			foreach ($get as $key => $value) {
+				$send.='<option '.(($idkelas == $value['id_kelas']) ? 'selected' : '').' value="'.$value['id_kelas'].'">'.$value['kelas'].'</option>';
+			}
+			$send .='</select>';
+			$send .= "<script>$('.select').select2();</script>";
+		}else{
+			$send 	= "<code>Tidak ada data</code>";
+		}
 		echo $send;
 	}
 
@@ -438,7 +482,7 @@ class siswa extends MY_Controller {
 		$data['param'] 		= 	$this->arr;
 		$data['siswa'] = $this->my_where('v_siswa_jurusan', ['idkelas_fk'=>$_POST['id_kelas']])->result_array(); 
 		$data['kelas']	=	$this->my_where('kelas', ['id_kelas'=>$_POST['id_kelas']])->row_array();
-		$this->my_view(['role/admin/page/siswa/perkelas/proses_siswa','role/admin/page/siswa/perkelas/js_proses'],$data);
+		$this->my_view(['role/kesiswaan/page/siswa/perkelas/proses_siswa','role/kesiswaan/page/siswa/perkelas/js_proses'],$data);
 	}
 	public function import_siswa($value='')
 	{
@@ -461,25 +505,44 @@ class siswa extends MY_Controller {
 		    $send = [];
 		    // $sheetData = $spreadsheet->getActiveSheet();
 			$sheetData = $spreadsheet->getActiveSheet()->toArray();
-			for($i = 13 ;$i < count($sheetData);$i++)
+			for($i = 12 ;$i < count($sheetData);$i++)
 			{
-		        $nama = $sheetData[$i]['1'];
-		        $kelas = $sheetData[$i]['2'];
-		        $alamat = $sheetData[$i]['3'];
-		        if (isset($sheetData[$i]['1'])) {
-		        	$send [] = [
-						'nama' 					=>  (!empty($sheetData[$i]['1'])) ? $sheetData[$i]['1'] : '',
-						'nis'					=>	(!empty($sheetData[$i]['2'])) ? $sheetData[$i]['2'] : '',
-						'idkelas_fk'			=>	$_POST['idkelas_fk']
-					];
-		        }
+				if (!empty($sheetData[$i]['1'])) {
+			        $nama 			= $sheetData[$i]['1'];
+			        $nis 			= (!empty($sheetData[$i]['2'])) ? $sheetData[$i]['2'] : '';
+			        $nisn 			= (!empty($sheetData[$i]['3'])) ? $sheetData[$i]['3'] : '';
+			        $agama 			= (!empty($sheetData[$i]['4'])) ? $sheetData[$i]['4'] : '';
+			        $no_ijazah 		= (!empty($sheetData[$i]['5'])) ? $sheetData[$i]['5'] : '';
+			        $tempat_lahir 	= (!empty($sheetData[$i]['6'])) ? $sheetData[$i]['6'] : '';
+			        $tanggal_lahir 	= (!empty($sheetData[$i]['7'])) ? $sheetData[$i]['7'] : '';
+			        $jenis_kelamin 	= (!empty($sheetData[$i]['8'])) ? $sheetData[$i]['8'] : '';
+			        if (isset($sheetData[$i]['1'])) {
+			        	$send [] = [
+							'nama' 					=>  (!empty($nama)) ? strtoupper($nama) : '',
+							'nis'					=>	(!empty($nis)) ? $nis : '',
+							'nisn'					=>	(!empty($nisn)) ? $nisn : '',
+							'agama'					=>	(!empty($agama)) ? $agama : '',
+							'no_ijazah'				=>	(!empty($no_ijazah)) ? $no_ijazah : '',
+							'tempat_lahir'			=>	(!empty($tempat_lahir)) ? $tempat_lahir : '',
+							'tanggal_lahir'			=>	(!empty($tanggal_lahir)) ? $tanggal_lahir : '',
+							'jenis_kelamin'			=>	(!empty($jenis_kelamin)) ? $jenis_kelamin : '',
+							// 'idkelas_fk'			=>	$_POST['idkelas_fk']
+						];
+			        }
+		    	}
 		        
 		    }
 			
-
-			$this->save_data_batch('siswa', $send);
-		    echo json_encode($sheetData);
+		    // print_r($send);
+			// $this->save_data_batch('siswa', $send);
+		    // echo json_encode($sheetData);
+		    // echo "assd";
+		    $send	=	array_map('array_filter', $send);
+		    $send 	=	array_filter($send);
+		    $data['siswa']	=	$send;
+			$this->my_view(['role/kesiswaan/page/siswa/import_page/proses_import'],$data);
 		}
+		// print_r($_FILES);
 	}
 	public function download_file_siswa($id_kelas='')
 	{
@@ -489,7 +552,8 @@ class siswa extends MY_Controller {
 		$kelas 		=	$this->my_where('kelas', ['id_kelas'=>$id_kelas])->row_array();
 		//change it
 		$sheet = $spreadsheet->getActiveSheet();
-		$sheet->setCellValue('A10', $kelas['kelas']);
+		$sheet->setCellValue('B9', $kelas['id_kelas']);
+		$sheet->setCellValue('B10', $kelas['kelas']);
 
 		//write it again to Filesystem with the same name (=replace)
 		$writer = new Xlsx($spreadsheet);
@@ -497,5 +561,238 @@ class siswa extends MY_Controller {
 		header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
         header('Content-Disposition: attachment; filename="'. urlencode($fileName).'"');
         $writer->save('php://output');
+	}
+	public function import_siswa_submit()
+	{
+		$send = [];
+		foreach ($_POST['dt'] as $key => $value) {
+			$send	=	[
+				'nis' => $value['nis'],
+				'nama' => $value['nama'],
+				'nisn' => $value['nisn'],
+				'idkelas_fk'	=>	$_POST['idkelas_fk'],
+				'idjurusan_fk'	=>	$_POST['idjurusan_fk'],
+				'tempat_lahir' => $_POST['tempat_lahir'],
+				'jenis_kelamin' => $_POST['jenis_kelamin'],
+			];
+
+			$this->save_data('siswa', $send);
+		}
+		echo json_encode($_POST['dt']);
+	}
+
+	function get_siswa_mutasi()
+	{
+		$data['account']	=	$this->get_user_account();
+		$data['param'] 		= 	$this->arr;
+		$data['siswa']		=	$this->my_where('siswa', ['idkelas_fk'=>$_POST['idkelas']])->result_array();
+		$data['kelas']		=	$this->my_where('kelas', ['id_kelas'=>$_POST['idkelas']])->row_array();
+		$this->my_view(['role/kesiswaan/page/siswa/mutasi/get_siswa'],$data);		
+	}
+	function get_siswa_kelulusan()
+	{
+		$data['account']	=	$this->get_user_account();
+		$data['param'] 		= 	$this->arr;
+		$data['siswa']		=	$this->my_where('siswa', ['idkelas_fk'=>$_POST['idkelas']])->result_array();
+		$data['kelas']		=	$this->my_where('kelas', ['id_kelas'=>$_POST['idkelas']])->row_array();
+		$this->my_view(['role/kesiswaan/page/siswa/kelulusan/get_siswa'],$data);		
+	}
+
+	function get_kelas_tujuan_mutasi()
+	{
+		$data['account']	=	$this->get_user_account();
+		$data['param'] 		= 	$this->arr;
+		$data['kelas']		=	$this->my_where('kelas', ['id_kelas'=>$_POST['idkelas']])->row_array();
+		$data['siswa']		=	$this->my_where('siswa', ['idkelas_fk'=>$_POST['idkelas']])->result_array();
+		$this->my_view(['role/kesiswaan/page/siswa/mutasi/get_kelas_tujuan'],$data);	
+	}
+
+	function proses_pindah()
+	{
+		$kelas_asal = $this->my_where("kelas", ['id_kelas'=>$_POST['idkelas_asal']])->row_array();
+		$kelas_tujuan = $this->my_where("kelas", ['id_kelas'=>$_POST['idkelas_tujuan']])->row_array();
+		$id_siswa = $_POST['idsiswa_fk'];
+
+		$this->save_data("pindah_kelas", [
+			'idsiswa_fk' => $id_siswa,
+			'idkelas_before' => $_POST['idkelas_asal'],
+			'idkelas_after' => $_POST['idkelas_tujuan'],
+			'keterangan'	=>	$_POST['alasan']
+		]);
+		$this->my_update("siswa", [
+			'idkelas_fk' => $_POST['idkelas_tujuan'],
+			'idjurusan_fk' => $kelas_tujuan['idjurusan_fk']
+		],[
+			'id_siswa'=>$id_siswa
+		]);
+	}
+
+	function proses_naik_kelas()
+	{
+		$kelas_asal = $this->my_where("kelas", ['id_kelas'=>$_POST['idkelas_asal']])->row_array();
+		$kelas_tujuan = $this->my_where("kelas", ['id_kelas'=>$_POST['idkelas_tujuan']])->row_array();
+		$id_siswa = $_POST['idsiswa_fk'];
+
+		$this->save_data("log_kelas_siswa", [
+			'idsiswa_fk' 			=> $id_siswa,
+			'idkelasbefore_fk' 		=> $_POST['idkelas_asal'],
+			'idkelasafter_fk' 		=> $_POST['idkelas_tujuan'],
+			'keterangan'	=>	'',
+			'status'		=>	'NAIK KELAS'
+		]);
+		$this->my_update("siswa", [
+			'idkelas_fk' => $_POST['idkelas_tujuan'],
+			'idjurusan_fk' => $kelas_tujuan['idjurusan_fk']
+		],[
+			'id_siswa'=>$id_siswa
+		]);
+	}
+
+	function proses_alumni()
+	{
+		$id_siswa = $_POST['idsiswa_fk'];
+
+		$siswa = $this->my_where('siswa', ['id_siswa'=>$id_siswa])->row_array();
+		$jurusan = $this->my_where('jurusan', ['id_jurusan'=>$siswa['idjurusan_fk']])->row_array();
+		$alumni = [
+			'foto'					=>	$siswa['foto'],
+			'tahun_lulus' 			=>	$_POST['tahun_lulus'], 	
+			'nis'					=>	$siswa['nis'],
+			'nama' 					=>	$siswa['nama'],
+			'jurusan'				=>	$jurusan['jurusan'],
+			'agama' 				=>	$siswa['agama'],
+			'jenis_kelamin'			=>	$siswa['jenis_kelamin'],
+			'nisn' 					=>	$siswa['nisn'],
+			'no_ijazah_sekolah_asal'=>	$siswa['no_ijazah_sekolah_asal'],
+			'no_skhun_sekolah_asal'	=>	$siswa['no_skhun_sekolah_asal'],
+			'no_un_sekolah_asal'	=>	$siswa['no_un_sekolah_asal'],
+			'no_kk'					=>	$siswa['no_kk'],
+			'npsn_sekolah_asal'		=>	$siswa['npsn_sekolah_asal'],
+			'nama_sekolah_asal'		=>	$siswa['nama_sekolah_asal'],	
+			'tempat_lahir'			=>	$siswa['tempat_lahir'],
+			'tanggal_lahir'			=>	$siswa['tanggal_lahir'],
+			'berkebutuhan_khusus'	=>	$siswa['berkebutuhan_khusus'],
+			'alamat'				=>	$siswa['alamat'],
+			'dusun'					=>	$siswa['dusun'],
+			'rt'					=>	$siswa['rt'],
+			'rw'					=>	$siswa['rw'],
+			'kelurahan'				=>	$siswa['kelurahan'],
+			'idprovince_fk'			=>	$siswa['idprovince_fk'],
+			'idcities_fk'			=>	$siswa['idcities_fk'],
+			'nama_ayah'				=>	$siswa['nama_ayah'],
+			'tempat_lahir_ayah'		=>	$siswa['tempat_lahir_ayah'],
+			'tanggal_lahir_ayah'	=>	$siswa['tanggal_lahir_ayah'],
+			'pendidikan_ayah'		=>	$siswa['pendidikan_ayah'],
+			'pekerjaan_ayah'		=>	$siswa['pekerjaan_ayah'],
+			'penghasilan_ayah'		=>	$siswa['penghasilan_ayah'],
+			'nama_ibu'				=>	$siswa['nama_ibu'],
+			'tempat_lahir_ibu'		=>	$siswa['tempat_lahir_ibu'],
+			'tanggal_lahir_ibu'		=>	$siswa['tanggal_lahir_ibu'],
+			'pendidikan_ibu'		=>	$siswa['pendidikan_ibu'],
+			'pekerjaan_ibu'			=>	$siswa['pekerjaan_ibu'],
+			'penghasilan_ibu'		=>	$siswa['penghasilan_ibu'],
+			'tinggi_badan'			=>	$siswa['tinggi_badan'],
+			'berat_badan'			=>	$siswa['berat_badan'],
+			'jarak_ke_sekolah'		=>	$siswa['jarak_ke_sekolah'],
+			'jumlah_saudara'		=>	$siswa['jumlah_saudara'],
+			'is_siswa_id'			=>	$id_siswa,
+		];
+		$this->save_data('alumni', $alumni);
+		$this->my_update('siswa', ['is_alumni'=>1, 'idkelas_fk'=>'', 'idjurusan_fk'=>''], ['id_siswa' =>$id_siswa]);
+	}
+
+	function proses_alumni_kelas()
+	{
+		$siswa_kelas = $this->my_where("siswa", ['idkelas_fk'=>$_POST['idkelas_asal']])->result_array();
+
+		foreach ($siswa_kelas as $siswa) {
+			$jurusan = $this->my_where('jurusan', ['id_jurusan'=>$siswa['idjurusan_fk']])->row_array();
+			$alumni = [
+				'foto'					=>	$siswa['foto'],
+				'nis'					=>	$siswa['nis'],
+				'tahun_lulus' 			=>	$_POST['tahun_lulus'], 	
+				'nama' 					=>	$siswa['nama'],
+				'jurusan'				=>	$jurusan['jurusan'],
+				'agama' 				=>	$siswa['agama'],
+				'jenis_kelamin'			=>	$siswa['jenis_kelamin'],
+				'nisn' 					=>	$siswa['nisn'],
+				'no_ijazah_sekolah_asal'=>	$siswa['no_ijazah_sekolah_asal'],
+				'no_skhun_sekolah_asal'	=>	$siswa['no_skhun_sekolah_asal'],
+				'no_un_sekolah_asal'	=>	$siswa['no_un_sekolah_asal'],
+				'no_kk'					=>	$siswa['no_kk'],
+				'npsn_sekolah_asal'		=>	$siswa['npsn_sekolah_asal'],
+				'nama_sekolah_asal'		=>	$siswa['nama_sekolah_asal'],	
+				'tempat_lahir'			=>	$siswa['tempat_lahir'],
+				'tanggal_lahir'			=>	$siswa['tanggal_lahir'],
+				'berkebutuhan_khusus'	=>	$siswa['berkebutuhan_khusus'],
+				'alamat'				=>	$siswa['alamat'],
+				'dusun'					=>	$siswa['dusun'],
+				'rt'					=>	$siswa['rt'],
+				'rw'					=>	$siswa['rw'],
+				'kelurahan'				=>	$siswa['kelurahan'],
+				'idprovince_fk'			=>	$siswa['idprovince_fk'],
+				'idcities_fk'			=>	$siswa['idcities_fk'],
+				'nama_ayah'				=>	$siswa['nama_ayah'],
+				'tempat_lahir_ayah'		=>	$siswa['tempat_lahir_ayah'],
+				'tanggal_lahir_ayah'	=>	$siswa['tanggal_lahir_ayah'],
+				'pendidikan_ayah'		=>	$siswa['pendidikan_ayah'],
+				'pekerjaan_ayah'		=>	$siswa['pekerjaan_ayah'],
+				'penghasilan_ayah'		=>	$siswa['penghasilan_ayah'],
+				'nama_ibu'				=>	$siswa['nama_ibu'],
+				'tempat_lahir_ibu'		=>	$siswa['tempat_lahir_ibu'],
+				'tanggal_lahir_ibu'		=>	$siswa['tanggal_lahir_ibu'],
+				'pendidikan_ibu'		=>	$siswa['pendidikan_ibu'],
+				'pekerjaan_ibu'			=>	$siswa['pekerjaan_ibu'],
+				'penghasilan_ibu'		=>	$siswa['penghasilan_ibu'],
+				'tinggi_badan'			=>	$siswa['tinggi_badan'],
+				'berat_badan'			=>	$siswa['berat_badan'],
+				'jarak_ke_sekolah'		=>	$siswa['jarak_ke_sekolah'],
+				'jumlah_saudara'		=>	$siswa['jumlah_saudara'],
+				'is_siswa_id'			=>	$siswa['id_siswa'],
+			];
+			$this->save_data('alumni', $alumni);
+			$this->my_update('siswa', ['is_alumni'=>1, 'idkelas_fk'=>'', 'idjurusan_fk'=>''], ['id_siswa' =>$siswa['id_siswa']]);
+		}
+	}
+	function get_kelas_kenaikan()
+	{
+		$id 		= (isset($_POST['id_tingkat'])) ? $_POST['id_tingkat'] : 0;
+		$id_jurusan 	= (isset($_POST['id_jurusan'])) ? $_POST['id_jurusan'] : '';
+		$get 		= $this->my_where('kelas', ['idtingkat_fk'=>$id, 'idjurusan_fk'=>$id_jurusan]);
+		$send 		= "";
+		if ($get->num_rows() > 0) {
+			$get = $get->result_array();
+
+			$send = '<select data-placeholder="Pilih Kelas" name="id_kelas" required class="select select_class">';
+			$send .= '<option value="">Pilih Kelas</option>';
+			foreach ($get as $key => $value) {
+				$send.='<option value="'.$value['id_kelas'].'">'.$value['kelas'].'</option>';
+			}
+			$send .='</select>';
+			$send .= "<script>$('.select').select2();</script>";
+		}else{
+			$send 	= "<code>Tidak ada data</code>";
+		}
+		echo $send;
+	}
+	function get_kelas_kenaikan_next()
+	{
+		$id 		= (isset($_POST['id_tingkat'])) ? ($_POST['id_tingkat'] + 1) : 0;
+		$id_jurusan 	= (isset($_POST['id_jurusan'])) ? $_POST['id_jurusan'] : '';
+		$get 		= $this->my_where('kelas', ['idtingkat_fk'=>$id, 'idjurusan_fk'=>$id_jurusan]);
+		$send 		= "";
+		if ($get->num_rows() > 0) {
+			$get = $get->result_array();
+			$send = '<select data-placeholder="Pilih Kelas" name="id_kelas" required class="select select_class_tujuan">';
+			$send .= '<option value="">Pilih Kelas</option>';
+			foreach ($get as $key => $value) {
+				$send.='<option value="'.$value['id_kelas'].'">'.$value['kelas'].'</option>';
+			}
+			$send .='</select>';
+			$send .= "<script>$('.select').select2();</script>";
+		}else{
+			$send 	= "<code>Tidak ada data</code>";
+		}
+		echo $send;
 	}
 }

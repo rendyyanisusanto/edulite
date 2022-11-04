@@ -5,7 +5,7 @@
             "order": [], 
              
             "ajax": {
-                "url": "<?php echo $data_get['param']['table'] ?>/datatable_poin",
+                "url": "<?php echo $data_get['param']['table'] ?>/datatable_jenis_pelanggaran",
                 "type": "POST",
             },
  
@@ -37,17 +37,13 @@
     $(document).on('click', '.btn-edit', function(e){
         e.stopImmediatePropagation();
         $('.id').val($(this).data('id'));
-        $('.kode_pelanggaran').val($(this).data('kode_pelanggaran'));
-        $('.nama_pelanggaran').val($(this).data('nama_pelanggaran'));
-        $('.poin').val($(this).data('poin'));
-        $('.idjenispelanggaran_fk').val($(this).data('idjenispelanggaran_fk')).trigger('change');
-        $('#app-submit').attr('action', 'pelanggaran_siswa/update_poin');
+        $('.jenis_pelanggaran').val($(this).data('jenis_pelanggaran'));
+        $('#app-submit').attr('action', 'pelanggaran_siswa/update_jenis_pelanggaran');
         $('.btn-submit').text('Update');
         $('.btn-submit').removeClass('btn-success');
         $('.btn-submit').addClass('btn-warning');
         $('.btn-batal').css('display','');
-        $('.title-poin').text('Update Poin Pelanggaran');
-        $("input[name=kategori_pelanggaran][value=" + $(this).data('kategori_pelanggaran') + "]").attr('checked', 'checked');
+        $('.title-poin').text('Update jenis Pelanggaran');
     });
     $(document).on('click', '.btn-batal', function(e){
         e.stopImmediatePropagation();
@@ -56,16 +52,13 @@
 
     function reset()
     {
-        $('.kode_pelanggaran').val('');
-        $('.nama_pelanggaran').val('');
-        $('.poin').val('');
-        $('.idjenispelanggaran_fk').val('').trigger('change');
-        $('#app-submit').attr('action', 'pelanggaran_siswa/simpan_poin');
+        $('.jenis_pelanggaran').val('');
+        $('#app-submit').attr('action', 'pelanggaran_siswa/simpan_jenis_pelanggaran');
         $('.btn-submit').text('Simpan');
         $('.btn-submit').removeClass('btn-warning');
         $('.btn-submit').addClass('btn-success');
         $('.btn-batal').css('display','none');
-        $('.title-poin').text('Tambah Poin Pelanggaran');
+        $('.title-poin').text('Tambah jenis Pelanggaran');
         $("input[name=kategori_pelanggaran][value=RINGAN]").attr('checked', 'checked');
     }
 
@@ -74,7 +67,7 @@
         let id = $(this).data('id');
         blockui($('.panel-pelanggaran'));
         if (confirm("Apakah anda yakin akan menghapus data ini?") == true) {
-          send_ajax("Pelanggaran_siswa/hapus_poin", {id:id}).then(function(data){
+          send_ajax("Pelanggaran_siswa/hapus_jenis_pelanggaran", {id:id}).then(function(data){
             table.ajax.reload();
             toastr.success('Data berhasil dihapus, Refresh untuk melihat perubahan');
             unblockui($('.panel-pelanggaran'));

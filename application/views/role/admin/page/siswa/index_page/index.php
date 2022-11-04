@@ -22,7 +22,7 @@
         <a class="btn bg-purple-400 btn-labeled legitRipple app-item" href="<?php echo $data_get['param']['table'] ?>/perkelas"><b><i class="icon-user"></i></b> Per Kelas</a>
         <hr>
         <div class="table-responsive">
-        <table class="table" width="100%" id="tabel-data">
+        <table class="table table-framed table-xxs" width="100%" id="tabel-data">
           <thead>
             <tr>
               <th width="1%">#</th>

@@ -13,6 +13,12 @@
       <li><a href="Kepegawaian/get_data" class="app-item">Buku Induk Kepegawaian</a></li>
     </ul>
   </li>
+  <li>
+    <a href="#"><i class="icon-clipboard2"></i> <span>Pengumuman</span></a>
+    <ul>
+      <li><a href="Pengumuman/get_data" class="app-item">Data Pengumuman</a></li>
+    </ul>
+  </li>
 
   <li>
     <a href="#"><i class="icon-coin-dollar"></i> <span>Keuangan</span></a>

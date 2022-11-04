@@ -42,6 +42,13 @@ class pelanggaran_siswa extends MY_Controller {
 		$data['jenis_pelanggaran']	=	$this->my_where('jenis_pelanggaran',[])->result_array();
 		$this->my_view(['role/kesiswaan/page/pelanggaran_siswa/index_page/poin_pelanggaran_setup','role/kesiswaan/page/pelanggaran_siswa/index_page/js_poin_pelanggaran_setup'],$data);
 	}
+
+	public function jenis_pelanggaran()
+	{
+		$data['account']	=	$this->get_user_account();
+		$data['param'] 		= 	$this->arr;
+		$this->my_view(['role/kesiswaan/page/pelanggaran_siswa/index_page/jenis_pelanggaran','role/kesiswaan/page/pelanggaran_siswa/index_page/js_jenis_pelanggaran'],$data);
+	}
 	
 	public function catatan_siswa()
 	{
@@ -117,9 +124,20 @@ class pelanggaran_siswa extends MY_Controller {
 			'nama_pelanggaran' 						=> $_POST['nama_pelanggaran'],
 			'poin' 									=> $_POST['poin'],
 			'kode_pelanggaran' 						=> $_POST['kode_pelanggaran'],
+			'kategori_pelanggaran' 						=> $_POST['kategori_pelanggaran'],
 		];
 
 		if ($this->save_data('poin_pelanggaran', $data)) {
+			echo "Success";
+		}
+	}
+	public function simpan_jenis_pelanggaran()
+	{	
+		$data = [
+			'jenis_pelanggaran' 				=> $_POST['jenis_pelanggaran'],
+		];
+
+		if ($this->save_data('jenis_pelanggaran', $data)) {
 			echo "Success";
 		}
 	}
@@ -131,9 +149,21 @@ class pelanggaran_siswa extends MY_Controller {
 			'nama_pelanggaran' 						=> $_POST['nama_pelanggaran'],
 			'poin' 									=> $_POST['poin'],
 			'kode_pelanggaran' 						=> $_POST['kode_pelanggaran'],
+			'kategori_pelanggaran' 						=> $_POST['kategori_pelanggaran'],
 		];
 
 		if ($this->my_update('poin_pelanggaran', $data, ['id_poin_pelanggaran'=>$_POST['id']])) {
+			echo "Success";
+		}
+	}
+
+	public function update_jenis_pelanggaran()
+	{	
+		$data = [
+			'jenis_pelanggaran' 				=> $_POST['jenis_pelanggaran'],
+		];
+
+		if ($this->my_update('jenis_pelanggaran', $data, ['id_jenis_pelanggaran'=>$_POST['id']])) {
 			echo "Success";
 		}
 	}
@@ -178,87 +208,7 @@ class pelanggaran_siswa extends MY_Controller {
 				$data['pelanggaran_siswa'] 	= $this->db->query('SELECT * FROM `pelanggaran_siswa` where date(tanggal_surat) = DATE(NOW())')->result_array();
 				$this->load->view('role/kesiswaan/page/pelanggaran_siswa/print/index',$data);
 		}
-		function cetak_page()
-		{
-			$dt = $this->arr;
-				$data['param'] 		= 	$this->arr;
-			$data['sum_selected']=0;
-			if (isset($_POST['send_data'])) {
-				$data_edit=[];
-				foreach ($_POST['send_data'] as $key => $value) {
-					$data_set = $this->my_where($dt['table'],[$dt['id']=>$value])->row_array();
-					foreach ($dt['column_order'] as $keycolumn => $value_column) {
-					$data_edit[$value_column]	= $data_set[$value_column];
-					}
-				}
-				$data['data_edit']			=	$data_edit;
-				$data['sum_selected']		=	count($_POST['send_data']);
-				$data['input_selected']		=	implode(',', $_POST['send_data']);
-			}
-			$this->my_view(['role/kesiswaan/page/pelanggaran_siswa/print_page/index','role/kesiswaan/page/pelanggaran_siswa/print_page/js'],$data);
-			
-		}
-
-		function cetak_data()
-		{
-			$dt = $this->arr;
-			$this->my_delete_file(FCPATH.'/include/pdf_temp');
-
-			$data=[];
-			$where_send		=	[];
-
-			if ($_POST['data_yg_dicetak']	==	'manual') {
-				foreach ($dt['column'] as $key => $value) {
-					if (!empty($_POST['f_'.$value])) {
-						$where_send[$value]	=	$_POST['f_'.$value];
-					}
-				}
-			} else if($_POST['data_yg_dicetak']	==	'pilih')
-			{
-				$data_selected = explode(',', $_POST['input_selected']);
-				foreach ($data_selected as $key => $value) {
-					$this->db->or_where($dt['id'], $value);
-				}
-			}
-
-			$data_set = $this->my_where($dt['table'],$where_send);
-			
-			$url	=	($_POST['laporan']	==	'data')	?	'role/core_page/print_page/cetak_data'	:	'role/core_page/print_page/cetak_kartu';
-			
-		    if ($_POST['tipe_laporan'] == 'pdf') {
-
-		    	$param	=	[
-	                'url'			=>	$url,
-	                'customPaper'	=>	array(0,0,381.89,595.28),
-	                'data_value'	=>	[
-	                	"data"		=>	$data_set->result_array(),
-	                	"param"		=>	$dt
-	                ],
-	                'name'			=>	md5(rand(0,9999999)),
-	                'pos' 			=> 'landscape'
-	            ];
-
-	            $this->my_pdf($param);
-
-		    }
-		    
-		    else if($_POST['tipe_laporan'] == 'excel')
-
-		    {
-		    	
-	            $param  =   [
-	                'filename'			=>		'Jadwal Kegiatan Sekolah',
-	                'data_obj'			=>		$data_set->result(),
-	                'header_table'		=>		$dt['column'],
-	                'print_field'		=>		$dt['column']
-	            ];
-
-	            $this->my_export_excel($param);
-	        
-		    }
-
-		}
-
+		
 	/*
 		MANIPULATE DATA
 	*/
@@ -296,9 +246,9 @@ class pelanggaran_siswa extends MY_Controller {
 	{
 		$arr = [
 			'table'				=>	'v_poin_pelanggaran',
-			'column'			=>	['nama_pelanggaran','poin','kode_pelanggaran','jenis_pelanggaran'],
-			'column_order'		=>	[ 'id_poin_pelanggaran','nama_pelanggaran','poin','kode_pelanggaran','jenis_pelanggaran'],
-			'column_search'		=>	[ 'id_poin_pelanggaran','nama_pelanggaran','poin','kode_pelanggaran','jenis_pelanggaran'],
+			'column'			=>	['nama_pelanggaran','poin','kode_pelanggaran','jenis_pelanggaran', 'kategori_pelanggaran'],
+			'column_order'		=>	[ 'id_poin_pelanggaran','nama_pelanggaran','poin','kode_pelanggaran','jenis_pelanggaran', 'kategori_pelanggaran'],
+			'column_search'		=>	[ 'id_poin_pelanggaran','nama_pelanggaran','poin','kode_pelanggaran','jenis_pelanggaran', 'kategori_pelanggaran'],
 			'order'				=>	['id_poin_pelanggaran'	=>	'DESC'],
 			'id'				=>	'id_poin_pelanggaran'
 		];
@@ -313,14 +263,50 @@ class pelanggaran_siswa extends MY_Controller {
             $row[]		=	!empty($field['kode_pelanggaran']) ? $field['kode_pelanggaran'] : '-';
             $row[]		=	!empty($field['nama_pelanggaran']) ? $field['nama_pelanggaran'] : '-';
             $row[]		=	!empty($field['jenis_pelanggaran']) ? $field['jenis_pelanggaran'] : '-';
-            $row[]		=	!empty($field['poin']) ? $field['poin'] : '-';
+            $row[]		=	!empty($field['poin']) ? '<b class="text-danger">'.$field['poin'].'</b>' : '-';
+            $row[]		=	!empty($field['kategori_pelanggaran']) ? $field['kategori_pelanggaran'] : '-';
             $row[]		=	'<button type="button" data-id="'.$field['id_poin_pelanggaran'].'" 
             			data-kode_pelanggaran="'.$field['kode_pelanggaran'].'"
-            			data-nama_pelanggaran="'.$field['nama_pelanggaran'].'"
+            			data-nama_pelanggaran="'.$field['nama_pelanggaran'].'" 
+            			data-kategori_pelanggaran="'.$field['kategori_pelanggaran'].'"
             			data-idjenispelanggaran_fk="'.$field['idjenispelanggaran_fk'].'"
             			data-poin="'.$field['poin'].'"
             class="btn btn-xs btn-edit btn-success"><i class="icon-pencil3"></i></button>';
-            $row[]		=	'<button type="button" class="btn btn-xs btn-hps btn-danger"><i class="icon-trash"></i></button>';
+            $row[]		=	'<button type="button" data-id="'.$field['id_poin_pelanggaran'].'" class="btn btn-xs btn-hps btn-danger"><i class="icon-trash"></i></button>';
+            $data[]     =   $row;
+        }
+        $output = array(
+            "draw" => $_POST['draw'],
+            "recordsTotal" => $this->mod_datatable->count_all(),
+            "recordsFiltered" => $this->mod_datatable->count_filtered(),
+            "data" => $data,
+        );
+
+        echo json_encode($output);
+	}
+	public function datatable_jenis_pelanggaran()
+	{
+		$arr = [
+			'table'				=>	'jenis_pelanggaran',
+			'column'			=>	['jenis_pelanggaran'],
+			'column_order'		=>	[ 'id_jenis_pelanggaran','jenis_pelanggaran'],			
+			'column_search'		=>	[ 'id_jenis_pelanggaran','jenis_pelanggaran'],			
+			'order'				=>	['id_jenis_pelanggaran'	=>	'DESC'],
+			'id'				=>	'id_jenis_pelanggaran'
+		];
+        $_POST['frm']   =   $arr;
+        $list           =   $this->mod_datatable->get_datatables();
+        $data           =   array();
+        $no             =   $_POST['start'];
+        foreach ($list as $field) {
+            $no++;
+            $row        =   array();
+            $row[]		=	$no;
+            $row[]		=	!empty($field['jenis_pelanggaran']) ? $field['jenis_pelanggaran'] : '-';
+            $row[]		=	'<button type="button" data-id="'.$field['id_jenis_pelanggaran'].'" 
+            			data-jenis_pelanggaran="'.$field['jenis_pelanggaran'].'"
+            class="btn btn-xs btn-edit btn-success"><i class="icon-pencil3"></i></button>';
+            $row[]		=	'<button type="button" data-id="'.$field['id_jenis_pelanggaran'].'" class="btn btn-xs btn-hps btn-danger"><i class="icon-trash"></i></button>';
             $data[]     =   $row;
         }
         $output = array(
@@ -430,5 +416,20 @@ class pelanggaran_siswa extends MY_Controller {
 	public function get_poin_pelanggaran($value='')
 	{
 
+	}
+
+	function hapus_poin(){
+		$id = $_POST['id'];
+
+		if ($id) {
+			$this->db->delete('poin_pelanggaran', ['id_poin_pelanggaran'=>$id]);
+		}
+	}
+	function hapus_jenis_pelanggaran(){
+		$id = $_POST['id'];
+
+		if ($id) {
+			$this->db->delete('jenis_pelanggaran', ['id_jenis_pelanggaran'=>$id]);
+		}
 	}
 }
