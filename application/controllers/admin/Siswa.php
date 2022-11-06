@@ -65,12 +65,13 @@ class siswa extends MY_Controller {
 	}
 	public function add_page()
 	{
-		$data['kelas']		=	$this->my_where('kelas', [])->result_array();
-		$data['jurusan']	=	$this->my_where('jurusan', [])->result_array();
-		$data['province']	=	$this->my_where('provinces', [])->result_array();
 		$data['account']	=	$this->get_user_account();
 		$data['param'] 		= 	$this->arr;
-		$this->my_view(['role/kesiswaan/page/siswa/add_page/index','role/kesiswaan/page/siswa/add_page/js'],$data);
+		$data['kelas']		=	$this->my_where('kelas', [])->result_array();
+		$data['department']	=	$this->my_where('department', [])->result_array();
+		$data['jurusan']	=	$this->my_where('jurusan', [])->result_array();
+		$data['province']	=	$this->my_where('provinces', [])->result_array();
+		$this->my_view(['role/admin/page/siswa/add_page/index','role/admin/page/siswa/add_page/js'],$data);
 	}
 	public function perkelas()
 	{
@@ -79,7 +80,7 @@ class siswa extends MY_Controller {
 		$data['province']	=	$this->my_where('provinces', [])->result_array();
 		$data['account']	=	$this->get_user_account();
 		$data['param'] 		= 	$this->arr;
-		$this->my_view(['role/kesiswaan/page/siswa/perkelas/index','role/kesiswaan/page/siswa/perkelas/js'],$data);
+		$this->my_view(['role/admin/page/siswa/perkelas/index','role/admin/page/siswa/perkelas/js'],$data);
 	}
 
 	public function edit_page($id)
@@ -138,6 +139,7 @@ class siswa extends MY_Controller {
 			'nama' 					=>	$_POST['nama'],
 			'idkelas_fk' 			=>	$_POST['idkelas_fk'],
 			'idjurusan_fk'			=>	$_POST['idjurusan_fk'],
+			'iddepartment_fk'		=>	$_POST['iddepartment_fk'],
 			'agama' 				=>	$_POST['agama'],
 			'jenis_kelamin'			=>	$_POST['jenis_kelamin'],
 			'nisn' 					=>	$_POST['nisn'],
@@ -272,6 +274,7 @@ class siswa extends MY_Controller {
 				'nama' 					=>	$_POST['nama'],
 				'idkelas_fk' 			=>	$_POST['idkelas_fk'],
 				'idjurusan_fk'			=>	$_POST['idjurusan_fk'],
+				'iddepartment_fk'		=>	$_POST['iddepartment_fk'],
 				'agama' 				=>	$_POST['agama'],
 				'jenis_kelamin'			=>	$_POST['jenis_kelamin'],
 				'nisn' 					=>	$_POST['nisn'],
@@ -466,6 +469,28 @@ class siswa extends MY_Controller {
 			$send .= '<option value="">Pilih Kelas</option>';
 			foreach ($get as $key => $value) {
 				$send.='<option '.(($idkelas == $value['id_kelas']) ? 'selected' : '').' value="'.$value['id_kelas'].'">'.$value['kelas'].'</option>';
+			}
+			$send .='</select>';
+			$send .= "<script>$('.select').select2();</script>";
+		}else{
+			$send 	= "<code>Tidak ada data</code>";
+		}
+		echo $send;
+	}
+
+	function get_jurusan()
+	{
+		$id 		= (isset($_POST['id'])) ? $_POST['id'] : 0;
+		$get 		= $this->my_where('jurusan', ['iddepartment_fk'=>$id]);
+		$idjurusan 	= (isset($_POST['idjurusan'])) ? $_POST['idjurusan'] : '';
+		$send 		= "";
+		if ($get->num_rows() > 0) {
+			$get = $get->result_array();
+
+			$send = '<select data-placeholder="Pilih Jurusan" name="idjurusan_fk" required class="select jurusan">';
+			$send .= '<option value="">Pilih jurusan</option>';
+			foreach ($get as $key => $value) {
+				$send.='<option '.(($idjurusan == $value['id_jurusan']) ? 'selected' : '').' value="'.$value['id_jurusan'].'">'.$value['jurusan'].'</option>';
 			}
 			$send .='</select>';
 			$send .= "<script>$('.select').select2();</script>";

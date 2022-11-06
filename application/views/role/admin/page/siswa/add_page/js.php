@@ -2,6 +2,7 @@
     // CKEDITOR.replace( 'keterangan' );
 	$('.select').select2();
 $( "#app-submit" ).on('submit',function( e ) {
+    e.stopImmediatePropagation();
     e.preventDefault();
     $('.se-pre-con').css('display','block');
 
@@ -17,6 +18,7 @@ $( "#app-submit" ).on('submit',function( e ) {
 });
 
 $('.idprovince_fk').on('change', function(e){
+    e.stopImmediatePropagation();
     var dt = $(this).val();
     send_ajax( 'siswa/get_cities',{dt_send:dt} ).then( function(data){
         $(".idcities_fk option").remove();
@@ -24,7 +26,8 @@ $('.idprovince_fk').on('change', function(e){
     });
 });
 
-$('.btn-add-prestasi').on('click', function(){
+$('.btn-add-prestasi').on('click', function(e){
+    e.stopImmediatePropagation();
     var tbl = $('.table-prestasi tbody');
     var tblcount = $('.table-prestasi tbody tr').length;
     var row = '<tr>';
@@ -38,7 +41,8 @@ $('.btn-add-prestasi').on('click', function(){
     tbl.append(row);
 });
 
-$('.btn-add-beasiswa').on('click', function(){
+$('.btn-add-beasiswa').on('click', function(e){
+    e.stopImmediatePropagation();
     var tbl = $('.table-beasiswa tbody');
     var tblcount = $('.table-beasiswa tbody tr').length;
     var row = '<tr>';
@@ -51,7 +55,8 @@ $('.btn-add-beasiswa').on('click', function(){
     tbl.append(row);
 });
 
-$('.btn-add-dokumen').on('click', function(){
+$('.btn-add-dokumen').on('click', function(e){
+    e.stopImmediatePropagation();
     var tbl = $('.table-dokumen tbody');
     var tblcount = $('.table-dokumen tbody tr').length;
     var row = '<tr>';
@@ -62,8 +67,15 @@ $('.btn-add-dokumen').on('click', function(){
     tbl.append(row);
 });
 
-$('.jurusan').on('change', function(e){
-    
+$('.department').on('change', function(e){
+    e.stopImmediatePropagation();
+    send_ajax( 'Siswa/get_jurusan',{'id' : $(this).val()} ).then( function(data){
+        $('.select_jurusan').html(data);
+    });
+
+})
+$(document).on('change','.jurusan', function(e){
+    e.stopImmediatePropagation();
     send_ajax( 'Siswa/get_kelas',{'id' : $(this).val()} ).then( function(data){
         $('.select_kelas').html(data);
     });

@@ -9,9 +9,9 @@ class kelas extends MY_Controller {
 	public $arr = [
 			'title'				=>	'Halaman Kelas',
 			'table'				=>	'kelas',
-			'column'			=>	[ 'kelas','idtingkat_fk','idjurusan_fk','idtahunajaran_fk'],
-			'column_order'		=>	[ 'id_kelas','kelas','idtingkat_fk','idjurusan_fk','idtahunajaran_fk'],
-			'column_search'		=>	[ 'id_kelas','kelas','idtingkat_fk','idjurusan_fk','idtahunajaran_fk'],
+			'column'			=>	[ 'kelas','idtingkat_fk','idjurusan_fk','idtahunajaran_fk','iddepartment_fk'],
+			'column_order'		=>	[ 'id_kelas','kelas','idtingkat_fk','idjurusan_fk','idtahunajaran_fk','iddepartment_fk'],
+			'column_search'		=>	[ 'id_kelas','kelas','idtingkat_fk','idjurusan_fk','idtahunajaran_fk','iddepartment_fk'],
 			'order'				=>	['id_kelas'	=>	'DESC'],
 			'id'				=>	'id_kelas'
 	];
@@ -31,8 +31,7 @@ class kelas extends MY_Controller {
 
 	public function add_page()
 	{
-		$data['tingkat']	=	$this->my_where('tingkat', [])->result_array();
-		$data['jurusan']	=	$this->my_where('jurusan', [])->result_array();
+		$data['department']	=	$this->my_where('department', [])->result_array();
 		$data['tahun_ajaran']	=	$this->my_where('tahun_ajaran', [])->result_array();
 		$data['account']	=	$this->get_user_account();
 		$data['param'] 		= 	$this->arr;
@@ -62,7 +61,16 @@ class kelas extends MY_Controller {
 
 	public function simpan_data()
 	{	
-		if ($this->save_data_param()) {
+		
+		$data = [
+			'kelas' => 	$_POST['kelas'],
+			'idtingkat_fk' => $_POST['idtingkat_fk'],
+			'idjurusan_fk'=> $_POST['idjurusan_fk'],
+			'idtahunajaran_fk'=> $_POST['idtahunajaran_fk'],
+			'iddepartment_fk'=> $_POST['iddepartment_fk']
+
+		];
+		if ($this->save_data('kelas', $data)) {
 			$this->get_data();
 		}	else 	{
 			echo "error";
@@ -77,10 +85,14 @@ class kelas extends MY_Controller {
 	function update_data()
 	{
 		$dt = $this->arr;
-		$data=[];
-		foreach ($dt['column'] as $key => $value) {
-			$data[$value] = $_POST[$value];
-		}
+		$data = [
+			'kelas' => 	$_POST['kelas'],
+			'idtingkat_fk' => $_POST['idtingkat_fk'],
+			'idjurusan_fk'=> $_POST['idjurusan_fk'],
+			'idtahunajaran_fk'=> $_POST['idtahunajaran_fk'],
+			'iddepartment_fk'=> $_POST['iddepartment_fk']
+
+		];
 		if ($this->my_update($dt['table'],$data,[$dt['id']=>$_POST[$dt['id']]])) {
 			$this->get_data();
 		}	else 	{
@@ -199,6 +211,7 @@ class kelas extends MY_Controller {
         foreach ($list as $field) {
             $no++;
             $row        =   array();
+            $department 	=	$this->my_where('department', ['id_department'=>$field['iddepartment_fk']])->row_array();
             $tingkat 	=	$this->my_where('tingkat', ['id_tingkat'=>$field['idtingkat_fk']])->row_array();
             $jurusan 	=	$this->my_where('jurusan', ['id_jurusan'=>$field['idjurusan_fk']])->row_array();
             $tahun_ajaran 	 	=	$this->my_where('tahun_ajaran', ['id_tahun_ajaran'=>$field['idtahunajaran_fk']])->row_array();
@@ -206,6 +219,7 @@ class kelas extends MY_Controller {
             $row[]		=	$tingkat['tingkat'];
             $row[]		=	$jurusan['jurusan'];
             $row[]		=	$field['kelas'];
+            $row[]		=	$department['department'];
             $data[]     =   $row;
         }
         $output = array(
@@ -216,6 +230,17 @@ class kelas extends MY_Controller {
         );
 
         echo json_encode($output);
+	}
+
+	function get_jur(){
+		$id = $_POST['id'];
+
+		if ($id) {
+			$data['tingkat']	=	$this->my_where('tingkat', ['iddepartment_fk'=>$id])->result_array();
+			$data['jurusan']	=	$this->my_where('jurusan', ['iddepartment_fk'=>$id])->result_array();
+
+			$this->my_view(['role/admin/page/kelas/add_page/get_jur'], $data);
+		}
 	}
 	
 	

@@ -1,4 +1,4 @@
-<script src="<?php echo base_url('include/template/limitless/')?>/global_assets/js/plugins/forms/selects/select2.min.js"></script>
+<script src="<?php echo base_url('include/template/dashboard/')?>/js/plugins/forms/selects/select2.min.js"></script>
 <form class="form-horizontal" action="<?php echo $data_get['param']['table'] ?>/simpan_data" id="app-submit" method="POST">
 
 <div class="row">
@@ -19,28 +19,19 @@
 	            </div>
 
 	            <div class="form-group">
-	              <label class="col-lg-3 control-label">Tingkat</label>
+	              <label class="col-lg-3 control-label">Department</label>
 	              <div class="col-lg-4">
-	              	<select class="select" name="idtingkat_fk">
+	              	<select class="select department" required name="iddepartment_fk">
 	              		<option value="">Pilih</option>
-		              	<?php foreach ($data_get['tingkat'] as $key => $value): ?>
-		              		<option value="<?php echo $value['id_tingkat'] ?>"><?php echo $value['tingkat'] ?></option>
+		              	<?php foreach ($data_get['department'] as $key => $value): ?>
+		              		<option value="<?php echo $value['id_department'] ?>"><?php echo $value['department'] ?></option>
 		              	<?php endforeach ?>
 	              	</select>
 	              </div>
 	            </div>
 
-	            <div class="form-group">
-	              <label class="col-lg-3 control-label">Jurusan</label>
-	              <div class="col-lg-4">
-	              	<select class="select" name="idjurusan_fk">
-	              		<option value="">Pilih</option>
-		              	<?php foreach ($data_get['jurusan'] as $key => $value): ?>
-		              		<option value="<?php echo $value['id_jurusan'] ?>"><?php echo $value['jurusan'] ?></option>
-		              	<?php endforeach ?>
-	              	</select>
-	              </div>
-	            </div>
+	            <div class="divjur"></div>
+
 	            <div class="form-group">
 	              <label class="col-lg-3 control-label">Nama Kelas:</label>
 	              <div class="col-lg-9">

@@ -20,26 +20,37 @@
               
               <fieldset>
                 <div class="form-group">
-                  <label class="col-lg-3 control-label">Nis:</label>
+                  <label class="col-lg-3 control-label">NIS:</label>
                   <div class="col-lg-9">
-                    <input type="text" name="nis" class="form-control"  placeholder="Input here......">
+                    <input type="text" name="nis" class="form-control" required="" placeholder="Input here......">
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-lg-3 control-label">Nama:</label>
                   <div class="col-lg-9">
-                    <input type="text" name="nama" class="form-control"  placeholder="Input here......">
+                    <input type="text" name="nama" class="form-control" required="" placeholder="Input here......">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-lg-3 control-label">Department:</label>
+                  <div class="col-lg-4 col-md-6">
+
+                    <select data-placeholder="Pilih Department" required="" name="iddepartment_fk" class="select department">
+                      <option value=""> -- Pilih --</option>
+                      <?php foreach ($data_get['department'] as $key => $value): ?>
+                      <option value="<?php echo $value['id_department'] ?>"><?php echo $value['department'] ?></option>
+                      <?php endforeach ?>
+                    </select>
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-lg-3 control-label">Jurusan:</label>
                   <div class="col-lg-4 col-md-6">
-
-                    <select data-placeholder="Pilih Jurusan" name="idjurusan_fk" class="select jurusan">
-                      <?php foreach ($data_get['jurusan'] as $key => $value): ?>
-                      <option value="<?php echo $value['id_jurusan'] ?>"><?php echo $value['jurusan'] ?></option>
-                      <?php endforeach ?>
+                    <div class="select_jurusan">
+                    <select data-placeholder="Pilih Department terlebih dahulu" name="idjurusan_fk" class="select jurusan">
+                      
                     </select>
+                  </div>
                   </div>
                 </div>
                 <div class="form-group">

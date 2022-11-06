@@ -7,11 +7,11 @@ class tingkat extends MY_Controller {
 	
 
 	public $arr = [
-			'title'				=>	'Halaman Tingkat',
+			'title'				=>	'Halaman tingkat',
 			'table'				=>	'tingkat',
-			'column'			=>	[ 'tingkat'],
-			'column_order'		=>	[ 'id_tingkat','tingkat'],
-			'column_search'		=>	[ 'id_tingkat','tingkat'],
+			'column'			=>	[ 'tingkat','singkatan'],
+			'column_order'		=>	[ 'id_tingkat','tingkat','singkatan'],
+			'column_search'		=>	[ 'id_tingkat','tingkat','singkatan'],
 			'order'				=>	['id_tingkat'	=>	'DESC'],
 			'id'				=>	'id_tingkat'
 	];
@@ -21,33 +21,29 @@ class tingkat extends MY_Controller {
 	*/
 	public function get_data()
 	{
-		$this->display_view();
-
-		/*if you need custom page*/
-
-		// $data['account']	=	$this->get_user_account();
-		// $this->my_view(['role/admin/page/siswa/index','role/admin/page/siswa/js_siswa'],$data);
+		$data['account']	=	$this->get_user_account();
+		$data['param'] 		= 	$this->arr;
+		$this->my_view(['role/admin/page/tingkat/index_page/index','role/admin/page/tingkat/index_page/js'],$data);
 
 	}
 
 	public function add_page()
 	{
-		$this->display_view('add_page');
+
+		$data['param'] 		= 	$this->arr;
+		$data['department'] = $this->my_where('department', [])->result_array();
+		$this->my_view(['role/admin/page/tingkat/add_page/index', 'role/admin/page/tingkat/add_page/js'],$data);
 	}
 
-	public function edit_page()
+	public function edit_page($id)
 	{
-		$dt = $this->arr;
-		if (isset($_POST['send_data'])) {
-			$data_edit=[];
-				$data_set = $this->my_where($dt['table'],[$dt['id']=>$_POST['send_data']])->row_array();
-				foreach ($dt['column_order'] as $keycolumn => $value_column) {
-					$data_edit[$value_column]	= $data_set[$value_column];
-				}
-			$data['data_edit']	=	$data_edit;
-			$this->display_view('edit_page', $data);
+		if (isset($id)) {
+				$data['param'] 		= 	$this->arr;
+				$data['department'] = $this->my_where('department', [])->result_array();
+				$data['tingkat'] = 	$this->my_where('tingkat',['id_tingkat'=>$id])->row_array();
+				$this->my_view(['role/admin/page/tingkat/edit_page/index','role/admin/page/tingkat/edit_page/js'],$data);
 		} else {
-			$this->get_data();
+			// $this->get_data();
 		}
 	}
 
@@ -58,7 +54,11 @@ class tingkat extends MY_Controller {
 
 	public function simpan_data()
 	{	
-		if ($this->save_data_param()) {
+		$data = [
+			'tingkat' => $_POST['tingkat'],
+			'iddepartment_fk' => $_POST['iddepartment_fk']
+		];
+		if ($this->save_data('tingkat', $data)) {
 			$this->get_data();
 		}	else 	{
 			echo "error";
@@ -73,10 +73,10 @@ class tingkat extends MY_Controller {
 	function update_data()
 	{
 		$dt = $this->arr;
-		$data=[];
-		foreach ($dt['column'] as $key => $value) {
-			$data[$value] = $_POST[$value];
-		}
+		$data = [
+			'tingkat' => $_POST['tingkat'],
+			'iddepartment_fk' => $_POST['iddepartment_fk']
+		];
 		if ($this->my_update($dt['table'],$data,[$dt['id']=>$_POST[$dt['id']]])) {
 			$this->get_data();
 		}	else 	{
@@ -188,8 +188,29 @@ class tingkat extends MY_Controller {
 
 	public function datatable()
 	{
-        echo json_encode($this->call_datatable($this->arr));
+		$_POST['frm']   =   $this->arr;
+        $list           =   $this->mod_datatable->get_datatables();
+        $data           =   array();
+        $no             =   $_POST['start'];
+        foreach ($list as $field) {
+            $no++;
+            $row        =   array();
+            $department 	=	$this->my_where('department', ['id_department'=>$field['iddepartment_fk']])->row_array();
+            $row[]      =   '<input type="checkbox" name="get-check" value="'.$field['id_tingkat'].'"></input>';
+            $row[]		=	$field['tingkat'];
+            $row[]		=	$department['department'];
+            $data[]     =   $row;
+        }
+        $output = array(
+            "draw" => $_POST['draw'],
+            "recordsTotal" => $this->mod_datatable->count_all(),
+            "recordsFiltered" => $this->mod_datatable->count_filtered(),
+            "data" => $data,
+        );
+
+        echo json_encode($output);
 	}
+	
 	
 	
 }

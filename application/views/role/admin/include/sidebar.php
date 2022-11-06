@@ -199,10 +199,10 @@
     <a href="#"><i class="icon-stack2"></i> <span>Master</span></a>
     <ul>
       <li><a href="Siswa/get_data" class="app-item">Siswa</a></li>
-      <!-- <li><a href="Siswa_kelas/get_data" class="app-item">Daftar Siswa Kelas</a></li> -->
-      <!-- <li><a href="Guru/get_data" class="app-item">Guru</a></li> -->
       <li><a href="Kelas/get_data" class="app-item">Kelas</a></li>
+      <li><a href="Department/get_data" class="app-item">Department</a></li>
       <li><a href="Jurusan/get_data" class="app-item">Jurusan</a></li>
+      <li><a href="Tingkat/get_data" class="app-item">Tingkat</a></li>
       <li><a href="Mata_pelajaran/get_data" class="app-item">Mata Pelajaran</a></li>
       <li><a href="Tahun_ajaran/get_data" class="app-item">Tahun ajaran</a></li>
       <li><a href="Guru_mapel/get_data" class="app-item">Guru Mapel</a></li>
