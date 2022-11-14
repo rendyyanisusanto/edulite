@@ -32,6 +32,8 @@ $(document).ready(function($) {
       
       set_content(window.location.hash.substr(1));
     });
+
+
 });
 
 function blockui(block)

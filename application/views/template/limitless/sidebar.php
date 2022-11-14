@@ -42,6 +42,15 @@
               <li style="background: red;"><a href="<?php echo base_url('auth/logout') ?>"><i class="icon-exit"></i> <span>LOGOUT</span></a></li>
             </div>
           </div>
+
+          <script type="text/javascript">
+            $( ".sidebar-category" ).mouseover(function() {
+              $('body').removeClass('sidebar-xs');
+            });
+            $( ".sidebar-category" ).mouseleave(function() {
+              $('body').addClass('sidebar-xs');
+            });
+          </script>
           <!-- /main navigation -->
 
         </div>

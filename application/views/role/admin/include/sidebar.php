@@ -2,7 +2,7 @@
   <!-- Main -->
   <li class="navigation-header"><span>Main</span> <i class="icon-menu" title="Main pages"></i></li>
   <li><a href="Dashboard/get_data" class="app-item"><i class="icon-home4"></i> <span>Dashboard</span></a></li>
-  
+  <li class="navigation-header"><span>Administrasi</span> <i class="icon-menu" title="Page kits"></i></li>
   <li>
     <a href="#"><i class="icon-magazine"></i> <span>Administrasi</span></a>
     <ul>
@@ -10,16 +10,8 @@
       <li><a href="Buku_tamu/get_data" class="app-item">Buku Tamu</a></li>
       <li><a href="Surat_masuk/get_data" class="app-item">Surat Masuk</a></li>
       <li><a href="Surat_keluar/get_data" class="app-item">Surat Keluar</a></li>
-      <li><a href="Kepegawaian/get_data" class="app-item">Buku Induk Kepegawaian</a></li>
     </ul>
   </li>
-  <li>
-    <a href="#"><i class="icon-clipboard2"></i> <span>Pengumuman</span></a>
-    <ul>
-      <li><a href="Pengumuman/get_data" class="app-item">Data Pengumuman</a></li>
-    </ul>
-  </li>
-
   <li>
     <a href="#"><i class="icon-coin-dollar"></i> <span>Keuangan</span></a>
     <ul>
@@ -36,6 +28,14 @@
       <!-- <li><a href="Penerimaan/setting_tanggungan_siswa" class="app-item">Pengaturan Lain</a></li> -->
     </ul>
   </li>
+  <!-- <li>
+    <a href="#"><i class="icon-clipboard2"></i> <span>Pengumuman</span></a>
+    <ul>
+      <li><a href="Pengumuman/get_data" class="app-item">Data Pengumuman</a></li>
+    </ul>
+  </li> -->
+
+  
   
   <li>
     <a href="#"><i class="icon-notebook"></i> <span>Bimbingan Konseling</span></a>
@@ -67,7 +67,7 @@
   <!-- Page kits -->
   
 
-  <li class="navigation-header"><span>Manajemen Kepegawaian</span> <i class="icon-menu" title="Page kits"></i></li>
+  <li class="navigation-header"><span>Kepegawaian</span> <i class="icon-menu" title="Page kits"></i></li>
    <li>
     <a href="#"><i class=" icon-paste4"></i> <span>Penilaian Kinerja Guru</span></a>
     <ul>
@@ -92,19 +92,8 @@
       <li><a href="Persentase_guru/get_data" class="app-item">Data Persentase Guru</a></li>
     </ul>
   </li>
-  <!-- <li>
-    <a href="#"><i class="icon-paste4"></i> <span>Buku Kerja Guru</span></a>
-    <ul>
-      <li><a href="Kd/get_data" class="app-item">Identifikasi KI/KD</a></li>
-      <li><a href="Rpp/get_data" class="app-item">Silabus</a></li>
-      <li><a href="Rpp/get_data" class="app-item">Rpp</a></li>
-      <li><a href="Prota/get_data" class="app-item">Prota</a></li>
-      <li><a href="Promes/get_data" class="app-item">Promes</a></li>
-      <li><a href="Banksoal/get_data" class="app-item">Bank soal</a></li>
-    </ul>
-  </li> -->
-  <!-- Kurikulum -->
-  <li class="navigation-header"><span>Kurikulum</span> <i class="icon-menu" title="Page kits"></i></li>
+ 
+  <li class="navigation-header"><span>Akademik</span> <i class="icon-menu" title="Page kits"></i></li>
   <li>
     <a href="#"><i class=" icon-book"></i> <span>Data Pelajaran</span></a>
     <ul>
@@ -120,15 +109,7 @@
       <li><a href="Jadwal_pelajaran/get_data" class="app-item">Jadwal Pelajaran per Kelas</a></li>
     </ul>
   </li>
-  <li>
-    <a href="#"><i class=" icon-database"></i> <span>Pengaturan Lain</span></a>
-    <ul>
-      <li><a href="Wali_kelas/get_data" class="app-item">Setting Wali Kelas</a></li>
-    </ul>
-  </li>
-  <li>
-   <!-- Kesiswaan -->
-   <li class="navigation-header"><span>Kesiswaan</span> <i class="icon-menu" title="Page kits"></i></li>
+  
    <li>
       <a href="#"><i class="icon-user-check"></i> <span>Data Siswa</span></a>
       <ul>
@@ -152,27 +133,19 @@
         <li><a href="Presensi_harian/rekap" class="app-item">Rekap Presensi Siswa</a></li>
       </ul>
     </li>
-   <!-- /Kesiswaan -->
-  <!-- <li class="navigation-header"><span>External App</span> <i class="icon-menu" title="Page kits"></i></li>
-  <li>
-    <a href="#"><i class=" icon-paste4"></i> <span>Online Assesment System</span></a>
+    <li>
+    <a href="#"><i class=" icon-database"></i> <span>Pengaturan Lain</span></a>
     <ul>
-      <li><a href="Oas/get_data" class="app-item">Tambah Jadwal OAS</a></li>
+      <li><a href="Wali_kelas/get_data" class="app-item">Setting Wali Kelas</a></li>
     </ul>
   </li>
-  <li>
-    <a href="#"><i class=" icon-paste4"></i> <span>E-Rapor</span></a>
-    <ul>
-      <li><a href="Erapor/get_data" class="app-item">Tambah Jadwal E-rapor</a></li>
-    </ul>
-  </li> -->
+
   <li class="navigation-header"><span>Humas</span> <i class="icon-menu" title="Page kits"></i></li>
   <li>
       <a href="#"><i class="icon-collaboration"></i> <span>Sosialisasi</span></a>
       <ul>
         <li><a href="Sosialisasi/get_data" class="app-item">Daftar Sosialisasi</a></li>
         <li><a href="Sosialisasi/add_page" class="app-item">Tambah Sosialisasi</a></li>
-        <!-- <li><a href="Sosialisasi/galeri" class="app-item">Galeri</a></li> -->
       </ul>
   </li>
   <li>
@@ -184,6 +157,26 @@
         <li><a href="Lowongan/get_data" class="app-item">Lowongan</a></li>
       </ul>
   </li>
+
+  <li class="navigation-header"><span>Sarana Prasarana</span> <i class="icon-menu" title="Page kits"></i></li>
+  <li>
+      <a href="#"><i class="icon-collaboration"></i> <span>Sarana</span></a>
+      <ul>
+        <li><a href="Sarana/get_data" class="app-item">Daf. Sarana</a></li>
+        <li><a href="Kelompok_sarana/get_data" class="app-item">Kelompok Sarana</a></li>
+        <li><a href="Kondisi_sarana/get_data" class="app-item">Setting Kondisi Sarana</a></li>
+      </ul>
+  </li>
+  <!-- <li>
+      <a href="#"><i class="icon-collaboration"></i> <span>Prasarana</span></a>
+      <ul>
+        <li><a href="Sarana/get_data" class="app-item">Daf. Prasarana</a></li>
+        <li><a href="Sosialisasi/add_page" class="app-item">Kelompok Prasarana</a></li>
+      </ul>
+  </li>
+  <li><a href="Dashboard/get_data" class="app-item"><i class="icon-home4"></i> <span>Peminjaman Sarana</span></a></li>
+  <li><a href="Dashboard/get_data" class="app-item"><i class="icon-home4"></i> <span>Pengembalian Sarana</span></a></li>
+  <li><a href="Dashboard/get_data" class="app-item"><i class="icon-home4"></i> <span>Kontrol Sarana</span></a></li> -->
   <li class="navigation-header"><span>Laporan & Statistik</span> <i class="icon-menu" title="Page kits"></i></li>
   <li>
     <a href="#"><i class="icon-stack-text"></i> <span>Laporan Keuangan</span></a>
@@ -217,3 +210,4 @@
   <!-- <li><a href="Media/get_data" class="app-item"><i class="icon-stack-picture"></i> <span>Media</span></a></li> -->
   <!-- /page kits -->
 </ul>
+
