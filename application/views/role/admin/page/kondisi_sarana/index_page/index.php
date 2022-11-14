@@ -24,6 +24,7 @@
             <tr>
               <th width="1%">#</th>
               <th>Kondisi Sarana</th>
+              <th width="1%">Total</th>
             </tr>
           </thead>
         </table>

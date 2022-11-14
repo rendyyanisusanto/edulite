@@ -6,7 +6,6 @@
   <li>
     <a href="#"><i class="icon-magazine"></i> <span>Administrasi</span></a>
     <ul>
-      <li><a href="Prestasi_siswa/get_data" class="app-item">Prestasi Siswa</a></li>
       <li><a href="Buku_tamu/get_data" class="app-item">Buku Tamu</a></li>
       <li><a href="Surat_masuk/get_data" class="app-item">Surat Masuk</a></li>
       <li><a href="Surat_keluar/get_data" class="app-item">Surat Keluar</a></li>
@@ -137,6 +136,7 @@
     <a href="#"><i class=" icon-database"></i> <span>Pengaturan Lain</span></a>
     <ul>
       <li><a href="Wali_kelas/get_data" class="app-item">Setting Wali Kelas</a></li>
+      <li><a href="Prestasi_siswa/get_data" class="app-item">Prestasi Siswa</a></li>
     </ul>
   </li>
 

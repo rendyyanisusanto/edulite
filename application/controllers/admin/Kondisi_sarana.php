@@ -16,12 +16,6 @@ class kondisi_sarana extends MY_Controller {
 			'id'				=>	'id_kondisi_sarana'
 	];
 
-
-
-
-
-
-
 	/*
 		CHANGE PAGE
 	*/
@@ -201,8 +195,10 @@ class kondisi_sarana extends MY_Controller {
         foreach ($list as $field) {
             $no++;
             $row        =   array();
+            $jmlsarana = $this->my_where('sarana', ['idkondisisarana_fk'=>$field['id_kondisi_sarana']])->num_rows();
             $row[]      =   '<input type="checkbox" name="get-check" value="'.$field['id_kondisi_sarana'].'"></input>';
             $row[]		=	'<a style="color:'.$field['warna'].'" href="kondisi_sarana/edit_page/'.$field['id_kondisi_sarana'].'" class="app-item"><b>'.strtoupper($field['kondisi_sarana']).'</b></a>';
+            $row[]		=	'<b>'.$jmlsarana.'</b>';
 
             $data[]     =   $row;
         }
