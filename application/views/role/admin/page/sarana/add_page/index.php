@@ -1,22 +1,26 @@
 <form class="form-horizontal" action="<?php echo $data_get['param']['table'] ?>/simpan_data" id="app-submit" method="POST">
 
 <div class="row">
-	<div class="col-md-12">
+	<div class="col-md-6">
 		<div class="panel panel-body">
 
-			<center><h3><b>Halaman Tambah Surat Keluar</b></h3></center>
+			<center><h3><b>Halaman Tambah Sarana</b></h3></center>
 			<fieldset>
 	            
 	            <div class="form-group">
 	              <label class="col-lg-3 control-label">No. Inventaris</label>
 	              <div class="col-lg-4">
-	              	<input type="text" class="form-control" required name="no_inventaris" value="<?php echo rand(0,999999) ?>" placeholder="Input here......">
+	              	<input type="text" class="form-control no_inventaris" required name="no_inventaris" placeholder="Input here......">
 	              </div>
+	              <div class="col-lg-3">
+	                  <button class="btn btn-xs btn-success" data-toggle="tooltip" onclick="reload_table('sarana','no_inventaris','no_inventaris');" data-placement="top" title="Reload Kode" type="button"><i class="icon-pencil7"></i></button>
+	                  <button class="btn btn-xs btn-info" type="button" onclick="setting_table('sarana','no_inventaris');" data-toggle="tooltip" data-placement="top" title="Setting Kode" ><i class="icon-cog3"></i></button>
+	               </div>
 	            </div>
 
 	            <div class="form-group">
 	              <label class="col-lg-3 control-label">Nama Sarana</label>
-	              <div class="col-lg-4">
+	              <div class="col-lg-9">
 	              	<input type="text" class="form-control" required name="sarana" placeholder="Input here......">
 	              </div>
 	            </div>
@@ -28,8 +32,22 @@
 	            </div>
 
 	            <div class="form-group">
-	              <label class="col-lg-3 control-label">Spesifikasi</label>
+	              <label class="col-lg-3 control-label">Tahun Pengadaan</label>
 	              <div class="col-lg-4">
+	              	<input type="year" class="form-control" name="tahun_pengadaan" required placeholder="Input here......">
+	              </div>
+	            </div>
+
+	            <div class="form-group">
+	              <label class="col-lg-3 control-label">Tanggal Pengadaan</label>
+	              <div class="col-lg-4">
+	              	<input type="date" class="form-control" name="tanggal_pengadaan" required placeholder="Input here......">
+	              </div>
+	            </div>
+
+	            <div class="form-group">
+	              <label class="col-lg-3 control-label">Spesifikasi</label>
+	              <div class="col-lg-9">
 	              	<textarea class="form-control" name="spesifikasi" placeholder="Input here......"></textarea>
 	              </div>
 	            </div>
@@ -62,7 +80,8 @@
 	              	<div class="alert alert-info"><b>Info : </b>Gunakan HP untuk mengambil gambar dengan kamera</div>
 	              </div>
 	            </div>
-	            <button class="btn btn-success" type="submit">Simpan</button>
+				<a href="<?php echo $data_get['param']['table'] ?>/get_data" class="app-item btn btn-danger"><i class="icon-arrow-left7"></i> Kembali</a>
+	            <button class="btn btn-success" type="submit"><i class="icon-floppy-disk"></i> Simpan</button>
             </fieldset>	
 		</div>
 	</div>

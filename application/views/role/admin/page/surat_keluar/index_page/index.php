@@ -4,12 +4,7 @@
     <div class="panel panel-flat">
       <div class="panel-heading">
         <h6 class="panel-title"><?php echo ucwords(str_replace('_', ' ', $data_get['param']['title'])) ?><a class="heading-elements-toggle"><i class="icon-more"></i></a></h6>
-        <div class="heading-elements">
-          <ul class="icons-list">
-            <li><a data-action="collapse"></a></li>
-            <li><a data-action="reload"></a></li>
-            <li><a data-action="close"></a></li>
-          </ul>
+        <div class="heading-elements stats-nav" >
         </div>
       </div>
       <div class="panel-body">
@@ -36,6 +31,20 @@
         </table>
         </div>
       </div>
+      <div class="panel-footer"><a class="heading-elements-toggle"><i class="icon-more"></i></a>
+      <div class="heading-elements pull-right">
+        <span class="heading-text text-semibold">Range Tanggal:</span>
+        <form class="heading-form" action="#">
+          <div class="form-group">
+            <input type="date" class="form-control tanggal_mulai" placeholder="Search...">
+          </div>
+          
+          <div class="form-group">
+            <input type="date" class="form-control tanggal_selesai" placeholder="Search...">
+          </div>
+        </form>
+      </div>
+    </div>
     </div>
   </div>
 </div>

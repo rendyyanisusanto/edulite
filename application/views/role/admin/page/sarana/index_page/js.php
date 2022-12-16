@@ -8,6 +8,9 @@
             "ajax": {
                 "url": "<?php echo $data_get['param']['table'] ?>/datatable",
                 "type": "POST",
+                "data":function(data){
+                    data.idkondisisarana_fk = $('.idkondisisarana_fk').val();
+                }
             },
  
             "columnDefs": [
@@ -23,7 +26,6 @@
     $("#del-btn").click(function(){
             var check = [];
             if ($("input[name='get-check']:checked").length==0) {
-
                 toastr.options.positionClass = "toast-bottom-right";
                 toastr.options.progressBar = true;
                 toastr.options.closeButton = true;
@@ -108,5 +110,8 @@
             
     });
     
-
+    $('.idkondisisarana_fk').on('change', function(e){
+        e.stopImmediatePropagation();
+        table.ajax.reload();
+    })
 </script>

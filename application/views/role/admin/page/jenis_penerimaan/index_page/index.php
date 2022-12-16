@@ -31,6 +31,21 @@
         </table>
         </div>
       </div>
+      <div class="panel-footer"><a class="heading-elements-toggle"><i class="icon-more"></i></a>
+      <div class="heading-elements pull-right">
+        <span class="heading-text text-semibold">Tahun Ajaran:</span>
+        <form class="heading-form" action="#">
+          <div class="form-group">
+            <select class="form-control tahun_ajaran">
+              <option value=""> -- Pilih --</option>
+              <?php foreach ($data_get['tahun_ajaran'] as $value): ?>
+                <option value="<?= $value['id_tahun_ajaran'] ?>"><?= $value['tahun_ajaran'] ?></option>
+              <?php endforeach ?>
+            </select>
+          </div>
+        </form>
+      </div>
+    </div>
     </div>
   </div>
 </div>

@@ -15,6 +15,7 @@
 	              </div>
 	            </div>
 
+				<a href="<?php echo $data_get['param']['table'] ?>/get_data" class="app-item btn btn-danger"><i class="icon-arrow-left7"></i> Kembali</a>
 	            <button class="btn btn-success" type="submit"><i class="icon-floppy-disk"></i> Simpan</button>
             </fieldset>	
 		</div>

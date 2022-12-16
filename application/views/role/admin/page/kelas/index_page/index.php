@@ -27,6 +27,7 @@
               <th>Jurusan</th>
               <th>Kelas</th>
               <th>Department</th>
+              <th width="2%">Jml. Siswa</th>
             </tr>
           </thead>
         </table>

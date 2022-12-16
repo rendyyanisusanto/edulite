@@ -21,6 +21,7 @@ class buku_tamu extends MY_Controller {
 	*/
 	public function get_data()
 	{
+
 		$data['account']	=	$this->get_user_account();
 		$data['param'] 		= 	$this->arr;
 		$this->my_view(['role/admin/page/buku_tamu/index_page/index','role/admin/page/buku_tamu/index_page/js'],$data);
@@ -243,7 +244,12 @@ class buku_tamu extends MY_Controller {
 	public function datatable()
 	{
        $_POST['frm']   =   $this->arr;
-
+       	if ($_POST['tanggal_mulai'] != '') {
+       		$this->db->where('tanggal >=',$_POST['tanggal_mulai']);
+       	}
+       	if ($_POST['tanggal_selesai'] != '') {
+			$this->db->where('tanggal <=',$_POST['tanggal_selesai']);
+       	}
         $list           =   $this->mod_datatable->get_datatables();
         $data           =   array();
         $no             =   $_POST['start'];
@@ -268,6 +274,14 @@ class buku_tamu extends MY_Controller {
         );
 
         echo json_encode($output);
+	}
+
+	function get_stats_nav()
+	{
+		$data['total']		=	$this->my_where('buku_tamu', [])->num_rows();
+		$data['hari_ini']	=	$this->my_where('buku_tamu', ['tanggal'=>date('Y-m-d')])->num_rows();
+
+		$this->my_view(['role/admin/page/buku_tamu/index_page/stats'],$data);
 	}
 	
 	

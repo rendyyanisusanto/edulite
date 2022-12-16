@@ -89,6 +89,7 @@
 			toastr.error('Pilih siswa terlebih dahulu');
 		}
 	})
+	
 	$(document).on('click', '.btn-dl-item', function(e){
 		e.stopImmediatePropagation();
 

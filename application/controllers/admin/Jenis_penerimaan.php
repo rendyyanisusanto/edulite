@@ -23,6 +23,7 @@ class jenis_penerimaan extends MY_Controller {
 	{
 		$data['account']	=	$this->get_user_account();
 		$data['param'] 		= 	$this->arr;
+		$data['tahun_ajaran']		=	$this->my_where('tahun_ajaran', [])->result_array();
 		$this->my_view(['role/admin/page/jenis_penerimaan/index_page/index','role/admin/page/jenis_penerimaan/index_page/js'],$data);
 	}
 
@@ -113,6 +114,9 @@ class jenis_penerimaan extends MY_Controller {
 
 	public function datatable()
 	{
+		if ($_POST['idtahunajaran_fk'] != '') {
+			$this->db->where('idtahunajaran_fk', $_POST['idtahunajaran_fk']);
+		}
         $_POST['frm']   =   $this->arr;
         $list           =   $this->mod_datatable->get_datatables();
         $data           =   array();

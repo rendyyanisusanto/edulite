@@ -215,11 +215,13 @@ class kelas extends MY_Controller {
             $tingkat 	=	$this->my_where('tingkat', ['id_tingkat'=>$field['idtingkat_fk']])->row_array();
             $jurusan 	=	$this->my_where('jurusan', ['id_jurusan'=>$field['idjurusan_fk']])->row_array();
             $tahun_ajaran 	 	=	$this->my_where('tahun_ajaran', ['id_tahun_ajaran'=>$field['idtahunajaran_fk']])->row_array();
+            $jmlsiswa	=	$this->my_where('siswa', ['idkelas_fk'=>$field['id_kelas']])->num_rows();	
             $row[]      =   '<input type="checkbox" name="get-check" value="'.$field['id_kelas'].'"></input>';
             $row[]		=	$tingkat['tingkat'];
             $row[]		=	$jurusan['jurusan'];
             $row[]		=	$field['kelas'];
             $row[]		=	$department['department'];
+            $row[]		=	'<b class="text-'.(($jmlsiswa > 0) ? "success" : "danger").'">'.$jmlsiswa.'</b>';
             $data[]     =   $row;
         }
         $output = array(

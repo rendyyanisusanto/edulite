@@ -286,6 +286,12 @@ class transaksi_tanggungan_siswa extends MY_Controller {
 
 	public function datatable()
 	{
+		if ($_POST['tanggal_mulai'] != '') {
+       		$this->db->where('tanggal >=',$_POST['tanggal_mulai']);
+       	}
+       	if ($_POST['tanggal_selesai'] != '') {
+			$this->db->where('tanggal <=',$_POST['tanggal_selesai']);
+       	}
 		$_POST['frm']   =   $this->arr;
         $list           =   $this->mod_datatable->get_datatables();
         $data           =   array();

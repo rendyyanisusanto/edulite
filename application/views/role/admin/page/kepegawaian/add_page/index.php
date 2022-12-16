@@ -24,8 +24,12 @@
             <div class="form-group">
               <label class="col-lg-3 control-label">Kode Pegawai:</label>
               <div class="col-lg-6">
-                <input type="text" name="kode_pegawai" value="<?= 'G'.rand(0,999999) ?>" class="form-control"  placeholder="Input here......">
+                <input type="text" name="kode_pegawai" required="" class="form-control kode_pegawai"  placeholder="Input here......">
               </div>
+              <div class="col-lg-3">
+                  <button class="btn btn-xs btn-success" data-toggle="tooltip" onclick="reload_table('guru','kode_pegawai','kode_pegawai');" data-placement="top" title="Reload Kode" type="button"><i class="icon-pencil7"></i></button>
+                  <button class="btn btn-xs btn-info" type="button" onclick="setting_table('guru','kode_pegawai');" data-toggle="tooltip" data-placement="top" title="Setting Kode" ><i class="icon-cog3"></i></button>
+                </div>
             </div>
             <div class="form-group">
               <label class="col-lg-3 control-label">1. Nama:</label>

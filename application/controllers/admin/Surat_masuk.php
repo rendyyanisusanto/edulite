@@ -203,6 +203,12 @@ class surat_masuk extends MY_Controller {
 
 	public function datatable()
 	{
+		if ($_POST['tanggal_mulai'] != '') {
+       		$this->db->where('tanggal_surat >=',$_POST['tanggal_mulai']);
+       	}
+       	if ($_POST['tanggal_selesai'] != '') {
+			$this->db->where('tanggal_surat <=',$_POST['tanggal_selesai']);
+       	}
         $_POST['frm']   =   $this->arr;
         $list           =   $this->mod_datatable->get_datatables();
         $data           =   array();
@@ -230,5 +236,13 @@ class surat_masuk extends MY_Controller {
         echo json_encode($output);
 	}
 	
+	
+	function get_stats_nav()
+	{
+		$data['total']		=	$this->my_where('surat_masuk', [])->num_rows();
+		$data['hari_ini']	=	$this->my_where('surat_masuk', ['tanggal_surat'=>date('Y-m-d')])->num_rows();
+
+		$this->my_view(['role/admin/page/surat_masuk/index_page/stats'],$data);
+	}
 	
 }

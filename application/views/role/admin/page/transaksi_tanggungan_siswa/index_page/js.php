@@ -8,6 +8,11 @@
             "ajax": {
                 "url": "transaksi_tanggungan_siswa/datatable",
                 "type": "POST",
+                "data":function(data){
+                    data.tanggal_mulai = $(".tanggal_mulai").val();
+                    data.tanggal_selesai = $(".tanggal_selesai").val();
+
+                }
             },
  
             "columnDefs": [
@@ -29,6 +34,16 @@
             $("#modal_animation").modal('toggle');
         });
         
+    })
+    $('.tanggal_mulai').on('change', function(e){
+        e.stopImmediatePropagation();
+
+        table.ajax.reload();
+    })
+    $('.tanggal_selesai').on('change', function(e){
+        e.stopImmediatePropagation();
+
+        table.ajax.reload();
     })
     $("#del-btn").click(function(){
             var check = [];

@@ -1,5 +1,6 @@
 
 <script type="text/javascript">
+    get_stats_nav();
     var table=$('#tabel-data').DataTable( {
        "processing": true, 
             "serverSide": true, 
@@ -8,6 +9,11 @@
             "ajax": {
                 "url": "<?php echo $data_get['param']['table'] ?>/datatable",
                 "type": "POST",
+                "data":function(data){
+                    data.tanggal_mulai = $(".tanggal_mulai").val();
+                    data.tanggal_selesai = $(".tanggal_selesai").val();
+
+                }
             },
  
             "columnDefs": [
@@ -20,6 +26,16 @@
     $('#filter_submit').on('click',function(){
         table.ajax.reload();
     });  
+     $('.tanggal_mulai').on('change', function(e){
+        e.stopImmediatePropagation();
+
+        table.ajax.reload();
+    })
+    $('.tanggal_selesai').on('change', function(e){
+        e.stopImmediatePropagation();
+
+        table.ajax.reload();
+    })
     $("#del-btn").click(function(){
             var check = [];
             if ($("input[name='get-check']:checked").length==0) {
@@ -108,5 +124,14 @@
             
     });
     
-
+    function get_stats_nav()
+    {
+        blockui('.stats-nav');
+        send_ajax("Surat_keluar/get_stats_nav", {}).then(function(data){
+            setTimeout(function(){
+                $('.stats-nav').html(data);
+                unblockui('.stats-nav');
+            }, 1000)
+        });
+    }
 </script>

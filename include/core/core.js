@@ -129,6 +129,40 @@ function random_string(lngt)
   return result;
 }
 
+function setting_table(table="",name="")
+{
+  send_ajax('Global_controller/get_table',{table:table,name:name}).then(function(data){
+    var resp = JSON.parse(data);
+    if (resp.trans_code != null) {
+      
+      $('.template_setting').val(resp.trans_code.value);
+      $('.table').val(resp.table);
+      $('.name').val(resp.name);
+    }else{
+      $('.template_setting').val("");
+      $('.table').val(resp.table);
+      $('.name').val(resp.name);
+    }
+    $('#setting_table').modal("toggle");
+  })
+}
+function reload_table(table="",name="", class_frm=""){
+  send_ajax('Global_controller/get_value',{table:table,name:name}).then(function(data){
+    var resp = JSON.parse(data);
+
+    $('.'+class_frm).val(resp.trans_code);
+  })
+}
+
+$(document).on('submit','#app-submit-setting-table', function(e){
+  e.stopImmediatePropagation();
+
+  send_ajax($(this).attr('action'), $(this).serialize()).then(function(data){
+    toastr.success('Data berhasil diinput, Tekan reset untuk mengubah');
+    $('#setting_table').modal("toggle");
+  });
+  return false;
+});
 
 
 

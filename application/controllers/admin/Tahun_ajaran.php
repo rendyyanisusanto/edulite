@@ -9,9 +9,9 @@ class tahun_ajaran extends MY_Controller {
 	public $arr = [
 			'title'				=>	'Halaman tahun_ajaran',
 			'table'				=>	'tahun_ajaran',
-			'column'			=>	[ 'tahun_ajaran','is_active'],
-			'column_order'		=>	[ 'id_tahun_ajaran','tahun_ajaran','is_active'],
-			'column_search'		=>	[ 'id_tahun_ajaran','tahun_ajaran','is_active'],
+			'column'			=>	[ 'tahun_ajaran','is_active','semester'],
+			'column_order'		=>	[ 'id_tahun_ajaran','tahun_ajaran','is_active','semester'],
+			'column_search'		=>	[ 'id_tahun_ajaran','tahun_ajaran','is_active','semester'],
 			'order'				=>	['id_tahun_ajaran'	=>	'DESC'],
 			'id'				=>	'id_tahun_ajaran'
 	];
@@ -21,33 +21,27 @@ class tahun_ajaran extends MY_Controller {
 	*/
 	public function get_data()
 	{
-		$this->display_view();
-
-		/*if you need custom page*/
-
-		// $data['account']	=	$this->get_user_account();
-		// $this->my_view(['role/admin/page/siswa/index','role/admin/page/siswa/js_siswa'],$data);
-
+		$data['account']	=	$this->get_user_account();
+		$data['param'] 		= 	$this->arr;
+		$this->my_view(['role/admin/page/tahun_ajaran/index_page/index','role/admin/page/tahun_ajaran/index_page/js'],$data);
 	}
 
 	public function add_page()
 	{
-		$this->display_view('add_page');
+
+		$data['param'] 		= 	$this->arr;
+		$data['tahun_ajaran'] = $this->my_where('tahun_ajaran', [])->result_array();
+		$this->my_view(['role/admin/page/tahun_ajaran/add_page/index', 'role/admin/page/tahun_ajaran/add_page/js'],$data);
 	}
 
-	public function edit_page()
+	public function edit_page($id)
 	{
-		$dt = $this->arr;
-		if (isset($_POST['send_data'])) {
-			$data_edit=[];
-				$data_set = $this->my_where($dt['table'],[$dt['id']=>$_POST['send_data']])->row_array();
-				foreach ($dt['column_order'] as $keycolumn => $value_column) {
-					$data_edit[$value_column]	= $data_set[$value_column];
-				}
-			$data['data_edit']	=	$data_edit;
-			$this->display_view('edit_page', $data);
+		if (isset($id)) {
+				$data['param'] 		= 	$this->arr;
+				$data['tahun_ajaran'] = 	$this->my_where('tahun_ajaran',['id_tahun_ajaran'=>$id])->row_array();
+				$this->my_view(['role/admin/page/tahun_ajaran/edit_page/index','role/admin/page/tahun_ajaran/edit_page/js'],$data);
 		} else {
-			$this->get_data();
+			// $this->get_data();
 		}
 	}
 
@@ -58,7 +52,16 @@ class tahun_ajaran extends MY_Controller {
 
 	public function simpan_data()
 	{	
-		if ($this->save_data_param()) {
+		$data = [
+			'tahun_ajaran' => $_POST['tahun_ajaran'],
+			'is_active' => $_POST['is_active'],
+			'semester' => $_POST['semester']
+		];
+
+		if ($_POST['is_active'] == 1) {
+			$this->my_update("tahun_ajaran", ['is_active'=>0], []);
+		}
+		if ($this->save_data('tahun_ajaran', $data)) {
 			$this->get_data();
 		}	else 	{
 			echo "error";
@@ -72,12 +75,16 @@ class tahun_ajaran extends MY_Controller {
 
 	function update_data()
 	{
-		$dt = $this->arr;
-		$data=[];
-		foreach ($dt['column'] as $key => $value) {
-			$data[$value] = $_POST[$value];
+		$data = [
+			'tahun_ajaran' => $_POST['tahun_ajaran'],
+			'is_active' => $_POST['is_active'],
+			'semester' => $_POST['semester']
+		];
+
+		if ($_POST['is_active'] == 1) {
+			$this->my_update("tahun_ajaran", ['is_active'=>0], []);
 		}
-		if ($this->my_update($dt['table'],$data,[$dt['id']=>$_POST[$dt['id']]])) {
+		if ($this->my_update('tahun_ajaran', $data, ['id_tahun_ajaran'=>$_POST['id_tahun_ajaran']])) {
 			$this->get_data();
 		}	else 	{
 			echo "error";
@@ -188,8 +195,31 @@ class tahun_ajaran extends MY_Controller {
 
 	public function datatable()
 	{
-        echo json_encode($this->call_datatable($this->arr));
+		$_POST['frm']   =   $this->arr;
+        $list           =   $this->mod_datatable->get_datatables();
+        $data           =   array();
+        $no             =   $_POST['start'];
+        foreach ($list as $field) {
+            $no++;
+            $row        =   array();
+            $row[]      =   '<input type="checkbox" name="get-check" value="'.$field['id_tahun_ajaran'].'"></input>';
+            $row[]		=	'<a href="Tahun_ajaran/edit_page/'.$field['id_tahun_ajaran'].'" class="app-item">'.$field['tahun_ajaran'].' '.$field['semester'].'</a>';
+            $row[]		=	'<button type="button" onclick="change_status('.$field['id_tahun_ajaran'].', '.$field['is_active'].');" class="btn btn-'.(($field['is_active'] == 0) ? "default" :"success" ).' btn-xs">'.(($field['is_active'] == 0) ? "Non Aktif" :"Aktif" ).'</button>';
+            $data[]     =   $row;
+        }
+        $output = array(
+            "draw" => $_POST['draw'],
+            "recordsTotal" => $this->mod_datatable->count_all(),
+            "recordsFiltered" => $this->mod_datatable->count_filtered(),
+            "data" => $data,
+        );
+
+        echo json_encode($output);
 	}
 	
+	function change_status($id){
+		$this->my_update("tahun_ajaran", ['is_active'=>0], []);
+		$this->my_update('tahun_ajaran', ['is_active'=>1], ['id_tahun_ajaran'=>$id]);
+	}
 	
 }

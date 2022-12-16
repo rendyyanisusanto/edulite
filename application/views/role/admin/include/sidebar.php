@@ -36,6 +36,7 @@
 
   
   
+  <li class="navigation-header"><span>Bimbingan Konseling</span> <i class="icon-menu" title="Page kits"></i></li>
   <li>
     <a href="#"><i class="icon-notebook"></i> <span>Bimbingan Konseling</span></a>
     <ul>
@@ -160,23 +161,24 @@
 
   <li class="navigation-header"><span>Sarana Prasarana</span> <i class="icon-menu" title="Page kits"></i></li>
   <li>
-      <a href="#"><i class="icon-collaboration"></i> <span>Sarana</span></a>
+      <a href="#"><i class="icon-cabinet"></i> <span>Sarana</span></a>
       <ul>
         <li><a href="Sarana/get_data" class="app-item">Daf. Sarana</a></li>
         <li><a href="Kelompok_sarana/get_data" class="app-item">Kelompok Sarana</a></li>
         <li><a href="Kondisi_sarana/get_data" class="app-item">Setting Kondisi Sarana</a></li>
       </ul>
   </li>
-  <!-- <li>
-      <a href="#"><i class="icon-collaboration"></i> <span>Prasarana</span></a>
+  <li>
+      <a href="#"><i class="icon-office"></i> <span>Prasarana</span></a>
       <ul>
-        <li><a href="Sarana/get_data" class="app-item">Daf. Prasarana</a></li>
-        <li><a href="Sosialisasi/add_page" class="app-item">Kelompok Prasarana</a></li>
+        <li><a href="Prasarana/get_data" class="app-item">Daf. Prasarana</a></li>
+        <li><a href="Kelompok_prasarana/get_data" class="app-item">Kelompok Prasarana</a></li>
+        <li><a href="Kondisi_prasarana/get_data" class="app-item">Setting Kondisi Prasarana</a></li>
       </ul>
   </li>
-  <li><a href="Dashboard/get_data" class="app-item"><i class="icon-home4"></i> <span>Peminjaman Sarana</span></a></li>
-  <li><a href="Dashboard/get_data" class="app-item"><i class="icon-home4"></i> <span>Pengembalian Sarana</span></a></li>
-  <li><a href="Dashboard/get_data" class="app-item"><i class="icon-home4"></i> <span>Kontrol Sarana</span></a></li> -->
+  <li><a href="Peminjaman_sarana/get_data" class="app-item"><i class="icon-notebook"></i> <span>Peminjaman Sarana</span></a></li>
+  <li><a href="Pengembalian_sarana/get_data" class="app-item"><i class="icon-clipboard5"></i> <span>Pengembalian Sarana</span></a></li>
+  <li><a href="Kontrol_sarana/get_data" class="app-item"><i class="icon-archive"></i> <span>Kontrol Sarana</span></a></li>
   <li class="navigation-header"><span>Laporan & Statistik</span> <i class="icon-menu" title="Page kits"></i></li>
   <li>
     <a href="#"><i class="icon-stack-text"></i> <span>Laporan Keuangan</span></a>

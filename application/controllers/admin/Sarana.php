@@ -9,9 +9,9 @@ class sarana extends MY_Controller {
 	public $arr = [
 			'title'				=>	'Halaman sarana',
 			'table'				=>	'sarana',
-			'column'			=>	['sarana','jumlah','idkelompoksarana_fk','idkondisisarana_fk','no_inventaris','spesifikasi','foto'],
-			'column_order'		=>	[ 'id_sarana','sarana','jumlah','idkelompoksarana_fk','idkondisisarana_fk','no_inventaris','spesifikasi','foto'],
-			'column_search'		=>	[ 'id_sarana','sarana','jumlah','idkelompoksarana_fk','idkondisisarana_fk','no_inventaris','spesifikasi','foto'],
+			'column'			=>	['sarana','jumlah','idkelompoksarana_fk','idkondisisarana_fk','no_inventaris','tahun_pengadaan','tanggal_pengadaan','spesifikasi','foto'],
+			'column_order'		=>	[ 'id_sarana','sarana','jumlah','idkelompoksarana_fk','idkondisisarana_fk','no_inventaris','tahun_pengadaan','tanggal_pengadaan','spesifikasi','foto'],
+			'column_search'		=>	[ 'id_sarana','sarana','jumlah','idkelompoksarana_fk','idkondisisarana_fk','no_inventaris','tahun_pengadaan','tanggal_pengadaan','spesifikasi','foto'],
 			'order'				=>	['id_sarana'	=>	'DESC'],
 			'id'				=>	'id_sarana'
 	];
@@ -23,6 +23,7 @@ class sarana extends MY_Controller {
 	{
 		$data['account']	=	$this->get_user_account();
 		$data['param'] 		= 	$this->arr;
+		$data['kondisi_sarana']	=	$this->my_where('kondisi_sarana', [])->result_array();
 		$this->my_view(['role/admin/page/sarana/index_page/index','role/admin/page/sarana/index_page/js'],$data);
 	}
 
@@ -67,6 +68,8 @@ class sarana extends MY_Controller {
 			'idkondisisarana_fk' 		=> $_POST['idkondisisarana_fk'],
 			'spesifikasi' 				=> $_POST['spesifikasi'],
 			'no_inventaris' 			=> $_POST['no_inventaris'],
+			'tahun_pengadaan' 			=> $_POST['tahun_pengadaan'],
+			'tanggal_pengadaan' 		=> $_POST['tanggal_pengadaan'],
 			'foto'						=>	((isset($file_arsip)) ? $file_arsip['file_name'] : ''),
 		];
 
@@ -74,14 +77,6 @@ class sarana extends MY_Controller {
 			echo "Success";
 		}
 	}
-
-
-
-
-
-
-
-
 
 	/*
 		EDIT DATA
@@ -100,6 +95,8 @@ class sarana extends MY_Controller {
 			'idkondisisarana_fk' 		=> $_POST['idkondisisarana_fk'],
 			'spesifikasi' 				=> $_POST['spesifikasi'],
 			'no_inventaris' 			=> $_POST['no_inventaris'],
+			'tahun_pengadaan' 			=> $_POST['tahun_pengadaan'],
+			'tanggal_pengadaan' 		=> $_POST['tanggal_pengadaan'],
 			'foto'	=>	((isset($file_arsip)) ? $file_arsip['file_name'] : $_POST['file_arsip_before']),
 		];
 		if ($this->my_update('sarana',$data,['id_sarana'=>$_POST['id_sarana']])) {
@@ -217,6 +214,9 @@ class sarana extends MY_Controller {
 
 	public function datatable()
 	{
+		if ($_POST['idkondisisarana_fk'] != "") {
+			$this->db->where("idkondisisarana_fk", $_POST['idkondisisarana_fk']);
+		}
         $_POST['frm']   =   $this->arr;
         $list           =   $this->mod_datatable->get_datatables();
         $data           =   array();
@@ -232,6 +232,7 @@ class sarana extends MY_Controller {
             $row[]		=	!empty($field['jumlah']) ? $field['jumlah'] : '-';
             $row[]		=	$kelompok_sarana['kelompok_sarana'];
             $row[]		=	'<b style="color:'.$kondisi_sarana['warna'].'">'.$kondisi_sarana['kondisi_sarana'].'</b>';
+            $row[]		=	'<b>'.$field['tahun_pengadaan']." </b>(".$field['tanggal_pengadaan'].")";
             $row[]		=	!empty($field['foto']) ? '<a href="'.base_url('include/media/sarana/'.$field['foto']).'" target="__blank">Download Foto</a>' : '-';
 
             $data[]     =   $row;

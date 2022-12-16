@@ -8,8 +8,13 @@
 			<div class="form-group">
               <label class="col-lg-3 control-label">Kode:</label>
               <div class="col-lg-4">
-                <input type="text" name="invoice" value="P<?php echo rand(0,9999999) ?>" class="form-control" required placeholder="Input here......">
+                <input type="text" name="invoice" class="form-control invoice" required placeholder="Input here......">
               </div>
+
+              <div class="col-lg-3">
+	              	<button class="btn btn-xs btn-success" data-toggle="tooltip" onclick="reload_table('Transaksi_tanggungan_alumni','invoice','invoice');" data-placement="top" title="Reload Kode" type="button"><i class="icon-pencil7"></i></button>
+	              	<button class="btn btn-xs btn-info" type="button" onclick="setting_table('Transaksi_tanggungan_alumni','invoice');" data-toggle="tooltip" data-placement="top" title="Setting Kode" ><i class="icon-cog3"></i></button>
+	              </div>
             </div>
             <div class="form-group">
               <label class="col-lg-3 control-label">Tanggal:</label>

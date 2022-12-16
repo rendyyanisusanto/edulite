@@ -36,6 +36,20 @@
         </table>
         </div>
       </div>
+      <div class="panel-footer"><a class="heading-elements-toggle"><i class="icon-more"></i></a>
+      <div class="heading-elements pull-right">
+        <span class="heading-text text-semibold">Range Tanggal:</span>
+        <form class="heading-form" action="#">
+          <div class="form-group">
+            <input type="date" class="form-control tanggal_mulai" placeholder="Search...">
+          </div>
+          
+          <div class="form-group">
+            <input type="date" class="form-control tanggal_selesai" placeholder="Search...">
+          </div>
+        </form>
+      </div>
+    </div>
     </div>
   </div>
 </div>

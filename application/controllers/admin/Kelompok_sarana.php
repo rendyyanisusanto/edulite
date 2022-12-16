@@ -16,12 +16,6 @@ class kelompok_sarana extends MY_Controller {
 			'id'				=>	'id_kelompok_sarana'
 	];
 
-
-
-
-
-
-
 	/*
 		CHANGE PAGE
 	*/

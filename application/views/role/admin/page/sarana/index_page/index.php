@@ -6,9 +6,14 @@
         <h6 class="panel-title"><?php echo ucwords(str_replace('_', ' ', $data_get['param']['title'])) ?><a class="heading-elements-toggle"><i class="icon-more"></i></a></h6>
         <div class="heading-elements">
           <ul class="icons-list">
-            <li><a data-action="collapse"></a></li>
-            <li><a data-action="reload"></a></li>
-            <li><a data-action="close"></a></li>
+            <li>
+              <select class="form-control input-sm idkondisisarana_fk" >
+                <option value="">Filter Kondisi Sarana</option>
+                <?php foreach ($data_get['kondisi_sarana'] as $value): ?>
+                  <option value="<?= $value['id_kondisi_sarana'] ?>" style="font-weight: bold;color: <?php echo $value['warna'];?>"><?= $value['kondisi_sarana'] ?></option>
+                <?php endforeach ?>
+              </select>
+            </li>
           </ul>
         </div>
       </div>
@@ -28,6 +33,7 @@
               <th>Jumlah</th>
               <th>Kategori</th>
               <th>Kondisi</th>
+              <th>Tahun Pengadaan</th>
               <th width="15%">Arsip</th>
             </tr>
           </thead>
