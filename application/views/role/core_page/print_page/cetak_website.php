@@ -9,12 +9,24 @@
     .tbl{
         margin-top: 2%;
     }
+
+            table {
+              border-collapse: collapse;
+              /*font-family: consolas;*/
+              font-size: 10px;
+            }
+            table tbody tr td{
+                padding-left: 10px;
+            }
+            table thead{
+                text-align: center;
+            }
 </style>
 <center><h3>Cetak Data <?php echo $data_get['filename'] ?></h3></center>
 <table class="table tbl table-bordered table-xxs table-framed">
     <thead>
         <tr>
-            <td>No</td>
+            <td width="1%">No</td>
             <?php
                 foreach ($data_get['header_table'] as $key => $value) {
                     echo '<td>'.ucwords(str_replace('_', ' ', $value)).'</td>';

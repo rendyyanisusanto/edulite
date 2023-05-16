@@ -36,7 +36,7 @@
 							<select class="form-control" name="tipe_laporan" id="tipe_laporan">
 		                      <option> Pilih </option>
 		                      <option value="pdf"> PDF </option>
-		                      <option value="website"> Cetak Website </option>
+		                      <option value="website"> Direct Print </option>
 		                      <option value="excel"> Excel </option>
 		                    </select>
 						</td>
@@ -65,20 +65,21 @@
 					</tr>
 				</table>
 				<hr>
+				<a href="<?php echo $data_get['param']['table'] ?>/get_data" class="app-item btn btn-danger"><i class="icon-arrow-left7"></i> Kembali</a>
 				<button id="cek" class="btn btn-success" type="button"><i class="icon-spinner"></i> Proses Ekspor</button>
 			</div>
 		</div>
 	</div>
 	<div class="col-md-6 col-sm-12 col-xs-12">
-			<!-- <div class="panel panel-flat">
+			<div class="panel panel-flat">
 				<div class="panel-body">
 					<center><h4><u><b>Field yang dicetak</b></u></h4></center>
 					<br>
 					<?php foreach ($data_get['param']['column'] as $key => $value): ?>
-						<input type="checkbox" checked="true" name="field[]" value="<?php echo $value ?>"> <?php echo $value ?>  
+						<input type="checkbox" checked="true" name="field[]" value="<?php echo $value ?>"> <?php echo $value ?>  <br>
 					<?php endforeach ?>
 				</div>
-			</div> -->
+			</div> 
 		<div class="filter" style="display: none;">
 
 			<div class="panel panel-flat">

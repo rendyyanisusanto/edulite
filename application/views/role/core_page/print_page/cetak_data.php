@@ -2,6 +2,19 @@
 <html>
 <head>
 	<title></title>
+	<style type="text/css">
+		table {
+              border-collapse: collapse;
+              /*font-family: consolas;*/
+              font-size: 10px;
+            }
+            table tbody tr td{
+                padding-left: 10px;
+            }
+            table thead{
+                text-align: center;
+            }
+	</style>
 </head>
 <body>
 

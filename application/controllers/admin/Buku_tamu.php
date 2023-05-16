@@ -102,7 +102,13 @@ class buku_tamu extends MY_Controller {
 		public function print_hari_ini()
 		{
 				$data['param'] 		= 	$this->arr;
-				$data['buku_tamu'] 	= $this->db->query('SELECT * FROM `buku_tamu` where date(tanggal) = now()')->result_array();
+				$data['buku_tamu'] 	= $this->db->query('SELECT * FROM `buku_tamu` where date(tanggal) = curdate()')->result_array();
+				$data['template_buku_tamu']	=
+					[
+						'header' => $this->generate_code($this->my_where('setting_table',['table'=>'buku_tamu', 'name'=>'header_print_table'])->row_array()['value']),
+						'footer' => $this->generate_code($this->my_where('setting_table',['table'=>'buku_tamu', 'name'=>'footer_print_table'])->row_array()['value']),
+						'title' => $this->generate_code($this->my_where('setting_table',['table'=>'buku_tamu', 'name'=>'title_print_table'])->row_array()['value']),
+					];
 				$this->load->view('role/admin/page/buku_tamu/print/index',$data);
 		}
 		function cetak_page()
@@ -179,8 +185,8 @@ class buku_tamu extends MY_Controller {
 	            $param  =   [
 	                'filename'			=>		'Buku Tamu',
 	                'data_obj'			=>		$data_set->result_array(),
-	                'header_table'		=>		$dt['column'],
-	                'print_field'		=>		$dt['column']
+	                'header_table'		=>		$_POST['field'],
+	                'print_field'		=>		$_POST['field'],
 	            ];
 
 	            
@@ -227,10 +233,10 @@ class buku_tamu extends MY_Controller {
 	        	// echo "<a target='__blank' href='".$response['file']."'>Download</a>";
 		    }else if ($_POST['tipe_laporan'] == 'website'){
 				$param  =   [
-	                'filename'			=>		'Prestasi Siswa',
+	                'filename'			=>		'Buku Tamu',
 	                'data_obj'			=>		$data_set->result_array(),
-	                'header_table'		=>		$dt['column'],
-	                'print_field'		=>		$dt['column']
+	                'header_table'		=>		$_POST['field'],
+	                'print_field'		=>		$_POST['field']
 	            ];
 				$this->my_view(['role/core_page/print_page/cetak_website'],$param);
 			}
@@ -263,6 +269,7 @@ class buku_tamu extends MY_Controller {
             $row[]		=	!empty($field['jabatan']) ? $field['jabatan'] : '-';
             $row[]		=	!empty($field['keperluan']) ? $field['keperluan'] : '-';
             $row[]		=	!empty($field['saran']) ? $field['saran'] : '-';
+            $row[]		=	'<a href="'.base_url('admin/buku_tamu/print_data/'.$field['id_buku_tamu']).'" target="__blank">Print Data</a>';
 
             $data[]     =   $row;
         }
@@ -282,6 +289,18 @@ class buku_tamu extends MY_Controller {
 		$data['hari_ini']	=	$this->my_where('buku_tamu', ['tanggal'=>date('Y-m-d')])->num_rows();
 
 		$this->my_view(['role/admin/page/buku_tamu/index_page/stats'],$data);
+	}
+	function print_data($id)
+	{
+		$data['buku_tamu']	=	$this->my_where('buku_tamu',['id_buku_tamu'=>$id])->row_array();
+		$data['template_buku_tamu']	=
+		[
+			'header' => $this->generate_code($this->my_where('setting_table',['table'=>'buku_tamu', 'name'=>'header_print_data'])->row_array()['value']),
+			'footer' => $this->generate_code($this->my_where('setting_table',['table'=>'buku_tamu', 'name'=>'footer_print_data'])->row_array()['value']),
+			'title' => $this->generate_code($this->my_where('setting_table',['table'=>'buku_tamu', 'name'=>'title_print_data'])->row_array()['value']),
+		];
+		
+		$this->load->view('role/admin/page/buku_tamu/print/print_data',$data);
 	}
 	
 	

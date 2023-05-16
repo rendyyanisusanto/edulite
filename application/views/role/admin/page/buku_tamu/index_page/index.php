@@ -13,7 +13,7 @@
         <a class="btn bg-danger-400 btn-labeled legitRipple" id="del-btn"><b><i class="icon-bin"></i></b> Hapus</a>
         
         <a class="btn bg-purple-400 btn-labeled legitRipple" id="cetak-btn"><b><i class="icon-printer"></i></b> Print</a>
-        <a class="btn bg-info-400 btn-labeled legitRipple" target="__blank" href="<?php echo $data_get['param']['table'] ?>/print_hari_ini"><b><i class="icon-printer2"></i></b> Print All</a>
+        <a class="btn bg-info-400 btn-labeled legitRipple" target="__blank" href="<?php echo $data_get['param']['table'] ?>/print_hari_ini"><b><i class="icon-printer2"></i></b> Print Hari Ini</a>
         <hr>
         <div class="table-responsive">
           <table class="table table-framed table-xxs" width="100%" id="tabel-data">
@@ -23,9 +23,10 @@
                 <th>Tanggal</th>
                 <th>Nama</th>
                 <th>Alamat</th>
-                <th>Jabatan</th>
+                <th>Instansi/Organisasi/Jabatan</th>
                 <th>Keperluan</th>
                 <th>Saran</th>
+                <th>#</th>
               </tr>
             </thead>
           </table>

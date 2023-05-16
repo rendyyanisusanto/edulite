@@ -35,7 +35,7 @@ class Jadwal_pelajaran extends MY_Controller {
 
 		$data['tahun_ajaran']		=	$this->my_where('tahun_ajaran',['id_tahun_ajaran'=>$id])->row_array();
 		$data['kelas']		=	$this->my_where('kelas',['id_kelas'=>$idkelas])->row_array();
-		$data['mapel_guru']	=	$this->my_where('v_guru_mapel',['idkelas_fk'=>$idkelas, 'idtahunajaran_fk'=>$id])->result_array();
+		$data['mapel_guru']	=	$this->my_where('v_guru_mapel',['idkelas_fk'=>$idkelas, 'id_tahun_ajaran'=>$id])->result_array();
 		$data['jam_pelajaran'] = $this->my_where('jam_pelajaran', ['idtahunajaran_fk'=>$id])->result_array();
 		$data['account']	=	$this->get_user_account();
 		$data['param'] 		= 	$this->arr;
