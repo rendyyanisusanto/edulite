@@ -25,6 +25,16 @@
 	              </div>
 	            </div>
 	            <div class="form-group">
+	              <label class="col-lg-3 control-label">Lokasi/Tempat:</label>
+	              <div class="col-lg-4">
+	              	<select class="form-control" required="" name="idlokasi_fk">
+	              		<?php foreach ($data_get['prasarana'] as $value): ?>
+	              			<option <?= ($value['id_prasarana'] == $data_get['sarana']['idlokasi_fk']) ? "selected" : ""; ?> value="<?= $value['id_prasarana'] ?>" ><?= $value['no_inventaris'].' - '.$value['prasarana'] ?></option>
+	              		<?php endforeach ?>
+	              	</select>
+	              </div>
+	            </div>
+	            <div class="form-group">
 	              <label class="col-lg-3 control-label">Jumlah</label>
 	              <div class="col-lg-4">
 	              	<input type="number" class="form-control" name="jumlah" required value="<?php echo $data_get['sarana']['jumlah'] ?>"  placeholder="Input here......">

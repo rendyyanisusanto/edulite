@@ -31,6 +31,7 @@ class sarana extends MY_Controller {
 	{
 		$data['account']	=	$this->get_user_account();
 		$data['param'] 		= 	$this->arr;
+		$data['prasarana']	=	$this->my_where('prasarana', [])->result_array();
 		$data['kondisi_sarana']	=	$this->my_where('kondisi_sarana', [])->result_array();
 		$data['kelompok_sarana']	=	$this->my_where('kelompok_sarana', [])->result_array();
 
@@ -41,8 +42,9 @@ class sarana extends MY_Controller {
 	{
 		if (isset($id)) {
 				$data['param'] 		= 	$this->arr;
-				$data['sarana'] = 	$this->my_where('sarana',['id_sarana'=>$id])->row_array();
+				$data['sarana'] 	= 	$this->my_where('sarana',['id_sarana'=>$id])->row_array();
 				$data['kondisi_sarana']	=	$this->my_where('kondisi_sarana', [])->result_array();
+				$data['prasarana']	=	$this->my_where('prasarana', [])->result_array();
 				$data['kelompok_sarana']	=	$this->my_where('kelompok_sarana', [])->result_array();
 				$this->my_view(['role/admin/page/sarana/edit_page/index','role/admin/page/sarana/edit_page/js'],$data);
 		} else {
@@ -70,6 +72,7 @@ class sarana extends MY_Controller {
 			'no_inventaris' 			=> $_POST['no_inventaris'],
 			'tahun_pengadaan' 			=> $_POST['tahun_pengadaan'],
 			'tanggal_pengadaan' 		=> $_POST['tanggal_pengadaan'],
+			'idlokasi_fk' 				=> $_POST['idlokasi_fk'],
 			'foto'						=>	((isset($file_arsip)) ? $file_arsip['file_name'] : ''),
 		];
 
@@ -97,6 +100,7 @@ class sarana extends MY_Controller {
 			'no_inventaris' 			=> $_POST['no_inventaris'],
 			'tahun_pengadaan' 			=> $_POST['tahun_pengadaan'],
 			'tanggal_pengadaan' 		=> $_POST['tanggal_pengadaan'],
+			'idlokasi_fk' 				=> $_POST['idlokasi_fk'],
 			'foto'	=>	((isset($file_arsip)) ? $file_arsip['file_name'] : $_POST['file_arsip_before']),
 		];
 		if ($this->my_update('sarana',$data,['id_sarana'=>$_POST['id_sarana']])) {
@@ -224,12 +228,14 @@ class sarana extends MY_Controller {
         foreach ($list as $field) {
             $no++;
             $row        =   array();
+            $prasarana = $this->my_where('prasarana', ['id_prasarana'=>$field['idlokasi_fk']])->row_array();
             $kondisi_sarana = $this->my_where('kondisi_sarana', ['id_kondisi_sarana'=>$field['idkondisisarana_fk']])->row_array();
             $kelompok_sarana = $this->my_where('kelompok_sarana', ['id_kelompok_sarana'=>$field['idkelompoksarana_fk']])->row_array();
             $row[]      =   '<input type="checkbox" name="get-check" value="'.$field['id_sarana'].'"></input>';
             $row[]		=	'<a href="sarana/edit_page/'.$field['id_sarana'].'" class="app-item"><b>'.strtoupper($field['no_inventaris']).'</b></a>';
             $row[]		=	!empty($field['sarana']) ? strtoupper($field['sarana']) : '-';
             $row[]		=	!empty($field['jumlah']) ? $field['jumlah'] : '-';
+            $row[]		=	$prasarana['prasarana'];
             $row[]		=	$kelompok_sarana['kelompok_sarana'];
             $row[]		=	'<b style="color:'.$kondisi_sarana['warna'].'">'.$kondisi_sarana['kondisi_sarana'].'</b>';
             $row[]		=	'<b>'.$field['tahun_pengadaan']." </b>(".$field['tanggal_pengadaan'].")";

@@ -1,15 +1,11 @@
 <table class="table table-framed table-xxs" >
 	<tr>
-		<td style="font-weight: bold;">No. Peminjaman</td>
-		<td><?= $data_get['peminjaman_sarana']['no_peminjaman_sarana'] ?></td>
+		<td style="font-weight: bold;">No. Inv</td>
+		<td><?= $data_get['kontrol_sarana']['no_kontrol_sarana'] ?></td>
 	</tr>
 	<tr>
-		<td style="font-weight: bold;">Nama</td>
-		<td><?= $data_get['profil_peminjam']['nama'] ?></td>
-	</tr>
-	<tr>
-		<td style="font-weight: bold;">Status</td>
-		<td><?= ($data_get['peminjaman_sarana']['status'] == 0) ? '<span class="label label-danger">Belum Dikembalikan</span>' :'<span class="label label-success">Sudah Dikembalikan</span>'; ?></td>
+		<td style="font-weight: bold;">Nama Penanggung Jawab</td>
+		<td><?= $data_get['penanggung_jawab']['nama'] ?></td>
 	</tr>
 </table>
 <hr>
@@ -18,8 +14,10 @@
 		<tr>
 			<th width="1%">No</th>
 			<th>Sarana</th>
-			<th>Jumlah</th>
+			<th>Jumlah Awal</th>
+			<th>Jumlah Akhir</th>
 			<th>Kondisi</th>
+			<th>Keterangan</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -28,9 +26,11 @@
 		foreach ($data_get['sarana'] as $value): ?>
 			<tr>
 				<td><?= ++$no ?></td>
-				<td><?= $value['sarana']['sarana'] ?></td>
-				<td><?= $value['detail']['jumlah'] ?></td>
+				<td><?= $value['sarana']['no_inventaris'].'-'.$value['sarana']['sarana'] ?></td>
+				<td><?= $value['detail']['jumlah_awal'] ?></td>
+				<td><?= $value['detail']['jumlah_akhir'] ?></td>
 				<td><b style="color:<?= $value['kondisi']['warna'] ?>"><?= $value['kondisi']['kondisi_sarana'] ?></b></td>
+				<td><?= $value['detail']['keterangan'] ?></td>
 			</tr>
 		<?php endforeach ?>
 	</tbody>

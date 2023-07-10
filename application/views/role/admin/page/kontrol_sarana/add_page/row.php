@@ -3,7 +3,7 @@
 	<td>
 		<select name="detail[<?php echo $data_get['rand']; ?>][idsarana_fk]" data-row="<?php echo $data_get['rand']; ?>" onchange="get_item(<?php echo $data_get['rand']; ?>);" class="form-control select-sarana<?php echo $data_get['rand']; ?>">
 			<?php foreach ($data_get['sarana'] as $value): ?>
-				<option value="<?= $value['id_sarana'] ?>"><?= $value['sarana'] ?></option>
+				<option value="<?= $value['id_sarana'] ?>"><?= $value['no_inventaris'].' - '.$value['sarana'] ?></option>
 			<?php endforeach ?>
 		</select>
 	</td>

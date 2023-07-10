@@ -41,15 +41,16 @@
 			$('.tbl-cart tbody').append(data);
 			count_tr();
 		});
-		// var number = 1 + Math.floor(Math.random() * 9999999);
-		// var td = '<tr id="tr'+number+'">';
-		// 	td += '<td width="1%"><button class="btn btn-xs btn-danger btn-dl-item" data-rowid="'+number+'" type="button"><i class="icon-trash"></i></button></td>';
-		// 	td += '<td></td>';
-		// 	td += '<td><input type="text" name="detail['+number+'][keterangan]" class="form-control"></td>';
-		// 	td += '<td><input type="number" name="detail['+number+'][jumlah]" class="form-control inp-jml" ></td>';
-		// 	td += '</tr>';
-		// $('.tbl-cart tbody').append(td);
-		// count_tr();
+		
+
+	}
+
+	function all_cart() {
+		// 
+		send_ajax('kontrol_sarana/add_row_all', {}).then(function(data){
+			$('.tbl-cart tbody').append(data);
+			count_tr();
+		});
 		
 
 	}

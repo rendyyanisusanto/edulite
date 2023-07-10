@@ -131,10 +131,10 @@ class Guru_mapel extends MY_Controller {
 								<div class="form-group">
 				                  <label class="col-lg-3 control-label">Mapel</label>
 				                  <div class="col-lg-9">
-				                  	<select class="form-control idmapel_fk" name="mapel" >
+				                  	<select class="form-control idmapel_fk" name="idmapel_fk" >
 				                  ';
 			foreach ($data['mata_pelajaran'] as $key => $value) {
-				$send .= '				<option value='.$value['id_mata_pelajaran'].'>'.$value['mata_pelajaran'].'</option>';
+				$send .= '				<option value='.$value['id_mata_pelajaran'].'>'.$value['kode'].' - '.$value['mata_pelajaran'].'</option>';
 			}
 		$send .='
 									</select>
@@ -143,7 +143,7 @@ class Guru_mapel extends MY_Controller {
 				                <div class="form-group">
 				                  <label class="col-lg-3 control-label">Guru</label>
 				                  <div class="col-lg-9">
-				                  	<select class="form-control idguru_fk" name="guru">
+				                  	<select class="form-control idguru_fk" name="idguru_fk">
 				                  ';
 			foreach ($data['guru'] as $key => $value) {
 				$send .= '				<option value='.$value['id_guru'].'>'.$value['nama'].'</option>';
@@ -176,7 +176,7 @@ class Guru_mapel extends MY_Controller {
 				$guru = $this->my_where('guru', ['id_guru'=>$value['idguru_fk']])->row_array();
 					$send .= '<tr>
 									<td>'.(++$no).'</td>
-									<td>'.$mapel['mata_pelajaran'].'</td>
+									<td>'.'('.$mapel['kode'].') '.$mapel['mata_pelajaran'].'</td>
 									<td>'.$guru['nama'].'</td>
 									<td><button type="button" data-id="'.$value['id_guru_mapel'].'" class="btn btn-xxs btn-hps btn-danger"><i class="icon-trash"></i></button>
 								</tr>';

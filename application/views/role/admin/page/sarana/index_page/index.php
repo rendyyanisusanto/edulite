@@ -31,6 +31,7 @@
               <th>Kode</th>
               <th>Sarana</th>
               <th>Jumlah</th>
+              <th>Lokasi</th>
               <th>Kategori</th>
               <th>Kondisi</th>
               <th>Tahun Pengadaan</th>

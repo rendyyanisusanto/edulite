@@ -16,12 +16,6 @@ class kontrol_sarana extends MY_Controller {
 			'id'				=>	'id_kontrol_sarana'
 	];
 
-
-
-
-
-
-
 	/*
 		CHANGE PAGE
 	*/
@@ -88,6 +82,7 @@ class kontrol_sarana extends MY_Controller {
 					'idsarana_fk'					=>	$value['idsarana_fk'],
 					'jumlah_awal'					=>	$value['jumlah_awal'],
 					'jumlah_akhir'					=>	$value['jumlah_akhir'],
+					'keterangan'					=>	$value['keterangan'],
 					'idkondisisarana_fk'			=>	$value['idkondisisarana_fk']
 				];
 
@@ -311,11 +306,23 @@ class kontrol_sarana extends MY_Controller {
 		$this->my_view(['role/admin/page/kontrol_sarana/add_page/row'],$data);
 	}
 
+
+	function add_row_all(){
+		$sarana = $this->my_where('sarana', [])->result_array();
+		$data['sarana']	=	$sarana;
+		$data['kondisi_sarana']	=	$this->my_where('kondisi_sarana', [])->result_array();
+
+
+		// $data['rand']			=	rand(0,99999);
+
+		$this->my_view(['role/admin/page/kontrol_sarana/add_page/row_all'],$data);
+	}
+
 	function get_detail($id)
 	{
-		$detail_kontrol_sarana = $this->my_where('detail_kontrol_sarana', ['idpeminjamansarana_fk'=>$id])->result_array();
+		$detail_kontrol_sarana = $this->my_where('detail_kontrol_sarana', ['idkontrolsarana_fk'=>$id])->result_array();
 		$data['kontrol_sarana']	=	$this->my_where('kontrol_sarana', ['id_kontrol_sarana'=>$id])->row_array();
-		$data['profil_peminjam'] =	$this->my_where($data['kontrol_sarana']['table_pemohon'], ['id_'.$data['kontrol_sarana']['table_pemohon'] =>$data['kontrol_sarana']['idtablepemohon_fk'] ])->row_array();
+		$data['penanggung_jawab'] =	$this->my_where('guru', ['id_guru' => $data['kontrol_sarana']['idguru_fk']])->row_array();
 		foreach ($detail_kontrol_sarana as $value) {
 			$sarana = $this->my_where('sarana', ['id_sarana'=>$value['idsarana_fk']])->row_array();
 			$kondisi = $this->my_where('kondisi_sarana', ['id_kondisi_sarana'=>$value['idkondisisarana_fk']])->row_array();

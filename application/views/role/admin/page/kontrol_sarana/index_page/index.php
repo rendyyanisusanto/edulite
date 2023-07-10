@@ -32,12 +32,12 @@
 </div>
 
 <!-- Disabled animation -->
-          <div id="modal-detail" class="modal" tabindex="-1">
-            <div class="modal-dialog">
+          <div id="modal-detail" class="modal " tabindex="-1">
+            <div class="modal-dialog modal-lg">
               <div class="modal-content">
                 <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h5 class="modal-title">Detail Peminjaman Sarana</h5>
+                  <h5 class="modal-title">Detail Monitoring Sarana</h5>
                 </div>
 
                 <div class="modal-body">

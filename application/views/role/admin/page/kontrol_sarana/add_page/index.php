@@ -21,8 +21,14 @@
 	            </div>
 	            <div class="form-group">
 	              <label class="col-lg-3 control-label">Tanggal:</label>
-	              <div class="col-lg-2">
+	              <div class="col-lg-6">
 	                <input type="date" value="<?= date('Y-m-d'); ?>" name="tanggal" class="form-control"  required="" placeholder="Input here......">
+	              </div>
+	            </div>
+	            <div class="form-group">
+	              <label class="col-lg-3 control-label">Keterangan:</label>
+	              <div class="col-lg-6">
+	                <input type="text" name="keterangan" class="form-control"  required="" placeholder="Input here......">
 	              </div>
 	            </div>
 	            
@@ -50,6 +56,8 @@
 
 		<div class="panel panel-body">
 			<button class="btn btn-primary btn-add" type="button" style="margin-bottom: 1%;"><i class="icon-plus3"></i> Tambah data</button>
+			<button class="btn btn-success btn-all" onclick="all_cart();" type="button" style="margin-bottom: 1%;"><i class="icon-box"></i> Cek Semua Sarana</button>
+			<button class="btn btn-warning btn-ruangan" type="button" style="margin-bottom: 1%;"><i class="icon-book"></i> Cek Per Ruangan</button>
 			<table class="table table-framed tbl-cart">
 				<thead>
 					<tr>
