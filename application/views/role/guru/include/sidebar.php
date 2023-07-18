@@ -58,6 +58,7 @@
     </li>
     <li><a href="Catatan_siswa/get_data" class="app-item"><i class="icon-book"></i> <span>Catatan Siswa</span></a></li>
   <?php endif ?>
+  <li><a href="jadwal_lab/get_data" class="app-item"><i class="icon-notebook"></i> <span>Peminjaman Laboratorium</span></a></li>
   <!-- <li>
     <a href="#"><i class="icon-pencil3"></i> <span>Blog</span></a>
     <ul>
