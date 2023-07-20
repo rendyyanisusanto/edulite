@@ -179,6 +179,7 @@
   <li><a href="Peminjaman_sarana/get_data" class="app-item"><i class="icon-notebook"></i> <span>Peminjaman Sarana</span></a></li>
   <li><a href="Pengembalian_sarana/get_data" class="app-item"><i class="icon-clipboard5"></i> <span>Pengembalian Sarana</span></a></li>
   <li><a href="Kontrol_sarana/get_data" class="app-item"><i class="icon-archive"></i> <span>Kontrol Sarana</span></a></li>
+  <li><a href="Jadwal_lab/get_data" class="app-item"><i class="icon-archive"></i> <span>Penjadwalan Laboratorium</span></a></li>
   <li class="navigation-header"><span>Laporan & Statistik</span> <i class="icon-menu" title="Page kits"></i></li>
   <li>
     <a href="#"><i class="icon-stack-text"></i> <span>Laporan Keuangan</span></a>
