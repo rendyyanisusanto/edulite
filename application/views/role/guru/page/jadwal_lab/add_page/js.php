@@ -13,4 +13,12 @@
 	    return false;
 	});
 
+
+	function get_jadwal(){
+		var tanggal = $('.tanggal').val();
+
+		send_ajax('Jadwal_lab/get_content_jadwal', {tanggal : tanggal}).then(function(data){
+			$('.jadwal').html(data);
+		});
+	}
 </script>

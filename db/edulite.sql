@@ -1,17 +1,17 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : DB
+ Source Server         : localhost
  Source Server Type    : MySQL
- Source Server Version : 100425
+ Source Server Version : 100138 (10.1.38-MariaDB)
  Source Host           : localhost:3306
  Source Schema         : edulite
 
  Target Server Type    : MySQL
- Target Server Version : 100425
+ Target Server Version : 100138 (10.1.38-MariaDB)
  File Encoding         : 65001
 
- Date: 18/07/2023 14:37:46
+ Date: 23/07/2023 09:19:46
 */
 
 SET NAMES utf8mb4;
@@ -22,29 +22,33 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `absensi`;
 CREATE TABLE `absensi`  (
-  `id_absensi` int(11) NOT NULL AUTO_INCREMENT,
-  `idsiswa_fk` int(11) NULL DEFAULT NULL,
+  `id_absensi` int NOT NULL AUTO_INCREMENT,
+  `idsiswa_fk` int NULL DEFAULT NULL,
   `tanggal` date NULL DEFAULT NULL,
-  `idmatapelajaran_fk` int(11) NULL DEFAULT NULL,
-  `status` int(11) NULL DEFAULT NULL COMMENT '0=>tidak masuk, 1 => masuk, 2 => ijin/sakit/ll',
+  `idmatapelajaran_fk` int NULL DEFAULT NULL,
+  `status` int NULL DEFAULT NULL COMMENT '0=>tidak masuk, 1 => masuk, 2 => ijin/sakit/ll',
   `keterangan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `idjam_fk` int(11) NULL DEFAULT NULL,
-  `idguru_fk` int(11) NULL DEFAULT NULL,
-  `idkelas_fk` int(11) NULL DEFAULT NULL,
-  `create_at` timestamp(0) NULL DEFAULT current_timestamp(),
+  `idjam_fk` int NULL DEFAULT NULL,
+  `idguru_fk` int NULL DEFAULT NULL,
+  `idkelas_fk` int NULL DEFAULT NULL,
+  `create_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_absensi`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of absensi
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for additional_setting
 -- ----------------------------
 DROP TABLE IF EXISTS `additional_setting`;
 CREATE TABLE `additional_setting`  (
-  `id_additional_setting` int(11) NOT NULL AUTO_INCREMENT,
+  `id_additional_setting` int NOT NULL AUTO_INCREMENT,
   `key_add` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `value_add` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_additional_setting`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of additional_setting
@@ -63,15 +67,15 @@ INSERT INTO `additional_setting` VALUES (10, 'jenis_pembayaran', '[{\"text\":\"B
 -- ----------------------------
 DROP TABLE IF EXISTS `akun`;
 CREATE TABLE `akun`  (
-  `id_akun` int(11) NOT NULL AUTO_INCREMENT,
+  `id_akun` int NOT NULL AUTO_INCREMENT,
   `no_ref` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `nama` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `idindukakun_fk` int(11) NULL DEFAULT NULL,
+  `idindukakun_fk` int NULL DEFAULT NULL,
   `saldo_normal` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `create_at` timestamp(0) NULL DEFAULT current_timestamp(),
-  `is_edit` int(255) NULL DEFAULT NULL,
+  `create_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `is_edit` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_akun`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 38 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 38 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of akun
@@ -116,7 +120,7 @@ INSERT INTO `akun` VALUES (37, '1109', 'Kas Multimedia', 1, 'D', '2022-08-03 20:
 -- ----------------------------
 DROP TABLE IF EXISTS `alumni`;
 CREATE TABLE `alumni`  (
-  `id_alumni` int(11) NOT NULL AUTO_INCREMENT,
+  `id_alumni` int NOT NULL AUTO_INCREMENT,
   `nama` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `tahun_lulus` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `alamat` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
@@ -125,7 +129,7 @@ CREATE TABLE `alumni`  (
   `menikah` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `bekerja` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `pesantren` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `create_at` timestamp(0) NULL DEFAULT current_timestamp(),
+  `create_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `lng` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `lat` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `nis` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
@@ -147,8 +151,8 @@ CREATE TABLE `alumni`  (
   `rw` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `kelurahan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `foto` text CHARACTER SET hp8 COLLATE hp8_english_ci NULL,
-  `idprovince_fk` int(11) NULL DEFAULT NULL,
-  `idcities_fk` int(11) NULL DEFAULT NULL,
+  `idprovince_fk` int NULL DEFAULT NULL,
+  `idcities_fk` int NULL DEFAULT NULL,
   `nama_ayah` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `tempat_lahir_ayah` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `tanggal_lahir_ayah` date NULL DEFAULT NULL,
@@ -161,81 +165,101 @@ CREATE TABLE `alumni`  (
   `pendidikan_ibu` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `pekerjaan_ibu` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `penghasilan_ibu` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `tinggi_badan` int(11) NULL DEFAULT NULL,
-  `berat_badan` int(11) NULL DEFAULT NULL,
-  `jarak_ke_sekolah` int(255) NULL DEFAULT NULL,
-  `waktu_ke_sekolah` int(255) NULL DEFAULT NULL,
-  `jumlah_saudara` int(255) NULL DEFAULT NULL,
+  `tinggi_badan` int NULL DEFAULT NULL,
+  `berat_badan` int NULL DEFAULT NULL,
+  `jarak_ke_sekolah` int NULL DEFAULT NULL,
+  `waktu_ke_sekolah` int NULL DEFAULT NULL,
+  `jumlah_saudara` int NULL DEFAULT NULL,
   `jenis_kelamin` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `is_siswa_id` int(11) NULL DEFAULT 0,
+  `is_siswa_id` int NULL DEFAULT 0,
   PRIMARY KEY (`id_alumni`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 15 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of alumni
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for anak_pegawai
 -- ----------------------------
 DROP TABLE IF EXISTS `anak_pegawai`;
 CREATE TABLE `anak_pegawai`  (
-  `id_anak_pegawai` int(11) NOT NULL AUTO_INCREMENT,
-  `idguru_fk` int(11) NULL DEFAULT NULL,
+  `id_anak_pegawai` int NOT NULL AUTO_INCREMENT,
+  `idguru_fk` int NULL DEFAULT NULL,
   `nama` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `tempat_lahir` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `tanggal_lahir` date NULL DEFAULT NULL,
   `nama_ibu` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_anak_pegawai`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of anak_pegawai
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for ans_bank_soal
 -- ----------------------------
 DROP TABLE IF EXISTS `ans_bank_soal`;
 CREATE TABLE `ans_bank_soal`  (
-  `id_ans_bank_soal` int(11) NOT NULL AUTO_INCREMENT,
-  `idbanksoal_fk` int(11) NULL DEFAULT NULL,
+  `id_ans_bank_soal` int NOT NULL AUTO_INCREMENT,
+  `idbanksoal_fk` int NULL DEFAULT NULL,
   `ans` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `point` decimal(20, 2) NULL DEFAULT NULL,
   PRIMARY KEY (`id_ans_bank_soal`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of ans_bank_soal
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for bank_soal
 -- ----------------------------
 DROP TABLE IF EXISTS `bank_soal`;
 CREATE TABLE `bank_soal`  (
-  `id_bank_soal` int(11) NOT NULL AUTO_INCREMENT,
+  `id_bank_soal` int NOT NULL AUTO_INCREMENT,
   `soal` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `time_soal` int(11) NULL DEFAULT NULL,
+  `time_soal` int NULL DEFAULT NULL,
   `code_soal` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `idmatapelajaran_fk` int(11) NULL DEFAULT NULL,
-  `idguru_fk` int(11) NULL DEFAULT NULL,
+  `idmatapelajaran_fk` int NULL DEFAULT NULL,
+  `idguru_fk` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_bank_soal`) USING BTREE,
-  INDEX `idmatapelajaran_fk`(`idmatapelajaran_fk`) USING BTREE,
-  INDEX `idguru_fk`(`idguru_fk`) USING BTREE,
+  INDEX `idmatapelajaran_fk`(`idmatapelajaran_fk` ASC) USING BTREE,
+  INDEX `idguru_fk`(`idguru_fk` ASC) USING BTREE,
   CONSTRAINT `bank_soal_ibfk_1` FOREIGN KEY (`idmatapelajaran_fk`) REFERENCES `mata_pelajaran` (`id_mata_pelajaran`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `bank_soal_ibfk_2` FOREIGN KEY (`idguru_fk`) REFERENCES `guru` (`id_guru`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of bank_soal
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for blog_article
 -- ----------------------------
 DROP TABLE IF EXISTS `blog_article`;
 CREATE TABLE `blog_article`  (
-  `id_blog_article` int(11) NOT NULL AUTO_INCREMENT,
+  `id_blog_article` int NOT NULL AUTO_INCREMENT,
   `title` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `description` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `img` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `tanggal` date NULL DEFAULT NULL,
   `tagline` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `iduser_fk` int(11) NULL DEFAULT NULL,
+  `iduser_fk` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_blog_article`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of blog_article
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for blog_course
 -- ----------------------------
 DROP TABLE IF EXISTS `blog_course`;
 CREATE TABLE `blog_course`  (
-  `id_blog_course` int(11) NOT NULL AUTO_INCREMENT,
+  `id_blog_course` int NOT NULL AUTO_INCREMENT,
   `course_name` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `description` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `button` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
@@ -244,55 +268,71 @@ CREATE TABLE `blog_course`  (
   `seats` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `img` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_blog_course`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of blog_course
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for blog_setting
 -- ----------------------------
 DROP TABLE IF EXISTS `blog_setting`;
 CREATE TABLE `blog_setting`  (
-  `id_blog_setting` int(11) NOT NULL AUTO_INCREMENT,
+  `id_blog_setting` int NOT NULL AUTO_INCREMENT,
   `position` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `name` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `value` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_blog_setting`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of blog_setting
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for blog_slider
 -- ----------------------------
 DROP TABLE IF EXISTS `blog_slider`;
 CREATE TABLE `blog_slider`  (
-  `id_blog_slider` int(11) NOT NULL AUTO_INCREMENT,
+  `id_blog_slider` int NOT NULL AUTO_INCREMENT,
   `img` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `title` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `desc` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `button` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_blog_slider`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of blog_slider
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for blog_teacher
 -- ----------------------------
 DROP TABLE IF EXISTS `blog_teacher`;
 CREATE TABLE `blog_teacher`  (
-  `id_blog_teacher` int(11) NOT NULL AUTO_INCREMENT,
+  `id_blog_teacher` int NOT NULL AUTO_INCREMENT,
   `nama` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `img` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `jabatan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `deskripsi` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `idguru_fk` int(11) NULL DEFAULT NULL,
+  `idguru_fk` int NULL DEFAULT NULL,
   `slide` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_blog_teacher`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of blog_teacher
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for buku_pemanggilan_siswa
 -- ----------------------------
 DROP TABLE IF EXISTS `buku_pemanggilan_siswa`;
 CREATE TABLE `buku_pemanggilan_siswa`  (
-  `id_buku_pemanggilan_siswa` int(11) NOT NULL AUTO_INCREMENT,
-  `idsiswa_fk` int(11) NULL DEFAULT NULL,
+  `id_buku_pemanggilan_siswa` int NOT NULL AUTO_INCREMENT,
+  `idsiswa_fk` int NULL DEFAULT NULL,
   `masalah` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `pemecahan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `tindak_lanjut` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
@@ -301,41 +341,49 @@ CREATE TABLE `buku_pemanggilan_siswa`  (
   `tanggal` date NULL DEFAULT NULL,
   `kode_pemanggilan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_buku_pemanggilan_siswa`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of buku_pemanggilan_siswa
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for buku_tamu
 -- ----------------------------
 DROP TABLE IF EXISTS `buku_tamu`;
 CREATE TABLE `buku_tamu`  (
-  `id_buku_tamu` int(11) NOT NULL AUTO_INCREMENT,
+  `id_buku_tamu` int NOT NULL AUTO_INCREMENT,
   `nama` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `alamat` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `keperluan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `tanggal` date NULL DEFAULT NULL,
-  `create_at` timestamp(0) NULL DEFAULT current_timestamp(),
+  `create_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `jabatan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `saran` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_buku_tamu`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of buku_tamu
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for catatan_siswa
 -- ----------------------------
 DROP TABLE IF EXISTS `catatan_siswa`;
 CREATE TABLE `catatan_siswa`  (
-  `id_catatan_siswa` int(11) NOT NULL AUTO_INCREMENT,
-  `idsiswa_fk` int(11) NULL DEFAULT NULL,
-  `idkelas_fk` int(11) NULL DEFAULT NULL,
-  `idguru_fk` int(11) NULL DEFAULT NULL,
+  `id_catatan_siswa` int NOT NULL AUTO_INCREMENT,
+  `idsiswa_fk` int NULL DEFAULT NULL,
+  `idkelas_fk` int NULL DEFAULT NULL,
+  `idguru_fk` int NULL DEFAULT NULL,
   `tanggal` date NULL DEFAULT NULL,
   `uraian` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `teruskan_ke` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `idtahunajaran_fk` int(11) NULL DEFAULT NULL,
-  `idmapel_fk` int(11) NULL DEFAULT NULL,
-  `is_tindakan` int(11) NULL DEFAULT NULL,
+  `idtahunajaran_fk` int NULL DEFAULT NULL,
+  `idmapel_fk` int NULL DEFAULT NULL,
+  `is_tindakan` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_catatan_siswa`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of catatan_siswa
@@ -348,13 +396,13 @@ INSERT INTO `catatan_siswa` VALUES (3, 770, 50, 46, '2023-05-17', '', '', 7, 10,
 -- ----------------------------
 DROP TABLE IF EXISTS `cities`;
 CREATE TABLE `cities`  (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `province_id` int(11) NOT NULL,
-  `created_at` timestamp(0) NULL DEFAULT NULL,
-  `updated_at` timestamp(0) NULL DEFAULT NULL,
+  `province_id` int NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 500 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 500 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of cities
@@ -864,10 +912,10 @@ INSERT INTO `cities` VALUES (499, 'Kota Jayapura', 34, '2019-10-22 07:50:01', '2
 -- ----------------------------
 DROP TABLE IF EXISTS `coa`;
 CREATE TABLE `coa`  (
-  `id_coa` int(11) NOT NULL AUTO_INCREMENT,
+  `id_coa` int NOT NULL AUTO_INCREMENT,
   `name` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_coa`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of coa
@@ -883,36 +931,44 @@ INSERT INTO `coa` VALUES (5, 'Biaya');
 -- ----------------------------
 DROP TABLE IF EXISTS `component_jadwal`;
 CREATE TABLE `component_jadwal`  (
-  `id_component_jadwal` int(11) NOT NULL AUTO_INCREMENT,
+  `id_component_jadwal` int NOT NULL AUTO_INCREMENT,
   `tanggal` date NULL DEFAULT NULL,
-  `idjam_fk` int(11) NULL DEFAULT NULL,
-  `idguru_fk` int(11) NULL DEFAULT NULL,
-  `idpelajaran_fk` int(11) NULL DEFAULT NULL,
-  `idkelas_fk` int(11) NULL DEFAULT NULL,
+  `idjam_fk` int NULL DEFAULT NULL,
+  `idguru_fk` int NULL DEFAULT NULL,
+  `idpelajaran_fk` int NULL DEFAULT NULL,
+  `idkelas_fk` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_component_jadwal`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of component_jadwal
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for component_penilaian_kinerja_guru
 -- ----------------------------
 DROP TABLE IF EXISTS `component_penilaian_kinerja_guru`;
 CREATE TABLE `component_penilaian_kinerja_guru`  (
-  `id_component_penilaian_kinerja_guru` int(11) NOT NULL AUTO_INCREMENT,
-  `idpenilaiankinerjaguru_fk` int(11) NULL DEFAULT NULL,
-  `idsubkompetensipkg_fk` int(11) NULL DEFAULT NULL,
-  `nilai` int(255) NULL DEFAULT NULL,
+  `id_component_penilaian_kinerja_guru` int NOT NULL AUTO_INCREMENT,
+  `idpenilaiankinerjaguru_fk` int NULL DEFAULT NULL,
+  `idsubkompetensipkg_fk` int NULL DEFAULT NULL,
+  `nilai` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_component_penilaian_kinerja_guru`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of component_penilaian_kinerja_guru
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for department
 -- ----------------------------
 DROP TABLE IF EXISTS `department`;
 CREATE TABLE `department`  (
-  `id_department` int(11) NOT NULL AUTO_INCREMENT,
+  `id_department` int NOT NULL AUTO_INCREMENT,
   `department` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_department`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of department
@@ -921,19 +977,51 @@ INSERT INTO `department` VALUES (1, 'SMK');
 INSERT INTO `department` VALUES (2, 'SMP');
 
 -- ----------------------------
+-- Table structure for detail_jadwal_lab
+-- ----------------------------
+DROP TABLE IF EXISTS `detail_jadwal_lab`;
+CREATE TABLE `detail_jadwal_lab`  (
+  `id_detail_jadwal_lab` int NOT NULL AUTO_INCREMENT,
+  `idjadwallab_fk` int NULL DEFAULT NULL,
+  `idjampelajaran_fk` int NULL DEFAULT NULL,
+  PRIMARY KEY (`id_detail_jadwal_lab`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 20 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of detail_jadwal_lab
+-- ----------------------------
+INSERT INTO `detail_jadwal_lab` VALUES (3, 5, 11);
+INSERT INTO `detail_jadwal_lab` VALUES (4, 5, 13);
+INSERT INTO `detail_jadwal_lab` VALUES (5, 5, 14);
+INSERT INTO `detail_jadwal_lab` VALUES (6, 6, 9);
+INSERT INTO `detail_jadwal_lab` VALUES (7, 6, 11);
+INSERT INTO `detail_jadwal_lab` VALUES (8, 6, 12);
+INSERT INTO `detail_jadwal_lab` VALUES (9, 7, 19);
+INSERT INTO `detail_jadwal_lab` VALUES (10, 7, 20);
+INSERT INTO `detail_jadwal_lab` VALUES (11, 8, 18);
+INSERT INTO `detail_jadwal_lab` VALUES (12, 8, 19);
+INSERT INTO `detail_jadwal_lab` VALUES (13, 8, 20);
+INSERT INTO `detail_jadwal_lab` VALUES (14, 9, 15);
+INSERT INTO `detail_jadwal_lab` VALUES (15, 9, 16);
+INSERT INTO `detail_jadwal_lab` VALUES (16, 9, 17);
+INSERT INTO `detail_jadwal_lab` VALUES (17, 9, 18);
+INSERT INTO `detail_jadwal_lab` VALUES (18, 9, 19);
+INSERT INTO `detail_jadwal_lab` VALUES (19, 9, 20);
+
+-- ----------------------------
 -- Table structure for detail_kontrol_sarana
 -- ----------------------------
 DROP TABLE IF EXISTS `detail_kontrol_sarana`;
 CREATE TABLE `detail_kontrol_sarana`  (
-  `id_detail_kontrol_sarana` int(11) NOT NULL AUTO_INCREMENT,
-  `idkontrolsarana_fk` int(11) NULL DEFAULT NULL,
-  `idsarana_fk` int(255) NULL DEFAULT NULL,
-  `jumlah_awal` int(255) NULL DEFAULT NULL,
-  `jumlah_akhir` int(255) NULL DEFAULT NULL,
-  `idkondisisarana_fk` int(11) NULL DEFAULT NULL,
+  `id_detail_kontrol_sarana` int NOT NULL AUTO_INCREMENT,
+  `idkontrolsarana_fk` int NULL DEFAULT NULL,
+  `idsarana_fk` int NULL DEFAULT NULL,
+  `jumlah_awal` int NULL DEFAULT NULL,
+  `jumlah_akhir` int NULL DEFAULT NULL,
+  `idkondisisarana_fk` int NULL DEFAULT NULL,
   `keterangan` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id_detail_kontrol_sarana`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 72 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 72 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of detail_kontrol_sarana
@@ -1011,28 +1099,32 @@ INSERT INTO `detail_kontrol_sarana` VALUES (71, 3, 79, 1, 1, 1, NULL);
 -- ----------------------------
 DROP TABLE IF EXISTS `detail_pemasukan_lain`;
 CREATE TABLE `detail_pemasukan_lain`  (
-  `id_detail_pemasukan_lain` int(11) NOT NULL AUTO_INCREMENT,
-  `idpemasukanlain_fk` int(11) NULL DEFAULT NULL,
+  `id_detail_pemasukan_lain` int NOT NULL AUTO_INCREMENT,
+  `idpemasukanlain_fk` int NULL DEFAULT NULL,
   `keterangan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `jumlah` double(20, 2) NULL DEFAULT NULL,
   PRIMARY KEY (`id_detail_pemasukan_lain`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
+
+-- ----------------------------
+-- Records of detail_pemasukan_lain
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for detail_peminjaman_sarana
 -- ----------------------------
 DROP TABLE IF EXISTS `detail_peminjaman_sarana`;
 CREATE TABLE `detail_peminjaman_sarana`  (
-  `id_detail_peminjaman_sarana` int(11) NOT NULL AUTO_INCREMENT,
-  `idsarana_fk` int(11) NULL DEFAULT NULL,
-  `jumlah` int(255) NULL DEFAULT NULL,
+  `id_detail_peminjaman_sarana` int NOT NULL AUTO_INCREMENT,
+  `idsarana_fk` int NULL DEFAULT NULL,
+  `jumlah` int NULL DEFAULT NULL,
   `keterangan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `idpeminjamansarana_fk` int(11) NULL DEFAULT NULL,
-  `idkondisisarana_fk` int(11) NULL DEFAULT NULL,
+  `idpeminjamansarana_fk` int NULL DEFAULT NULL,
+  `idkondisisarana_fk` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_detail_peminjaman_sarana`) USING BTREE,
-  INDEX `idpeminjamansarana_fk`(`idpeminjamansarana_fk`) USING BTREE,
+  INDEX `idpeminjamansarana_fk`(`idpeminjamansarana_fk` ASC) USING BTREE,
   CONSTRAINT `detail_peminjaman_sarana_ibfk_1` FOREIGN KEY (`idpeminjamansarana_fk`) REFERENCES `peminjaman_sarana` (`id_peminjaman_sarana`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 35 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 35 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of detail_peminjaman_sarana
@@ -1044,147 +1136,187 @@ INSERT INTO `detail_peminjaman_sarana` VALUES (34, 80, 1, 'tas, laptop, cas', 7,
 -- ----------------------------
 DROP TABLE IF EXISTS `detail_pengeluaran_lain`;
 CREATE TABLE `detail_pengeluaran_lain`  (
-  `id_detail_pengeluaran_lain` int(11) NOT NULL AUTO_INCREMENT,
-  `idpengeluaranlain_fk` int(11) NULL DEFAULT NULL,
+  `id_detail_pengeluaran_lain` int NOT NULL AUTO_INCREMENT,
+  `idpengeluaranlain_fk` int NULL DEFAULT NULL,
   `keterangan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `jumlah` double(20, 2) NULL DEFAULT NULL,
   PRIMARY KEY (`id_detail_pengeluaran_lain`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
+
+-- ----------------------------
+-- Records of detail_pengeluaran_lain
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for detail_pengembalian_sarana
 -- ----------------------------
 DROP TABLE IF EXISTS `detail_pengembalian_sarana`;
 CREATE TABLE `detail_pengembalian_sarana`  (
-  `id_detail_pengembalian_sarana` int(11) NOT NULL AUTO_INCREMENT,
-  `idpengembaliansarana_fk` int(11) NULL DEFAULT NULL,
-  `idsarana_fk` int(11) NULL DEFAULT NULL,
-  `idkondisisarana_fk` int(11) NULL DEFAULT NULL,
-  `jumlah` int(11) NULL DEFAULT NULL,
+  `id_detail_pengembalian_sarana` int NOT NULL AUTO_INCREMENT,
+  `idpengembaliansarana_fk` int NULL DEFAULT NULL,
+  `idsarana_fk` int NULL DEFAULT NULL,
+  `idkondisisarana_fk` int NULL DEFAULT NULL,
+  `jumlah` int NULL DEFAULT NULL,
   `keterangan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_detail_pengembalian_sarana`) USING BTREE,
-  INDEX `idpengembaliansarana_fk`(`idpengembaliansarana_fk`) USING BTREE,
+  INDEX `idpengembaliansarana_fk`(`idpengembaliansarana_fk` ASC) USING BTREE,
   CONSTRAINT `detail_pengembalian_sarana_ibfk_1` FOREIGN KEY (`idpengembaliansarana_fk`) REFERENCES `pengembalian_sarana` (`id_pengembalian_sarana`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 21 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
+
+-- ----------------------------
+-- Records of detail_pengembalian_sarana
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for detail_transaksi_tanggungan_alumni
 -- ----------------------------
 DROP TABLE IF EXISTS `detail_transaksi_tanggungan_alumni`;
 CREATE TABLE `detail_transaksi_tanggungan_alumni`  (
-  `id_detail_transaksi_tanggungan_alumni` int(1) NOT NULL AUTO_INCREMENT,
-  `idtanggunganalumni_fk` int(11) NULL DEFAULT NULL,
+  `id_detail_transaksi_tanggungan_alumni` int NOT NULL AUTO_INCREMENT,
+  `idtanggunganalumni_fk` int NULL DEFAULT NULL,
   `jumlah` decimal(10, 0) NULL DEFAULT NULL,
-  `create_at` timestamp(0) NULL DEFAULT current_timestamp(),
-  `idtransaksitanggunganalumni_fk` int(11) NULL DEFAULT NULL,
+  `create_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `idtransaksitanggunganalumni_fk` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_detail_transaksi_tanggungan_alumni`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
+
+-- ----------------------------
+-- Records of detail_transaksi_tanggungan_alumni
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for detail_transaksi_tanggungan_siswa
 -- ----------------------------
 DROP TABLE IF EXISTS `detail_transaksi_tanggungan_siswa`;
 CREATE TABLE `detail_transaksi_tanggungan_siswa`  (
-  `id_detail_transaksi_tanggungan_siswa` int(1) NOT NULL AUTO_INCREMENT,
-  `idjenispenerimaan_fk` int(11) NULL DEFAULT NULL,
+  `id_detail_transaksi_tanggungan_siswa` int NOT NULL AUTO_INCREMENT,
+  `idjenispenerimaan_fk` int NULL DEFAULT NULL,
   `jumlah` decimal(10, 0) NULL DEFAULT NULL,
-  `create_at` timestamp(0) NULL DEFAULT current_timestamp(),
-  `idtransaksitanggungansiswa_fk` int(11) NULL DEFAULT NULL,
+  `create_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `idtransaksitanggungansiswa_fk` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_detail_transaksi_tanggungan_siswa`) USING BTREE,
-  INDEX `idtransaksitanggungansiswa_fk`(`idtransaksitanggungansiswa_fk`) USING BTREE,
+  INDEX `idtransaksitanggungansiswa_fk`(`idtransaksitanggungansiswa_fk` ASC) USING BTREE,
   CONSTRAINT `detail_transaksi_tanggungan_siswa_ibfk_1` FOREIGN KEY (`idtransaksitanggungansiswa_fk`) REFERENCES `transaksi_tanggungan_siswa` (`id_transaksi_tanggungan_siswa`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
+
+-- ----------------------------
+-- Records of detail_transaksi_tanggungan_siswa
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for dokumen_pegawai
 -- ----------------------------
 DROP TABLE IF EXISTS `dokumen_pegawai`;
 CREATE TABLE `dokumen_pegawai`  (
-  `id_dokumen_pegawai` int(11) NOT NULL AUTO_INCREMENT,
-  `idguru_fk` int(11) NULL DEFAULT NULL,
+  `id_dokumen_pegawai` int NOT NULL AUTO_INCREMENT,
+  `idguru_fk` int NULL DEFAULT NULL,
   `nama` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `file` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `keterangan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_dokumen_pegawai`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of dokumen_pegawai
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for dudi
 -- ----------------------------
 DROP TABLE IF EXISTS `dudi`;
 CREATE TABLE `dudi`  (
-  `id_dudi` int(11) NOT NULL AUTO_INCREMENT,
+  `id_dudi` int NOT NULL AUTO_INCREMENT,
   `nama` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `alamat` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `no_hp` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id_dudi`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
+
+-- ----------------------------
+-- Records of dudi
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for erapor
 -- ----------------------------
 DROP TABLE IF EXISTS `erapor`;
 CREATE TABLE `erapor`  (
-  `id_erapor` int(11) NOT NULL AUTO_INCREMENT,
+  `id_erapor` int NOT NULL AUTO_INCREMENT,
   `tanggal_mulai` date NULL DEFAULT NULL,
   `tanggal_selesai` date NULL DEFAULT NULL,
   `kode` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `is_active` int(255) NULL DEFAULT 0,
+  `is_active` int NULL DEFAULT 0,
   `keterangan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_erapor`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of erapor
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for event
 -- ----------------------------
 DROP TABLE IF EXISTS `event`;
 CREATE TABLE `event`  (
-  `id_event` int(11) NOT NULL AUTO_INCREMENT,
+  `id_event` int NOT NULL AUTO_INCREMENT,
   `event` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `tanggal` date NULL DEFAULT NULL,
   `notulensi` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `file` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_event`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of event
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for file_oas
 -- ----------------------------
 DROP TABLE IF EXISTS `file_oas`;
 CREATE TABLE `file_oas`  (
-  `id_file_oas` int(11) NOT NULL AUTO_INCREMENT,
+  `id_file_oas` int NOT NULL AUTO_INCREMENT,
   `file_oas` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `idsiswa_fk` int(11) NULL DEFAULT NULL,
-  `status` int(1) NULL DEFAULT NULL,
-  `is_active` int(11) NULL DEFAULT NULL,
+  `idsiswa_fk` int NULL DEFAULT NULL,
+  `status` int NULL DEFAULT NULL,
+  `is_active` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_file_oas`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of file_oas
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for file_rapor_online
 -- ----------------------------
 DROP TABLE IF EXISTS `file_rapor_online`;
 CREATE TABLE `file_rapor_online`  (
-  `id_file_rapor_online` int(11) NOT NULL AUTO_INCREMENT,
+  `id_file_rapor_online` int NOT NULL AUTO_INCREMENT,
   `file_rapor_online` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `idsiswa_fk` int(11) NULL DEFAULT NULL,
-  `idtahunajaran_fk` int(11) NULL DEFAULT NULL,
+  `idsiswa_fk` int NULL DEFAULT NULL,
+  `idtahunajaran_fk` int NULL DEFAULT NULL,
   `trans_code` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `status` int(11) NULL DEFAULT 1,
-  `is_active` int(11) NULL DEFAULT 0,
+  `status` int NULL DEFAULT 1,
+  `is_active` int NULL DEFAULT 0,
   PRIMARY KEY (`id_file_rapor_online`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of file_rapor_online
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for groups
 -- ----------------------------
 DROP TABLE IF EXISTS `groups`;
 CREATE TABLE `groups`  (
-  `id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id` mediumint UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `description` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 14 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 14 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of groups
@@ -1208,7 +1340,7 @@ INSERT INTO `groups` VALUES (13, 'humas', 'Hubungan Masyarakat');
 -- ----------------------------
 DROP TABLE IF EXISTS `guru`;
 CREATE TABLE `guru`  (
-  `id_guru` int(11) NOT NULL AUTO_INCREMENT,
+  `id_guru` int NOT NULL AUTO_INCREMENT,
   `nama` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `nip` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `alamat` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
@@ -1228,9 +1360,9 @@ CREATE TABLE `guru`  (
   `kewarganegaraan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `status_pernikahan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `status_rumah` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `jarak_ke_kantor` int(255) NULL DEFAULT NULL,
-  `bb` int(255) NULL DEFAULT NULL,
-  `tb` int(255) NULL DEFAULT NULL,
+  `jarak_ke_kantor` int NULL DEFAULT NULL,
+  `bb` int NULL DEFAULT NULL,
+  `tb` int NULL DEFAULT NULL,
   `gd` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `penyakit` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `kelainan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
@@ -1245,7 +1377,7 @@ CREATE TABLE `guru`  (
   `no_taspen` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `tanggal_lahir` date NULL DEFAULT NULL,
   PRIMARY KEY (`id_guru`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 54 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 54 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of guru
@@ -1282,18 +1414,18 @@ INSERT INTO `guru` VALUES (53, 'Farah Rosyidah Diana, S.T', '', '', '', NULL, NU
 -- ----------------------------
 DROP TABLE IF EXISTS `guru_mapel`;
 CREATE TABLE `guru_mapel`  (
-  `id_guru_mapel` int(11) NOT NULL AUTO_INCREMENT,
-  `idguru_fk` int(11) NULL DEFAULT NULL,
-  `idmapel_fk` int(11) NULL DEFAULT NULL,
-  `idtahunajaran_fk` int(11) NULL DEFAULT NULL,
-  `idkelas_fk` int(11) NULL DEFAULT NULL,
+  `id_guru_mapel` int NOT NULL AUTO_INCREMENT,
+  `idguru_fk` int NULL DEFAULT NULL,
+  `idmapel_fk` int NULL DEFAULT NULL,
+  `idtahunajaran_fk` int NULL DEFAULT NULL,
+  `idkelas_fk` int NULL DEFAULT NULL,
   `jKode` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id_guru_mapel`) USING BTREE,
-  INDEX `idguru_fk`(`idguru_fk`) USING BTREE,
-  INDEX `idmapel_fk`(`idmapel_fk`) USING BTREE,
+  INDEX `idguru_fk`(`idguru_fk` ASC) USING BTREE,
+  INDEX `idmapel_fk`(`idmapel_fk` ASC) USING BTREE,
   CONSTRAINT `guru_mapel_ibfk_1` FOREIGN KEY (`idguru_fk`) REFERENCES `guru` (`id_guru`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `guru_mapel_ibfk_2` FOREIGN KEY (`idmapel_fk`) REFERENCES `mata_pelajaran` (`id_mata_pelajaran`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 122 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 122 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of guru_mapel
@@ -1415,11 +1547,11 @@ INSERT INTO `guru_mapel` VALUES (121, 39, 17, 7, 58, NULL);
 -- ----------------------------
 DROP TABLE IF EXISTS `hari`;
 CREATE TABLE `hari`  (
-  `id_hari` int(11) NOT NULL AUTO_INCREMENT,
+  `id_hari` int NOT NULL AUTO_INCREMENT,
   `hari` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `code` int(255) NULL DEFAULT NULL,
+  `code` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_hari`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of hari
@@ -1436,25 +1568,29 @@ INSERT INTO `hari` VALUES (6, 'Sabtu', 6);
 -- ----------------------------
 DROP TABLE IF EXISTS `hobi_pegawai`;
 CREATE TABLE `hobi_pegawai`  (
-  `id_hobi_pegawai` int(11) NOT NULL AUTO_INCREMENT,
-  `idguru_fk` int(11) NULL DEFAULT NULL,
+  `id_hobi_pegawai` int NOT NULL AUTO_INCREMENT,
+  `idguru_fk` int NULL DEFAULT NULL,
   `jenis` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `aktif` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `kapan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_hobi_pegawai`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of hobi_pegawai
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for induk_akun
 -- ----------------------------
 DROP TABLE IF EXISTS `induk_akun`;
 CREATE TABLE `induk_akun`  (
-  `id_induk_akun` int(11) NOT NULL AUTO_INCREMENT,
-  `no_akun` int(11) NULL DEFAULT NULL,
+  `id_induk_akun` int NOT NULL AUTO_INCREMENT,
+  `no_akun` int NULL DEFAULT NULL,
   `nama` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `idcoa_fk` int(11) NULL DEFAULT NULL,
+  `idcoa_fk` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_induk_akun`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of induk_akun
@@ -1475,82 +1611,102 @@ INSERT INTO `induk_akun` VALUES (10, 52, 'Biaya Lain', 5);
 -- ----------------------------
 DROP TABLE IF EXISTS `input_nilai_keterampilan`;
 CREATE TABLE `input_nilai_keterampilan`  (
-  `id_input_nilai_keterampilan` int(11) NOT NULL AUTO_INCREMENT,
-  `idmatapelajaran_fk` int(11) NULL DEFAULT NULL,
-  `idtahunajaran_fk` int(11) NULL DEFAULT NULL,
+  `id_input_nilai_keterampilan` int NOT NULL AUTO_INCREMENT,
+  `idmatapelajaran_fk` int NULL DEFAULT NULL,
+  `idtahunajaran_fk` int NULL DEFAULT NULL,
   `trans_code` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `idguru_fk` int(11) NULL DEFAULT NULL,
-  `idkelas_fk` int(11) NULL DEFAULT NULL,
-  `idjenisketerampilan_fk` int(11) NULL DEFAULT NULL,
+  `idguru_fk` int NULL DEFAULT NULL,
+  `idkelas_fk` int NULL DEFAULT NULL,
+  `idjenisketerampilan_fk` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_input_nilai_keterampilan`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of input_nilai_keterampilan
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for input_nilai_pas
 -- ----------------------------
 DROP TABLE IF EXISTS `input_nilai_pas`;
 CREATE TABLE `input_nilai_pas`  (
-  `id_input_nilai_pas` int(11) NOT NULL AUTO_INCREMENT,
-  `idmatapelajaran_fk` int(11) NULL DEFAULT NULL,
-  `idtahunajaran_fk` int(11) NULL DEFAULT NULL,
+  `id_input_nilai_pas` int NOT NULL AUTO_INCREMENT,
+  `idmatapelajaran_fk` int NULL DEFAULT NULL,
+  `idtahunajaran_fk` int NULL DEFAULT NULL,
   `trans_code` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `idguru_fk` int(11) NULL DEFAULT NULL,
-  `idkelas_fk` int(11) NULL DEFAULT NULL,
+  `idguru_fk` int NULL DEFAULT NULL,
+  `idkelas_fk` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_input_nilai_pas`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of input_nilai_pas
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for input_nilai_pengetahuan
 -- ----------------------------
 DROP TABLE IF EXISTS `input_nilai_pengetahuan`;
 CREATE TABLE `input_nilai_pengetahuan`  (
-  `id_input_nilai_pengetahuan` int(11) NOT NULL AUTO_INCREMENT,
-  `idmatapelajaran_fk` int(11) NULL DEFAULT NULL,
-  `idtahunajaran_fk` int(11) NULL DEFAULT NULL,
+  `id_input_nilai_pengetahuan` int NOT NULL AUTO_INCREMENT,
+  `idmatapelajaran_fk` int NULL DEFAULT NULL,
+  `idtahunajaran_fk` int NULL DEFAULT NULL,
   `trans_code` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `idguru_fk` int(11) NULL DEFAULT NULL,
-  `idkelas_fk` int(11) NULL DEFAULT NULL,
-  `idjenispengetahuan_fk` int(11) NULL DEFAULT NULL,
+  `idguru_fk` int NULL DEFAULT NULL,
+  `idkelas_fk` int NULL DEFAULT NULL,
+  `idjenispengetahuan_fk` int NULL DEFAULT NULL,
   `kode` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `keterangan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `idkd_fk` int(11) NULL DEFAULT NULL,
+  `idkd_fk` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_input_nilai_pengetahuan`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of input_nilai_pengetahuan
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for input_nilai_pts
 -- ----------------------------
 DROP TABLE IF EXISTS `input_nilai_pts`;
 CREATE TABLE `input_nilai_pts`  (
-  `id_input_nilai_pts` int(11) NOT NULL AUTO_INCREMENT,
-  `idmatapelajaran_fk` int(11) NULL DEFAULT NULL,
-  `idtahunajaran_fk` int(11) NULL DEFAULT NULL,
+  `id_input_nilai_pts` int NOT NULL AUTO_INCREMENT,
+  `idmatapelajaran_fk` int NULL DEFAULT NULL,
+  `idtahunajaran_fk` int NULL DEFAULT NULL,
   `trans_code` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `idguru_fk` int(11) NULL DEFAULT NULL,
-  `idkelas_fk` int(11) NULL DEFAULT NULL,
+  `idguru_fk` int NULL DEFAULT NULL,
+  `idkelas_fk` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_input_nilai_pts`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of input_nilai_pts
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for iuran_wajib_siswa
 -- ----------------------------
 DROP TABLE IF EXISTS `iuran_wajib_siswa`;
 CREATE TABLE `iuran_wajib_siswa`  (
-  `id_iuran_wajib_siswa` int(11) NOT NULL AUTO_INCREMENT,
+  `id_iuran_wajib_siswa` int NOT NULL AUTO_INCREMENT,
   `nama` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `harga` double NULL DEFAULT NULL,
   PRIMARY KEY (`id_iuran_wajib_siswa`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of iuran_wajib_siswa
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for jadwal
 -- ----------------------------
 DROP TABLE IF EXISTS `jadwal`;
 CREATE TABLE `jadwal`  (
-  `id_jadwal` int(11) NOT NULL AUTO_INCREMENT,
+  `id_jadwal` int NOT NULL AUTO_INCREMENT,
   `tanggal` date NULL DEFAULT NULL,
   PRIMARY KEY (`id_jadwal`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of jadwal
@@ -1562,15 +1718,15 @@ INSERT INTO `jadwal` VALUES (1, '2020-08-18');
 -- ----------------------------
 DROP TABLE IF EXISTS `jadwal_guru`;
 CREATE TABLE `jadwal_guru`  (
-  `id_jadwal_guru` int(11) NOT NULL AUTO_INCREMENT,
-  `idguru_fk` int(11) NULL DEFAULT NULL,
-  `idhari_fk` int(11) NULL DEFAULT NULL,
+  `id_jadwal_guru` int NOT NULL AUTO_INCREMENT,
+  `idguru_fk` int NULL DEFAULT NULL,
+  `idhari_fk` int NULL DEFAULT NULL,
   `jam_mulai` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `jam_selesai` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
-  `create_at` timestamp(0) NULL DEFAULT current_timestamp(),
-  `idtahunajaran_fk` int(11) NULL DEFAULT NULL,
+  `create_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `idtahunajaran_fk` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_jadwal_guru`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 18 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 18 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of jadwal_guru
@@ -1591,34 +1747,37 @@ INSERT INTO `jadwal_guru` VALUES (17, 31, 6, '14:23', '14:23', '2023-07-14 14:23
 -- ----------------------------
 DROP TABLE IF EXISTS `jadwal_lab`;
 CREATE TABLE `jadwal_lab`  (
-  `id_jadwal_lab` int(11) NOT NULL AUTO_INCREMENT,
-  `idkelas_fk` int(11) NULL DEFAULT NULL,
-  `idjampelajaranmulai_fk` int(11) NULL DEFAULT NULL,
-  `idjampelajaranselesai_fk` int(11) NULL DEFAULT NULL,
-  `idmapel_fk` int(11) NULL DEFAULT NULL,
+  `id_jadwal_lab` int NOT NULL AUTO_INCREMENT,
+  `idkelas_fk` int NULL DEFAULT NULL,
+  `idmapel_fk` int NULL DEFAULT NULL,
   `keterangan` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
-  `status` int(255) NULL DEFAULT NULL,
-  `idguru_fk` int(11) NULL DEFAULT NULL,
+  `status` int NULL DEFAULT NULL,
+  `idguru_fk` int NULL DEFAULT NULL,
   `tanggal` date NULL DEFAULT NULL,
+  `kode` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
   PRIMARY KEY (`id_jadwal_lab`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of jadwal_lab
 -- ----------------------------
-INSERT INTO `jadwal_lab` VALUES (2, 49, 9, 11, 8, 'Belajar matematika', 2, 46, '2023-07-25');
+INSERT INTO `jadwal_lab` VALUES (5, 49, 8, '65', 1, 52, '2023-07-21', '857620');
+INSERT INTO `jadwal_lab` VALUES (6, 53, 8, 'er', 2, 44, '2023-07-21', '433536');
+INSERT INTO `jadwal_lab` VALUES (7, 49, 22, 'fd', 1, 44, '2023-07-22', '815937');
+INSERT INTO `jadwal_lab` VALUES (8, 55, 12, 'Mata pelajaran DPK Komputer, Penting!!!', 2, 31, '2023-07-22', '715152');
+INSERT INTO `jadwal_lab` VALUES (9, 49, 8, 'Praktek TKJ', 1, 31, '2023-07-24', '312435');
 
 -- ----------------------------
 -- Table structure for jadwal_pelajaran
 -- ----------------------------
 DROP TABLE IF EXISTS `jadwal_pelajaran`;
 CREATE TABLE `jadwal_pelajaran`  (
-  `id_jadwal_pelajaran` int(11) NOT NULL AUTO_INCREMENT,
-  `idgurumapel_fk` int(11) NULL DEFAULT NULL,
-  `idhari_fk` int(11) NULL DEFAULT NULL,
-  `idjampelajaran_fk` int(11) NULL DEFAULT NULL,
+  `id_jadwal_pelajaran` int NOT NULL AUTO_INCREMENT,
+  `idgurumapel_fk` int NULL DEFAULT NULL,
+  `idhari_fk` int NULL DEFAULT NULL,
+  `idjampelajaran_fk` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_jadwal_pelajaran`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 441 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 441 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of jadwal_pelajaran
@@ -1969,25 +2128,29 @@ INSERT INTO `jadwal_pelajaran` VALUES (440, 121, 6, 20);
 -- ----------------------------
 DROP TABLE IF EXISTS `jam`;
 CREATE TABLE `jam`  (
-  `id_jam` int(11) NOT NULL AUTO_INCREMENT,
+  `id_jam` int NOT NULL AUTO_INCREMENT,
   `nama` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `jam_mulai` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `jam_selesai` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_jam`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of jam
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for jam_pelajaran
 -- ----------------------------
 DROP TABLE IF EXISTS `jam_pelajaran`;
 CREATE TABLE `jam_pelajaran`  (
-  `id_jam_pelajaran` int(11) NOT NULL AUTO_INCREMENT,
+  `id_jam_pelajaran` int NOT NULL AUTO_INCREMENT,
   `nama` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `jam_mulai` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `jam_selesai` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `idtahunajaran_fk` int(11) NULL DEFAULT NULL,
+  `idtahunajaran_fk` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_jam_pelajaran`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 21 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 21 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of jam_pelajaran
@@ -2010,10 +2173,10 @@ INSERT INTO `jam_pelajaran` VALUES (20, '12', '15.00', '15.30', 7);
 -- ----------------------------
 DROP TABLE IF EXISTS `jenis_kerjasama`;
 CREATE TABLE `jenis_kerjasama`  (
-  `id_jenis_kerjasama` int(11) NOT NULL AUTO_INCREMENT,
+  `id_jenis_kerjasama` int NOT NULL AUTO_INCREMENT,
   `jenis_kerjasama` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_jenis_kerjasama`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of jenis_kerjasama
@@ -2027,31 +2190,39 @@ INSERT INTO `jenis_kerjasama` VALUES (4, 'Penyetaraan Kurikulum');
 -- ----------------------------
 DROP TABLE IF EXISTS `jenis_keterampilan`;
 CREATE TABLE `jenis_keterampilan`  (
-  `id_jenis_keterampilan` int(11) NOT NULL AUTO_INCREMENT,
+  `id_jenis_keterampilan` int NOT NULL AUTO_INCREMENT,
   `jenis_keterampilan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `kode` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_jenis_keterampilan`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of jenis_keterampilan
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for jenis_mata_pelajaran
 -- ----------------------------
 DROP TABLE IF EXISTS `jenis_mata_pelajaran`;
 CREATE TABLE `jenis_mata_pelajaran`  (
-  `id_jenis_mata_pelajaran` int(11) NOT NULL AUTO_INCREMENT,
+  `id_jenis_mata_pelajaran` int NOT NULL AUTO_INCREMENT,
   `jenis_mata_pelajaran` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_jenis_mata_pelajaran`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of jenis_mata_pelajaran
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for jenis_pelanggaran
 -- ----------------------------
 DROP TABLE IF EXISTS `jenis_pelanggaran`;
 CREATE TABLE `jenis_pelanggaran`  (
-  `id_jenis_pelanggaran` int(11) NOT NULL AUTO_INCREMENT,
+  `id_jenis_pelanggaran` int NOT NULL AUTO_INCREMENT,
   `jenis_pelanggaran` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_jenis_pelanggaran`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of jenis_pelanggaran
@@ -2067,55 +2238,67 @@ INSERT INTO `jenis_pelanggaran` VALUES (6, 'CATATAN KETERLAMBATAN');
 -- ----------------------------
 DROP TABLE IF EXISTS `jenis_penerimaan`;
 CREATE TABLE `jenis_penerimaan`  (
-  `id_jenis_penerimaan` int(11) NOT NULL AUTO_INCREMENT,
+  `id_jenis_penerimaan` int NOT NULL AUTO_INCREMENT,
   `nama` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `kas` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `pendapatan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `piutang` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `diskon` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `is_edit` int(255) NULL DEFAULT NULL,
-  `bulanan` int(11) NULL DEFAULT NULL,
+  `is_edit` int NULL DEFAULT NULL,
+  `bulanan` int NULL DEFAULT NULL,
   `template_nota` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `idtahunajaran_fk` int(255) NULL DEFAULT NULL,
+  `idtahunajaran_fk` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_jenis_penerimaan`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
+
+-- ----------------------------
+-- Records of jenis_penerimaan
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for jenis_pengetahuan
 -- ----------------------------
 DROP TABLE IF EXISTS `jenis_pengetahuan`;
 CREATE TABLE `jenis_pengetahuan`  (
-  `id_jenis_pengetahuan` int(11) NOT NULL AUTO_INCREMENT,
+  `id_jenis_pengetahuan` int NOT NULL AUTO_INCREMENT,
   `jenis_pengetahuan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `kode` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_jenis_pengetahuan`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of jenis_pengetahuan
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for jenis_penilaian
 -- ----------------------------
 DROP TABLE IF EXISTS `jenis_penilaian`;
 CREATE TABLE `jenis_penilaian`  (
-  `id_jenis_penilaian` int(11) NOT NULL AUTO_INCREMENT,
+  `id_jenis_penilaian` int NOT NULL AUTO_INCREMENT,
   `jenis_penilaian` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `kode` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id_jenis_penilaian`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of jenis_penilaian
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for jurnal_guru
 -- ----------------------------
 DROP TABLE IF EXISTS `jurnal_guru`;
 CREATE TABLE `jurnal_guru`  (
-  `id_jurnal_guru` int(11) NOT NULL AUTO_INCREMENT,
-  `idguru_fk` int(11) NULL DEFAULT NULL,
-  `idkelas_fk` int(11) NULL DEFAULT NULL,
-  `idmapel_fk` int(11) NULL DEFAULT NULL,
-  `idtahunajaran_fk` int(11) NULL DEFAULT NULL,
+  `id_jurnal_guru` int NOT NULL AUTO_INCREMENT,
+  `idguru_fk` int NULL DEFAULT NULL,
+  `idkelas_fk` int NULL DEFAULT NULL,
+  `idmapel_fk` int NULL DEFAULT NULL,
+  `idtahunajaran_fk` int NULL DEFAULT NULL,
   `tanggal` date NULL DEFAULT NULL,
   `uraian` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_jurnal_guru`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of jurnal_guru
@@ -2128,29 +2311,33 @@ INSERT INTO `jurnal_guru` VALUES (3, 46, 50, 10, 7, '2023-05-17', 'Tes tulis bab
 -- ----------------------------
 DROP TABLE IF EXISTS `jurnal_umum`;
 CREATE TABLE `jurnal_umum`  (
-  `id_jurnal_umum` int(11) NOT NULL AUTO_INCREMENT,
+  `id_jurnal_umum` int NOT NULL AUTO_INCREMENT,
   `ref` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
-  `idakun_fk` int(11) NULL DEFAULT NULL,
+  `idakun_fk` int NULL DEFAULT NULL,
   `debit` double NULL DEFAULT NULL,
   `kredit` double NULL DEFAULT NULL,
   `keterangan` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
   `table` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
-  `idtable_fk` int(11) NULL DEFAULT NULL,
-  `create_at` timestamp(0) NULL DEFAULT current_timestamp(),
+  `idtable_fk` int NULL DEFAULT NULL,
+  `create_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_jurnal_umum`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 457 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of jurnal_umum
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for jurusan
 -- ----------------------------
 DROP TABLE IF EXISTS `jurusan`;
 CREATE TABLE `jurusan`  (
-  `id_jurusan` int(11) NOT NULL AUTO_INCREMENT,
+  `id_jurusan` int NOT NULL AUTO_INCREMENT,
   `jurusan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `singkatan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `iddepartment_fk` int(11) NULL DEFAULT NULL,
+  `iddepartment_fk` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_jurusan`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 18 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 18 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of jurusan
@@ -2164,60 +2351,72 @@ INSERT INTO `jurusan` VALUES (17, 'Desain Komunikasi Visual', 'DKV', 1);
 -- ----------------------------
 DROP TABLE IF EXISTS `kaprog`;
 CREATE TABLE `kaprog`  (
-  `id_kaprog` int(11) NOT NULL AUTO_INCREMENT,
-  `idguru_fk` int(11) NULL DEFAULT NULL,
-  `idjurusan_fk` int(11) NULL DEFAULT NULL,
-  `idtahunajaran_fk` int(11) NULL DEFAULT NULL,
+  `id_kaprog` int NOT NULL AUTO_INCREMENT,
+  `idguru_fk` int NULL DEFAULT NULL,
+  `idjurusan_fk` int NULL DEFAULT NULL,
+  `idtahunajaran_fk` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_kaprog`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of kaprog
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for kategori_surat_masuk
 -- ----------------------------
 DROP TABLE IF EXISTS `kategori_surat_masuk`;
 CREATE TABLE `kategori_surat_masuk`  (
-  `id_kategori_surat_masuk` int(11) NOT NULL AUTO_INCREMENT,
+  `id_kategori_surat_masuk` int NOT NULL AUTO_INCREMENT,
   `kategori_surat_masuk` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `color` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_kategori_surat_masuk`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
+
+-- ----------------------------
+-- Records of kategori_surat_masuk
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for kd
 -- ----------------------------
 DROP TABLE IF EXISTS `kd`;
 CREATE TABLE `kd`  (
-  `id_kd` int(11) NOT NULL AUTO_INCREMENT,
-  `idkelas_fk` int(11) NULL DEFAULT NULL,
-  `idjenispenilaian_fk` int(11) NULL DEFAULT NULL,
-  `idmatapelajaran_fk` int(11) NULL DEFAULT NULL,
+  `id_kd` int NOT NULL AUTO_INCREMENT,
+  `idkelas_fk` int NULL DEFAULT NULL,
+  `idjenispenilaian_fk` int NULL DEFAULT NULL,
+  `idmatapelajaran_fk` int NULL DEFAULT NULL,
   `kode` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `ringkasan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `idmateri_fk` int(11) NULL DEFAULT NULL,
-  `idguru_fk` int(11) NULL DEFAULT NULL,
-  `idtahunajaran_fk` int(11) NULL DEFAULT NULL,
+  `idmateri_fk` int NULL DEFAULT NULL,
+  `idguru_fk` int NULL DEFAULT NULL,
+  `idtahunajaran_fk` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_kd`) USING BTREE,
-  INDEX `idtingkat_fk`(`idkelas_fk`) USING BTREE,
-  INDEX `idjenispenilaian_fk`(`idjenispenilaian_fk`) USING BTREE,
-  INDEX `idsemester_fk`(`idmatapelajaran_fk`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+  INDEX `idtingkat_fk`(`idkelas_fk` ASC) USING BTREE,
+  INDEX `idjenispenilaian_fk`(`idjenispenilaian_fk` ASC) USING BTREE,
+  INDEX `idsemester_fk`(`idmatapelajaran_fk` ASC) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of kd
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for kelas
 -- ----------------------------
 DROP TABLE IF EXISTS `kelas`;
 CREATE TABLE `kelas`  (
-  `id_kelas` int(11) NOT NULL AUTO_INCREMENT,
+  `id_kelas` int NOT NULL AUTO_INCREMENT,
   `kelas` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `idtingkat_fk` int(11) NULL DEFAULT NULL,
-  `create_at` timestamp(0) NULL DEFAULT current_timestamp(),
-  `idjurusan_fk` int(11) NULL DEFAULT NULL,
-  `idtahunajaran_fk` int(11) NULL DEFAULT NULL,
-  `iddepartment_fk` int(11) NULL DEFAULT NULL,
+  `idtingkat_fk` int NULL DEFAULT NULL,
+  `create_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `idjurusan_fk` int NULL DEFAULT NULL,
+  `idtahunajaran_fk` int NULL DEFAULT NULL,
+  `iddepartment_fk` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_kelas`) USING BTREE,
-  INDEX `idtingkat_fk`(`idtingkat_fk`) USING BTREE,
+  INDEX `idtingkat_fk`(`idtingkat_fk` ASC) USING BTREE,
   CONSTRAINT `kelas_ibfk_1` FOREIGN KEY (`idtingkat_fk`) REFERENCES `tingkat` (`id_tingkat`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 67 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 67 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of kelas
@@ -2246,32 +2445,40 @@ INSERT INTO `kelas` VALUES (66, 'XII DKV 2', 3, '2023-07-13 14:37:04', 17, 7, 1)
 -- ----------------------------
 DROP TABLE IF EXISTS `kelas_erapor`;
 CREATE TABLE `kelas_erapor`  (
-  `id_kelas_erapor` int(11) NOT NULL AUTO_INCREMENT,
-  `idkelas_fk` int(11) NULL DEFAULT NULL,
-  `iderapor_fk` int(11) NULL DEFAULT NULL,
+  `id_kelas_erapor` int NOT NULL AUTO_INCREMENT,
+  `idkelas_fk` int NULL DEFAULT NULL,
+  `iderapor_fk` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_kelas_erapor`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of kelas_erapor
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for kelas_oas
 -- ----------------------------
 DROP TABLE IF EXISTS `kelas_oas`;
 CREATE TABLE `kelas_oas`  (
-  `id_kelas_oas` int(11) NOT NULL AUTO_INCREMENT,
-  `idkelas_fk` int(11) NULL DEFAULT NULL,
-  `idoas_fk` int(11) NULL DEFAULT NULL,
+  `id_kelas_oas` int NOT NULL AUTO_INCREMENT,
+  `idkelas_fk` int NULL DEFAULT NULL,
+  `idoas_fk` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_kelas_oas`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of kelas_oas
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for kelompok_prasarana
 -- ----------------------------
 DROP TABLE IF EXISTS `kelompok_prasarana`;
 CREATE TABLE `kelompok_prasarana`  (
-  `id_kelompok_prasarana` int(11) NOT NULL AUTO_INCREMENT,
+  `id_kelompok_prasarana` int NOT NULL AUTO_INCREMENT,
   `kelompok_prasarana` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_kelompok_prasarana`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of kelompok_prasarana
@@ -2285,10 +2492,10 @@ INSERT INTO `kelompok_prasarana` VALUES (6, 'Loker/Lemari');
 -- ----------------------------
 DROP TABLE IF EXISTS `kelompok_sarana`;
 CREATE TABLE `kelompok_sarana`  (
-  `id_kelompok_sarana` int(11) NOT NULL AUTO_INCREMENT,
+  `id_kelompok_sarana` int NOT NULL AUTO_INCREMENT,
   `kelompok_sarana` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_kelompok_sarana`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of kelompok_sarana
@@ -2303,35 +2510,43 @@ INSERT INTO `kelompok_sarana` VALUES (9, 'Perangkat Jaringan');
 -- ----------------------------
 DROP TABLE IF EXISTS `kerjasama_dudi`;
 CREATE TABLE `kerjasama_dudi`  (
-  `id_kerjasama_dudi` int(11) NOT NULL AUTO_INCREMENT,
-  `idjeniskerjasama_fk` int(11) NULL DEFAULT NULL,
-  `iddudi_fk` int(11) NULL DEFAULT NULL,
+  `id_kerjasama_dudi` int NOT NULL AUTO_INCREMENT,
+  `idjeniskerjasama_fk` int NULL DEFAULT NULL,
+  `iddudi_fk` int NULL DEFAULT NULL,
   `keterangan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `berkas` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_kerjasama_dudi`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
+
+-- ----------------------------
+-- Records of kerjasama_dudi
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for kompetensi_pkg
 -- ----------------------------
 DROP TABLE IF EXISTS `kompetensi_pkg`;
 CREATE TABLE `kompetensi_pkg`  (
-  `id_kompetensi_pkg` int(11) NOT NULL AUTO_INCREMENT,
+  `id_kompetensi_pkg` int NOT NULL AUTO_INCREMENT,
   `kompetensi` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `idtahunajaran_fk` int(11) NULL DEFAULT NULL,
+  `idtahunajaran_fk` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_kompetensi_pkg`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of kompetensi_pkg
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for kondisi_prasarana
 -- ----------------------------
 DROP TABLE IF EXISTS `kondisi_prasarana`;
 CREATE TABLE `kondisi_prasarana`  (
-  `id_kondisi_prasarana` int(11) NOT NULL AUTO_INCREMENT,
+  `id_kondisi_prasarana` int NOT NULL AUTO_INCREMENT,
   `kondisi_prasarana` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `warna` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_kondisi_prasarana`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of kondisi_prasarana
@@ -2345,11 +2560,11 @@ INSERT INTO `kondisi_prasarana` VALUES (3, 'Baik', '#00ad0c');
 -- ----------------------------
 DROP TABLE IF EXISTS `kondisi_sarana`;
 CREATE TABLE `kondisi_sarana`  (
-  `id_kondisi_sarana` int(11) NOT NULL AUTO_INCREMENT,
+  `id_kondisi_sarana` int NOT NULL AUTO_INCREMENT,
   `kondisi_sarana` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `warna` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_kondisi_sarana`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of kondisi_sarana
@@ -2364,13 +2579,13 @@ INSERT INTO `kondisi_sarana` VALUES (4, 'Sangat Baik', '#006eff');
 -- ----------------------------
 DROP TABLE IF EXISTS `kontrol_sarana`;
 CREATE TABLE `kontrol_sarana`  (
-  `id_kontrol_sarana` int(11) NOT NULL AUTO_INCREMENT,
+  `id_kontrol_sarana` int NOT NULL AUTO_INCREMENT,
   `tanggal` date NULL DEFAULT NULL,
-  `idguru_fk` int(11) NULL DEFAULT NULL,
+  `idguru_fk` int NULL DEFAULT NULL,
   `no_kontrol_sarana` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `keterangan` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id_kontrol_sarana`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of kontrol_sarana
@@ -2384,186 +2599,234 @@ INSERT INTO `kontrol_sarana` VALUES (3, '2023-07-04', 40, 'KS/5312910/04072023',
 -- ----------------------------
 DROP TABLE IF EXISTS `koperasi_member`;
 CREATE TABLE `koperasi_member`  (
-  `id_koperasi_member` int(11) NOT NULL AUTO_INCREMENT,
+  `id_koperasi_member` int NOT NULL AUTO_INCREMENT,
   `table` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
-  `idtable_fk` int(11) NULL DEFAULT NULL,
+  `idtable_fk` int NULL DEFAULT NULL,
   `jumlah_simpanan_wajib` double NULL DEFAULT NULL,
   `jumlah_simpanan_pokok` double NULL DEFAULT NULL,
   PRIMARY KEY (`id_koperasi_member`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of koperasi_member
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for kursus_pegawai
 -- ----------------------------
 DROP TABLE IF EXISTS `kursus_pegawai`;
 CREATE TABLE `kursus_pegawai`  (
-  `id_kursus_pegawai` int(11) NOT NULL AUTO_INCREMENT,
+  `id_kursus_pegawai` int NOT NULL AUTO_INCREMENT,
   `jenis` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `tahun` int(255) NULL DEFAULT NULL,
-  `bulan` int(255) NULL DEFAULT NULL,
-  `hari` int(255) NULL DEFAULT NULL,
+  `tahun` int NULL DEFAULT NULL,
+  `bulan` int NULL DEFAULT NULL,
+  `hari` int NULL DEFAULT NULL,
   `tingkat` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `keterangan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `idguru_fk` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id_kursus_pegawai`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of kursus_pegawai
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for learning
 -- ----------------------------
 DROP TABLE IF EXISTS `learning`;
 CREATE TABLE `learning`  (
-  `id_learning` int(11) NOT NULL AUTO_INCREMENT,
-  `idmatapelajaran_fk` int(11) NULL DEFAULT NULL,
-  `idkd_fk` int(11) NULL DEFAULT 999,
+  `id_learning` int NOT NULL AUTO_INCREMENT,
+  `idmatapelajaran_fk` int NULL DEFAULT NULL,
+  `idkd_fk` int NULL DEFAULT 999,
   `materi` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `open_access` int(255) NULL DEFAULT NULL COMMENT '0 = Private Access\r\n1 = Open Access(student only)\r\n2 = All Access(public can read)',
+  `open_access` int NULL DEFAULT NULL COMMENT '0 = Private Access\r\n1 = Open Access(student only)\r\n2 = All Access(public can read)',
   `password` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `iduser_fk` int(11) UNSIGNED NULL DEFAULT NULL,
+  `iduser_fk` int UNSIGNED NULL DEFAULT NULL,
   `judul` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `create_at` timestamp(0) NULL DEFAULT current_timestamp(),
-  `idtingkat_fk` int(11) NULL DEFAULT NULL,
+  `create_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `idtingkat_fk` int NULL DEFAULT NULL,
   `cover` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `learn_code` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `task_code` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_learning`) USING BTREE,
-  INDEX `learning_ibfk_1`(`idmatapelajaran_fk`) USING BTREE,
-  INDEX `idkd_fk`(`idkd_fk`) USING BTREE,
-  INDEX `iduser_fk`(`iduser_fk`) USING BTREE,
-  INDEX `idtingkat_fk`(`idtingkat_fk`) USING BTREE,
+  INDEX `learning_ibfk_1`(`idmatapelajaran_fk` ASC) USING BTREE,
+  INDEX `idkd_fk`(`idkd_fk` ASC) USING BTREE,
+  INDEX `iduser_fk`(`iduser_fk` ASC) USING BTREE,
+  INDEX `idtingkat_fk`(`idtingkat_fk` ASC) USING BTREE,
   CONSTRAINT `learning_ibfk_1` FOREIGN KEY (`idmatapelajaran_fk`) REFERENCES `mata_pelajaran` (`id_mata_pelajaran`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `learning_ibfk_2` FOREIGN KEY (`iduser_fk`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `learning_ibfk_3` FOREIGN KEY (`idtingkat_fk`) REFERENCES `tingkat` (`id_tingkat`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of learning
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for learning_course
 -- ----------------------------
 DROP TABLE IF EXISTS `learning_course`;
 CREATE TABLE `learning_course`  (
-  `id_learning_course` int(11) NOT NULL AUTO_INCREMENT,
+  `id_learning_course` int NOT NULL AUTO_INCREMENT,
   `course_code` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `course` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `desc` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `banner` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_learning_course`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of learning_course
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for learning_lessons
 -- ----------------------------
 DROP TABLE IF EXISTS `learning_lessons`;
 CREATE TABLE `learning_lessons`  (
-  `id_learning_lessons` int(11) NOT NULL AUTO_INCREMENT,
-  `idlearningsyllabus_fk` int(11) NULL DEFAULT NULL,
+  `id_learning_lessons` int NOT NULL AUTO_INCREMENT,
+  `idlearningsyllabus_fk` int NULL DEFAULT NULL,
   `lessons_code` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `lessons` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `desc` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_learning_lessons`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of learning_lessons
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for learning_materials
 -- ----------------------------
 DROP TABLE IF EXISTS `learning_materials`;
 CREATE TABLE `learning_materials`  (
-  `id_learning_materials` int(11) NOT NULL AUTO_INCREMENT,
-  `idlearninglessons_fk` int(11) NULL DEFAULT NULL,
+  `id_learning_materials` int NOT NULL AUTO_INCREMENT,
+  `idlearninglessons_fk` int NULL DEFAULT NULL,
   `materials_code` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `materials` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `banner` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_learning_materials`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of learning_materials
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for learning_set_materials
 -- ----------------------------
 DROP TABLE IF EXISTS `learning_set_materials`;
 CREATE TABLE `learning_set_materials`  (
-  `id_learning_set_materials` int(11) NOT NULL AUTO_INCREMENT,
+  `id_learning_set_materials` int NOT NULL AUTO_INCREMENT,
   `materials` longtext CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `covers` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `create_at` timestamp(0) NULL DEFAULT current_timestamp(),
-  `iduser_fk` int(11) NULL DEFAULT NULL,
+  `create_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `iduser_fk` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_learning_set_materials`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of learning_set_materials
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for learning_set_quiz
 -- ----------------------------
 DROP TABLE IF EXISTS `learning_set_quiz`;
 CREATE TABLE `learning_set_quiz`  (
-  `id_learning_set_quiz` int(11) NOT NULL AUTO_INCREMENT,
+  `id_learning_set_quiz` int NOT NULL AUTO_INCREMENT,
   `quiz_name` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_learning_set_quiz`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of learning_set_quiz
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for learning_set_task
 -- ----------------------------
 DROP TABLE IF EXISTS `learning_set_task`;
 CREATE TABLE `learning_set_task`  (
-  `id_learning_set_task` int(11) NOT NULL AUTO_INCREMENT,
+  `id_learning_set_task` int NOT NULL AUTO_INCREMENT,
   `task_code` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `task` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `title` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `type_task` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_learning_set_task`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of learning_set_task
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for learning_syllabus
 -- ----------------------------
 DROP TABLE IF EXISTS `learning_syllabus`;
 CREATE TABLE `learning_syllabus`  (
-  `id_learning_syllabus` int(11) NOT NULL AUTO_INCREMENT,
-  `idlearningcourse_fk` int(11) NULL DEFAULT NULL,
+  `id_learning_syllabus` int NOT NULL AUTO_INCREMENT,
+  `idlearningcourse_fk` int NULL DEFAULT NULL,
   `syllabus_code` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `syllabus` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_learning_syllabus`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of learning_syllabus
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for log_kelas_siswa
 -- ----------------------------
 DROP TABLE IF EXISTS `log_kelas_siswa`;
 CREATE TABLE `log_kelas_siswa`  (
-  `id_log_kelas_siswa` int(11) NOT NULL AUTO_INCREMENT,
-  `idsiswa_fk` int(11) NULL DEFAULT NULL,
-  `idkelasbefore_fk` int(11) NULL DEFAULT NULL,
-  `idkelasafter_fk` int(11) NULL DEFAULT NULL,
-  `create_at` timestamp(0) NULL DEFAULT current_timestamp(),
-  `keterangan` int(11) NULL DEFAULT NULL,
+  `id_log_kelas_siswa` int NOT NULL AUTO_INCREMENT,
+  `idsiswa_fk` int NULL DEFAULT NULL,
+  `idkelasbefore_fk` int NULL DEFAULT NULL,
+  `idkelasafter_fk` int NULL DEFAULT NULL,
+  `create_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `keterangan` int NULL DEFAULT NULL,
   `status` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id_log_kelas_siswa`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
+
+-- ----------------------------
+-- Records of log_kelas_siswa
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for login_attempts
 -- ----------------------------
 DROP TABLE IF EXISTS `login_attempts`;
 CREATE TABLE `login_attempts`  (
-  `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
   `ip_address` varchar(45) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `login` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `time` int(11) UNSIGNED NULL DEFAULT NULL,
+  `time` int UNSIGNED NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
+
+-- ----------------------------
+-- Records of login_attempts
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for lowongan
 -- ----------------------------
 DROP TABLE IF EXISTS `lowongan`;
 CREATE TABLE `lowongan`  (
-  `id_lowongan` int(11) NOT NULL AUTO_INCREMENT COMMENT ' ',
-  `iddudi_fk` int(11) NULL DEFAULT NULL,
+  `id_lowongan` int NOT NULL AUTO_INCREMENT COMMENT ' ',
+  `iddudi_fk` int NULL DEFAULT NULL,
   `keterangan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `rentang_gaji` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `berkas` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `judul` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `deadline` date NULL DEFAULT NULL,
   PRIMARY KEY (`id_lowongan`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of lowongan
@@ -2576,27 +2839,31 @@ INSERT INTO `lowongan` VALUES (2, 4, 'asd', '1500000', '96fc9c22ba255804448b18bc
 -- ----------------------------
 DROP TABLE IF EXISTS `mapel_ajar_pegawai`;
 CREATE TABLE `mapel_ajar_pegawai`  (
-  `id_mapel_ajar_pegawai` int(11) NOT NULL AUTO_INCREMENT,
-  `idguru_fk` int(11) NULL DEFAULT NULL,
+  `id_mapel_ajar_pegawai` int NOT NULL AUTO_INCREMENT,
+  `idguru_fk` int NULL DEFAULT NULL,
   `mapel` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `sekolah` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `kelas` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `tahun` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_mapel_ajar_pegawai`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of mapel_ajar_pegawai
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for mata_pelajaran
 -- ----------------------------
 DROP TABLE IF EXISTS `mata_pelajaran`;
 CREATE TABLE `mata_pelajaran`  (
-  `id_mata_pelajaran` int(11) NOT NULL AUTO_INCREMENT,
+  `id_mata_pelajaran` int NOT NULL AUTO_INCREMENT,
   `mata_pelajaran` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `kode` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `idjenismatapelajaran_fk` int(11) NULL DEFAULT NULL,
+  `idjenismatapelajaran_fk` int NULL DEFAULT NULL,
   `jKode` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id_mata_pelajaran`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 28 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 28 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of mata_pelajaran
@@ -2628,53 +2895,65 @@ INSERT INTO `mata_pelajaran` VALUES (27, 'Projek Ilmu Pengetahuan Alam dan Sosia
 -- ----------------------------
 DROP TABLE IF EXISTS `materi`;
 CREATE TABLE `materi`  (
-  `id_materi` int(11) NOT NULL AUTO_INCREMENT,
+  `id_materi` int NOT NULL AUTO_INCREMENT,
   `materi` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `file_materi` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `file_rpp` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `idkelas_fk` int(11) NULL DEFAULT NULL,
-  `idguru_fk` int(11) NULL DEFAULT NULL,
-  `idtahunajaran_fk` int(11) NULL DEFAULT NULL,
-  `idmatapelajaran_fk` int(11) NULL DEFAULT NULL,
+  `idkelas_fk` int NULL DEFAULT NULL,
+  `idguru_fk` int NULL DEFAULT NULL,
+  `idtahunajaran_fk` int NULL DEFAULT NULL,
+  `idmatapelajaran_fk` int NULL DEFAULT NULL,
   `trans_code` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_materi`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of materi
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for media
 -- ----------------------------
 DROP TABLE IF EXISTS `media`;
 CREATE TABLE `media`  (
-  `id_media` int(11) NOT NULL AUTO_INCREMENT,
+  `id_media` int NOT NULL AUTO_INCREMENT,
   `img` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `tag` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `title` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_media`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of media
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for media_files
 -- ----------------------------
 DROP TABLE IF EXISTS `media_files`;
 CREATE TABLE `media_files`  (
-  `id_media_files` int(11) NOT NULL AUTO_INCREMENT,
+  `id_media_files` int NOT NULL AUTO_INCREMENT,
   `file_name` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `extension` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `url` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_media_files`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of media_files
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for modul
 -- ----------------------------
 DROP TABLE IF EXISTS `modul`;
 CREATE TABLE `modul`  (
-  `id_modul` int(11) NOT NULL AUTO_INCREMENT,
+  `id_modul` int NOT NULL AUTO_INCREMENT,
   `modul` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `url` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `icon` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_modul`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of modul
@@ -2695,147 +2974,187 @@ INSERT INTO `modul` VALUES (11, 'Pengaturan Lain', '-', 'icon-book');
 -- ----------------------------
 DROP TABLE IF EXISTS `nilai_keterampilan`;
 CREATE TABLE `nilai_keterampilan`  (
-  `id_nilai_keterampilan` int(11) NOT NULL AUTO_INCREMENT,
-  `idsiswa_fk` int(11) NULL DEFAULT NULL,
-  `nilai` int(255) NULL DEFAULT NULL,
+  `id_nilai_keterampilan` int NOT NULL AUTO_INCREMENT,
+  `idsiswa_fk` int NULL DEFAULT NULL,
+  `nilai` int NULL DEFAULT NULL,
   `trans_code` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `idinputnilaiketerampilan_fk` int(11) NULL DEFAULT NULL,
-  `create_at` timestamp(0) NULL DEFAULT current_timestamp(),
-  `idkd_fk` int(11) NULL DEFAULT NULL,
+  `idinputnilaiketerampilan_fk` int NULL DEFAULT NULL,
+  `create_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `idkd_fk` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_nilai_keterampilan`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of nilai_keterampilan
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for nilai_pas
 -- ----------------------------
 DROP TABLE IF EXISTS `nilai_pas`;
 CREATE TABLE `nilai_pas`  (
-  `id_nilai_pas` int(11) NOT NULL AUTO_INCREMENT,
-  `idsiswa_fk` int(11) NULL DEFAULT NULL,
-  `nilai` int(255) NULL DEFAULT NULL,
+  `id_nilai_pas` int NOT NULL AUTO_INCREMENT,
+  `idsiswa_fk` int NULL DEFAULT NULL,
+  `nilai` int NULL DEFAULT NULL,
   `trans_code` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `idinputnilaipas_fk` int(11) NULL DEFAULT NULL,
-  `create_at` timestamp(0) NULL DEFAULT current_timestamp(),
+  `idinputnilaipas_fk` int NULL DEFAULT NULL,
+  `create_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_nilai_pas`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of nilai_pas
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for nilai_pengetahuan
 -- ----------------------------
 DROP TABLE IF EXISTS `nilai_pengetahuan`;
 CREATE TABLE `nilai_pengetahuan`  (
-  `id_nilai_pengetahuan` int(11) NOT NULL AUTO_INCREMENT,
-  `idsiswa_fk` int(11) NULL DEFAULT NULL,
-  `nilai` int(255) NULL DEFAULT NULL,
+  `id_nilai_pengetahuan` int NOT NULL AUTO_INCREMENT,
+  `idsiswa_fk` int NULL DEFAULT NULL,
+  `nilai` int NULL DEFAULT NULL,
   `trans_code` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `idinputnilaipengetahuan_fk` int(11) NULL DEFAULT NULL,
-  `create_at` timestamp(0) NULL DEFAULT current_timestamp(),
-  `idkd_fk` int(11) NULL DEFAULT NULL,
+  `idinputnilaipengetahuan_fk` int NULL DEFAULT NULL,
+  `create_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `idkd_fk` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_nilai_pengetahuan`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of nilai_pengetahuan
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for nilai_pkg
 -- ----------------------------
 DROP TABLE IF EXISTS `nilai_pkg`;
 CREATE TABLE `nilai_pkg`  (
-  `id_nilai_pkg` int(11) NOT NULL AUTO_INCREMENT,
+  `id_nilai_pkg` int NOT NULL AUTO_INCREMENT,
   `periode` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
-  `idtahunajaran_fk` int(11) NULL DEFAULT NULL,
-  `idguru_fk` int(11) NULL DEFAULT NULL,
+  `idtahunajaran_fk` int NULL DEFAULT NULL,
+  `idguru_fk` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_nilai_pkg`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of nilai_pkg
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for nilai_pts
 -- ----------------------------
 DROP TABLE IF EXISTS `nilai_pts`;
 CREATE TABLE `nilai_pts`  (
-  `id_nilai_pts` int(11) NOT NULL AUTO_INCREMENT,
-  `idsiswa_fk` int(11) NULL DEFAULT NULL,
-  `nilai` int(255) NULL DEFAULT NULL,
+  `id_nilai_pts` int NOT NULL AUTO_INCREMENT,
+  `idsiswa_fk` int NULL DEFAULT NULL,
+  `nilai` int NULL DEFAULT NULL,
   `trans_code` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `idinputnilaipts_fk` int(11) NULL DEFAULT NULL,
-  `create_at` timestamp(0) NULL DEFAULT current_timestamp(),
+  `idinputnilaipts_fk` int NULL DEFAULT NULL,
+  `create_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_nilai_pts`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of nilai_pts
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for notulensi_rapat
 -- ----------------------------
 DROP TABLE IF EXISTS `notulensi_rapat`;
 CREATE TABLE `notulensi_rapat`  (
-  `id_notulensi_rapat` int(11) NOT NULL AUTO_INCREMENT,
+  `id_notulensi_rapat` int NOT NULL AUTO_INCREMENT,
   `acara` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `tanggal` date NULL DEFAULT NULL,
   `pemimpin_rapat` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `isi` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `kesimpulan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_notulensi_rapat`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of notulensi_rapat
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for oas
 -- ----------------------------
 DROP TABLE IF EXISTS `oas`;
 CREATE TABLE `oas`  (
-  `id_oas` int(11) NOT NULL AUTO_INCREMENT,
+  `id_oas` int NOT NULL AUTO_INCREMENT,
   `tanggal_mulai` date NULL DEFAULT NULL,
   `tanggal_selesai` date NULL DEFAULT NULL,
   `keterangan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `is_active` int(11) NULL DEFAULT NULL,
+  `is_active` int NULL DEFAULT NULL,
   `kode` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `idmapel_fk` int(11) NULL DEFAULT NULL,
+  `idmapel_fk` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_oas`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of oas
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for oas_kelas
 -- ----------------------------
 DROP TABLE IF EXISTS `oas_kelas`;
 CREATE TABLE `oas_kelas`  (
-  `id_oas_kelas` int(11) NOT NULL AUTO_INCREMENT,
-  `idkelas_fk` int(11) NULL DEFAULT NULL,
-  `idoas_fk` int(11) NULL DEFAULT NULL,
+  `id_oas_kelas` int NOT NULL AUTO_INCREMENT,
+  `idkelas_fk` int NULL DEFAULT NULL,
+  `idoas_fk` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_oas_kelas`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
+
+-- ----------------------------
+-- Records of oas_kelas
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for oas_soal
 -- ----------------------------
 DROP TABLE IF EXISTS `oas_soal`;
 CREATE TABLE `oas_soal`  (
-  `id_oas_soal` int(11) NOT NULL AUTO_INCREMENT,
-  `idbanksoal_fk` int(11) NULL DEFAULT NULL,
-  `idoas_fk` int(11) NULL DEFAULT NULL,
+  `id_oas_soal` int NOT NULL AUTO_INCREMENT,
+  `idbanksoal_fk` int NULL DEFAULT NULL,
+  `idoas_fk` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_oas_soal`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
+
+-- ----------------------------
+-- Records of oas_soal
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for organisasi_pegawai
 -- ----------------------------
 DROP TABLE IF EXISTS `organisasi_pegawai`;
 CREATE TABLE `organisasi_pegawai`  (
-  `id_organisasi_pegawai` int(11) NOT NULL AUTO_INCREMENT,
+  `id_organisasi_pegawai` int NOT NULL AUTO_INCREMENT,
   `organisasi` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `jabatan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `tahun` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `idguru_fk` int(11) NULL DEFAULT NULL,
+  `idguru_fk` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_organisasi_pegawai`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of organisasi_pegawai
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for pelanggaran_siswa
 -- ----------------------------
 DROP TABLE IF EXISTS `pelanggaran_siswa`;
 CREATE TABLE `pelanggaran_siswa`  (
-  `id_pelanggaran_siswa` int(11) NOT NULL AUTO_INCREMENT,
+  `id_pelanggaran_siswa` int NOT NULL AUTO_INCREMENT,
   `tanggal` date NULL DEFAULT NULL,
   `uraian_pelanggaran` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `idpoinpelanggaran_fk` int(11) NULL DEFAULT NULL,
-  `idsiswa_fk` int(11) NULL DEFAULT NULL,
+  `idpoinpelanggaran_fk` int NULL DEFAULT NULL,
+  `idsiswa_fk` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_pelanggaran_siswa`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of pelanggaran_siswa
@@ -2847,49 +3166,57 @@ INSERT INTO `pelanggaran_siswa` VALUES (1, '2022-07-21', 'tes12', 1, 592);
 -- ----------------------------
 DROP TABLE IF EXISTS `pemasukan_lain`;
 CREATE TABLE `pemasukan_lain`  (
-  `id_pemasukan_lain` int(11) NOT NULL AUTO_INCREMENT,
+  `id_pemasukan_lain` int NOT NULL AUTO_INCREMENT,
   `trans_code` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `keterangan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `tanggal` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `total` double(20, 2) NULL DEFAULT NULL,
-  `create_at` timestamp(0) NULL DEFAULT current_timestamp(),
-  `akun_beban` int(11) NULL DEFAULT NULL,
-  `akun_kas` int(11) NULL DEFAULT NULL,
+  `create_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `akun_beban` int NULL DEFAULT NULL,
+  `akun_kas` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_pemasukan_lain`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
+
+-- ----------------------------
+-- Records of pemasukan_lain
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for pembayaran_spp
 -- ----------------------------
 DROP TABLE IF EXISTS `pembayaran_spp`;
 CREATE TABLE `pembayaran_spp`  (
-  `id_pembayaran_spp` int(11) NOT NULL AUTO_INCREMENT,
-  `idsiswa_fk` int(11) NULL DEFAULT NULL,
-  `bulan` int(255) NULL DEFAULT NULL,
-  `tahun` int(255) NULL DEFAULT NULL,
+  `id_pembayaran_spp` int NOT NULL AUTO_INCREMENT,
+  `idsiswa_fk` int NULL DEFAULT NULL,
+  `bulan` int NULL DEFAULT NULL,
+  `tahun` int NULL DEFAULT NULL,
   `jumlah_bayar` double(20, 0) NULL DEFAULT NULL,
   `tanggal` date NULL DEFAULT NULL,
-  `create_at` timestamp(0) NULL DEFAULT current_timestamp(),
+  `create_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `order_id` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
   PRIMARY KEY (`id_pembayaran_spp`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of pembayaran_spp
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for peminjaman_sarana
 -- ----------------------------
 DROP TABLE IF EXISTS `peminjaman_sarana`;
 CREATE TABLE `peminjaman_sarana`  (
-  `id_peminjaman_sarana` int(11) NOT NULL AUTO_INCREMENT,
+  `id_peminjaman_sarana` int NOT NULL AUTO_INCREMENT,
   `tanggal_mulai` date NULL DEFAULT NULL,
   `tanggal_selesai` date NULL DEFAULT NULL,
   `table_pemohon` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `idtablepemohon_fk` int(11) NULL DEFAULT NULL,
+  `idtablepemohon_fk` int NULL DEFAULT NULL,
   `no_peminjaman_sarana` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `tujuan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `create_at` timestamp(0) NULL DEFAULT current_timestamp(),
-  `status` int(11) NULL DEFAULT 0,
+  `create_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `status` int NULL DEFAULT 0,
   PRIMARY KEY (`id_peminjaman_sarana`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of peminjaman_sarana
@@ -2901,7 +3228,7 @@ INSERT INTO `peminjaman_sarana` VALUES (7, '2023-07-04', '2023-07-04', 'siswa', 
 -- ----------------------------
 DROP TABLE IF EXISTS `pendaftaran`;
 CREATE TABLE `pendaftaran`  (
-  `id_pendaftaran` int(11) NOT NULL AUTO_INCREMENT,
+  `id_pendaftaran` int NOT NULL AUTO_INCREMENT,
   `nama_lengkap` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `nisn` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `jenis_kelamin` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
@@ -2925,7 +3252,7 @@ CREATE TABLE `pendaftaran`  (
   `bujur` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `tempat_tinggal` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `moda_transportasi` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `anak_ke` int(255) NULL DEFAULT NULL,
+  `anak_ke` int NULL DEFAULT NULL,
   `punya_kip` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `tetap_kip` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `menolak_pip` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
@@ -2953,12 +3280,12 @@ CREATE TABLE `pendaftaran`  (
   `nomor_telp_rumah` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `no_hp` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `email` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `tinggi_badan` int(255) NULL DEFAULT NULL,
-  `berat_badan` int(255) NULL DEFAULT NULL,
-  `lingkar_kepala` int(255) NULL DEFAULT NULL,
+  `tinggi_badan` int NULL DEFAULT NULL,
+  `berat_badan` int NULL DEFAULT NULL,
+  `lingkar_kepala` int NULL DEFAULT NULL,
   `jarak_ke_sekolah` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `angka_jarak` int(255) NULL DEFAULT NULL,
-  `waktu_tempuh` int(255) NULL DEFAULT NULL,
+  `angka_jarak` int NULL DEFAULT NULL,
+  `waktu_tempuh` int NULL DEFAULT NULL,
   `jenis_kesejahteraan` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `no_kartu` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `nama_kartu` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
@@ -2979,163 +3306,207 @@ CREATE TABLE `pendaftaran`  (
   `kecamatan_sekolah` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `kabupaten_sekolah` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_pendaftaran`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of pendaftaran
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for pendidikan_pegawai
 -- ----------------------------
 DROP TABLE IF EXISTS `pendidikan_pegawai`;
 CREATE TABLE `pendidikan_pegawai`  (
-  `id_pendidikan_pegawai` int(11) NOT NULL AUTO_INCREMENT,
-  `idguru_fk` int(11) NULL DEFAULT NULL,
+  `id_pendidikan_pegawai` int NOT NULL AUTO_INCREMENT,
+  `idguru_fk` int NULL DEFAULT NULL,
   `jenis` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `berijazah` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `tahun` int(255) NULL DEFAULT NULL,
+  `tahun` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_pendidikan_pegawai`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of pendidikan_pegawai
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for penerimaan
 -- ----------------------------
 DROP TABLE IF EXISTS `penerimaan`;
 CREATE TABLE `penerimaan`  (
-  `id_penerimaan` int(11) NOT NULL AUTO_INCREMENT,
-  `idsiswa_fk` int(11) NULL DEFAULT NULL,
-  `idjenispenerimaan_fk` int(11) NULL DEFAULT NULL,
+  `id_penerimaan` int NOT NULL AUTO_INCREMENT,
+  `idsiswa_fk` int NULL DEFAULT NULL,
+  `idjenispenerimaan_fk` int NULL DEFAULT NULL,
   `metode_pembayaran` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `tanggal` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `catatan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `jumlah` double NULL DEFAULT NULL,
-  `create_at` timestamp(0) NULL DEFAULT current_timestamp(),
+  `create_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `invoice` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `diskon` double NULL DEFAULT NULL,
   PRIMARY KEY (`id_penerimaan`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
+
+-- ----------------------------
+-- Records of penerimaan
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for penerimaan_alumni
 -- ----------------------------
 DROP TABLE IF EXISTS `penerimaan_alumni`;
 CREATE TABLE `penerimaan_alumni`  (
-  `id_penerimaan_alumni` int(11) NOT NULL AUTO_INCREMENT,
-  `idalumni_fk` int(11) NULL DEFAULT NULL,
-  `idtanggunganalumni_fk` int(11) NULL DEFAULT NULL,
+  `id_penerimaan_alumni` int NOT NULL AUTO_INCREMENT,
+  `idalumni_fk` int NULL DEFAULT NULL,
+  `idtanggunganalumni_fk` int NULL DEFAULT NULL,
   `metode_pembayaran` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `tanggal` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `catatan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `jumlah` double NULL DEFAULT NULL,
-  `create_at` timestamp(0) NULL DEFAULT current_timestamp(),
+  `create_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `invoice` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `diskon` double NULL DEFAULT NULL,
   PRIMARY KEY (`id_penerimaan_alumni`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
+
+-- ----------------------------
+-- Records of penerimaan_alumni
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for pengeluaran_lain
 -- ----------------------------
 DROP TABLE IF EXISTS `pengeluaran_lain`;
 CREATE TABLE `pengeluaran_lain`  (
-  `id_pengeluaran_lain` int(11) NOT NULL AUTO_INCREMENT,
+  `id_pengeluaran_lain` int NOT NULL AUTO_INCREMENT,
   `trans_code` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `keterangan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `tanggal` date NULL DEFAULT NULL,
-  `create_at` timestamp(0) NULL DEFAULT current_timestamp(),
+  `create_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `jenis` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `total` double NULL DEFAULT NULL,
-  `jenis_kas` int(255) NULL DEFAULT NULL,
+  `jenis_kas` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_pengeluaran_lain`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
+
+-- ----------------------------
+-- Records of pengeluaran_lain
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for pengembalian_sarana
 -- ----------------------------
 DROP TABLE IF EXISTS `pengembalian_sarana`;
 CREATE TABLE `pengembalian_sarana`  (
-  `id_pengembalian_sarana` int(11) NOT NULL AUTO_INCREMENT,
-  `idpeminjamansarana_fk` int(11) NULL DEFAULT NULL,
+  `id_pengembalian_sarana` int NOT NULL AUTO_INCREMENT,
+  `idpeminjamansarana_fk` int NULL DEFAULT NULL,
   `tanggal_kembali` date NULL DEFAULT NULL,
   `keterangan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `is_complete` int(11) NULL DEFAULT NULL,
+  `is_complete` int NULL DEFAULT NULL,
   `no_pengembalian_sarana` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_pengembalian_sarana`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
+
+-- ----------------------------
+-- Records of pengembalian_sarana
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for pengumuman
 -- ----------------------------
 DROP TABLE IF EXISTS `pengumuman`;
 CREATE TABLE `pengumuman`  (
-  `id_pengumuman` int(11) NOT NULL AUTO_INCREMENT,
+  `id_pengumuman` int NOT NULL AUTO_INCREMENT,
   `pengumuman` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `tgl_mulai` date NULL DEFAULT NULL,
   `tgl_selesai` date NULL DEFAULT NULL,
-  `display_view` int(1) NULL DEFAULT NULL,
-  `dashboard_view` int(1) NULL DEFAULT NULL,
-  `mobile_view` int(1) NULL DEFAULT NULL,
+  `display_view` int NULL DEFAULT NULL,
+  `dashboard_view` int NULL DEFAULT NULL,
+  `mobile_view` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_pengumuman`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
+
+-- ----------------------------
+-- Records of pengumuman
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for penilaian_kinerja_guru
 -- ----------------------------
 DROP TABLE IF EXISTS `penilaian_kinerja_guru`;
 CREATE TABLE `penilaian_kinerja_guru`  (
-  `id_penilaian_kinerja_guru` int(11) NOT NULL AUTO_INCREMENT,
-  `idguru_fk` int(11) NULL DEFAULT NULL,
-  `bulan` int(11) NULL DEFAULT NULL,
-  `tahun` int(255) NULL DEFAULT NULL,
-  `idtahunajaran_fk` int(11) NULL DEFAULT NULL,
-  `create_at` timestamp(0) NULL DEFAULT current_timestamp(),
+  `id_penilaian_kinerja_guru` int NOT NULL AUTO_INCREMENT,
+  `idguru_fk` int NULL DEFAULT NULL,
+  `bulan` int NULL DEFAULT NULL,
+  `tahun` int NULL DEFAULT NULL,
+  `idtahunajaran_fk` int NULL DEFAULT NULL,
+  `create_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `trans_code` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_penilaian_kinerja_guru`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of penilaian_kinerja_guru
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for persentase_guru
 -- ----------------------------
 DROP TABLE IF EXISTS `persentase_guru`;
 CREATE TABLE `persentase_guru`  (
-  `id_persentase_guru` int(11) NOT NULL AUTO_INCREMENT,
-  `idguru_fk` int(11) NULL DEFAULT NULL,
-  `persentase` int(11) NULL DEFAULT NULL,
-  `create_at` timestamp(0) NULL DEFAULT current_timestamp(),
-  `idtahunajaran_fk` int(11) NULL DEFAULT NULL,
+  `id_persentase_guru` int NOT NULL AUTO_INCREMENT,
+  `idguru_fk` int NULL DEFAULT NULL,
+  `persentase` int NULL DEFAULT NULL,
+  `create_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `idtahunajaran_fk` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_persentase_guru`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of persentase_guru
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for pindah_kelas
 -- ----------------------------
 DROP TABLE IF EXISTS `pindah_kelas`;
 CREATE TABLE `pindah_kelas`  (
-  `id_pindah_kelas` int(11) NOT NULL AUTO_INCREMENT,
-  `idkelas_before` int(11) NULL DEFAULT NULL,
-  `idkelas_after` int(11) NULL DEFAULT NULL,
-  `create_at` timestamp(0) NULL DEFAULT current_timestamp(),
-  `idsiswa_fk` int(11) NULL DEFAULT NULL,
+  `id_pindah_kelas` int NOT NULL AUTO_INCREMENT,
+  `idkelas_before` int NULL DEFAULT NULL,
+  `idkelas_after` int NULL DEFAULT NULL,
+  `create_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `idsiswa_fk` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_pindah_kelas`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
+
+-- ----------------------------
+-- Records of pindah_kelas
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for poin_pelanggaran
 -- ----------------------------
 DROP TABLE IF EXISTS `poin_pelanggaran`;
 CREATE TABLE `poin_pelanggaran`  (
-  `id_poin_pelanggaran` int(11) NOT NULL AUTO_INCREMENT,
-  `idjenispelanggaran_fk` int(11) NULL DEFAULT NULL,
+  `id_poin_pelanggaran` int NOT NULL AUTO_INCREMENT,
+  `idjenispelanggaran_fk` int NULL DEFAULT NULL,
   `nama_pelanggaran` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `poin` int(20) NULL DEFAULT NULL,
+  `poin` int NULL DEFAULT NULL,
   `kode_pelanggaran` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `kategori_pelanggaran` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
   PRIMARY KEY (`id_poin_pelanggaran`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 14 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of poin_pelanggaran
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for ppdb
 -- ----------------------------
 DROP TABLE IF EXISTS `ppdb`;
 CREATE TABLE `ppdb`  (
-  `id_ppdb` int(11) NOT NULL AUTO_INCREMENT,
+  `id_ppdb` int NOT NULL AUTO_INCREMENT,
   `nama` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `nisn` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `tanggal_lahir` date NULL DEFAULT NULL,
@@ -3163,25 +3534,29 @@ CREATE TABLE `ppdb`  (
   `nik_siswa` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `kode_pendaftaran` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `nik_ayah` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
-  `status` int(255) NULL DEFAULT 0,
-  `create_at` timestamp(0) NULL DEFAULT current_timestamp(),
+  `status` int NULL DEFAULT 0,
+  `create_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_ppdb`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of ppdb
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for prasarana
 -- ----------------------------
 DROP TABLE IF EXISTS `prasarana`;
 CREATE TABLE `prasarana`  (
-  `id_prasarana` int(11) NOT NULL AUTO_INCREMENT,
+  `id_prasarana` int NOT NULL AUTO_INCREMENT,
   `prasarana` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `idkondisiprasarana_fk` int(11) NULL DEFAULT NULL,
-  `idkelompokprasarana_fk` int(11) NULL DEFAULT NULL,
+  `idkondisiprasarana_fk` int NULL DEFAULT NULL,
+  `idkelompokprasarana_fk` int NULL DEFAULT NULL,
   `spesifikasi` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `no_inventaris` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `foto` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_prasarana`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of prasarana
@@ -3195,52 +3570,64 @@ INSERT INTO `prasarana` VALUES (4, 'Loker Laptop', 3, 6, '', 'L4', '');
 -- ----------------------------
 DROP TABLE IF EXISTS `predikat_nilai`;
 CREATE TABLE `predikat_nilai`  (
-  `id_predikat_nilai` int(11) NOT NULL AUTO_INCREMENT,
-  `nilai_awal` int(255) NULL DEFAULT NULL,
-  `nilai_akhir` int(255) NULL DEFAULT NULL,
+  `id_predikat_nilai` int NOT NULL AUTO_INCREMENT,
+  `nilai_awal` int NULL DEFAULT NULL,
+  `nilai_akhir` int NULL DEFAULT NULL,
   `predikat` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_predikat_nilai`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of predikat_nilai
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for predikat_pkg
 -- ----------------------------
 DROP TABLE IF EXISTS `predikat_pkg`;
 CREATE TABLE `predikat_pkg`  (
-  `id_predikat_pkg` int(11) NOT NULL AUTO_INCREMENT,
-  `min` int(255) NULL DEFAULT NULL,
-  `max` int(255) NULL DEFAULT NULL,
+  `id_predikat_pkg` int NOT NULL AUTO_INCREMENT,
+  `min` int NULL DEFAULT NULL,
+  `max` int NULL DEFAULT NULL,
   `predikat` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `warna` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_predikat_pkg`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of predikat_pkg
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for presensi_event
 -- ----------------------------
 DROP TABLE IF EXISTS `presensi_event`;
 CREATE TABLE `presensi_event`  (
-  `id_presensi_event` int(11) NOT NULL AUTO_INCREMENT,
-  `idevent_fk` int(11) NULL DEFAULT NULL,
-  `idguru_fk` int(11) NULL DEFAULT NULL,
-  `is_hadir` int(11) NULL DEFAULT NULL,
+  `id_presensi_event` int NOT NULL AUTO_INCREMENT,
+  `idevent_fk` int NULL DEFAULT NULL,
+  `idguru_fk` int NULL DEFAULT NULL,
+  `is_hadir` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_presensi_event`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of presensi_event
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for presensi_guru
 -- ----------------------------
 DROP TABLE IF EXISTS `presensi_guru`;
 CREATE TABLE `presensi_guru`  (
-  `id_presensi_guru` int(11) NOT NULL AUTO_INCREMENT,
-  `idguru_fk` int(11) NULL DEFAULT NULL,
+  `id_presensi_guru` int NOT NULL AUTO_INCREMENT,
+  `idguru_fk` int NULL DEFAULT NULL,
   `tanggal` date NULL DEFAULT NULL,
-  `jam_masuk` time(0) NULL DEFAULT NULL,
-  `jam_keluar` time(0) NULL DEFAULT NULL,
-  `create_at` timestamp(0) NULL DEFAULT current_timestamp(),
-  `idtahunajaran_fk` int(11) NULL DEFAULT NULL,
+  `jam_masuk` time NULL DEFAULT NULL,
+  `jam_keluar` time NULL DEFAULT NULL,
+  `create_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `idtahunajaran_fk` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_presensi_guru`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of presensi_guru
@@ -3255,17 +3642,17 @@ INSERT INTO `presensi_guru` VALUES (6, 29, '2023-07-17', '12:56:34', '00:00:00',
 -- ----------------------------
 DROP TABLE IF EXISTS `presensi_harian`;
 CREATE TABLE `presensi_harian`  (
-  `id_presensi_harian` int(11) NOT NULL AUTO_INCREMENT,
-  `idmatapelajaran_fk` int(11) NULL DEFAULT NULL,
-  `idsiswa_fk` int(11) NULL DEFAULT NULL,
+  `id_presensi_harian` int NOT NULL AUTO_INCREMENT,
+  `idmatapelajaran_fk` int NULL DEFAULT NULL,
+  `idsiswa_fk` int NULL DEFAULT NULL,
   `presensi` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `keterangan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `tanggal` date NULL DEFAULT NULL,
-  `create_at` timestamp(0) NULL DEFAULT current_timestamp(),
-  `idtahunajaran_fk` int(11) NULL DEFAULT NULL,
-  `idkelas_fk` int(11) NULL DEFAULT NULL,
+  `create_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `idtahunajaran_fk` int NULL DEFAULT NULL,
+  `idkelas_fk` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_presensi_harian`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 826 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 826 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of presensi_harian
@@ -4032,30 +4419,38 @@ INSERT INTO `presensi_harian` VALUES (825, 14, 862, 'M', '', '2023-07-14', '2023
 -- ----------------------------
 DROP TABLE IF EXISTS `presensi_rapor`;
 CREATE TABLE `presensi_rapor`  (
-  `id_presensi_rapor` int(11) NOT NULL AUTO_INCREMENT,
-  `idtahunajaran_fk` int(11) NULL DEFAULT NULL,
-  `idsiswa_fk` int(11) NULL DEFAULT NULL,
-  `idkelas_fk` int(11) NULL DEFAULT NULL,
-  `ijin` int(255) NULL DEFAULT NULL,
-  `alpha` int(255) NULL DEFAULT NULL,
-  `sakit` int(255) NULL DEFAULT NULL,
+  `id_presensi_rapor` int NOT NULL AUTO_INCREMENT,
+  `idtahunajaran_fk` int NULL DEFAULT NULL,
+  `idsiswa_fk` int NULL DEFAULT NULL,
+  `idkelas_fk` int NULL DEFAULT NULL,
+  `ijin` int NULL DEFAULT NULL,
+  `alpha` int NULL DEFAULT NULL,
+  `sakit` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_presensi_rapor`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of presensi_rapor
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for prestasi_siswa
 -- ----------------------------
 DROP TABLE IF EXISTS `prestasi_siswa`;
 CREATE TABLE `prestasi_siswa`  (
-  `id_prestasi_siswa` int(11) NOT NULL AUTO_INCREMENT,
-  `idsiswa_fk` int(11) NULL DEFAULT NULL,
+  `id_prestasi_siswa` int NOT NULL AUTO_INCREMENT,
+  `idsiswa_fk` int NULL DEFAULT NULL,
   `prestasi` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
   `lomba` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
-  `tahun` int(255) NULL DEFAULT NULL,
+  `tahun` int NULL DEFAULT NULL,
   `jenis_perlombaan` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
-  `create_at` timestamp(0) NULL DEFAULT current_timestamp(),
+  `create_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_prestasi_siswa`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of prestasi_siswa
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for profil_website
@@ -4086,7 +4481,7 @@ CREATE TABLE `profil_website`  (
   `negara` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `lng` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `lat` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of profil_website
@@ -4098,12 +4493,12 @@ INSERT INTO `profil_website` VALUES ('VOHISA', 'Jl. Istana Mekar Wangi Utama No 
 -- ----------------------------
 DROP TABLE IF EXISTS `provinces`;
 CREATE TABLE `provinces`  (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp(0) NULL DEFAULT NULL,
-  `updated_at` timestamp(0) NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 35 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 35 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of provinces
@@ -4148,106 +4543,130 @@ INSERT INTO `provinces` VALUES (34, 'Papua', '2019-10-22 07:50:01', '2019-10-22 
 -- ----------------------------
 DROP TABLE IF EXISTS `question_cas`;
 CREATE TABLE `question_cas`  (
-  `id_question_cas` int(11) NOT NULL AUTO_INCREMENT,
+  `id_question_cas` int NOT NULL AUTO_INCREMENT,
   `type` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `idbanksoal_fk` int(11) NULL DEFAULT NULL,
-  `idquiz_fk` int(11) NULL DEFAULT NULL,
+  `idbanksoal_fk` int NULL DEFAULT NULL,
+  `idquiz_fk` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_question_cas`) USING BTREE,
-  INDEX `idbanksoal_fk`(`idbanksoal_fk`) USING BTREE,
-  INDEX `idassesmentcas_fk`(`idquiz_fk`) USING BTREE,
+  INDEX `idbanksoal_fk`(`idbanksoal_fk` ASC) USING BTREE,
+  INDEX `idassesmentcas_fk`(`idquiz_fk` ASC) USING BTREE,
   CONSTRAINT `question_cas_ibfk_1` FOREIGN KEY (`idbanksoal_fk`) REFERENCES `bank_soal` (`id_bank_soal`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `question_cas_ibfk_2` FOREIGN KEY (`idquiz_fk`) REFERENCES `quiz` (`id_quiz`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of question_cas
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for quiz
 -- ----------------------------
 DROP TABLE IF EXISTS `quiz`;
 CREATE TABLE `quiz`  (
-  `id_quiz` int(11) NOT NULL AUTO_INCREMENT,
+  `id_quiz` int NOT NULL AUTO_INCREMENT,
   `quiz_name` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `quiz_type` int(11) NULL DEFAULT NULL COMMENT '0 = Multiple choixe\r\n1 = single choice\r\n2 = Survey',
+  `quiz_type` int NULL DEFAULT NULL COMMENT '0 = Multiple choixe\r\n1 = single choice\r\n2 = Survey',
   `password` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `idmatapelajaran_fk` int(11) NULL DEFAULT NULL,
-  `iduser_fk` int(11) NULL DEFAULT NULL,
-  `open_access` int(255) NULL DEFAULT NULL COMMENT '0 = Private Access\r\n1 = Open Access(student only)\r\n2 = All Access(public can read)',
+  `idmatapelajaran_fk` int NULL DEFAULT NULL,
+  `iduser_fk` int NULL DEFAULT NULL,
+  `open_access` int NULL DEFAULT NULL COMMENT '0 = Private Access\r\n1 = Open Access(student only)\r\n2 = All Access(public can read)',
   PRIMARY KEY (`id_quiz`) USING BTREE,
-  INDEX `idmatapelajaran_fk`(`idmatapelajaran_fk`) USING BTREE,
+  INDEX `idmatapelajaran_fk`(`idmatapelajaran_fk` ASC) USING BTREE,
   CONSTRAINT `quiz_ibfk_1` FOREIGN KEY (`idmatapelajaran_fk`) REFERENCES `mata_pelajaran` (`id_mata_pelajaran`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of quiz
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for riwayat_kerja_pns_pegawai
 -- ----------------------------
 DROP TABLE IF EXISTS `riwayat_kerja_pns_pegawai`;
 CREATE TABLE `riwayat_kerja_pns_pegawai`  (
-  `id_riwayat_kerja_pns_pegawai` int(11) NOT NULL AUTO_INCREMENT,
-  `idguru_fk` int(11) NULL DEFAULT NULL,
+  `id_riwayat_kerja_pns_pegawai` int NOT NULL AUTO_INCREMENT,
+  `idguru_fk` int NULL DEFAULT NULL,
   `pangkat` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `jabatan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `gaji` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `terhitung_mulai` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `keterangan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_riwayat_kerja_pns_pegawai`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of riwayat_kerja_pns_pegawai
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for riwayat_kerja_swasta_pegawai
 -- ----------------------------
 DROP TABLE IF EXISTS `riwayat_kerja_swasta_pegawai`;
 CREATE TABLE `riwayat_kerja_swasta_pegawai`  (
-  `id_riwayat_kerja_swasta_pegawai` int(11) NOT NULL AUTO_INCREMENT,
-  `idguru_fk` int(11) NULL DEFAULT NULL,
+  `id_riwayat_kerja_swasta_pegawai` int NOT NULL AUTO_INCREMENT,
+  `idguru_fk` int NULL DEFAULT NULL,
   `jenis` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `tahun` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `keterangan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_riwayat_kerja_swasta_pegawai`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of riwayat_kerja_swasta_pegawai
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for rpp
 -- ----------------------------
 DROP TABLE IF EXISTS `rpp`;
 CREATE TABLE `rpp`  (
-  `id_rpp` int(11) NOT NULL AUTO_INCREMENT,
-  `idguru_fk` int(11) NULL DEFAULT NULL,
-  `idtahunajaran_fk` int(11) NULL DEFAULT NULL,
-  `idkelas_fk` int(11) NULL DEFAULT NULL,
-  `idmateri_fk` int(11) NULL DEFAULT NULL,
+  `id_rpp` int NOT NULL AUTO_INCREMENT,
+  `idguru_fk` int NULL DEFAULT NULL,
+  `idtahunajaran_fk` int NULL DEFAULT NULL,
+  `idkelas_fk` int NULL DEFAULT NULL,
+  `idmateri_fk` int NULL DEFAULT NULL,
   `alokasi_waktu` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `file` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `idmatapelajaran_fk` int(11) NULL DEFAULT NULL,
+  `idmatapelajaran_fk` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_rpp`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of rpp
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for ruangan
 -- ----------------------------
 DROP TABLE IF EXISTS `ruangan`;
 CREATE TABLE `ruangan`  (
-  `id_ruangan` int(11) NOT NULL AUTO_INCREMENT,
+  `id_ruangan` int NOT NULL AUTO_INCREMENT,
   `ruangan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_ruangan`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of ruangan
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for sarana
 -- ----------------------------
 DROP TABLE IF EXISTS `sarana`;
 CREATE TABLE `sarana`  (
-  `id_sarana` int(11) NOT NULL AUTO_INCREMENT,
+  `id_sarana` int NOT NULL AUTO_INCREMENT,
   `sarana` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `jumlah` int(11) NULL DEFAULT NULL,
-  `idkelompoksarana_fk` int(11) NULL DEFAULT NULL,
-  `idkondisisarana_fk` int(11) NULL DEFAULT NULL,
+  `jumlah` int NULL DEFAULT NULL,
+  `idkelompoksarana_fk` int NULL DEFAULT NULL,
+  `idkondisisarana_fk` int NULL DEFAULT NULL,
   `no_inventaris` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `spesifikasi` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `foto` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `tahun_pengadaan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `tanggal_pengadaan` date NULL DEFAULT NULL,
-  `idlokasi_fk` int(11) NULL DEFAULT NULL,
+  `idlokasi_fk` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_sarana`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 94 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 94 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of sarana
@@ -4338,11 +4757,11 @@ INSERT INTO `sarana` VALUES (93, 'Pisau Krimping Kuning', 1, 9, 1, 'INK/A13/16',
 -- ----------------------------
 DROP TABLE IF EXISTS `semester`;
 CREATE TABLE `semester`  (
-  `id_semester` int(11) NOT NULL AUTO_INCREMENT,
+  `id_semester` int NOT NULL AUTO_INCREMENT,
   `semester` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `create_at` timestamp(0) NULL DEFAULT current_timestamp(),
+  `create_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_semester`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of semester
@@ -4355,26 +4774,30 @@ INSERT INTO `semester` VALUES (2, 'Ganjil', '2020-06-07 10:08:00');
 -- ----------------------------
 DROP TABLE IF EXISTS `setting_akun`;
 CREATE TABLE `setting_akun`  (
-  `id_setting_akun` int(11) NOT NULL AUTO_INCREMENT,
+  `id_setting_akun` int NOT NULL AUTO_INCREMENT,
   `kode` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `nama` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `debit` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `kredit` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_setting_akun`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of setting_akun
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for setting_table
 -- ----------------------------
 DROP TABLE IF EXISTS `setting_table`;
 CREATE TABLE `setting_table`  (
-  `id_setting_table` int(11) NOT NULL AUTO_INCREMENT,
+  `id_setting_table` int NOT NULL AUTO_INCREMENT,
   `table` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `name` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `value` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `keterangan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_setting_table`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 22 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 22 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of setting_table
@@ -4408,7 +4831,7 @@ DROP TABLE IF EXISTS `setting_website`;
 CREATE TABLE `setting_website`  (
   `SPP` double(20, 0) NULL DEFAULT NULL,
   `DSP` double(20, 0) NULL DEFAULT NULL
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of setting_website
@@ -4420,26 +4843,30 @@ INSERT INTO `setting_website` VALUES (0, NULL);
 -- ----------------------------
 DROP TABLE IF EXISTS `silabus`;
 CREATE TABLE `silabus`  (
-  `id_silabus` int(11) NOT NULL AUTO_INCREMENT,
-  `idguru_fk` int(11) NULL DEFAULT NULL,
-  `idtahunajaran_fk` int(11) NULL DEFAULT NULL,
-  `idtingkat_fk` int(11) NULL DEFAULT NULL,
-  `idjurusan_fk` int(11) NULL DEFAULT NULL,
-  `idmatapelajaran_fk` int(11) NULL DEFAULT NULL,
+  `id_silabus` int NOT NULL AUTO_INCREMENT,
+  `idguru_fk` int NULL DEFAULT NULL,
+  `idtahunajaran_fk` int NULL DEFAULT NULL,
+  `idtingkat_fk` int NULL DEFAULT NULL,
+  `idjurusan_fk` int NULL DEFAULT NULL,
+  `idmatapelajaran_fk` int NULL DEFAULT NULL,
   `file` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_silabus`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of silabus
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for siswa
 -- ----------------------------
 DROP TABLE IF EXISTS `siswa`;
 CREATE TABLE `siswa`  (
-  `id_siswa` int(11) NOT NULL AUTO_INCREMENT,
+  `id_siswa` int NOT NULL AUTO_INCREMENT,
   `nis` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `nama` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `idkelas_fk` int(11) NULL DEFAULT NULL,
-  `idjurusan_fk` int(11) NULL DEFAULT NULL,
+  `idkelas_fk` int NULL DEFAULT NULL,
+  `idjurusan_fk` int NULL DEFAULT NULL,
   `agama` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `nisn` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `no_ijazah_sekolah_asal` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
@@ -4457,8 +4884,8 @@ CREATE TABLE `siswa`  (
   `rw` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `kelurahan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `foto` text CHARACTER SET hp8 COLLATE hp8_english_ci NULL,
-  `idprovince_fk` int(11) NULL DEFAULT NULL,
-  `idcities_fk` int(11) NULL DEFAULT NULL,
+  `idprovince_fk` int NULL DEFAULT NULL,
+  `idcities_fk` int NULL DEFAULT NULL,
   `nama_ayah` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `tempat_lahir_ayah` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `tanggal_lahir_ayah` date NULL DEFAULT NULL,
@@ -4471,17 +4898,17 @@ CREATE TABLE `siswa`  (
   `pendidikan_ibu` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `pekerjaan_ibu` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `penghasilan_ibu` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `tinggi_badan` int(11) NULL DEFAULT NULL,
-  `berat_badan` int(11) NULL DEFAULT NULL,
-  `jarak_ke_sekolah` int(255) NULL DEFAULT NULL,
-  `waktu_ke_sekolah` int(255) NULL DEFAULT NULL,
-  `jumlah_saudara` int(255) NULL DEFAULT NULL,
+  `tinggi_badan` int NULL DEFAULT NULL,
+  `berat_badan` int NULL DEFAULT NULL,
+  `jarak_ke_sekolah` int NULL DEFAULT NULL,
+  `waktu_ke_sekolah` int NULL DEFAULT NULL,
+  `jumlah_saudara` int NULL DEFAULT NULL,
   `jenis_kelamin` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `saldo` double NULL DEFAULT NULL,
-  `is_alumni` int(255) NULL DEFAULT 0,
-  `iddepartment_fk` int(11) NULL DEFAULT NULL,
+  `is_alumni` int NULL DEFAULT 0,
+  `iddepartment_fk` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_siswa`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 894 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 894 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of siswa
@@ -4634,69 +5061,85 @@ INSERT INTO `siswa` VALUES (893, '0406/0142.126', 'SHOFI SAVIRA', 66, 17, NULL, 
 -- ----------------------------
 DROP TABLE IF EXISTS `siswa_beasiswa`;
 CREATE TABLE `siswa_beasiswa`  (
-  `id_siswa_beasiswa` int(11) NOT NULL AUTO_INCREMENT,
-  `idsiswa_fk` int(11) NULL DEFAULT NULL,
+  `id_siswa_beasiswa` int NOT NULL AUTO_INCREMENT,
+  `idsiswa_fk` int NULL DEFAULT NULL,
   `jenis` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `penyelenggara` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `tahun_mulai` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `tahun_selesai` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_siswa_beasiswa`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of siswa_beasiswa
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for siswa_dokumen
 -- ----------------------------
 DROP TABLE IF EXISTS `siswa_dokumen`;
 CREATE TABLE `siswa_dokumen`  (
-  `id_siswa_dokumen` int(11) NOT NULL AUTO_INCREMENT,
-  `idsiswa_fk` int(11) NULL DEFAULT NULL,
+  `id_siswa_dokumen` int NOT NULL AUTO_INCREMENT,
+  `idsiswa_fk` int NULL DEFAULT NULL,
   `keterangan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `foto` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_siswa_dokumen`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of siswa_dokumen
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for siswa_mapel
 -- ----------------------------
 DROP TABLE IF EXISTS `siswa_mapel`;
 CREATE TABLE `siswa_mapel`  (
-  `id_siswa_mapel` int(11) NOT NULL AUTO_INCREMENT,
-  `idsiswa_fk` int(11) NULL DEFAULT NULL,
-  `idmatapelajaran_fk` int(11) NULL DEFAULT NULL,
+  `id_siswa_mapel` int NOT NULL AUTO_INCREMENT,
+  `idsiswa_fk` int NULL DEFAULT NULL,
+  `idmatapelajaran_fk` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_siswa_mapel`) USING BTREE,
-  INDEX `idsiswa_fk`(`idsiswa_fk`) USING BTREE,
-  INDEX `idmatapelajaran_fk`(`idmatapelajaran_fk`) USING BTREE,
+  INDEX `idsiswa_fk`(`idsiswa_fk` ASC) USING BTREE,
+  INDEX `idmatapelajaran_fk`(`idmatapelajaran_fk` ASC) USING BTREE,
   CONSTRAINT `siswa_mapel_ibfk_1` FOREIGN KEY (`idsiswa_fk`) REFERENCES `siswa` (`id_siswa`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `siswa_mapel_ibfk_2` FOREIGN KEY (`idmatapelajaran_fk`) REFERENCES `mata_pelajaran` (`id_mata_pelajaran`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of siswa_mapel
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for siswa_prestasi
 -- ----------------------------
 DROP TABLE IF EXISTS `siswa_prestasi`;
 CREATE TABLE `siswa_prestasi`  (
-  `id_siswa_prestasi` int(11) NOT NULL AUTO_INCREMENT,
-  `idsiswa_fk` int(11) NULL DEFAULT NULL,
+  `id_siswa_prestasi` int NOT NULL AUTO_INCREMENT,
+  `idsiswa_fk` int NULL DEFAULT NULL,
   `jenis` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `tingkat` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `nama` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `tahun` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `penyelenggara` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_siswa_prestasi`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of siswa_prestasi
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for sosialisasi
 -- ----------------------------
 DROP TABLE IF EXISTS `sosialisasi`;
 CREATE TABLE `sosialisasi`  (
-  `id_sosialisasi` int(11) NOT NULL AUTO_INCREMENT,
+  `id_sosialisasi` int NOT NULL AUTO_INCREMENT,
   `tanggal` date NULL DEFAULT NULL,
   `judul` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `keterangan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `berkas` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_sosialisasi`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of sosialisasi
@@ -4710,14 +5153,14 @@ INSERT INTO `sosialisasi` VALUES (5, '2022-10-24', 'Sosialisasi gerakan berkoper
 -- ----------------------------
 DROP TABLE IF EXISTS `student_account`;
 CREATE TABLE `student_account`  (
-  `id_student_account` int(11) NOT NULL AUTO_INCREMENT,
-  `idsiswa_fk` int(11) NULL DEFAULT NULL,
+  `id_student_account` int NOT NULL AUTO_INCREMENT,
+  `idsiswa_fk` int NULL DEFAULT NULL,
   `username` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `pass` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `create_at` timestamp(0) NULL DEFAULT current_timestamp(),
-  `update_at` timestamp(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0),
+  `create_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `update_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_student_account`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of student_account
@@ -4729,24 +5172,28 @@ INSERT INTO `student_account` VALUES (1, 285, 'ferdy', '55f3fc2fdb2fea1f635521b7
 -- ----------------------------
 DROP TABLE IF EXISTS `subkompetensi_pkg`;
 CREATE TABLE `subkompetensi_pkg`  (
-  `id_subkompetensi_pkg` int(11) NOT NULL AUTO_INCREMENT,
-  `idkompetensipkg_fk` int(11) NULL DEFAULT NULL,
+  `id_subkompetensi_pkg` int NOT NULL AUTO_INCREMENT,
+  `idkompetensipkg_fk` int NULL DEFAULT NULL,
   `subkompetensi` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `kode` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_subkompetensi_pkg`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of subkompetensi_pkg
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for submodul
 -- ----------------------------
 DROP TABLE IF EXISTS `submodul`;
 CREATE TABLE `submodul`  (
-  `id_submodul` int(11) NOT NULL AUTO_INCREMENT,
-  `idmodul_fk` int(11) NULL DEFAULT NULL,
+  `id_submodul` int NOT NULL AUTO_INCREMENT,
+  `idmodul_fk` int NULL DEFAULT NULL,
   `submodul` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `url` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_submodul`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of submodul
@@ -4764,56 +5211,68 @@ INSERT INTO `submodul` VALUES (7, 3, 'Jenis Tanggungan', 'Jenis_penerimaan/get_d
 -- ----------------------------
 DROP TABLE IF EXISTS `suplier`;
 CREATE TABLE `suplier`  (
-  `id_suplier` int(11) NOT NULL AUTO_INCREMENT,
+  `id_suplier` int NOT NULL AUTO_INCREMENT,
   `suplier` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
   `no_hp` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
   PRIMARY KEY (`id_suplier`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of suplier
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for surat_keluar
 -- ----------------------------
 DROP TABLE IF EXISTS `surat_keluar`;
 CREATE TABLE `surat_keluar`  (
-  `id_surat_keluar` int(11) NOT NULL AUTO_INCREMENT,
+  `id_surat_keluar` int NOT NULL AUTO_INCREMENT,
   `tujuan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `perihal` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `no_surat` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `kode_arsip` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `file_arsip` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `tanggal_surat` date NULL DEFAULT NULL,
-  `create_at` timestamp(0) NULL DEFAULT current_timestamp(),
+  `create_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_surat_keluar`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of surat_keluar
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for surat_masuk
 -- ----------------------------
 DROP TABLE IF EXISTS `surat_masuk`;
 CREATE TABLE `surat_masuk`  (
-  `id_surat_masuk` int(11) NOT NULL AUTO_INCREMENT,
+  `id_surat_masuk` int NOT NULL AUTO_INCREMENT,
   `pengirim` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `perihal` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `tanggal_surat` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `kode_arsip` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `create_at` timestamp(0) NULL DEFAULT current_timestamp(),
+  `create_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `no_surat` longtext CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `file_arsip` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
   PRIMARY KEY (`id_surat_masuk`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of surat_masuk
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for tahun_ajaran
 -- ----------------------------
 DROP TABLE IF EXISTS `tahun_ajaran`;
 CREATE TABLE `tahun_ajaran`  (
-  `id_tahun_ajaran` int(11) NOT NULL AUTO_INCREMENT,
+  `id_tahun_ajaran` int NOT NULL AUTO_INCREMENT,
   `tahun_ajaran` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `create_at` timestamp(0) NULL DEFAULT current_timestamp(),
-  `is_active` int(11) NULL DEFAULT NULL,
+  `create_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `is_active` int NULL DEFAULT NULL,
   `semester` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_tahun_ajaran`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of tahun_ajaran
@@ -4825,97 +5284,121 @@ INSERT INTO `tahun_ajaran` VALUES (7, '2022/2023', '2023-05-15 09:50:52', 1, 'ge
 -- ----------------------------
 DROP TABLE IF EXISTS `tahun_buku`;
 CREATE TABLE `tahun_buku`  (
-  `id_tahun_buku` int(11) NOT NULL AUTO_INCREMENT,
+  `id_tahun_buku` int NOT NULL AUTO_INCREMENT,
   `tahun_buku` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `tanggal_mulai` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `awalan_kwitansi` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `is_active` int(255) NULL DEFAULT NULL,
+  `is_active` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_tahun_buku`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
+
+-- ----------------------------
+-- Records of tahun_buku
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for tanggungan_alumni
 -- ----------------------------
 DROP TABLE IF EXISTS `tanggungan_alumni`;
 CREATE TABLE `tanggungan_alumni`  (
-  `id_tanggungan_alumni` int(11) NOT NULL AUTO_INCREMENT,
-  `idalumni_fk` int(11) NULL DEFAULT NULL,
+  `id_tanggungan_alumni` int NOT NULL AUTO_INCREMENT,
+  `idalumni_fk` int NULL DEFAULT NULL,
   `keterangan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `jumlah` decimal(20, 0) NULL DEFAULT NULL,
-  `idjenispenerimaan_fk` int(11) NULL DEFAULT NULL,
+  `idjenispenerimaan_fk` int NULL DEFAULT NULL,
   `trans_code` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `kas` int(11) NULL DEFAULT NULL,
-  `pendapatan` int(11) NULL DEFAULT NULL,
-  `piutang` int(11) NULL DEFAULT NULL,
-  `diskon` int(11) NULL DEFAULT NULL,
+  `kas` int NULL DEFAULT NULL,
+  `pendapatan` int NULL DEFAULT NULL,
+  `piutang` int NULL DEFAULT NULL,
+  `diskon` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_tanggungan_alumni`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 14 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
+
+-- ----------------------------
+-- Records of tanggungan_alumni
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for tanggungan_siswa
 -- ----------------------------
 DROP TABLE IF EXISTS `tanggungan_siswa`;
 CREATE TABLE `tanggungan_siswa`  (
-  `id_tanggungan_siswa` int(11) NOT NULL AUTO_INCREMENT,
-  `idsiswa_fk` int(11) NULL DEFAULT NULL,
-  `idjenispenerimaan_fk` int(11) NULL DEFAULT NULL,
+  `id_tanggungan_siswa` int NOT NULL AUTO_INCREMENT,
+  `idsiswa_fk` int NULL DEFAULT NULL,
+  `idjenispenerimaan_fk` int NULL DEFAULT NULL,
   `jumlah` double(255, 0) NULL DEFAULT NULL,
   `invoice` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_tanggungan_siswa`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 207 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
+
+-- ----------------------------
+-- Records of tanggungan_siswa
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for task
 -- ----------------------------
 DROP TABLE IF EXISTS `task`;
 CREATE TABLE `task`  (
-  `id_task` int(11) NOT NULL AUTO_INCREMENT,
+  `id_task` int NOT NULL AUTO_INCREMENT,
   `task_code` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `task` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `idguru_fk` int(11) NULL DEFAULT NULL,
-  `idmapel_fk` int(11) NULL DEFAULT NULL,
+  `idguru_fk` int NULL DEFAULT NULL,
+  `idmapel_fk` int NULL DEFAULT NULL,
   `title` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `type` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_task`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of task
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for task_answer
 -- ----------------------------
 DROP TABLE IF EXISTS `task_answer`;
 CREATE TABLE `task_answer`  (
-  `id_task_answer` int(11) NOT NULL AUTO_INCREMENT,
-  `idsiswa_fk` int(11) NULL DEFAULT NULL,
+  `id_task_answer` int NOT NULL AUTO_INCREMENT,
+  `idsiswa_fk` int NULL DEFAULT NULL,
   `ans` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `idtask_fk` int(11) NULL DEFAULT NULL,
+  `idtask_fk` int NULL DEFAULT NULL,
   `type` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `nilai` int(255) NULL DEFAULT NULL,
+  `nilai` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_task_answer`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of task_answer
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for tindakan_catatan_siswa
 -- ----------------------------
 DROP TABLE IF EXISTS `tindakan_catatan_siswa`;
 CREATE TABLE `tindakan_catatan_siswa`  (
-  `id_tindakan_catatan_siswa` int(11) NOT NULL AUTO_INCREMENT,
-  `idcatatansiswa_fk` int(11) NULL DEFAULT NULL,
+  `id_tindakan_catatan_siswa` int NOT NULL AUTO_INCREMENT,
+  `idcatatansiswa_fk` int NULL DEFAULT NULL,
   `tanggal` date NULL DEFAULT NULL,
   `tindakan` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
   PRIMARY KEY (`id_tindakan_catatan_siswa`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of tindakan_catatan_siswa
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for tingkat
 -- ----------------------------
 DROP TABLE IF EXISTS `tingkat`;
 CREATE TABLE `tingkat`  (
-  `id_tingkat` int(11) NOT NULL AUTO_INCREMENT,
+  `id_tingkat` int NOT NULL AUTO_INCREMENT,
   `tingkat` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
-  `create_at` timestamp(0) NULL DEFAULT current_timestamp(),
-  `iddepartment_fk` int(11) NULL DEFAULT NULL,
+  `create_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `iddepartment_fk` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_tingkat`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of tingkat
@@ -4932,30 +5415,34 @@ INSERT INTO `tingkat` VALUES (7, 'IX', '2022-11-04 20:45:49', 2);
 -- ----------------------------
 DROP TABLE IF EXISTS `transaksi_saldo`;
 CREATE TABLE `transaksi_saldo`  (
-  `id_transaksi` int(11) NOT NULL AUTO_INCREMENT,
+  `id_transaksi` int NOT NULL AUTO_INCREMENT,
   `jenis_transaksi` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
-  `idsiswa_fk` int(11) NULL DEFAULT NULL,
+  `idsiswa_fk` int NULL DEFAULT NULL,
   `jumlah` double NULL DEFAULT NULL,
   `tanggal` date NULL DEFAULT NULL,
-  `status` int(11) NULL DEFAULT 0,
+  `status` int NULL DEFAULT 0,
   `order_id` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
   PRIMARY KEY (`id_transaksi`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 27 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of transaksi_saldo
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for transaksi_tanggungan_alumni
 -- ----------------------------
 DROP TABLE IF EXISTS `transaksi_tanggungan_alumni`;
 CREATE TABLE `transaksi_tanggungan_alumni`  (
-  `id_transaksi_tanggungan_alumni` int(11) NOT NULL AUTO_INCREMENT,
-  `idalumni_fk` int(11) NULL DEFAULT NULL,
+  `id_transaksi_tanggungan_alumni` int NOT NULL AUTO_INCREMENT,
+  `idalumni_fk` int NULL DEFAULT NULL,
   `tanggal` date NULL DEFAULT NULL,
   `invoice` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `catatan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `jumlah` decimal(20, 0) NULL DEFAULT NULL,
-  `create_at` timestamp(0) NULL DEFAULT current_timestamp(),
+  `create_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_transaksi_tanggungan_alumni`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of transaksi_tanggungan_alumni
@@ -4967,15 +5454,15 @@ INSERT INTO `transaksi_tanggungan_alumni` VALUES (2, 14, '2022-08-23', 'P1741155
 -- ----------------------------
 DROP TABLE IF EXISTS `transaksi_tanggungan_siswa`;
 CREATE TABLE `transaksi_tanggungan_siswa`  (
-  `id_transaksi_tanggungan_siswa` int(11) NOT NULL AUTO_INCREMENT,
-  `idsiswa_fk` int(11) NULL DEFAULT NULL,
+  `id_transaksi_tanggungan_siswa` int NOT NULL AUTO_INCREMENT,
+  `idsiswa_fk` int NULL DEFAULT NULL,
   `tanggal` date NULL DEFAULT NULL,
   `invoice` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `catatan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `jumlah` decimal(20, 0) NULL DEFAULT NULL,
-  `create_at` timestamp(0) NULL DEFAULT current_timestamp(),
+  `create_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_transaksi_tanggungan_siswa`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of transaksi_tanggungan_siswa
@@ -4987,15 +5474,15 @@ INSERT INTO `transaksi_tanggungan_siswa` VALUES (1, 647, '2022-08-22', 'P5231289
 -- ----------------------------
 DROP TABLE IF EXISTS `user_modul`;
 CREATE TABLE `user_modul`  (
-  `id_user_modul` int(11) NOT NULL AUTO_INCREMENT,
-  `iduser_fk` int(11) NULL DEFAULT NULL,
-  `idmodul_fk` int(11) NULL DEFAULT NULL,
-  `c` int(255) NULL DEFAULT 0,
-  `r` int(255) NULL DEFAULT 0,
-  `u` int(255) NULL DEFAULT 0,
-  `d` int(255) NULL DEFAULT 0,
+  `id_user_modul` int NOT NULL AUTO_INCREMENT,
+  `iduser_fk` int NULL DEFAULT NULL,
+  `idmodul_fk` int NULL DEFAULT NULL,
+  `c` int NULL DEFAULT 0,
+  `r` int NULL DEFAULT 0,
+  `u` int NULL DEFAULT 0,
+  `d` int NULL DEFAULT 0,
   PRIMARY KEY (`id_user_modul`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of user_modul
@@ -5007,7 +5494,7 @@ INSERT INTO `user_modul` VALUES (2, 8, 3, 0, 0, 0, 0);
 -- ----------------------------
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users`  (
-  `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
   `ip_address` varchar(45) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `username` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
@@ -5015,55 +5502,55 @@ CREATE TABLE `users`  (
   `email` varchar(254) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `activation_code` varchar(40) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `forgotten_password_code` varchar(40) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `forgotten_password_time` int(11) UNSIGNED NULL DEFAULT NULL,
+  `forgotten_password_time` int UNSIGNED NULL DEFAULT NULL,
   `remember_code` varchar(40) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `created_on` int(11) UNSIGNED NOT NULL,
-  `last_login` int(11) UNSIGNED NULL DEFAULT NULL,
+  `created_on` int UNSIGNED NOT NULL,
+  `last_login` int UNSIGNED NULL DEFAULT NULL,
   `active` tinyint(1) UNSIGNED NULL DEFAULT NULL,
   `first_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `last_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `company` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `phone` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `foto` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
-  `anggota_id` int(11) NULL DEFAULT NULL,
+  `anggota_id` int NULL DEFAULT NULL,
   `table` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
-  `is_walas` int(11) NULL DEFAULT NULL,
-  `is_absen` int(11) NULL DEFAULT NULL,
-  `c` int(255) NULL DEFAULT 1,
-  `r` int(255) NULL DEFAULT 1,
-  `u` int(255) NULL DEFAULT 1,
-  `d` int(255) NULL DEFAULT 1,
+  `is_walas` int NULL DEFAULT NULL,
+  `is_absen` int NULL DEFAULT NULL,
+  `c` int NULL DEFAULT 1,
+  `r` int NULL DEFAULT 1,
+  `u` int NULL DEFAULT 1,
+  `d` int NULL DEFAULT 1,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 24 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 24 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES (1, '127.0.0.1', 'admin', '$2y$08$mxSDKMRKsKM3IwN6NPoB6.3pQqymDu4ZtGAMIzpw.ppcie3MJM9ty', '', 'hello@admin.com', '', NULL, NULL, NULL, 1268889823, 1689660397, 1, 'admin', 'Yani', 'ADMIN', '085894632505', '3c8f6f36f650d5ce07803470b4f4d4ff.jpg', NULL, NULL, NULL, NULL, 1, 1, 1, 1);
+INSERT INTO `users` VALUES (1, '127.0.0.1', 'admin', '$2y$08$mxSDKMRKsKM3IwN6NPoB6.3pQqymDu4ZtGAMIzpw.ppcie3MJM9ty', '', 'hello@admin.com', '', NULL, NULL, NULL, 1268889823, 1690071736, 1, 'admin', 'Yani', 'ADMIN', '085894632505', '3c8f6f36f650d5ce07803470b4f4d4ff.jpg', NULL, NULL, NULL, NULL, 1, 1, 1, 1);
 INSERT INTO `users` VALUES (16, '::1', 'Uzza', '$2y$08$NWb0Hx4O1O6sblcUzo79UuYnnx8HsClZxb/pFBVSW5Sx08Q9O4/Vu', NULL, 'Uzza@gmail.com', NULL, NULL, NULL, NULL, 1684205605, 1689319907, 1, 'Roikhatul Uzza, S.Psi', NULL, NULL, NULL, NULL, 43, 'guru', NULL, NULL, 1, 1, 1, 1);
-INSERT INTO `users` VALUES (17, '::1', 'avi', '$2y$08$26COncN1CmGyf9DMjwWQ1uv7BTkep.72/9lN3gsMGy7Y.R53EOSyu', NULL, 'avi@gmail.com', NULL, NULL, NULL, NULL, 1684289201, 1689320117, 1, 'Avi Hendratmoko, S.Kom', NULL, NULL, NULL, NULL, 31, 'guru', NULL, NULL, 1, 1, 1, 1);
+INSERT INTO `users` VALUES (17, '::1', 'avi', '$2y$08$26COncN1CmGyf9DMjwWQ1uv7BTkep.72/9lN3gsMGy7Y.R53EOSyu', NULL, 'avi@gmail.com', NULL, NULL, NULL, NULL, 1684289201, 1690071921, 1, 'Avi Hendratmoko, S.Kom', NULL, NULL, NULL, NULL, 31, 'guru', NULL, NULL, 1, 1, 1, 1);
 INSERT INTO `users` VALUES (18, '::1', 'bucin', '$2y$08$ac9q6y7ZJ1JctdH1.EgtlOn20AAq6.C1SzdscU/yqjLDqcYPF3nh6', NULL, 'bucin@gmail.com', NULL, NULL, NULL, NULL, 1684289369, 1689665659, 1, 'Cindy Permata Putri, S.Pd', NULL, NULL, NULL, NULL, 46, 'guru', NULL, NULL, 1, 1, 1, 1);
-INSERT INTO `users` VALUES (19, '::1', 'ibusosialita', '$2y$08$NzCE.BnGhAMfzjqQwZjfIexojKwaa7.g5D.DsnWN71u0UjkzFXdFu', NULL, 'ibusosialita@gmail.com', NULL, NULL, NULL, NULL, 1684289621, 1684289772, 1, 'Andiani Kristanti, S.Pd', NULL, NULL, NULL, NULL, 44, 'guru', NULL, NULL, 1, 1, 1, 1);
-INSERT INTO `users` VALUES (20, '140.213.57.203', 'dhani', '$2y$08$B/jrm1i1Df7UAY3sv6n8Ou2JuNxDvus70Ha0607TM.jcEFqPtWqO2', NULL, 'dhani@gmail.com', NULL, NULL, NULL, NULL, 1684291380, 1689319867, 1, 'Ramadhani Samboga, S.Pd', NULL, NULL, NULL, NULL, 52, 'guru', NULL, NULL, 1, 1, 1, 1);
+INSERT INTO `users` VALUES (19, '::1', 'ibusosialita', '$2y$08$NzCE.BnGhAMfzjqQwZjfIexojKwaa7.g5D.DsnWN71u0UjkzFXdFu', NULL, 'ibusosialita@gmail.com', NULL, NULL, NULL, NULL, 1684289621, 1690033022, 1, 'Andiani Kristanti, S.Pd', NULL, NULL, NULL, NULL, 44, 'guru', NULL, NULL, 1, 1, 1, 1);
+INSERT INTO `users` VALUES (20, '140.213.57.203', 'dhani', '$2y$08$B/jrm1i1Df7UAY3sv6n8Ou2JuNxDvus70Ha0607TM.jcEFqPtWqO2', NULL, 'dhani@gmail.com', NULL, NULL, NULL, NULL, 1684291380, 1690033008, 1, 'Ramadhani Samboga, S.Pd', NULL, NULL, NULL, NULL, 52, 'guru', NULL, NULL, 1, 1, 1, 1);
 INSERT INTO `users` VALUES (21, '140.213.57.161', 'nazib', '$2y$08$QXtCxq7sdoYWHCy7dR1mJuJVqXP3g4wESpSfrM7u2Ax3zENRL/49S', NULL, 'nazib@gmail.com', NULL, NULL, NULL, NULL, 1684294587, 1689313021, 1, 'Mohammad Nazibullah, M.Pd', NULL, NULL, NULL, NULL, 45, 'guru', NULL, NULL, 1, 1, 1, 1);
 INSERT INTO `users` VALUES (22, '::1', 'is_456609', '$2y$08$fBvt3x7KVuQVm0ujzkNxseu3qste5SpIol.Tm/xYmkt0YHtLK9rQe', NULL, 'is_456609@gmail.com', NULL, NULL, NULL, NULL, 1689313224, NULL, 1, 'Ika Uswatun Hasanah, S.Pd', NULL, NULL, NULL, NULL, 51, 'guru', NULL, NULL, 1, 1, 1, 1);
-INSERT INTO `users` VALUES (23, '::1', 'pohet', '$2y$08$NHZf/dk2ImgvsMBoFkjZJ.YMBRPb9nIz/5VdzbAhD22MUrEWlFMwO', NULL, 'pohet@gmail.com', NULL, NULL, NULL, NULL, 1689319435, 1689573347, 1, 'Pohet Bintoto, S.Pd., M.Si', NULL, NULL, NULL, NULL, 29, 'guru', NULL, NULL, 1, 1, 1, 1);
+INSERT INTO `users` VALUES (23, '::1', 'pohet', '$2y$08$NHZf/dk2ImgvsMBoFkjZJ.YMBRPb9nIz/5VdzbAhD22MUrEWlFMwO', NULL, 'pohet@gmail.com', NULL, NULL, NULL, NULL, 1689319435, 1689739026, 1, 'Pohet Bintoto, S.Pd., M.Si', NULL, NULL, NULL, NULL, 29, 'guru', NULL, NULL, 1, 1, 1, 1);
 
 -- ----------------------------
 -- Table structure for users_groups
 -- ----------------------------
 DROP TABLE IF EXISTS `users_groups`;
 CREATE TABLE `users_groups`  (
-  `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) UNSIGNED NOT NULL,
-  `group_id` mediumint(8) UNSIGNED NOT NULL,
+  `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
+  `user_id` int UNSIGNED NOT NULL,
+  `group_id` mediumint UNSIGNED NOT NULL,
   PRIMARY KEY (`id`) USING BTREE,
-  UNIQUE INDEX `uc_users_groups`(`user_id`, `group_id`) USING BTREE,
-  INDEX `fk_users_groups_users1_idx`(`user_id`) USING BTREE,
-  INDEX `fk_users_groups_groups1_idx`(`group_id`) USING BTREE,
+  UNIQUE INDEX `uc_users_groups`(`user_id` ASC, `group_id` ASC) USING BTREE,
+  INDEX `fk_users_groups_users1_idx`(`user_id` ASC) USING BTREE,
+  INDEX `fk_users_groups_groups1_idx`(`group_id` ASC) USING BTREE,
   CONSTRAINT `users_groups_ibfk_1` FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   CONSTRAINT `users_groups_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
-) ENGINE = InnoDB AUTO_INCREMENT = 24 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 24 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of users_groups
@@ -5083,12 +5570,12 @@ INSERT INTO `users_groups` VALUES (23, 23, 3);
 -- ----------------------------
 DROP TABLE IF EXISTS `wali_kelas`;
 CREATE TABLE `wali_kelas`  (
-  `id_wali_kelas` int(11) NOT NULL AUTO_INCREMENT,
-  `idguru_fk` int(11) NULL DEFAULT NULL,
-  `idtahunajaran_fk` int(11) NULL DEFAULT NULL,
-  `idkelas_fk` int(11) NULL DEFAULT NULL,
+  `id_wali_kelas` int NOT NULL AUTO_INCREMENT,
+  `idguru_fk` int NULL DEFAULT NULL,
+  `idtahunajaran_fk` int NULL DEFAULT NULL,
+  `idkelas_fk` int NULL DEFAULT NULL,
   PRIMARY KEY (`id_wali_kelas`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of wali_kelas
@@ -5099,43 +5586,64 @@ INSERT INTO `wali_kelas` VALUES (1, 1, 4, 39);
 -- View structure for v_bank_soal_quiz
 -- ----------------------------
 DROP VIEW IF EXISTS `v_bank_soal_quiz`;
-CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `v_bank_soal_quiz` AS select `bank_soal`.`id_bank_soal` AS `id_bank_soal`,`bank_soal`.`soal` AS `soal`,`bank_soal`.`time_soal` AS `time_soal`,`bank_soal`.`code_soal` AS `code_soal`,`bank_soal`.`idmatapelajaran_fk` AS `idmatapelajaran_fk`,`bank_soal`.`idguru_fk` AS `idguru_fk`,`question_cas`.`id_question_cas` AS `id_question_cas`,`question_cas`.`type` AS `type`,`question_cas`.`idbanksoal_fk` AS `idbanksoal_fk`,`question_cas`.`idquiz_fk` AS `idquiz_fk` from (`bank_soal` join `question_cas` on(`question_cas`.`idbanksoal_fk` = `bank_soal`.`id_bank_soal`)) ;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_bank_soal_quiz` AS select `bank_soal`.`id_bank_soal` AS `id_bank_soal`,`bank_soal`.`soal` AS `soal`,`bank_soal`.`time_soal` AS `time_soal`,`bank_soal`.`code_soal` AS `code_soal`,`bank_soal`.`idmatapelajaran_fk` AS `idmatapelajaran_fk`,`bank_soal`.`idguru_fk` AS `idguru_fk`,`question_cas`.`id_question_cas` AS `id_question_cas`,`question_cas`.`type` AS `type`,`question_cas`.`idbanksoal_fk` AS `idbanksoal_fk`,`question_cas`.`idquiz_fk` AS `idquiz_fk` from (`bank_soal` join `question_cas` on(`question_cas`.`idbanksoal_fk` = `bank_soal`.`id_bank_soal`)) ; ;
 
 -- ----------------------------
 -- View structure for v_buku_pemanggilan_siswa
 -- ----------------------------
 DROP VIEW IF EXISTS `v_buku_pemanggilan_siswa`;
-CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `v_buku_pemanggilan_siswa` AS select `buku_pemanggilan_siswa`.`id_buku_pemanggilan_siswa` AS `id_buku_pemanggilan_siswa`,`buku_pemanggilan_siswa`.`idsiswa_fk` AS `idsiswa_fk`,`buku_pemanggilan_siswa`.`masalah` AS `masalah`,`buku_pemanggilan_siswa`.`pemecahan` AS `pemecahan`,`buku_pemanggilan_siswa`.`tindak_lanjut` AS `tindak_lanjut`,`buku_pemanggilan_siswa`.`keterangan` AS `keterangan`,`buku_pemanggilan_siswa`.`tanggal` AS `tanggal`,`buku_pemanggilan_siswa`.`kode_pemanggilan` AS `kode_pemanggilan`,`siswa`.`id_siswa` AS `id_siswa`,`siswa`.`nis` AS `nis`,`siswa`.`nama` AS `nama`,`siswa`.`idkelas_fk` AS `idkelas_fk`,`siswa`.`idjurusan_fk` AS `idjurusan_fk`,`siswa`.`agama` AS `agama`,`siswa`.`nisn` AS `nisn`,`siswa`.`no_ijazah_sekolah_asal` AS `no_ijazah_sekolah_asal`,`siswa`.`no_skhun_sekolah_asal` AS `no_skhun_sekolah_asal`,`siswa`.`no_un_sekolah_asal` AS `no_un_sekolah_asal`,`siswa`.`no_kk` AS `no_kk`,`siswa`.`npsn_sekolah_asal` AS `npsn_sekolah_asal`,`siswa`.`nama_sekolah_asal` AS `nama_sekolah_asal`,`siswa`.`tempat_lahir` AS `tempat_lahir`,`siswa`.`tanggal_lahir` AS `tanggal_lahir`,`siswa`.`berkebutuhan_khusus` AS `berkebutuhan_khusus`,`siswa`.`alamat` AS `alamat`,`siswa`.`dusun` AS `dusun`,`siswa`.`rt` AS `rt`,`siswa`.`rw` AS `rw`,`siswa`.`kelurahan` AS `kelurahan`,`siswa`.`foto` AS `foto`,`siswa`.`idprovince_fk` AS `idprovince_fk`,`siswa`.`idcities_fk` AS `idcities_fk`,`siswa`.`nama_ayah` AS `nama_ayah`,`siswa`.`tempat_lahir_ayah` AS `tempat_lahir_ayah`,`siswa`.`tanggal_lahir_ayah` AS `tanggal_lahir_ayah`,`siswa`.`pendidikan_ayah` AS `pendidikan_ayah`,`siswa`.`pekerjaan_ayah` AS `pekerjaan_ayah`,`siswa`.`penghasilan_ayah` AS `penghasilan_ayah`,`siswa`.`nama_ibu` AS `nama_ibu`,`siswa`.`tempat_lahir_ibu` AS `tempat_lahir_ibu`,`siswa`.`tanggal_lahir_ibu` AS `tanggal_lahir_ibu`,`siswa`.`pendidikan_ibu` AS `pendidikan_ibu`,`siswa`.`pekerjaan_ibu` AS `pekerjaan_ibu`,`siswa`.`penghasilan_ibu` AS `penghasilan_ibu`,`siswa`.`tinggi_badan` AS `tinggi_badan`,`siswa`.`berat_badan` AS `berat_badan`,`siswa`.`jarak_ke_sekolah` AS `jarak_ke_sekolah`,`siswa`.`waktu_ke_sekolah` AS `waktu_ke_sekolah`,`siswa`.`jumlah_saudara` AS `jumlah_saudara`,`siswa`.`jenis_kelamin` AS `jenis_kelamin` from (`buku_pemanggilan_siswa` join `siswa` on(`siswa`.`id_siswa` = `buku_pemanggilan_siswa`.`idsiswa_fk`)) ;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_buku_pemanggilan_siswa` AS select `buku_pemanggilan_siswa`.`id_buku_pemanggilan_siswa` AS `id_buku_pemanggilan_siswa`,`buku_pemanggilan_siswa`.`idsiswa_fk` AS `idsiswa_fk`,`buku_pemanggilan_siswa`.`masalah` AS `masalah`,`buku_pemanggilan_siswa`.`pemecahan` AS `pemecahan`,`buku_pemanggilan_siswa`.`tindak_lanjut` AS `tindak_lanjut`,`buku_pemanggilan_siswa`.`keterangan` AS `keterangan`,`buku_pemanggilan_siswa`.`tanggal` AS `tanggal`,`buku_pemanggilan_siswa`.`kode_pemanggilan` AS `kode_pemanggilan`,`siswa`.`id_siswa` AS `id_siswa`,`siswa`.`nis` AS `nis`,`siswa`.`nama` AS `nama`,`siswa`.`idkelas_fk` AS `idkelas_fk`,`siswa`.`idjurusan_fk` AS `idjurusan_fk`,`siswa`.`agama` AS `agama`,`siswa`.`nisn` AS `nisn`,`siswa`.`no_ijazah_sekolah_asal` AS `no_ijazah_sekolah_asal`,`siswa`.`no_skhun_sekolah_asal` AS `no_skhun_sekolah_asal`,`siswa`.`no_un_sekolah_asal` AS `no_un_sekolah_asal`,`siswa`.`no_kk` AS `no_kk`,`siswa`.`npsn_sekolah_asal` AS `npsn_sekolah_asal`,`siswa`.`nama_sekolah_asal` AS `nama_sekolah_asal`,`siswa`.`tempat_lahir` AS `tempat_lahir`,`siswa`.`tanggal_lahir` AS `tanggal_lahir`,`siswa`.`berkebutuhan_khusus` AS `berkebutuhan_khusus`,`siswa`.`alamat` AS `alamat`,`siswa`.`dusun` AS `dusun`,`siswa`.`rt` AS `rt`,`siswa`.`rw` AS `rw`,`siswa`.`kelurahan` AS `kelurahan`,`siswa`.`foto` AS `foto`,`siswa`.`idprovince_fk` AS `idprovince_fk`,`siswa`.`idcities_fk` AS `idcities_fk`,`siswa`.`nama_ayah` AS `nama_ayah`,`siswa`.`tempat_lahir_ayah` AS `tempat_lahir_ayah`,`siswa`.`tanggal_lahir_ayah` AS `tanggal_lahir_ayah`,`siswa`.`pendidikan_ayah` AS `pendidikan_ayah`,`siswa`.`pekerjaan_ayah` AS `pekerjaan_ayah`,`siswa`.`penghasilan_ayah` AS `penghasilan_ayah`,`siswa`.`nama_ibu` AS `nama_ibu`,`siswa`.`tempat_lahir_ibu` AS `tempat_lahir_ibu`,`siswa`.`tanggal_lahir_ibu` AS `tanggal_lahir_ibu`,`siswa`.`pendidikan_ibu` AS `pendidikan_ibu`,`siswa`.`pekerjaan_ibu` AS `pekerjaan_ibu`,`siswa`.`penghasilan_ibu` AS `penghasilan_ibu`,`siswa`.`tinggi_badan` AS `tinggi_badan`,`siswa`.`berat_badan` AS `berat_badan`,`siswa`.`jarak_ke_sekolah` AS `jarak_ke_sekolah`,`siswa`.`waktu_ke_sekolah` AS `waktu_ke_sekolah`,`siswa`.`jumlah_saudara` AS `jumlah_saudara`,`siswa`.`jenis_kelamin` AS `jenis_kelamin` from (`buku_pemanggilan_siswa` join `siswa` on(`siswa`.`id_siswa` = `buku_pemanggilan_siswa`.`idsiswa_fk`)) ; ;
 
 -- ----------------------------
 -- View structure for v_catatan_siswa
 -- ----------------------------
 DROP VIEW IF EXISTS `v_catatan_siswa`;
-CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `v_catatan_siswa` AS select `catatan_siswa`.`id_catatan_siswa` AS `id_catatan_siswa`,`catatan_siswa`.`idsiswa_fk` AS `idsiswa_fk`,`catatan_siswa`.`idkelas_fk` AS `idkelas_fk`,`catatan_siswa`.`idguru_fk` AS `idguru_fk`,`catatan_siswa`.`tanggal` AS `tanggal`,`catatan_siswa`.`uraian` AS `uraian`,`catatan_siswa`.`teruskan_ke` AS `teruskan_ke`,`catatan_siswa`.`idtahunajaran_fk` AS `idtahunajaran_fk`,`catatan_siswa`.`idmapel_fk` AS `idmapel_fk`,`siswa`.`id_siswa` AS `id_siswa`,`siswa`.`nis` AS `nis`,`siswa`.`nama` AS `nama`,`siswa`.`idjurusan_fk` AS `idjurusan_fk`,`siswa`.`agama` AS `agama`,`siswa`.`nisn` AS `nisn`,`siswa`.`no_ijazah_sekolah_asal` AS `no_ijazah_sekolah_asal`,`siswa`.`no_skhun_sekolah_asal` AS `no_skhun_sekolah_asal`,`siswa`.`no_un_sekolah_asal` AS `no_un_sekolah_asal`,`siswa`.`no_kk` AS `no_kk`,`siswa`.`npsn_sekolah_asal` AS `npsn_sekolah_asal`,`siswa`.`nama_sekolah_asal` AS `nama_sekolah_asal`,`siswa`.`tempat_lahir` AS `tempat_lahir`,`siswa`.`tanggal_lahir` AS `tanggal_lahir`,`siswa`.`berkebutuhan_khusus` AS `berkebutuhan_khusus`,`siswa`.`alamat` AS `alamat`,`siswa`.`dusun` AS `dusun`,`siswa`.`rt` AS `rt`,`siswa`.`rw` AS `rw`,`siswa`.`kelurahan` AS `kelurahan`,`siswa`.`foto` AS `foto`,`siswa`.`idprovince_fk` AS `idprovince_fk`,`siswa`.`idcities_fk` AS `idcities_fk`,`siswa`.`nama_ayah` AS `nama_ayah`,`siswa`.`tempat_lahir_ayah` AS `tempat_lahir_ayah`,`siswa`.`tanggal_lahir_ayah` AS `tanggal_lahir_ayah`,`siswa`.`pendidikan_ayah` AS `pendidikan_ayah`,`siswa`.`pekerjaan_ayah` AS `pekerjaan_ayah`,`siswa`.`penghasilan_ayah` AS `penghasilan_ayah`,`siswa`.`nama_ibu` AS `nama_ibu`,`siswa`.`tempat_lahir_ibu` AS `tempat_lahir_ibu`,`siswa`.`tanggal_lahir_ibu` AS `tanggal_lahir_ibu`,`siswa`.`pendidikan_ibu` AS `pendidikan_ibu`,`siswa`.`pekerjaan_ibu` AS `pekerjaan_ibu`,`siswa`.`penghasilan_ibu` AS `penghasilan_ibu`,`siswa`.`tinggi_badan` AS `tinggi_badan`,`siswa`.`berat_badan` AS `berat_badan`,`siswa`.`jarak_ke_sekolah` AS `jarak_ke_sekolah`,`siswa`.`waktu_ke_sekolah` AS `waktu_ke_sekolah`,`siswa`.`jumlah_saudara` AS `jumlah_saudara`,`siswa`.`jenis_kelamin` AS `jenis_kelamin` from (`catatan_siswa` join `siswa` on(`catatan_siswa`.`idsiswa_fk` = `siswa`.`id_siswa`)) ;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_catatan_siswa` AS select `catatan_siswa`.`id_catatan_siswa` AS `id_catatan_siswa`,`catatan_siswa`.`idsiswa_fk` AS `idsiswa_fk`,`catatan_siswa`.`idkelas_fk` AS `idkelas_fk`,`catatan_siswa`.`idguru_fk` AS `idguru_fk`,`catatan_siswa`.`tanggal` AS `tanggal`,`catatan_siswa`.`uraian` AS `uraian`,`catatan_siswa`.`teruskan_ke` AS `teruskan_ke`,`catatan_siswa`.`idtahunajaran_fk` AS `idtahunajaran_fk`,`catatan_siswa`.`idmapel_fk` AS `idmapel_fk`,`siswa`.`id_siswa` AS `id_siswa`,`siswa`.`nis` AS `nis`,`siswa`.`nama` AS `nama`,`siswa`.`idjurusan_fk` AS `idjurusan_fk`,`siswa`.`agama` AS `agama`,`siswa`.`nisn` AS `nisn`,`siswa`.`no_ijazah_sekolah_asal` AS `no_ijazah_sekolah_asal`,`siswa`.`no_skhun_sekolah_asal` AS `no_skhun_sekolah_asal`,`siswa`.`no_un_sekolah_asal` AS `no_un_sekolah_asal`,`siswa`.`no_kk` AS `no_kk`,`siswa`.`npsn_sekolah_asal` AS `npsn_sekolah_asal`,`siswa`.`nama_sekolah_asal` AS `nama_sekolah_asal`,`siswa`.`tempat_lahir` AS `tempat_lahir`,`siswa`.`tanggal_lahir` AS `tanggal_lahir`,`siswa`.`berkebutuhan_khusus` AS `berkebutuhan_khusus`,`siswa`.`alamat` AS `alamat`,`siswa`.`dusun` AS `dusun`,`siswa`.`rt` AS `rt`,`siswa`.`rw` AS `rw`,`siswa`.`kelurahan` AS `kelurahan`,`siswa`.`foto` AS `foto`,`siswa`.`idprovince_fk` AS `idprovince_fk`,`siswa`.`idcities_fk` AS `idcities_fk`,`siswa`.`nama_ayah` AS `nama_ayah`,`siswa`.`tempat_lahir_ayah` AS `tempat_lahir_ayah`,`siswa`.`tanggal_lahir_ayah` AS `tanggal_lahir_ayah`,`siswa`.`pendidikan_ayah` AS `pendidikan_ayah`,`siswa`.`pekerjaan_ayah` AS `pekerjaan_ayah`,`siswa`.`penghasilan_ayah` AS `penghasilan_ayah`,`siswa`.`nama_ibu` AS `nama_ibu`,`siswa`.`tempat_lahir_ibu` AS `tempat_lahir_ibu`,`siswa`.`tanggal_lahir_ibu` AS `tanggal_lahir_ibu`,`siswa`.`pendidikan_ibu` AS `pendidikan_ibu`,`siswa`.`pekerjaan_ibu` AS `pekerjaan_ibu`,`siswa`.`penghasilan_ibu` AS `penghasilan_ibu`,`siswa`.`tinggi_badan` AS `tinggi_badan`,`siswa`.`berat_badan` AS `berat_badan`,`siswa`.`jarak_ke_sekolah` AS `jarak_ke_sekolah`,`siswa`.`waktu_ke_sekolah` AS `waktu_ke_sekolah`,`siswa`.`jumlah_saudara` AS `jumlah_saudara`,`siswa`.`jenis_kelamin` AS `jenis_kelamin` from (`catatan_siswa` join `siswa` on(`catatan_siswa`.`idsiswa_fk` = `siswa`.`id_siswa`)) ; ;
 
 -- ----------------------------
 -- View structure for v_catatan_siswa_harian
 -- ----------------------------
 DROP VIEW IF EXISTS `v_catatan_siswa_harian`;
-CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `v_catatan_siswa_harian` AS select `catatan_siswa`.`id_catatan_siswa` AS `id_catatan_siswa`,`catatan_siswa`.`idsiswa_fk` AS `idsiswa_fk`,`catatan_siswa`.`idkelas_fk` AS `idkelas_fk`,`catatan_siswa`.`idguru_fk` AS `idguru_fk`,`catatan_siswa`.`tanggal` AS `tanggal`,`catatan_siswa`.`uraian` AS `uraian`,`catatan_siswa`.`teruskan_ke` AS `teruskan_ke`,`catatan_siswa`.`idtahunajaran_fk` AS `idtahunajaran_fk`,`catatan_siswa`.`idmapel_fk` AS `idmapel_fk`,`catatan_siswa`.`is_tindakan` AS `is_tindakan`,`siswa`.`id_siswa` AS `id_siswa`,`siswa`.`nis` AS `nis`,`siswa`.`nama` AS `nama`,`siswa`.`agama` AS `agama`,`siswa`.`nisn` AS `nisn`,`siswa`.`no_ijazah_sekolah_asal` AS `no_ijazah_sekolah_asal`,`siswa`.`no_skhun_sekolah_asal` AS `no_skhun_sekolah_asal`,`siswa`.`no_un_sekolah_asal` AS `no_un_sekolah_asal`,`siswa`.`no_kk` AS `no_kk`,`siswa`.`npsn_sekolah_asal` AS `npsn_sekolah_asal`,`siswa`.`nama_sekolah_asal` AS `nama_sekolah_asal`,`siswa`.`tempat_lahir` AS `tempat_lahir`,`siswa`.`tanggal_lahir` AS `tanggal_lahir`,`siswa`.`berkebutuhan_khusus` AS `berkebutuhan_khusus`,`siswa`.`alamat` AS `alamat`,`siswa`.`dusun` AS `dusun`,`siswa`.`rt` AS `rt`,`siswa`.`rw` AS `rw`,`siswa`.`kelurahan` AS `kelurahan`,`siswa`.`foto` AS `foto`,`siswa`.`idprovince_fk` AS `idprovince_fk`,`siswa`.`idcities_fk` AS `idcities_fk`,`siswa`.`nama_ayah` AS `nama_ayah`,`siswa`.`tempat_lahir_ayah` AS `tempat_lahir_ayah`,`siswa`.`tanggal_lahir_ayah` AS `tanggal_lahir_ayah`,`siswa`.`pendidikan_ayah` AS `pendidikan_ayah`,`siswa`.`pekerjaan_ayah` AS `pekerjaan_ayah`,`siswa`.`penghasilan_ayah` AS `penghasilan_ayah`,`siswa`.`nama_ibu` AS `nama_ibu`,`siswa`.`tempat_lahir_ibu` AS `tempat_lahir_ibu`,`siswa`.`tanggal_lahir_ibu` AS `tanggal_lahir_ibu`,`siswa`.`pendidikan_ibu` AS `pendidikan_ibu`,`siswa`.`pekerjaan_ibu` AS `pekerjaan_ibu`,`siswa`.`penghasilan_ibu` AS `penghasilan_ibu`,`siswa`.`tinggi_badan` AS `tinggi_badan`,`siswa`.`berat_badan` AS `berat_badan`,`siswa`.`jarak_ke_sekolah` AS `jarak_ke_sekolah`,`siswa`.`waktu_ke_sekolah` AS `waktu_ke_sekolah`,`siswa`.`jumlah_saudara` AS `jumlah_saudara`,`siswa`.`jenis_kelamin` AS `jenis_kelamin`,`kelas`.`id_kelas` AS `id_kelas`,`kelas`.`kelas` AS `kelas`,`kelas`.`idtingkat_fk` AS `idtingkat_fk`,`kelas`.`create_at` AS `create_at`,`kelas`.`idjurusan_fk` AS `idjurusan_fk`,`guru`.`id_guru` AS `id_guru`,`guru`.`nama` AS `nama_guru`,`guru`.`nip` AS `nip`,`guru`.`alamat` AS `alamat_guru`,`mata_pelajaran`.`idjenismatapelajaran_fk` AS `idjenismatapelajaran_fk`,`mata_pelajaran`.`id_mata_pelajaran` AS `id_mata_pelajaran`,`mata_pelajaran`.`mata_pelajaran` AS `mata_pelajaran`,`mata_pelajaran`.`kode` AS `kode` from ((((`catatan_siswa` left join `siswa` on(`catatan_siswa`.`idsiswa_fk` = `siswa`.`id_siswa`)) left join `kelas` on(`catatan_siswa`.`idkelas_fk` = `kelas`.`kelas`)) left join `guru` on(`catatan_siswa`.`idguru_fk` = `guru`.`id_guru`)) left join `mata_pelajaran` on(`catatan_siswa`.`idmapel_fk` = `mata_pelajaran`.`id_mata_pelajaran`)) ;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_catatan_siswa_harian` AS select `catatan_siswa`.`id_catatan_siswa` AS `id_catatan_siswa`,`catatan_siswa`.`idsiswa_fk` AS `idsiswa_fk`,`catatan_siswa`.`idkelas_fk` AS `idkelas_fk`,`catatan_siswa`.`idguru_fk` AS `idguru_fk`,`catatan_siswa`.`tanggal` AS `tanggal`,`catatan_siswa`.`uraian` AS `uraian`,`catatan_siswa`.`teruskan_ke` AS `teruskan_ke`,`catatan_siswa`.`idtahunajaran_fk` AS `idtahunajaran_fk`,`catatan_siswa`.`idmapel_fk` AS `idmapel_fk`,`catatan_siswa`.`is_tindakan` AS `is_tindakan`,`siswa`.`id_siswa` AS `id_siswa`,`siswa`.`nis` AS `nis`,`siswa`.`nama` AS `nama`,`siswa`.`agama` AS `agama`,`siswa`.`nisn` AS `nisn`,`siswa`.`no_ijazah_sekolah_asal` AS `no_ijazah_sekolah_asal`,`siswa`.`no_skhun_sekolah_asal` AS `no_skhun_sekolah_asal`,`siswa`.`no_un_sekolah_asal` AS `no_un_sekolah_asal`,`siswa`.`no_kk` AS `no_kk`,`siswa`.`npsn_sekolah_asal` AS `npsn_sekolah_asal`,`siswa`.`nama_sekolah_asal` AS `nama_sekolah_asal`,`siswa`.`tempat_lahir` AS `tempat_lahir`,`siswa`.`tanggal_lahir` AS `tanggal_lahir`,`siswa`.`berkebutuhan_khusus` AS `berkebutuhan_khusus`,`siswa`.`alamat` AS `alamat`,`siswa`.`dusun` AS `dusun`,`siswa`.`rt` AS `rt`,`siswa`.`rw` AS `rw`,`siswa`.`kelurahan` AS `kelurahan`,`siswa`.`foto` AS `foto`,`siswa`.`idprovince_fk` AS `idprovince_fk`,`siswa`.`idcities_fk` AS `idcities_fk`,`siswa`.`nama_ayah` AS `nama_ayah`,`siswa`.`tempat_lahir_ayah` AS `tempat_lahir_ayah`,`siswa`.`tanggal_lahir_ayah` AS `tanggal_lahir_ayah`,`siswa`.`pendidikan_ayah` AS `pendidikan_ayah`,`siswa`.`pekerjaan_ayah` AS `pekerjaan_ayah`,`siswa`.`penghasilan_ayah` AS `penghasilan_ayah`,`siswa`.`nama_ibu` AS `nama_ibu`,`siswa`.`tempat_lahir_ibu` AS `tempat_lahir_ibu`,`siswa`.`tanggal_lahir_ibu` AS `tanggal_lahir_ibu`,`siswa`.`pendidikan_ibu` AS `pendidikan_ibu`,`siswa`.`pekerjaan_ibu` AS `pekerjaan_ibu`,`siswa`.`penghasilan_ibu` AS `penghasilan_ibu`,`siswa`.`tinggi_badan` AS `tinggi_badan`,`siswa`.`berat_badan` AS `berat_badan`,`siswa`.`jarak_ke_sekolah` AS `jarak_ke_sekolah`,`siswa`.`waktu_ke_sekolah` AS `waktu_ke_sekolah`,`siswa`.`jumlah_saudara` AS `jumlah_saudara`,`siswa`.`jenis_kelamin` AS `jenis_kelamin`,`kelas`.`id_kelas` AS `id_kelas`,`kelas`.`kelas` AS `kelas`,`kelas`.`idtingkat_fk` AS `idtingkat_fk`,`kelas`.`create_at` AS `create_at`,`kelas`.`idjurusan_fk` AS `idjurusan_fk`,`guru`.`id_guru` AS `id_guru`,`guru`.`nama` AS `nama_guru`,`guru`.`nip` AS `nip`,`guru`.`alamat` AS `alamat_guru`,`mata_pelajaran`.`idjenismatapelajaran_fk` AS `idjenismatapelajaran_fk`,`mata_pelajaran`.`id_mata_pelajaran` AS `id_mata_pelajaran`,`mata_pelajaran`.`mata_pelajaran` AS `mata_pelajaran`,`mata_pelajaran`.`kode` AS `kode` from ((((`catatan_siswa` left join `siswa` on(`catatan_siswa`.`idsiswa_fk` = `siswa`.`id_siswa`)) left join `kelas` on(`catatan_siswa`.`idkelas_fk` = `kelas`.`kelas`)) left join `guru` on(`catatan_siswa`.`idguru_fk` = `guru`.`id_guru`)) left join `mata_pelajaran` on(`catatan_siswa`.`idmapel_fk` = `mata_pelajaran`.`id_mata_pelajaran`)) ; ;
 
 -- ----------------------------
 -- View structure for v_catatan_siswa_new
 -- ----------------------------
 DROP VIEW IF EXISTS `v_catatan_siswa_new`;
-CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `v_catatan_siswa_new` AS select `catatan_siswa`.`id_catatan_siswa` AS `id_catatan_siswa`,`catatan_siswa`.`idsiswa_fk` AS `idsiswa_fk`,`catatan_siswa`.`idkelas_fk` AS `idkelas_fk`,`catatan_siswa`.`idguru_fk` AS `idguru_fk`,`catatan_siswa`.`tanggal` AS `tanggal`,`catatan_siswa`.`uraian` AS `uraian`,`catatan_siswa`.`teruskan_ke` AS `teruskan_ke`,`catatan_siswa`.`idtahunajaran_fk` AS `idtahunajaran_fk`,`catatan_siswa`.`idmapel_fk` AS `idmapel_fk`,`siswa`.`id_siswa` AS `id_siswa`,`siswa`.`nis` AS `nis`,`siswa`.`nama` AS `nama`,`siswa`.`idjurusan_fk` AS `idjurusan_fk`,`siswa`.`agama` AS `agama`,`siswa`.`nisn` AS `nisn`,(select `kelas`.`kelas` from `kelas` where `kelas`.`id_kelas` = `catatan_siswa`.`idkelas_fk`) AS `nama_kelas`,(select `guru`.`nama` from `guru` where `guru`.`id_guru` = `catatan_siswa`.`idguru_fk`) AS `nama_guru`,(select `mata_pelajaran`.`mata_pelajaran` from `mata_pelajaran` where `mata_pelajaran`.`id_mata_pelajaran` = `catatan_siswa`.`idmapel_fk`) AS `mapel` from (`catatan_siswa` join `siswa` on(`catatan_siswa`.`idsiswa_fk` = `siswa`.`id_siswa`)) ;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_catatan_siswa_new` AS select `catatan_siswa`.`id_catatan_siswa` AS `id_catatan_siswa`,`catatan_siswa`.`idsiswa_fk` AS `idsiswa_fk`,`catatan_siswa`.`idkelas_fk` AS `idkelas_fk`,`catatan_siswa`.`idguru_fk` AS `idguru_fk`,`catatan_siswa`.`tanggal` AS `tanggal`,`catatan_siswa`.`uraian` AS `uraian`,`catatan_siswa`.`teruskan_ke` AS `teruskan_ke`,`catatan_siswa`.`idtahunajaran_fk` AS `idtahunajaran_fk`,`catatan_siswa`.`idmapel_fk` AS `idmapel_fk`,`siswa`.`id_siswa` AS `id_siswa`,`siswa`.`nis` AS `nis`,`siswa`.`nama` AS `nama`,`siswa`.`idjurusan_fk` AS `idjurusan_fk`,`siswa`.`agama` AS `agama`,`siswa`.`nisn` AS `nisn`,(select `kelas`.`kelas` from `kelas` where `kelas`.`id_kelas` = `catatan_siswa`.`idkelas_fk`) AS `nama_kelas`,(select `guru`.`nama` from `guru` where `guru`.`id_guru` = `catatan_siswa`.`idguru_fk`) AS `nama_guru`,(select `mata_pelajaran`.`mata_pelajaran` from `mata_pelajaran` where `mata_pelajaran`.`id_mata_pelajaran` = `catatan_siswa`.`idmapel_fk`) AS `mapel` from (`catatan_siswa` join `siswa` on(`catatan_siswa`.`idsiswa_fk` = `siswa`.`id_siswa`)) ; ;
 
 -- ----------------------------
 -- View structure for v_guru_mapel
 -- ----------------------------
 DROP VIEW IF EXISTS `v_guru_mapel`;
-CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `v_guru_mapel` AS select `guru`.`id_guru` AS `id_guru`,`guru`.`nama` AS `nama`,`guru`.`nip` AS `nip`,`guru`.`alamat` AS `alamat`,`guru`.`agama` AS `agama`,`guru`.`foto` AS `foto`,`guru`.`pendidikan_terakhir` AS `pendidikan_terakhir`,`guru`.`instansi` AS `instansi`,`guru`.`fb` AS `fb`,`guru`.`ig` AS `ig`,`guru`.`twitter` AS `twitter`,`guru`.`youtube` AS `youtube`,`guru`.`jabatan` AS `jabatan`,`guru`.`email` AS `email`,`guru`.`no_hp` AS `no_hp`,`guru_mapel`.`id_guru_mapel` AS `id_guru_mapel`,`guru_mapel`.`idguru_fk` AS `idguru_fk`,`guru_mapel`.`idmapel_fk` AS `idmapel_fk`,`guru_mapel`.`idkelas_fk` AS `idkelas_fk`,`mata_pelajaran`.`id_mata_pelajaran` AS `id_mata_pelajaran`,`mata_pelajaran`.`mata_pelajaran` AS `mata_pelajaran`,`mata_pelajaran`.`kode` AS `kode`,`kelas`.`id_kelas` AS `id_kelas`,`kelas`.`kelas` AS `kelas`,`kelas`.`idtingkat_fk` AS `idtingkat_fk`,`kelas`.`create_at` AS `create_at`,`kelas`.`idjurusan_fk` AS `idjurusan_fk`,`kelas`.`idtahunajaran_fk` AS `idtahunajaran_fk`,`tahun_ajaran`.`id_tahun_ajaran` AS `id_tahun_ajaran`,`tahun_ajaran`.`tahun_ajaran` AS `tahun_ajaran`,`tahun_ajaran`.`is_active` AS `is_active`,`tahun_ajaran`.`semester` AS `semester`,`mata_pelajaran`.`idjenismatapelajaran_fk` AS `idjenismatapelajaran_fk`,`guru`.`kode_pegawai` AS `kode_pegawai` from ((((`guru` join `guru_mapel` on(`guru_mapel`.`idguru_fk` = `guru`.`id_guru`)) join `mata_pelajaran` on(`guru_mapel`.`idmapel_fk` = `mata_pelajaran`.`id_mata_pelajaran`)) join `kelas` on(`kelas`.`id_kelas` = `guru_mapel`.`idkelas_fk`)) join `tahun_ajaran` on(`tahun_ajaran`.`id_tahun_ajaran` = `guru_mapel`.`idtahunajaran_fk`)) ;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_guru_mapel` AS select `guru`.`id_guru` AS `id_guru`,`guru`.`nama` AS `nama`,`guru`.`nip` AS `nip`,`guru`.`alamat` AS `alamat`,`guru`.`agama` AS `agama`,`guru`.`foto` AS `foto`,`guru`.`pendidikan_terakhir` AS `pendidikan_terakhir`,`guru`.`instansi` AS `instansi`,`guru`.`fb` AS `fb`,`guru`.`ig` AS `ig`,`guru`.`twitter` AS `twitter`,`guru`.`youtube` AS `youtube`,`guru`.`jabatan` AS `jabatan`,`guru`.`email` AS `email`,`guru`.`no_hp` AS `no_hp`,`guru_mapel`.`id_guru_mapel` AS `id_guru_mapel`,`guru_mapel`.`idguru_fk` AS `idguru_fk`,`guru_mapel`.`idmapel_fk` AS `idmapel_fk`,`guru_mapel`.`idkelas_fk` AS `idkelas_fk`,`mata_pelajaran`.`id_mata_pelajaran` AS `id_mata_pelajaran`,`mata_pelajaran`.`mata_pelajaran` AS `mata_pelajaran`,`mata_pelajaran`.`kode` AS `kode`,`kelas`.`id_kelas` AS `id_kelas`,`kelas`.`kelas` AS `kelas`,`kelas`.`idtingkat_fk` AS `idtingkat_fk`,`kelas`.`create_at` AS `create_at`,`kelas`.`idjurusan_fk` AS `idjurusan_fk`,`kelas`.`idtahunajaran_fk` AS `idtahunajaran_fk`,`tahun_ajaran`.`id_tahun_ajaran` AS `id_tahun_ajaran`,`tahun_ajaran`.`tahun_ajaran` AS `tahun_ajaran`,`tahun_ajaran`.`is_active` AS `is_active`,`tahun_ajaran`.`semester` AS `semester`,`mata_pelajaran`.`idjenismatapelajaran_fk` AS `idjenismatapelajaran_fk`,`guru`.`kode_pegawai` AS `kode_pegawai` from ((((`guru` join `guru_mapel` on(`guru_mapel`.`idguru_fk` = `guru`.`id_guru`)) join `mata_pelajaran` on(`guru_mapel`.`idmapel_fk` = `mata_pelajaran`.`id_mata_pelajaran`)) join `kelas` on(`kelas`.`id_kelas` = `guru_mapel`.`idkelas_fk`)) join `tahun_ajaran` on(`tahun_ajaran`.`id_tahun_ajaran` = `guru_mapel`.`idtahunajaran_fk`)) ; ;
+
+-- ----------------------------
+-- View structure for v_jadwal_lab
+-- ----------------------------
+DROP VIEW IF EXISTS `v_jadwal_lab`;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_jadwal_lab` AS SELECT
+	jadwal_lab.*, 
+	jam_pelajaran.*,
+	(select nama from guru where id_guru = idguru_fk) as nama_guru,
+	(select mata_pelajaran from mata_pelajaran where idmapel_fk = id_mata_pelajaran) as nama_mapel,
+	(select kelas from kelas where id_kelas = idkelas_fk) as nama_kelas
+FROM
+	detail_jadwal_lab
+	INNER JOIN
+	jadwal_lab
+	ON 
+		detail_jadwal_lab.idjadwallab_fk = jadwal_lab.id_jadwal_lab
+	INNER JOIN
+	jam_pelajaran
+	ON 
+		detail_jadwal_lab.idjampelajaran_fk = jam_pelajaran.id_jam_pelajaran ;
 
 -- ----------------------------
 -- View structure for v_jadwal_pelajaran
 -- ----------------------------
 DROP VIEW IF EXISTS `v_jadwal_pelajaran`;
-CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `v_jadwal_pelajaran` AS SELECT
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_jadwal_pelajaran` AS SELECT
 jadwal_pelajaran.id_jadwal_pelajaran AS id_jadwal_pelajaran,
 jadwal_pelajaran.idgurumapel_fk AS idgurumapel_fk,
 jadwal_pelajaran.idhari_fk AS idhari_fk,
@@ -5167,79 +5675,79 @@ FROM
 JOIN guru_mapel ON (jadwal_pelajaran.idgurumapel_fk = guru_mapel.id_guru_mapel))
 JOIN hari ON (hari.id_hari = jadwal_pelajaran.idhari_fk))
 JOIN jam_pelajaran ON (jam_pelajaran.id_jam_pelajaran = jadwal_pelajaran.idjampelajaran_fk))
-JOIN kelas ON (guru_mapel.idkelas_fk = kelas.id_kelas)) ;
+JOIN kelas ON (guru_mapel.idkelas_fk = kelas.id_kelas)) ; ;
 
 -- ----------------------------
 -- View structure for v_jenis_penerimaan
 -- ----------------------------
 DROP VIEW IF EXISTS `v_jenis_penerimaan`;
-CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `v_jenis_penerimaan` AS select `jenis_penerimaan`.`id_jenis_penerimaan` AS `id_jenis_penerimaan`,`jenis_penerimaan`.`nama` AS `nama`,`jenis_penerimaan`.`kas` AS `kas`,`jenis_penerimaan`.`pendapatan` AS `pendapatan`,`jenis_penerimaan`.`piutang` AS `piutang`,`jenis_penerimaan`.`diskon` AS `diskon`,`jenis_penerimaan`.`is_edit` AS `is_edit`,`jenis_penerimaan`.`bulanan` AS `bulanan`,`jenis_penerimaan`.`template_nota` AS `template_nota`,(select `akun`.`no_ref` from `akun` where `jenis_penerimaan`.`kas` = `akun`.`id_akun`) AS `norefkas`,(select `akun`.`no_ref` from `akun` where `jenis_penerimaan`.`pendapatan` = `akun`.`id_akun`) AS `norefpendapatan`,(select `akun`.`no_ref` from `akun` where `jenis_penerimaan`.`piutang` = `akun`.`id_akun`) AS `norefpiutang`,(select `akun`.`no_ref` from `akun` where `jenis_penerimaan`.`diskon` = `akun`.`id_akun`) AS `norefdiskon`,(select `akun`.`saldo_normal` from `akun` where `jenis_penerimaan`.`kas` = `akun`.`id_akun`) AS `snkas`,(select `akun`.`saldo_normal` from `akun` where `jenis_penerimaan`.`pendapatan` = `akun`.`id_akun`) AS `snpendapatan`,(select `akun`.`saldo_normal` from `akun` where `jenis_penerimaan`.`piutang` = `akun`.`id_akun`) AS `snpiutang`,(select `akun`.`saldo_normal` from `akun` where `jenis_penerimaan`.`diskon` = `akun`.`id_akun`) AS `sndiskon` from `jenis_penerimaan` ;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_jenis_penerimaan` AS select `jenis_penerimaan`.`id_jenis_penerimaan` AS `id_jenis_penerimaan`,`jenis_penerimaan`.`nama` AS `nama`,`jenis_penerimaan`.`kas` AS `kas`,`jenis_penerimaan`.`pendapatan` AS `pendapatan`,`jenis_penerimaan`.`piutang` AS `piutang`,`jenis_penerimaan`.`diskon` AS `diskon`,`jenis_penerimaan`.`is_edit` AS `is_edit`,`jenis_penerimaan`.`bulanan` AS `bulanan`,`jenis_penerimaan`.`template_nota` AS `template_nota`,(select `akun`.`no_ref` from `akun` where `jenis_penerimaan`.`kas` = `akun`.`id_akun`) AS `norefkas`,(select `akun`.`no_ref` from `akun` where `jenis_penerimaan`.`pendapatan` = `akun`.`id_akun`) AS `norefpendapatan`,(select `akun`.`no_ref` from `akun` where `jenis_penerimaan`.`piutang` = `akun`.`id_akun`) AS `norefpiutang`,(select `akun`.`no_ref` from `akun` where `jenis_penerimaan`.`diskon` = `akun`.`id_akun`) AS `norefdiskon`,(select `akun`.`saldo_normal` from `akun` where `jenis_penerimaan`.`kas` = `akun`.`id_akun`) AS `snkas`,(select `akun`.`saldo_normal` from `akun` where `jenis_penerimaan`.`pendapatan` = `akun`.`id_akun`) AS `snpendapatan`,(select `akun`.`saldo_normal` from `akun` where `jenis_penerimaan`.`piutang` = `akun`.`id_akun`) AS `snpiutang`,(select `akun`.`saldo_normal` from `akun` where `jenis_penerimaan`.`diskon` = `akun`.`id_akun`) AS `sndiskon` from `jenis_penerimaan` ; ;
 
 -- ----------------------------
 -- View structure for v_learning
 -- ----------------------------
 DROP VIEW IF EXISTS `v_learning`;
-CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `v_learning` AS select `learning`.`id_learning` AS `id_learning`,`learning`.`idmatapelajaran_fk` AS `idmatapelajaran_fk`,`learning`.`idkd_fk` AS `idkd_fk`,`learning`.`materi` AS `materi`,`learning`.`open_access` AS `open_access`,`learning`.`password` AS `password`,`learning`.`iduser_fk` AS `iduser_fk`,`learning`.`judul` AS `judul`,`learning`.`create_at` AS `create_at`,`learning`.`idtingkat_fk` AS `idtingkat_fk`,`mata_pelajaran`.`id_mata_pelajaran` AS `id_mata_pelajaran`,`mata_pelajaran`.`mata_pelajaran` AS `mata_pelajaran`,`mata_pelajaran`.`kode` AS `kode`,`mata_pelajaran`.`idjenismatapelajaran_fk` AS `idjenismatapelajaran_fk`,`mata_pelajaran`.`jKode` AS `jKode`,`learning`.`cover` AS `cover`,`learning`.`task_code` AS `task_code` from (`learning` join `mata_pelajaran` on(`learning`.`idmatapelajaran_fk` = `mata_pelajaran`.`id_mata_pelajaran`)) ;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_learning` AS select `learning`.`id_learning` AS `id_learning`,`learning`.`idmatapelajaran_fk` AS `idmatapelajaran_fk`,`learning`.`idkd_fk` AS `idkd_fk`,`learning`.`materi` AS `materi`,`learning`.`open_access` AS `open_access`,`learning`.`password` AS `password`,`learning`.`iduser_fk` AS `iduser_fk`,`learning`.`judul` AS `judul`,`learning`.`create_at` AS `create_at`,`learning`.`idtingkat_fk` AS `idtingkat_fk`,`mata_pelajaran`.`id_mata_pelajaran` AS `id_mata_pelajaran`,`mata_pelajaran`.`mata_pelajaran` AS `mata_pelajaran`,`mata_pelajaran`.`kode` AS `kode`,`mata_pelajaran`.`idjenismatapelajaran_fk` AS `idjenismatapelajaran_fk`,`mata_pelajaran`.`jKode` AS `jKode`,`learning`.`cover` AS `cover`,`learning`.`task_code` AS `task_code` from (`learning` join `mata_pelajaran` on(`learning`.`idmatapelajaran_fk` = `mata_pelajaran`.`id_mata_pelajaran`)) ; ;
 
 -- ----------------------------
 -- View structure for v_materi
 -- ----------------------------
 DROP VIEW IF EXISTS `v_materi`;
-CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `v_materi` AS select distinct `materi`.`materi` AS `materi`,`materi`.`id_materi` AS `id_materi`,`materi`.`file_materi` AS `file_materi`,`materi`.`file_rpp` AS `file_rpp`,`materi`.`idkelas_fk` AS `idkelas_fk`,`materi`.`idguru_fk` AS `idguru_fk`,`materi`.`idtahunajaran_fk` AS `idtahunajaran_fk`,`materi`.`idmatapelajaran_fk` AS `idmatapelajaran_fk`,`materi`.`trans_code` AS `trans_code`,(select `guru`.`nama` from `guru` where `guru`.`id_guru` = `materi`.`idguru_fk`) AS `nama_guru` from `materi` ;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_materi` AS select distinct `materi`.`materi` AS `materi`,`materi`.`id_materi` AS `id_materi`,`materi`.`file_materi` AS `file_materi`,`materi`.`file_rpp` AS `file_rpp`,`materi`.`idkelas_fk` AS `idkelas_fk`,`materi`.`idguru_fk` AS `idguru_fk`,`materi`.`idtahunajaran_fk` AS `idtahunajaran_fk`,`materi`.`idmatapelajaran_fk` AS `idmatapelajaran_fk`,`materi`.`trans_code` AS `trans_code`,(select `guru`.`nama` from `guru` where `guru`.`id_guru` = `materi`.`idguru_fk`) AS `nama_guru` from `materi` ; ;
 
 -- ----------------------------
 -- View structure for v_nilai_keterampilan
 -- ----------------------------
 DROP VIEW IF EXISTS `v_nilai_keterampilan`;
-CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `v_nilai_keterampilan` AS select `input_nilai_keterampilan`.`id_input_nilai_keterampilan` AS `id_input_nilai_keterampilan`,`input_nilai_keterampilan`.`idmatapelajaran_fk` AS `idmatapelajaran_fk`,`input_nilai_keterampilan`.`idtahunajaran_fk` AS `idtahunajaran_fk`,`input_nilai_keterampilan`.`trans_code` AS `trans_code`,`input_nilai_keterampilan`.`idguru_fk` AS `idguru_fk`,`input_nilai_keterampilan`.`idkelas_fk` AS `idkelas_fk`,`input_nilai_keterampilan`.`idjenisketerampilan_fk` AS `idjenisketerampilan_fk`,`nilai_keterampilan`.`id_nilai_keterampilan` AS `id_nilai_keterampilan`,`nilai_keterampilan`.`idsiswa_fk` AS `idsiswa_fk`,`nilai_keterampilan`.`nilai` AS `nilai`,`nilai_keterampilan`.`idinputnilaiketerampilan_fk` AS `idinputnilaiketerampilan_fk`,`nilai_keterampilan`.`create_at` AS `create_at`,`nilai_keterampilan`.`idkd_fk` AS `idkd_fk` from (`input_nilai_keterampilan` join `nilai_keterampilan` on(`input_nilai_keterampilan`.`id_input_nilai_keterampilan` = `nilai_keterampilan`.`idinputnilaiketerampilan_fk`)) ;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_nilai_keterampilan` AS select `input_nilai_keterampilan`.`id_input_nilai_keterampilan` AS `id_input_nilai_keterampilan`,`input_nilai_keterampilan`.`idmatapelajaran_fk` AS `idmatapelajaran_fk`,`input_nilai_keterampilan`.`idtahunajaran_fk` AS `idtahunajaran_fk`,`input_nilai_keterampilan`.`trans_code` AS `trans_code`,`input_nilai_keterampilan`.`idguru_fk` AS `idguru_fk`,`input_nilai_keterampilan`.`idkelas_fk` AS `idkelas_fk`,`input_nilai_keterampilan`.`idjenisketerampilan_fk` AS `idjenisketerampilan_fk`,`nilai_keterampilan`.`id_nilai_keterampilan` AS `id_nilai_keterampilan`,`nilai_keterampilan`.`idsiswa_fk` AS `idsiswa_fk`,`nilai_keterampilan`.`nilai` AS `nilai`,`nilai_keterampilan`.`idinputnilaiketerampilan_fk` AS `idinputnilaiketerampilan_fk`,`nilai_keterampilan`.`create_at` AS `create_at`,`nilai_keterampilan`.`idkd_fk` AS `idkd_fk` from (`input_nilai_keterampilan` join `nilai_keterampilan` on(`input_nilai_keterampilan`.`id_input_nilai_keterampilan` = `nilai_keterampilan`.`idinputnilaiketerampilan_fk`)) ; ;
 
 -- ----------------------------
 -- View structure for v_nilai_pas
 -- ----------------------------
 DROP VIEW IF EXISTS `v_nilai_pas`;
-CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `v_nilai_pas` AS select `input_nilai_pas`.`id_input_nilai_pas` AS `id_input_nilai_pas`,`input_nilai_pas`.`idmatapelajaran_fk` AS `idmatapelajaran_fk`,`input_nilai_pas`.`idtahunajaran_fk` AS `idtahunajaran_fk`,`input_nilai_pas`.`trans_code` AS `trans_code`,`input_nilai_pas`.`idguru_fk` AS `idguru_fk`,`input_nilai_pas`.`idkelas_fk` AS `idkelas_fk`,`nilai_pas`.`id_nilai_pas` AS `id_nilai_pas`,`nilai_pas`.`idsiswa_fk` AS `idsiswa_fk`,`nilai_pas`.`nilai` AS `nilai`,`nilai_pas`.`idinputnilaipas_fk` AS `idinputnilaipas_fk`,`nilai_pas`.`create_at` AS `create_at` from (`input_nilai_pas` join `nilai_pas` on(`input_nilai_pas`.`id_input_nilai_pas` = `nilai_pas`.`idinputnilaipas_fk`)) ;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_nilai_pas` AS select `input_nilai_pas`.`id_input_nilai_pas` AS `id_input_nilai_pas`,`input_nilai_pas`.`idmatapelajaran_fk` AS `idmatapelajaran_fk`,`input_nilai_pas`.`idtahunajaran_fk` AS `idtahunajaran_fk`,`input_nilai_pas`.`trans_code` AS `trans_code`,`input_nilai_pas`.`idguru_fk` AS `idguru_fk`,`input_nilai_pas`.`idkelas_fk` AS `idkelas_fk`,`nilai_pas`.`id_nilai_pas` AS `id_nilai_pas`,`nilai_pas`.`idsiswa_fk` AS `idsiswa_fk`,`nilai_pas`.`nilai` AS `nilai`,`nilai_pas`.`idinputnilaipas_fk` AS `idinputnilaipas_fk`,`nilai_pas`.`create_at` AS `create_at` from (`input_nilai_pas` join `nilai_pas` on(`input_nilai_pas`.`id_input_nilai_pas` = `nilai_pas`.`idinputnilaipas_fk`)) ; ;
 
 -- ----------------------------
 -- View structure for v_nilai_pengetahuan
 -- ----------------------------
 DROP VIEW IF EXISTS `v_nilai_pengetahuan`;
-CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `v_nilai_pengetahuan` AS select `nilai_pengetahuan`.`id_nilai_pengetahuan` AS `id_nilai_pengetahuan`,`nilai_pengetahuan`.`idsiswa_fk` AS `idsiswa_fk`,`nilai_pengetahuan`.`nilai` AS `nilai`,`nilai_pengetahuan`.`idinputnilaipengetahuan_fk` AS `idinputnilaipengetahuan_fk`,`nilai_pengetahuan`.`create_at` AS `create_at`,`nilai_pengetahuan`.`idkd_fk` AS `idkd_fk`,`input_nilai_pengetahuan`.`id_input_nilai_pengetahuan` AS `id_input_nilai_pengetahuan`,`input_nilai_pengetahuan`.`idmatapelajaran_fk` AS `idmatapelajaran_fk`,`input_nilai_pengetahuan`.`idtahunajaran_fk` AS `idtahunajaran_fk`,`input_nilai_pengetahuan`.`trans_code` AS `trans_code`,`input_nilai_pengetahuan`.`idguru_fk` AS `idguru_fk`,`input_nilai_pengetahuan`.`idkelas_fk` AS `idkelas_fk`,`input_nilai_pengetahuan`.`idjenispengetahuan_fk` AS `idjenispengetahuan_fk` from (`nilai_pengetahuan` join `input_nilai_pengetahuan` on(`input_nilai_pengetahuan`.`id_input_nilai_pengetahuan` = `nilai_pengetahuan`.`idinputnilaipengetahuan_fk`)) ;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_nilai_pengetahuan` AS select `nilai_pengetahuan`.`id_nilai_pengetahuan` AS `id_nilai_pengetahuan`,`nilai_pengetahuan`.`idsiswa_fk` AS `idsiswa_fk`,`nilai_pengetahuan`.`nilai` AS `nilai`,`nilai_pengetahuan`.`idinputnilaipengetahuan_fk` AS `idinputnilaipengetahuan_fk`,`nilai_pengetahuan`.`create_at` AS `create_at`,`nilai_pengetahuan`.`idkd_fk` AS `idkd_fk`,`input_nilai_pengetahuan`.`id_input_nilai_pengetahuan` AS `id_input_nilai_pengetahuan`,`input_nilai_pengetahuan`.`idmatapelajaran_fk` AS `idmatapelajaran_fk`,`input_nilai_pengetahuan`.`idtahunajaran_fk` AS `idtahunajaran_fk`,`input_nilai_pengetahuan`.`trans_code` AS `trans_code`,`input_nilai_pengetahuan`.`idguru_fk` AS `idguru_fk`,`input_nilai_pengetahuan`.`idkelas_fk` AS `idkelas_fk`,`input_nilai_pengetahuan`.`idjenispengetahuan_fk` AS `idjenispengetahuan_fk` from (`nilai_pengetahuan` join `input_nilai_pengetahuan` on(`input_nilai_pengetahuan`.`id_input_nilai_pengetahuan` = `nilai_pengetahuan`.`idinputnilaipengetahuan_fk`)) ; ;
 
 -- ----------------------------
 -- View structure for v_nilai_pts
 -- ----------------------------
 DROP VIEW IF EXISTS `v_nilai_pts`;
-CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `v_nilai_pts` AS select `input_nilai_pts`.`id_input_nilai_pts` AS `id_input_nilai_pts`,`input_nilai_pts`.`idmatapelajaran_fk` AS `idmatapelajaran_fk`,`input_nilai_pts`.`idtahunajaran_fk` AS `idtahunajaran_fk`,`input_nilai_pts`.`trans_code` AS `trans_code`,`input_nilai_pts`.`idguru_fk` AS `idguru_fk`,`input_nilai_pts`.`idkelas_fk` AS `idkelas_fk`,`nilai_pts`.`id_nilai_pts` AS `id_nilai_pts`,`nilai_pts`.`idsiswa_fk` AS `idsiswa_fk`,`nilai_pts`.`nilai` AS `nilai`,`nilai_pts`.`idinputnilaipts_fk` AS `idinputnilaipts_fk`,`nilai_pts`.`create_at` AS `create_at` from (`input_nilai_pts` join `nilai_pts` on(`input_nilai_pts`.`id_input_nilai_pts` = `nilai_pts`.`idinputnilaipts_fk`)) ;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_nilai_pts` AS select `input_nilai_pts`.`id_input_nilai_pts` AS `id_input_nilai_pts`,`input_nilai_pts`.`idmatapelajaran_fk` AS `idmatapelajaran_fk`,`input_nilai_pts`.`idtahunajaran_fk` AS `idtahunajaran_fk`,`input_nilai_pts`.`trans_code` AS `trans_code`,`input_nilai_pts`.`idguru_fk` AS `idguru_fk`,`input_nilai_pts`.`idkelas_fk` AS `idkelas_fk`,`nilai_pts`.`id_nilai_pts` AS `id_nilai_pts`,`nilai_pts`.`idsiswa_fk` AS `idsiswa_fk`,`nilai_pts`.`nilai` AS `nilai`,`nilai_pts`.`idinputnilaipts_fk` AS `idinputnilaipts_fk`,`nilai_pts`.`create_at` AS `create_at` from (`input_nilai_pts` join `nilai_pts` on(`input_nilai_pts`.`id_input_nilai_pts` = `nilai_pts`.`idinputnilaipts_fk`)) ; ;
 
 -- ----------------------------
 -- View structure for v_oas_soal
 -- ----------------------------
 DROP VIEW IF EXISTS `v_oas_soal`;
-CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `v_oas_soal` AS select `oas_soal`.`id_oas_soal` AS `id_oas_soal`,`oas_soal`.`idbanksoal_fk` AS `idbanksoal_fk`,`oas_soal`.`idoas_fk` AS `idoas_fk`,`bank_soal`.`id_bank_soal` AS `id_bank_soal`,`bank_soal`.`soal` AS `soal`,`bank_soal`.`time_soal` AS `time_soal`,`bank_soal`.`code_soal` AS `code_soal`,`bank_soal`.`idmatapelajaran_fk` AS `idmatapelajaran_fk`,`bank_soal`.`idguru_fk` AS `idguru_fk`,`oas`.`id_oas` AS `id_oas`,`oas`.`tanggal_mulai` AS `tanggal_mulai`,`oas`.`tanggal_selesai` AS `tanggal_selesai`,`oas`.`keterangan` AS `keterangan`,`oas`.`is_active` AS `is_active`,`oas`.`kode` AS `kode`,`oas`.`idmapel_fk` AS `idmapel_fk` from ((`oas_soal` join `bank_soal` on(`oas_soal`.`idbanksoal_fk` = `bank_soal`.`id_bank_soal`)) join `oas` on(`oas_soal`.`idoas_fk` = `oas`.`id_oas`)) ;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_oas_soal` AS select `oas_soal`.`id_oas_soal` AS `id_oas_soal`,`oas_soal`.`idbanksoal_fk` AS `idbanksoal_fk`,`oas_soal`.`idoas_fk` AS `idoas_fk`,`bank_soal`.`id_bank_soal` AS `id_bank_soal`,`bank_soal`.`soal` AS `soal`,`bank_soal`.`time_soal` AS `time_soal`,`bank_soal`.`code_soal` AS `code_soal`,`bank_soal`.`idmatapelajaran_fk` AS `idmatapelajaran_fk`,`bank_soal`.`idguru_fk` AS `idguru_fk`,`oas`.`id_oas` AS `id_oas`,`oas`.`tanggal_mulai` AS `tanggal_mulai`,`oas`.`tanggal_selesai` AS `tanggal_selesai`,`oas`.`keterangan` AS `keterangan`,`oas`.`is_active` AS `is_active`,`oas`.`kode` AS `kode`,`oas`.`idmapel_fk` AS `idmapel_fk` from ((`oas_soal` join `bank_soal` on(`oas_soal`.`idbanksoal_fk` = `bank_soal`.`id_bank_soal`)) join `oas` on(`oas_soal`.`idoas_fk` = `oas`.`id_oas`)) ; ;
 
 -- ----------------------------
 -- View structure for v_pelanggaran_siswa
 -- ----------------------------
 DROP VIEW IF EXISTS `v_pelanggaran_siswa`;
-CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `v_pelanggaran_siswa` AS select `pelanggaran_siswa`.`id_pelanggaran_siswa` AS `id_pelanggaran_siswa`,`pelanggaran_siswa`.`tanggal` AS `tanggal`,`pelanggaran_siswa`.`uraian_pelanggaran` AS `uraian_pelanggaran`,`pelanggaran_siswa`.`idpoinpelanggaran_fk` AS `idpoinpelanggaran_fk`,`pelanggaran_siswa`.`idsiswa_fk` AS `idsiswa_fk`,`poin_pelanggaran`.`id_poin_pelanggaran` AS `id_poin_pelanggaran`,`poin_pelanggaran`.`idjenispelanggaran_fk` AS `idjenispelanggaran_fk`,`poin_pelanggaran`.`nama_pelanggaran` AS `nama_pelanggaran`,`poin_pelanggaran`.`poin` AS `poin`,`poin_pelanggaran`.`kode_pelanggaran` AS `kode_pelanggaran`,`jenis_pelanggaran`.`id_jenis_pelanggaran` AS `id_jenis_pelanggaran`,`jenis_pelanggaran`.`jenis_pelanggaran` AS `jenis_pelanggaran`,(select `siswa`.`nama` from `siswa` where `siswa`.`id_siswa` = `pelanggaran_siswa`.`idsiswa_fk`) AS `nama_siswa` from ((`pelanggaran_siswa` left join `poin_pelanggaran` on(`poin_pelanggaran`.`id_poin_pelanggaran` = `pelanggaran_siswa`.`idpoinpelanggaran_fk`)) left join `jenis_pelanggaran` on(`jenis_pelanggaran`.`id_jenis_pelanggaran` = `poin_pelanggaran`.`idjenispelanggaran_fk`)) ;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_pelanggaran_siswa` AS select `pelanggaran_siswa`.`id_pelanggaran_siswa` AS `id_pelanggaran_siswa`,`pelanggaran_siswa`.`tanggal` AS `tanggal`,`pelanggaran_siswa`.`uraian_pelanggaran` AS `uraian_pelanggaran`,`pelanggaran_siswa`.`idpoinpelanggaran_fk` AS `idpoinpelanggaran_fk`,`pelanggaran_siswa`.`idsiswa_fk` AS `idsiswa_fk`,`poin_pelanggaran`.`id_poin_pelanggaran` AS `id_poin_pelanggaran`,`poin_pelanggaran`.`idjenispelanggaran_fk` AS `idjenispelanggaran_fk`,`poin_pelanggaran`.`nama_pelanggaran` AS `nama_pelanggaran`,`poin_pelanggaran`.`poin` AS `poin`,`poin_pelanggaran`.`kode_pelanggaran` AS `kode_pelanggaran`,`jenis_pelanggaran`.`id_jenis_pelanggaran` AS `id_jenis_pelanggaran`,`jenis_pelanggaran`.`jenis_pelanggaran` AS `jenis_pelanggaran`,(select `siswa`.`nama` from `siswa` where `siswa`.`id_siswa` = `pelanggaran_siswa`.`idsiswa_fk`) AS `nama_siswa` from ((`pelanggaran_siswa` left join `poin_pelanggaran` on(`poin_pelanggaran`.`id_poin_pelanggaran` = `pelanggaran_siswa`.`idpoinpelanggaran_fk`)) left join `jenis_pelanggaran` on(`jenis_pelanggaran`.`id_jenis_pelanggaran` = `poin_pelanggaran`.`idjenispelanggaran_fk`)) ; ;
 
 -- ----------------------------
 -- View structure for v_penerimaan
 -- ----------------------------
 DROP VIEW IF EXISTS `v_penerimaan`;
-CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `v_penerimaan` AS select `penerimaan`.`id_penerimaan` AS `id_penerimaan`,`penerimaan`.`idsiswa_fk` AS `idsiswa_fk`,`penerimaan`.`idjenispenerimaan_fk` AS `idjenispenerimaan_fk`,`penerimaan`.`metode_pembayaran` AS `metode_pembayaran`,`penerimaan`.`tanggal` AS `tanggal`,`penerimaan`.`catatan` AS `catatan`,`penerimaan`.`jumlah` AS `jumlah`,`penerimaan`.`create_at` AS `create_at`,`penerimaan`.`invoice` AS `invoice`,`penerimaan`.`diskon` AS `diskon_penerimaan`,`jenis_penerimaan`.`id_jenis_penerimaan` AS `id_jenis_penerimaan`,`jenis_penerimaan`.`nama` AS `nama`,`jenis_penerimaan`.`kas` AS `kas`,`jenis_penerimaan`.`pendapatan` AS `pendapatan`,`jenis_penerimaan`.`piutang` AS `piutang`,`jenis_penerimaan`.`is_edit` AS `is_edit`,`jenis_penerimaan`.`bulanan` AS `bulanan`,`jenis_penerimaan`.`template_nota` AS `template_nota`,`jenis_penerimaan`.`diskon` AS `diskon`,`siswa`.`id_siswa` AS `id_siswa`,`siswa`.`nis` AS `nis`,`siswa`.`nama` AS `nama_siswa`,`siswa`.`idkelas_fk` AS `idkelas_fk`,`siswa`.`idjurusan_fk` AS `idjurusan_fk`,`siswa`.`agama` AS `agama`,`siswa`.`nisn` AS `nisn`,`siswa`.`no_ijazah_sekolah_asal` AS `no_ijazah_sekolah_asal`,`siswa`.`no_skhun_sekolah_asal` AS `no_skhun_sekolah_asal`,`siswa`.`no_un_sekolah_asal` AS `no_un_sekolah_asal`,`siswa`.`no_kk` AS `no_kk`,`siswa`.`npsn_sekolah_asal` AS `npsn_sekolah_asal`,`siswa`.`nama_sekolah_asal` AS `nama_sekolah_asal`,`siswa`.`tempat_lahir` AS `tempat_lahir`,`siswa`.`tanggal_lahir` AS `tanggal_lahir`,`siswa`.`berkebutuhan_khusus` AS `berkebutuhan_khusus`,`siswa`.`alamat` AS `alamat`,`siswa`.`dusun` AS `dusun`,`siswa`.`rt` AS `rt`,`siswa`.`rw` AS `rw`,`siswa`.`kelurahan` AS `kelurahan`,`siswa`.`foto` AS `foto`,`siswa`.`idprovince_fk` AS `idprovince_fk`,`siswa`.`idcities_fk` AS `idcities_fk`,`siswa`.`nama_ayah` AS `nama_ayah`,`siswa`.`tempat_lahir_ayah` AS `tempat_lahir_ayah`,`siswa`.`tanggal_lahir_ayah` AS `tanggal_lahir_ayah`,`siswa`.`pendidikan_ayah` AS `pendidikan_ayah`,`siswa`.`pekerjaan_ayah` AS `pekerjaan_ayah`,`siswa`.`penghasilan_ayah` AS `penghasilan_ayah`,`siswa`.`nama_ibu` AS `nama_ibu`,`siswa`.`tempat_lahir_ibu` AS `tempat_lahir_ibu`,`siswa`.`tanggal_lahir_ibu` AS `tanggal_lahir_ibu`,`siswa`.`pendidikan_ibu` AS `pendidikan_ibu`,`siswa`.`pekerjaan_ibu` AS `pekerjaan_ibu`,`siswa`.`penghasilan_ibu` AS `penghasilan_ibu`,`siswa`.`tinggi_badan` AS `tinggi_badan`,`siswa`.`berat_badan` AS `berat_badan`,`siswa`.`jarak_ke_sekolah` AS `jarak_ke_sekolah`,`siswa`.`waktu_ke_sekolah` AS `waktu_ke_sekolah`,`siswa`.`jumlah_saudara` AS `jumlah_saudara`,`siswa`.`jenis_kelamin` AS `jenis_kelamin`,`siswa`.`saldo` AS `saldo`,(select `kelas`.`kelas` from `kelas` where `siswa`.`idkelas_fk` = `kelas`.`id_kelas`) AS `kelas` from ((`penerimaan` join `jenis_penerimaan` on(`penerimaan`.`idjenispenerimaan_fk` = `jenis_penerimaan`.`id_jenis_penerimaan`)) join `siswa` on(`penerimaan`.`idsiswa_fk` = `siswa`.`id_siswa`)) ;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_penerimaan` AS select `penerimaan`.`id_penerimaan` AS `id_penerimaan`,`penerimaan`.`idsiswa_fk` AS `idsiswa_fk`,`penerimaan`.`idjenispenerimaan_fk` AS `idjenispenerimaan_fk`,`penerimaan`.`metode_pembayaran` AS `metode_pembayaran`,`penerimaan`.`tanggal` AS `tanggal`,`penerimaan`.`catatan` AS `catatan`,`penerimaan`.`jumlah` AS `jumlah`,`penerimaan`.`create_at` AS `create_at`,`penerimaan`.`invoice` AS `invoice`,`penerimaan`.`diskon` AS `diskon_penerimaan`,`jenis_penerimaan`.`id_jenis_penerimaan` AS `id_jenis_penerimaan`,`jenis_penerimaan`.`nama` AS `nama`,`jenis_penerimaan`.`kas` AS `kas`,`jenis_penerimaan`.`pendapatan` AS `pendapatan`,`jenis_penerimaan`.`piutang` AS `piutang`,`jenis_penerimaan`.`is_edit` AS `is_edit`,`jenis_penerimaan`.`bulanan` AS `bulanan`,`jenis_penerimaan`.`template_nota` AS `template_nota`,`jenis_penerimaan`.`diskon` AS `diskon`,`siswa`.`id_siswa` AS `id_siswa`,`siswa`.`nis` AS `nis`,`siswa`.`nama` AS `nama_siswa`,`siswa`.`idkelas_fk` AS `idkelas_fk`,`siswa`.`idjurusan_fk` AS `idjurusan_fk`,`siswa`.`agama` AS `agama`,`siswa`.`nisn` AS `nisn`,`siswa`.`no_ijazah_sekolah_asal` AS `no_ijazah_sekolah_asal`,`siswa`.`no_skhun_sekolah_asal` AS `no_skhun_sekolah_asal`,`siswa`.`no_un_sekolah_asal` AS `no_un_sekolah_asal`,`siswa`.`no_kk` AS `no_kk`,`siswa`.`npsn_sekolah_asal` AS `npsn_sekolah_asal`,`siswa`.`nama_sekolah_asal` AS `nama_sekolah_asal`,`siswa`.`tempat_lahir` AS `tempat_lahir`,`siswa`.`tanggal_lahir` AS `tanggal_lahir`,`siswa`.`berkebutuhan_khusus` AS `berkebutuhan_khusus`,`siswa`.`alamat` AS `alamat`,`siswa`.`dusun` AS `dusun`,`siswa`.`rt` AS `rt`,`siswa`.`rw` AS `rw`,`siswa`.`kelurahan` AS `kelurahan`,`siswa`.`foto` AS `foto`,`siswa`.`idprovince_fk` AS `idprovince_fk`,`siswa`.`idcities_fk` AS `idcities_fk`,`siswa`.`nama_ayah` AS `nama_ayah`,`siswa`.`tempat_lahir_ayah` AS `tempat_lahir_ayah`,`siswa`.`tanggal_lahir_ayah` AS `tanggal_lahir_ayah`,`siswa`.`pendidikan_ayah` AS `pendidikan_ayah`,`siswa`.`pekerjaan_ayah` AS `pekerjaan_ayah`,`siswa`.`penghasilan_ayah` AS `penghasilan_ayah`,`siswa`.`nama_ibu` AS `nama_ibu`,`siswa`.`tempat_lahir_ibu` AS `tempat_lahir_ibu`,`siswa`.`tanggal_lahir_ibu` AS `tanggal_lahir_ibu`,`siswa`.`pendidikan_ibu` AS `pendidikan_ibu`,`siswa`.`pekerjaan_ibu` AS `pekerjaan_ibu`,`siswa`.`penghasilan_ibu` AS `penghasilan_ibu`,`siswa`.`tinggi_badan` AS `tinggi_badan`,`siswa`.`berat_badan` AS `berat_badan`,`siswa`.`jarak_ke_sekolah` AS `jarak_ke_sekolah`,`siswa`.`waktu_ke_sekolah` AS `waktu_ke_sekolah`,`siswa`.`jumlah_saudara` AS `jumlah_saudara`,`siswa`.`jenis_kelamin` AS `jenis_kelamin`,`siswa`.`saldo` AS `saldo`,(select `kelas`.`kelas` from `kelas` where `siswa`.`idkelas_fk` = `kelas`.`id_kelas`) AS `kelas` from ((`penerimaan` join `jenis_penerimaan` on(`penerimaan`.`idjenispenerimaan_fk` = `jenis_penerimaan`.`id_jenis_penerimaan`)) join `siswa` on(`penerimaan`.`idsiswa_fk` = `siswa`.`id_siswa`)) ; ;
 
 -- ----------------------------
 -- View structure for v_pkg
 -- ----------------------------
 DROP VIEW IF EXISTS `v_pkg`;
-CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `v_pkg` AS select `component_penilaian_kinerja_guru`.`idpenilaiankinerjaguru_fk` AS `idpenilaiankinerjaguru_fk`,`penilaian_kinerja_guru`.`id_penilaian_kinerja_guru` AS `id_penilaian_kinerja_guru`,`penilaian_kinerja_guru`.`idguru_fk` AS `idguru_fk`,`penilaian_kinerja_guru`.`bulan` AS `bulan`,`penilaian_kinerja_guru`.`tahun` AS `tahun`,`penilaian_kinerja_guru`.`idtahunajaran_fk` AS `idtahunajaran_fk`,`penilaian_kinerja_guru`.`create_at` AS `create_at`,`penilaian_kinerja_guru`.`trans_code` AS `trans_code`,`component_penilaian_kinerja_guru`.`id_component_penilaian_kinerja_guru` AS `id_component_penilaian_kinerja_guru`,`component_penilaian_kinerja_guru`.`idsubkompetensipkg_fk` AS `idsubkompetensipkg_fk`,`component_penilaian_kinerja_guru`.`nilai` AS `nilai` from (`penilaian_kinerja_guru` join `component_penilaian_kinerja_guru` on(`penilaian_kinerja_guru`.`id_penilaian_kinerja_guru` = `component_penilaian_kinerja_guru`.`idpenilaiankinerjaguru_fk`)) ;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_pkg` AS select `component_penilaian_kinerja_guru`.`idpenilaiankinerjaguru_fk` AS `idpenilaiankinerjaguru_fk`,`penilaian_kinerja_guru`.`id_penilaian_kinerja_guru` AS `id_penilaian_kinerja_guru`,`penilaian_kinerja_guru`.`idguru_fk` AS `idguru_fk`,`penilaian_kinerja_guru`.`bulan` AS `bulan`,`penilaian_kinerja_guru`.`tahun` AS `tahun`,`penilaian_kinerja_guru`.`idtahunajaran_fk` AS `idtahunajaran_fk`,`penilaian_kinerja_guru`.`create_at` AS `create_at`,`penilaian_kinerja_guru`.`trans_code` AS `trans_code`,`component_penilaian_kinerja_guru`.`id_component_penilaian_kinerja_guru` AS `id_component_penilaian_kinerja_guru`,`component_penilaian_kinerja_guru`.`idsubkompetensipkg_fk` AS `idsubkompetensipkg_fk`,`component_penilaian_kinerja_guru`.`nilai` AS `nilai` from (`penilaian_kinerja_guru` join `component_penilaian_kinerja_guru` on(`penilaian_kinerja_guru`.`id_penilaian_kinerja_guru` = `component_penilaian_kinerja_guru`.`idpenilaiankinerjaguru_fk`)) ; ;
 
 -- ----------------------------
 -- View structure for v_poin_pelanggaran
 -- ----------------------------
 DROP VIEW IF EXISTS `v_poin_pelanggaran`;
-CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `v_poin_pelanggaran` AS SELECT
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_poin_pelanggaran` AS SELECT
 poin_pelanggaran.id_poin_pelanggaran AS id_poin_pelanggaran,
 poin_pelanggaran.idjenispelanggaran_fk AS idjenispelanggaran_fk,
 poin_pelanggaran.nama_pelanggaran AS nama_pelanggaran,
@@ -5250,62 +5758,62 @@ poin_pelanggaran.kategori_pelanggaran,
 poin_pelanggaran.kode_pelanggaran
 FROM
 (poin_pelanggaran
-JOIN jenis_pelanggaran ON (jenis_pelanggaran.id_jenis_pelanggaran = poin_pelanggaran.idjenispelanggaran_fk)) ;
+JOIN jenis_pelanggaran ON (jenis_pelanggaran.id_jenis_pelanggaran = poin_pelanggaran.idjenispelanggaran_fk)) ; ;
 
 -- ----------------------------
 -- View structure for v_poin_pelanggaran_siswa
 -- ----------------------------
 DROP VIEW IF EXISTS `v_poin_pelanggaran_siswa`;
-CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `v_poin_pelanggaran_siswa` AS select `siswa`.`id_siswa` AS `id_siswa`,`siswa`.`nisn` AS `nisn`,`siswa`.`nis` AS `nis`,`siswa`.`nama` AS `nama`,(select sum(`v_pelanggaran_siswa`.`poin`) from `v_pelanggaran_siswa` where `v_pelanggaran_siswa`.`idsiswa_fk` = `siswa`.`id_siswa`) AS `poin` from `siswa` where (select sum(`v_pelanggaran_siswa`.`poin`) from `v_pelanggaran_siswa` where `v_pelanggaran_siswa`.`idsiswa_fk` = `siswa`.`id_siswa`) > 0 ;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_poin_pelanggaran_siswa` AS select `siswa`.`id_siswa` AS `id_siswa`,`siswa`.`nisn` AS `nisn`,`siswa`.`nis` AS `nis`,`siswa`.`nama` AS `nama`,(select sum(`v_pelanggaran_siswa`.`poin`) from `v_pelanggaran_siswa` where `v_pelanggaran_siswa`.`idsiswa_fk` = `siswa`.`id_siswa`) AS `poin` from `siswa` where (select sum(`v_pelanggaran_siswa`.`poin`) from `v_pelanggaran_siswa` where `v_pelanggaran_siswa`.`idsiswa_fk` = `siswa`.`id_siswa`) > 0 ; ;
 
 -- ----------------------------
 -- View structure for v_presensi_event
 -- ----------------------------
 DROP VIEW IF EXISTS `v_presensi_event`;
-CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `v_presensi_event` AS select `event`.`id_event` AS `id_event`,`event`.`event` AS `event`,`event`.`tanggal` AS `tanggal`,`event`.`notulensi` AS `notulensi`,`presensi_event`.`id_presensi_event` AS `id_presensi_event`,`presensi_event`.`idevent_fk` AS `idevent_fk`,`presensi_event`.`idguru_fk` AS `idguru_fk`,`presensi_event`.`is_hadir` AS `is_hadir`,(select `guru`.`nama` from `guru` where `guru`.`id_guru` = `presensi_event`.`idguru_fk`) AS `nama_guru` from (`event` join `presensi_event` on(`presensi_event`.`idevent_fk` = `event`.`id_event`)) ;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_presensi_event` AS select `event`.`id_event` AS `id_event`,`event`.`event` AS `event`,`event`.`tanggal` AS `tanggal`,`event`.`notulensi` AS `notulensi`,`presensi_event`.`id_presensi_event` AS `id_presensi_event`,`presensi_event`.`idevent_fk` AS `idevent_fk`,`presensi_event`.`idguru_fk` AS `idguru_fk`,`presensi_event`.`is_hadir` AS `is_hadir`,(select `guru`.`nama` from `guru` where `guru`.`id_guru` = `presensi_event`.`idguru_fk`) AS `nama_guru` from (`event` join `presensi_event` on(`presensi_event`.`idevent_fk` = `event`.`id_event`)) ; ;
 
 -- ----------------------------
 -- View structure for v_presensi_harian_set
 -- ----------------------------
 DROP VIEW IF EXISTS `v_presensi_harian_set`;
-CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `v_presensi_harian_set` AS select `presensi_harian`.`id_presensi_harian` AS `id_presensi_harian`,`presensi_harian`.`idmatapelajaran_fk` AS `idmatapelajaran_fk`,`presensi_harian`.`idsiswa_fk` AS `idsiswa_fk`,`presensi_harian`.`presensi` AS `presensi`,`presensi_harian`.`keterangan` AS `keterangan`,`presensi_harian`.`tanggal` AS `tanggal`,`presensi_harian`.`create_at` AS `create_at`,`presensi_harian`.`idtahunajaran_fk` AS `idtahunajaran_fk`,`presensi_harian`.`idkelas_fk` AS `idkelas_fk`,(select `kelas`.`idjurusan_fk` from `kelas` where `kelas`.`id_kelas` = `presensi_harian`.`idkelas_fk`) AS `id_jurusan` from `presensi_harian` ;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_presensi_harian_set` AS select `presensi_harian`.`id_presensi_harian` AS `id_presensi_harian`,`presensi_harian`.`idmatapelajaran_fk` AS `idmatapelajaran_fk`,`presensi_harian`.`idsiswa_fk` AS `idsiswa_fk`,`presensi_harian`.`presensi` AS `presensi`,`presensi_harian`.`keterangan` AS `keterangan`,`presensi_harian`.`tanggal` AS `tanggal`,`presensi_harian`.`create_at` AS `create_at`,`presensi_harian`.`idtahunajaran_fk` AS `idtahunajaran_fk`,`presensi_harian`.`idkelas_fk` AS `idkelas_fk`,(select `kelas`.`idjurusan_fk` from `kelas` where `kelas`.`id_kelas` = `presensi_harian`.`idkelas_fk`) AS `id_jurusan` from `presensi_harian` ; ;
 
 -- ----------------------------
 -- View structure for v_prestasi_siswa
 -- ----------------------------
 DROP VIEW IF EXISTS `v_prestasi_siswa`;
-CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `v_prestasi_siswa` AS select `prestasi_siswa`.`id_prestasi_siswa` AS `id_prestasi_siswa`,`prestasi_siswa`.`idsiswa_fk` AS `idsiswa_fk`,`prestasi_siswa`.`prestasi` AS `prestasi`,`prestasi_siswa`.`lomba` AS `lomba`,`prestasi_siswa`.`tahun` AS `tahun`,`prestasi_siswa`.`jenis_perlombaan` AS `jenis_perlombaan`,(select `siswa`.`nama` from `siswa` where `siswa`.`id_siswa` = `prestasi_siswa`.`idsiswa_fk`) AS `nama_siswa`,(select `siswa`.`nis` from `siswa` where `siswa`.`id_siswa` = `prestasi_siswa`.`idsiswa_fk`) AS `nis_siswa` from `prestasi_siswa` ;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_prestasi_siswa` AS select `prestasi_siswa`.`id_prestasi_siswa` AS `id_prestasi_siswa`,`prestasi_siswa`.`idsiswa_fk` AS `idsiswa_fk`,`prestasi_siswa`.`prestasi` AS `prestasi`,`prestasi_siswa`.`lomba` AS `lomba`,`prestasi_siswa`.`tahun` AS `tahun`,`prestasi_siswa`.`jenis_perlombaan` AS `jenis_perlombaan`,(select `siswa`.`nama` from `siswa` where `siswa`.`id_siswa` = `prestasi_siswa`.`idsiswa_fk`) AS `nama_siswa`,(select `siswa`.`nis` from `siswa` where `siswa`.`id_siswa` = `prestasi_siswa`.`idsiswa_fk`) AS `nis_siswa` from `prestasi_siswa` ; ;
 
 -- ----------------------------
 -- View structure for v_siswa_jurusan
 -- ----------------------------
 DROP VIEW IF EXISTS `v_siswa_jurusan`;
-CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `v_siswa_jurusan` AS select `siswa`.`id_siswa` AS `id_siswa`,`siswa`.`nis` AS `nis`,`siswa`.`nama` AS `nama`,`siswa`.`idkelas_fk` AS `idkelas_fk`,`siswa`.`idjurusan_fk` AS `idjurusan_fk`,`siswa`.`agama` AS `agama`,`siswa`.`nisn` AS `nisn`,`siswa`.`no_ijazah_sekolah_asal` AS `no_ijazah_sekolah_asal`,`siswa`.`no_skhun_sekolah_asal` AS `no_skhun_sekolah_asal`,`siswa`.`no_un_sekolah_asal` AS `no_un_sekolah_asal`,`siswa`.`no_kk` AS `no_kk`,`siswa`.`npsn_sekolah_asal` AS `npsn_sekolah_asal`,`siswa`.`nama_sekolah_asal` AS `nama_sekolah_asal`,`siswa`.`tempat_lahir` AS `tempat_lahir`,`siswa`.`tanggal_lahir` AS `tanggal_lahir`,`siswa`.`berkebutuhan_khusus` AS `berkebutuhan_khusus`,`siswa`.`alamat` AS `alamat`,`siswa`.`dusun` AS `dusun`,`siswa`.`rt` AS `rt`,`siswa`.`rw` AS `rw`,`siswa`.`kelurahan` AS `kelurahan`,`siswa`.`foto` AS `foto`,`siswa`.`idprovince_fk` AS `idprovince_fk`,`siswa`.`idcities_fk` AS `idcities_fk`,`siswa`.`nama_ayah` AS `nama_ayah`,`siswa`.`tempat_lahir_ayah` AS `tempat_lahir_ayah`,`siswa`.`tanggal_lahir_ayah` AS `tanggal_lahir_ayah`,`siswa`.`pendidikan_ayah` AS `pendidikan_ayah`,`siswa`.`pekerjaan_ayah` AS `pekerjaan_ayah`,`siswa`.`penghasilan_ayah` AS `penghasilan_ayah`,`siswa`.`nama_ibu` AS `nama_ibu`,`siswa`.`tempat_lahir_ibu` AS `tempat_lahir_ibu`,`siswa`.`tanggal_lahir_ibu` AS `tanggal_lahir_ibu`,`siswa`.`pendidikan_ibu` AS `pendidikan_ibu`,`siswa`.`pekerjaan_ibu` AS `pekerjaan_ibu`,`siswa`.`penghasilan_ibu` AS `penghasilan_ibu`,`siswa`.`tinggi_badan` AS `tinggi_badan`,`siswa`.`berat_badan` AS `berat_badan`,`siswa`.`jarak_ke_sekolah` AS `jarak_ke_sekolah`,`siswa`.`waktu_ke_sekolah` AS `waktu_ke_sekolah`,`siswa`.`jumlah_saudara` AS `jumlah_saudara`,`siswa`.`jenis_kelamin` AS `jenis_kelamin`,`kelas`.`id_kelas` AS `id_kelas`,`kelas`.`kelas` AS `kelas`,`kelas`.`idtingkat_fk` AS `idtingkat_fk`,`kelas`.`create_at` AS `create_at`,`kelas`.`idtahunajaran_fk` AS `idtahunajaran_fk`,`jurusan`.`id_jurusan` AS `id_jurusan`,`jurusan`.`jurusan` AS `jurusan`,`jurusan`.`singkatan` AS `singkatan`,(select `tingkat`.`tingkat` from `tingkat` where `tingkat`.`id_tingkat` = `kelas`.`idtingkat_fk`) AS `nama_tingkat` from ((`siswa` join `kelas` on(`kelas`.`id_kelas` = `siswa`.`idkelas_fk`)) join `jurusan` on(`jurusan`.`id_jurusan` = `siswa`.`idjurusan_fk`)) ;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_siswa_jurusan` AS select `siswa`.`id_siswa` AS `id_siswa`,`siswa`.`nis` AS `nis`,`siswa`.`nama` AS `nama`,`siswa`.`idkelas_fk` AS `idkelas_fk`,`siswa`.`idjurusan_fk` AS `idjurusan_fk`,`siswa`.`agama` AS `agama`,`siswa`.`nisn` AS `nisn`,`siswa`.`no_ijazah_sekolah_asal` AS `no_ijazah_sekolah_asal`,`siswa`.`no_skhun_sekolah_asal` AS `no_skhun_sekolah_asal`,`siswa`.`no_un_sekolah_asal` AS `no_un_sekolah_asal`,`siswa`.`no_kk` AS `no_kk`,`siswa`.`npsn_sekolah_asal` AS `npsn_sekolah_asal`,`siswa`.`nama_sekolah_asal` AS `nama_sekolah_asal`,`siswa`.`tempat_lahir` AS `tempat_lahir`,`siswa`.`tanggal_lahir` AS `tanggal_lahir`,`siswa`.`berkebutuhan_khusus` AS `berkebutuhan_khusus`,`siswa`.`alamat` AS `alamat`,`siswa`.`dusun` AS `dusun`,`siswa`.`rt` AS `rt`,`siswa`.`rw` AS `rw`,`siswa`.`kelurahan` AS `kelurahan`,`siswa`.`foto` AS `foto`,`siswa`.`idprovince_fk` AS `idprovince_fk`,`siswa`.`idcities_fk` AS `idcities_fk`,`siswa`.`nama_ayah` AS `nama_ayah`,`siswa`.`tempat_lahir_ayah` AS `tempat_lahir_ayah`,`siswa`.`tanggal_lahir_ayah` AS `tanggal_lahir_ayah`,`siswa`.`pendidikan_ayah` AS `pendidikan_ayah`,`siswa`.`pekerjaan_ayah` AS `pekerjaan_ayah`,`siswa`.`penghasilan_ayah` AS `penghasilan_ayah`,`siswa`.`nama_ibu` AS `nama_ibu`,`siswa`.`tempat_lahir_ibu` AS `tempat_lahir_ibu`,`siswa`.`tanggal_lahir_ibu` AS `tanggal_lahir_ibu`,`siswa`.`pendidikan_ibu` AS `pendidikan_ibu`,`siswa`.`pekerjaan_ibu` AS `pekerjaan_ibu`,`siswa`.`penghasilan_ibu` AS `penghasilan_ibu`,`siswa`.`tinggi_badan` AS `tinggi_badan`,`siswa`.`berat_badan` AS `berat_badan`,`siswa`.`jarak_ke_sekolah` AS `jarak_ke_sekolah`,`siswa`.`waktu_ke_sekolah` AS `waktu_ke_sekolah`,`siswa`.`jumlah_saudara` AS `jumlah_saudara`,`siswa`.`jenis_kelamin` AS `jenis_kelamin`,`kelas`.`id_kelas` AS `id_kelas`,`kelas`.`kelas` AS `kelas`,`kelas`.`idtingkat_fk` AS `idtingkat_fk`,`kelas`.`create_at` AS `create_at`,`kelas`.`idtahunajaran_fk` AS `idtahunajaran_fk`,`jurusan`.`id_jurusan` AS `id_jurusan`,`jurusan`.`jurusan` AS `jurusan`,`jurusan`.`singkatan` AS `singkatan`,(select `tingkat`.`tingkat` from `tingkat` where `tingkat`.`id_tingkat` = `kelas`.`idtingkat_fk`) AS `nama_tingkat` from ((`siswa` join `kelas` on(`kelas`.`id_kelas` = `siswa`.`idkelas_fk`)) join `jurusan` on(`jurusan`.`id_jurusan` = `siswa`.`idjurusan_fk`)) ; ;
 
 -- ----------------------------
 -- View structure for v_tanggungan_siswa
 -- ----------------------------
 DROP VIEW IF EXISTS `v_tanggungan_siswa`;
-CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `v_tanggungan_siswa` AS select `tanggungan_siswa`.`id_tanggungan_siswa` AS `id_tanggungan_siswa`,`tanggungan_siswa`.`idsiswa_fk` AS `idsiswa_fk`,`tanggungan_siswa`.`idjenispenerimaan_fk` AS `idjenispenerimaan_fk`,`tanggungan_siswa`.`jumlah` AS `jumlah`,`jenis_penerimaan`.`id_jenis_penerimaan` AS `id_jenis_penerimaan`,`jenis_penerimaan`.`nama` AS `nama`,`jenis_penerimaan`.`kas` AS `kas`,`jenis_penerimaan`.`pendapatan` AS `pendapatan`,`jenis_penerimaan`.`piutang` AS `piutang`,`jenis_penerimaan`.`diskon` AS `diskon`,`jenis_penerimaan`.`is_edit` AS `is_edit`,`jenis_penerimaan`.`bulanan` AS `bulanan`,`jenis_penerimaan`.`template_nota` AS `template_nota` from (`tanggungan_siswa` join `jenis_penerimaan` on(`tanggungan_siswa`.`idjenispenerimaan_fk` = `jenis_penerimaan`.`id_jenis_penerimaan`)) ;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_tanggungan_siswa` AS select `tanggungan_siswa`.`id_tanggungan_siswa` AS `id_tanggungan_siswa`,`tanggungan_siswa`.`idsiswa_fk` AS `idsiswa_fk`,`tanggungan_siswa`.`idjenispenerimaan_fk` AS `idjenispenerimaan_fk`,`tanggungan_siswa`.`jumlah` AS `jumlah`,`jenis_penerimaan`.`id_jenis_penerimaan` AS `id_jenis_penerimaan`,`jenis_penerimaan`.`nama` AS `nama`,`jenis_penerimaan`.`kas` AS `kas`,`jenis_penerimaan`.`pendapatan` AS `pendapatan`,`jenis_penerimaan`.`piutang` AS `piutang`,`jenis_penerimaan`.`diskon` AS `diskon`,`jenis_penerimaan`.`is_edit` AS `is_edit`,`jenis_penerimaan`.`bulanan` AS `bulanan`,`jenis_penerimaan`.`template_nota` AS `template_nota` from (`tanggungan_siswa` join `jenis_penerimaan` on(`tanggungan_siswa`.`idjenispenerimaan_fk` = `jenis_penerimaan`.`id_jenis_penerimaan`)) ; ;
 
 -- ----------------------------
 -- View structure for v_task
 -- ----------------------------
 DROP VIEW IF EXISTS `v_task`;
-CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `v_task` AS select `task_answer`.`id_task_answer` AS `id_task_answer`,`task_answer`.`idsiswa_fk` AS `idsiswa_fk`,`task_answer`.`ans` AS `ans`,`task_answer`.`idtask_fk` AS `idtask_fk`,`task_answer`.`type` AS `type`,`task`.`id_task` AS `id_task`,`task`.`task_code` AS `task_code`,`task`.`task` AS `task`,`task`.`idguru_fk` AS `idguru_fk`,`task`.`idmapel_fk` AS `idmapel_fk`,`task`.`title` AS `title`,`siswa`.`id_siswa` AS `id_siswa`,`siswa`.`nis` AS `nis`,`siswa`.`nama` AS `nama`,`siswa`.`idkelas_fk` AS `idkelas_fk`,`siswa`.`idjurusan_fk` AS `idjurusan_fk`,`siswa`.`agama` AS `agama`,`siswa`.`nisn` AS `nisn`,`siswa`.`no_ijazah_sekolah_asal` AS `no_ijazah_sekolah_asal`,`siswa`.`no_skhun_sekolah_asal` AS `no_skhun_sekolah_asal`,`siswa`.`no_un_sekolah_asal` AS `no_un_sekolah_asal`,`siswa`.`no_kk` AS `no_kk`,`siswa`.`npsn_sekolah_asal` AS `npsn_sekolah_asal`,`siswa`.`nama_sekolah_asal` AS `nama_sekolah_asal`,`siswa`.`tempat_lahir` AS `tempat_lahir`,`siswa`.`tanggal_lahir` AS `tanggal_lahir`,`siswa`.`berkebutuhan_khusus` AS `berkebutuhan_khusus`,`siswa`.`alamat` AS `alamat`,`siswa`.`dusun` AS `dusun`,`siswa`.`rt` AS `rt`,`siswa`.`rw` AS `rw`,`siswa`.`kelurahan` AS `kelurahan`,`siswa`.`foto` AS `foto`,`siswa`.`idprovince_fk` AS `idprovince_fk`,`siswa`.`idcities_fk` AS `idcities_fk`,`siswa`.`nama_ayah` AS `nama_ayah`,`siswa`.`tempat_lahir_ayah` AS `tempat_lahir_ayah`,`siswa`.`tanggal_lahir_ayah` AS `tanggal_lahir_ayah`,`siswa`.`pendidikan_ayah` AS `pendidikan_ayah`,`siswa`.`pekerjaan_ayah` AS `pekerjaan_ayah`,`siswa`.`penghasilan_ayah` AS `penghasilan_ayah`,`siswa`.`nama_ibu` AS `nama_ibu`,`siswa`.`tempat_lahir_ibu` AS `tempat_lahir_ibu`,`siswa`.`tanggal_lahir_ibu` AS `tanggal_lahir_ibu`,`siswa`.`pendidikan_ibu` AS `pendidikan_ibu`,`siswa`.`pekerjaan_ibu` AS `pekerjaan_ibu`,`siswa`.`penghasilan_ibu` AS `penghasilan_ibu`,`siswa`.`tinggi_badan` AS `tinggi_badan`,`siswa`.`berat_badan` AS `berat_badan`,`siswa`.`jarak_ke_sekolah` AS `jarak_ke_sekolah`,`siswa`.`waktu_ke_sekolah` AS `waktu_ke_sekolah`,`siswa`.`jumlah_saudara` AS `jumlah_saudara`,`siswa`.`jenis_kelamin` AS `jenis_kelamin`,`task_answer`.`nilai` AS `nilai` from ((`task_answer` join `task` on(`task_answer`.`idtask_fk` = `task`.`id_task`)) join `siswa` on(`task_answer`.`idsiswa_fk` = `siswa`.`id_siswa`)) ;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_task` AS select `task_answer`.`id_task_answer` AS `id_task_answer`,`task_answer`.`idsiswa_fk` AS `idsiswa_fk`,`task_answer`.`ans` AS `ans`,`task_answer`.`idtask_fk` AS `idtask_fk`,`task_answer`.`type` AS `type`,`task`.`id_task` AS `id_task`,`task`.`task_code` AS `task_code`,`task`.`task` AS `task`,`task`.`idguru_fk` AS `idguru_fk`,`task`.`idmapel_fk` AS `idmapel_fk`,`task`.`title` AS `title`,`siswa`.`id_siswa` AS `id_siswa`,`siswa`.`nis` AS `nis`,`siswa`.`nama` AS `nama`,`siswa`.`idkelas_fk` AS `idkelas_fk`,`siswa`.`idjurusan_fk` AS `idjurusan_fk`,`siswa`.`agama` AS `agama`,`siswa`.`nisn` AS `nisn`,`siswa`.`no_ijazah_sekolah_asal` AS `no_ijazah_sekolah_asal`,`siswa`.`no_skhun_sekolah_asal` AS `no_skhun_sekolah_asal`,`siswa`.`no_un_sekolah_asal` AS `no_un_sekolah_asal`,`siswa`.`no_kk` AS `no_kk`,`siswa`.`npsn_sekolah_asal` AS `npsn_sekolah_asal`,`siswa`.`nama_sekolah_asal` AS `nama_sekolah_asal`,`siswa`.`tempat_lahir` AS `tempat_lahir`,`siswa`.`tanggal_lahir` AS `tanggal_lahir`,`siswa`.`berkebutuhan_khusus` AS `berkebutuhan_khusus`,`siswa`.`alamat` AS `alamat`,`siswa`.`dusun` AS `dusun`,`siswa`.`rt` AS `rt`,`siswa`.`rw` AS `rw`,`siswa`.`kelurahan` AS `kelurahan`,`siswa`.`foto` AS `foto`,`siswa`.`idprovince_fk` AS `idprovince_fk`,`siswa`.`idcities_fk` AS `idcities_fk`,`siswa`.`nama_ayah` AS `nama_ayah`,`siswa`.`tempat_lahir_ayah` AS `tempat_lahir_ayah`,`siswa`.`tanggal_lahir_ayah` AS `tanggal_lahir_ayah`,`siswa`.`pendidikan_ayah` AS `pendidikan_ayah`,`siswa`.`pekerjaan_ayah` AS `pekerjaan_ayah`,`siswa`.`penghasilan_ayah` AS `penghasilan_ayah`,`siswa`.`nama_ibu` AS `nama_ibu`,`siswa`.`tempat_lahir_ibu` AS `tempat_lahir_ibu`,`siswa`.`tanggal_lahir_ibu` AS `tanggal_lahir_ibu`,`siswa`.`pendidikan_ibu` AS `pendidikan_ibu`,`siswa`.`pekerjaan_ibu` AS `pekerjaan_ibu`,`siswa`.`penghasilan_ibu` AS `penghasilan_ibu`,`siswa`.`tinggi_badan` AS `tinggi_badan`,`siswa`.`berat_badan` AS `berat_badan`,`siswa`.`jarak_ke_sekolah` AS `jarak_ke_sekolah`,`siswa`.`waktu_ke_sekolah` AS `waktu_ke_sekolah`,`siswa`.`jumlah_saudara` AS `jumlah_saudara`,`siswa`.`jenis_kelamin` AS `jenis_kelamin`,`task_answer`.`nilai` AS `nilai` from ((`task_answer` join `task` on(`task_answer`.`idtask_fk` = `task`.`id_task`)) join `siswa` on(`task_answer`.`idsiswa_fk` = `siswa`.`id_siswa`)) ; ;
 
 -- ----------------------------
 -- View structure for v_walas
 -- ----------------------------
 DROP VIEW IF EXISTS `v_walas`;
-CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `v_walas` AS select `wali_kelas`.`id_wali_kelas` AS `id_wali_kelas`,`wali_kelas`.`idguru_fk` AS `idguru_fk`,`wali_kelas`.`idtahunajaran_fk` AS `idtahunajaran_fk`,`wali_kelas`.`idkelas_fk` AS `idkelas_fk`,`kelas`.`id_kelas` AS `id_kelas`,`kelas`.`kelas` AS `kelas`,`kelas`.`idtingkat_fk` AS `idtingkat_fk`,`kelas`.`idjurusan_fk` AS `idjurusan_fk`,`tingkat`.`id_tingkat` AS `id_tingkat`,`tingkat`.`tingkat` AS `tingkat`,`jurusan`.`id_jurusan` AS `id_jurusan`,`jurusan`.`jurusan` AS `jurusan`,`jurusan`.`singkatan` AS `singkatan` from (((`wali_kelas` left join `kelas` on(`wali_kelas`.`idkelas_fk` = `kelas`.`id_kelas`)) left join `tingkat` on(`kelas`.`idtingkat_fk` = `tingkat`.`id_tingkat`)) left join `jurusan` on(`kelas`.`idjurusan_fk` = `jurusan`.`id_jurusan`)) ;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `v_walas` AS select `wali_kelas`.`id_wali_kelas` AS `id_wali_kelas`,`wali_kelas`.`idguru_fk` AS `idguru_fk`,`wali_kelas`.`idtahunajaran_fk` AS `idtahunajaran_fk`,`wali_kelas`.`idkelas_fk` AS `idkelas_fk`,`kelas`.`id_kelas` AS `id_kelas`,`kelas`.`kelas` AS `kelas`,`kelas`.`idtingkat_fk` AS `idtingkat_fk`,`kelas`.`idjurusan_fk` AS `idjurusan_fk`,`tingkat`.`id_tingkat` AS `id_tingkat`,`tingkat`.`tingkat` AS `tingkat`,`jurusan`.`id_jurusan` AS `id_jurusan`,`jurusan`.`jurusan` AS `jurusan`,`jurusan`.`singkatan` AS `singkatan` from (((`wali_kelas` left join `kelas` on(`wali_kelas`.`idkelas_fk` = `kelas`.`id_kelas`)) left join `tingkat` on(`kelas`.`idtingkat_fk` = `tingkat`.`id_tingkat`)) left join `jurusan` on(`kelas`.`idjurusan_fk` = `jurusan`.`id_jurusan`)) ; ;
 
 -- ----------------------------
 -- Triggers structure for table pemasukan_lain
 -- ----------------------------
 DROP TRIGGER IF EXISTS `jurnal_pemasukan`;
 delimiter ;;
-CREATE DEFINER = `root`@`localhost` TRIGGER `jurnal_pemasukan` AFTER INSERT ON `pemasukan_lain` FOR EACH ROW BEGIN
+CREATE TRIGGER `jurnal_pemasukan` AFTER INSERT ON `pemasukan_lain` FOR EACH ROW BEGIN
 -- 	Debit
 	INSERT into jurnal_umum(ref, idakun_fk, debit, kredit, keterangan, jurnal_umum.table, idtable_fk) VALUES (new.trans_code, new.akun_kas, new.total, 0, new.keterangan, "pemasukan_lain", new.id_pemasukan_lain);
 -- 	Kredit
@@ -5320,7 +5828,7 @@ delimiter ;
 -- ----------------------------
 DROP TRIGGER IF EXISTS `delete_jurnal_umum_from_penerimaan`;
 delimiter ;;
-CREATE DEFINER = `root`@`localhost` TRIGGER `delete_jurnal_umum_from_penerimaan` AFTER DELETE ON `penerimaan` FOR EACH ROW BEGIN
+CREATE TRIGGER `delete_jurnal_umum_from_penerimaan` AFTER DELETE ON `penerimaan` FOR EACH ROW BEGIN
 		delete from jurnal_umum where jurnal_umum.table = "penerimaan" and idtable_fk=old.id_penerimaan;
 END
 ;;
@@ -5331,7 +5839,7 @@ delimiter ;
 -- ----------------------------
 DROP TRIGGER IF EXISTS `jurnal`;
 delimiter ;;
-CREATE DEFINER = `root`@`localhost` TRIGGER `jurnal` AFTER INSERT ON `pengeluaran_lain` FOR EACH ROW BEGIN
+CREATE TRIGGER `jurnal` AFTER INSERT ON `pengeluaran_lain` FOR EACH ROW BEGIN
 -- 	Debit
 	INSERT into jurnal_umum(ref, idakun_fk, debit, kredit, keterangan, jurnal_umum.table, idtable_fk) VALUES (new.trans_code, new.jenis, new.total, 0, new.keterangan, "pengeluaran_lain", new.id_pengeluaran_lain);
 -- 	Kredit
@@ -5346,7 +5854,7 @@ delimiter ;
 -- ----------------------------
 DROP TRIGGER IF EXISTS `update_jurnal_tanggungan_alumni`;
 delimiter ;;
-CREATE DEFINER = `root`@`localhost` TRIGGER `update_jurnal_tanggungan_alumni` AFTER UPDATE ON `tanggungan_alumni` FOR EACH ROW BEGIN
+CREATE TRIGGER `update_jurnal_tanggungan_alumni` AFTER UPDATE ON `tanggungan_alumni` FOR EACH ROW BEGIN
 -- 	Debit
 	update jurnal_umum set debit = new.jumlah, idakun_fk = new.pendapatan where jurnal_umum.table = "tanggungan_alumni" and idtable_fk=old.id_tanggungan_alumni and kredit=0;
 -- 	Kredit
@@ -5360,7 +5868,7 @@ delimiter ;
 -- ----------------------------
 DROP TRIGGER IF EXISTS `delete_jurnal_tanggungan_alumni`;
 delimiter ;;
-CREATE DEFINER = `root`@`localhost` TRIGGER `delete_jurnal_tanggungan_alumni` AFTER DELETE ON `tanggungan_alumni` FOR EACH ROW BEGIN
+CREATE TRIGGER `delete_jurnal_tanggungan_alumni` AFTER DELETE ON `tanggungan_alumni` FOR EACH ROW BEGIN
 -- 	Debit
 	delete from jurnal_umum where jurnal_umum.table = "tanggungan_alumni" and idtable_fk=old.id_tanggungan_alumni;
 END
@@ -5372,7 +5880,7 @@ delimiter ;
 -- ----------------------------
 DROP TRIGGER IF EXISTS `update_jurnal`;
 delimiter ;;
-CREATE DEFINER = `root`@`localhost` TRIGGER `update_jurnal` AFTER UPDATE ON `tanggungan_siswa` FOR EACH ROW BEGIN
+CREATE TRIGGER `update_jurnal` AFTER UPDATE ON `tanggungan_siswa` FOR EACH ROW BEGIN
 -- 	Debit
 	update jurnal_umum set debit = new.jumlah where jurnal_umum.table = "tanggungan" and idtable_fk=old.id_tanggungan_siswa and kredit=0;
 -- 	Kredit
@@ -5386,7 +5894,7 @@ delimiter ;
 -- ----------------------------
 DROP TRIGGER IF EXISTS `delete_jurnal`;
 delimiter ;;
-CREATE DEFINER = `root`@`localhost` TRIGGER `delete_jurnal` AFTER DELETE ON `tanggungan_siswa` FOR EACH ROW BEGIN
+CREATE TRIGGER `delete_jurnal` AFTER DELETE ON `tanggungan_siswa` FOR EACH ROW BEGIN
 -- 	Debit
 	delete from jurnal_umum where jurnal_umum.table = "tanggungan" and idtable_fk=old.id_tanggungan_siswa;
 END
@@ -5398,7 +5906,7 @@ delimiter ;
 -- ----------------------------
 DROP TRIGGER IF EXISTS `delete_trig`;
 delimiter ;;
-CREATE DEFINER = `root`@`localhost` TRIGGER `delete_trig` AFTER DELETE ON `transaksi_tanggungan_siswa` FOR EACH ROW BEGIN
+CREATE TRIGGER `delete_trig` AFTER DELETE ON `transaksi_tanggungan_siswa` FOR EACH ROW BEGIN
 	delete from penerimaan where penerimaan.idsiswa_fk = old.idsiswa_fk and penerimaan.invoice=old.invoice;
 END
 ;;

@@ -11,7 +11,7 @@
 	            <div class="form-group">
 	              <label class="col-lg-3 control-label">Tanggal:</label>
 	              <div class="col-lg-4">
-	                <input type="date" name="tanggal" class="form-control" required placeholder="Input here......">
+	                <input type="date" name="tanggal" onchange="get_jadwal();" class="form-control tanggal" required placeholder="Input here......">
 	              </div>
 	            </div>
 	            <div class="form-group">
@@ -72,6 +72,9 @@
 	            <button class="btn btn-success" type="submit"><i class="icon-floppy-disk"></i> Simpan</button>
             </fieldset>	
 		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="jadwal"></div>
 	</div>
 </div>
 </form>

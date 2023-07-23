@@ -22,8 +22,6 @@
                 <th>Tanggal</th>
                 <th>Kelas</th>
                 <th>Mapel</th>
-                <th>Jam Mulai</th>
-                <th>Jam Selesai</th>
                 <th>Keterangan</th>
                 <th>Status</th>
               </tr>

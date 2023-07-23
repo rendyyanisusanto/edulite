@@ -1,4 +1,4 @@
-<?php
+ <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class jadwal_lab extends MY_Controller {
@@ -33,13 +33,52 @@ class jadwal_lab extends MY_Controller {
 		$data['mata_pelajaran']		=	$this->my_where('mata_pelajaran', [])->result_array();
 		$this->my_view(['role/guru/page/jadwal_lab/add_page/index','role/guru/page/jadwal_lab/add_page/js'],$data);
 	}
+	function get_content_jadwal(){
+
+		$jam_pelajaran	=	$this->my_where('jam_pelajaran', [])->result_array();
+		$tg = $this->getStartAndEndDate(date("W", strtotime($_POST['tanggal'])),date("Y", strtotime($_POST['tanggal'])));
+		$begin = new DateTime($tg['start_date']);
+		$end = new DateTime($tg['end_date']);
+		$interval = DateInterval::createFromDateString('1 day');
+		$period = new DatePeriod($begin, $interval, $end);
+		$data['tg']	=	$period;
+		$data['jadwal']	=	[];
+		$data['week']	=	date("W", strtotime($_POST['tanggal']));
+		foreach ($jam_pelajaran as $value) {
+			$jadwal = [];
+			foreach ($period as $dt) {
+				$tgl = $dt->format("d");
+
+				$query = $this->db->query("Select * from v_jadwal_lab where status=1 and id_jam_pelajaran=".$value['id_jam_pelajaran']." and 
+					MONTH(tanggal) = ".(date("m", strtotime($_POST['tanggal'])))." and
+					YEAR(tanggal) = ".(date("Y", strtotime($_POST['tanggal'])))." and
+					DAY(tanggal) = ".$tgl."");
+
+				$query2 = $this->db->query("Select * from v_jadwal_lab where status<>1 and id_jam_pelajaran=".$value['id_jam_pelajaran']." and 
+					MONTH(tanggal) = ".(date("m", strtotime($_POST['tanggal'])))." and
+					YEAR(tanggal) = ".(date("Y", strtotime($_POST['tanggal'])))." and
+					DAY(tanggal) = ".$tgl."");
+
+				$jadwal[] = [
+					'accept' => $query->num_rows(),
+					'all'=>$query2->num_rows()
+				];
+				
+			}
+			$data['jadwal'][]	=	[
+				'jam_pelajaran' => $value,
+				'jadwal' => $jadwal
+			];
+		}
+		$this->my_view(['role/guru/page/jadwal_lab/add_page/jadwal'],$data);
+	}
 	public function simpan_data()
 	{	
+		$transcode = rand(0, 999999);
 		$data = [
-			'tanggal' 					=> $_POST['tanggal'],
+			'kode' 							=> $transcode,	 	
+			'tanggal' 						=> $_POST['tanggal'],
 			'idkelas_fk' 					=> $_POST['idkelas_fk'],
-			'idjampelajaranmulai_fk' 		=> $_POST['idjampelajaranmulai_fk'],
-			'idjampelajaranselesai_fk' 		=> $_POST['idjampelajaranselesai_fk'],
 			'idmapel_fk' 					=> $_POST['idmapel_fk'],
 			'keterangan' 					=> $_POST['keterangan'],
 			'status' 						=> 0,
@@ -47,6 +86,21 @@ class jadwal_lab extends MY_Controller {
 		];
 
 		if ($this->save_data('jadwal_lab', $data)) {
+			
+			$dataget = $this->my_where('jadwal_lab', [
+				'kode' 							=> $transcode,
+				'tanggal' 						=> $_POST['tanggal'],
+				'idkelas_fk' 					=> $_POST['idkelas_fk'],
+				'idmapel_fk' 					=> $_POST['idmapel_fk'],
+				'idguru_fk' 					=> $this->get_user_account()['anggota_id'],
+			])->row_array();
+
+			foreach ($_POST['jam_pelajaran'] as $value) {
+				$this->save_data('detail_jadwal_lab', [
+					'idjadwallab_fk' => $dataget['id_jadwal_lab'],
+					'idjampelajaran_fk' => ((isset($value)) ? $value : '')
+				]);
+			}
 			echo "Success";
 		}
 	}
@@ -63,15 +117,11 @@ class jadwal_lab extends MY_Controller {
             $no++;
             $row        =   array();
             $kelas 					=	$this->my_where('kelas', ['id_kelas'=>$field['idkelas_fk']])->row_array();
-            $jam_mulai 				=	$this->my_where('jam_pelajaran', ['id_jam_pelajaran'=>$field['idjampelajaranmulai_fk']])->row_array();
-            $jam_selesai 			=	$this->my_where('jam_pelajaran', ['id_jam_pelajaran'=>$field['idjampelajaranselesai_fk']])->row_array();
             $mata_pelajaran 		=	$this->my_where('mata_pelajaran', ['id_mata_pelajaran'=>$field['idmapel_fk']])->row_array();
             $row[]      =   '<input type="checkbox" name="get-check" value="'.$field['id_jadwal_lab'].'"></input>';
             $row[]		=	!empty($field['tanggal']) ? date_format(date_create($field['tanggal']), 'd-m-Y') : '-';
             $row[]		=	$kelas['kelas'];
             $row[]		=	$mata_pelajaran['mata_pelajaran'];
-            $row[]		=	$jam_mulai['nama'].' ('.$jam_mulai['jam_mulai'].'/'.$jam_mulai['jam_selesai'].')';
-            $row[]		=	$jam_selesai['nama'].' ('.$jam_selesai['jam_mulai'].'/'.$jam_selesai['jam_selesai'].')';
             $row[]		=	$field['keterangan'];
             if ($field['status'] == 0) {
             	$row[]	=	'<span class="label label-default">Belum Dikonfirmasi</span>';
@@ -90,6 +140,29 @@ class jadwal_lab extends MY_Controller {
         );
 
         echo json_encode($output);
+	}
+
+	function weeks_in_month($month, $year) {
+ 	// Start of month
+	 $start = mktime(0, 0, 0, $month, 1, $year);
+	 // End of month
+	 $end = mktime(0, 0, 0, $month, date('t', $start), $year);
+	 // Start week
+	 $start_week = date('W', $start);
+	 // End week
+	 $end_week = date('W', $end);
+	 if ($end_week < $start_week) { // Month wraps
+	   return ((52 + $end_week) - $start_week) + 1;
+	 }
+	 return ($end_week - $start_week) + 1;
+	}
+	function getStartAndEndDate($week, $year) {
+	  $dateTime = new DateTime();
+	  $dateTime->setISODate($year, $week);
+	  $result['start_date'] = $dateTime->format('Y-m-d');
+	  $dateTime->modify('+6 days');
+	  $result['end_date'] = $dateTime->format('Y-m-d');
+	  return $result;
 	}
 
 }

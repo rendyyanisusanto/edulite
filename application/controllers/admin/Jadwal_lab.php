@@ -40,7 +40,37 @@ class jadwal_lab extends MY_Controller {
 			foreach ($period as $dt) {
 				$tgl = $dt->format("d");
 
-				$query = $this->db->query("Select * from jadwal_lab where status = 1 and (idjampelajaranmulai_fk>=".$value['id_jam_pelajaran']." or idjampelajaranselesai_fk<=".$value['id_jam_pelajaran'].") and 
+				$query = $this->db->query("Select * from v_jadwal_lab where id_jam_pelajaran=".$value['id_jam_pelajaran']." and 
+					MONTH(tanggal) = ".(date("m", strtotime($_POST['tanggal'])))." and
+					YEAR(tanggal) = ".(date("Y", strtotime($_POST['tanggal'])))." and
+					DAY(tanggal) = ".$tgl."");
+
+				$jadwal[] = $query->result_array() ;
+			}
+			$data['jadwal'][]	=	[
+				'jam_pelajaran' => $value,
+				'jadwal' => $jadwal
+			];
+		}
+		$this->my_view(['role/admin/page/jadwal_lab/index_page/jadwal'],$data);
+	}
+
+	function jadwal_rilis(){
+
+		$jam_pelajaran	=	$this->my_where('jam_pelajaran', [])->result_array();
+		$tg = $this->getStartAndEndDate(date("W", strtotime($_POST['tanggal'])),date("Y", strtotime($_POST['tanggal'])));
+		$begin = new DateTime($tg['start_date']);
+		$end = new DateTime($tg['end_date']);
+		$interval = DateInterval::createFromDateString('1 day');
+		$period = new DatePeriod($begin, $interval, $end);
+		$data['tg']	=	$period;
+		$data['jadwal']	=	[];
+		foreach ($jam_pelajaran as $value) {
+			$jadwal = [];
+			foreach ($period as $dt) {
+				$tgl = $dt->format("d");
+
+				$query = $this->db->query("Select * from v_jadwal_lab where status=1 and id_jam_pelajaran=".$value['id_jam_pelajaran']." and 
 					MONTH(tanggal) = ".(date("m", strtotime($_POST['tanggal'])))." and
 					YEAR(tanggal) = ".(date("Y", strtotime($_POST['tanggal'])))." and
 					DAY(tanggal) = ".$tgl."");
@@ -52,7 +82,19 @@ class jadwal_lab extends MY_Controller {
 				'jadwal' => $jadwal
 			];
 		}
-		$this->my_view(['role/admin/page/jadwal_lab/index_page/jadwal'],$data);
+		$this->my_view(['role/admin/page/jadwal_lab/index_page/jadwal_rilis'],$data);
+	}
+	function get_detail(){
+		$id = $_POST['id'];
+
+		$data['jadwal_lab']	=	$this->my_where('jadwal_lab', ['id_jadwal_lab'=>$id])->row_array();
+		$data['kelas']		=	$this->my_where('kelas', ['id_kelas'=>$data['jadwal_lab']['idkelas_fk']])->row_array();
+		$data['mata_pelajaran']		=	$this->my_where('mata_pelajaran', ['id_mata_pelajaran'=>$data['jadwal_lab']['idmapel_fk']])->row_array();
+		$data['jadwal_lab']	=	$this->my_where('jadwal_lab', ['id_jadwal_lab'=>$id])->row_array();
+		$data['detail']		=	$this->my_where('v_jadwal_lab', ['id_jadwal_lab' => $id])->result_array();
+		$data['guru']		=	$this->my_where('guru', ['id_guru' => $data['jadwal_lab']['idguru_fk']])->row_array();
+
+		$this->my_view(['role/admin/page/jadwal_lab/index_page/detail_content'],$data);
 	}
 	public function add_page()
 	{
@@ -83,6 +125,10 @@ class jadwal_lab extends MY_Controller {
 		}
 	}
 
+	function update_jadwal(){
+		$this->my_update('jadwal_lab', ['status' => $_POST['status']], ['id_jadwal_lab'	=>	$_POST['id_jadwal_lab']]);
+	}
+
 
 	public function datatable()
 	{
@@ -95,16 +141,12 @@ class jadwal_lab extends MY_Controller {
             $row        =   array();
             $guru 					=	$this->my_where('guru', ['id_guru'=>$field['idguru_fk']])->row_array();
             $kelas 					=	$this->my_where('kelas', ['id_kelas'=>$field['idkelas_fk']])->row_array();
-            $jam_mulai 				=	$this->my_where('jam_pelajaran', ['id_jam_pelajaran'=>$field['idjampelajaranmulai_fk']])->row_array();
-            $jam_selesai 			=	$this->my_where('jam_pelajaran', ['id_jam_pelajaran'=>$field['idjampelajaranselesai_fk']])->row_array();
             $mata_pelajaran 		=	$this->my_where('mata_pelajaran', ['id_mata_pelajaran'=>$field['idmapel_fk']])->row_array();
             $row[]      =   '<input type="checkbox" name="get-check" value="'.$field['id_jadwal_lab'].'"></input>';
             $row[]		=	!empty($field['tanggal']) ? date_format(date_create($field['tanggal']), 'd-m-Y') : '-';
             $row[]		=	$guru['nama'];
             $row[]		=	$kelas['kelas'];
             $row[]		=	$mata_pelajaran['mata_pelajaran'];
-            $row[]		=	$jam_mulai['nama'].' ('.$jam_mulai['jam_mulai'].'/'.$jam_mulai['jam_selesai'].')';
-            $row[]		=	$jam_selesai['nama'].' ('.$jam_selesai['jam_mulai'].'/'.$jam_selesai['jam_selesai'].')';
             $row[]		=	$field['keterangan'];
             if ($field['status'] == 0) {
             	$row[]	=	'<span class="label label-default">Belum Dikonfirmasi</span>';
