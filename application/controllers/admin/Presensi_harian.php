@@ -341,8 +341,8 @@ class presensi_harian extends MY_Controller {
 									 from presensi_harian where 
 									idsiswa_fk = ".$value['id_siswa']." and
 									idtahunajaran_fk = ".$_POST['idtahunajaran_fk']." and
-									MONTH(tanggal) = ".(date("m", strtotime($_POST['tanggal'])))." and
-									YEAR(tanggal) = ".(date("Y", strtotime($_POST['tanggal'])))." and
+									MONTH(tanggal) = ".$dt->format("m")." and
+									YEAR(tanggal) = ".$dt->format("Y")." and
 									DAY(tanggal) = ".$tgl."
 									group by tanggal")->row_array();
 

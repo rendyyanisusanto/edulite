@@ -37,19 +37,20 @@ class jadwal_lab extends MY_Controller {
 		$data['jadwal']	=	[];
 		foreach ($jam_pelajaran as $value) {
 			$jadwal = [];
+			$query_jdw = [];
 			foreach ($period as $dt) {
 				$tgl = $dt->format("d");
 
 				$query = $this->db->query("Select * from v_jadwal_lab where id_jam_pelajaran=".$value['id_jam_pelajaran']." and 
-					MONTH(tanggal) = ".(date("m", strtotime($_POST['tanggal'])))." and
-					YEAR(tanggal) = ".(date("Y", strtotime($_POST['tanggal'])))." and
-					DAY(tanggal) = ".$tgl."");
+					MONTH(tanggal) = ".$dt->format("m")." and
+					YEAR(tanggal) = ".$dt->format("Y")." and
+					DAY(tanggal) = ".(int)$tgl."");
 
 				$jadwal[] = $query->result_array() ;
 			}
 			$data['jadwal'][]	=	[
 				'jam_pelajaran' => $value,
-				'jadwal' => $jadwal
+				'jadwal' => $jadwal,
 			];
 		}
 		$this->my_view(['role/admin/page/jadwal_lab/index_page/jadwal'],$data);
@@ -71,8 +72,8 @@ class jadwal_lab extends MY_Controller {
 				$tgl = $dt->format("d");
 
 				$query = $this->db->query("Select * from v_jadwal_lab where status=1 and id_jam_pelajaran=".$value['id_jam_pelajaran']." and 
-					MONTH(tanggal) = ".(date("m", strtotime($_POST['tanggal'])))." and
-					YEAR(tanggal) = ".(date("Y", strtotime($_POST['tanggal'])))." and
+					MONTH(tanggal) = ".$dt->format("m")." and
+					YEAR(tanggal) = ".$dt->format("Y")." and
 					DAY(tanggal) = ".$tgl."");
 
 				$jadwal[] = $query->row_array() ;
