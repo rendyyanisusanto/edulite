@@ -10,6 +10,7 @@
 	<div class="alert alert-danger">
 		<b>Message from the system</b> :
 		<ul>
+			<li>Download aplikasi Edulite Mobile untuk melakukan presensi guru, untuk mendownload silahkan klik <a href="<?= base_url('include/media/M-Edulite.apk'); ?>" target="__blank">link ini</a></li>
 			<li>Anda Belum Mengisi KD Pada tahun ajaran <?php echo $data_get['tahun_ajaran']['tahun_ajaran'].' '.$data_get['tahun_ajaran']['semester'] ?>, silahkan klik <a href="Kd/get_data" class="app-item">link ini</a></li>
 		</ul>
 	</div>
@@ -17,7 +18,7 @@
 
 <?php endif ?>
 <?php if ($data_get['jadwal_guru'] > 0): ?>
-	<!-- <div class="row">
+	<div class="row">
 		<div class="alert alert-info">
 			<b>Anda hari ini ada jadwal:</b>
 			<br>
@@ -39,7 +40,7 @@
 			
 			
 		</div>
-	</div> -->
+	</div>
 <?php endif ?>
 <?php if (count($data_get['event'])>0): ?>
 	
