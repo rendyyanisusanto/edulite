@@ -55,6 +55,13 @@
 	              </div>
 	            </div>
 
+	            <div class="form-group">
+	              <label class="col-lg-3 control-label">Dokumen Tambahan</label>
+	              <div class="col-lg-4">
+	              	<input type="file" class="form-control" name="dokumen" required placeholder="Input here......">
+	              </div>
+	            </div>
+
 				<a href="buku_pemanggilan_siswa/get_data" class="app-item btn btn-danger"><i class="icon-arrow-left7"></i> Kembali</a>
 	            <button class="btn btn-success" type="submit"><i class="icon-floppy-disk"></i> Simpan</button>
             </fieldset>	

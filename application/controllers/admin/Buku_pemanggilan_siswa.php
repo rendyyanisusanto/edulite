@@ -52,6 +52,11 @@ class buku_pemanggilan_siswa extends MY_Controller {
 	public function simpan_data()
 	{	
 		
+		$dokumen = $this->save_media([
+			'path'	=>	"./include/media/buku_pemanggilan_siswa/",
+			'filename' => 'dokumen',
+		]);
+
 		$data = [
 			'idsiswa_fk' 	=> $_POST['idsiswa_fk'],
 			'masalah' 		=> $_POST['masalah'],
@@ -60,6 +65,7 @@ class buku_pemanggilan_siswa extends MY_Controller {
 			'keterangan' 		=> $_POST['keterangan'],
 			'tanggal' 		=> $_POST['tanggal'],
 			'kode_pemanggilan' 		=> $_POST['kode_pemanggilan'],
+			'dokumen'					=>	((isset($dokumen)) ? $dokumen['file_name'] : ''),
 		];
 
 		if ($this->save_data('buku_pemanggilan_siswa', $data)) {
@@ -83,7 +89,7 @@ class buku_pemanggilan_siswa extends MY_Controller {
 			'kode_pemanggilan' 		=> $_POST['kode_pemanggilan'],
 	];
 		if ($this->my_update('buku_pemanggilan_siswa',$data,['id_buku_pemanggilan_siswa'=>$_POST['id_buku_pemanggilan_siswa']])) {
-			// print_r(((isset($foto)) ? $foto['file_name'] : $_POST['foto_before']));
+			
 		}	else 	{
 			echo "error";
 		}
@@ -211,6 +217,7 @@ class buku_pemanggilan_siswa extends MY_Controller {
             $row[]		=	!empty($field['masalah']) ? $field['masalah'] : '-';
             $row[]		=	!empty($field['pemecahan']) ? $field['pemecahan'] : '-';
             $row[]		=	!empty($field['tindak_lanjut']) ? $field['tindak_lanjut'] : '-';
+            $row[]		=	'<a target="__blank" href="'.base_url('include/media/buku_pemanggilan_siswa/'.$field['dokumen']).'" target="__blank">Download</a>';
             $row[]		=	'<a href="'.base_url('admin/buku_pemanggilan_siswa/cetak_bukti/'.$field['id_buku_pemanggilan_siswa']).'" target="__blank">Cetak Bukti</a>';
 
             $data[]     =   $row;

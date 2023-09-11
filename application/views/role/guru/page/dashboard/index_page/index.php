@@ -1,4 +1,4 @@
-
+<script src="<?php echo base_url('include/geo') ?>/geo-min.js" type="text/javascript" charset="utf-8"></script>
 <div class="row">
 	<div class="alert alert-success">
 		<marquee>Hallo <b><?php echo $data_get['guru']['nama'] ?></b>, Selamat datang di aplikasi EDULITE milik SMK IT ASY SYADZILI. Hak akses anda saat ini adalah sebagai <b>GURU</b></marquee>
@@ -11,32 +11,40 @@
 		<b>Message from the system</b> :
 		<ul>
 			<li>Download aplikasi Edulite Mobile untuk melakukan presensi guru, untuk mendownload silahkan klik <a href="<?= base_url('include/media/M-Edulite.apk'); ?>" target="__blank">link ini</a></li>
-			<li>Anda Belum Mengisi KD Pada tahun ajaran <?php echo $data_get['tahun_ajaran']['tahun_ajaran'].' '.$data_get['tahun_ajaran']['semester'] ?>, silahkan klik <a href="Kd/get_data" class="app-item">link ini</a></li>
 		</ul>
 	</div>
 </div>
 
 <?php endif ?>
+
 <?php if ($data_get['jadwal_guru'] > 0): ?>
-	<div class="row">
+	<div class="row" >
 		<div class="alert alert-info">
+			<button class="btn btn-default" onclick="getLocation()">Refresh Lokasi</button>
+
+
+			<hr>
 			<b>Anda hari ini ada jadwal:</b>
 			<br>
-			<?php if (isset($data_get['presensi'])){ ?>
-				<?php if (!empty($data_get['presensi']['jam_masuk']) && $data_get['presensi']['jam_masuk'] !== '00:00:00' ){ ?>
-					Anda sudah check in (<?php echo $data_get['presensi']['jam_masuk'] ?>) <br>
+			<p id="mesJadwal"></p>
+			<br>
+			<div style="display: none;" class="rowabsen">
+				<?php if (isset($data_get['presensi'])){ ?>
+					<?php if (!empty($data_get['presensi']['jam_masuk']) && $data_get['presensi']['jam_masuk'] !== '00:00:00' ){ ?>
+						Anda sudah check in (<?php echo $data_get['presensi']['jam_masuk'] ?>) <br>
+					<?php }else{ ?>
+						<button class="btn btn-success btn-check" data-status="0" type="button">Check IN</button>
+					<?php } ?>
+					<?php if (!empty($data_get['presensi']['jam_keluar']) && $data_get['presensi']['jam_keluar'] !== '00:00:00' ){ ?>
+						Anda sudah check out (<?php echo $data_get['presensi']['jam_keluar'] ?>)
+					<?php }else{ ?>
+						<button class="btn btn-danger btn-check" data-status="1" type="button">Check OUT</button>
+					<?php } ?>
 				<?php }else{ ?>
 					<button class="btn btn-success btn-check" data-status="0" type="button">Check IN</button>
-				<?php } ?>
-				<?php if (!empty($data_get['presensi']['jam_keluar']) && $data_get['presensi']['jam_keluar'] !== '00:00:00' ){ ?>
-					Anda sudah check out (<?php echo $data_get['presensi']['jam_keluar'] ?>)
-				<?php }else{ ?>
 					<button class="btn btn-danger btn-check" data-status="1" type="button">Check OUT</button>
 				<?php } ?>
-			<?php }else{ ?>
-				<button class="btn btn-success btn-check" data-status="0" type="button">Check IN</button>
-				<button class="btn btn-danger btn-check" data-status="1" type="button">Check OUT</button>
-			<?php } ?>
+			</div>
 			
 			
 		</div>

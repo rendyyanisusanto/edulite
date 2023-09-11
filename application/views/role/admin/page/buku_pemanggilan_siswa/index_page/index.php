@@ -31,6 +31,7 @@
               <th>Masalah</th>
               <th>Pemecahan</th>
               <th>Tindak Lanjut</th>
+              <th>File</th>
               <th>#</th>
             </tr>
           </thead>

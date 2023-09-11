@@ -131,6 +131,7 @@
       <a href="#"><i class="icon-file-text2"></i> <span>Laporan</span></a>
       <ul>
         <li><a href="Presensi_harian/rekap" class="app-item">Rekap Presensi Siswa</a></li>
+        <li><a href="Statistik/rekap" class="app-item">Statistik Siswa & Kelas</a></li>
       </ul>
     </li>
     <li>
