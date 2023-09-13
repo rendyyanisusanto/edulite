@@ -7,25 +7,33 @@
   <!-- Page kits -->
   <li class="navigation-header"><span>Role Management</span> <i class="icon-menu" title="Page kits"></i></li>
   <li>
-    <a href="#"><i class="icon-book"></i> <span>Referensi</span></a>
+    <a href="#"><i class="icon-cash2"></i> <span>Payroll System</span></a>
     <ul>
-      <li><a href="Coa/get_data" class="app-item">Chart of Account</a></li>
-      <!-- <li><a href="Tahun_buku/get_data" class="app-item">Tahun Buku</a></li>
-      <li><a href="Tutup_buku/catatan_siswa" class="app-item">Tutup Buku</a></li> -->
+      <li><a href="Penggajian/get_data" class="app-item">Penggajian Bulanan</a></li>
     </ul>
   </li>
   <li>
-    <a href="#"><i class="icon-file-text2"></i> <span>Penerimaan</span></a>
+    <a href="#"><i class="icon-coin-dollar"></i> <span>Keuangan</span></a>
     <ul>
-      <li><a href="Jenis_penerimaan/get_data" class="app-item">Jenis Tanggungan Siswa</a></li>
-      <li><a href="Penerimaan/get_data" class="app-item">Transaksi Tanggungan Siswa</a></li>
+      <li><a href="coa/get_data" class="app-item">Chart of Account</a></li>
+      <li><a href="Jenis_penerimaan/get_data" class="app-item">Jenis Tanggungan</a></li>
+      <li><a href="Transaksi_tanggungan_siswa/get_data" class="app-item">Transaksi Tanggungan Siswa</a></li>
+      <li><a href="Transaksi_tanggungan_alumni/get_data" class="app-item">Transaksi Tanggungan Alumni</a></li>
+      <li><a href="Penerimaan/get_data" class="app-item">Transaksi Tanggungan per Item</a></li>
       <li><a href="Pemasukan_lain/get_data" class="app-item">Transaksi Penerimaan Lain</a></li>
+      <li><a href="Pengeluaran_lain/get_data" class="app-item">Transaksi Pengeluaran</a></li>
+      <li class="nav-item-divider"><hr></li>
+      <li><a href="Penerimaan/setting_tanggungan_siswa" class="app-item">Setting Tanggungan Siswa</a></li>
+      <li><a href="Histori_tanggungan_siswa/get_data" class="app-item">Histori Tanggungan Siswa</a></li>
+      <!-- <li><a href="Penerimaan/setting_tanggungan_siswa" class="app-item">Pengaturan Lain</a></li> -->
+
     </ul>
   </li>
   <li>
-    <a href="#"><i class="icon-pencil6"></i> <span>Pengeluaran</span></a>
+    <a href="#"><i class=" icon-compose"></i> <span>Presensi Guru</span></a>
     <ul>
-      <li><a href="Pengeluaran_lain/get_data" class="app-item">Transaksi Pengeluaran</a></li>
+      <li><a href="Presensi_guru/get_data" class="app-item">Presensi Guru</a></li>
+      <li><a href="Presensi_guru/rekap" class="app-item">Rekap Presensi Guru</a></li>
     </ul>
   </li>
   <li class="navigation-header"><span>Laporan & Statistik</span> <i class="icon-menu" title="Page kits"></i></li>

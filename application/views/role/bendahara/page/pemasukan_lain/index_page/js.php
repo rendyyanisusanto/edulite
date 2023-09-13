@@ -20,8 +20,9 @@
     $('#filter_submit').on('click',function(){
         table.ajax.reload();
     });  
-    $(document).on('click', '.btn-dtl', function(e){
+    $(document).on('click', '.btn-dtl-pemasukan', function(e){
         e.stopImmediatePropagation();
+        // alert(); 
         send_ajax('pemasukan_lain/get_detail/'+$(this).data("id"),{} ).then( function(data){
             $('.modal-panel').html(data);
            $('.modal-title').text("Detail pemasukan")

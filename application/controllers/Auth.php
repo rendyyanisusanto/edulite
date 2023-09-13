@@ -100,12 +100,12 @@ class Auth extends MY_Controller
 				// 	# code...
 				// }
 
-				if ($group_name->name == "admin" || $group_name->name == "guru") {
-					redirect($group_name->name.'/Dashboard#Dashboard/get_data', 'refresh');
-				}else{
-					redirect('general/Dashboard#Dashboard/get_data', 'refresh');
-				}
-				// redirect($group_name->name.'/Dashboard#Dashboard/get_data', 'refresh');
+				// if ($group_name->name == "admin" || $group_name->name == "guru") {
+				// 	redirect($group_name->name.'/Dashboard#Dashboard/get_data', 'refresh');
+				// }else{
+				// 	redirect('general/Dashboard#Dashboard/get_data', 'refresh');
+				// }
+				redirect($group_name->name.'/Dashboard#Dashboard/get_data', 'refresh');
 			}
 			else
 			{

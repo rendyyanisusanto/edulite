@@ -8,6 +8,9 @@
             "ajax": {
                 "url": "<?php echo $data_get['param']['table'] ?>/datatable",
                 "type": "POST",
+                "data":function(data){
+                    data.idtahunajaran_fk = $('.tahun_ajaran').val();
+                }
             },
  
             "columnDefs": [
@@ -20,6 +23,11 @@
     $('#filter_submit').on('click',function(){
         table.ajax.reload();
     });  
+    $('.tahun_ajaran').on('change', function(e){
+        e.stopImmediatePropagation();
+
+        table.ajax.reload();
+    })
     $("#del-btn").click(function(){
             var check = [];
             if ($("input[name='get-check']:checked").length==0) {

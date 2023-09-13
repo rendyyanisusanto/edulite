@@ -50,4 +50,9 @@ class Coa extends MY_Controller {
 			$this->db->delete('akun', ['id_akun'=>$_POST['id']]);
 		}
 	}
+
+	function cetak(){
+		$data['akun'] =	$this->my_where('akun', [])->result_array();
+	    $this->load->view('role/bendahara/page/coa/index_page/cetak', $data);
+	}
 }

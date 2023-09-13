@@ -1,4 +1,4 @@
-<script src="<?php echo base_url('include/template/limitless/')?>/global_assets/js/plugins/forms/selects/select2.min.js"></script>
+
 <form class="form-horizontal" action="<?php echo $data_get['param']['table'] ?>/simpan_data" id="app-submit" method="POST">
 
 <div class="row">
@@ -7,8 +7,12 @@
 			<div class="form-group">
               <label class="col-lg-3 control-label">Kode:</label>
               <div class="col-lg-4">
-                <input type="text" name="trans_code" value="P<?php echo rand(0,9999999) ?>" class="form-control" required placeholder="Input here......">
+                <input type="text" name="trans_code" class="form-control trans_code" required placeholder="Input here......">
               </div>
+              <div class="col-lg-3">
+	              	<button class="btn btn-xs btn-success" data-toggle="tooltip" onclick="reload_table('pengeluaran_lain','trans_code','trans_code');" data-placement="top" title="Reload Kode" type="button"><i class="icon-pencil7"></i></button>
+	              	<button class="btn btn-xs btn-info" type="button" onclick="setting_table('pengeluaran_lain','trans_code');" data-toggle="tooltip" data-placement="top" title="Setting Kode" ><i class="icon-cog3"></i></button>
+	              </div>
             </div>
             <div class="form-group">
               <label class="col-lg-3 control-label">Tanggal:</label>
@@ -85,7 +89,6 @@
 					<div class="col-md-9" >
 						<div style="float: right;">
 							<a href="Kartu_stok/get_data" class="app-item btn btn-danger"><i class="icon-arrow-left7"></i> Kembali</a>
-							<button class="btn btn-warning" type="button"><i class="icon-printer"></i> Cetak</button>
 							<button type="submit" class="btn btn-success"><i class="icon-floppy-disk"></i> Simpan</button>
 						</div>
 					</div>

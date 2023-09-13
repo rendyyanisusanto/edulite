@@ -12,6 +12,12 @@
     </ul>
   </li>
   <li>
+    <a href="#"><i class="icon-cash2"></i> <span>Payroll System</span></a>
+    <ul>
+      <li><a href="Penggajian/get_data" class="app-item">Penggajian Bulanan</a></li>
+    </ul>
+  </li>
+  <li>
     <a href="#"><i class="icon-coin-dollar"></i> <span>Keuangan</span></a>
     <ul>
       <li><a href="coa/get_data" class="app-item">Chart of Account</a></li>
@@ -25,6 +31,7 @@
       <li><a href="Penerimaan/setting_tanggungan_siswa" class="app-item">Setting Tanggungan Siswa</a></li>
       <li><a href="Histori_tanggungan_siswa/get_data" class="app-item">Histori Tanggungan Siswa</a></li>
       <!-- <li><a href="Penerimaan/setting_tanggungan_siswa" class="app-item">Pengaturan Lain</a></li> -->
+
     </ul>
   </li>
   <!-- <li>

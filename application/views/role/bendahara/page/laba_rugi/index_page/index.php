@@ -1,3 +1,4 @@
+
 	<script src="<?php echo base_url('include/template/dashboard/')?>/js/plugins/forms/styling/uniform.min.js"></script>
 	<script src="<?php echo base_url('include/template/dashboard/')?>/js/plugins/forms/styling/switchery.min.js"></script>
 	<script src="<?php echo base_url('include/template/dashboard/')?>/js/plugins/forms/styling/switch.min.js"></script>
