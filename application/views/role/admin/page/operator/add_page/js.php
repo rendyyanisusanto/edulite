@@ -1,5 +1,6 @@
 <script type="text/javascript">
-
+	$('.select').select2();
+	
 	$( "#app-submit" ).on('submit',function( e ) {
 	    e.stopImmediatePropagation();
 	    e.preventDefault();
@@ -12,23 +13,12 @@
 	        });
 	    return false;
 	});
-$(".idsiswa_fk").select2({
-		         ajax: { 
-		           url: 'ijin_siswa/get_siswa',
-		           type: "post",
-		           dataType: 'json',
-		           delay: 250,
-		           data: function (params) {
-		              return {
-		                searchTerm: params.term // search term
-		              };
-		           },
-		           processResults: function (response) {
-		              return {
-		                 results: response
-		              };
-		           },
-		           cache: true
-		         }
-		     });
+
+	$('.department').on('change', function(e){
+		e.stopImmediatePropagation();
+
+		send_ajax('kelas/get_jur', {id:$(this).val()}).then(function(data){
+			$('.divjur').html(data);
+		})
+	})
 </script>

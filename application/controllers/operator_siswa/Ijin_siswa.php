@@ -42,6 +42,9 @@ class ijin_siswa extends MY_Controller {
 		if (isset($id)) {
 				$data['param'] 		= 	$this->arr;
 				$data['ijin_siswa'] = 	$this->my_where('ijin_siswa',['id_ijin_siswa'=>$id])->row_array();
+				$data['jenis_ijin'] = 	$this->my_where('jenis_ijin', [])->result_array();
+				$data['operator'] 	= 	$this->my_where('operator', ['id_operator'=>$this->get_user_account()['anggota_id']])->result_array();
+				$data['siswa']		=	$this->my_where('siswa', ['id_siswa'=>$data['ijin_siswa']['idsiswa_fk']])->row_array();
 				$this->my_view(['role/operator_siswa/page/ijin_siswa/edit_page/index','role/operator_siswa/page/ijin_siswa/edit_page/js'],$data);
 		} else {
 			$this->get_data();
@@ -98,12 +101,11 @@ class ijin_siswa extends MY_Controller {
 	{
 		$dt = $this->arr;
 		$data=[
-			'nama'		=>	$_POST['nama'],
-			'alamat'	=> 	$_POST['alamat'],
-			'jabatan'	=>	$_POST['jabatan'],
-			'keperluan'	=>	$_POST['keperluan'],
-			'saran'		=>	$_POST['saran'],
-			'tanggal'	=>	$_POST['tanggal']
+			'idsiswa_fk'		=>	$_POST['idsiswa_fk'],
+			'tanggal'			=>	$_POST['tanggal'],
+			'idjenisijin_fk'	=>	$_POST['idjenisijin_fk'],
+			'keterangan'		=>	$_POST['keterangan'],
+			'idoperator_fk'		=>	$_POST['idoperator_fk']
 		];
 		
 		if ($this->my_update($dt['table'],$data,[$dt['id']=>$_POST[$dt['id']]])) {

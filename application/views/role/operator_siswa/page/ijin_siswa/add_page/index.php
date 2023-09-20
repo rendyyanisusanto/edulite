@@ -11,7 +11,7 @@
 	            <div class="form-group">
 	              <label class="col-lg-3 control-label">Tanggal:</label>
 	              <div class="col-lg-4">
-	                <input type="date" name="tanggal" class="form-control" required placeholder="Input here......">
+	                <input type="date" value="<?= date('Y-m-d') ?>" name="tanggal" class="form-control" required placeholder="Input here......">
 	              </div>
 	            </div>
 	            <div class="form-group">

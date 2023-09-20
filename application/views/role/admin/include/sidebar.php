@@ -212,6 +212,8 @@
       <li><a href="Mata_pelajaran/get_data" class="app-item">Mata Pelajaran</a></li>
       <li><a href="Tahun_ajaran/get_data" class="app-item">Tahun ajaran</a></li>
       <li><a href="Guru_mapel/get_data" class="app-item">Guru Mapel</a></li>
+      <li><a href="Operator/get_data" class="app-item">Operator Siswa</a></li>
+      <li><a href="Lokasi/get_data" class="app-item">Lokasi Operator Siswa</a></li>
     </ul>
   </li>
   <li>

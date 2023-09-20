@@ -1,57 +1,60 @@
 <script type="text/javascript" src="<?php echo base_url('include/ckeditor/ckeditor.js'); ?>"></script>
-
+<script src="<?php echo base_url('include/template/dashboard/')?>js/plugins/forms/selects/select2.min.js"></script>
 <form class="form-horizontal" action="<?php echo $data_get['param']['table'] ?>/update_data" id="app-submit" method="POST">
 
 <div class="row">
 	<div class="col-md-6">
 		<div class="panel panel-body">
 
-			<center><h3><b>Halaman Edit Buku Tamu</b></h3></center>
+			<center><h3><b>Halaman Tambah Ijin Siswa</b></h3></center>
 			<fieldset>
 	            <div class="form-group">
-	            	<input type="hidden" value="<?php echo $data_get['buku_tamu']['id_buku_tamu'] ?>" name="id_buku_tamu">
 	              <label class="col-lg-3 control-label">Tanggal:</label>
 	              <div class="col-lg-4">
-	                <input type="date" name="tanggal" class="form-control" value="<?php echo $data_get['buku_tamu']['tanggal'] ?>" required placeholder="Input here......">
+	                <input type="hidden" value="<?= $data_get['ijin_siswa']['id_ijin_siswa'] ?>" name="id_ijin_siswa" class="form-control" required placeholder="Input here......">
+	                <input type="date" value="<?= $data_get['ijin_siswa']['tanggal'] ?>" name="tanggal" class="form-control" required placeholder="Input here......">
 	              </div>
 	            </div>
 	            <div class="form-group">
-	              <label class="col-lg-3 control-label">Nama:</label>
+	              <label class="col-lg-3 control-label">Nama Siswa:</label>
+	              <div class="col-lg-9">
+	              	<div class="selectpemohon">
+		              	<select class="form-control idsiswa_fk" required="" name="idsiswa_fk">
+		              		<option value="<?= $data_get['ijin_siswa']['idsiswa_fk'] ?>"><?= $data_get['siswa']['nama'] ?></option>
+		              	</select>
+	              	</div>
+	              </div>
+	            </div>
+	            <div class="form-group">
+	              <label class="col-lg-3 control-label">Alasan:</label>
 	              <div class="col-lg-4">
-	                <input type="text" name="nama" class="form-control" value="<?php echo $data_get['buku_tamu']['nama'] ?>" required placeholder="Input here......">
+	                <select class="form-control" name="idjenisijin_fk">
+	                	<?php foreach ($data_get['jenis_ijin'] as $key => $value): ?>
+	                		<option <?= ($value['id_jenis_ijin'] == $data_get['ijin_siswa']['idjenisijin_fk']) ? "selected" : ""; ?> value="<?php echo $value['id_jenis_ijin'] ?>"><?php echo $value['jenis_ijin'] ?></option>
+	                	<?php endforeach ?>
+	                </select>
 	              </div>
 	            </div>
-
 	            <div class="form-group">
-	              <label class="col-lg-3 control-label">Alamat:</label>
-	              <div class="col-lg-9">
-	                <input type="text" name="alamat" class="form-control" value="<?php echo $data_get['buku_tamu']['alamat'] ?>"  required="" placeholder="Input here......">
-	              </div>
-	            </div>
-
-	            <div class="form-group">
-	              <label class="col-lg-3 control-label">Jabatan:</label>
+	              <label class="col-lg-3 control-label">Operator:</label>
 	              <div class="col-lg-4">
-	              	<input type="text" name="jabatan" class="form-control" value="<?php echo $data_get['buku_tamu']['jabatan'] ?>"  required="" placeholder="Input here......">
+	                <select class="form-control" name="idoperator_fk">
+	                	<?php foreach ($data_get['operator'] as $key => $value): ?>
+	                		<option value="<?php echo $value['id_operator'] ?>"><?php echo $value['nama'] ?></option>
+	                	<?php endforeach ?>
+	                </select>
 	              </div>
 	            </div>
 	            <div class="form-group">
-	              <label class="col-lg-3 control-label">Keperluan:</label>
+	              <label class="col-lg-3 control-label">Keterangan:</label>
 	              <div class="col-lg-9">
-	              	<textarea name="keperluan" class="form-control" required="" id="keperluan" ><?php echo $data_get['buku_tamu']['keperluan'] ?></textarea>
-	                
-	              </div>
-	            </div>
-	            <div class="form-group">
-	              <label class="col-lg-3 control-label">Saran:</label>
-	              <div class="col-lg-9">
-	              	<textarea name="saran" id="saran" class="form-control" ><?php echo $data_get['buku_tamu']['saran'] ?></textarea>
+	              	<textarea name="keterangan" id="keterangan" class="form-control" ><?= $data_get['ijin_siswa']['keterangan'] ?></textarea>
 	                
 	              </div>
 	            </div>
 	            
 				<a href="<?php echo $data_get['param']['table'] ?>/get_data" class="app-item btn btn-danger"><i class="icon-arrow-left7"></i> Kembali</a>
-	            <button class="btn btn-success" type="submit"><i class="icon-floppy-disk"></i>Simpan</button>
+	            <button class="btn btn-success" type="submit"><i class="icon-floppy-disk"></i> Simpan</button>
             </fieldset>	
 		</div>
 	</div>
