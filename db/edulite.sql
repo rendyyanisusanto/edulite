@@ -11,7 +11,7 @@
  Target Server Version : 100425
  File Encoding         : 65001
 
- Date: 11/09/2023 10:31:34
+ Date: 20/09/2023 18:55:04
 */
 
 SET NAMES utf8mb4;
@@ -302,7 +302,7 @@ CREATE TABLE `buku_pemanggilan_siswa`  (
   `kode_pemanggilan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `dokumen` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
   PRIMARY KEY (`id_buku_pemanggilan_siswa`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of buku_pemanggilan_siswa
@@ -313,6 +313,7 @@ INSERT INTO `buku_pemanggilan_siswa` VALUES (5, 745, 'Kabur dari pondok dan tida
 INSERT INTO `buku_pemanggilan_siswa` VALUES (6, 806, 'Sering tidak masuk dan mengganggu di kelas', 'Pemanggilan siswa', 'Teguran dan Surat Pernyataan', '-', NULL, '2023-09-01', 'BPS/9555101/07092023', '10cee499f5ee4c22de8ac69ff2f9f634.pdf');
 INSERT INTO `buku_pemanggilan_siswa` VALUES (7, 845, 'Mengganggu UKK', 'Pemanggilan Siswa', 'Teguran dan Surat Pernyataan', '-', NULL, '2023-05-07', 'BPS/5851212/07092023', 'd616579309ef69a2b8cb217c5c9e4828.pdf');
 INSERT INTO `buku_pemanggilan_siswa` VALUES (8, 761, 'Kabur saat jam pelajaran', 'Pemanggilan siswa', 'Teguran dan Surat Pernyataan', '-', NULL, '2023-09-07', 'BPS/7725126/07092023', 'c7e4c2a0e88d6fc95df1a7796e3edf08.pdf');
+INSERT INTO `buku_pemanggilan_siswa` VALUES (9, 774, 'Bolos & Sering Alpha', 'Pemanggilan siswa	', 'Teguran dan Surat Pernyataan	', '-', NULL, '2023-09-14', 'BPS/1130457/14092023', 'b44ab9f642a785060b4ddcabc8b42e97.pdf');
 
 -- ----------------------------
 -- Table structure for buku_tamu
@@ -346,7 +347,7 @@ CREATE TABLE `catatan_siswa`  (
   `idmapel_fk` int(11) NULL DEFAULT NULL,
   `is_tindakan` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id_catatan_siswa`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 25 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 44 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of catatan_siswa
@@ -374,6 +375,25 @@ INSERT INTO `catatan_siswa` VALUES (21, 795, 59, 43, '2023-08-12', 'Tidak mengik
 INSERT INTO `catatan_siswa` VALUES (22, 798, 59, 43, '2023-08-12', 'Tidak mengikuti pelajaran ppkn ', '', 7, 33, NULL);
 INSERT INTO `catatan_siswa` VALUES (23, 806, 59, 30, '2023-08-14', 'Sering tidak masuk', 'BK', 7, 9, NULL);
 INSERT INTO `catatan_siswa` VALUES (24, 770, 55, 40, '2023-09-09', 'tes', '', 7, 28, NULL);
+INSERT INTO `catatan_siswa` VALUES (25, 788, 59, 30, '2023-09-11', 'Aman', '', 7, 9, NULL);
+INSERT INTO `catatan_siswa` VALUES (26, 926, 52, 30, '2023-09-11', 'Amam', '', 7, 8, NULL);
+INSERT INTO `catatan_siswa` VALUES (27, 952, 67, 30, '2023-09-11', 'Jam pertama ada', '', 7, 8, NULL);
+INSERT INTO `catatan_siswa` VALUES (28, 748, 54, 31, '2023-09-12', '2 kali jam saya tidak ikut', 'WALAS', 7, 11, NULL);
+INSERT INTO `catatan_siswa` VALUES (29, 750, 54, 31, '2023-09-12', '2 kali jam saya tidak ikut', 'WALAS', 7, 11, NULL);
+INSERT INTO `catatan_siswa` VALUES (30, 751, 54, 31, '2023-09-12', '2 kali jam saya tidak ikut', 'WALAS', 7, 11, NULL);
+INSERT INTO `catatan_siswa` VALUES (31, 761, 54, 31, '2023-09-12', '2 kali jam saya tidak ikut dan sudah lama tidak ada', 'BK', 7, 11, NULL);
+INSERT INTO `catatan_siswa` VALUES (32, 745, 54, 30, '2023-09-14', 'Inkubasi', '', 7, 9, NULL);
+INSERT INTO `catatan_siswa` VALUES (33, 906, 49, 45, '2023-09-14', 'Tidak perna ikut pembelajaran PJOK ', 'WALAS', 7, 17, NULL);
+INSERT INTO `catatan_siswa` VALUES (34, 877, 61, 31, '2023-09-14', 'Izin ke kamar mandi tidak kembali', 'KESISWAAN', 7, 13, NULL);
+INSERT INTO `catatan_siswa` VALUES (35, 808, 59, 30, '2023-09-14', 'Jam pertama ada', '', 7, 9, NULL);
+INSERT INTO `catatan_siswa` VALUES (36, 951, 67, 30, '2023-09-14', 'Pulang karena sakit', '', 7, 10, NULL);
+INSERT INTO `catatan_siswa` VALUES (37, 970, 65, 30, '2023-09-14', 'Aman', 'WALAS', 7, 10, NULL);
+INSERT INTO `catatan_siswa` VALUES (38, 925, 52, 30, '2023-09-14', 'Aman', '', 7, 10, NULL);
+INSERT INTO `catatan_siswa` VALUES (39, 863, 57, 30, '2023-09-14', 'Aman', '', 7, 10, NULL);
+INSERT INTO `catatan_siswa` VALUES (40, 806, 59, 30, '2023-09-18', 'Tidak masuk lama', 'WALAS', 7, 9, NULL);
+INSERT INTO `catatan_siswa` VALUES (41, 761, 54, 31, '2023-09-19', 'Belum masuk', 'KESISWAAN', 7, 11, NULL);
+INSERT INTO `catatan_siswa` VALUES (42, 751, 54, 31, '2023-09-19', 'Pada saat saya berangkat melihat di depan pondok', 'KESISWAAN', 7, 11, NULL);
+INSERT INTO `catatan_siswa` VALUES (43, 921, 49, 31, '2023-09-20', 'Pulang terlalu lama ', 'WALAS', 7, 12, NULL);
 
 -- ----------------------------
 -- Table structure for cities
@@ -961,19 +981,84 @@ CREATE TABLE `detail_jadwal_lab`  (
   `idjadwallab_fk` int(11) NULL DEFAULT NULL,
   `idjampelajaran_fk` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id_detail_jadwal_lab`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 59 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of detail_jadwal_lab
 -- ----------------------------
-INSERT INTO `detail_jadwal_lab` VALUES (1, 3, 9);
-INSERT INTO `detail_jadwal_lab` VALUES (2, 3, 10);
-INSERT INTO `detail_jadwal_lab` VALUES (3, 4, 16);
-INSERT INTO `detail_jadwal_lab` VALUES (4, 4, 17);
-INSERT INTO `detail_jadwal_lab` VALUES (5, 5, 9);
-INSERT INTO `detail_jadwal_lab` VALUES (6, 5, 10);
-INSERT INTO `detail_jadwal_lab` VALUES (7, 6, 11);
-INSERT INTO `detail_jadwal_lab` VALUES (8, 6, 12);
+INSERT INTO `detail_jadwal_lab` VALUES (15, 8, 11);
+INSERT INTO `detail_jadwal_lab` VALUES (16, 8, 12);
+INSERT INTO `detail_jadwal_lab` VALUES (17, 9, 17);
+INSERT INTO `detail_jadwal_lab` VALUES (18, 9, 18);
+INSERT INTO `detail_jadwal_lab` VALUES (19, 9, 19);
+INSERT INTO `detail_jadwal_lab` VALUES (20, 9, 20);
+INSERT INTO `detail_jadwal_lab` VALUES (21, 10, 9);
+INSERT INTO `detail_jadwal_lab` VALUES (22, 10, 10);
+INSERT INTO `detail_jadwal_lab` VALUES (23, 11, 15);
+INSERT INTO `detail_jadwal_lab` VALUES (24, 11, 16);
+INSERT INTO `detail_jadwal_lab` VALUES (25, 11, 17);
+INSERT INTO `detail_jadwal_lab` VALUES (26, 11, 18);
+INSERT INTO `detail_jadwal_lab` VALUES (27, 12, 9);
+INSERT INTO `detail_jadwal_lab` VALUES (28, 12, 10);
+INSERT INTO `detail_jadwal_lab` VALUES (29, 12, 11);
+INSERT INTO `detail_jadwal_lab` VALUES (30, 13, 15);
+INSERT INTO `detail_jadwal_lab` VALUES (31, 13, 16);
+INSERT INTO `detail_jadwal_lab` VALUES (32, 13, 17);
+INSERT INTO `detail_jadwal_lab` VALUES (33, 13, 18);
+INSERT INTO `detail_jadwal_lab` VALUES (34, 14, 13);
+INSERT INTO `detail_jadwal_lab` VALUES (35, 14, 14);
+INSERT INTO `detail_jadwal_lab` VALUES (36, 15, 19);
+INSERT INTO `detail_jadwal_lab` VALUES (37, 15, 20);
+INSERT INTO `detail_jadwal_lab` VALUES (38, 16, 9);
+INSERT INTO `detail_jadwal_lab` VALUES (39, 16, 10);
+INSERT INTO `detail_jadwal_lab` VALUES (40, 17, 13);
+INSERT INTO `detail_jadwal_lab` VALUES (41, 17, 14);
+INSERT INTO `detail_jadwal_lab` VALUES (42, 18, 15);
+INSERT INTO `detail_jadwal_lab` VALUES (43, 18, 16);
+INSERT INTO `detail_jadwal_lab` VALUES (44, 19, 17);
+INSERT INTO `detail_jadwal_lab` VALUES (45, 19, 18);
+INSERT INTO `detail_jadwal_lab` VALUES (46, 19, 19);
+INSERT INTO `detail_jadwal_lab` VALUES (47, 19, 20);
+INSERT INTO `detail_jadwal_lab` VALUES (48, 12, 12);
+INSERT INTO `detail_jadwal_lab` VALUES (49, 20, 11);
+INSERT INTO `detail_jadwal_lab` VALUES (50, 20, 12);
+INSERT INTO `detail_jadwal_lab` VALUES (51, 20, 13);
+INSERT INTO `detail_jadwal_lab` VALUES (52, 20, 14);
+INSERT INTO `detail_jadwal_lab` VALUES (53, 21, 9);
+INSERT INTO `detail_jadwal_lab` VALUES (54, 21, 10);
+INSERT INTO `detail_jadwal_lab` VALUES (55, 22, 17);
+INSERT INTO `detail_jadwal_lab` VALUES (56, 22, 18);
+INSERT INTO `detail_jadwal_lab` VALUES (57, 22, 19);
+INSERT INTO `detail_jadwal_lab` VALUES (58, 22, 20);
+
+-- ----------------------------
+-- Table structure for detail_komponen_penggajian
+-- ----------------------------
+DROP TABLE IF EXISTS `detail_komponen_penggajian`;
+CREATE TABLE `detail_komponen_penggajian`  (
+  `id_detail_komponen_penggajian` int(11) NOT NULL AUTO_INCREMENT,
+  `idkomponenpenggajian_fk` int(11) NULL DEFAULT NULL,
+  `jumlah` decimal(20, 2) NULL DEFAULT NULL,
+  `idpenggajian_fk` int(11) NULL DEFAULT NULL,
+  `keterangan` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `sum` int(11) NULL DEFAULT NULL,
+  `total` decimal(20, 2) NULL DEFAULT NULL,
+  PRIMARY KEY (`id_detail_komponen_penggajian`) USING BTREE,
+  INDEX `idpenggajian_fk`(`idpenggajian_fk`) USING BTREE,
+  CONSTRAINT `detail_komponen_penggajian_ibfk_1` FOREIGN KEY (`idpenggajian_fk`) REFERENCES `penggajian` (`id_penggajian`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE = InnoDB AUTO_INCREMENT = 65 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of detail_komponen_penggajian
+-- ----------------------------
+INSERT INTO `detail_komponen_penggajian` VALUES (41, 1, 600000.00, 8, '', 1, 600000.00);
+INSERT INTO `detail_komponen_penggajian` VALUES (42, 2, 25000.00, 8, '', 1, 25000.00);
+INSERT INTO `detail_komponen_penggajian` VALUES (43, 3, 10000.00, 8, '', 1, 10000.00);
+INSERT INTO `detail_komponen_penggajian` VALUES (44, 4, 10000.00, 8, '', 1, 10000.00);
+INSERT INTO `detail_komponen_penggajian` VALUES (45, 5, 10000.00, 8, '', 1, 10000.00);
+INSERT INTO `detail_komponen_penggajian` VALUES (46, 6, 5000.00, 8, '', 1, 5000.00);
+INSERT INTO `detail_komponen_penggajian` VALUES (47, 7, 10000.00, 8, '', 1, 10000.00);
+INSERT INTO `detail_komponen_penggajian` VALUES (48, 8, 5000.00, 8, '', 1, 5000.00);
 
 -- ----------------------------
 -- Table structure for detail_kontrol_sarana
@@ -1087,12 +1172,12 @@ CREATE TABLE `detail_peminjaman_sarana`  (
   PRIMARY KEY (`id_detail_peminjaman_sarana`) USING BTREE,
   INDEX `idpeminjamansarana_fk`(`idpeminjamansarana_fk`) USING BTREE,
   CONSTRAINT `detail_peminjaman_sarana_ibfk_1` FOREIGN KEY (`idpeminjamansarana_fk`) REFERENCES `peminjaman_sarana` (`id_peminjaman_sarana`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 35 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 36 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of detail_peminjaman_sarana
 -- ----------------------------
-INSERT INTO `detail_peminjaman_sarana` VALUES (34, 80, 1, 'tas, laptop, cas', 7, 1);
+INSERT INTO `detail_peminjaman_sarana` VALUES (35, 96, 1, '-', 8, 1);
 
 -- ----------------------------
 -- Table structure for detail_pengeluaran_lain
@@ -1120,7 +1205,28 @@ CREATE TABLE `detail_pengembalian_sarana`  (
   PRIMARY KEY (`id_detail_pengembalian_sarana`) USING BTREE,
   INDEX `idpengembaliansarana_fk`(`idpengembaliansarana_fk`) USING BTREE,
   CONSTRAINT `detail_pengembalian_sarana_ibfk_1` FOREIGN KEY (`idpengembaliansarana_fk`) REFERENCES `pengembalian_sarana` (`id_pengembalian_sarana`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 21 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 22 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of detail_pengembalian_sarana
+-- ----------------------------
+INSERT INTO `detail_pengembalian_sarana` VALUES (21, 9, 96, 1, 1, '-');
+
+-- ----------------------------
+-- Table structure for detail_tambahan_penggajian
+-- ----------------------------
+DROP TABLE IF EXISTS `detail_tambahan_penggajian`;
+CREATE TABLE `detail_tambahan_penggajian`  (
+  `id_detail_tambahan_penggajian` int(11) NOT NULL AUTO_INCREMENT,
+  `idpenggajian_fk` int(11) NULL DEFAULT NULL,
+  `nama` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `jumlah` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `saldo` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `keterangan` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`id_detail_tambahan_penggajian`) USING BTREE,
+  INDEX `idpenggajian_fk`(`idpenggajian_fk`) USING BTREE,
+  CONSTRAINT `detail_tambahan_penggajian_ibfk_1` FOREIGN KEY (`idpenggajian_fk`) REFERENCES `penggajian` (`id_penggajian`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE = InnoDB AUTO_INCREMENT = 23 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for detail_transaksi_tanggungan_alumni
@@ -1239,7 +1345,7 @@ CREATE TABLE `groups`  (
   `name` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `description` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 14 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 16 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of groups
@@ -1257,6 +1363,8 @@ INSERT INTO `groups` VALUES (10, 'koperasi', 'Koperasi');
 INSERT INTO `groups` VALUES (11, 'ortu', 'ortu');
 INSERT INTO `groups` VALUES (12, 'bendahara', 'Bendahara');
 INSERT INTO `groups` VALUES (13, 'humas', 'Hubungan Masyarakat');
+INSERT INTO `groups` VALUES (14, 'operator_siswa', 'Ketua Kamar');
+INSERT INTO `groups` VALUES (15, 'sarpras', 'Sarana dan Prasarana');
 
 -- ----------------------------
 -- Table structure for groups_detail
@@ -1314,42 +1422,43 @@ CREATE TABLE `guru`  (
   `status_kepegawaian` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `no_taspen` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `tanggal_lahir` date NULL DEFAULT NULL,
+  `is_active` int(255) NULL DEFAULT NULL,
   PRIMARY KEY (`id_guru`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 58 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of guru
 -- ----------------------------
-INSERT INTO `guru` VALUES (28, 'Abdur Rochim, M.Pd', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Laki-laki', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'PGW5996712', '', 'PNS', '', '0000-00-00');
-INSERT INTO `guru` VALUES (29, 'Pohet Bintoto, S.Pd., M.Si', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Laki-laki', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'PGW8192257', '', 'PNS', '', '0000-00-00');
-INSERT INTO `guru` VALUES (30, 'Zein Iqbal Zarkasi, S.Pd', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Laki-laki', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'PGW894712', '', 'PNS', '', '0000-00-00');
-INSERT INTO `guru` VALUES (31, 'Avi Hendratmoko, S.Kom', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Laki-laki', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'PGW9354518', '', 'PNS', '', '0000-00-00');
-INSERT INTO `guru` VALUES (32, 'M. Maimun Muzakka, S.Kom', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Laki-laki', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'PGW3016541', '', 'PNS', '', '0000-00-00');
-INSERT INTO `guru` VALUES (33, 'Fatat Alvin D. N. S', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Perempuan', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'PGW6882702', '', 'PNS', '', '0000-00-00');
-INSERT INTO `guru` VALUES (34, 'Revita Fardiani', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Perempuan', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'PGW5401085', '', 'PNS', '', '0000-00-00');
-INSERT INTO `guru` VALUES (35, 'Ulfatul Rosyida Al Fikriyah, S.P', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Perempuan', '', 'Islam', 'WNA', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'PGW8689864', '', 'Non PNS', '', '0000-00-00');
-INSERT INTO `guru` VALUES (36, 'Nur Azizah', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Perempuan', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'PGW5280470', '', 'PNS', '', '0000-00-00');
-INSERT INTO `guru` VALUES (37, 'A. Faldiansyah Havis B.', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'toklepfaldi@gmail.com', '', 'Laki-laki', 'Malang', 'Islam', 'WNI', 'Belum Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'PGW5429429', '', 'Non PNS', '', '2002-03-13');
-INSERT INTO `guru` VALUES (38, 'Ega Kurniawan', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Laki-laki', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'PGW2366776', '', 'PNS', '', '0000-00-00');
-INSERT INTO `guru` VALUES (39, 'Nadya Anastasya Paramita, S.Or', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Perempuan', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'PGW5442651', '', 'PNS', '', '0000-00-00');
-INSERT INTO `guru` VALUES (40, 'Rendy Yani Susanto, S.Pd', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Laki-laki', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'PGW9708256', '', 'PNS', '', '0000-00-00');
-INSERT INTO `guru` VALUES (41, 'Nailatur Risqiyah, S.P', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Perempuan', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'PGW5697', '', 'PNS', '', '0000-00-00');
-INSERT INTO `guru` VALUES (42, 'Sutan Taufiq, S.Hum', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Laki-laki', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'PGW8497439', '', 'PNS', '', '0000-00-00');
-INSERT INTO `guru` VALUES (43, 'Roikhatul Uzza, S.Psi', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Perempuan', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'PGW1478040', '', 'PNS', '', '0000-00-00');
-INSERT INTO `guru` VALUES (44, 'Andiani Kristanti, S.Pd', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Perempuan', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'PGW1692037', '', 'PNS', '', '0000-00-00');
-INSERT INTO `guru` VALUES (45, 'Mohammad Nazibullah, M.Pd', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Laki-laki', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'PGW9317115', '', 'PNS', '', '0000-00-00');
-INSERT INTO `guru` VALUES (46, 'Cindy Permata Putri, S.Pd', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Perempuan', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'PGW3566202', '', 'PNS', '', '0000-00-00');
-INSERT INTO `guru` VALUES (47, 'Syamsul Arifin, S. Pd', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Laki-laki', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'PGW1367305', '', 'PNS', '', '0000-00-00');
-INSERT INTO `guru` VALUES (48, 'Saifudin Mansur, S.TP', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Laki-laki', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'PGW6187354', '', 'PNS', '', '0000-00-00');
-INSERT INTO `guru` VALUES (49, 'Faridatuz Zakiyah, S.TP', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Perempuan', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'PGW996246', '', 'PNS', '', '0000-00-00');
-INSERT INTO `guru` VALUES (50, 'Na\'ilah Fauziyah, S.Pd.,M.Pd', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Perempuan', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'PGW4860105', '', 'PNS', '', '0000-00-00');
-INSERT INTO `guru` VALUES (51, 'Ika Uswatun Hasanah, S.Pd', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Perempuan', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'PGW9258587', '', 'PNS', '', '0000-00-00');
-INSERT INTO `guru` VALUES (52, 'Ramadhani Samboga, S.Pd', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Laki-laki', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'PGW771656', '', 'PNS', '', '0000-00-00');
-INSERT INTO `guru` VALUES (53, 'Farah Rosyidah Diana, S.T', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Perempuan', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'PGW3399508', '', 'PNS', '', '0000-00-00');
-INSERT INTO `guru` VALUES (54, 'FIORENTINA RAMADHANI', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Perempuan', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'PGW9328272', '', 'PNS', '', '0000-00-00');
-INSERT INTO `guru` VALUES (55, 'Ratna Wijaya Ningrum, S.Pd', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Perempuan', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'PGW4458696', '', 'PNS', '', '0000-00-00');
-INSERT INTO `guru` VALUES (56, 'Jauhar Rosanah, S.Pd', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Perempuan', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'PGW1950614', '', 'PNS', '', '0000-00-00');
-INSERT INTO `guru` VALUES (57, 'Fajar Jatmiko, S.Sn', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Laki-laki', '', 'Islam', 'WNA', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'PGW8936871', '', 'Non PNS', '', '0000-00-00');
+INSERT INTO `guru` VALUES (28, 'Abdur Rochim, M.Pd', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Laki-laki', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'PGW5996712', '', 'PNS', '', '0000-00-00', 0);
+INSERT INTO `guru` VALUES (29, 'Pohet Bintoto, S.Pd., M.Si', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Laki-laki', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'PGW8192257', '', 'PNS', '', '0000-00-00', 1);
+INSERT INTO `guru` VALUES (30, 'Zein Iqbal Zarkasi, S.Pd', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Laki-laki', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'PGW894712', '', 'PNS', '', '0000-00-00', 1);
+INSERT INTO `guru` VALUES (31, 'Avi Hendratmoko, S.Kom', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Laki-laki', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'PGW9354518', '', 'PNS', '', '0000-00-00', 1);
+INSERT INTO `guru` VALUES (32, 'M. Maimun Muzakka, S.Kom', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Laki-laki', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'PGW3016541', '', 'PNS', '', '0000-00-00', 1);
+INSERT INTO `guru` VALUES (33, 'Fatat Alvin D. N. S', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Perempuan', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'PGW6882702', '', 'PNS', '', '0000-00-00', 0);
+INSERT INTO `guru` VALUES (34, 'Revita Fardiani', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Perempuan', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'PGW5401085', '', 'PNS', '', '0000-00-00', 0);
+INSERT INTO `guru` VALUES (35, 'Ulfatul Rosyida Al Fikriyah, S.P', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Perempuan', '', 'Islam', 'WNA', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'PGW8689864', '', 'Non PNS', '', '0000-00-00', 1);
+INSERT INTO `guru` VALUES (36, 'Nur Azizah', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Perempuan', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'PGW5280470', '', 'PNS', '', '0000-00-00', 0);
+INSERT INTO `guru` VALUES (37, 'A. Faldiansyah Havis B.', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'toklepfaldi@gmail.com', '', 'Laki-laki', 'Malang', 'Islam', 'WNI', 'Belum Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'PGW5429429', '', 'Non PNS', '', '2002-03-13', 1);
+INSERT INTO `guru` VALUES (38, 'Ega Kurniawan', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Laki-laki', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'PGW2366776', '', 'PNS', '', '0000-00-00', 1);
+INSERT INTO `guru` VALUES (39, 'Nadya Anastasya Paramita, S.Or', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Perempuan', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'PGW5442651', '', 'PNS', '', '0000-00-00', 1);
+INSERT INTO `guru` VALUES (40, 'Rendy Yani Susanto, S.Pd', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Laki-laki', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'PGW9708256', '', 'PNS', '', '0000-00-00', 1);
+INSERT INTO `guru` VALUES (41, 'Nailatur Risqiyah, S.P', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Perempuan', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'PGW5697', '', 'PNS', '', '0000-00-00', 1);
+INSERT INTO `guru` VALUES (42, 'Sutan Taufiq, S.Hum', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Laki-laki', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'PGW8497439', '', 'PNS', '', '0000-00-00', 1);
+INSERT INTO `guru` VALUES (43, 'Roikhatul Uzza, S.Psi', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Perempuan', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'PGW1478040', '', 'PNS', '', '0000-00-00', 1);
+INSERT INTO `guru` VALUES (44, 'Andiani Kristanti, S.Pd', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Perempuan', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'PGW1692037', '', 'PNS', '', '0000-00-00', 1);
+INSERT INTO `guru` VALUES (45, 'Mohammad Nazibullah, M.Pd', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Laki-laki', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'PGW9317115', '', 'PNS', '', '0000-00-00', 1);
+INSERT INTO `guru` VALUES (46, 'Cindy Permata Putri, S.Pd', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Perempuan', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'PGW3566202', '', 'PNS', '', '0000-00-00', 1);
+INSERT INTO `guru` VALUES (47, 'Syamsul Arifin, S. Pd', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Laki-laki', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'PGW1367305', '', 'PNS', '', '0000-00-00', 1);
+INSERT INTO `guru` VALUES (48, 'Saifudin Mansur, S.TP', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Laki-laki', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'PGW6187354', '', 'PNS', '', '0000-00-00', 1);
+INSERT INTO `guru` VALUES (49, 'Faridatuz Zakiyah, S.TP', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Perempuan', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'PGW996246', '', 'PNS', '', '0000-00-00', 1);
+INSERT INTO `guru` VALUES (50, 'Na\'ilah Fauziyah, S.Pd.,M.Pd', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Perempuan', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'PGW4860105', '', 'PNS', '', '0000-00-00', 1);
+INSERT INTO `guru` VALUES (51, 'Ika Uswatun Hasanah, S.Pd', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Perempuan', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'PGW9258587', '', 'PNS', '', '0000-00-00', 1);
+INSERT INTO `guru` VALUES (52, 'Ramadhani Samboga, S.Pd', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Laki-laki', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'PGW771656', '', 'PNS', '', '0000-00-00', 0);
+INSERT INTO `guru` VALUES (53, 'Farah Rosyidah Diana, S.T', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Perempuan', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'PGW3399508', '', 'PNS', '', '0000-00-00', 1);
+INSERT INTO `guru` VALUES (54, 'FIORENTINA RAMADHANI', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Perempuan', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'PGW9328272', '', 'PNS', '', '0000-00-00', 1);
+INSERT INTO `guru` VALUES (55, 'Ratna Wijaya Ningrum, S.Pd', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Perempuan', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'PGW4458696', '', 'PNS', '', '0000-00-00', 1);
+INSERT INTO `guru` VALUES (56, 'Jauhar Rosanah, S.Pd', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Perempuan', '', 'Islam', 'WNI', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'PGW1950614', '', 'PNS', '', '0000-00-00', 1);
+INSERT INTO `guru` VALUES (57, 'Fajar Jatmiko, S.Sn', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', 'Laki-laki', '', 'Islam', 'WNA', 'Kawin', 'Rumah Pribadi', 0, 0, 0, 'A', '', '', '', '0000-00-00', '', '', '', 'PGW8936871', '', 'Non PNS', '', '0000-00-00', 1);
 
 -- ----------------------------
 -- Table structure for guru_mapel
@@ -1367,7 +1476,7 @@ CREATE TABLE `guru_mapel`  (
   INDEX `idmapel_fk`(`idmapel_fk`) USING BTREE,
   CONSTRAINT `guru_mapel_ibfk_1` FOREIGN KEY (`idguru_fk`) REFERENCES `guru` (`id_guru`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `guru_mapel_ibfk_2` FOREIGN KEY (`idmapel_fk`) REFERENCES `mata_pelajaran` (`id_mata_pelajaran`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 318 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 337 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of guru_mapel
@@ -1447,7 +1556,6 @@ INSERT INTO `guru_mapel` VALUES (194, 42, 32, 7, 67, NULL);
 INSERT INTO `guru_mapel` VALUES (195, 46, 19, 7, 54, NULL);
 INSERT INTO `guru_mapel` VALUES (196, 42, 32, 7, 60, NULL);
 INSERT INTO `guru_mapel` VALUES (197, 30, 9, 7, 60, NULL);
-INSERT INTO `guru_mapel` VALUES (198, 52, 13, 7, 54, NULL);
 INSERT INTO `guru_mapel` VALUES (199, 43, 19, 7, 67, NULL);
 INSERT INTO `guru_mapel` VALUES (200, 53, 7, 7, 60, NULL);
 INSERT INTO `guru_mapel` VALUES (201, 43, 33, 7, 67, NULL);
@@ -1567,6 +1675,25 @@ INSERT INTO `guru_mapel` VALUES (314, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `guru_mapel` VALUES (315, 56, 30, 7, 56, NULL);
 INSERT INTO `guru_mapel` VALUES (316, 56, 30, 7, 57, NULL);
 INSERT INTO `guru_mapel` VALUES (317, 56, 13, 7, 57, NULL);
+INSERT INTO `guru_mapel` VALUES (318, 56, 13, 7, 54, NULL);
+INSERT INTO `guru_mapel` VALUES (319, 56, 13, 7, 56, NULL);
+INSERT INTO `guru_mapel` VALUES (320, 57, 14, 7, 56, NULL);
+INSERT INTO `guru_mapel` VALUES (321, 57, 14, 7, 57, NULL);
+INSERT INTO `guru_mapel` VALUES (322, 57, 14, 7, 66, NULL);
+INSERT INTO `guru_mapel` VALUES (323, 57, 14, 7, 61, NULL);
+INSERT INTO `guru_mapel` VALUES (324, 55, 7, 7, 56, NULL);
+INSERT INTO `guru_mapel` VALUES (325, 55, 7, 7, 58, NULL);
+INSERT INTO `guru_mapel` VALUES (326, 55, 7, 7, 57, NULL);
+INSERT INTO `guru_mapel` VALUES (327, 55, 7, 7, 65, NULL);
+INSERT INTO `guru_mapel` VALUES (328, 55, 7, 7, 54, NULL);
+INSERT INTO `guru_mapel` VALUES (329, 55, 7, 7, 51, NULL);
+INSERT INTO `guru_mapel` VALUES (330, 55, 7, 7, 53, NULL);
+INSERT INTO `guru_mapel` VALUES (331, 55, 7, 7, 52, NULL);
+INSERT INTO `guru_mapel` VALUES (332, 55, 7, 7, 67, NULL);
+INSERT INTO `guru_mapel` VALUES (333, 55, 7, 7, 49, NULL);
+INSERT INTO `guru_mapel` VALUES (334, 53, 20, 7, 67, NULL);
+INSERT INTO `guru_mapel` VALUES (335, 31, 13, 7, 54, NULL);
+INSERT INTO `guru_mapel` VALUES (336, 43, 19, 7, 55, NULL);
 
 -- ----------------------------
 -- Table structure for hari
@@ -1601,6 +1728,28 @@ CREATE TABLE `hobi_pegawai`  (
   `kapan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_hobi_pegawai`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for ijin_siswa
+-- ----------------------------
+DROP TABLE IF EXISTS `ijin_siswa`;
+CREATE TABLE `ijin_siswa`  (
+  `id_ijin_siswa` int(11) NOT NULL AUTO_INCREMENT,
+  `idsiswa_fk` int(11) NULL DEFAULT NULL,
+  `tanggal` date NULL DEFAULT NULL,
+  `idjenisijin_fk` int(11) NULL DEFAULT NULL,
+  `keterangan` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
+  `create_at` timestamp(0) NULL DEFAULT current_timestamp(),
+  `idoperator_fk` int(11) NULL DEFAULT NULL,
+  PRIMARY KEY (`id_ijin_siswa`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of ijin_siswa
+-- ----------------------------
+INSERT INTO `ijin_siswa` VALUES (2, 745, '2023-09-13', 1, 'panas', '2023-09-13 10:36:57', 1);
+INSERT INTO `ijin_siswa` VALUES (3, 793, '2023-09-15', 3, 'Keperluan keluarga', '2023-09-15 09:10:47', 1);
+INSERT INTO `ijin_siswa` VALUES (4, 746, '2023-09-19', 1, 'ad', '2023-09-19 09:23:23', 1);
 
 -- ----------------------------
 -- Table structure for induk_akun
@@ -1930,16 +2079,26 @@ CREATE TABLE `jadwal_lab`  (
   `tanggal` date NULL DEFAULT NULL,
   `kode` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
   PRIMARY KEY (`id_jadwal_lab`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 23 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of jadwal_lab
 -- ----------------------------
-INSERT INTO `jadwal_lab` VALUES (2, 49, 9, 11, 8, 'Belajar matematika', 2, 46, '2023-07-25', NULL);
-INSERT INTO `jadwal_lab` VALUES (3, 49, NULL, NULL, 8, 'ds', 0, 40, '2023-08-04', '605481');
-INSERT INTO `jadwal_lab` VALUES (4, 53, NULL, NULL, 7, 'rw', 0, 40, '2023-08-03', '129305');
-INSERT INTO `jadwal_lab` VALUES (5, 54, NULL, NULL, 10, 'ujian harian 1', 0, 46, '2023-08-07', '267009');
-INSERT INTO `jadwal_lab` VALUES (6, 54, NULL, NULL, 8, '', 0, 40, '2023-08-07', '75695');
+INSERT INTO `jadwal_lab` VALUES (8, 55, NULL, NULL, 9, 'Butuh MS Office', 1, 30, '2023-09-20', '713873');
+INSERT INTO `jadwal_lab` VALUES (9, 66, NULL, NULL, 9, 'Persiapan PTS', 1, 30, '2023-09-20', '888184');
+INSERT INTO `jadwal_lab` VALUES (10, 61, NULL, NULL, 9, '', 1, 50, '2023-09-20', '875555');
+INSERT INTO `jadwal_lab` VALUES (11, 58, NULL, NULL, 9, '', 0, 50, '2023-09-22', '234971');
+INSERT INTO `jadwal_lab` VALUES (12, 56, NULL, NULL, 9, '', 1, 50, '2023-09-21', '732369');
+INSERT INTO `jadwal_lab` VALUES (13, 66, NULL, NULL, 14, '', 0, 56, '2023-09-22', '854786');
+INSERT INTO `jadwal_lab` VALUES (14, 54, NULL, NULL, 35, 'Ekstrakurikuler Desain', 1, 56, '2023-09-22', '242074');
+INSERT INTO `jadwal_lab` VALUES (15, 50, NULL, NULL, 35, 'Ekstrakurikuler Desain Putri', 1, 56, '2023-09-22', '702678');
+INSERT INTO `jadwal_lab` VALUES (16, 56, NULL, NULL, 13, '', 0, 56, '2023-09-23', '553406');
+INSERT INTO `jadwal_lab` VALUES (17, 56, NULL, NULL, 30, '', 0, 56, '2023-09-23', '528235');
+INSERT INTO `jadwal_lab` VALUES (18, 57, NULL, NULL, 30, '', 0, 56, '2023-09-23', '887798');
+INSERT INTO `jadwal_lab` VALUES (19, 57, NULL, NULL, 13, '', 0, 56, '2023-09-23', '966669');
+INSERT INTO `jadwal_lab` VALUES (20, 61, NULL, NULL, 14, '', 0, 57, '2023-09-23', '277961');
+INSERT INTO `jadwal_lab` VALUES (21, 61, NULL, NULL, 9, '', 0, 50, '2023-09-23', '406930');
+INSERT INTO `jadwal_lab` VALUES (22, 66, NULL, NULL, 14, 'KK DKV', 0, 57, '2023-09-23', '709179');
 
 -- ----------------------------
 -- Table structure for jadwal_pelajaran
@@ -1951,7 +2110,7 @@ CREATE TABLE `jadwal_pelajaran`  (
   `idhari_fk` int(11) NULL DEFAULT NULL,
   `idjampelajaran_fk` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id_jadwal_pelajaran`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1003 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1007 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of jadwal_pelajaran
@@ -1987,9 +2146,9 @@ INSERT INTO `jadwal_pelajaran` VALUES (468, 149, 5, 12);
 INSERT INTO `jadwal_pelajaran` VALUES (469, 150, 6, 9);
 INSERT INTO `jadwal_pelajaran` VALUES (470, 150, 6, 10);
 INSERT INTO `jadwal_pelajaran` VALUES (471, 150, 6, 11);
-INSERT INTO `jadwal_pelajaran` VALUES (472, 151, 6, 12);
-INSERT INTO `jadwal_pelajaran` VALUES (473, 151, 6, 13);
-INSERT INTO `jadwal_pelajaran` VALUES (474, 151, 6, 14);
+INSERT INTO `jadwal_pelajaran` VALUES (472, 333, 6, 12);
+INSERT INTO `jadwal_pelajaran` VALUES (473, 333, 6, 13);
+INSERT INTO `jadwal_pelajaran` VALUES (474, 333, 6, 14);
 INSERT INTO `jadwal_pelajaran` VALUES (475, 152, 1, 9);
 INSERT INTO `jadwal_pelajaran` VALUES (476, 152, 1, 10);
 INSERT INTO `jadwal_pelajaran` VALUES (477, 153, 1, 11);
@@ -2011,9 +2170,9 @@ INSERT INTO `jadwal_pelajaran` VALUES (492, 158, 3, 14);
 INSERT INTO `jadwal_pelajaran` VALUES (493, 160, 4, 9);
 INSERT INTO `jadwal_pelajaran` VALUES (494, 160, 4, 10);
 INSERT INTO `jadwal_pelajaran` VALUES (495, 160, 4, 11);
-INSERT INTO `jadwal_pelajaran` VALUES (496, 161, 4, 12);
-INSERT INTO `jadwal_pelajaran` VALUES (497, 161, 4, 13);
-INSERT INTO `jadwal_pelajaran` VALUES (498, 161, 4, 14);
+INSERT INTO `jadwal_pelajaran` VALUES (496, 330, 4, 12);
+INSERT INTO `jadwal_pelajaran` VALUES (497, 330, 4, 13);
+INSERT INTO `jadwal_pelajaran` VALUES (498, 330, 4, 14);
 INSERT INTO `jadwal_pelajaran` VALUES (499, 162, 5, 9);
 INSERT INTO `jadwal_pelajaran` VALUES (500, 162, 5, 10);
 INSERT INTO `jadwal_pelajaran` VALUES (501, 162, 5, 11);
@@ -2039,12 +2198,12 @@ INSERT INTO `jadwal_pelajaran` VALUES (520, 175, 2, 14);
 INSERT INTO `jadwal_pelajaran` VALUES (521, 178, 3, 9);
 INSERT INTO `jadwal_pelajaran` VALUES (522, 178, 3, 10);
 INSERT INTO `jadwal_pelajaran` VALUES (523, 178, 3, 11);
-INSERT INTO `jadwal_pelajaran` VALUES (527, 180, 3, 12);
-INSERT INTO `jadwal_pelajaran` VALUES (528, 180, 3, 13);
-INSERT INTO `jadwal_pelajaran` VALUES (529, 180, 3, 14);
-INSERT INTO `jadwal_pelajaran` VALUES (530, 181, 4, 9);
-INSERT INTO `jadwal_pelajaran` VALUES (531, 181, 4, 10);
-INSERT INTO `jadwal_pelajaran` VALUES (532, 181, 4, 11);
+INSERT INTO `jadwal_pelajaran` VALUES (527, 312, 3, 12);
+INSERT INTO `jadwal_pelajaran` VALUES (528, 312, 3, 13);
+INSERT INTO `jadwal_pelajaran` VALUES (529, 312, 3, 14);
+INSERT INTO `jadwal_pelajaran` VALUES (530, 329, 4, 9);
+INSERT INTO `jadwal_pelajaran` VALUES (531, 329, 4, 10);
+INSERT INTO `jadwal_pelajaran` VALUES (532, 329, 4, 11);
 INSERT INTO `jadwal_pelajaran` VALUES (533, 182, 4, 12);
 INSERT INTO `jadwal_pelajaran` VALUES (534, 182, 4, 13);
 INSERT INTO `jadwal_pelajaran` VALUES (535, 182, 4, 14);
@@ -2070,9 +2229,9 @@ INSERT INTO `jadwal_pelajaran` VALUES (556, 126, 2, 11);
 INSERT INTO `jadwal_pelajaran` VALUES (557, 126, 2, 12);
 INSERT INTO `jadwal_pelajaran` VALUES (558, 126, 2, 13);
 INSERT INTO `jadwal_pelajaran` VALUES (559, 126, 2, 14);
-INSERT INTO `jadwal_pelajaran` VALUES (560, 191, 3, 9);
-INSERT INTO `jadwal_pelajaran` VALUES (561, 191, 3, 10);
-INSERT INTO `jadwal_pelajaran` VALUES (562, 191, 3, 11);
+INSERT INTO `jadwal_pelajaran` VALUES (560, 328, 3, 9);
+INSERT INTO `jadwal_pelajaran` VALUES (561, 328, 3, 10);
+INSERT INTO `jadwal_pelajaran` VALUES (562, 328, 3, 11);
 INSERT INTO `jadwal_pelajaran` VALUES (563, 192, 3, 12);
 INSERT INTO `jadwal_pelajaran` VALUES (564, 192, 3, 13);
 INSERT INTO `jadwal_pelajaran` VALUES (565, 192, 3, 14);
@@ -2086,12 +2245,12 @@ INSERT INTO `jadwal_pelajaran` VALUES (572, 198, 5, 9);
 INSERT INTO `jadwal_pelajaran` VALUES (573, 198, 5, 10);
 INSERT INTO `jadwal_pelajaran` VALUES (574, 198, 5, 11);
 INSERT INTO `jadwal_pelajaran` VALUES (575, 198, 5, 12);
-INSERT INTO `jadwal_pelajaran` VALUES (576, 209, 6, 9);
-INSERT INTO `jadwal_pelajaran` VALUES (577, 209, 6, 10);
+INSERT INTO `jadwal_pelajaran` VALUES (576, 212, 6, 9);
+INSERT INTO `jadwal_pelajaran` VALUES (577, 212, 6, 10);
 INSERT INTO `jadwal_pelajaran` VALUES (578, 209, 6, 11);
 INSERT INTO `jadwal_pelajaran` VALUES (579, 209, 6, 12);
-INSERT INTO `jadwal_pelajaran` VALUES (580, 212, 6, 13);
-INSERT INTO `jadwal_pelajaran` VALUES (581, 212, 6, 14);
+INSERT INTO `jadwal_pelajaran` VALUES (580, 209, 6, 13);
+INSERT INTO `jadwal_pelajaran` VALUES (581, 209, 6, 14);
 INSERT INTO `jadwal_pelajaran` VALUES (582, 220, 1, 9);
 INSERT INTO `jadwal_pelajaran` VALUES (583, 220, 1, 10);
 INSERT INTO `jadwal_pelajaran` VALUES (584, 122, 1, 11);
@@ -2116,28 +2275,28 @@ INSERT INTO `jadwal_pelajaran` VALUES (602, 223, 4, 11);
 INSERT INTO `jadwal_pelajaran` VALUES (603, 233, 4, 12);
 INSERT INTO `jadwal_pelajaran` VALUES (604, 233, 4, 13);
 INSERT INTO `jadwal_pelajaran` VALUES (605, 233, 4, 14);
-INSERT INTO `jadwal_pelajaran` VALUES (606, 235, 5, 9);
-INSERT INTO `jadwal_pelajaran` VALUES (607, 235, 5, 10);
+INSERT INTO `jadwal_pelajaran` VALUES (606, 336, 5, 9);
+INSERT INTO `jadwal_pelajaran` VALUES (607, 336, 5, 10);
 INSERT INTO `jadwal_pelajaran` VALUES (608, 236, 5, 11);
 INSERT INTO `jadwal_pelajaran` VALUES (609, 236, 5, 12);
-INSERT INTO `jadwal_pelajaran` VALUES (610, 238, 6, 9);
-INSERT INTO `jadwal_pelajaran` VALUES (611, 238, 6, 10);
+INSERT INTO `jadwal_pelajaran` VALUES (610, 240, 6, 9);
+INSERT INTO `jadwal_pelajaran` VALUES (611, 240, 6, 10);
 INSERT INTO `jadwal_pelajaran` VALUES (612, 238, 6, 11);
 INSERT INTO `jadwal_pelajaran` VALUES (613, 238, 6, 12);
-INSERT INTO `jadwal_pelajaran` VALUES (614, 240, 6, 13);
-INSERT INTO `jadwal_pelajaran` VALUES (615, 240, 6, 14);
-INSERT INTO `jadwal_pelajaran` VALUES (616, 241, 1, 9);
-INSERT INTO `jadwal_pelajaran` VALUES (617, 241, 1, 10);
-INSERT INTO `jadwal_pelajaran` VALUES (618, 241, 1, 11);
+INSERT INTO `jadwal_pelajaran` VALUES (614, 238, 6, 13);
+INSERT INTO `jadwal_pelajaran` VALUES (615, 238, 6, 14);
+INSERT INTO `jadwal_pelajaran` VALUES (616, 320, 1, 9);
+INSERT INTO `jadwal_pelajaran` VALUES (617, 320, 1, 10);
+INSERT INTO `jadwal_pelajaran` VALUES (618, 320, 1, 11);
 INSERT INTO `jadwal_pelajaran` VALUES (619, 242, 1, 12);
 INSERT INTO `jadwal_pelajaran` VALUES (620, 242, 1, 13);
 INSERT INTO `jadwal_pelajaran` VALUES (621, 242, 1, 14);
-INSERT INTO `jadwal_pelajaran` VALUES (622, 243, 2, 9);
-INSERT INTO `jadwal_pelajaran` VALUES (623, 243, 2, 10);
-INSERT INTO `jadwal_pelajaran` VALUES (624, 243, 2, 11);
-INSERT INTO `jadwal_pelajaran` VALUES (625, 244, 2, 12);
-INSERT INTO `jadwal_pelajaran` VALUES (626, 244, 2, 13);
-INSERT INTO `jadwal_pelajaran` VALUES (627, 244, 2, 14);
+INSERT INTO `jadwal_pelajaran` VALUES (622, 324, 2, 9);
+INSERT INTO `jadwal_pelajaran` VALUES (623, 324, 2, 10);
+INSERT INTO `jadwal_pelajaran` VALUES (624, 324, 2, 11);
+INSERT INTO `jadwal_pelajaran` VALUES (625, 310, 2, 12);
+INSERT INTO `jadwal_pelajaran` VALUES (626, 310, 2, 13);
+INSERT INTO `jadwal_pelajaran` VALUES (627, 310, 2, 14);
 INSERT INTO `jadwal_pelajaran` VALUES (628, 245, 3, 9);
 INSERT INTO `jadwal_pelajaran` VALUES (629, 245, 3, 10);
 INSERT INTO `jadwal_pelajaran` VALUES (630, 246, 3, 11);
@@ -2154,12 +2313,12 @@ INSERT INTO `jadwal_pelajaran` VALUES (640, 252, 5, 9);
 INSERT INTO `jadwal_pelajaran` VALUES (641, 252, 5, 10);
 INSERT INTO `jadwal_pelajaran` VALUES (642, 253, 5, 11);
 INSERT INTO `jadwal_pelajaran` VALUES (643, 253, 5, 12);
-INSERT INTO `jadwal_pelajaran` VALUES (644, 256, 6, 9);
-INSERT INTO `jadwal_pelajaran` VALUES (645, 256, 6, 10);
-INSERT INTO `jadwal_pelajaran` VALUES (646, 256, 6, 11);
-INSERT INTO `jadwal_pelajaran` VALUES (647, 256, 6, 12);
-INSERT INTO `jadwal_pelajaran` VALUES (648, 257, 6, 13);
-INSERT INTO `jadwal_pelajaran` VALUES (649, 257, 6, 14);
+INSERT INTO `jadwal_pelajaran` VALUES (644, 319, 6, 9);
+INSERT INTO `jadwal_pelajaran` VALUES (645, 319, 6, 10);
+INSERT INTO `jadwal_pelajaran` VALUES (646, 319, 6, 11);
+INSERT INTO `jadwal_pelajaran` VALUES (647, 319, 6, 12);
+INSERT INTO `jadwal_pelajaran` VALUES (648, 315, 6, 13);
+INSERT INTO `jadwal_pelajaran` VALUES (649, 315, 6, 14);
 INSERT INTO `jadwal_pelajaran` VALUES (650, 129, 1, 9);
 INSERT INTO `jadwal_pelajaran` VALUES (651, 129, 1, 10);
 INSERT INTO `jadwal_pelajaran` VALUES (652, 261, 1, 11);
@@ -2194,10 +2353,10 @@ INSERT INTO `jadwal_pelajaran` VALUES (680, 270, 6, 11);
 INSERT INTO `jadwal_pelajaran` VALUES (681, 270, 6, 12);
 INSERT INTO `jadwal_pelajaran` VALUES (682, 124, 6, 13);
 INSERT INTO `jadwal_pelajaran` VALUES (683, 124, 6, 14);
-INSERT INTO `jadwal_pelajaran` VALUES (684, 271, 1, 9);
-INSERT INTO `jadwal_pelajaran` VALUES (685, 271, 1, 10);
-INSERT INTO `jadwal_pelajaran` VALUES (686, 271, 1, 11);
-INSERT INTO `jadwal_pelajaran` VALUES (687, 271, 1, 12);
+INSERT INTO `jadwal_pelajaran` VALUES (684, 308, 1, 9);
+INSERT INTO `jadwal_pelajaran` VALUES (685, 308, 1, 10);
+INSERT INTO `jadwal_pelajaran` VALUES (686, 308, 1, 11);
+INSERT INTO `jadwal_pelajaran` VALUES (687, 308, 1, 12);
 INSERT INTO `jadwal_pelajaran` VALUES (688, 272, 1, 13);
 INSERT INTO `jadwal_pelajaran` VALUES (689, 272, 1, 14);
 INSERT INTO `jadwal_pelajaran` VALUES (690, 273, 2, 9);
@@ -2224,13 +2383,13 @@ INSERT INTO `jadwal_pelajaran` VALUES (710, 281, 5, 11);
 INSERT INTO `jadwal_pelajaran` VALUES (711, 281, 5, 12);
 INSERT INTO `jadwal_pelajaran` VALUES (712, 276, 6, 9);
 INSERT INTO `jadwal_pelajaran` VALUES (713, 276, 6, 10);
-INSERT INTO `jadwal_pelajaran` VALUES (714, 285, 6, 11);
-INSERT INTO `jadwal_pelajaran` VALUES (715, 285, 6, 12);
-INSERT INTO `jadwal_pelajaran` VALUES (716, 285, 6, 13);
-INSERT INTO `jadwal_pelajaran` VALUES (717, 285, 6, 14);
-INSERT INTO `jadwal_pelajaran` VALUES (718, 159, 1, 15);
-INSERT INTO `jadwal_pelajaran` VALUES (719, 159, 1, 16);
-INSERT INTO `jadwal_pelajaran` VALUES (720, 159, 1, 17);
+INSERT INTO `jadwal_pelajaran` VALUES (714, 323, 6, 11);
+INSERT INTO `jadwal_pelajaran` VALUES (715, 323, 6, 12);
+INSERT INTO `jadwal_pelajaran` VALUES (716, 323, 6, 13);
+INSERT INTO `jadwal_pelajaran` VALUES (717, 323, 6, 14);
+INSERT INTO `jadwal_pelajaran` VALUES (718, 309, 1, 15);
+INSERT INTO `jadwal_pelajaran` VALUES (719, 309, 1, 16);
+INSERT INTO `jadwal_pelajaran` VALUES (720, 309, 1, 17);
 INSERT INTO `jadwal_pelajaran` VALUES (721, 131, 1, 18);
 INSERT INTO `jadwal_pelajaran` VALUES (722, 131, 1, 19);
 INSERT INTO `jadwal_pelajaran` VALUES (723, 131, 1, 20);
@@ -2243,12 +2402,12 @@ INSERT INTO `jadwal_pelajaran` VALUES (729, 166, 2, 20);
 INSERT INTO `jadwal_pelajaran` VALUES (730, 168, 3, 15);
 INSERT INTO `jadwal_pelajaran` VALUES (731, 168, 3, 16);
 INSERT INTO `jadwal_pelajaran` VALUES (732, 168, 3, 17);
-INSERT INTO `jadwal_pelajaran` VALUES (733, 159, 3, 18);
-INSERT INTO `jadwal_pelajaran` VALUES (734, 159, 3, 19);
-INSERT INTO `jadwal_pelajaran` VALUES (735, 159, 3, 20);
-INSERT INTO `jadwal_pelajaran` VALUES (736, 169, 4, 15);
-INSERT INTO `jadwal_pelajaran` VALUES (737, 169, 4, 16);
-INSERT INTO `jadwal_pelajaran` VALUES (738, 169, 4, 17);
+INSERT INTO `jadwal_pelajaran` VALUES (733, 309, 3, 18);
+INSERT INTO `jadwal_pelajaran` VALUES (734, 309, 3, 19);
+INSERT INTO `jadwal_pelajaran` VALUES (735, 309, 3, 20);
+INSERT INTO `jadwal_pelajaran` VALUES (736, 331, 4, 15);
+INSERT INTO `jadwal_pelajaran` VALUES (737, 331, 4, 16);
+INSERT INTO `jadwal_pelajaran` VALUES (738, 331, 4, 17);
 INSERT INTO `jadwal_pelajaran` VALUES (739, 171, 4, 18);
 INSERT INTO `jadwal_pelajaran` VALUES (740, 171, 4, 19);
 INSERT INTO `jadwal_pelajaran` VALUES (741, 171, 4, 20);
@@ -2277,12 +2436,12 @@ INSERT INTO `jadwal_pelajaran` VALUES (763, 201, 2, 20);
 INSERT INTO `jadwal_pelajaran` VALUES (764, 204, 3, 15);
 INSERT INTO `jadwal_pelajaran` VALUES (765, 204, 3, 16);
 INSERT INTO `jadwal_pelajaran` VALUES (766, 204, 3, 17);
-INSERT INTO `jadwal_pelajaran` VALUES (767, 193, 3, 18);
-INSERT INTO `jadwal_pelajaran` VALUES (768, 193, 3, 19);
-INSERT INTO `jadwal_pelajaran` VALUES (769, 193, 3, 20);
-INSERT INTO `jadwal_pelajaran` VALUES (770, 205, 4, 15);
-INSERT INTO `jadwal_pelajaran` VALUES (771, 205, 4, 16);
-INSERT INTO `jadwal_pelajaran` VALUES (772, 205, 4, 17);
+INSERT INTO `jadwal_pelajaran` VALUES (767, 334, 3, 18);
+INSERT INTO `jadwal_pelajaran` VALUES (768, 334, 3, 19);
+INSERT INTO `jadwal_pelajaran` VALUES (769, 334, 3, 20);
+INSERT INTO `jadwal_pelajaran` VALUES (770, 332, 4, 15);
+INSERT INTO `jadwal_pelajaran` VALUES (771, 332, 4, 16);
+INSERT INTO `jadwal_pelajaran` VALUES (772, 332, 4, 17);
 INSERT INTO `jadwal_pelajaran` VALUES (773, 207, 4, 18);
 INSERT INTO `jadwal_pelajaran` VALUES (774, 207, 4, 19);
 INSERT INTO `jadwal_pelajaran` VALUES (775, 207, 4, 20);
@@ -2299,9 +2458,9 @@ INSERT INTO `jadwal_pelajaran` VALUES (785, 224, 6, 20);
 INSERT INTO `jadwal_pelajaran` VALUES (790, 232, 1, 15);
 INSERT INTO `jadwal_pelajaran` VALUES (791, 232, 1, 16);
 INSERT INTO `jadwal_pelajaran` VALUES (793, 232, 1, 17);
-INSERT INTO `jadwal_pelajaran` VALUES (794, 247, 1, 18);
-INSERT INTO `jadwal_pelajaran` VALUES (795, 247, 1, 19);
-INSERT INTO `jadwal_pelajaran` VALUES (796, 247, 1, 20);
+INSERT INTO `jadwal_pelajaran` VALUES (794, 249, 1, 18);
+INSERT INTO `jadwal_pelajaran` VALUES (795, 249, 1, 19);
+INSERT INTO `jadwal_pelajaran` VALUES (796, 249, 1, 20);
 INSERT INTO `jadwal_pelajaran` VALUES (797, 249, 2, 15);
 INSERT INTO `jadwal_pelajaran` VALUES (798, 249, 2, 16);
 INSERT INTO `jadwal_pelajaran` VALUES (799, 249, 2, 17);
@@ -2331,15 +2490,15 @@ INSERT INTO `jadwal_pelajaran` VALUES (824, 267, 6, 20);
 INSERT INTO `jadwal_pelajaran` VALUES (825, 275, 1, 15);
 INSERT INTO `jadwal_pelajaran` VALUES (826, 275, 1, 16);
 INSERT INTO `jadwal_pelajaran` VALUES (827, 275, 1, 17);
-INSERT INTO `jadwal_pelajaran` VALUES (828, 277, 1, 18);
-INSERT INTO `jadwal_pelajaran` VALUES (829, 277, 1, 19);
-INSERT INTO `jadwal_pelajaran` VALUES (830, 277, 1, 20);
-INSERT INTO `jadwal_pelajaran` VALUES (831, 279, 2, 15);
-INSERT INTO `jadwal_pelajaran` VALUES (832, 279, 2, 16);
-INSERT INTO `jadwal_pelajaran` VALUES (833, 279, 2, 17);
-INSERT INTO `jadwal_pelajaran` VALUES (834, 282, 2, 18);
-INSERT INTO `jadwal_pelajaran` VALUES (835, 282, 2, 19);
-INSERT INTO `jadwal_pelajaran` VALUES (836, 282, 2, 20);
+INSERT INTO `jadwal_pelajaran` VALUES (828, 321, 1, 18);
+INSERT INTO `jadwal_pelajaran` VALUES (829, 321, 1, 19);
+INSERT INTO `jadwal_pelajaran` VALUES (830, 321, 1, 20);
+INSERT INTO `jadwal_pelajaran` VALUES (831, 311, 2, 15);
+INSERT INTO `jadwal_pelajaran` VALUES (832, 311, 2, 16);
+INSERT INTO `jadwal_pelajaran` VALUES (833, 311, 2, 17);
+INSERT INTO `jadwal_pelajaran` VALUES (834, 326, 2, 18);
+INSERT INTO `jadwal_pelajaran` VALUES (835, 326, 2, 19);
+INSERT INTO `jadwal_pelajaran` VALUES (836, 326, 2, 20);
 INSERT INTO `jadwal_pelajaran` VALUES (837, 283, 3, 15);
 INSERT INTO `jadwal_pelajaran` VALUES (838, 283, 3, 16);
 INSERT INTO `jadwal_pelajaran` VALUES (839, 284, 3, 17);
@@ -2354,12 +2513,12 @@ INSERT INTO `jadwal_pelajaran` VALUES (849, 288, 5, 15);
 INSERT INTO `jadwal_pelajaran` VALUES (850, 288, 5, 16);
 INSERT INTO `jadwal_pelajaran` VALUES (851, 288, 5, 17);
 INSERT INTO `jadwal_pelajaran` VALUES (852, 288, 5, 18);
-INSERT INTO `jadwal_pelajaran` VALUES (853, 289, 6, 15);
-INSERT INTO `jadwal_pelajaran` VALUES (854, 289, 6, 16);
-INSERT INTO `jadwal_pelajaran` VALUES (855, 290, 6, 17);
-INSERT INTO `jadwal_pelajaran` VALUES (856, 290, 6, 18);
-INSERT INTO `jadwal_pelajaran` VALUES (857, 290, 6, 19);
-INSERT INTO `jadwal_pelajaran` VALUES (858, 290, 6, 20);
+INSERT INTO `jadwal_pelajaran` VALUES (853, 316, 6, 15);
+INSERT INTO `jadwal_pelajaran` VALUES (854, 316, 6, 16);
+INSERT INTO `jadwal_pelajaran` VALUES (855, 317, 6, 17);
+INSERT INTO `jadwal_pelajaran` VALUES (856, 317, 6, 18);
+INSERT INTO `jadwal_pelajaran` VALUES (857, 317, 6, 19);
+INSERT INTO `jadwal_pelajaran` VALUES (858, 317, 6, 20);
 INSERT INTO `jadwal_pelajaran` VALUES (859, 291, 1, 15);
 INSERT INTO `jadwal_pelajaran` VALUES (860, 291, 1, 16);
 INSERT INTO `jadwal_pelajaran` VALUES (861, 291, 1, 17);
@@ -2369,9 +2528,9 @@ INSERT INTO `jadwal_pelajaran` VALUES (864, 302, 1, 20);
 INSERT INTO `jadwal_pelajaran` VALUES (865, 303, 2, 15);
 INSERT INTO `jadwal_pelajaran` VALUES (866, 303, 2, 16);
 INSERT INTO `jadwal_pelajaran` VALUES (867, 303, 2, 17);
-INSERT INTO `jadwal_pelajaran` VALUES (868, 294, 2, 18);
-INSERT INTO `jadwal_pelajaran` VALUES (869, 294, 2, 19);
-INSERT INTO `jadwal_pelajaran` VALUES (870, 294, 2, 20);
+INSERT INTO `jadwal_pelajaran` VALUES (868, 325, 2, 18);
+INSERT INTO `jadwal_pelajaran` VALUES (869, 325, 2, 19);
+INSERT INTO `jadwal_pelajaran` VALUES (870, 325, 2, 20);
 INSERT INTO `jadwal_pelajaran` VALUES (871, 295, 3, 15);
 INSERT INTO `jadwal_pelajaran` VALUES (872, 295, 3, 16);
 INSERT INTO `jadwal_pelajaran` VALUES (873, 296, 3, 17);
@@ -2432,10 +2591,10 @@ INSERT INTO `jadwal_pelajaran` VALUES (929, 206, 1, 17);
 INSERT INTO `jadwal_pelajaran` VALUES (930, 206, 1, 18);
 INSERT INTO `jadwal_pelajaran` VALUES (931, 208, 1, 19);
 INSERT INTO `jadwal_pelajaran` VALUES (932, 208, 1, 20);
-INSERT INTO `jadwal_pelajaran` VALUES (933, 211, 2, 15);
-INSERT INTO `jadwal_pelajaran` VALUES (934, 211, 2, 16);
-INSERT INTO `jadwal_pelajaran` VALUES (935, 211, 2, 17);
-INSERT INTO `jadwal_pelajaran` VALUES (936, 211, 2, 18);
+INSERT INTO `jadwal_pelajaran` VALUES (933, 322, 2, 15);
+INSERT INTO `jadwal_pelajaran` VALUES (934, 322, 2, 16);
+INSERT INTO `jadwal_pelajaran` VALUES (935, 322, 2, 17);
+INSERT INTO `jadwal_pelajaran` VALUES (936, 322, 2, 18);
 INSERT INTO `jadwal_pelajaran` VALUES (937, 134, 2, 19);
 INSERT INTO `jadwal_pelajaran` VALUES (938, 134, 2, 20);
 INSERT INTO `jadwal_pelajaran` VALUES (939, 214, 3, 15);
@@ -2450,16 +2609,16 @@ INSERT INTO `jadwal_pelajaran` VALUES (947, 216, 4, 17);
 INSERT INTO `jadwal_pelajaran` VALUES (948, 216, 4, 18);
 INSERT INTO `jadwal_pelajaran` VALUES (949, 216, 4, 19);
 INSERT INTO `jadwal_pelajaran` VALUES (950, 216, 4, 20);
-INSERT INTO `jadwal_pelajaran` VALUES (951, 217, 5, 15);
-INSERT INTO `jadwal_pelajaran` VALUES (952, 217, 5, 16);
-INSERT INTO `jadwal_pelajaran` VALUES (953, 217, 5, 17);
-INSERT INTO `jadwal_pelajaran` VALUES (954, 217, 5, 18);
+INSERT INTO `jadwal_pelajaran` VALUES (951, 313, 5, 15);
+INSERT INTO `jadwal_pelajaran` VALUES (952, 313, 5, 16);
+INSERT INTO `jadwal_pelajaran` VALUES (953, 313, 5, 17);
+INSERT INTO `jadwal_pelajaran` VALUES (954, 313, 5, 18);
 INSERT INTO `jadwal_pelajaran` VALUES (955, 218, 6, 15);
 INSERT INTO `jadwal_pelajaran` VALUES (956, 218, 6, 16);
-INSERT INTO `jadwal_pelajaran` VALUES (957, 211, 6, 17);
-INSERT INTO `jadwal_pelajaran` VALUES (958, 211, 6, 18);
-INSERT INTO `jadwal_pelajaran` VALUES (959, 211, 6, 19);
-INSERT INTO `jadwal_pelajaran` VALUES (960, 211, 6, 20);
+INSERT INTO `jadwal_pelajaran` VALUES (957, 322, 6, 17);
+INSERT INTO `jadwal_pelajaran` VALUES (958, 322, 6, 18);
+INSERT INTO `jadwal_pelajaran` VALUES (959, 322, 6, 19);
+INSERT INTO `jadwal_pelajaran` VALUES (960, 322, 6, 20);
 INSERT INTO `jadwal_pelajaran` VALUES (961, 219, 1, 15);
 INSERT INTO `jadwal_pelajaran` VALUES (962, 219, 1, 16);
 INSERT INTO `jadwal_pelajaran` VALUES (963, 219, 1, 17);
@@ -2500,6 +2659,10 @@ INSERT INTO `jadwal_pelajaran` VALUES (997, 306, 3, 19);
 INSERT INTO `jadwal_pelajaran` VALUES (998, 306, 3, 20);
 INSERT INTO `jadwal_pelajaran` VALUES (1001, 307, 3, 19);
 INSERT INTO `jadwal_pelajaran` VALUES (1002, 307, 3, 20);
+INSERT INTO `jadwal_pelajaran` VALUES (1003, 335, 5, 9);
+INSERT INTO `jadwal_pelajaran` VALUES (1004, 335, 5, 10);
+INSERT INTO `jadwal_pelajaran` VALUES (1005, 335, 5, 11);
+INSERT INTO `jadwal_pelajaran` VALUES (1006, 335, 5, 12);
 
 -- ----------------------------
 -- Table structure for jam
@@ -2541,6 +2704,24 @@ INSERT INTO `jam_pelajaran` VALUES (17, '9', '13.30', '14.00', 7);
 INSERT INTO `jam_pelajaran` VALUES (18, '10', '14.00', '14.30', 7);
 INSERT INTO `jam_pelajaran` VALUES (19, '11', '14.30', '15.00', 7);
 INSERT INTO `jam_pelajaran` VALUES (20, '12', '15.00', '15.30', 7);
+
+-- ----------------------------
+-- Table structure for jenis_ijin
+-- ----------------------------
+DROP TABLE IF EXISTS `jenis_ijin`;
+CREATE TABLE `jenis_ijin`  (
+  `id_jenis_ijin` int(11) NOT NULL AUTO_INCREMENT,
+  `jenis_ijin` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `color` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
+  PRIMARY KEY (`id_jenis_ijin`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of jenis_ijin
+-- ----------------------------
+INSERT INTO `jenis_ijin` VALUES (1, 'Sakit', '#2980b9');
+INSERT INTO `jenis_ijin` VALUES (2, 'Pulang', '#27ae60');
+INSERT INTO `jenis_ijin` VALUES (3, 'Ijin Lain', '#e67e22');
 
 -- ----------------------------
 -- Table structure for jenis_kerjasama
@@ -2615,7 +2796,12 @@ CREATE TABLE `jenis_penerimaan`  (
   `template_nota` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `idtahunajaran_fk` int(255) NULL DEFAULT NULL,
   PRIMARY KEY (`id_jenis_penerimaan`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of jenis_penerimaan
+-- ----------------------------
+INSERT INTO `jenis_penerimaan` VALUES (8, 'SPP', '1', '20', '1', '33', NULL, NULL, 'INV/BYR/{date}/{rand}', 7);
 
 -- ----------------------------
 -- Table structure for jenis_pengetahuan
@@ -2627,6 +2813,23 @@ CREATE TABLE `jenis_pengetahuan`  (
   `kode` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_jenis_pengetahuan`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for jenis_penggajian
+-- ----------------------------
+DROP TABLE IF EXISTS `jenis_penggajian`;
+CREATE TABLE `jenis_penggajian`  (
+  `id_jenis_penggajian` int(11) NOT NULL AUTO_INCREMENT,
+  `jenis_penggajian` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `saldo` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`id_jenis_penggajian`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of jenis_penggajian
+-- ----------------------------
+INSERT INTO `jenis_penggajian` VALUES (1, 'HR', 'D');
+INSERT INTO `jenis_penggajian` VALUES (2, 'Potongan', 'K');
 
 -- ----------------------------
 -- Table structure for jenis_penilaian
@@ -2652,7 +2855,7 @@ CREATE TABLE `jurnal_guru`  (
   `tanggal` date NULL DEFAULT NULL,
   `uraian` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_jurnal_guru`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 60 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 135 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of jurnal_guru
@@ -2714,6 +2917,81 @@ INSERT INTO `jurnal_guru` VALUES (56, 53, 61, 7, 7, '2023-08-16', 'Ukuran Pemusa
 INSERT INTO `jurnal_guru` VALUES (57, 41, 67, 20, 7, '2023-09-04', 'projek pertanian berlanjut\r\n-pembuatan media tanam');
 INSERT INTO `jurnal_guru` VALUES (58, 31, 49, 12, 7, '2023-09-06', 'Ada 9 anak tanpa keterangan');
 INSERT INTO `jurnal_guru` VALUES (59, 32, 59, 11, 7, '2023-09-11', 'Pembahasan materi dan soal uji kompetensi firewall jaringan ');
+INSERT INTO `jurnal_guru` VALUES (60, 31, 55, 13, 7, '2023-09-11', 'Banyak yang tidar hadir ');
+INSERT INTO `jurnal_guru` VALUES (61, 30, 59, 9, 7, '2023-09-11', 'Ppt');
+INSERT INTO `jurnal_guru` VALUES (62, 41, 67, 20, 7, '2023-09-11', 'Latihan soal Bab 2 dan 3');
+INSERT INTO `jurnal_guru` VALUES (63, 41, 58, 16, 7, '2023-09-11', 'materi olahan buah dan latihan soal Bab 1 dan 2');
+INSERT INTO `jurnal_guru` VALUES (64, 30, 52, 8, 7, '2023-09-11', 'Ms Word Chart');
+INSERT INTO `jurnal_guru` VALUES (65, 56, 61, 14, 7, '2023-09-11', 'Basic tools Adobe Illustrator, membuat logo dalam bentuk vektor untuk keperluan branding');
+INSERT INTO `jurnal_guru` VALUES (66, 56, 52, 15, 7, '2023-09-11', 'Pengenalan basic tools Adobe Illustrator (management files dan dokumen, layer, dan workspace)');
+INSERT INTO `jurnal_guru` VALUES (67, 30, 67, 8, 7, '2023-09-11', 'Ms word chart');
+INSERT INTO `jurnal_guru` VALUES (68, 31, 54, 11, 7, '2023-09-12', 'Pembelajaran berjalan dengan lancar');
+INSERT INTO `jurnal_guru` VALUES (69, 32, 55, 11, 7, '2023-09-12', 'Materi komunikasi ');
+INSERT INTO `jurnal_guru` VALUES (70, 41, 62, 16, 7, '2023-09-12', 'makanan herbal');
+INSERT INTO `jurnal_guru` VALUES (71, 53, 58, 16, 7, '2023-09-12', 'Pembuatan laporan praktikum pengolahan hasil hewani');
+INSERT INTO `jurnal_guru` VALUES (72, 31, 49, 12, 7, '2023-09-13', 'Berjalan dengan lancar ');
+INSERT INTO `jurnal_guru` VALUES (73, 53, 61, 7, 7, '2023-09-13', 'Ukuran penyebaran data (jangkauan, simpangan rata-rata, simpangan baku, dan varian)');
+INSERT INTO `jurnal_guru` VALUES (74, 56, 51, 15, 7, '2023-09-13', 'Pengenalan aplikasi Adobe Ilustrator dan penerapan design principles menggunakan software Adobe illustrator ');
+INSERT INTO `jurnal_guru` VALUES (75, 56, 52, 15, 7, '2023-09-13', 'Design principles (make shape and pattern with Adobe Illustrator)');
+INSERT INTO `jurnal_guru` VALUES (76, 32, 59, 13, 7, '2023-09-13', 'Tugas perencanaan produksi ');
+INSERT INTO `jurnal_guru` VALUES (77, 30, 54, 9, 7, '2023-09-14', 'Ms word persiapan uts');
+INSERT INTO `jurnal_guru` VALUES (78, 41, 53, 20, 7, '2023-09-14', 'produksi cake');
+INSERT INTO `jurnal_guru` VALUES (79, 32, 55, 11, 7, '2023-09-14', 'Kegiatan kerja kelompok ');
+INSERT INTO `jurnal_guru` VALUES (80, 53, 59, 7, 7, '2023-09-14', 'Ukuran penyebaran data (jangkauan, simpangan rata-rata, varian, simpangan baku)');
+INSERT INTO `jurnal_guru` VALUES (81, 31, 61, 13, 7, '2023-09-14', 'Aman dan lancar');
+INSERT INTO `jurnal_guru` VALUES (82, 53, 55, 7, 7, '2023-09-14', 'Fungsi Invers');
+INSERT INTO `jurnal_guru` VALUES (83, 35, 51, 15, 7, '2023-09-14', 'Zentangles dan perkenalan teknik arsir');
+INSERT INTO `jurnal_guru` VALUES (84, 30, 59, 9, 7, '2023-09-14', 'Ms ppt');
+INSERT INTO `jurnal_guru` VALUES (85, 30, 52, 10, 7, '2023-09-14', 'Teks anekdot');
+INSERT INTO `jurnal_guru` VALUES (86, 30, 52, 10, 7, '2023-09-14', '');
+INSERT INTO `jurnal_guru` VALUES (87, 30, 52, 10, 7, '2023-09-14', 'Aman');
+INSERT INTO `jurnal_guru` VALUES (88, 30, 67, 10, 7, '2023-09-14', 'Teks anekdot');
+INSERT INTO `jurnal_guru` VALUES (89, 30, 65, 10, 7, '2023-09-14', 'Lks');
+INSERT INTO `jurnal_guru` VALUES (90, 39, 57, 17, 7, '2023-09-14', 'Ulangan harian ');
+INSERT INTO `jurnal_guru` VALUES (91, 39, 58, 17, 7, '2023-09-14', 'Ulangan harian');
+INSERT INTO `jurnal_guru` VALUES (92, 30, 57, 10, 7, '2023-09-14', 'Lks');
+INSERT INTO `jurnal_guru` VALUES (93, 53, 61, 7, 7, '2023-09-15', 'Nilai baku dan koefisien variasi');
+INSERT INTO `jurnal_guru` VALUES (94, 31, 54, 13, 7, '2023-09-15', 'Berjalan dengan baik');
+INSERT INTO `jurnal_guru` VALUES (95, 53, 59, 7, 7, '2023-09-15', 'Nilai baku dan koefisien variasi');
+INSERT INTO `jurnal_guru` VALUES (96, 39, 52, 17, 7, '2023-09-15', 'Bola besar');
+INSERT INTO `jurnal_guru` VALUES (97, 39, 67, 17, 7, '2023-09-15', 'Bola Besar');
+INSERT INTO `jurnal_guru` VALUES (98, 56, 66, 13, 7, '2023-09-15', 'Create interaction page website');
+INSERT INTO `jurnal_guru` VALUES (99, 56, 56, 13, 7, '2023-09-16', 'Usaha di bidang fotografi, praktik fotografi dengan mode close up+landscape ');
+INSERT INTO `jurnal_guru` VALUES (100, 31, 59, 11, 7, '2023-09-16', 'Masih banyak yg tidak masuk');
+INSERT INTO `jurnal_guru` VALUES (101, 56, 56, 30, 7, '2023-09-16', 'Remove background, membuat dasar vektor untuk background animasi');
+INSERT INTO `jurnal_guru` VALUES (102, 35, 51, 31, 7, '2023-09-16', 'Deskripsi karya seni rupa');
+INSERT INTO `jurnal_guru` VALUES (103, 41, 58, 13, 7, '2023-09-16', 'Materi Wirausaha dan Analisis peluang Usaha\r\nLKPD Wawancara wirausahawan');
+INSERT INTO `jurnal_guru` VALUES (104, 32, 49, 12, 7, '2023-09-16', 'Praktek pengenalan komponen komputer ');
+INSERT INTO `jurnal_guru` VALUES (105, 32, 65, 13, 7, '2023-09-16', 'Deskripsi wirausaha ');
+INSERT INTO `jurnal_guru` VALUES (106, 56, 57, 30, 7, '2023-09-16', 'Remove background, membuat dasar desain untuk background animasi');
+INSERT INTO `jurnal_guru` VALUES (107, 56, 57, 13, 7, '2023-09-16', 'Usaha di bidang fotografi+ praktik fotografi dengan mode creative auto dan low angle');
+INSERT INTO `jurnal_guru` VALUES (108, 41, 58, 29, 7, '2023-09-16', 'persiapan penilaian projek');
+INSERT INTO `jurnal_guru` VALUES (109, 50, 67, 27, 7, '2023-09-16', 'Tingkat organisasi kehidupan\r\nVideo penanaman untuk proyek');
+INSERT INTO `jurnal_guru` VALUES (110, 50, 52, 27, 7, '2023-09-16', 'Tingkat organisasi kehidupan\r\nVideo penanaman untuk proyek');
+INSERT INTO `jurnal_guru` VALUES (111, 50, 61, 9, 7, '2023-09-16', 'Excel sum, average, rank\r\n\r\nBeberapa ada yg belum berhasil menggunakan rumus');
+INSERT INTO `jurnal_guru` VALUES (112, 50, 51, 27, 7, '2023-09-16', 'Tingkat organisasi kehidupan\r\nDan jaringan');
+INSERT INTO `jurnal_guru` VALUES (113, 30, 59, 9, 7, '2023-09-18', 'Buat logo ppt');
+INSERT INTO `jurnal_guru` VALUES (114, 56, 61, 14, 7, '2023-09-18', 'Layouting+typography untuk branding dengan bantuan grid');
+INSERT INTO `jurnal_guru` VALUES (115, 32, 59, 11, 7, '2023-09-18', 'Uji kompetensi bab 1');
+INSERT INTO `jurnal_guru` VALUES (116, 50, 49, 8, 7, '2023-09-18', 'Latihan soal 1-8\r\nMicrosoft word: shortcut, pembuatan paragraf, format penulisan bold, italic, underline');
+INSERT INTO `jurnal_guru` VALUES (117, 56, 52, 15, 7, '2023-09-18', 'Persiapan PTS, review materi bab 1-2');
+INSERT INTO `jurnal_guru` VALUES (118, 41, 67, 20, 7, '2023-09-18', 'Produksi cake');
+INSERT INTO `jurnal_guru` VALUES (119, 32, 55, 11, 7, '2023-09-19', 'Melengkapi materi komponen komputer dan jaringan ');
+INSERT INTO `jurnal_guru` VALUES (120, 31, 54, 11, 7, '2023-09-19', 'Ada 4 anak yang memakai sandal dan sudah di rampas pak zen ');
+INSERT INTO `jurnal_guru` VALUES (121, 35, 49, 31, 7, '2023-09-19', 'Latihan soal ');
+INSERT INTO `jurnal_guru` VALUES (122, 31, 59, 11, 7, '2023-09-19', 'Pendampingan oleh wali kelas');
+INSERT INTO `jurnal_guru` VALUES (123, 56, 57, 14, 7, '2023-09-19', 'Review materi persiapan PTS+latihan mengatur kerning');
+INSERT INTO `jurnal_guru` VALUES (124, 53, 53, 20, 7, '2023-09-19', 'Pengolahan hasil hewani, produksi sosis');
+INSERT INTO `jurnal_guru` VALUES (125, 53, 58, 16, 7, '2023-09-19', 'Gudang dan teknik penyimpanan');
+INSERT INTO `jurnal_guru` VALUES (126, 50, 53, 8, 7, '2023-09-19', 'Pembahasan kisi kisi uts, 8 sub materi');
+INSERT INTO `jurnal_guru` VALUES (127, 50, 51, 8, 7, '2023-09-19', 'Membahas kisi PTS , 8 sub materi\r\nMs word, paragraf, shortcut ');
+INSERT INTO `jurnal_guru` VALUES (128, 35, 53, 31, 7, '2023-09-20', 'Latihan soal');
+INSERT INTO `jurnal_guru` VALUES (129, 31, 49, 12, 7, '2023-09-20', 'Kisi-kisi UTS');
+INSERT INTO `jurnal_guru` VALUES (130, 32, 59, 13, 7, '2023-09-20', 'Uji kompetensi pkwu ');
+INSERT INTO `jurnal_guru` VALUES (131, 56, 51, 15, 7, '2023-09-20', 'Dasar fotografi (pengenalan tools dan settingan  kamera+segitiga exposure+praktik)');
+INSERT INTO `jurnal_guru` VALUES (132, 56, 52, 15, 7, '2023-09-20', 'Dasar fotografi (pengenalan tools dan settingan kamera+segitiga exposure+praktik)');
+INSERT INTO `jurnal_guru` VALUES (133, 53, 61, 7, 7, '2023-09-20', 'Latihan soal');
+INSERT INTO `jurnal_guru` VALUES (134, 53, 67, 20, 7, '2023-09-20', 'Pengolahan hewani (Sosis Ayam)');
 
 -- ----------------------------
 -- Table structure for jurnal_umum
@@ -2730,7 +3008,51 @@ CREATE TABLE `jurnal_umum`  (
   `idtable_fk` int(11) NULL DEFAULT NULL,
   `create_at` timestamp(0) NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id_jurnal_umum`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 457 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 497 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of jurnal_umum
+-- ----------------------------
+INSERT INTO `jurnal_umum` VALUES (457, '1983472', 1, 150000, 0, 'Pendataan pembayaran tanggungan SPP siswa a/n ABDU RAHMAN FANSYAH', 'tanggungan', 207, '2023-09-15 09:04:45');
+INSERT INTO `jurnal_umum` VALUES (458, '1983472', 20, 0, 150000, 'Pendataan pembayaran tanggungan SPP siswa a/n ABDU RAHMAN FANSYAH', 'tanggungan', 207, '2023-09-15 09:04:45');
+INSERT INTO `jurnal_umum` VALUES (459, '3459259', 1, 150000, 0, 'Pendataan pembayaran tanggungan SPP siswa a/n ABDUL HALIM RADITYANSYAH', 'tanggungan', 208, '2023-09-15 09:04:45');
+INSERT INTO `jurnal_umum` VALUES (460, '3459259', 20, 0, 150000, 'Pendataan pembayaran tanggungan SPP siswa a/n ABDUL HALIM RADITYANSYAH', 'tanggungan', 208, '2023-09-15 09:04:45');
+INSERT INTO `jurnal_umum` VALUES (461, '1661966', 1, 150000, 0, 'Pendataan pembayaran tanggungan SPP siswa a/n ACHMAD FALIH SABILARROSYAD', 'tanggungan', 209, '2023-09-15 09:04:45');
+INSERT INTO `jurnal_umum` VALUES (462, '1661966', 20, 0, 150000, 'Pendataan pembayaran tanggungan SPP siswa a/n ACHMAD FALIH SABILARROSYAD', 'tanggungan', 209, '2023-09-15 09:04:45');
+INSERT INTO `jurnal_umum` VALUES (463, '8210707', 1, 150000, 0, 'Pendataan pembayaran tanggungan SPP siswa a/n ACHMAD MUSTOFA', 'tanggungan', 210, '2023-09-15 09:04:45');
+INSERT INTO `jurnal_umum` VALUES (464, '8210707', 20, 0, 150000, 'Pendataan pembayaran tanggungan SPP siswa a/n ACHMAD MUSTOFA', 'tanggungan', 210, '2023-09-15 09:04:45');
+INSERT INTO `jurnal_umum` VALUES (465, '7896725', 1, 150000, 0, 'Pendataan pembayaran tanggungan SPP siswa a/n AHMAD AKIA RAIHAN ILYASA', 'tanggungan', 211, '2023-09-15 09:04:45');
+INSERT INTO `jurnal_umum` VALUES (466, '7896725', 20, 0, 150000, 'Pendataan pembayaran tanggungan SPP siswa a/n AHMAD AKIA RAIHAN ILYASA', 'tanggungan', 211, '2023-09-15 09:04:45');
+INSERT INTO `jurnal_umum` VALUES (467, '3714964', 1, 150000, 0, 'Pendataan pembayaran tanggungan SPP siswa a/n AHMAD DANI LASMANA', 'tanggungan', 212, '2023-09-15 09:04:45');
+INSERT INTO `jurnal_umum` VALUES (468, '3714964', 20, 0, 150000, 'Pendataan pembayaran tanggungan SPP siswa a/n AHMAD DANI LASMANA', 'tanggungan', 212, '2023-09-15 09:04:45');
+INSERT INTO `jurnal_umum` VALUES (469, '8751037', 1, 150000, 0, 'Pendataan pembayaran tanggungan SPP siswa a/n AHMAD FIRQI', 'tanggungan', 213, '2023-09-15 09:04:45');
+INSERT INTO `jurnal_umum` VALUES (470, '8751037', 20, 0, 150000, 'Pendataan pembayaran tanggungan SPP siswa a/n AHMAD FIRQI', 'tanggungan', 213, '2023-09-15 09:04:45');
+INSERT INTO `jurnal_umum` VALUES (471, '5737604', 1, 150000, 0, 'Pendataan pembayaran tanggungan SPP siswa a/n AHMAD HABIBUROSYAD', 'tanggungan', 214, '2023-09-15 09:04:45');
+INSERT INTO `jurnal_umum` VALUES (472, '5737604', 20, 0, 150000, 'Pendataan pembayaran tanggungan SPP siswa a/n AHMAD HABIBUROSYAD', 'tanggungan', 214, '2023-09-15 09:04:45');
+INSERT INTO `jurnal_umum` VALUES (473, '8741837', 1, 150000, 0, 'Pendataan pembayaran tanggungan SPP siswa a/n AHMAD NUR ROFI\'UDDIN', 'tanggungan', 215, '2023-09-15 09:04:45');
+INSERT INTO `jurnal_umum` VALUES (474, '8741837', 20, 0, 150000, 'Pendataan pembayaran tanggungan SPP siswa a/n AHMAD NUR ROFI\'UDDIN', 'tanggungan', 215, '2023-09-15 09:04:45');
+INSERT INTO `jurnal_umum` VALUES (475, '5187067', 1, 150000, 0, 'Pendataan pembayaran tanggungan SPP siswa a/n AJIB BAHRUL IHSAN', 'tanggungan', 216, '2023-09-15 09:04:45');
+INSERT INTO `jurnal_umum` VALUES (476, '5187067', 20, 0, 150000, 'Pendataan pembayaran tanggungan SPP siswa a/n AJIB BAHRUL IHSAN', 'tanggungan', 216, '2023-09-15 09:04:45');
+INSERT INTO `jurnal_umum` VALUES (477, '3486197', 1, 150000, 0, 'Pendataan pembayaran tanggungan SPP siswa a/n ANDIKA BAYU NUGROHO', 'tanggungan', 217, '2023-09-15 09:04:46');
+INSERT INTO `jurnal_umum` VALUES (478, '3486197', 20, 0, 150000, 'Pendataan pembayaran tanggungan SPP siswa a/n ANDIKA BAYU NUGROHO', 'tanggungan', 217, '2023-09-15 09:04:46');
+INSERT INTO `jurnal_umum` VALUES (479, '6844223', 1, 150000, 0, 'Pendataan pembayaran tanggungan SPP siswa a/n DIMAS PRAWIRO GHIFARI', 'tanggungan', 218, '2023-09-15 09:04:46');
+INSERT INTO `jurnal_umum` VALUES (480, '6844223', 20, 0, 150000, 'Pendataan pembayaran tanggungan SPP siswa a/n DIMAS PRAWIRO GHIFARI', 'tanggungan', 218, '2023-09-15 09:04:46');
+INSERT INTO `jurnal_umum` VALUES (481, '5687081', 1, 150000, 0, 'Pendataan pembayaran tanggungan SPP siswa a/n FAHMI ZAINUL MUTTAQIN', 'tanggungan', 219, '2023-09-15 09:04:46');
+INSERT INTO `jurnal_umum` VALUES (482, '5687081', 20, 0, 150000, 'Pendataan pembayaran tanggungan SPP siswa a/n FAHMI ZAINUL MUTTAQIN', 'tanggungan', 219, '2023-09-15 09:04:46');
+INSERT INTO `jurnal_umum` VALUES (483, '2943729', 1, 150000, 0, 'Pendataan pembayaran tanggungan SPP siswa a/n FATHUN NAJA', 'tanggungan', 220, '2023-09-15 09:04:46');
+INSERT INTO `jurnal_umum` VALUES (484, '2943729', 20, 0, 150000, 'Pendataan pembayaran tanggungan SPP siswa a/n FATHUN NAJA', 'tanggungan', 220, '2023-09-15 09:04:46');
+INSERT INTO `jurnal_umum` VALUES (485, '406075', 1, 150000, 0, 'Pendataan pembayaran tanggungan SPP siswa a/n M. ALFIATUR ROHMAN', 'tanggungan', 221, '2023-09-15 09:04:46');
+INSERT INTO `jurnal_umum` VALUES (486, '406075', 20, 0, 150000, 'Pendataan pembayaran tanggungan SPP siswa a/n M. ALFIATUR ROHMAN', 'tanggungan', 221, '2023-09-15 09:04:46');
+INSERT INTO `jurnal_umum` VALUES (487, '4051381', 1, 150000, 0, 'Pendataan pembayaran tanggungan SPP siswa a/n M. BAGAS FATURRAHMAN', 'tanggungan', 222, '2023-09-15 09:04:46');
+INSERT INTO `jurnal_umum` VALUES (488, '4051381', 20, 0, 150000, 'Pendataan pembayaran tanggungan SPP siswa a/n M. BAGAS FATURRAHMAN', 'tanggungan', 222, '2023-09-15 09:04:46');
+INSERT INTO `jurnal_umum` VALUES (489, '8762436', 1, 150000, 0, 'Pendataan pembayaran tanggungan SPP siswa a/n M. KHOMSUN FADLI', 'tanggungan', 223, '2023-09-15 09:04:46');
+INSERT INTO `jurnal_umum` VALUES (490, '8762436', 20, 0, 150000, 'Pendataan pembayaran tanggungan SPP siswa a/n M. KHOMSUN FADLI', 'tanggungan', 223, '2023-09-15 09:04:46');
+INSERT INTO `jurnal_umum` VALUES (491, '7468218', 1, 150000, 0, 'Pendataan pembayaran tanggungan SPP siswa a/n MUHAMMAD RABBANI ARDIANSYAH', 'tanggungan', 224, '2023-09-15 09:04:46');
+INSERT INTO `jurnal_umum` VALUES (492, '7468218', 20, 0, 150000, 'Pendataan pembayaran tanggungan SPP siswa a/n MUHAMMAD RABBANI ARDIANSYAH', 'tanggungan', 224, '2023-09-15 09:04:46');
+INSERT INTO `jurnal_umum` VALUES (493, '1615857', 1, 150000, 0, 'Pendataan pembayaran tanggungan SPP siswa a/n QODIMUL ZAKWAN MUCHTAR', 'tanggungan', 225, '2023-09-15 09:04:46');
+INSERT INTO `jurnal_umum` VALUES (494, '1615857', 20, 0, 150000, 'Pendataan pembayaran tanggungan SPP siswa a/n QODIMUL ZAKWAN MUCHTAR', 'tanggungan', 225, '2023-09-15 09:04:46');
+INSERT INTO `jurnal_umum` VALUES (495, '2628826', 1, 150000, 0, 'Pendataan pembayaran tanggungan SPP siswa a/n AHMAD RAYHAN ARDHANI PUTRA', 'tanggungan', 226, '2023-09-15 09:04:46');
+INSERT INTO `jurnal_umum` VALUES (496, '2628826', 20, 0, 150000, 'Pendataan pembayaran tanggungan SPP siswa a/n AHMAD RAYHAN ARDHANI PUTRA', 'tanggungan', 226, '2023-09-15 09:04:46');
 
 -- ----------------------------
 -- Table structure for jurusan
@@ -2914,6 +3236,33 @@ CREATE TABLE `kompetensi_pkg`  (
   `idtahunajaran_fk` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id_kompetensi_pkg`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for komponen_penggajian
+-- ----------------------------
+DROP TABLE IF EXISTS `komponen_penggajian`;
+CREATE TABLE `komponen_penggajian`  (
+  `id_komponen_penggajian` int(11) NOT NULL AUTO_INCREMENT,
+  `idtemplatepenggajian_fk` int(11) NULL DEFAULT NULL,
+  `komponen_penggajian` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `jumlah` decimal(20, 2) NULL DEFAULT NULL,
+  `idjenispenggajian_fk` int(11) NULL DEFAULT NULL,
+  `is_sum` int(11) NULL DEFAULT NULL,
+  PRIMARY KEY (`id_komponen_penggajian`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of komponen_penggajian
+-- ----------------------------
+INSERT INTO `komponen_penggajian` VALUES (1, 1, 'HR Jabatan', 0.00, 1, 0);
+INSERT INTO `komponen_penggajian` VALUES (2, 1, 'HR Mengajar', 25000.00, 1, 1);
+INSERT INTO `komponen_penggajian` VALUES (3, 1, 'HR Kehadiran', 10000.00, 1, 1);
+INSERT INTO `komponen_penggajian` VALUES (4, 1, 'HR Kehadiran 1/2 Hari', 5000.00, 1, 1);
+INSERT INTO `komponen_penggajian` VALUES (5, 1, 'HR Piket', 10000.00, 1, 1);
+INSERT INTO `komponen_penggajian` VALUES (6, 1, 'HR Rapat', 10000.00, 1, 1);
+INSERT INTO `komponen_penggajian` VALUES (7, 1, 'Konsumsi', 5000.00, 2, 1);
+INSERT INTO `komponen_penggajian` VALUES (8, 1, 'TAB', 10000.00, 2, 1);
+INSERT INTO `komponen_penggajian` VALUES (9, 1, 'Koperasi', 5000.00, 2, 1);
 
 -- ----------------------------
 -- Table structure for kondisi_prasarana
@@ -3141,17 +3490,23 @@ CREATE TABLE `login_attempts`  (
   `login` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `time` int(11) UNSIGNED NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 59 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 78 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
--- Records of login_attempts
+-- Table structure for lokasi
 -- ----------------------------
-INSERT INTO `login_attempts` VALUES (53, '192.168.1.6', 'admin', 1694396309);
-INSERT INTO `login_attempts` VALUES (54, '192.168.1.6', 'admin', 1694396318);
-INSERT INTO `login_attempts` VALUES (55, '192.168.1.6', '404', 1694396356);
-INSERT INTO `login_attempts` VALUES (56, '192.168.1.6', '404', 1694396363);
-INSERT INTO `login_attempts` VALUES (57, '::1', 'admin', 1694398754);
-INSERT INTO `login_attempts` VALUES (58, '::1', 'admin', 1694398764);
+DROP TABLE IF EXISTS `lokasi`;
+CREATE TABLE `lokasi`  (
+  `id_lokasi` int(11) NOT NULL AUTO_INCREMENT,
+  `lokasi` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`id_lokasi`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of lokasi
+-- ----------------------------
+INSERT INTO `lokasi` VALUES (1, 'Umum');
+INSERT INTO `lokasi` VALUES (2, 'B14');
 
 -- ----------------------------
 -- Table structure for lowongan
@@ -3199,7 +3554,7 @@ CREATE TABLE `mata_pelajaran`  (
   `idjenismatapelajaran_fk` int(11) NULL DEFAULT NULL,
   `jKode` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id_mata_pelajaran`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 35 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 37 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of mata_pelajaran
@@ -3232,6 +3587,8 @@ INSERT INTO `mata_pelajaran` VALUES (31, 'Seni Rupa', 'SN', NULL, NULL);
 INSERT INTO `mata_pelajaran` VALUES (32, 'Mapel Kolaboratif 1', 'MK1', NULL, NULL);
 INSERT INTO `mata_pelajaran` VALUES (33, 'Mapel Kolaboratif 2', 'MK2', NULL, NULL);
 INSERT INTO `mata_pelajaran` VALUES (34, 'Produksi Pengolahan Hasil Nabati', 'PPHN', NULL, NULL);
+INSERT INTO `mata_pelajaran` VALUES (35, 'Ekstrakurikuler Desain', 'EXD', NULL, NULL);
+INSERT INTO `mata_pelajaran` VALUES (36, 'Ekstrakurikuler Programming', 'XDP', NULL, NULL);
 
 -- ----------------------------
 -- Table structure for materi
@@ -3432,6 +3789,24 @@ CREATE TABLE `oas_soal`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
+-- Table structure for operator
+-- ----------------------------
+DROP TABLE IF EXISTS `operator`;
+CREATE TABLE `operator`  (
+  `id_operator` int(11) NOT NULL AUTO_INCREMENT,
+  `kode` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `nama` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `keterangan` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `idlokasi_fk` int(11) NULL DEFAULT NULL,
+  PRIMARY KEY (`id_operator`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of operator
+-- ----------------------------
+INSERT INTO `operator` VALUES (1, '112', 'Tes', NULL, 1);
+
+-- ----------------------------
 -- Table structure for organisasi_pegawai
 -- ----------------------------
 DROP TABLE IF EXISTS `organisasi_pegawai`;
@@ -3504,12 +3879,12 @@ CREATE TABLE `peminjaman_sarana`  (
   `create_at` timestamp(0) NULL DEFAULT current_timestamp(),
   `status` int(11) NULL DEFAULT 0,
   PRIMARY KEY (`id_peminjaman_sarana`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of peminjaman_sarana
 -- ----------------------------
-INSERT INTO `peminjaman_sarana` VALUES (7, '2023-07-04', '2023-07-04', 'siswa', 803, 'PS/6799661/07', 'pelajaran', '2023-07-04 14:03:40', 0);
+INSERT INTO `peminjaman_sarana` VALUES (8, '2023-09-14', '2023-09-14', 'siswa', 764, 'PS/5212283/09', '-', '2023-09-14 13:28:05', 1);
 
 -- ----------------------------
 -- Table structure for pendaftaran
@@ -3673,7 +4048,32 @@ CREATE TABLE `pengembalian_sarana`  (
   `is_complete` int(11) NULL DEFAULT NULL,
   `no_pengembalian_sarana` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_pengembalian_sarana`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of pengembalian_sarana
+-- ----------------------------
+INSERT INTO `pengembalian_sarana` VALUES (9, 8, '2023-09-14', NULL, 1, '2891058');
+
+-- ----------------------------
+-- Table structure for penggajian
+-- ----------------------------
+DROP TABLE IF EXISTS `penggajian`;
+CREATE TABLE `penggajian`  (
+  `id_penggajian` int(11) NOT NULL AUTO_INCREMENT,
+  `bulan` int(11) NULL DEFAULT NULL,
+  `tahun` int(11) NULL DEFAULT NULL,
+  `keterangan` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `create_at` timestamp(0) NULL DEFAULT current_timestamp(),
+  `idguru_fk` int(11) NULL DEFAULT NULL,
+  `total` double(20, 2) NULL DEFAULT NULL,
+  PRIMARY KEY (`id_penggajian`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of penggajian
+-- ----------------------------
+INSERT INTO `penggajian` VALUES (8, 8, 2023, NULL, '2023-09-12 20:50:53', 40, 635000.00);
 
 -- ----------------------------
 -- Table structure for pengumuman
@@ -3796,14 +4196,44 @@ CREATE TABLE `prasarana`  (
   `no_inventaris` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `foto` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   PRIMARY KEY (`id_prasarana`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 35 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of prasarana
 -- ----------------------------
 INSERT INTO `prasarana` VALUES (2, 'Ruang Kelas INKUBASI', 3, 4, '', 'INK', '');
 INSERT INTO `prasarana` VALUES (3, 'Laboratorium Komputer', 3, 5, '', 'LAB', '');
-INSERT INTO `prasarana` VALUES (4, 'Loker Laptop', 3, 6, '', 'L4', '');
+INSERT INTO `prasarana` VALUES (4, 'Loker Laptop 1', 3, 6, '', 'L1', '');
+INSERT INTO `prasarana` VALUES (5, 'Loker Laptop 2', 3, 6, '', 'L2', NULL);
+INSERT INTO `prasarana` VALUES (6, 'Loker Laptop 3', 3, 6, '', 'L3', NULL);
+INSERT INTO `prasarana` VALUES (7, 'Loker Laptop 4', 3, 6, '', 'L4', NULL);
+INSERT INTO `prasarana` VALUES (8, 'Loker Laptop 5', 3, 6, '', 'L5', NULL);
+INSERT INTO `prasarana` VALUES (9, 'Loker Laptop 6', 3, 6, '', 'L6', NULL);
+INSERT INTO `prasarana` VALUES (10, 'Loker Laptop 7', 3, 6, '', 'L7', NULL);
+INSERT INTO `prasarana` VALUES (11, 'Loker Laptop 8', 3, 6, '', 'L8', NULL);
+INSERT INTO `prasarana` VALUES (12, 'Loker Laptop 9', 3, 6, '', 'L9', NULL);
+INSERT INTO `prasarana` VALUES (13, 'Loker Laptop 10', 3, 6, '', 'L10', NULL);
+INSERT INTO `prasarana` VALUES (14, 'Loker Laptop 11', 3, 6, '', 'L11', NULL);
+INSERT INTO `prasarana` VALUES (15, 'Loker Laptop 12', 3, 6, '', 'L12', NULL);
+INSERT INTO `prasarana` VALUES (16, 'Loker Laptop 13', 3, 6, '', 'L13', NULL);
+INSERT INTO `prasarana` VALUES (17, 'Loker Laptop 14', 3, 6, '', 'L14', NULL);
+INSERT INTO `prasarana` VALUES (18, 'Loker Laptop 15', 3, 6, '', 'L15', NULL);
+INSERT INTO `prasarana` VALUES (19, 'Loker Laptop 16', 3, 6, '', 'L16', NULL);
+INSERT INTO `prasarana` VALUES (20, 'Loker Laptop 17', 3, 6, '', 'L17', NULL);
+INSERT INTO `prasarana` VALUES (21, 'Loker Laptop 18', 3, 6, '', 'L18', NULL);
+INSERT INTO `prasarana` VALUES (22, 'Loker Laptop 19', 3, 6, '', 'L19', NULL);
+INSERT INTO `prasarana` VALUES (23, 'Loker Laptop 20', 3, 6, '', 'L20', NULL);
+INSERT INTO `prasarana` VALUES (24, 'Loker Laptop 21', 3, 6, '', 'L21', NULL);
+INSERT INTO `prasarana` VALUES (25, 'Loker Laptop 22', 3, 6, '', 'L22', NULL);
+INSERT INTO `prasarana` VALUES (26, 'Loker Laptop 23', 3, 6, '', 'L23', NULL);
+INSERT INTO `prasarana` VALUES (27, 'Loker Laptop 24', 3, 6, '', 'L24', NULL);
+INSERT INTO `prasarana` VALUES (28, 'Loker Laptop 25', 3, 6, '', 'L25', NULL);
+INSERT INTO `prasarana` VALUES (29, 'Loker Laptop 26', 3, 6, '', 'L26', NULL);
+INSERT INTO `prasarana` VALUES (30, 'Loker Laptop 27', 3, 6, '', 'L27', NULL);
+INSERT INTO `prasarana` VALUES (31, 'Loker Laptop 28', 3, 6, '', 'L28', NULL);
+INSERT INTO `prasarana` VALUES (32, 'Loker Laptop 29', 3, 6, '', 'L29', NULL);
+INSERT INTO `prasarana` VALUES (33, 'Loker Laptop 30', 3, 6, '', 'L30', NULL);
+INSERT INTO `prasarana` VALUES (34, 'Loker Laptop 31', 3, 6, '', 'L31', NULL);
 
 -- ----------------------------
 -- Table structure for predikat_nilai
@@ -3855,7 +4285,7 @@ CREATE TABLE `presensi_guru`  (
   `create_at` timestamp(0) NULL DEFAULT current_timestamp(),
   `idtahunajaran_fk` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id_presensi_guru`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 169 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 306 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of presensi_guru
@@ -4011,12 +4441,148 @@ INSERT INTO `presensi_guru` VALUES (159, 0, '2023-09-09', '13:04:56', '00:00:00'
 INSERT INTO `presensi_guru` VALUES (160, 40, '2023-09-09', '13:06:34', '00:00:00', '2023-09-09 13:06:34', 7);
 INSERT INTO `presensi_guru` VALUES (161, 29, '2023-09-11', '07:32:40', '00:00:00', '2023-09-11 07:32:40', 7);
 INSERT INTO `presensi_guru` VALUES (162, 56, '2023-09-11', '08:05:46', '00:00:00', '2023-09-11 08:05:46', 7);
-INSERT INTO `presensi_guru` VALUES (163, 37, '2023-09-11', '08:09:29', '00:00:00', '2023-09-11 08:09:29', 7);
+INSERT INTO `presensi_guru` VALUES (163, 37, '2023-09-11', '08:09:29', '16:13:15', '2023-09-11 08:09:29', 7);
 INSERT INTO `presensi_guru` VALUES (164, 32, '2023-09-11', '08:16:36', '00:00:00', '2023-09-11 08:16:36', 7);
-INSERT INTO `presensi_guru` VALUES (165, 31, '2023-09-11', '08:20:29', '00:00:00', '2023-09-11 08:20:29', 7);
+INSERT INTO `presensi_guru` VALUES (165, 31, '2023-09-11', '08:20:29', '15:52:34', '2023-09-11 08:20:29', 7);
 INSERT INTO `presensi_guru` VALUES (166, 51, '2023-09-11', '08:51:26', '00:00:00', '2023-09-11 08:51:26', 7);
 INSERT INTO `presensi_guru` VALUES (167, 50, '2023-09-11', '09:51:46', '00:00:00', '2023-09-11 09:51:46', 7);
-INSERT INTO `presensi_guru` VALUES (168, 57, '2023-09-11', '08:30:00', '00:00:00', '2023-09-11 09:56:34', 7);
+INSERT INTO `presensi_guru` VALUES (168, 57, '2023-09-11', '08:30:00', '15:29:17', '2023-09-11 09:56:34', 7);
+INSERT INTO `presensi_guru` VALUES (169, 43, '2023-09-11', '08:35:00', '12:30:47', '2023-09-11 11:09:09', 7);
+INSERT INTO `presensi_guru` VALUES (170, 41, '2023-09-11', '12:22:28', '00:00:00', '2023-09-11 12:22:28', 7);
+INSERT INTO `presensi_guru` VALUES (171, 35, '2023-09-11', '12:41:39', '00:00:00', '2023-09-11 12:41:39', 7);
+INSERT INTO `presensi_guru` VALUES (172, 38, '2023-09-11', '07:00:00', '16:13:27', '2023-09-11 14:27:23', 7);
+INSERT INTO `presensi_guru` VALUES (173, 54, '2023-09-11', '07:00:00', '00:00:00', '2023-09-11 14:27:49', 7);
+INSERT INTO `presensi_guru` VALUES (174, 30, '2023-09-11', '00:00:00', '16:11:25', '2023-09-11 16:11:25', 7);
+INSERT INTO `presensi_guru` VALUES (175, 29, '2023-09-12', '07:31:34', '00:00:00', '2023-09-12 07:31:34', 7);
+INSERT INTO `presensi_guru` VALUES (176, 38, '2023-09-12', '07:39:33', '00:00:00', '2023-09-12 07:39:33', 7);
+INSERT INTO `presensi_guru` VALUES (177, 37, '2023-09-12', '07:39:58', '00:00:00', '2023-09-12 07:39:58', 7);
+INSERT INTO `presensi_guru` VALUES (178, 55, '2023-09-12', '08:18:17', '15:27:33', '2023-09-12 08:18:17', 7);
+INSERT INTO `presensi_guru` VALUES (179, 45, '2023-09-12', '08:26:52', '08:27:12', '2023-09-12 08:26:52', 7);
+INSERT INTO `presensi_guru` VALUES (180, 32, '2023-09-12', '08:28:45', '00:00:00', '2023-09-12 08:28:45', 7);
+INSERT INTO `presensi_guru` VALUES (181, 31, '2023-09-12', '08:34:23', '00:00:00', '2023-09-12 08:34:23', 7);
+INSERT INTO `presensi_guru` VALUES (182, 35, '2023-09-12', '08:44:46', '00:00:00', '2023-09-12 08:44:46', 7);
+INSERT INTO `presensi_guru` VALUES (183, 43, '2023-09-12', '08:53:41', '00:00:00', '2023-09-12 08:53:41', 7);
+INSERT INTO `presensi_guru` VALUES (184, 56, '2023-09-12', '09:18:43', '00:00:00', '2023-09-12 09:18:43', 7);
+INSERT INTO `presensi_guru` VALUES (185, 44, '2023-09-12', '08:30:00', '00:00:00', '2023-09-12 09:40:39', 7);
+INSERT INTO `presensi_guru` VALUES (186, 50, '2023-09-12', '09:46:15', '00:00:00', '2023-09-12 09:46:15', 7);
+INSERT INTO `presensi_guru` VALUES (187, 53, '2023-09-12', '09:49:41', '00:00:00', '2023-09-12 09:49:41', 7);
+INSERT INTO `presensi_guru` VALUES (188, 51, '2023-09-12', '09:49:52', '00:00:00', '2023-09-12 09:49:52', 7);
+INSERT INTO `presensi_guru` VALUES (189, 41, '2023-09-12', '12:35:45', '00:00:00', '2023-09-12 12:35:45', 7);
+INSERT INTO `presensi_guru` VALUES (190, 42, '2023-09-12', '12:53:55', '00:00:00', '2023-09-12 12:53:55', 7);
+INSERT INTO `presensi_guru` VALUES (191, 57, '2023-09-12', '13:39:05', '00:00:00', '2023-09-12 13:39:05', 7);
+INSERT INTO `presensi_guru` VALUES (192, 54, '2023-09-12', '16:13:49', '16:13:53', '2023-09-12 16:13:49', 7);
+INSERT INTO `presensi_guru` VALUES (193, 29, '2023-09-13', '07:57:58', '16:26:03', '2023-09-13 07:57:58', 7);
+INSERT INTO `presensi_guru` VALUES (194, 32, '2023-09-13', '08:02:09', '16:10:05', '2023-09-13 08:02:09', 7);
+INSERT INTO `presensi_guru` VALUES (195, 55, '2023-09-13', '08:18:54', '10:05:08', '2023-09-13 08:18:54', 7);
+INSERT INTO `presensi_guru` VALUES (196, 54, '2023-09-13', '08:31:53', '16:07:39', '2023-09-13 08:31:53', 7);
+INSERT INTO `presensi_guru` VALUES (197, 40, '2023-09-13', '08:36:42', '00:00:00', '2023-09-13 08:36:42', 7);
+INSERT INTO `presensi_guru` VALUES (198, 35, '2023-09-13', '08:41:17', '00:00:00', '2023-09-13 08:41:17', 7);
+INSERT INTO `presensi_guru` VALUES (199, 56, '2023-09-13', '09:07:21', '15:26:13', '2023-09-13 09:07:21', 7);
+INSERT INTO `presensi_guru` VALUES (200, 45, '2023-09-13', '09:23:21', '11:26:02', '2023-09-13 09:23:21', 7);
+INSERT INTO `presensi_guru` VALUES (201, 51, '2023-09-13', '09:58:43', '00:00:00', '2023-09-13 09:58:43', 7);
+INSERT INTO `presensi_guru` VALUES (202, 31, '2023-09-13', '10:08:29', '15:56:08', '2023-09-13 10:08:29', 7);
+INSERT INTO `presensi_guru` VALUES (203, 30, '2023-09-13', '10:14:33', '00:00:00', '2023-09-13 10:14:33', 7);
+INSERT INTO `presensi_guru` VALUES (204, 53, '2023-09-13', '10:20:29', '15:28:59', '2023-09-13 10:20:29', 7);
+INSERT INTO `presensi_guru` VALUES (205, 43, '2023-09-13', '11:17:13', '15:29:37', '2023-09-13 11:17:13', 7);
+INSERT INTO `presensi_guru` VALUES (206, 50, '2023-09-13', '11:27:26', '00:00:00', '2023-09-13 11:27:26', 7);
+INSERT INTO `presensi_guru` VALUES (207, 42, '2023-09-13', '12:13:41', '00:00:00', '2023-09-13 12:13:41', 7);
+INSERT INTO `presensi_guru` VALUES (208, 29, '2023-09-14', '07:15:00', '16:47:06', '2023-09-14 08:15:01', 7);
+INSERT INTO `presensi_guru` VALUES (209, 31, '2023-09-14', '08:15:08', '16:59:08', '2023-09-14 08:15:08', 7);
+INSERT INTO `presensi_guru` VALUES (210, 30, '2023-09-14', '08:30:20', '16:54:25', '2023-09-14 08:30:20', 7);
+INSERT INTO `presensi_guru` VALUES (211, 35, '2023-09-14', '08:31:54', '00:00:00', '2023-09-14 08:31:54', 7);
+INSERT INTO `presensi_guru` VALUES (212, 55, '2023-09-14', '08:32:46', '13:57:32', '2023-09-14 08:32:46', 7);
+INSERT INTO `presensi_guru` VALUES (213, 54, '2023-09-14', '08:44:36', '00:00:00', '2023-09-14 08:44:36', 7);
+INSERT INTO `presensi_guru` VALUES (214, 40, '2023-09-14', '08:45:57', '00:00:00', '2023-09-14 08:45:57', 7);
+INSERT INTO `presensi_guru` VALUES (215, 32, '2023-09-14', '08:49:06', '16:44:58', '2023-09-14 08:49:06', 7);
+INSERT INTO `presensi_guru` VALUES (216, 53, '2023-09-14', '09:03:04', '00:00:00', '2023-09-14 09:03:04', 7);
+INSERT INTO `presensi_guru` VALUES (217, 44, '2023-09-14', '09:22:56', '00:00:00', '2023-09-14 09:22:56', 7);
+INSERT INTO `presensi_guru` VALUES (218, 45, '2023-09-14', '09:25:11', '11:30:04', '2023-09-14 09:25:11', 7);
+INSERT INTO `presensi_guru` VALUES (219, 51, '2023-09-14', '09:29:48', '00:00:00', '2023-09-14 09:29:48', 7);
+INSERT INTO `presensi_guru` VALUES (220, 50, '2023-09-14', '09:36:06', '00:00:00', '2023-09-14 09:36:06', 7);
+INSERT INTO `presensi_guru` VALUES (222, 41, '2023-09-14', '08:30:00', '00:00:00', '2023-09-14 09:53:26', 7);
+INSERT INTO `presensi_guru` VALUES (223, 42, '2023-09-14', '11:25:15', '00:00:00', '2023-09-14 11:25:15', 7);
+INSERT INTO `presensi_guru` VALUES (224, 43, '2023-09-14', '09:00:00', '00:00:00', '2023-09-14 11:26:18', 7);
+INSERT INTO `presensi_guru` VALUES (225, 45, '2023-09-15', '07:25:25', '09:29:54', '2023-09-15 07:25:25', 7);
+INSERT INTO `presensi_guru` VALUES (226, 31, '2023-09-15', '07:25:33', '00:00:00', '2023-09-15 07:25:33', 7);
+INSERT INTO `presensi_guru` VALUES (227, 54, '2023-09-15', '07:25:40', '00:00:00', '2023-09-15 07:25:40', 7);
+INSERT INTO `presensi_guru` VALUES (228, 50, '2023-09-15', '07:28:08', '00:00:00', '2023-09-15 07:28:08', 7);
+INSERT INTO `presensi_guru` VALUES (229, 29, '2023-09-15', '07:36:13', '16:29:14', '2023-09-15 07:36:13', 7);
+INSERT INTO `presensi_guru` VALUES (230, 51, '2023-09-15', '07:40:01', '00:00:00', '2023-09-15 07:40:01', 7);
+INSERT INTO `presensi_guru` VALUES (231, 43, '2023-09-15', '07:40:09', '00:00:00', '2023-09-15 07:40:09', 7);
+INSERT INTO `presensi_guru` VALUES (232, 32, '2023-09-15', '07:40:22', '00:00:00', '2023-09-15 07:40:22', 7);
+INSERT INTO `presensi_guru` VALUES (233, 46, '2023-09-15', '08:06:58', '00:00:00', '2023-09-15 08:06:58', 7);
+INSERT INTO `presensi_guru` VALUES (234, 35, '2023-09-15', '08:19:38', '17:15:54', '2023-09-15 08:19:38', 7);
+INSERT INTO `presensi_guru` VALUES (235, 30, '2023-09-15', '08:29:03', '00:00:00', '2023-09-15 08:29:03', 7);
+INSERT INTO `presensi_guru` VALUES (236, 53, '2023-09-15', '08:29:05', '00:00:00', '2023-09-15 08:29:05', 7);
+INSERT INTO `presensi_guru` VALUES (237, 37, '2023-09-15', '08:44:59', '00:00:00', '2023-09-15 08:44:59', 7);
+INSERT INTO `presensi_guru` VALUES (238, 42, '2023-09-15', '08:48:36', '09:27:26', '2023-09-15 08:48:36', 7);
+INSERT INTO `presensi_guru` VALUES (239, 40, '2023-09-15', '08:56:49', '00:00:00', '2023-09-15 08:56:49', 7);
+INSERT INTO `presensi_guru` VALUES (240, 56, '2023-09-15', '09:19:02', '00:00:00', '2023-09-15 09:19:02', 7);
+INSERT INTO `presensi_guru` VALUES (241, 44, '2023-09-15', '10:30:56', '00:00:00', '2023-09-15 10:30:56', 7);
+INSERT INTO `presensi_guru` VALUES (242, 54, '2023-09-16', '06:46:38', '00:00:00', '2023-09-16 06:46:38', 7);
+INSERT INTO `presensi_guru` VALUES (243, 37, '2023-09-16', '07:13:35', '00:00:00', '2023-09-16 07:13:35', 7);
+INSERT INTO `presensi_guru` VALUES (244, 32, '2023-09-16', '08:03:53', '00:00:00', '2023-09-16 08:03:53', 7);
+INSERT INTO `presensi_guru` VALUES (245, 31, '2023-09-16', '08:13:38', '11:35:02', '2023-09-16 08:13:38', 7);
+INSERT INTO `presensi_guru` VALUES (246, 56, '2023-09-16', '08:20:11', '00:00:00', '2023-09-16 08:20:11', 7);
+INSERT INTO `presensi_guru` VALUES (247, 43, '2023-09-16', '08:22:39', '00:00:00', '2023-09-16 08:22:39', 7);
+INSERT INTO `presensi_guru` VALUES (248, 45, '2023-09-16', '08:31:13', '00:00:00', '2023-09-16 08:31:13', 7);
+INSERT INTO `presensi_guru` VALUES (249, 46, '2023-09-16', '08:34:35', '00:00:00', '2023-09-16 08:34:35', 7);
+INSERT INTO `presensi_guru` VALUES (250, 35, '2023-09-16', '08:37:18', '16:34:34', '2023-09-16 08:37:18', 7);
+INSERT INTO `presensi_guru` VALUES (251, 30, '2023-09-16', '08:41:14', '00:00:00', '2023-09-16 08:41:14', 7);
+INSERT INTO `presensi_guru` VALUES (252, 42, '2023-09-16', '08:41:17', '00:00:00', '2023-09-16 08:41:17', 7);
+INSERT INTO `presensi_guru` VALUES (253, 40, '2023-09-16', '08:47:10', '00:00:00', '2023-09-16 08:47:10', 7);
+INSERT INTO `presensi_guru` VALUES (254, 50, '2023-09-16', '08:52:39', '15:39:58', '2023-09-16 08:52:39', 7);
+INSERT INTO `presensi_guru` VALUES (255, 57, '2023-09-16', '09:05:33', '15:24:30', '2023-09-16 09:05:33', 7);
+INSERT INTO `presensi_guru` VALUES (256, 55, '2023-09-16', '09:21:26', '11:27:28', '2023-09-16 09:21:26', 7);
+INSERT INTO `presensi_guru` VALUES (257, 29, '2023-09-16', '09:31:00', '16:30:00', '2023-09-16 09:31:00', 7);
+INSERT INTO `presensi_guru` VALUES (258, 51, '2023-09-16', '09:56:51', '00:00:00', '2023-09-16 09:56:51', 7);
+INSERT INTO `presensi_guru` VALUES (259, 41, '2023-09-16', '12:26:20', '15:36:39', '2023-09-16 12:26:20', 7);
+INSERT INTO `presensi_guru` VALUES (260, 29, '2023-09-18', '07:53:32', '00:00:00', '2023-09-18 07:53:32', 7);
+INSERT INTO `presensi_guru` VALUES (261, 39, '2023-09-18', '08:17:45', '16:32:55', '2023-09-18 08:17:45', 7);
+INSERT INTO `presensi_guru` VALUES (262, 42, '2023-09-18', '08:20:12', '00:00:00', '2023-09-18 08:20:12', 7);
+INSERT INTO `presensi_guru` VALUES (263, 57, '2023-09-18', '08:20:24', '15:36:38', '2023-09-18 08:20:24', 7);
+INSERT INTO `presensi_guru` VALUES (264, 56, '2023-09-18', '08:21:08', '00:00:00', '2023-09-18 08:21:08', 7);
+INSERT INTO `presensi_guru` VALUES (265, 43, '2023-09-18', '08:30:26', '15:31:18', '2023-09-18 08:30:26', 7);
+INSERT INTO `presensi_guru` VALUES (266, 46, '2023-09-18', '08:47:11', '00:00:00', '2023-09-18 08:47:11', 7);
+INSERT INTO `presensi_guru` VALUES (267, 30, '2023-09-18', '09:07:59', '00:00:00', '2023-09-18 09:07:59', 7);
+INSERT INTO `presensi_guru` VALUES (268, 32, '2023-09-18', '09:28:40', '00:00:00', '2023-09-18 09:28:40', 7);
+INSERT INTO `presensi_guru` VALUES (269, 50, '2023-09-18', '09:52:56', '00:00:00', '2023-09-18 09:52:56', 7);
+INSERT INTO `presensi_guru` VALUES (270, 44, '2023-09-18', '09:54:12', '15:30:41', '2023-09-18 09:54:12', 7);
+INSERT INTO `presensi_guru` VALUES (271, 51, '2023-09-18', '10:02:50', '00:00:00', '2023-09-18 10:02:50', 7);
+INSERT INTO `presensi_guru` VALUES (272, 41, '2023-09-18', '12:05:53', '00:00:00', '2023-09-18 12:05:53', 7);
+INSERT INTO `presensi_guru` VALUES (273, 37, '2023-09-19', '07:21:54', '00:00:00', '2023-09-19 07:21:54', 7);
+INSERT INTO `presensi_guru` VALUES (274, 29, '2023-09-19', '07:48:47', '17:00:00', '2023-09-19 07:48:47', 7);
+INSERT INTO `presensi_guru` VALUES (275, 32, '2023-09-19', '07:57:30', '00:00:00', '2023-09-19 07:57:30', 7);
+INSERT INTO `presensi_guru` VALUES (276, 54, '2023-09-19', '07:58:35', '00:00:00', '2023-09-19 07:58:35', 7);
+INSERT INTO `presensi_guru` VALUES (277, 31, '2023-09-19', '08:17:20', '00:00:00', '2023-09-19 08:17:20', 7);
+INSERT INTO `presensi_guru` VALUES (278, 35, '2023-09-19', '08:32:40', '00:00:00', '2023-09-19 08:32:40', 7);
+INSERT INTO `presensi_guru` VALUES (279, 45, '2023-09-19', '08:33:19', '11:03:24', '2023-09-19 08:33:19', 7);
+INSERT INTO `presensi_guru` VALUES (280, 40, '2023-09-19', '08:46:26', '00:00:00', '2023-09-19 08:46:26', 7);
+INSERT INTO `presensi_guru` VALUES (281, 56, '2023-09-19', '09:18:24', '00:00:00', '2023-09-19 09:18:24', 7);
+INSERT INTO `presensi_guru` VALUES (282, 53, '2023-09-19', '09:25:06', '14:29:02', '2023-09-19 09:25:06', 7);
+INSERT INTO `presensi_guru` VALUES (283, 51, '2023-09-19', '09:30:47', '00:00:00', '2023-09-19 09:30:47', 7);
+INSERT INTO `presensi_guru` VALUES (284, 50, '2023-09-19', '09:37:35', '00:00:00', '2023-09-19 09:37:35', 7);
+INSERT INTO `presensi_guru` VALUES (285, 43, '2023-09-19', '09:38:39', '15:25:32', '2023-09-19 09:38:39', 7);
+INSERT INTO `presensi_guru` VALUES (286, 41, '2023-09-19', '11:57:33', '00:00:00', '2023-09-19 11:57:33', 7);
+INSERT INTO `presensi_guru` VALUES (287, 42, '2023-09-19', '12:29:39', '00:00:00', '2023-09-19 12:29:39', 7);
+INSERT INTO `presensi_guru` VALUES (288, 57, '2023-09-19', '12:31:03', '14:24:50', '2023-09-19 12:31:03', 7);
+INSERT INTO `presensi_guru` VALUES (289, 30, '2023-09-19', '07:32:00', '00:00:00', '2023-09-19 14:04:04', 7);
+INSERT INTO `presensi_guru` VALUES (290, 32, '2023-09-20', '05:29:43', '00:00:00', '2023-09-20 05:29:43', 7);
+INSERT INTO `presensi_guru` VALUES (291, 54, '2023-09-20', '06:58:42', '00:00:00', '2023-09-20 06:58:42', 7);
+INSERT INTO `presensi_guru` VALUES (292, 29, '2023-09-20', '07:44:36', '00:00:00', '2023-09-20 07:44:36', 7);
+INSERT INTO `presensi_guru` VALUES (293, 55, '2023-09-20', '08:24:34', '10:05:25', '2023-09-20 08:24:34', 7);
+INSERT INTO `presensi_guru` VALUES (294, 42, '2023-09-20', '08:28:09', '00:00:00', '2023-09-20 08:28:09', 7);
+INSERT INTO `presensi_guru` VALUES (295, 44, '2023-09-20', '08:44:17', '00:00:00', '2023-09-20 08:44:17', 7);
+INSERT INTO `presensi_guru` VALUES (296, 40, '2023-09-20', '08:47:53', '00:00:00', '2023-09-20 08:47:53', 7);
+INSERT INTO `presensi_guru` VALUES (297, 35, '2023-09-20', '09:03:26', '00:00:00', '2023-09-20 09:03:26', 7);
+INSERT INTO `presensi_guru` VALUES (298, 31, '2023-09-20', '09:22:54', '00:00:00', '2023-09-20 09:22:54', 7);
+INSERT INTO `presensi_guru` VALUES (299, 45, '2023-09-20', '09:29:44', '00:00:00', '2023-09-20 09:29:44', 7);
+INSERT INTO `presensi_guru` VALUES (300, 56, '2023-09-20', '09:49:26', '00:00:00', '2023-09-20 09:49:26', 7);
+INSERT INTO `presensi_guru` VALUES (301, 30, '2023-09-20', '10:23:25', '00:00:00', '2023-09-20 10:23:25', 7);
+INSERT INTO `presensi_guru` VALUES (302, 51, '2023-09-20', '10:43:32', '00:00:00', '2023-09-20 10:43:32', 7);
+INSERT INTO `presensi_guru` VALUES (303, 50, '2023-09-20', '11:07:51', '00:00:00', '2023-09-20 11:07:51', 7);
+INSERT INTO `presensi_guru` VALUES (304, 53, '2023-09-20', '11:30:09', '00:00:00', '2023-09-20 11:30:09', 7);
+INSERT INTO `presensi_guru` VALUES (305, 43, '2023-09-20', '00:00:00', '15:43:17', '2023-09-20 15:43:17', 7);
 
 -- ----------------------------
 -- Table structure for presensi_harian
@@ -4033,7 +4599,7 @@ CREATE TABLE `presensi_harian`  (
   `idtahunajaran_fk` int(11) NULL DEFAULT NULL,
   `idkelas_fk` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id_presensi_harian`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 7209 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 10292 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of presensi_harian
@@ -11177,6 +11743,3089 @@ INSERT INTO `presensi_harian` VALUES (7205, 24, 859, 'M', '', '2023-09-11', '202
 INSERT INTO `presensi_harian` VALUES (7206, 24, 860, 'M', '', '2023-09-11', '2023-09-11 10:27:13', 7, 56);
 INSERT INTO `presensi_harian` VALUES (7207, 24, 861, 'M', '', '2023-09-11', '2023-09-11 10:27:13', 7, 56);
 INSERT INTO `presensi_harian` VALUES (7208, 24, 862, 'M', '', '2023-09-11', '2023-09-11 10:27:13', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7209, 24, 877, 'M', '', '2023-09-11', '2023-09-11 11:01:35', 7, 61);
+INSERT INTO `presensi_harian` VALUES (7210, 24, 879, 'M', '', '2023-09-11', '2023-09-11 11:01:35', 7, 61);
+INSERT INTO `presensi_harian` VALUES (7211, 24, 880, 'M', '', '2023-09-11', '2023-09-11 11:01:35', 7, 61);
+INSERT INTO `presensi_harian` VALUES (7212, 24, 881, 'M', '', '2023-09-11', '2023-09-11 11:01:35', 7, 61);
+INSERT INTO `presensi_harian` VALUES (7213, 24, 882, 'M', '', '2023-09-11', '2023-09-11 11:01:35', 7, 61);
+INSERT INTO `presensi_harian` VALUES (7214, 24, 883, 'M', '', '2023-09-11', '2023-09-11 11:01:35', 7, 61);
+INSERT INTO `presensi_harian` VALUES (7215, 24, 884, 'M', '', '2023-09-11', '2023-09-11 11:01:35', 7, 61);
+INSERT INTO `presensi_harian` VALUES (7216, 24, 885, 'M', '', '2023-09-11', '2023-09-11 11:01:35', 7, 61);
+INSERT INTO `presensi_harian` VALUES (7217, 24, 886, 'M', '', '2023-09-11', '2023-09-11 11:01:35', 7, 61);
+INSERT INTO `presensi_harian` VALUES (7218, 24, 887, 'M', '', '2023-09-11', '2023-09-11 11:01:35', 7, 61);
+INSERT INTO `presensi_harian` VALUES (7219, 13, 770, 'A', '', '2023-09-11', '2023-09-11 11:27:03', 7, 55);
+INSERT INTO `presensi_harian` VALUES (7220, 13, 771, 'M', '', '2023-09-11', '2023-09-11 11:27:03', 7, 55);
+INSERT INTO `presensi_harian` VALUES (7221, 13, 772, 'A', '', '2023-09-11', '2023-09-11 11:27:03', 7, 55);
+INSERT INTO `presensi_harian` VALUES (7222, 13, 773, 'M', '', '2023-09-11', '2023-09-11 11:27:03', 7, 55);
+INSERT INTO `presensi_harian` VALUES (7223, 13, 774, 'M', '', '2023-09-11', '2023-09-11 11:27:03', 7, 55);
+INSERT INTO `presensi_harian` VALUES (7224, 13, 775, 'A', '', '2023-09-11', '2023-09-11 11:27:03', 7, 55);
+INSERT INTO `presensi_harian` VALUES (7225, 13, 776, 'A', '', '2023-09-11', '2023-09-11 11:27:03', 7, 55);
+INSERT INTO `presensi_harian` VALUES (7226, 13, 777, 'A', '', '2023-09-11', '2023-09-11 11:27:03', 7, 55);
+INSERT INTO `presensi_harian` VALUES (7227, 13, 778, 'M', '', '2023-09-11', '2023-09-11 11:27:03', 7, 55);
+INSERT INTO `presensi_harian` VALUES (7228, 13, 779, 'M', '', '2023-09-11', '2023-09-11 11:27:03', 7, 55);
+INSERT INTO `presensi_harian` VALUES (7229, 13, 780, 'M', '', '2023-09-11', '2023-09-11 11:27:03', 7, 55);
+INSERT INTO `presensi_harian` VALUES (7230, 13, 781, 'I', '', '2023-09-11', '2023-09-11 11:27:03', 7, 55);
+INSERT INTO `presensi_harian` VALUES (7231, 13, 782, 'A', '', '2023-09-11', '2023-09-11 11:27:03', 7, 55);
+INSERT INTO `presensi_harian` VALUES (7232, 13, 783, 'M', '', '2023-09-11', '2023-09-11 11:27:03', 7, 55);
+INSERT INTO `presensi_harian` VALUES (7233, 13, 784, 'M', '', '2023-09-11', '2023-09-11 11:27:03', 7, 55);
+INSERT INTO `presensi_harian` VALUES (7234, 13, 785, 'M', '', '2023-09-11', '2023-09-11 11:27:03', 7, 55);
+INSERT INTO `presensi_harian` VALUES (7235, 13, 786, 'M', '', '2023-09-11', '2023-09-11 11:27:03', 7, 55);
+INSERT INTO `presensi_harian` VALUES (7236, 13, 787, 'A', '', '2023-09-11', '2023-09-11 11:27:03', 7, 55);
+INSERT INTO `presensi_harian` VALUES (7237, 33, 956, 'M', '', '2023-09-11', '2023-09-11 12:29:05', 7, 53);
+INSERT INTO `presensi_harian` VALUES (7238, 33, 957, 'M', '', '2023-09-11', '2023-09-11 12:29:05', 7, 53);
+INSERT INTO `presensi_harian` VALUES (7239, 33, 958, 'M', '', '2023-09-11', '2023-09-11 12:29:05', 7, 53);
+INSERT INTO `presensi_harian` VALUES (7240, 33, 959, 'M', '', '2023-09-11', '2023-09-11 12:29:05', 7, 53);
+INSERT INTO `presensi_harian` VALUES (7241, 33, 960, 'M', '', '2023-09-11', '2023-09-11 12:29:05', 7, 53);
+INSERT INTO `presensi_harian` VALUES (7242, 33, 961, 'M', '', '2023-09-11', '2023-09-11 12:29:05', 7, 53);
+INSERT INTO `presensi_harian` VALUES (7243, 33, 962, 'M', '', '2023-09-11', '2023-09-11 12:29:05', 7, 53);
+INSERT INTO `presensi_harian` VALUES (7244, 33, 963, 'M', '', '2023-09-11', '2023-09-11 12:29:05', 7, 53);
+INSERT INTO `presensi_harian` VALUES (7245, 33, 964, 'M', '', '2023-09-11', '2023-09-11 12:29:05', 7, 53);
+INSERT INTO `presensi_harian` VALUES (7246, 33, 965, 'M', '', '2023-09-11', '2023-09-11 12:29:05', 7, 53);
+INSERT INTO `presensi_harian` VALUES (7247, 33, 966, 'M', '', '2023-09-11', '2023-09-11 12:29:05', 7, 53);
+INSERT INTO `presensi_harian` VALUES (7248, 33, 967, 'A', '', '2023-09-11', '2023-09-11 12:29:05', 7, 53);
+INSERT INTO `presensi_harian` VALUES (7249, 33, 968, 'M', '', '2023-09-11', '2023-09-11 12:29:05', 7, 53);
+INSERT INTO `presensi_harian` VALUES (7250, 33, 969, 'M', '', '2023-09-11', '2023-09-11 12:29:05', 7, 53);
+INSERT INTO `presensi_harian` VALUES (7251, 33, 930, 'M', '', '2023-09-11', '2023-09-11 12:29:53', 7, 51);
+INSERT INTO `presensi_harian` VALUES (7252, 33, 931, 'M', '', '2023-09-11', '2023-09-11 12:29:53', 7, 51);
+INSERT INTO `presensi_harian` VALUES (7253, 33, 932, 'A', '', '2023-09-11', '2023-09-11 12:29:53', 7, 51);
+INSERT INTO `presensi_harian` VALUES (7254, 33, 933, 'A', '', '2023-09-11', '2023-09-11 12:29:53', 7, 51);
+INSERT INTO `presensi_harian` VALUES (7255, 33, 934, 'A', '', '2023-09-11', '2023-09-11 12:29:53', 7, 51);
+INSERT INTO `presensi_harian` VALUES (7256, 33, 935, 'A', '', '2023-09-11', '2023-09-11 12:29:53', 7, 51);
+INSERT INTO `presensi_harian` VALUES (7257, 33, 936, 'M', '', '2023-09-11', '2023-09-11 12:29:53', 7, 51);
+INSERT INTO `presensi_harian` VALUES (7258, 33, 937, 'M', '', '2023-09-11', '2023-09-11 12:29:53', 7, 51);
+INSERT INTO `presensi_harian` VALUES (7259, 33, 938, 'A', '', '2023-09-11', '2023-09-11 12:29:53', 7, 51);
+INSERT INTO `presensi_harian` VALUES (7260, 33, 939, 'M', '', '2023-09-11', '2023-09-11 12:29:53', 7, 51);
+INSERT INTO `presensi_harian` VALUES (7261, 33, 940, 'M', '', '2023-09-11', '2023-09-11 12:29:53', 7, 51);
+INSERT INTO `presensi_harian` VALUES (7262, 33, 941, 'M', '', '2023-09-11', '2023-09-11 12:29:53', 7, 51);
+INSERT INTO `presensi_harian` VALUES (7263, 33, 942, 'M', '', '2023-09-11', '2023-09-11 12:29:53', 7, 51);
+INSERT INTO `presensi_harian` VALUES (7264, 33, 943, 'A', '', '2023-09-11', '2023-09-11 12:29:53', 7, 51);
+INSERT INTO `presensi_harian` VALUES (7265, 33, 944, 'A', '', '2023-09-11', '2023-09-11 12:29:53', 7, 51);
+INSERT INTO `presensi_harian` VALUES (7266, 9, 788, 'M', '', '2023-09-11', '2023-09-11 12:30:01', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7267, 9, 789, 'M', '', '2023-09-11', '2023-09-11 12:30:01', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7268, 9, 790, 'M', '', '2023-09-11', '2023-09-11 12:30:01', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7269, 9, 791, 'M', '', '2023-09-11', '2023-09-11 12:30:01', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7270, 9, 792, 'M', '', '2023-09-11', '2023-09-11 12:30:01', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7271, 9, 793, 'M', '', '2023-09-11', '2023-09-11 12:30:01', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7272, 9, 794, 'M', '', '2023-09-11', '2023-09-11 12:30:01', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7273, 9, 795, 'M', '', '2023-09-11', '2023-09-11 12:30:01', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7274, 9, 796, 'M', '', '2023-09-11', '2023-09-11 12:30:01', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7275, 9, 797, 'M', '', '2023-09-11', '2023-09-11 12:30:01', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7276, 9, 798, 'M', '', '2023-09-11', '2023-09-11 12:30:01', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7277, 9, 799, 'M', '', '2023-09-11', '2023-09-11 12:30:01', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7278, 9, 800, 'M', '', '2023-09-11', '2023-09-11 12:30:01', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7279, 9, 801, 'M', '', '2023-09-11', '2023-09-11 12:30:01', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7280, 9, 802, 'M', '', '2023-09-11', '2023-09-11 12:30:01', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7281, 9, 803, 'M', '', '2023-09-11', '2023-09-11 12:30:01', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7282, 9, 804, 'M', '', '2023-09-11', '2023-09-11 12:30:01', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7283, 9, 805, 'M', '', '2023-09-11', '2023-09-11 12:30:01', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7284, 9, 806, 'M', '', '2023-09-11', '2023-09-11 12:30:01', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7285, 9, 807, 'M', '', '2023-09-11', '2023-09-11 12:30:01', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7286, 9, 808, 'M', '', '2023-09-11', '2023-09-11 12:30:01', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7287, 19, 930, 'M', '', '2023-09-11', '2023-09-11 12:30:38', 7, 51);
+INSERT INTO `presensi_harian` VALUES (7288, 19, 931, 'M', '', '2023-09-11', '2023-09-11 12:30:38', 7, 51);
+INSERT INTO `presensi_harian` VALUES (7289, 19, 932, 'A', '', '2023-09-11', '2023-09-11 12:30:38', 7, 51);
+INSERT INTO `presensi_harian` VALUES (7290, 19, 933, 'A', '', '2023-09-11', '2023-09-11 12:30:38', 7, 51);
+INSERT INTO `presensi_harian` VALUES (7291, 19, 934, 'M', '', '2023-09-11', '2023-09-11 12:30:38', 7, 51);
+INSERT INTO `presensi_harian` VALUES (7292, 19, 935, 'A', '', '2023-09-11', '2023-09-11 12:30:38', 7, 51);
+INSERT INTO `presensi_harian` VALUES (7293, 19, 936, 'M', '', '2023-09-11', '2023-09-11 12:30:38', 7, 51);
+INSERT INTO `presensi_harian` VALUES (7294, 19, 937, 'M', '', '2023-09-11', '2023-09-11 12:30:38', 7, 51);
+INSERT INTO `presensi_harian` VALUES (7295, 19, 938, 'A', '', '2023-09-11', '2023-09-11 12:30:38', 7, 51);
+INSERT INTO `presensi_harian` VALUES (7296, 19, 939, 'M', '', '2023-09-11', '2023-09-11 12:30:38', 7, 51);
+INSERT INTO `presensi_harian` VALUES (7297, 19, 940, 'M', '', '2023-09-11', '2023-09-11 12:30:38', 7, 51);
+INSERT INTO `presensi_harian` VALUES (7298, 19, 941, 'M', '', '2023-09-11', '2023-09-11 12:30:38', 7, 51);
+INSERT INTO `presensi_harian` VALUES (7299, 19, 942, 'M', '', '2023-09-11', '2023-09-11 12:30:38', 7, 51);
+INSERT INTO `presensi_harian` VALUES (7300, 19, 943, 'A', '', '2023-09-11', '2023-09-11 12:30:38', 7, 51);
+INSERT INTO `presensi_harian` VALUES (7301, 19, 944, 'A', '', '2023-09-11', '2023-09-11 12:30:38', 7, 51);
+INSERT INTO `presensi_harian` VALUES (7302, 24, 970, 'M', '', '2023-09-11', '2023-09-11 12:46:58', 7, 65);
+INSERT INTO `presensi_harian` VALUES (7303, 24, 971, 'M', '', '2023-09-11', '2023-09-11 12:46:58', 7, 65);
+INSERT INTO `presensi_harian` VALUES (7304, 24, 972, 'M', '', '2023-09-11', '2023-09-11 12:46:58', 7, 65);
+INSERT INTO `presensi_harian` VALUES (7305, 24, 973, 'I', '', '2023-09-11', '2023-09-11 12:46:58', 7, 65);
+INSERT INTO `presensi_harian` VALUES (7306, 24, 974, 'M', '', '2023-09-11', '2023-09-11 12:46:58', 7, 65);
+INSERT INTO `presensi_harian` VALUES (7307, 24, 975, 'M', '', '2023-09-11', '2023-09-11 12:46:58', 7, 65);
+INSERT INTO `presensi_harian` VALUES (7308, 24, 976, 'M', '', '2023-09-11', '2023-09-11 12:46:58', 7, 65);
+INSERT INTO `presensi_harian` VALUES (7309, 24, 977, 'I', '', '2023-09-11', '2023-09-11 12:46:58', 7, 65);
+INSERT INTO `presensi_harian` VALUES (7310, 24, 978, 'M', '', '2023-09-11', '2023-09-11 12:46:58', 7, 65);
+INSERT INTO `presensi_harian` VALUES (7311, 24, 863, 'M', '', '2023-09-11', '2023-09-11 12:48:13', 7, 57);
+INSERT INTO `presensi_harian` VALUES (7312, 24, 864, 'M', '', '2023-09-11', '2023-09-11 12:48:13', 7, 57);
+INSERT INTO `presensi_harian` VALUES (7313, 24, 865, 'M', '', '2023-09-11', '2023-09-11 12:48:13', 7, 57);
+INSERT INTO `presensi_harian` VALUES (7314, 24, 866, 'M', '', '2023-09-11', '2023-09-11 12:48:13', 7, 57);
+INSERT INTO `presensi_harian` VALUES (7315, 24, 867, 'M', '', '2023-09-11', '2023-09-11 12:48:13', 7, 57);
+INSERT INTO `presensi_harian` VALUES (7316, 24, 868, 'M', '', '2023-09-11', '2023-09-11 12:48:13', 7, 57);
+INSERT INTO `presensi_harian` VALUES (7317, 24, 869, 'M', '', '2023-09-11', '2023-09-11 12:48:13', 7, 57);
+INSERT INTO `presensi_harian` VALUES (7318, 24, 870, 'M', '', '2023-09-11', '2023-09-11 12:48:13', 7, 57);
+INSERT INTO `presensi_harian` VALUES (7319, 24, 871, 'M', '', '2023-09-11', '2023-09-11 12:48:13', 7, 57);
+INSERT INTO `presensi_harian` VALUES (7320, 24, 872, 'M', '', '2023-09-11', '2023-09-11 12:48:13', 7, 57);
+INSERT INTO `presensi_harian` VALUES (7321, 24, 873, 'S', '', '2023-09-11', '2023-09-11 12:48:13', 7, 57);
+INSERT INTO `presensi_harian` VALUES (7322, 24, 874, 'M', '', '2023-09-11', '2023-09-11 12:48:13', 7, 57);
+INSERT INTO `presensi_harian` VALUES (7323, 24, 875, 'M', '', '2023-09-11', '2023-09-11 12:48:13', 7, 57);
+INSERT INTO `presensi_harian` VALUES (7324, 24, 876, 'M', '', '2023-09-11', '2023-09-11 12:48:13', 7, 57);
+INSERT INTO `presensi_harian` VALUES (7325, 24, 821, 'M', '', '2023-09-11', '2023-09-11 12:48:33', 7, 58);
+INSERT INTO `presensi_harian` VALUES (7326, 24, 822, 'M', '', '2023-09-11', '2023-09-11 12:48:33', 7, 58);
+INSERT INTO `presensi_harian` VALUES (7327, 24, 823, 'M', '', '2023-09-11', '2023-09-11 12:48:33', 7, 58);
+INSERT INTO `presensi_harian` VALUES (7328, 24, 824, 'M', '', '2023-09-11', '2023-09-11 12:48:33', 7, 58);
+INSERT INTO `presensi_harian` VALUES (7329, 20, 945, 'I', '', '2023-09-11', '2023-09-11 13:13:43', 7, 67);
+INSERT INTO `presensi_harian` VALUES (7330, 20, 946, 'M', '', '2023-09-11', '2023-09-11 13:13:43', 7, 67);
+INSERT INTO `presensi_harian` VALUES (7331, 20, 947, 'M', '', '2023-09-11', '2023-09-11 13:13:43', 7, 67);
+INSERT INTO `presensi_harian` VALUES (7332, 20, 948, 'I', '', '2023-09-11', '2023-09-11 13:13:43', 7, 67);
+INSERT INTO `presensi_harian` VALUES (7333, 20, 949, 'M', '', '2023-09-11', '2023-09-11 13:13:43', 7, 67);
+INSERT INTO `presensi_harian` VALUES (7334, 20, 950, 'M', '', '2023-09-11', '2023-09-11 13:13:43', 7, 67);
+INSERT INTO `presensi_harian` VALUES (7335, 20, 951, 'I', '', '2023-09-11', '2023-09-11 13:13:43', 7, 67);
+INSERT INTO `presensi_harian` VALUES (7336, 20, 952, 'M', '', '2023-09-11', '2023-09-11 13:13:43', 7, 67);
+INSERT INTO `presensi_harian` VALUES (7337, 20, 953, 'M', '', '2023-09-11', '2023-09-11 13:13:43', 7, 67);
+INSERT INTO `presensi_harian` VALUES (7338, 20, 954, 'M', '', '2023-09-11', '2023-09-11 13:13:43', 7, 67);
+INSERT INTO `presensi_harian` VALUES (7339, 20, 955, 'I', '', '2023-09-11', '2023-09-11 13:13:43', 7, 67);
+INSERT INTO `presensi_harian` VALUES (7340, 14, 838, 'M', '', '2023-09-11', '2023-09-11 14:02:51', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7341, 14, 839, 'M', '', '2023-09-11', '2023-09-11 14:02:51', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7342, 14, 840, 'M', '', '2023-09-11', '2023-09-11 14:02:51', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7343, 14, 841, 'M', '', '2023-09-11', '2023-09-11 14:02:51', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7344, 14, 842, 'M', '', '2023-09-11', '2023-09-11 14:02:51', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7345, 14, 843, 'M', '', '2023-09-11', '2023-09-11 14:02:51', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7346, 14, 844, 'M', '', '2023-09-11', '2023-09-11 14:02:51', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7347, 14, 845, 'A', '', '2023-09-11', '2023-09-11 14:02:51', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7348, 14, 846, 'M', '', '2023-09-11', '2023-09-11 14:02:51', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7349, 14, 847, 'M', '', '2023-09-11', '2023-09-11 14:02:51', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7350, 14, 848, 'M', '', '2023-09-11', '2023-09-11 14:02:51', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7351, 14, 849, 'M', '', '2023-09-11', '2023-09-11 14:02:51', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7352, 14, 850, 'M', '', '2023-09-11', '2023-09-11 14:02:51', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7353, 14, 851, 'M', '', '2023-09-11', '2023-09-11 14:02:51', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7354, 14, 852, 'M', '', '2023-09-11', '2023-09-11 14:02:51', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7355, 14, 853, 'M', '', '2023-09-11', '2023-09-11 14:02:51', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7356, 14, 854, 'M', '', '2023-09-11', '2023-09-11 14:02:51', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7357, 14, 855, 'M', '', '2023-09-11', '2023-09-11 14:02:51', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7358, 14, 856, 'M', '', '2023-09-11', '2023-09-11 14:02:51', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7359, 14, 857, 'M', '', '2023-09-11', '2023-09-11 14:02:51', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7360, 14, 858, 'M', '', '2023-09-11', '2023-09-11 14:02:51', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7361, 14, 859, 'M', '', '2023-09-11', '2023-09-11 14:02:51', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7362, 14, 860, 'M', '', '2023-09-11', '2023-09-11 14:02:51', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7363, 14, 861, 'M', '', '2023-09-11', '2023-09-11 14:02:51', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7364, 14, 862, 'M', '', '2023-09-11', '2023-09-11 14:02:51', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7365, 14, 863, 'M', '', '2023-09-11', '2023-09-11 14:15:01', 7, 57);
+INSERT INTO `presensi_harian` VALUES (7366, 14, 864, 'M', '', '2023-09-11', '2023-09-11 14:15:01', 7, 57);
+INSERT INTO `presensi_harian` VALUES (7367, 14, 865, 'M', '', '2023-09-11', '2023-09-11 14:15:01', 7, 57);
+INSERT INTO `presensi_harian` VALUES (7368, 14, 866, 'M', '', '2023-09-11', '2023-09-11 14:15:01', 7, 57);
+INSERT INTO `presensi_harian` VALUES (7369, 14, 867, 'M', '', '2023-09-11', '2023-09-11 14:15:01', 7, 57);
+INSERT INTO `presensi_harian` VALUES (7370, 14, 868, 'M', '', '2023-09-11', '2023-09-11 14:15:01', 7, 57);
+INSERT INTO `presensi_harian` VALUES (7371, 14, 869, 'M', '', '2023-09-11', '2023-09-11 14:15:01', 7, 57);
+INSERT INTO `presensi_harian` VALUES (7372, 14, 870, 'M', '', '2023-09-11', '2023-09-11 14:15:01', 7, 57);
+INSERT INTO `presensi_harian` VALUES (7373, 14, 871, 'M', '', '2023-09-11', '2023-09-11 14:15:01', 7, 57);
+INSERT INTO `presensi_harian` VALUES (7374, 14, 872, 'M', '', '2023-09-11', '2023-09-11 14:15:01', 7, 57);
+INSERT INTO `presensi_harian` VALUES (7375, 14, 873, 'S', '', '2023-09-11', '2023-09-11 14:15:01', 7, 57);
+INSERT INTO `presensi_harian` VALUES (7376, 14, 874, 'M', '', '2023-09-11', '2023-09-11 14:15:01', 7, 57);
+INSERT INTO `presensi_harian` VALUES (7377, 14, 875, 'M', '', '2023-09-11', '2023-09-11 14:15:01', 7, 57);
+INSERT INTO `presensi_harian` VALUES (7378, 14, 876, 'M', '', '2023-09-11', '2023-09-11 14:15:01', 7, 57);
+INSERT INTO `presensi_harian` VALUES (7379, 8, 925, 'M', '', '2023-09-11', '2023-09-11 14:21:20', 7, 52);
+INSERT INTO `presensi_harian` VALUES (7380, 8, 926, 'M', '', '2023-09-11', '2023-09-11 14:21:20', 7, 52);
+INSERT INTO `presensi_harian` VALUES (7381, 8, 927, 'M', '', '2023-09-11', '2023-09-11 14:21:20', 7, 52);
+INSERT INTO `presensi_harian` VALUES (7382, 8, 928, 'M', '', '2023-09-11', '2023-09-11 14:21:20', 7, 52);
+INSERT INTO `presensi_harian` VALUES (7383, 8, 929, 'M', '', '2023-09-11', '2023-09-11 14:21:20', 7, 52);
+INSERT INTO `presensi_harian` VALUES (7384, 8, 945, 'I', '', '2023-09-11', '2023-09-11 14:22:15', 7, 67);
+INSERT INTO `presensi_harian` VALUES (7385, 8, 946, 'M', '', '2023-09-11', '2023-09-11 14:22:15', 7, 67);
+INSERT INTO `presensi_harian` VALUES (7386, 8, 947, 'M', '', '2023-09-11', '2023-09-11 14:22:15', 7, 67);
+INSERT INTO `presensi_harian` VALUES (7387, 8, 948, 'I', '', '2023-09-11', '2023-09-11 14:22:15', 7, 67);
+INSERT INTO `presensi_harian` VALUES (7388, 8, 949, 'M', '', '2023-09-11', '2023-09-11 14:22:15', 7, 67);
+INSERT INTO `presensi_harian` VALUES (7389, 8, 950, 'M', '', '2023-09-11', '2023-09-11 14:22:15', 7, 67);
+INSERT INTO `presensi_harian` VALUES (7390, 8, 951, 'I', '', '2023-09-11', '2023-09-11 14:22:15', 7, 67);
+INSERT INTO `presensi_harian` VALUES (7391, 8, 952, 'A', '', '2023-09-11', '2023-09-11 14:22:15', 7, 67);
+INSERT INTO `presensi_harian` VALUES (7392, 8, 953, 'M', '', '2023-09-11', '2023-09-11 14:22:15', 7, 67);
+INSERT INTO `presensi_harian` VALUES (7393, 8, 954, 'M', '', '2023-09-11', '2023-09-11 14:22:15', 7, 67);
+INSERT INTO `presensi_harian` VALUES (7394, 8, 955, 'I', '', '2023-09-11', '2023-09-11 14:22:15', 7, 67);
+INSERT INTO `presensi_harian` VALUES (7395, 24, 809, 'M', '', '2023-09-11', '2023-09-11 14:26:59', 7, 60);
+INSERT INTO `presensi_harian` VALUES (7396, 24, 810, 'M', '', '2023-09-11', '2023-09-11 14:26:59', 7, 60);
+INSERT INTO `presensi_harian` VALUES (7397, 24, 811, 'M', '', '2023-09-11', '2023-09-11 14:26:59', 7, 60);
+INSERT INTO `presensi_harian` VALUES (7398, 24, 812, 'M', '', '2023-09-11', '2023-09-11 14:26:59', 7, 60);
+INSERT INTO `presensi_harian` VALUES (7399, 24, 813, 'M', '', '2023-09-11', '2023-09-11 14:26:59', 7, 60);
+INSERT INTO `presensi_harian` VALUES (7400, 24, 814, 'M', '', '2023-09-11', '2023-09-11 14:26:59', 7, 60);
+INSERT INTO `presensi_harian` VALUES (7401, 24, 815, 'M', '', '2023-09-11', '2023-09-11 14:26:59', 7, 60);
+INSERT INTO `presensi_harian` VALUES (7402, 24, 816, 'M', '', '2023-09-11', '2023-09-11 14:26:59', 7, 60);
+INSERT INTO `presensi_harian` VALUES (7403, 24, 817, 'M', '', '2023-09-11', '2023-09-11 14:26:59', 7, 60);
+INSERT INTO `presensi_harian` VALUES (7404, 24, 818, 'M', '', '2023-09-11', '2023-09-11 14:26:59', 7, 60);
+INSERT INTO `presensi_harian` VALUES (7405, 24, 819, 'M', '', '2023-09-11', '2023-09-11 14:26:59', 7, 60);
+INSERT INTO `presensi_harian` VALUES (7406, 24, 820, 'M', '', '2023-09-11', '2023-09-11 14:27:00', 7, 60);
+INSERT INTO `presensi_harian` VALUES (7407, 24, 888, 'M', '', '2023-09-11', '2023-09-11 14:27:46', 7, 66);
+INSERT INTO `presensi_harian` VALUES (7408, 24, 889, 'M', '', '2023-09-11', '2023-09-11 14:27:46', 7, 66);
+INSERT INTO `presensi_harian` VALUES (7409, 24, 890, 'I', '', '2023-09-11', '2023-09-11 14:27:46', 7, 66);
+INSERT INTO `presensi_harian` VALUES (7410, 24, 891, 'I', '', '2023-09-11', '2023-09-11 14:27:46', 7, 66);
+INSERT INTO `presensi_harian` VALUES (7411, 24, 892, 'M', '', '2023-09-11', '2023-09-11 14:27:46', 7, 66);
+INSERT INTO `presensi_harian` VALUES (7412, 24, 893, 'I', '', '2023-09-11', '2023-09-11 14:27:46', 7, 66);
+INSERT INTO `presensi_harian` VALUES (7413, 24, 825, 'M', '', '2023-09-11', '2023-09-11 14:28:56', 7, 62);
+INSERT INTO `presensi_harian` VALUES (7414, 24, 827, 'A', '', '2023-09-11', '2023-09-11 14:28:56', 7, 62);
+INSERT INTO `presensi_harian` VALUES (7415, 24, 828, 'I', '', '2023-09-11', '2023-09-11 14:28:56', 7, 62);
+INSERT INTO `presensi_harian` VALUES (7416, 24, 829, 'S', '', '2023-09-11', '2023-09-11 14:28:56', 7, 62);
+INSERT INTO `presensi_harian` VALUES (7417, 24, 830, 'M', '', '2023-09-11', '2023-09-11 14:28:56', 7, 62);
+INSERT INTO `presensi_harian` VALUES (7418, 24, 831, 'M', '', '2023-09-11', '2023-09-11 14:28:56', 7, 62);
+INSERT INTO `presensi_harian` VALUES (7419, 24, 832, 'M', '', '2023-09-11', '2023-09-11 14:28:56', 7, 62);
+INSERT INTO `presensi_harian` VALUES (7420, 24, 833, 'M', '', '2023-09-11', '2023-09-11 14:28:56', 7, 62);
+INSERT INTO `presensi_harian` VALUES (7421, 24, 834, 'M', '', '2023-09-11', '2023-09-11 14:28:56', 7, 62);
+INSERT INTO `presensi_harian` VALUES (7422, 24, 835, 'M', '', '2023-09-11', '2023-09-11 14:28:56', 7, 62);
+INSERT INTO `presensi_harian` VALUES (7423, 24, 836, 'M', '', '2023-09-11', '2023-09-11 14:28:56', 7, 62);
+INSERT INTO `presensi_harian` VALUES (7424, 24, 837, 'M', '', '2023-09-11', '2023-09-11 14:28:56', 7, 62);
+INSERT INTO `presensi_harian` VALUES (7425, 16, 821, 'M', '', '2023-09-11', '2023-09-11 14:46:19', 7, 58);
+INSERT INTO `presensi_harian` VALUES (7426, 16, 822, 'M', '', '2023-09-11', '2023-09-11 14:46:19', 7, 58);
+INSERT INTO `presensi_harian` VALUES (7427, 16, 823, 'M', '', '2023-09-11', '2023-09-11 14:46:19', 7, 58);
+INSERT INTO `presensi_harian` VALUES (7428, 16, 824, 'M', '', '2023-09-11', '2023-09-11 14:46:19', 7, 58);
+INSERT INTO `presensi_harian` VALUES (7429, 14, 877, 'M', '', '2023-09-11', '2023-09-11 15:10:54', 7, 61);
+INSERT INTO `presensi_harian` VALUES (7430, 14, 879, 'M', '', '2023-09-11', '2023-09-11 15:10:54', 7, 61);
+INSERT INTO `presensi_harian` VALUES (7431, 14, 880, 'M', '', '2023-09-11', '2023-09-11 15:10:54', 7, 61);
+INSERT INTO `presensi_harian` VALUES (7432, 14, 881, 'M', '', '2023-09-11', '2023-09-11 15:10:54', 7, 61);
+INSERT INTO `presensi_harian` VALUES (7433, 14, 882, 'M', '', '2023-09-11', '2023-09-11 15:10:54', 7, 61);
+INSERT INTO `presensi_harian` VALUES (7434, 14, 883, 'M', '', '2023-09-11', '2023-09-11 15:10:54', 7, 61);
+INSERT INTO `presensi_harian` VALUES (7435, 14, 884, 'M', '', '2023-09-11', '2023-09-11 15:10:54', 7, 61);
+INSERT INTO `presensi_harian` VALUES (7436, 14, 885, 'I', '', '2023-09-11', '2023-09-11 15:10:54', 7, 61);
+INSERT INTO `presensi_harian` VALUES (7437, 14, 886, 'M', '', '2023-09-11', '2023-09-11 15:10:54', 7, 61);
+INSERT INTO `presensi_harian` VALUES (7438, 14, 887, 'M', '', '2023-09-11', '2023-09-11 15:10:54', 7, 61);
+INSERT INTO `presensi_harian` VALUES (7439, 15, 925, 'M', '', '2023-09-11', '2023-09-11 15:14:14', 7, 52);
+INSERT INTO `presensi_harian` VALUES (7440, 15, 926, 'M', '', '2023-09-11', '2023-09-11 15:14:14', 7, 52);
+INSERT INTO `presensi_harian` VALUES (7441, 15, 927, 'M', '', '2023-09-11', '2023-09-11 15:14:14', 7, 52);
+INSERT INTO `presensi_harian` VALUES (7442, 15, 928, 'M', '', '2023-09-11', '2023-09-11 15:14:14', 7, 52);
+INSERT INTO `presensi_harian` VALUES (7443, 15, 929, 'M', '', '2023-09-11', '2023-09-11 15:14:14', 7, 52);
+INSERT INTO `presensi_harian` VALUES (7444, 7, 838, 'M', '', '2023-09-12', '2023-09-12 08:31:51', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7445, 7, 839, 'M', '', '2023-09-12', '2023-09-12 08:31:51', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7446, 7, 840, 'M', '', '2023-09-12', '2023-09-12 08:31:51', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7447, 7, 841, 'M', '', '2023-09-12', '2023-09-12 08:31:51', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7448, 7, 842, 'M', '', '2023-09-12', '2023-09-12 08:31:51', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7449, 7, 843, 'A', '', '2023-09-12', '2023-09-12 08:31:51', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7450, 7, 844, 'M', '', '2023-09-12', '2023-09-12 08:31:51', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7451, 7, 845, 'M', '', '2023-09-12', '2023-09-12 08:31:51', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7452, 7, 846, 'M', '', '2023-09-12', '2023-09-12 08:31:51', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7453, 7, 847, 'M', '', '2023-09-12', '2023-09-12 08:31:51', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7454, 7, 848, 'M', '', '2023-09-12', '2023-09-12 08:31:51', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7455, 7, 849, 'M', '', '2023-09-12', '2023-09-12 08:31:51', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7456, 7, 850, 'M', '', '2023-09-12', '2023-09-12 08:31:51', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7457, 7, 851, 'M', '', '2023-09-12', '2023-09-12 08:31:51', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7458, 7, 852, 'M', '', '2023-09-12', '2023-09-12 08:31:51', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7459, 7, 853, 'M', '', '2023-09-12', '2023-09-12 08:31:51', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7460, 7, 854, 'I', '', '2023-09-12', '2023-09-12 08:31:51', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7461, 7, 855, 'M', '', '2023-09-12', '2023-09-12 08:31:51', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7462, 7, 856, 'M', '', '2023-09-12', '2023-09-12 08:31:52', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7463, 7, 857, 'M', '', '2023-09-12', '2023-09-12 08:31:52', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7464, 7, 858, 'M', '', '2023-09-12', '2023-09-12 08:31:52', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7465, 7, 859, 'M', '', '2023-09-12', '2023-09-12 08:31:52', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7466, 7, 860, 'M', '', '2023-09-12', '2023-09-12 08:31:52', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7467, 7, 861, 'M', '', '2023-09-12', '2023-09-12 08:31:52', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7468, 7, 862, 'M', '', '2023-09-12', '2023-09-12 08:31:52', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7469, 17, 788, 'M', '', '2023-09-12', '2023-09-12 08:32:35', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7470, 17, 789, 'M', '', '2023-09-12', '2023-09-12 08:32:35', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7471, 17, 790, 'M', '', '2023-09-12', '2023-09-12 08:32:35', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7472, 17, 791, 'M', '', '2023-09-12', '2023-09-12 08:32:35', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7473, 17, 792, 'M', '', '2023-09-12', '2023-09-12 08:32:35', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7474, 17, 793, 'M', '', '2023-09-12', '2023-09-12 08:32:35', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7475, 17, 794, 'M', '', '2023-09-12', '2023-09-12 08:32:35', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7476, 17, 795, 'M', '', '2023-09-12', '2023-09-12 08:32:35', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7477, 17, 796, 'M', '', '2023-09-12', '2023-09-12 08:32:35', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7478, 17, 797, 'M', '', '2023-09-12', '2023-09-12 08:32:35', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7479, 17, 798, 'S', '', '2023-09-12', '2023-09-12 08:32:35', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7480, 17, 799, 'M', '', '2023-09-12', '2023-09-12 08:32:35', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7481, 17, 800, 'M', '', '2023-09-12', '2023-09-12 08:32:36', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7482, 17, 801, 'M', '', '2023-09-12', '2023-09-12 08:32:36', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7483, 17, 802, 'M', '', '2023-09-12', '2023-09-12 08:32:36', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7484, 17, 803, 'M', '', '2023-09-12', '2023-09-12 08:32:36', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7485, 17, 804, 'M', '', '2023-09-12', '2023-09-12 08:32:36', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7486, 17, 805, 'M', '', '2023-09-12', '2023-09-12 08:32:36', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7487, 17, 806, 'A', '', '2023-09-12', '2023-09-12 08:32:36', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7488, 17, 807, 'M', '', '2023-09-12', '2023-09-12 08:32:36', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7489, 17, 808, 'M', '', '2023-09-12', '2023-09-12 08:32:36', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7490, 17, 877, 'M', '', '2023-09-12', '2023-09-12 08:33:44', 7, 61);
+INSERT INTO `presensi_harian` VALUES (7491, 17, 879, 'M', '', '2023-09-12', '2023-09-12 08:33:44', 7, 61);
+INSERT INTO `presensi_harian` VALUES (7492, 17, 880, 'M', '', '2023-09-12', '2023-09-12 08:33:44', 7, 61);
+INSERT INTO `presensi_harian` VALUES (7493, 17, 881, 'S', '', '2023-09-12', '2023-09-12 08:33:44', 7, 61);
+INSERT INTO `presensi_harian` VALUES (7494, 17, 882, 'M', '', '2023-09-12', '2023-09-12 08:33:44', 7, 61);
+INSERT INTO `presensi_harian` VALUES (7495, 17, 883, 'M', '', '2023-09-12', '2023-09-12 08:33:44', 7, 61);
+INSERT INTO `presensi_harian` VALUES (7496, 17, 884, 'M', '', '2023-09-12', '2023-09-12 08:33:44', 7, 61);
+INSERT INTO `presensi_harian` VALUES (7497, 17, 885, 'M', '', '2023-09-12', '2023-09-12 08:33:44', 7, 61);
+INSERT INTO `presensi_harian` VALUES (7498, 17, 886, 'M', '', '2023-09-12', '2023-09-12 08:33:44', 7, 61);
+INSERT INTO `presensi_harian` VALUES (7499, 17, 887, 'M', '', '2023-09-12', '2023-09-12 08:33:44', 7, 61);
+INSERT INTO `presensi_harian` VALUES (7500, 11, 745, 'M', '', '2023-09-12', '2023-09-12 08:58:55', 7, 54);
+INSERT INTO `presensi_harian` VALUES (7501, 11, 746, 'M', '', '2023-09-12', '2023-09-12 08:58:55', 7, 54);
+INSERT INTO `presensi_harian` VALUES (7502, 11, 747, 'M', '', '2023-09-12', '2023-09-12 08:58:55', 7, 54);
+INSERT INTO `presensi_harian` VALUES (7503, 11, 748, 'A', '', '2023-09-12', '2023-09-12 08:58:55', 7, 54);
+INSERT INTO `presensi_harian` VALUES (7504, 11, 749, 'M', '', '2023-09-12', '2023-09-12 08:58:55', 7, 54);
+INSERT INTO `presensi_harian` VALUES (7505, 11, 750, 'A', '', '2023-09-12', '2023-09-12 08:58:55', 7, 54);
+INSERT INTO `presensi_harian` VALUES (7506, 11, 751, 'A', '', '2023-09-12', '2023-09-12 08:58:55', 7, 54);
+INSERT INTO `presensi_harian` VALUES (7507, 11, 752, 'M', '', '2023-09-12', '2023-09-12 08:58:55', 7, 54);
+INSERT INTO `presensi_harian` VALUES (7508, 11, 753, 'M', '', '2023-09-12', '2023-09-12 08:58:55', 7, 54);
+INSERT INTO `presensi_harian` VALUES (7509, 11, 754, 'M', '', '2023-09-12', '2023-09-12 08:58:55', 7, 54);
+INSERT INTO `presensi_harian` VALUES (7510, 11, 755, 'M', '', '2023-09-12', '2023-09-12 08:58:55', 7, 54);
+INSERT INTO `presensi_harian` VALUES (7511, 11, 757, 'A', '', '2023-09-12', '2023-09-12 08:58:55', 7, 54);
+INSERT INTO `presensi_harian` VALUES (7512, 11, 758, 'M', '', '2023-09-12', '2023-09-12 08:58:55', 7, 54);
+INSERT INTO `presensi_harian` VALUES (7513, 11, 761, 'A', '', '2023-09-12', '2023-09-12 08:58:55', 7, 54);
+INSERT INTO `presensi_harian` VALUES (7514, 11, 763, 'M', '', '2023-09-12', '2023-09-12 08:58:55', 7, 54);
+INSERT INTO `presensi_harian` VALUES (7515, 11, 764, 'M', '', '2023-09-12', '2023-09-12 08:58:56', 7, 54);
+INSERT INTO `presensi_harian` VALUES (7516, 11, 766, 'M', '', '2023-09-12', '2023-09-12 08:58:56', 7, 54);
+INSERT INTO `presensi_harian` VALUES (7517, 11, 767, 'M', '', '2023-09-12', '2023-09-12 08:58:56', 7, 54);
+INSERT INTO `presensi_harian` VALUES (7518, 11, 768, 'M', '', '2023-09-12', '2023-09-12 08:58:56', 7, 54);
+INSERT INTO `presensi_harian` VALUES (7519, 11, 769, 'M', '', '2023-09-12', '2023-09-12 08:58:56', 7, 54);
+INSERT INTO `presensi_harian` VALUES (7520, 31, 894, 'M', '', '2023-09-12', '2023-09-12 09:11:57', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7521, 31, 895, 'I', '', '2023-09-12', '2023-09-12 09:11:57', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7522, 31, 896, 'S', '', '2023-09-12', '2023-09-12 09:11:57', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7523, 31, 897, 'M', '', '2023-09-12', '2023-09-12 09:11:57', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7524, 31, 898, 'S', '', '2023-09-12', '2023-09-12 09:11:57', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7525, 31, 899, 'A', '', '2023-09-12', '2023-09-12 09:11:57', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7526, 31, 900, 'M', '', '2023-09-12', '2023-09-12 09:11:57', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7527, 31, 901, 'S', '', '2023-09-12', '2023-09-12 09:11:57', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7528, 31, 902, 'M', '', '2023-09-12', '2023-09-12 09:11:57', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7529, 31, 903, 'M', '', '2023-09-12', '2023-09-12 09:11:57', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7530, 31, 904, 'S', '', '2023-09-12', '2023-09-12 09:11:57', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7531, 31, 905, 'M', '', '2023-09-12', '2023-09-12 09:11:57', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7532, 31, 906, 'S', '', '2023-09-12', '2023-09-12 09:11:57', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7533, 31, 907, 'M', '', '2023-09-12', '2023-09-12 09:11:57', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7534, 31, 908, 'M', '', '2023-09-12', '2023-09-12 09:11:57', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7535, 31, 909, 'S', '', '2023-09-12', '2023-09-12 09:11:57', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7536, 31, 910, 'M', '', '2023-09-12', '2023-09-12 09:11:57', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7537, 31, 911, 'M', '', '2023-09-12', '2023-09-12 09:11:57', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7538, 31, 912, 'I', '', '2023-09-12', '2023-09-12 09:11:57', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7539, 31, 913, 'S', '', '2023-09-12', '2023-09-12 09:11:57', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7540, 31, 914, 'M', '', '2023-09-12', '2023-09-12 09:11:57', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7541, 31, 915, 'M', '', '2023-09-12', '2023-09-12 09:11:57', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7542, 31, 916, 'I', '', '2023-09-12', '2023-09-12 09:11:57', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7543, 31, 917, 'M', '', '2023-09-12', '2023-09-12 09:11:57', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7544, 31, 918, 'M', '', '2023-09-12', '2023-09-12 09:11:57', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7545, 31, 919, 'M', '', '2023-09-12', '2023-09-12 09:11:57', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7546, 31, 920, 'M', '', '2023-09-12', '2023-09-12 09:11:57', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7547, 31, 921, 'I', '', '2023-09-12', '2023-09-12 09:11:57', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7548, 31, 922, 'M', '', '2023-09-12', '2023-09-12 09:11:57', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7549, 11, 770, 'M', '', '2023-09-12', '2023-09-12 09:46:05', 7, 55);
+INSERT INTO `presensi_harian` VALUES (7550, 11, 771, 'M', '', '2023-09-12', '2023-09-12 09:46:05', 7, 55);
+INSERT INTO `presensi_harian` VALUES (7551, 11, 772, 'M', '', '2023-09-12', '2023-09-12 09:46:05', 7, 55);
+INSERT INTO `presensi_harian` VALUES (7552, 11, 773, 'M', '', '2023-09-12', '2023-09-12 09:46:05', 7, 55);
+INSERT INTO `presensi_harian` VALUES (7553, 11, 774, 'M', '', '2023-09-12', '2023-09-12 09:46:05', 7, 55);
+INSERT INTO `presensi_harian` VALUES (7554, 11, 775, 'A', '', '2023-09-12', '2023-09-12 09:46:05', 7, 55);
+INSERT INTO `presensi_harian` VALUES (7555, 11, 776, 'A', '', '2023-09-12', '2023-09-12 09:46:05', 7, 55);
+INSERT INTO `presensi_harian` VALUES (7556, 11, 777, 'M', '', '2023-09-12', '2023-09-12 09:46:05', 7, 55);
+INSERT INTO `presensi_harian` VALUES (7557, 11, 778, 'M', '', '2023-09-12', '2023-09-12 09:46:05', 7, 55);
+INSERT INTO `presensi_harian` VALUES (7558, 11, 779, 'A', '', '2023-09-12', '2023-09-12 09:46:05', 7, 55);
+INSERT INTO `presensi_harian` VALUES (7559, 11, 780, 'M', '', '2023-09-12', '2023-09-12 09:46:05', 7, 55);
+INSERT INTO `presensi_harian` VALUES (7560, 11, 781, 'M', '', '2023-09-12', '2023-09-12 09:46:05', 7, 55);
+INSERT INTO `presensi_harian` VALUES (7561, 11, 782, 'M', '', '2023-09-12', '2023-09-12 09:46:05', 7, 55);
+INSERT INTO `presensi_harian` VALUES (7562, 11, 783, 'M', '', '2023-09-12', '2023-09-12 09:46:05', 7, 55);
+INSERT INTO `presensi_harian` VALUES (7563, 11, 784, 'M', '', '2023-09-12', '2023-09-12 09:46:05', 7, 55);
+INSERT INTO `presensi_harian` VALUES (7564, 11, 785, 'A', '', '2023-09-12', '2023-09-12 09:46:05', 7, 55);
+INSERT INTO `presensi_harian` VALUES (7565, 11, 786, 'M', '', '2023-09-12', '2023-09-12 09:46:05', 7, 55);
+INSERT INTO `presensi_harian` VALUES (7566, 11, 787, 'M', '', '2023-09-12', '2023-09-12 09:46:05', 7, 55);
+INSERT INTO `presensi_harian` VALUES (7567, 11, 979, 'M', '', '2023-09-12', '2023-09-12 09:46:05', 7, 55);
+INSERT INTO `presensi_harian` VALUES (7568, 8, 956, 'I', '', '2023-09-12', '2023-09-12 09:52:56', 7, 53);
+INSERT INTO `presensi_harian` VALUES (7569, 8, 957, 'S', '', '2023-09-12', '2023-09-12 09:52:56', 7, 53);
+INSERT INTO `presensi_harian` VALUES (7570, 8, 958, 'A', '', '2023-09-12', '2023-09-12 09:52:56', 7, 53);
+INSERT INTO `presensi_harian` VALUES (7571, 8, 959, 'A', '', '2023-09-12', '2023-09-12 09:52:56', 7, 53);
+INSERT INTO `presensi_harian` VALUES (7572, 8, 960, 'M', '', '2023-09-12', '2023-09-12 09:52:56', 7, 53);
+INSERT INTO `presensi_harian` VALUES (7573, 8, 961, 'M', '', '2023-09-12', '2023-09-12 09:52:56', 7, 53);
+INSERT INTO `presensi_harian` VALUES (7574, 8, 962, 'M', '', '2023-09-12', '2023-09-12 09:52:56', 7, 53);
+INSERT INTO `presensi_harian` VALUES (7575, 8, 963, 'M', '', '2023-09-12', '2023-09-12 09:52:56', 7, 53);
+INSERT INTO `presensi_harian` VALUES (7576, 8, 964, 'M', '', '2023-09-12', '2023-09-12 09:52:56', 7, 53);
+INSERT INTO `presensi_harian` VALUES (7577, 8, 965, 'I', '', '2023-09-12', '2023-09-12 09:52:56', 7, 53);
+INSERT INTO `presensi_harian` VALUES (7578, 8, 966, 'A', '', '2023-09-12', '2023-09-12 09:52:56', 7, 53);
+INSERT INTO `presensi_harian` VALUES (7579, 8, 967, 'M', '', '2023-09-12', '2023-09-12 09:52:56', 7, 53);
+INSERT INTO `presensi_harian` VALUES (7580, 8, 968, 'M', '', '2023-09-12', '2023-09-12 09:52:56', 7, 53);
+INSERT INTO `presensi_harian` VALUES (7581, 8, 969, 'M', '', '2023-09-12', '2023-09-12 09:52:56', 7, 53);
+INSERT INTO `presensi_harian` VALUES (7582, 16, 825, 'M', '', '2023-09-12', '2023-09-12 12:47:55', 7, 62);
+INSERT INTO `presensi_harian` VALUES (7583, 16, 827, 'M', '', '2023-09-12', '2023-09-12 12:47:55', 7, 62);
+INSERT INTO `presensi_harian` VALUES (7584, 16, 828, 'I', '', '2023-09-12', '2023-09-12 12:47:55', 7, 62);
+INSERT INTO `presensi_harian` VALUES (7585, 16, 829, 'M', '', '2023-09-12', '2023-09-12 12:47:55', 7, 62);
+INSERT INTO `presensi_harian` VALUES (7586, 16, 830, 'M', '', '2023-09-12', '2023-09-12 12:47:55', 7, 62);
+INSERT INTO `presensi_harian` VALUES (7587, 16, 831, 'M', '', '2023-09-12', '2023-09-12 12:47:55', 7, 62);
+INSERT INTO `presensi_harian` VALUES (7588, 16, 832, 'M', '', '2023-09-12', '2023-09-12 12:47:55', 7, 62);
+INSERT INTO `presensi_harian` VALUES (7589, 16, 833, 'M', '', '2023-09-12', '2023-09-12 12:47:55', 7, 62);
+INSERT INTO `presensi_harian` VALUES (7590, 16, 834, 'S', '', '2023-09-12', '2023-09-12 12:47:55', 7, 62);
+INSERT INTO `presensi_harian` VALUES (7591, 16, 835, 'M', '', '2023-09-12', '2023-09-12 12:47:55', 7, 62);
+INSERT INTO `presensi_harian` VALUES (7592, 16, 836, 'M', '', '2023-09-12', '2023-09-12 12:47:55', 7, 62);
+INSERT INTO `presensi_harian` VALUES (7593, 16, 837, 'M', '', '2023-09-12', '2023-09-12 12:47:55', 7, 62);
+INSERT INTO `presensi_harian` VALUES (7594, 32, 925, 'I', '', '2023-09-12', '2023-09-12 12:54:29', 7, 52);
+INSERT INTO `presensi_harian` VALUES (7595, 32, 926, 'M', '', '2023-09-12', '2023-09-12 12:54:29', 7, 52);
+INSERT INTO `presensi_harian` VALUES (7596, 32, 927, 'M', '', '2023-09-12', '2023-09-12 12:54:29', 7, 52);
+INSERT INTO `presensi_harian` VALUES (7597, 32, 928, 'S', '', '2023-09-12', '2023-09-12 12:54:29', 7, 52);
+INSERT INTO `presensi_harian` VALUES (7598, 32, 929, 'M', '', '2023-09-12', '2023-09-12 12:54:29', 7, 52);
+INSERT INTO `presensi_harian` VALUES (7599, 32, 945, 'I', '', '2023-09-12', '2023-09-12 12:55:45', 7, 67);
+INSERT INTO `presensi_harian` VALUES (7600, 32, 946, 'M', '', '2023-09-12', '2023-09-12 12:55:45', 7, 67);
+INSERT INTO `presensi_harian` VALUES (7601, 32, 947, 'M', '', '2023-09-12', '2023-09-12 12:55:45', 7, 67);
+INSERT INTO `presensi_harian` VALUES (7602, 32, 948, 'I', '', '2023-09-12', '2023-09-12 12:55:45', 7, 67);
+INSERT INTO `presensi_harian` VALUES (7603, 32, 949, 'S', '', '2023-09-12', '2023-09-12 12:55:45', 7, 67);
+INSERT INTO `presensi_harian` VALUES (7604, 32, 950, 'M', '', '2023-09-12', '2023-09-12 12:55:45', 7, 67);
+INSERT INTO `presensi_harian` VALUES (7605, 32, 951, 'I', '', '2023-09-12', '2023-09-12 12:55:46', 7, 67);
+INSERT INTO `presensi_harian` VALUES (7606, 32, 952, 'I', '', '2023-09-12', '2023-09-12 12:55:46', 7, 67);
+INSERT INTO `presensi_harian` VALUES (7607, 32, 953, 'M', '', '2023-09-12', '2023-09-12 12:55:46', 7, 67);
+INSERT INTO `presensi_harian` VALUES (7608, 32, 954, 'I', '', '2023-09-12', '2023-09-12 12:55:46', 7, 67);
+INSERT INTO `presensi_harian` VALUES (7609, 32, 955, 'I', '', '2023-09-12', '2023-09-12 12:55:46', 7, 67);
+INSERT INTO `presensi_harian` VALUES (7610, 14, 888, 'M', '', '2023-09-12', '2023-09-12 13:40:44', 7, 66);
+INSERT INTO `presensi_harian` VALUES (7611, 14, 889, 'M', '', '2023-09-12', '2023-09-12 13:40:44', 7, 66);
+INSERT INTO `presensi_harian` VALUES (7612, 14, 890, 'I', '', '2023-09-12', '2023-09-12 13:40:44', 7, 66);
+INSERT INTO `presensi_harian` VALUES (7613, 14, 891, 'M', '', '2023-09-12', '2023-09-12 13:40:44', 7, 66);
+INSERT INTO `presensi_harian` VALUES (7614, 14, 892, 'M', '', '2023-09-12', '2023-09-12 13:40:44', 7, 66);
+INSERT INTO `presensi_harian` VALUES (7615, 14, 893, 'I', '', '2023-09-12', '2023-09-12 13:40:44', 7, 66);
+INSERT INTO `presensi_harian` VALUES (7616, 7, 821, 'M', '', '2023-09-12', '2023-09-12 14:06:45', 7, 58);
+INSERT INTO `presensi_harian` VALUES (7617, 7, 822, 'M', '', '2023-09-12', '2023-09-12 14:06:45', 7, 58);
+INSERT INTO `presensi_harian` VALUES (7618, 7, 823, 'M', '', '2023-09-12', '2023-09-12 14:06:45', 7, 58);
+INSERT INTO `presensi_harian` VALUES (7619, 7, 824, 'M', '', '2023-09-12', '2023-09-12 14:06:45', 7, 58);
+INSERT INTO `presensi_harian` VALUES (7620, 7, 863, 'M', '', '2023-09-12', '2023-09-12 14:08:27', 7, 57);
+INSERT INTO `presensi_harian` VALUES (7621, 7, 864, 'M', '', '2023-09-12', '2023-09-12 14:08:27', 7, 57);
+INSERT INTO `presensi_harian` VALUES (7622, 7, 865, 'M', '', '2023-09-12', '2023-09-12 14:08:27', 7, 57);
+INSERT INTO `presensi_harian` VALUES (7623, 7, 866, 'S', '', '2023-09-12', '2023-09-12 14:08:27', 7, 57);
+INSERT INTO `presensi_harian` VALUES (7624, 7, 867, 'M', '', '2023-09-12', '2023-09-12 14:08:27', 7, 57);
+INSERT INTO `presensi_harian` VALUES (7625, 7, 868, 'S', '', '2023-09-12', '2023-09-12 14:08:27', 7, 57);
+INSERT INTO `presensi_harian` VALUES (7626, 7, 869, 'M', '', '2023-09-12', '2023-09-12 14:08:27', 7, 57);
+INSERT INTO `presensi_harian` VALUES (7627, 7, 870, 'S', '', '2023-09-12', '2023-09-12 14:08:27', 7, 57);
+INSERT INTO `presensi_harian` VALUES (7628, 7, 871, 'M', '', '2023-09-12', '2023-09-12 14:08:27', 7, 57);
+INSERT INTO `presensi_harian` VALUES (7629, 7, 872, 'M', '', '2023-09-12', '2023-09-12 14:08:27', 7, 57);
+INSERT INTO `presensi_harian` VALUES (7630, 7, 873, 'S', '', '2023-09-12', '2023-09-12 14:08:27', 7, 57);
+INSERT INTO `presensi_harian` VALUES (7631, 7, 874, 'M', '', '2023-09-12', '2023-09-12 14:08:27', 7, 57);
+INSERT INTO `presensi_harian` VALUES (7632, 7, 875, 'M', '', '2023-09-12', '2023-09-12 14:08:27', 7, 57);
+INSERT INTO `presensi_harian` VALUES (7633, 7, 876, 'M', '', '2023-09-12', '2023-09-12 14:08:27', 7, 57);
+INSERT INTO `presensi_harian` VALUES (7634, 16, 821, 'M', '', '2023-09-12', '2023-09-12 14:15:26', 7, 58);
+INSERT INTO `presensi_harian` VALUES (7635, 16, 822, 'M', '', '2023-09-12', '2023-09-12 14:15:26', 7, 58);
+INSERT INTO `presensi_harian` VALUES (7636, 16, 823, 'M', '', '2023-09-12', '2023-09-12 14:15:26', 7, 58);
+INSERT INTO `presensi_harian` VALUES (7637, 16, 824, 'M', '', '2023-09-12', '2023-09-12 14:15:26', 7, 58);
+INSERT INTO `presensi_harian` VALUES (7638, 7, 745, 'M', '', '2023-09-13', '2023-09-13 08:29:00', 7, 54);
+INSERT INTO `presensi_harian` VALUES (7639, 7, 746, 'M', '', '2023-09-13', '2023-09-13 08:29:00', 7, 54);
+INSERT INTO `presensi_harian` VALUES (7640, 7, 747, 'M', '', '2023-09-13', '2023-09-13 08:29:00', 7, 54);
+INSERT INTO `presensi_harian` VALUES (7641, 7, 748, 'M', '', '2023-09-13', '2023-09-13 08:29:00', 7, 54);
+INSERT INTO `presensi_harian` VALUES (7642, 7, 749, 'M', '', '2023-09-13', '2023-09-13 08:29:00', 7, 54);
+INSERT INTO `presensi_harian` VALUES (7643, 7, 750, 'M', '', '2023-09-13', '2023-09-13 08:29:00', 7, 54);
+INSERT INTO `presensi_harian` VALUES (7644, 7, 751, 'I', '', '2023-09-13', '2023-09-13 08:29:00', 7, 54);
+INSERT INTO `presensi_harian` VALUES (7645, 7, 752, 'M', '', '2023-09-13', '2023-09-13 08:29:00', 7, 54);
+INSERT INTO `presensi_harian` VALUES (7646, 7, 753, 'M', '', '2023-09-13', '2023-09-13 08:29:00', 7, 54);
+INSERT INTO `presensi_harian` VALUES (7647, 7, 754, 'M', '', '2023-09-13', '2023-09-13 08:29:00', 7, 54);
+INSERT INTO `presensi_harian` VALUES (7648, 7, 755, 'M', '', '2023-09-13', '2023-09-13 08:29:00', 7, 54);
+INSERT INTO `presensi_harian` VALUES (7649, 7, 757, 'M', '', '2023-09-13', '2023-09-13 08:29:00', 7, 54);
+INSERT INTO `presensi_harian` VALUES (7650, 7, 758, 'M', '', '2023-09-13', '2023-09-13 08:29:00', 7, 54);
+INSERT INTO `presensi_harian` VALUES (7651, 7, 761, 'M', '', '2023-09-13', '2023-09-13 08:29:00', 7, 54);
+INSERT INTO `presensi_harian` VALUES (7652, 7, 763, 'M', '', '2023-09-13', '2023-09-13 08:29:00', 7, 54);
+INSERT INTO `presensi_harian` VALUES (7653, 7, 764, 'M', '', '2023-09-13', '2023-09-13 08:29:00', 7, 54);
+INSERT INTO `presensi_harian` VALUES (7654, 7, 766, 'M', '', '2023-09-13', '2023-09-13 08:29:00', 7, 54);
+INSERT INTO `presensi_harian` VALUES (7655, 7, 767, 'M', '', '2023-09-13', '2023-09-13 08:29:00', 7, 54);
+INSERT INTO `presensi_harian` VALUES (7656, 7, 768, 'M', '', '2023-09-13', '2023-09-13 08:29:01', 7, 54);
+INSERT INTO `presensi_harian` VALUES (7657, 7, 769, 'M', '', '2023-09-13', '2023-09-13 08:29:01', 7, 54);
+INSERT INTO `presensi_harian` VALUES (7658, 31, 956, 'I', '', '2023-09-13', '2023-09-13 08:47:58', 7, 53);
+INSERT INTO `presensi_harian` VALUES (7659, 31, 957, 'I', '', '2023-09-13', '2023-09-13 08:47:58', 7, 53);
+INSERT INTO `presensi_harian` VALUES (7660, 31, 958, 'I', '', '2023-09-13', '2023-09-13 08:47:58', 7, 53);
+INSERT INTO `presensi_harian` VALUES (7661, 31, 959, 'M', '', '2023-09-13', '2023-09-13 08:47:58', 7, 53);
+INSERT INTO `presensi_harian` VALUES (7662, 31, 960, 'M', '', '2023-09-13', '2023-09-13 08:47:58', 7, 53);
+INSERT INTO `presensi_harian` VALUES (7663, 31, 961, 'M', '', '2023-09-13', '2023-09-13 08:47:58', 7, 53);
+INSERT INTO `presensi_harian` VALUES (7664, 31, 962, 'M', '', '2023-09-13', '2023-09-13 08:47:58', 7, 53);
+INSERT INTO `presensi_harian` VALUES (7665, 31, 963, 'S', '', '2023-09-13', '2023-09-13 08:47:58', 7, 53);
+INSERT INTO `presensi_harian` VALUES (7666, 31, 964, 'M', '', '2023-09-13', '2023-09-13 08:47:58', 7, 53);
+INSERT INTO `presensi_harian` VALUES (7667, 31, 965, 'I', '', '2023-09-13', '2023-09-13 08:47:58', 7, 53);
+INSERT INTO `presensi_harian` VALUES (7668, 31, 966, 'M', '', '2023-09-13', '2023-09-13 08:47:58', 7, 53);
+INSERT INTO `presensi_harian` VALUES (7669, 31, 967, 'M', '', '2023-09-13', '2023-09-13 08:47:58', 7, 53);
+INSERT INTO `presensi_harian` VALUES (7670, 31, 968, 'S', '', '2023-09-13', '2023-09-13 08:47:58', 7, 53);
+INSERT INTO `presensi_harian` VALUES (7671, 31, 969, 'S', '', '2023-09-13', '2023-09-13 08:47:58', 7, 53);
+INSERT INTO `presensi_harian` VALUES (7672, 24, 788, 'M', '', '2023-09-13', '2023-09-13 08:54:27', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7673, 24, 789, 'S', '', '2023-09-13', '2023-09-13 08:54:27', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7674, 24, 790, 'M', '', '2023-09-13', '2023-09-13 08:54:27', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7675, 24, 791, 'M', '', '2023-09-13', '2023-09-13 08:54:27', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7676, 24, 792, 'M', '', '2023-09-13', '2023-09-13 08:54:27', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7677, 24, 793, 'M', '', '2023-09-13', '2023-09-13 08:54:27', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7678, 24, 794, 'M', '', '2023-09-13', '2023-09-13 08:54:27', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7679, 24, 795, 'M', '', '2023-09-13', '2023-09-13 08:54:27', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7680, 24, 796, 'M', '', '2023-09-13', '2023-09-13 08:54:27', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7681, 24, 797, 'M', '', '2023-09-13', '2023-09-13 08:54:27', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7682, 24, 798, 'A', '', '2023-09-13', '2023-09-13 08:54:27', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7683, 24, 799, 'M', '', '2023-09-13', '2023-09-13 08:54:27', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7684, 24, 800, 'M', '', '2023-09-13', '2023-09-13 08:54:27', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7685, 24, 801, 'M', '', '2023-09-13', '2023-09-13 08:54:27', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7686, 24, 802, 'M', '', '2023-09-13', '2023-09-13 08:54:27', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7687, 24, 803, 'M', '', '2023-09-13', '2023-09-13 08:54:27', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7688, 24, 804, 'M', '', '2023-09-13', '2023-09-13 08:54:27', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7689, 24, 805, 'M', '', '2023-09-13', '2023-09-13 08:54:27', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7690, 24, 806, 'I', '', '2023-09-13', '2023-09-13 08:54:27', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7691, 24, 807, 'M', '', '2023-09-13', '2023-09-13 08:54:27', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7692, 24, 808, 'M', '', '2023-09-13', '2023-09-13 08:54:27', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7693, 12, 894, 'M', '', '2023-09-13', '2023-09-13 08:58:21', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7694, 12, 895, 'M', '', '2023-09-13', '2023-09-13 08:58:21', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7695, 12, 896, 'S', '', '2023-09-13', '2023-09-13 08:58:21', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7696, 12, 897, 'M', '', '2023-09-13', '2023-09-13 08:58:21', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7697, 12, 898, 'S', '', '2023-09-13', '2023-09-13 08:58:21', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7698, 12, 899, 'A', '', '2023-09-13', '2023-09-13 08:58:21', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7699, 12, 900, 'M', '', '2023-09-13', '2023-09-13 08:58:21', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7700, 12, 901, 'S', '', '2023-09-13', '2023-09-13 08:58:21', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7701, 12, 902, 'M', '', '2023-09-13', '2023-09-13 08:58:21', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7702, 12, 903, 'M', '', '2023-09-13', '2023-09-13 08:58:21', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7703, 12, 904, 'S', '', '2023-09-13', '2023-09-13 08:58:21', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7704, 12, 905, 'M', '', '2023-09-13', '2023-09-13 08:58:21', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7705, 12, 906, 'S', '', '2023-09-13', '2023-09-13 08:58:21', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7706, 12, 907, 'M', '', '2023-09-13', '2023-09-13 08:58:21', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7707, 12, 908, 'A', '', '2023-09-13', '2023-09-13 08:58:21', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7708, 12, 909, 'M', '', '2023-09-13', '2023-09-13 08:58:21', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7709, 12, 910, 'A', '', '2023-09-13', '2023-09-13 08:58:21', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7710, 12, 911, 'M', '', '2023-09-13', '2023-09-13 08:58:21', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7711, 12, 912, 'I', '', '2023-09-13', '2023-09-13 08:58:21', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7712, 12, 913, 'M', '', '2023-09-13', '2023-09-13 08:58:21', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7713, 12, 914, 'M', '', '2023-09-13', '2023-09-13 08:58:21', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7714, 12, 915, 'M', '', '2023-09-13', '2023-09-13 08:58:21', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7715, 12, 916, 'M', '', '2023-09-13', '2023-09-13 08:58:21', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7716, 12, 917, 'M', '', '2023-09-13', '2023-09-13 08:58:21', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7717, 12, 918, 'M', '', '2023-09-13', '2023-09-13 08:58:21', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7718, 12, 919, 'M', '', '2023-09-13', '2023-09-13 08:58:21', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7719, 12, 920, 'M', '', '2023-09-13', '2023-09-13 08:58:21', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7720, 12, 921, 'A', '', '2023-09-13', '2023-09-13 08:58:21', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7721, 12, 922, 'M', '', '2023-09-13', '2023-09-13 08:58:21', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7722, 24, 877, 'M', '', '2023-09-13', '2023-09-13 09:42:34', 7, 61);
+INSERT INTO `presensi_harian` VALUES (7723, 24, 879, 'M', '', '2023-09-13', '2023-09-13 09:42:34', 7, 61);
+INSERT INTO `presensi_harian` VALUES (7724, 24, 880, 'M', '', '2023-09-13', '2023-09-13 09:42:34', 7, 61);
+INSERT INTO `presensi_harian` VALUES (7725, 24, 881, 'M', '', '2023-09-13', '2023-09-13 09:42:34', 7, 61);
+INSERT INTO `presensi_harian` VALUES (7726, 24, 882, 'I', '', '2023-09-13', '2023-09-13 09:42:34', 7, 61);
+INSERT INTO `presensi_harian` VALUES (7727, 24, 883, 'M', '', '2023-09-13', '2023-09-13 09:42:34', 7, 61);
+INSERT INTO `presensi_harian` VALUES (7728, 24, 884, 'M', '', '2023-09-13', '2023-09-13 09:42:34', 7, 61);
+INSERT INTO `presensi_harian` VALUES (7729, 24, 885, 'M', '', '2023-09-13', '2023-09-13 09:42:34', 7, 61);
+INSERT INTO `presensi_harian` VALUES (7730, 24, 886, 'M', '', '2023-09-13', '2023-09-13 09:42:34', 7, 61);
+INSERT INTO `presensi_harian` VALUES (7731, 24, 887, 'A', '', '2023-09-13', '2023-09-13 09:42:34', 7, 61);
+INSERT INTO `presensi_harian` VALUES (7732, 15, 930, 'M', '', '2023-09-13', '2023-09-13 10:06:58', 7, 51);
+INSERT INTO `presensi_harian` VALUES (7733, 15, 931, 'M', '', '2023-09-13', '2023-09-13 10:06:58', 7, 51);
+INSERT INTO `presensi_harian` VALUES (7734, 15, 932, 'M', '', '2023-09-13', '2023-09-13 10:06:58', 7, 51);
+INSERT INTO `presensi_harian` VALUES (7735, 15, 933, 'S', '', '2023-09-13', '2023-09-13 10:06:58', 7, 51);
+INSERT INTO `presensi_harian` VALUES (7736, 15, 934, 'M', '', '2023-09-13', '2023-09-13 10:06:58', 7, 51);
+INSERT INTO `presensi_harian` VALUES (7737, 15, 935, 'M', '', '2023-09-13', '2023-09-13 10:06:58', 7, 51);
+INSERT INTO `presensi_harian` VALUES (7738, 15, 936, 'M', '', '2023-09-13', '2023-09-13 10:06:58', 7, 51);
+INSERT INTO `presensi_harian` VALUES (7739, 15, 937, 'M', '', '2023-09-13', '2023-09-13 10:06:58', 7, 51);
+INSERT INTO `presensi_harian` VALUES (7740, 15, 938, 'S', '', '2023-09-13', '2023-09-13 10:06:58', 7, 51);
+INSERT INTO `presensi_harian` VALUES (7741, 15, 939, 'M', '', '2023-09-13', '2023-09-13 10:06:58', 7, 51);
+INSERT INTO `presensi_harian` VALUES (7742, 15, 940, 'M', '', '2023-09-13', '2023-09-13 10:06:58', 7, 51);
+INSERT INTO `presensi_harian` VALUES (7743, 15, 941, 'M', '', '2023-09-13', '2023-09-13 10:06:58', 7, 51);
+INSERT INTO `presensi_harian` VALUES (7744, 15, 942, 'M', '', '2023-09-13', '2023-09-13 10:06:58', 7, 51);
+INSERT INTO `presensi_harian` VALUES (7745, 15, 943, 'A', '', '2023-09-13', '2023-09-13 10:06:58', 7, 51);
+INSERT INTO `presensi_harian` VALUES (7746, 15, 944, 'I', '', '2023-09-13', '2023-09-13 10:06:58', 7, 51);
+INSERT INTO `presensi_harian` VALUES (7747, 24, 745, 'A', '', '2023-09-13', '2023-09-13 10:32:31', 7, 54);
+INSERT INTO `presensi_harian` VALUES (7748, 24, 746, 'A', '', '2023-09-13', '2023-09-13 10:32:31', 7, 54);
+INSERT INTO `presensi_harian` VALUES (7749, 24, 747, 'M', '', '2023-09-13', '2023-09-13 10:32:31', 7, 54);
+INSERT INTO `presensi_harian` VALUES (7750, 24, 748, 'M', '', '2023-09-13', '2023-09-13 10:32:31', 7, 54);
+INSERT INTO `presensi_harian` VALUES (7751, 24, 749, 'M', '', '2023-09-13', '2023-09-13 10:32:31', 7, 54);
+INSERT INTO `presensi_harian` VALUES (7752, 24, 750, 'M', '', '2023-09-13', '2023-09-13 10:32:31', 7, 54);
+INSERT INTO `presensi_harian` VALUES (7753, 24, 751, 'A', '', '2023-09-13', '2023-09-13 10:32:31', 7, 54);
+INSERT INTO `presensi_harian` VALUES (7754, 24, 752, 'A', '', '2023-09-13', '2023-09-13 10:32:31', 7, 54);
+INSERT INTO `presensi_harian` VALUES (7755, 24, 753, 'M', '', '2023-09-13', '2023-09-13 10:32:31', 7, 54);
+INSERT INTO `presensi_harian` VALUES (7756, 24, 754, 'M', '', '2023-09-13', '2023-09-13 10:32:31', 7, 54);
+INSERT INTO `presensi_harian` VALUES (7757, 24, 755, 'A', '', '2023-09-13', '2023-09-13 10:32:31', 7, 54);
+INSERT INTO `presensi_harian` VALUES (7758, 24, 757, 'A', '', '2023-09-13', '2023-09-13 10:32:31', 7, 54);
+INSERT INTO `presensi_harian` VALUES (7759, 24, 758, 'A', '', '2023-09-13', '2023-09-13 10:32:31', 7, 54);
+INSERT INTO `presensi_harian` VALUES (7760, 24, 761, 'A', '', '2023-09-13', '2023-09-13 10:32:31', 7, 54);
+INSERT INTO `presensi_harian` VALUES (7761, 24, 763, 'A', '', '2023-09-13', '2023-09-13 10:32:31', 7, 54);
+INSERT INTO `presensi_harian` VALUES (7762, 24, 764, 'A', '', '2023-09-13', '2023-09-13 10:32:31', 7, 54);
+INSERT INTO `presensi_harian` VALUES (7763, 24, 766, 'M', '', '2023-09-13', '2023-09-13 10:32:31', 7, 54);
+INSERT INTO `presensi_harian` VALUES (7764, 24, 767, 'M', '', '2023-09-13', '2023-09-13 10:32:31', 7, 54);
+INSERT INTO `presensi_harian` VALUES (7765, 24, 768, 'M', '', '2023-09-13', '2023-09-13 10:32:31', 7, 54);
+INSERT INTO `presensi_harian` VALUES (7766, 24, 769, 'A', '', '2023-09-13', '2023-09-13 10:32:31', 7, 54);
+INSERT INTO `presensi_harian` VALUES (7767, 33, 770, 'A', '', '2023-09-13', '2023-09-13 11:18:16', 7, 55);
+INSERT INTO `presensi_harian` VALUES (7768, 33, 771, 'M', '', '2023-09-13', '2023-09-13 11:18:16', 7, 55);
+INSERT INTO `presensi_harian` VALUES (7769, 33, 772, 'A', '', '2023-09-13', '2023-09-13 11:18:16', 7, 55);
+INSERT INTO `presensi_harian` VALUES (7770, 33, 773, 'M', '', '2023-09-13', '2023-09-13 11:18:16', 7, 55);
+INSERT INTO `presensi_harian` VALUES (7771, 33, 774, 'A', '', '2023-09-13', '2023-09-13 11:18:16', 7, 55);
+INSERT INTO `presensi_harian` VALUES (7772, 33, 775, 'M', '', '2023-09-13', '2023-09-13 11:18:16', 7, 55);
+INSERT INTO `presensi_harian` VALUES (7773, 33, 776, 'A', '', '2023-09-13', '2023-09-13 11:18:16', 7, 55);
+INSERT INTO `presensi_harian` VALUES (7774, 33, 777, 'M', '', '2023-09-13', '2023-09-13 11:18:16', 7, 55);
+INSERT INTO `presensi_harian` VALUES (7775, 33, 778, 'M', '', '2023-09-13', '2023-09-13 11:18:16', 7, 55);
+INSERT INTO `presensi_harian` VALUES (7776, 33, 779, 'A', '', '2023-09-13', '2023-09-13 11:18:16', 7, 55);
+INSERT INTO `presensi_harian` VALUES (7777, 33, 780, 'M', '', '2023-09-13', '2023-09-13 11:18:16', 7, 55);
+INSERT INTO `presensi_harian` VALUES (7778, 33, 781, 'A', '', '2023-09-13', '2023-09-13 11:18:16', 7, 55);
+INSERT INTO `presensi_harian` VALUES (7779, 33, 782, 'A', '', '2023-09-13', '2023-09-13 11:18:16', 7, 55);
+INSERT INTO `presensi_harian` VALUES (7780, 33, 783, 'M', '', '2023-09-13', '2023-09-13 11:18:16', 7, 55);
+INSERT INTO `presensi_harian` VALUES (7781, 33, 784, 'M', '', '2023-09-13', '2023-09-13 11:18:16', 7, 55);
+INSERT INTO `presensi_harian` VALUES (7782, 33, 785, 'I', '', '2023-09-13', '2023-09-13 11:18:16', 7, 55);
+INSERT INTO `presensi_harian` VALUES (7783, 33, 786, 'M', '', '2023-09-13', '2023-09-13 11:18:16', 7, 55);
+INSERT INTO `presensi_harian` VALUES (7784, 33, 787, 'A', '', '2023-09-13', '2023-09-13 11:18:16', 7, 55);
+INSERT INTO `presensi_harian` VALUES (7785, 33, 979, 'M', '', '2023-09-13', '2023-09-13 11:18:16', 7, 55);
+INSERT INTO `presensi_harian` VALUES (7786, 33, 838, 'M', '', '2023-09-13', '2023-09-13 11:19:11', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7787, 33, 839, 'M', '', '2023-09-13', '2023-09-13 11:19:11', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7788, 33, 840, 'M', '', '2023-09-13', '2023-09-13 11:19:11', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7789, 33, 841, 'M', '', '2023-09-13', '2023-09-13 11:19:11', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7790, 33, 842, 'M', '', '2023-09-13', '2023-09-13 11:19:11', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7791, 33, 843, 'A', '', '2023-09-13', '2023-09-13 11:19:11', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7792, 33, 844, 'A', '', '2023-09-13', '2023-09-13 11:19:11', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7793, 33, 845, 'M', '', '2023-09-13', '2023-09-13 11:19:11', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7794, 33, 846, 'M', '', '2023-09-13', '2023-09-13 11:19:11', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7795, 33, 847, 'M', '', '2023-09-13', '2023-09-13 11:19:11', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7796, 33, 848, 'M', '', '2023-09-13', '2023-09-13 11:19:11', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7797, 33, 849, 'M', '', '2023-09-13', '2023-09-13 11:19:11', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7798, 33, 850, 'M', '', '2023-09-13', '2023-09-13 11:19:11', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7799, 33, 851, 'M', '', '2023-09-13', '2023-09-13 11:19:11', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7800, 33, 852, 'M', '', '2023-09-13', '2023-09-13 11:19:11', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7801, 33, 853, 'A', '', '2023-09-13', '2023-09-13 11:19:11', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7802, 33, 854, 'M', '', '2023-09-13', '2023-09-13 11:19:11', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7803, 33, 855, 'M', '', '2023-09-13', '2023-09-13 11:19:11', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7804, 33, 856, 'A', '', '2023-09-13', '2023-09-13 11:19:11', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7805, 33, 857, 'A', '', '2023-09-13', '2023-09-13 11:19:11', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7806, 33, 858, 'M', '', '2023-09-13', '2023-09-13 11:19:11', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7807, 33, 859, 'M', '', '2023-09-13', '2023-09-13 11:19:11', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7808, 33, 860, 'M', '', '2023-09-13', '2023-09-13 11:19:11', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7809, 33, 861, 'M', '', '2023-09-13', '2023-09-13 11:19:11', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7810, 33, 862, 'M', '', '2023-09-13', '2023-09-13 11:19:11', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7811, 7, 877, 'A', '', '2023-09-13', '2023-09-13 11:21:32', 7, 61);
+INSERT INTO `presensi_harian` VALUES (7812, 7, 879, 'M', '', '2023-09-13', '2023-09-13 11:21:32', 7, 61);
+INSERT INTO `presensi_harian` VALUES (7813, 7, 880, 'M', '', '2023-09-13', '2023-09-13 11:21:32', 7, 61);
+INSERT INTO `presensi_harian` VALUES (7814, 7, 881, 'M', '', '2023-09-13', '2023-09-13 11:21:32', 7, 61);
+INSERT INTO `presensi_harian` VALUES (7815, 7, 882, 'M', '', '2023-09-13', '2023-09-13 11:21:32', 7, 61);
+INSERT INTO `presensi_harian` VALUES (7816, 7, 883, 'M', '', '2023-09-13', '2023-09-13 11:21:32', 7, 61);
+INSERT INTO `presensi_harian` VALUES (7817, 7, 884, 'M', '', '2023-09-13', '2023-09-13 11:21:32', 7, 61);
+INSERT INTO `presensi_harian` VALUES (7818, 7, 885, 'M', '', '2023-09-13', '2023-09-13 11:21:32', 7, 61);
+INSERT INTO `presensi_harian` VALUES (7819, 7, 886, 'M', '', '2023-09-13', '2023-09-13 11:21:32', 7, 61);
+INSERT INTO `presensi_harian` VALUES (7820, 7, 887, 'A', '', '2023-09-13', '2023-09-13 11:21:32', 7, 61);
+INSERT INTO `presensi_harian` VALUES (7821, 17, 838, 'M', '', '2023-09-13', '2023-09-13 11:24:53', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7822, 17, 839, 'M', '', '2023-09-13', '2023-09-13 11:24:53', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7823, 17, 840, 'M', '', '2023-09-13', '2023-09-13 11:24:53', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7824, 17, 841, 'M', '', '2023-09-13', '2023-09-13 11:24:53', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7825, 17, 842, 'M', '', '2023-09-13', '2023-09-13 11:24:53', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7826, 17, 843, 'A', '', '2023-09-13', '2023-09-13 11:24:53', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7827, 17, 844, 'M', '', '2023-09-13', '2023-09-13 11:24:53', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7828, 17, 845, 'M', '', '2023-09-13', '2023-09-13 11:24:53', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7829, 17, 846, 'M', '', '2023-09-13', '2023-09-13 11:24:53', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7830, 17, 847, 'M', '', '2023-09-13', '2023-09-13 11:24:53', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7831, 17, 848, 'M', '', '2023-09-13', '2023-09-13 11:24:53', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7832, 17, 849, 'M', '', '2023-09-13', '2023-09-13 11:24:53', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7833, 17, 850, 'M', '', '2023-09-13', '2023-09-13 11:24:53', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7834, 17, 851, 'M', '', '2023-09-13', '2023-09-13 11:24:53', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7835, 17, 852, 'M', '', '2023-09-13', '2023-09-13 11:24:53', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7836, 17, 853, 'M', '', '2023-09-13', '2023-09-13 11:24:53', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7837, 17, 854, 'M', '', '2023-09-13', '2023-09-13 11:24:53', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7838, 17, 855, 'M', '', '2023-09-13', '2023-09-13 11:24:53', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7839, 17, 856, 'A', '', '2023-09-13', '2023-09-13 11:24:53', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7840, 17, 857, 'A', '', '2023-09-13', '2023-09-13 11:24:53', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7841, 17, 858, 'M', '', '2023-09-13', '2023-09-13 11:24:53', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7842, 17, 859, 'M', '', '2023-09-13', '2023-09-13 11:24:53', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7843, 17, 860, 'A', '', '2023-09-13', '2023-09-13 11:24:53', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7844, 17, 861, 'M', '', '2023-09-13', '2023-09-13 11:24:53', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7845, 17, 862, 'M', '', '2023-09-13', '2023-09-13 11:24:53', 7, 56);
+INSERT INTO `presensi_harian` VALUES (7846, 9, 877, 'M', '', '2023-09-13', '2023-09-13 11:27:54', 7, 61);
+INSERT INTO `presensi_harian` VALUES (7847, 9, 879, 'M', '', '2023-09-13', '2023-09-13 11:27:54', 7, 61);
+INSERT INTO `presensi_harian` VALUES (7848, 9, 880, 'M', '', '2023-09-13', '2023-09-13 11:27:54', 7, 61);
+INSERT INTO `presensi_harian` VALUES (7849, 9, 881, 'M', '', '2023-09-13', '2023-09-13 11:27:54', 7, 61);
+INSERT INTO `presensi_harian` VALUES (7850, 9, 882, 'M', '', '2023-09-13', '2023-09-13 11:27:54', 7, 61);
+INSERT INTO `presensi_harian` VALUES (7851, 9, 883, 'M', '', '2023-09-13', '2023-09-13 11:27:54', 7, 61);
+INSERT INTO `presensi_harian` VALUES (7852, 9, 884, 'M', '', '2023-09-13', '2023-09-13 11:27:54', 7, 61);
+INSERT INTO `presensi_harian` VALUES (7853, 9, 885, 'M', '', '2023-09-13', '2023-09-13 11:27:54', 7, 61);
+INSERT INTO `presensi_harian` VALUES (7854, 9, 886, 'M', '', '2023-09-13', '2023-09-13 11:27:54', 7, 61);
+INSERT INTO `presensi_harian` VALUES (7855, 9, 887, 'M', '', '2023-09-13', '2023-09-13 11:27:54', 7, 61);
+INSERT INTO `presensi_harian` VALUES (7856, 27, 956, 'I', '', '2023-09-13', '2023-09-13 11:32:06', 7, 53);
+INSERT INTO `presensi_harian` VALUES (7857, 27, 957, 'I', '', '2023-09-13', '2023-09-13 11:32:06', 7, 53);
+INSERT INTO `presensi_harian` VALUES (7858, 27, 958, 'I', '', '2023-09-13', '2023-09-13 11:32:06', 7, 53);
+INSERT INTO `presensi_harian` VALUES (7859, 27, 959, 'A', '', '2023-09-13', '2023-09-13 11:32:06', 7, 53);
+INSERT INTO `presensi_harian` VALUES (7860, 27, 960, 'M', '', '2023-09-13', '2023-09-13 11:32:06', 7, 53);
+INSERT INTO `presensi_harian` VALUES (7861, 27, 961, 'M', '', '2023-09-13', '2023-09-13 11:32:06', 7, 53);
+INSERT INTO `presensi_harian` VALUES (7862, 27, 962, 'M', '', '2023-09-13', '2023-09-13 11:32:06', 7, 53);
+INSERT INTO `presensi_harian` VALUES (7863, 27, 963, 'M', '', '2023-09-13', '2023-09-13 11:32:06', 7, 53);
+INSERT INTO `presensi_harian` VALUES (7864, 27, 964, 'M', '', '2023-09-13', '2023-09-13 11:32:06', 7, 53);
+INSERT INTO `presensi_harian` VALUES (7865, 27, 965, 'A', '', '2023-09-13', '2023-09-13 11:32:06', 7, 53);
+INSERT INTO `presensi_harian` VALUES (7866, 27, 966, 'M', '', '2023-09-13', '2023-09-13 11:32:07', 7, 53);
+INSERT INTO `presensi_harian` VALUES (7867, 27, 967, 'S', '', '2023-09-13', '2023-09-13 11:32:07', 7, 53);
+INSERT INTO `presensi_harian` VALUES (7868, 27, 968, 'S', '', '2023-09-13', '2023-09-13 11:32:07', 7, 53);
+INSERT INTO `presensi_harian` VALUES (7869, 27, 969, 'S', '', '2023-09-13', '2023-09-13 11:32:07', 7, 53);
+INSERT INTO `presensi_harian` VALUES (7870, 32, 825, 'M', '', '2023-09-13', '2023-09-13 12:53:57', 7, 62);
+INSERT INTO `presensi_harian` VALUES (7871, 32, 827, 'M', '', '2023-09-13', '2023-09-13 12:53:57', 7, 62);
+INSERT INTO `presensi_harian` VALUES (7872, 32, 828, 'M', '', '2023-09-13', '2023-09-13 12:53:57', 7, 62);
+INSERT INTO `presensi_harian` VALUES (7873, 32, 829, 'M', '', '2023-09-13', '2023-09-13 12:53:57', 7, 62);
+INSERT INTO `presensi_harian` VALUES (7874, 32, 830, 'S', '', '2023-09-13', '2023-09-13 12:53:57', 7, 62);
+INSERT INTO `presensi_harian` VALUES (7875, 32, 831, 'M', '', '2023-09-13', '2023-09-13 12:53:57', 7, 62);
+INSERT INTO `presensi_harian` VALUES (7876, 32, 832, 'M', '', '2023-09-13', '2023-09-13 12:53:57', 7, 62);
+INSERT INTO `presensi_harian` VALUES (7877, 32, 833, 'M', '', '2023-09-13', '2023-09-13 12:53:57', 7, 62);
+INSERT INTO `presensi_harian` VALUES (7878, 32, 834, 'S', '', '2023-09-13', '2023-09-13 12:53:57', 7, 62);
+INSERT INTO `presensi_harian` VALUES (7879, 32, 835, 'M', '', '2023-09-13', '2023-09-13 12:53:57', 7, 62);
+INSERT INTO `presensi_harian` VALUES (7880, 32, 836, 'M', '', '2023-09-13', '2023-09-13 12:53:57', 7, 62);
+INSERT INTO `presensi_harian` VALUES (7881, 32, 837, 'M', '', '2023-09-13', '2023-09-13 12:53:57', 7, 62);
+INSERT INTO `presensi_harian` VALUES (7882, 32, 888, 'S', '', '2023-09-13', '2023-09-13 12:55:09', 7, 66);
+INSERT INTO `presensi_harian` VALUES (7883, 32, 889, 'M', '', '2023-09-13', '2023-09-13 12:55:09', 7, 66);
+INSERT INTO `presensi_harian` VALUES (7884, 32, 890, 'I', '', '2023-09-13', '2023-09-13 12:55:09', 7, 66);
+INSERT INTO `presensi_harian` VALUES (7885, 32, 891, 'I', '', '2023-09-13', '2023-09-13 12:55:09', 7, 66);
+INSERT INTO `presensi_harian` VALUES (7886, 32, 892, 'M', '', '2023-09-13', '2023-09-13 12:55:09', 7, 66);
+INSERT INTO `presensi_harian` VALUES (7887, 32, 893, 'I', '', '2023-09-13', '2023-09-13 12:55:09', 7, 66);
+INSERT INTO `presensi_harian` VALUES (7888, 32, 809, 'M', '', '2023-09-13', '2023-09-13 12:56:12', 7, 60);
+INSERT INTO `presensi_harian` VALUES (7889, 32, 810, 'M', '', '2023-09-13', '2023-09-13 12:56:12', 7, 60);
+INSERT INTO `presensi_harian` VALUES (7890, 32, 811, 'M', '', '2023-09-13', '2023-09-13 12:56:12', 7, 60);
+INSERT INTO `presensi_harian` VALUES (7891, 32, 812, 'M', '', '2023-09-13', '2023-09-13 12:56:12', 7, 60);
+INSERT INTO `presensi_harian` VALUES (7892, 32, 813, 'M', '', '2023-09-13', '2023-09-13 12:56:12', 7, 60);
+INSERT INTO `presensi_harian` VALUES (7893, 32, 814, 'M', '', '2023-09-13', '2023-09-13 12:56:12', 7, 60);
+INSERT INTO `presensi_harian` VALUES (7894, 32, 815, 'M', '', '2023-09-13', '2023-09-13 12:56:12', 7, 60);
+INSERT INTO `presensi_harian` VALUES (7895, 32, 816, 'M', '', '2023-09-13', '2023-09-13 12:56:12', 7, 60);
+INSERT INTO `presensi_harian` VALUES (7896, 32, 817, 'M', '', '2023-09-13', '2023-09-13 12:56:12', 7, 60);
+INSERT INTO `presensi_harian` VALUES (7897, 32, 818, 'M', '', '2023-09-13', '2023-09-13 12:56:12', 7, 60);
+INSERT INTO `presensi_harian` VALUES (7898, 32, 819, 'M', '', '2023-09-13', '2023-09-13 12:56:12', 7, 60);
+INSERT INTO `presensi_harian` VALUES (7899, 32, 820, 'M', '', '2023-09-13', '2023-09-13 12:56:12', 7, 60);
+INSERT INTO `presensi_harian` VALUES (7900, 24, 925, 'M', '', '2023-09-13', '2023-09-13 13:11:23', 7, 52);
+INSERT INTO `presensi_harian` VALUES (7901, 24, 926, 'M', '', '2023-09-13', '2023-09-13 13:11:23', 7, 52);
+INSERT INTO `presensi_harian` VALUES (7902, 24, 927, 'M', '', '2023-09-13', '2023-09-13 13:11:23', 7, 52);
+INSERT INTO `presensi_harian` VALUES (7903, 24, 928, 'M', '', '2023-09-13', '2023-09-13 13:11:23', 7, 52);
+INSERT INTO `presensi_harian` VALUES (7904, 24, 929, 'M', '', '2023-09-13', '2023-09-13 13:11:23', 7, 52);
+INSERT INTO `presensi_harian` VALUES (7905, 24, 945, 'I', '', '2023-09-13', '2023-09-13 13:12:27', 7, 67);
+INSERT INTO `presensi_harian` VALUES (7906, 24, 946, 'M', '', '2023-09-13', '2023-09-13 13:12:27', 7, 67);
+INSERT INTO `presensi_harian` VALUES (7907, 24, 947, 'M', '', '2023-09-13', '2023-09-13 13:12:27', 7, 67);
+INSERT INTO `presensi_harian` VALUES (7908, 24, 948, 'I', '', '2023-09-13', '2023-09-13 13:12:27', 7, 67);
+INSERT INTO `presensi_harian` VALUES (7909, 24, 949, 'M', '', '2023-09-13', '2023-09-13 13:12:27', 7, 67);
+INSERT INTO `presensi_harian` VALUES (7910, 24, 950, 'M', '', '2023-09-13', '2023-09-13 13:12:27', 7, 67);
+INSERT INTO `presensi_harian` VALUES (7911, 24, 951, 'I', '', '2023-09-13', '2023-09-13 13:12:27', 7, 67);
+INSERT INTO `presensi_harian` VALUES (7912, 24, 952, 'I', '', '2023-09-13', '2023-09-13 13:12:27', 7, 67);
+INSERT INTO `presensi_harian` VALUES (7913, 24, 953, 'M', '', '2023-09-13', '2023-09-13 13:12:27', 7, 67);
+INSERT INTO `presensi_harian` VALUES (7914, 24, 954, 'M', '', '2023-09-13', '2023-09-13 13:12:27', 7, 67);
+INSERT INTO `presensi_harian` VALUES (7915, 24, 955, 'M', '', '2023-09-13', '2023-09-13 13:12:27', 7, 67);
+INSERT INTO `presensi_harian` VALUES (7916, 32, 970, 'M', '', '2023-09-13', '2023-09-13 13:42:34', 7, 65);
+INSERT INTO `presensi_harian` VALUES (7917, 32, 971, 'M', '', '2023-09-13', '2023-09-13 13:42:34', 7, 65);
+INSERT INTO `presensi_harian` VALUES (7918, 32, 972, 'M', '', '2023-09-13', '2023-09-13 13:42:34', 7, 65);
+INSERT INTO `presensi_harian` VALUES (7919, 32, 973, 'I', '', '2023-09-13', '2023-09-13 13:42:34', 7, 65);
+INSERT INTO `presensi_harian` VALUES (7920, 32, 974, 'M', '', '2023-09-13', '2023-09-13 13:42:34', 7, 65);
+INSERT INTO `presensi_harian` VALUES (7921, 32, 975, 'M', '', '2023-09-13', '2023-09-13 13:42:34', 7, 65);
+INSERT INTO `presensi_harian` VALUES (7922, 32, 976, 'M', '', '2023-09-13', '2023-09-13 13:42:34', 7, 65);
+INSERT INTO `presensi_harian` VALUES (7923, 32, 977, 'M', '', '2023-09-13', '2023-09-13 13:42:34', 7, 65);
+INSERT INTO `presensi_harian` VALUES (7924, 32, 978, 'M', '', '2023-09-13', '2023-09-13 13:42:34', 7, 65);
+INSERT INTO `presensi_harian` VALUES (7925, 32, 863, 'M', '', '2023-09-13', '2023-09-13 13:43:56', 7, 57);
+INSERT INTO `presensi_harian` VALUES (7926, 32, 864, 'M', '', '2023-09-13', '2023-09-13 13:43:56', 7, 57);
+INSERT INTO `presensi_harian` VALUES (7927, 32, 865, 'M', '', '2023-09-13', '2023-09-13 13:43:56', 7, 57);
+INSERT INTO `presensi_harian` VALUES (7928, 32, 866, 'M', '', '2023-09-13', '2023-09-13 13:43:56', 7, 57);
+INSERT INTO `presensi_harian` VALUES (7929, 32, 867, 'M', '', '2023-09-13', '2023-09-13 13:43:56', 7, 57);
+INSERT INTO `presensi_harian` VALUES (7930, 32, 868, 'S', '', '2023-09-13', '2023-09-13 13:43:56', 7, 57);
+INSERT INTO `presensi_harian` VALUES (7931, 32, 869, 'M', '', '2023-09-13', '2023-09-13 13:43:56', 7, 57);
+INSERT INTO `presensi_harian` VALUES (7932, 32, 870, 'M', '', '2023-09-13', '2023-09-13 13:43:56', 7, 57);
+INSERT INTO `presensi_harian` VALUES (7933, 32, 871, 'M', '', '2023-09-13', '2023-09-13 13:43:56', 7, 57);
+INSERT INTO `presensi_harian` VALUES (7934, 32, 872, 'M', '', '2023-09-13', '2023-09-13 13:43:56', 7, 57);
+INSERT INTO `presensi_harian` VALUES (7935, 32, 873, 'M', '', '2023-09-13', '2023-09-13 13:43:56', 7, 57);
+INSERT INTO `presensi_harian` VALUES (7936, 32, 874, 'M', '', '2023-09-13', '2023-09-13 13:43:56', 7, 57);
+INSERT INTO `presensi_harian` VALUES (7937, 32, 875, 'M', '', '2023-09-13', '2023-09-13 13:43:56', 7, 57);
+INSERT INTO `presensi_harian` VALUES (7938, 32, 876, 'M', '', '2023-09-13', '2023-09-13 13:43:56', 7, 57);
+INSERT INTO `presensi_harian` VALUES (7939, 32, 821, 'M', '', '2023-09-13', '2023-09-13 13:44:26', 7, 58);
+INSERT INTO `presensi_harian` VALUES (7940, 32, 822, 'M', '', '2023-09-13', '2023-09-13 13:44:26', 7, 58);
+INSERT INTO `presensi_harian` VALUES (7941, 32, 823, 'M', '', '2023-09-13', '2023-09-13 13:44:26', 7, 58);
+INSERT INTO `presensi_harian` VALUES (7942, 32, 824, 'M', '', '2023-09-13', '2023-09-13 13:44:26', 7, 58);
+INSERT INTO `presensi_harian` VALUES (7943, 15, 925, 'I', '', '2023-09-13', '2023-09-13 15:22:26', 7, 52);
+INSERT INTO `presensi_harian` VALUES (7944, 15, 926, 'M', '', '2023-09-13', '2023-09-13 15:22:26', 7, 52);
+INSERT INTO `presensi_harian` VALUES (7945, 15, 927, 'M', '', '2023-09-13', '2023-09-13 15:22:26', 7, 52);
+INSERT INTO `presensi_harian` VALUES (7946, 15, 928, 'M', '', '2023-09-13', '2023-09-13 15:22:26', 7, 52);
+INSERT INTO `presensi_harian` VALUES (7947, 15, 929, 'M', '', '2023-09-13', '2023-09-13 15:22:26', 7, 52);
+INSERT INTO `presensi_harian` VALUES (7948, 13, 788, 'M', '', '2023-09-13', '2023-09-13 16:09:00', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7949, 13, 789, 'S', '', '2023-09-13', '2023-09-13 16:09:00', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7950, 13, 790, 'M', '', '2023-09-13', '2023-09-13 16:09:00', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7951, 13, 791, 'M', '', '2023-09-13', '2023-09-13 16:09:00', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7952, 13, 792, 'M', '', '2023-09-13', '2023-09-13 16:09:00', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7953, 13, 793, 'M', '', '2023-09-13', '2023-09-13 16:09:00', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7954, 13, 794, 'M', '', '2023-09-13', '2023-09-13 16:09:00', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7955, 13, 795, 'M', '', '2023-09-13', '2023-09-13 16:09:00', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7956, 13, 796, 'A', '', '2023-09-13', '2023-09-13 16:09:00', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7957, 13, 797, 'M', '', '2023-09-13', '2023-09-13 16:09:00', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7958, 13, 798, 'M', '', '2023-09-13', '2023-09-13 16:09:00', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7959, 13, 799, 'A', '', '2023-09-13', '2023-09-13 16:09:00', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7960, 13, 800, 'M', '', '2023-09-13', '2023-09-13 16:09:00', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7961, 13, 801, 'M', '', '2023-09-13', '2023-09-13 16:09:00', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7962, 13, 802, 'M', '', '2023-09-13', '2023-09-13 16:09:00', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7963, 13, 803, 'M', '', '2023-09-13', '2023-09-13 16:09:00', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7964, 13, 804, 'M', '', '2023-09-13', '2023-09-13 16:09:00', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7965, 13, 805, 'M', '', '2023-09-13', '2023-09-13 16:09:00', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7966, 13, 806, 'A', '', '2023-09-13', '2023-09-13 16:09:00', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7967, 13, 807, 'M', '', '2023-09-13', '2023-09-13 16:09:00', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7968, 13, 808, 'M', '', '2023-09-13', '2023-09-13 16:09:00', 7, 59);
+INSERT INTO `presensi_harian` VALUES (7969, 7, 930, 'M', '', '2023-09-14', '2023-09-14 08:36:45', 7, 51);
+INSERT INTO `presensi_harian` VALUES (7970, 7, 931, 'M', '', '2023-09-14', '2023-09-14 08:36:45', 7, 51);
+INSERT INTO `presensi_harian` VALUES (7971, 7, 932, 'M', '', '2023-09-14', '2023-09-14 08:36:45', 7, 51);
+INSERT INTO `presensi_harian` VALUES (7972, 7, 933, 'I', '', '2023-09-14', '2023-09-14 08:36:45', 7, 51);
+INSERT INTO `presensi_harian` VALUES (7973, 7, 934, 'M', '', '2023-09-14', '2023-09-14 08:36:45', 7, 51);
+INSERT INTO `presensi_harian` VALUES (7974, 7, 935, 'M', '', '2023-09-14', '2023-09-14 08:36:45', 7, 51);
+INSERT INTO `presensi_harian` VALUES (7975, 7, 936, 'M', '', '2023-09-14', '2023-09-14 08:36:45', 7, 51);
+INSERT INTO `presensi_harian` VALUES (7976, 7, 937, 'M', '', '2023-09-14', '2023-09-14 08:36:45', 7, 51);
+INSERT INTO `presensi_harian` VALUES (7977, 7, 938, 'M', '', '2023-09-14', '2023-09-14 08:36:45', 7, 51);
+INSERT INTO `presensi_harian` VALUES (7978, 7, 939, 'M', '', '2023-09-14', '2023-09-14 08:36:45', 7, 51);
+INSERT INTO `presensi_harian` VALUES (7979, 7, 940, 'M', '', '2023-09-14', '2023-09-14 08:36:45', 7, 51);
+INSERT INTO `presensi_harian` VALUES (7980, 7, 941, 'M', '', '2023-09-14', '2023-09-14 08:36:45', 7, 51);
+INSERT INTO `presensi_harian` VALUES (7981, 7, 942, 'M', '', '2023-09-14', '2023-09-14 08:36:45', 7, 51);
+INSERT INTO `presensi_harian` VALUES (7982, 7, 943, 'M', '', '2023-09-14', '2023-09-14 08:36:45', 7, 51);
+INSERT INTO `presensi_harian` VALUES (7983, 7, 944, 'I', '', '2023-09-14', '2023-09-14 08:36:45', 7, 51);
+INSERT INTO `presensi_harian` VALUES (7984, 19, 894, 'M', '', '2023-09-14', '2023-09-14 08:50:16', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7985, 19, 895, 'M', '', '2023-09-14', '2023-09-14 08:50:16', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7986, 19, 896, 'M', '', '2023-09-14', '2023-09-14 08:50:16', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7987, 19, 897, 'M', '', '2023-09-14', '2023-09-14 08:50:16', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7988, 19, 898, 'M', '', '2023-09-14', '2023-09-14 08:50:16', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7989, 19, 899, 'M', '', '2023-09-14', '2023-09-14 08:50:16', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7990, 19, 900, 'S', '', '2023-09-14', '2023-09-14 08:50:16', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7991, 19, 901, 'M', '', '2023-09-14', '2023-09-14 08:50:16', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7992, 19, 902, 'M', '', '2023-09-14', '2023-09-14 08:50:17', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7993, 19, 903, 'M', '', '2023-09-14', '2023-09-14 08:50:17', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7994, 19, 904, 'M', '', '2023-09-14', '2023-09-14 08:50:17', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7995, 19, 905, 'M', '', '2023-09-14', '2023-09-14 08:50:17', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7996, 19, 906, 'M', '', '2023-09-14', '2023-09-14 08:50:17', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7997, 19, 907, 'M', '', '2023-09-14', '2023-09-14 08:50:17', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7998, 19, 908, 'M', '', '2023-09-14', '2023-09-14 08:50:17', 7, 49);
+INSERT INTO `presensi_harian` VALUES (7999, 19, 909, 'M', '', '2023-09-14', '2023-09-14 08:50:17', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8000, 19, 910, 'M', '', '2023-09-14', '2023-09-14 08:50:17', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8001, 19, 911, 'M', '', '2023-09-14', '2023-09-14 08:50:17', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8002, 19, 912, 'I', '', '2023-09-14', '2023-09-14 08:50:17', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8003, 19, 913, 'M', '', '2023-09-14', '2023-09-14 08:50:17', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8004, 19, 914, 'M', '', '2023-09-14', '2023-09-14 08:50:17', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8005, 19, 915, 'M', '', '2023-09-14', '2023-09-14 08:50:17', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8006, 19, 916, 'M', '', '2023-09-14', '2023-09-14 08:50:17', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8007, 19, 917, 'S', '', '2023-09-14', '2023-09-14 08:50:17', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8008, 19, 918, 'M', '', '2023-09-14', '2023-09-14 08:50:17', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8009, 19, 919, 'M', '', '2023-09-14', '2023-09-14 08:50:17', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8010, 19, 920, 'M', '', '2023-09-14', '2023-09-14 08:50:17', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8011, 19, 921, 'M', '', '2023-09-14', '2023-09-14 08:50:17', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8012, 19, 922, 'M', '', '2023-09-14', '2023-09-14 08:50:17', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8013, 9, 745, 'M', '', '2023-09-14', '2023-09-14 09:11:54', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8014, 9, 746, 'M', '', '2023-09-14', '2023-09-14 09:11:54', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8015, 9, 747, 'A', '', '2023-09-14', '2023-09-14 09:11:54', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8016, 9, 748, 'A', '', '2023-09-14', '2023-09-14 09:11:54', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8017, 9, 749, 'M', '', '2023-09-14', '2023-09-14 09:11:54', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8018, 9, 750, 'A', '', '2023-09-14', '2023-09-14 09:11:54', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8019, 9, 751, 'A', '', '2023-09-14', '2023-09-14 09:11:54', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8020, 9, 752, 'M', '', '2023-09-14', '2023-09-14 09:11:54', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8021, 9, 753, 'M', '', '2023-09-14', '2023-09-14 09:11:54', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8022, 9, 754, 'M', '', '2023-09-14', '2023-09-14 09:11:54', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8023, 9, 755, 'A', '', '2023-09-14', '2023-09-14 09:11:54', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8024, 9, 757, 'M', '', '2023-09-14', '2023-09-14 09:11:54', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8025, 9, 758, 'M', '', '2023-09-14', '2023-09-14 09:11:54', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8026, 9, 761, 'M', '', '2023-09-14', '2023-09-14 09:11:54', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8027, 9, 763, 'M', '', '2023-09-14', '2023-09-14 09:11:54', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8028, 9, 764, 'A', '', '2023-09-14', '2023-09-14 09:11:54', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8029, 9, 766, 'M', '', '2023-09-14', '2023-09-14 09:11:54', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8030, 9, 767, 'M', '', '2023-09-14', '2023-09-14 09:11:54', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8031, 9, 768, 'M', '', '2023-09-14', '2023-09-14 09:11:54', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8032, 9, 769, 'A', '', '2023-09-14', '2023-09-14 09:11:54', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8033, 20, 956, 'M', '', '2023-09-14', '2023-09-14 09:21:24', 7, 53);
+INSERT INTO `presensi_harian` VALUES (8034, 20, 957, 'M', '', '2023-09-14', '2023-09-14 09:21:24', 7, 53);
+INSERT INTO `presensi_harian` VALUES (8035, 20, 958, 'M', '', '2023-09-14', '2023-09-14 09:21:24', 7, 53);
+INSERT INTO `presensi_harian` VALUES (8036, 20, 959, 'S', '', '2023-09-14', '2023-09-14 09:21:24', 7, 53);
+INSERT INTO `presensi_harian` VALUES (8037, 20, 960, 'M', '', '2023-09-14', '2023-09-14 09:21:24', 7, 53);
+INSERT INTO `presensi_harian` VALUES (8038, 20, 961, 'M', '', '2023-09-14', '2023-09-14 09:21:24', 7, 53);
+INSERT INTO `presensi_harian` VALUES (8039, 20, 962, 'M', '', '2023-09-14', '2023-09-14 09:21:24', 7, 53);
+INSERT INTO `presensi_harian` VALUES (8040, 20, 963, 'S', '', '2023-09-14', '2023-09-14 09:21:24', 7, 53);
+INSERT INTO `presensi_harian` VALUES (8041, 20, 964, 'M', '', '2023-09-14', '2023-09-14 09:21:24', 7, 53);
+INSERT INTO `presensi_harian` VALUES (8042, 20, 965, 'I', '', '2023-09-14', '2023-09-14 09:21:24', 7, 53);
+INSERT INTO `presensi_harian` VALUES (8043, 20, 966, 'M', '', '2023-09-14', '2023-09-14 09:21:24', 7, 53);
+INSERT INTO `presensi_harian` VALUES (8044, 20, 967, 'M', '', '2023-09-14', '2023-09-14 09:21:24', 7, 53);
+INSERT INTO `presensi_harian` VALUES (8045, 20, 968, 'M', '', '2023-09-14', '2023-09-14 09:21:24', 7, 53);
+INSERT INTO `presensi_harian` VALUES (8046, 20, 969, 'M', '', '2023-09-14', '2023-09-14 09:21:24', 7, 53);
+INSERT INTO `presensi_harian` VALUES (8047, 11, 770, 'M', '', '2023-09-14', '2023-09-14 09:24:03', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8048, 11, 771, 'M', '', '2023-09-14', '2023-09-14 09:24:03', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8049, 11, 772, 'M', '', '2023-09-14', '2023-09-14 09:24:03', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8050, 11, 773, 'M', '', '2023-09-14', '2023-09-14 09:24:03', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8051, 11, 774, 'M', '', '2023-09-14', '2023-09-14 09:24:03', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8052, 11, 775, 'A', '', '2023-09-14', '2023-09-14 09:24:03', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8053, 11, 776, 'M', '', '2023-09-14', '2023-09-14 09:24:03', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8054, 11, 777, 'M', '', '2023-09-14', '2023-09-14 09:24:03', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8055, 11, 778, 'M', '', '2023-09-14', '2023-09-14 09:24:03', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8056, 11, 779, 'A', '', '2023-09-14', '2023-09-14 09:24:03', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8057, 11, 780, 'M', '', '2023-09-14', '2023-09-14 09:24:03', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8058, 11, 781, 'M', '', '2023-09-14', '2023-09-14 09:24:03', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8059, 11, 782, 'M', '', '2023-09-14', '2023-09-14 09:24:03', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8060, 11, 783, 'M', '', '2023-09-14', '2023-09-14 09:24:03', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8061, 11, 784, 'M', '', '2023-09-14', '2023-09-14 09:24:03', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8062, 11, 785, 'M', '', '2023-09-14', '2023-09-14 09:24:03', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8063, 11, 786, 'A', '', '2023-09-14', '2023-09-14 09:24:03', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8064, 11, 787, 'M', '', '2023-09-14', '2023-09-14 09:24:03', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8065, 11, 979, 'M', '', '2023-09-14', '2023-09-14 09:24:03', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8066, 24, 788, 'M', '', '2023-09-14', '2023-09-14 09:29:59', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8067, 24, 789, 'S', '', '2023-09-14', '2023-09-14 09:29:59', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8068, 24, 790, 'M', '', '2023-09-14', '2023-09-14 09:29:59', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8069, 24, 791, 'M', '', '2023-09-14', '2023-09-14 09:29:59', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8070, 24, 792, 'M', '', '2023-09-14', '2023-09-14 09:29:59', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8071, 24, 793, 'M', '', '2023-09-14', '2023-09-14 09:29:59', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8072, 24, 794, 'M', '', '2023-09-14', '2023-09-14 09:29:59', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8073, 24, 795, 'M', '', '2023-09-14', '2023-09-14 09:29:59', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8074, 24, 796, 'M', '', '2023-09-14', '2023-09-14 09:29:59', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8075, 24, 797, 'M', '', '2023-09-14', '2023-09-14 09:29:59', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8076, 24, 798, 'S', '', '2023-09-14', '2023-09-14 09:29:59', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8077, 24, 799, 'M', '', '2023-09-14', '2023-09-14 09:29:59', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8078, 24, 800, 'A', '', '2023-09-14', '2023-09-14 09:29:59', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8079, 24, 801, 'M', '', '2023-09-14', '2023-09-14 09:29:59', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8080, 24, 802, 'M', '', '2023-09-14', '2023-09-14 09:29:59', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8081, 24, 803, 'M', '', '2023-09-14', '2023-09-14 09:29:59', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8082, 24, 804, 'M', '', '2023-09-14', '2023-09-14 09:29:59', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8083, 24, 805, 'M', '', '2023-09-14', '2023-09-14 09:29:59', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8084, 24, 806, 'I', '', '2023-09-14', '2023-09-14 09:29:59', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8085, 24, 807, 'M', '', '2023-09-14', '2023-09-14 09:29:59', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8086, 24, 808, 'M', '', '2023-09-14', '2023-09-14 09:29:59', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8087, 7, 788, 'M', '', '2023-09-14', '2023-09-14 09:30:49', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8088, 7, 789, 'S', '', '2023-09-14', '2023-09-14 09:30:49', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8089, 7, 790, 'M', '', '2023-09-14', '2023-09-14 09:30:49', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8090, 7, 791, 'M', '', '2023-09-14', '2023-09-14 09:30:49', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8091, 7, 792, 'M', '', '2023-09-14', '2023-09-14 09:30:49', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8092, 7, 793, 'M', '', '2023-09-14', '2023-09-14 09:30:49', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8093, 7, 794, 'M', '', '2023-09-14', '2023-09-14 09:30:49', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8094, 7, 795, 'M', '', '2023-09-14', '2023-09-14 09:30:49', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8095, 7, 796, 'A', '', '2023-09-14', '2023-09-14 09:30:49', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8096, 7, 797, 'M', '', '2023-09-14', '2023-09-14 09:30:49', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8097, 7, 798, 'S', '', '2023-09-14', '2023-09-14 09:30:49', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8098, 7, 799, 'M', '', '2023-09-14', '2023-09-14 09:30:49', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8099, 7, 800, 'A', '', '2023-09-14', '2023-09-14 09:30:49', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8100, 7, 801, 'M', '', '2023-09-14', '2023-09-14 09:30:49', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8101, 7, 802, 'M', '', '2023-09-14', '2023-09-14 09:30:49', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8102, 7, 803, 'M', '', '2023-09-14', '2023-09-14 09:30:49', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8103, 7, 804, 'M', '', '2023-09-14', '2023-09-14 09:30:49', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8104, 7, 805, 'M', '', '2023-09-14', '2023-09-14 09:30:49', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8105, 7, 806, 'I', '', '2023-09-14', '2023-09-14 09:30:49', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8106, 7, 807, 'M', '', '2023-09-14', '2023-09-14 09:30:49', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8107, 7, 808, 'M', '', '2023-09-14', '2023-09-14 09:30:49', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8108, 9, 838, 'M', '', '2023-09-14', '2023-09-14 09:38:28', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8109, 9, 839, 'M', '', '2023-09-14', '2023-09-14 09:38:28', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8110, 9, 840, 'M', '', '2023-09-14', '2023-09-14 09:38:28', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8111, 9, 841, 'M', '', '2023-09-14', '2023-09-14 09:38:28', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8112, 9, 842, 'M', '', '2023-09-14', '2023-09-14 09:38:28', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8113, 9, 843, 'A', '', '2023-09-14', '2023-09-14 09:38:28', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8114, 9, 844, 'M', '', '2023-09-14', '2023-09-14 09:38:28', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8115, 9, 845, 'S', '', '2023-09-14', '2023-09-14 09:38:28', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8116, 9, 846, 'A', '', '2023-09-14', '2023-09-14 09:38:28', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8117, 9, 847, 'M', '', '2023-09-14', '2023-09-14 09:38:28', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8118, 9, 848, 'M', '', '2023-09-14', '2023-09-14 09:38:28', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8119, 9, 849, 'A', '', '2023-09-14', '2023-09-14 09:38:28', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8120, 9, 850, 'M', '', '2023-09-14', '2023-09-14 09:38:28', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8121, 9, 851, 'M', '', '2023-09-14', '2023-09-14 09:38:28', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8122, 9, 852, 'M', '', '2023-09-14', '2023-09-14 09:38:28', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8123, 9, 853, 'M', '', '2023-09-14', '2023-09-14 09:38:28', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8124, 9, 854, 'M', '', '2023-09-14', '2023-09-14 09:38:28', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8125, 9, 855, 'M', '', '2023-09-14', '2023-09-14 09:38:28', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8126, 9, 856, 'S', '', '2023-09-14', '2023-09-14 09:38:28', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8127, 9, 857, 'M', '', '2023-09-14', '2023-09-14 09:38:28', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8128, 9, 858, 'M', '', '2023-09-14', '2023-09-14 09:38:28', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8129, 9, 859, 'M', '', '2023-09-14', '2023-09-14 09:38:28', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8130, 9, 860, 'M', '', '2023-09-14', '2023-09-14 09:38:28', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8131, 9, 861, 'M', '', '2023-09-14', '2023-09-14 09:38:28', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8132, 9, 862, 'M', '', '2023-09-14', '2023-09-14 09:38:28', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8133, 17, 894, 'M', '', '2023-09-14', '2023-09-14 09:40:53', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8134, 17, 895, 'M', '', '2023-09-14', '2023-09-14 09:40:53', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8135, 17, 896, 'M', '', '2023-09-14', '2023-09-14 09:40:53', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8136, 17, 897, 'M', '', '2023-09-14', '2023-09-14 09:40:53', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8137, 17, 898, 'M', '', '2023-09-14', '2023-09-14 09:40:53', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8138, 17, 899, 'M', '', '2023-09-14', '2023-09-14 09:40:53', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8139, 17, 900, 'S', '', '2023-09-14', '2023-09-14 09:40:53', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8140, 17, 901, 'M', '', '2023-09-14', '2023-09-14 09:40:53', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8141, 17, 902, 'M', '', '2023-09-14', '2023-09-14 09:40:53', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8142, 17, 903, 'M', '', '2023-09-14', '2023-09-14 09:40:53', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8143, 17, 904, 'S', '', '2023-09-14', '2023-09-14 09:40:53', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8144, 17, 905, 'M', '', '2023-09-14', '2023-09-14 09:40:53', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8145, 17, 906, 'A', '', '2023-09-14', '2023-09-14 09:40:53', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8146, 17, 907, 'M', '', '2023-09-14', '2023-09-14 09:40:53', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8147, 17, 908, 'M', '', '2023-09-14', '2023-09-14 09:40:53', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8148, 17, 909, 'M', '', '2023-09-14', '2023-09-14 09:40:53', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8149, 17, 910, 'M', '', '2023-09-14', '2023-09-14 09:40:53', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8150, 17, 911, 'M', '', '2023-09-14', '2023-09-14 09:40:53', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8151, 17, 912, 'I', '', '2023-09-14', '2023-09-14 09:40:53', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8152, 17, 913, 'M', '', '2023-09-14', '2023-09-14 09:40:53', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8153, 17, 914, 'M', '', '2023-09-14', '2023-09-14 09:40:53', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8154, 17, 915, 'M', '', '2023-09-14', '2023-09-14 09:40:53', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8155, 17, 916, 'M', '', '2023-09-14', '2023-09-14 09:40:53', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8156, 17, 917, 'S', '', '2023-09-14', '2023-09-14 09:40:53', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8157, 17, 918, 'M', '', '2023-09-14', '2023-09-14 09:40:53', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8158, 17, 919, 'M', '', '2023-09-14', '2023-09-14 09:40:53', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8159, 17, 920, 'M', '', '2023-09-14', '2023-09-14 09:40:53', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8160, 17, 921, 'M', '', '2023-09-14', '2023-09-14 09:40:53', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8161, 17, 922, 'M', '', '2023-09-14', '2023-09-14 09:40:53', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8162, 13, 877, 'M', '', '2023-09-14', '2023-09-14 10:08:19', 7, 61);
+INSERT INTO `presensi_harian` VALUES (8163, 13, 879, 'M', '', '2023-09-14', '2023-09-14 10:08:19', 7, 61);
+INSERT INTO `presensi_harian` VALUES (8164, 13, 880, 'M', '', '2023-09-14', '2023-09-14 10:08:19', 7, 61);
+INSERT INTO `presensi_harian` VALUES (8165, 13, 881, 'M', '', '2023-09-14', '2023-09-14 10:08:19', 7, 61);
+INSERT INTO `presensi_harian` VALUES (8166, 13, 882, 'M', '', '2023-09-14', '2023-09-14 10:08:19', 7, 61);
+INSERT INTO `presensi_harian` VALUES (8167, 13, 883, 'M', '', '2023-09-14', '2023-09-14 10:08:19', 7, 61);
+INSERT INTO `presensi_harian` VALUES (8168, 13, 884, 'M', '', '2023-09-14', '2023-09-14 10:08:19', 7, 61);
+INSERT INTO `presensi_harian` VALUES (8169, 13, 885, 'M', '', '2023-09-14', '2023-09-14 10:08:19', 7, 61);
+INSERT INTO `presensi_harian` VALUES (8170, 13, 886, 'M', '', '2023-09-14', '2023-09-14 10:08:19', 7, 61);
+INSERT INTO `presensi_harian` VALUES (8171, 13, 887, 'M', '', '2023-09-14', '2023-09-14 10:08:19', 7, 61);
+INSERT INTO `presensi_harian` VALUES (8172, 7, 956, 'A', '', '2023-09-14', '2023-09-14 10:14:16', 7, 53);
+INSERT INTO `presensi_harian` VALUES (8173, 7, 957, 'A', '', '2023-09-14', '2023-09-14 10:14:16', 7, 53);
+INSERT INTO `presensi_harian` VALUES (8174, 7, 958, 'A', '', '2023-09-14', '2023-09-14 10:14:16', 7, 53);
+INSERT INTO `presensi_harian` VALUES (8175, 7, 959, 'A', '', '2023-09-14', '2023-09-14 10:14:16', 7, 53);
+INSERT INTO `presensi_harian` VALUES (8176, 7, 960, 'M', '', '2023-09-14', '2023-09-14 10:14:16', 7, 53);
+INSERT INTO `presensi_harian` VALUES (8177, 7, 963, 'A', '', '2023-09-14', '2023-09-14 10:14:16', 7, 53);
+INSERT INTO `presensi_harian` VALUES (8178, 7, 964, 'M', '', '2023-09-14', '2023-09-14 10:14:16', 7, 53);
+INSERT INTO `presensi_harian` VALUES (8179, 7, 965, 'I', '', '2023-09-14', '2023-09-14 10:14:16', 7, 53);
+INSERT INTO `presensi_harian` VALUES (8180, 7, 967, 'A', '', '2023-09-14', '2023-09-14 10:14:16', 7, 53);
+INSERT INTO `presensi_harian` VALUES (8181, 7, 968, 'M', '', '2023-09-14', '2023-09-14 10:14:16', 7, 53);
+INSERT INTO `presensi_harian` VALUES (8182, 7, 969, 'M', '', '2023-09-14', '2023-09-14 10:14:16', 7, 53);
+INSERT INTO `presensi_harian` VALUES (8183, 9, 788, 'M', '', '2023-09-14', '2023-09-14 10:37:12', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8184, 9, 789, 'S', '', '2023-09-14', '2023-09-14 10:37:12', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8185, 9, 790, 'M', '', '2023-09-14', '2023-09-14 10:37:12', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8186, 9, 791, 'M', '', '2023-09-14', '2023-09-14 10:37:12', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8187, 9, 792, 'M', '', '2023-09-14', '2023-09-14 10:37:12', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8188, 9, 793, 'M', '', '2023-09-14', '2023-09-14 10:37:12', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8189, 9, 794, 'M', '', '2023-09-14', '2023-09-14 10:37:12', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8190, 9, 795, 'M', '', '2023-09-14', '2023-09-14 10:37:12', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8191, 9, 796, 'A', '', '2023-09-14', '2023-09-14 10:37:12', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8192, 9, 797, 'S', '', '2023-09-14', '2023-09-14 10:37:12', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8193, 9, 798, 'A', '', '2023-09-14', '2023-09-14 10:37:12', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8194, 9, 799, 'A', '', '2023-09-14', '2023-09-14 10:37:12', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8195, 9, 800, 'A', '', '2023-09-14', '2023-09-14 10:37:12', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8196, 9, 801, 'M', '', '2023-09-14', '2023-09-14 10:37:12', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8197, 9, 802, 'M', '', '2023-09-14', '2023-09-14 10:37:12', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8198, 9, 803, 'M', '', '2023-09-14', '2023-09-14 10:37:12', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8199, 9, 804, 'M', '', '2023-09-14', '2023-09-14 10:37:12', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8200, 9, 805, 'M', '', '2023-09-14', '2023-09-14 10:37:12', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8201, 9, 806, 'A', '', '2023-09-14', '2023-09-14 10:37:12', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8202, 9, 807, 'A', '', '2023-09-14', '2023-09-14 10:37:12', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8203, 9, 808, 'A', '', '2023-09-14', '2023-09-14 10:37:12', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8204, 32, 838, 'A', '', '2023-09-14', '2023-09-14 10:44:00', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8205, 32, 839, 'A', '', '2023-09-14', '2023-09-14 10:44:00', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8206, 32, 840, 'A', '', '2023-09-14', '2023-09-14 10:44:00', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8207, 32, 841, 'A', '', '2023-09-14', '2023-09-14 10:44:00', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8208, 32, 842, 'A', '', '2023-09-14', '2023-09-14 10:44:00', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8209, 32, 843, 'A', '', '2023-09-14', '2023-09-14 10:44:00', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8210, 32, 844, 'A', '', '2023-09-14', '2023-09-14 10:44:00', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8211, 32, 845, 'A', '', '2023-09-14', '2023-09-14 10:44:00', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8212, 32, 846, 'A', '', '2023-09-14', '2023-09-14 10:44:00', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8213, 32, 847, 'A', '', '2023-09-14', '2023-09-14 10:44:00', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8214, 32, 848, 'A', '', '2023-09-14', '2023-09-14 10:44:00', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8215, 32, 849, 'A', '', '2023-09-14', '2023-09-14 10:44:00', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8216, 32, 850, 'A', '', '2023-09-14', '2023-09-14 10:44:00', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8217, 32, 851, 'A', '', '2023-09-14', '2023-09-14 10:44:00', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8218, 32, 852, 'A', '', '2023-09-14', '2023-09-14 10:44:00', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8219, 32, 853, 'A', '', '2023-09-14', '2023-09-14 10:44:00', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8220, 32, 854, 'A', '', '2023-09-14', '2023-09-14 10:44:00', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8221, 32, 855, 'A', '', '2023-09-14', '2023-09-14 10:44:00', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8222, 32, 856, 'A', '', '2023-09-14', '2023-09-14 10:44:00', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8223, 32, 857, 'A', '', '2023-09-14', '2023-09-14 10:44:00', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8224, 32, 858, 'A', '', '2023-09-14', '2023-09-14 10:44:00', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8225, 32, 859, 'A', '', '2023-09-14', '2023-09-14 10:44:00', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8226, 32, 860, 'A', '', '2023-09-14', '2023-09-14 10:44:00', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8227, 32, 861, 'A', '', '2023-09-14', '2023-09-14 10:44:00', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8228, 32, 862, 'A', '', '2023-09-14', '2023-09-14 10:44:00', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8229, 15, 930, 'M', '', '2023-09-14', '2023-09-14 11:16:15', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8230, 15, 931, 'M', '', '2023-09-14', '2023-09-14 11:16:15', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8231, 15, 932, 'A', '', '2023-09-14', '2023-09-14 11:16:15', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8232, 15, 933, 'S', '', '2023-09-14', '2023-09-14 11:16:15', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8233, 15, 934, 'M', '', '2023-09-14', '2023-09-14 11:16:15', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8234, 15, 935, 'M', '', '2023-09-14', '2023-09-14 11:16:15', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8235, 15, 936, 'M', '', '2023-09-14', '2023-09-14 11:16:15', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8236, 15, 937, 'M', '', '2023-09-14', '2023-09-14 11:16:15', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8237, 15, 938, 'M', '', '2023-09-14', '2023-09-14 11:16:15', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8238, 15, 939, 'A', '', '2023-09-14', '2023-09-14 11:16:15', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8239, 15, 940, 'M', '', '2023-09-14', '2023-09-14 11:16:15', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8240, 15, 941, 'A', '', '2023-09-14', '2023-09-14 11:16:15', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8241, 15, 942, 'M', '', '2023-09-14', '2023-09-14 11:16:15', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8242, 15, 943, 'A', '', '2023-09-14', '2023-09-14 11:16:15', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8243, 15, 944, 'M', '', '2023-09-14', '2023-09-14 11:16:15', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8244, 15, 966, 'M', '', '2023-09-14', '2023-09-14 11:16:15', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8245, 7, 770, 'M', '', '2023-09-14', '2023-09-14 11:17:23', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8246, 7, 771, 'M', '', '2023-09-14', '2023-09-14 11:17:23', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8247, 7, 772, 'M', '', '2023-09-14', '2023-09-14 11:17:23', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8248, 7, 773, 'M', '', '2023-09-14', '2023-09-14 11:17:23', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8249, 7, 774, 'M', '', '2023-09-14', '2023-09-14 11:17:23', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8250, 7, 775, 'M', '', '2023-09-14', '2023-09-14 11:17:23', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8251, 7, 776, 'M', '', '2023-09-14', '2023-09-14 11:17:23', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8252, 7, 777, 'M', '', '2023-09-14', '2023-09-14 11:17:23', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8253, 7, 778, 'M', '', '2023-09-14', '2023-09-14 11:17:23', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8254, 7, 779, 'M', '', '2023-09-14', '2023-09-14 11:17:23', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8255, 7, 780, 'M', '', '2023-09-14', '2023-09-14 11:17:23', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8256, 7, 781, 'M', '', '2023-09-14', '2023-09-14 11:17:23', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8257, 7, 782, 'M', '', '2023-09-14', '2023-09-14 11:17:23', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8258, 7, 783, 'M', '', '2023-09-14', '2023-09-14 11:17:23', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8259, 7, 784, 'M', '', '2023-09-14', '2023-09-14 11:17:24', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8260, 7, 785, 'M', '', '2023-09-14', '2023-09-14 11:17:24', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8261, 7, 786, 'M', '', '2023-09-14', '2023-09-14 11:17:24', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8262, 7, 787, 'M', '', '2023-09-14', '2023-09-14 11:17:24', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8263, 7, 979, 'M', '', '2023-09-14', '2023-09-14 11:17:24', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8264, 7, 925, 'I', '', '2023-09-14', '2023-09-14 12:28:19', 7, 52);
+INSERT INTO `presensi_harian` VALUES (8265, 7, 926, 'M', '', '2023-09-14', '2023-09-14 12:28:19', 7, 52);
+INSERT INTO `presensi_harian` VALUES (8266, 7, 927, 'M', '', '2023-09-14', '2023-09-14 12:28:19', 7, 52);
+INSERT INTO `presensi_harian` VALUES (8267, 7, 928, 'M', '', '2023-09-14', '2023-09-14 12:28:19', 7, 52);
+INSERT INTO `presensi_harian` VALUES (8268, 7, 929, 'M', '', '2023-09-14', '2023-09-14 12:28:19', 7, 52);
+INSERT INTO `presensi_harian` VALUES (8269, 7, 945, 'M', '', '2023-09-14', '2023-09-14 12:32:36', 7, 67);
+INSERT INTO `presensi_harian` VALUES (8270, 7, 946, 'M', '', '2023-09-14', '2023-09-14 12:32:36', 7, 67);
+INSERT INTO `presensi_harian` VALUES (8271, 7, 947, 'I', '', '2023-09-14', '2023-09-14 12:32:36', 7, 67);
+INSERT INTO `presensi_harian` VALUES (8272, 7, 948, 'M', '', '2023-09-14', '2023-09-14 12:32:36', 7, 67);
+INSERT INTO `presensi_harian` VALUES (8273, 7, 949, 'M', '', '2023-09-14', '2023-09-14 12:32:36', 7, 67);
+INSERT INTO `presensi_harian` VALUES (8274, 7, 950, 'M', '', '2023-09-14', '2023-09-14 12:32:36', 7, 67);
+INSERT INTO `presensi_harian` VALUES (8275, 7, 951, 'I', '', '2023-09-14', '2023-09-14 12:32:36', 7, 67);
+INSERT INTO `presensi_harian` VALUES (8276, 7, 952, 'I', '', '2023-09-14', '2023-09-14 12:32:36', 7, 67);
+INSERT INTO `presensi_harian` VALUES (8277, 7, 953, 'M', '', '2023-09-14', '2023-09-14 12:32:36', 7, 67);
+INSERT INTO `presensi_harian` VALUES (8278, 7, 954, 'I', '', '2023-09-14', '2023-09-14 12:32:36', 7, 67);
+INSERT INTO `presensi_harian` VALUES (8279, 7, 955, 'M', '', '2023-09-14', '2023-09-14 12:32:36', 7, 67);
+INSERT INTO `presensi_harian` VALUES (8280, 24, 888, 'S', '', '2023-09-14', '2023-09-14 12:33:42', 7, 66);
+INSERT INTO `presensi_harian` VALUES (8281, 24, 889, 'S', '', '2023-09-14', '2023-09-14 12:33:42', 7, 66);
+INSERT INTO `presensi_harian` VALUES (8282, 24, 890, 'I', '', '2023-09-14', '2023-09-14 12:33:42', 7, 66);
+INSERT INTO `presensi_harian` VALUES (8283, 24, 891, 'S', '', '2023-09-14', '2023-09-14 12:33:42', 7, 66);
+INSERT INTO `presensi_harian` VALUES (8284, 24, 892, 'M', '', '2023-09-14', '2023-09-14 12:33:42', 7, 66);
+INSERT INTO `presensi_harian` VALUES (8285, 24, 893, 'I', '', '2023-09-14', '2023-09-14 12:33:42', 7, 66);
+INSERT INTO `presensi_harian` VALUES (8286, 24, 809, 'M', '', '2023-09-14', '2023-09-14 12:39:17', 7, 60);
+INSERT INTO `presensi_harian` VALUES (8287, 24, 810, 'M', '', '2023-09-14', '2023-09-14 12:39:17', 7, 60);
+INSERT INTO `presensi_harian` VALUES (8288, 24, 811, 'M', '', '2023-09-14', '2023-09-14 12:39:17', 7, 60);
+INSERT INTO `presensi_harian` VALUES (8289, 24, 812, 'M', '', '2023-09-14', '2023-09-14 12:39:17', 7, 60);
+INSERT INTO `presensi_harian` VALUES (8290, 24, 813, 'M', '', '2023-09-14', '2023-09-14 12:39:17', 7, 60);
+INSERT INTO `presensi_harian` VALUES (8291, 24, 814, 'M', '', '2023-09-14', '2023-09-14 12:39:17', 7, 60);
+INSERT INTO `presensi_harian` VALUES (8292, 24, 815, 'M', '', '2023-09-14', '2023-09-14 12:39:17', 7, 60);
+INSERT INTO `presensi_harian` VALUES (8293, 24, 816, 'M', '', '2023-09-14', '2023-09-14 12:39:17', 7, 60);
+INSERT INTO `presensi_harian` VALUES (8294, 24, 817, 'M', '', '2023-09-14', '2023-09-14 12:39:17', 7, 60);
+INSERT INTO `presensi_harian` VALUES (8295, 24, 818, 'M', '', '2023-09-14', '2023-09-14 12:39:17', 7, 60);
+INSERT INTO `presensi_harian` VALUES (8296, 24, 819, 'M', '', '2023-09-14', '2023-09-14 12:39:17', 7, 60);
+INSERT INTO `presensi_harian` VALUES (8297, 24, 820, 'M', '', '2023-09-14', '2023-09-14 12:39:17', 7, 60);
+INSERT INTO `presensi_harian` VALUES (8298, 24, 825, 'M', '', '2023-09-14', '2023-09-14 12:40:04', 7, 62);
+INSERT INTO `presensi_harian` VALUES (8299, 24, 827, 'M', '', '2023-09-14', '2023-09-14 12:40:04', 7, 62);
+INSERT INTO `presensi_harian` VALUES (8300, 24, 828, 'M', '', '2023-09-14', '2023-09-14 12:40:04', 7, 62);
+INSERT INTO `presensi_harian` VALUES (8301, 24, 829, 'M', '', '2023-09-14', '2023-09-14 12:40:04', 7, 62);
+INSERT INTO `presensi_harian` VALUES (8302, 24, 830, 'M', '', '2023-09-14', '2023-09-14 12:40:04', 7, 62);
+INSERT INTO `presensi_harian` VALUES (8303, 24, 831, 'M', '', '2023-09-14', '2023-09-14 12:40:04', 7, 62);
+INSERT INTO `presensi_harian` VALUES (8304, 24, 832, 'M', '', '2023-09-14', '2023-09-14 12:40:04', 7, 62);
+INSERT INTO `presensi_harian` VALUES (8305, 24, 833, 'M', '', '2023-09-14', '2023-09-14 12:40:04', 7, 62);
+INSERT INTO `presensi_harian` VALUES (8306, 24, 834, 'M', '', '2023-09-14', '2023-09-14 12:40:04', 7, 62);
+INSERT INTO `presensi_harian` VALUES (8307, 24, 835, 'M', '', '2023-09-14', '2023-09-14 12:40:04', 7, 62);
+INSERT INTO `presensi_harian` VALUES (8308, 24, 836, 'M', '', '2023-09-14', '2023-09-14 12:40:04', 7, 62);
+INSERT INTO `presensi_harian` VALUES (8309, 24, 837, 'M', '', '2023-09-14', '2023-09-14 12:40:04', 7, 62);
+INSERT INTO `presensi_harian` VALUES (8310, 10, 925, 'M', '', '2023-09-14', '2023-09-14 14:54:58', 7, 52);
+INSERT INTO `presensi_harian` VALUES (8311, 10, 926, 'M', '', '2023-09-14', '2023-09-14 14:54:58', 7, 52);
+INSERT INTO `presensi_harian` VALUES (8312, 10, 927, 'M', '', '2023-09-14', '2023-09-14 14:54:59', 7, 52);
+INSERT INTO `presensi_harian` VALUES (8313, 10, 928, 'M', '', '2023-09-14', '2023-09-14 14:54:59', 7, 52);
+INSERT INTO `presensi_harian` VALUES (8314, 10, 929, 'M', '', '2023-09-14', '2023-09-14 14:54:59', 7, 52);
+INSERT INTO `presensi_harian` VALUES (8315, 10, 945, 'M', '', '2023-09-14', '2023-09-14 15:09:49', 7, 67);
+INSERT INTO `presensi_harian` VALUES (8316, 10, 946, 'M', '', '2023-09-14', '2023-09-14 15:09:49', 7, 67);
+INSERT INTO `presensi_harian` VALUES (8317, 10, 947, 'I', '', '2023-09-14', '2023-09-14 15:09:49', 7, 67);
+INSERT INTO `presensi_harian` VALUES (8318, 10, 948, 'M', '', '2023-09-14', '2023-09-14 15:09:49', 7, 67);
+INSERT INTO `presensi_harian` VALUES (8319, 10, 949, 'M', '', '2023-09-14', '2023-09-14 15:09:49', 7, 67);
+INSERT INTO `presensi_harian` VALUES (8320, 10, 950, 'M', '', '2023-09-14', '2023-09-14 15:09:49', 7, 67);
+INSERT INTO `presensi_harian` VALUES (8321, 10, 951, 'I', '', '2023-09-14', '2023-09-14 15:09:49', 7, 67);
+INSERT INTO `presensi_harian` VALUES (8322, 10, 952, 'I', '', '2023-09-14', '2023-09-14 15:09:49', 7, 67);
+INSERT INTO `presensi_harian` VALUES (8323, 10, 953, 'M', '', '2023-09-14', '2023-09-14 15:09:49', 7, 67);
+INSERT INTO `presensi_harian` VALUES (8324, 10, 954, 'I', '', '2023-09-14', '2023-09-14 15:09:49', 7, 67);
+INSERT INTO `presensi_harian` VALUES (8325, 10, 955, 'M', '', '2023-09-14', '2023-09-14 15:09:49', 7, 67);
+INSERT INTO `presensi_harian` VALUES (8326, 10, 970, 'M', '', '2023-09-14', '2023-09-14 15:11:25', 7, 65);
+INSERT INTO `presensi_harian` VALUES (8327, 10, 971, 'M', '', '2023-09-14', '2023-09-14 15:11:25', 7, 65);
+INSERT INTO `presensi_harian` VALUES (8328, 10, 972, 'M', '', '2023-09-14', '2023-09-14 15:11:26', 7, 65);
+INSERT INTO `presensi_harian` VALUES (8329, 10, 973, 'I', '', '2023-09-14', '2023-09-14 15:11:26', 7, 65);
+INSERT INTO `presensi_harian` VALUES (8330, 10, 974, 'M', '', '2023-09-14', '2023-09-14 15:11:26', 7, 65);
+INSERT INTO `presensi_harian` VALUES (8331, 10, 975, 'M', '', '2023-09-14', '2023-09-14 15:11:26', 7, 65);
+INSERT INTO `presensi_harian` VALUES (8332, 10, 976, 'M', '', '2023-09-14', '2023-09-14 15:11:26', 7, 65);
+INSERT INTO `presensi_harian` VALUES (8333, 10, 977, 'M', '', '2023-09-14', '2023-09-14 15:11:26', 7, 65);
+INSERT INTO `presensi_harian` VALUES (8334, 10, 978, 'M', '', '2023-09-14', '2023-09-14 15:11:26', 7, 65);
+INSERT INTO `presensi_harian` VALUES (8335, 17, 970, 'M', '', '2023-09-14', '2023-09-14 15:52:33', 7, 65);
+INSERT INTO `presensi_harian` VALUES (8336, 17, 971, 'M', '', '2023-09-14', '2023-09-14 15:52:33', 7, 65);
+INSERT INTO `presensi_harian` VALUES (8337, 17, 972, 'M', '', '2023-09-14', '2023-09-14 15:52:33', 7, 65);
+INSERT INTO `presensi_harian` VALUES (8338, 17, 973, 'S', '', '2023-09-14', '2023-09-14 15:52:33', 7, 65);
+INSERT INTO `presensi_harian` VALUES (8339, 17, 974, 'M', '', '2023-09-14', '2023-09-14 15:52:33', 7, 65);
+INSERT INTO `presensi_harian` VALUES (8340, 17, 975, 'M', '', '2023-09-14', '2023-09-14 15:52:33', 7, 65);
+INSERT INTO `presensi_harian` VALUES (8341, 17, 976, 'M', '', '2023-09-14', '2023-09-14 15:52:33', 7, 65);
+INSERT INTO `presensi_harian` VALUES (8342, 17, 977, 'M', '', '2023-09-14', '2023-09-14 15:52:33', 7, 65);
+INSERT INTO `presensi_harian` VALUES (8343, 17, 978, 'M', '', '2023-09-14', '2023-09-14 15:52:33', 7, 65);
+INSERT INTO `presensi_harian` VALUES (8344, 17, 863, 'M', '', '2023-09-14', '2023-09-14 15:53:20', 7, 57);
+INSERT INTO `presensi_harian` VALUES (8345, 17, 864, 'M', '', '2023-09-14', '2023-09-14 15:53:20', 7, 57);
+INSERT INTO `presensi_harian` VALUES (8346, 17, 865, 'M', '', '2023-09-14', '2023-09-14 15:53:20', 7, 57);
+INSERT INTO `presensi_harian` VALUES (8347, 17, 866, 'M', '', '2023-09-14', '2023-09-14 15:53:20', 7, 57);
+INSERT INTO `presensi_harian` VALUES (8348, 17, 867, 'M', '', '2023-09-14', '2023-09-14 15:53:20', 7, 57);
+INSERT INTO `presensi_harian` VALUES (8349, 17, 868, 'S', '', '2023-09-14', '2023-09-14 15:53:20', 7, 57);
+INSERT INTO `presensi_harian` VALUES (8350, 17, 869, 'M', '', '2023-09-14', '2023-09-14 15:53:20', 7, 57);
+INSERT INTO `presensi_harian` VALUES (8351, 17, 870, 'M', '', '2023-09-14', '2023-09-14 15:53:20', 7, 57);
+INSERT INTO `presensi_harian` VALUES (8352, 17, 871, 'M', '', '2023-09-14', '2023-09-14 15:53:20', 7, 57);
+INSERT INTO `presensi_harian` VALUES (8353, 17, 872, 'M', '', '2023-09-14', '2023-09-14 15:53:20', 7, 57);
+INSERT INTO `presensi_harian` VALUES (8354, 17, 873, 'M', '', '2023-09-14', '2023-09-14 15:53:20', 7, 57);
+INSERT INTO `presensi_harian` VALUES (8355, 17, 874, 'M', '', '2023-09-14', '2023-09-14 15:53:20', 7, 57);
+INSERT INTO `presensi_harian` VALUES (8356, 17, 875, 'S', '', '2023-09-14', '2023-09-14 15:53:20', 7, 57);
+INSERT INTO `presensi_harian` VALUES (8357, 17, 876, 'M', '', '2023-09-14', '2023-09-14 15:53:21', 7, 57);
+INSERT INTO `presensi_harian` VALUES (8358, 17, 821, 'M', '', '2023-09-14', '2023-09-14 15:54:14', 7, 58);
+INSERT INTO `presensi_harian` VALUES (8359, 17, 822, 'M', '', '2023-09-14', '2023-09-14 15:54:14', 7, 58);
+INSERT INTO `presensi_harian` VALUES (8360, 17, 823, 'M', '', '2023-09-14', '2023-09-14 15:54:14', 7, 58);
+INSERT INTO `presensi_harian` VALUES (8361, 17, 824, 'S', '', '2023-09-14', '2023-09-14 15:54:14', 7, 58);
+INSERT INTO `presensi_harian` VALUES (8362, 10, 863, 'M', '', '2023-09-14', '2023-09-14 16:54:44', 7, 57);
+INSERT INTO `presensi_harian` VALUES (8363, 10, 864, 'M', '', '2023-09-14', '2023-09-14 16:54:44', 7, 57);
+INSERT INTO `presensi_harian` VALUES (8364, 10, 865, 'M', '', '2023-09-14', '2023-09-14 16:54:44', 7, 57);
+INSERT INTO `presensi_harian` VALUES (8365, 10, 866, 'M', '', '2023-09-14', '2023-09-14 16:54:44', 7, 57);
+INSERT INTO `presensi_harian` VALUES (8366, 10, 867, 'M', '', '2023-09-14', '2023-09-14 16:54:44', 7, 57);
+INSERT INTO `presensi_harian` VALUES (8367, 10, 868, 'M', '', '2023-09-14', '2023-09-14 16:54:44', 7, 57);
+INSERT INTO `presensi_harian` VALUES (8368, 10, 869, 'M', '', '2023-09-14', '2023-09-14 16:54:44', 7, 57);
+INSERT INTO `presensi_harian` VALUES (8369, 10, 870, 'M', '', '2023-09-14', '2023-09-14 16:54:44', 7, 57);
+INSERT INTO `presensi_harian` VALUES (8370, 10, 871, 'M', '', '2023-09-14', '2023-09-14 16:54:44', 7, 57);
+INSERT INTO `presensi_harian` VALUES (8371, 10, 872, 'M', '', '2023-09-14', '2023-09-14 16:54:44', 7, 57);
+INSERT INTO `presensi_harian` VALUES (8372, 10, 873, 'M', '', '2023-09-14', '2023-09-14 16:54:44', 7, 57);
+INSERT INTO `presensi_harian` VALUES (8373, 10, 874, 'M', '', '2023-09-14', '2023-09-14 16:54:44', 7, 57);
+INSERT INTO `presensi_harian` VALUES (8374, 10, 875, 'M', '', '2023-09-14', '2023-09-14 16:54:45', 7, 57);
+INSERT INTO `presensi_harian` VALUES (8375, 10, 876, 'M', '', '2023-09-14', '2023-09-14 16:54:45', 7, 57);
+INSERT INTO `presensi_harian` VALUES (8376, 19, 838, 'S', '', '2023-09-15', '2023-09-15 07:51:17', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8377, 19, 839, 'M', '', '2023-09-15', '2023-09-15 07:51:17', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8378, 19, 840, 'M', '', '2023-09-15', '2023-09-15 07:51:17', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8379, 19, 841, 'M', '', '2023-09-15', '2023-09-15 07:51:17', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8380, 19, 842, 'M', '', '2023-09-15', '2023-09-15 07:51:17', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8381, 19, 843, 'M', '', '2023-09-15', '2023-09-15 07:51:17', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8382, 19, 844, 'M', '', '2023-09-15', '2023-09-15 07:51:17', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8383, 19, 845, 'M', '', '2023-09-15', '2023-09-15 07:51:17', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8384, 19, 846, 'M', '', '2023-09-15', '2023-09-15 07:51:17', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8385, 19, 847, 'M', '', '2023-09-15', '2023-09-15 07:51:17', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8386, 19, 848, 'M', '', '2023-09-15', '2023-09-15 07:51:17', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8387, 19, 849, 'S', '', '2023-09-15', '2023-09-15 07:51:17', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8388, 19, 850, 'M', '', '2023-09-15', '2023-09-15 07:51:17', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8389, 19, 851, 'M', '', '2023-09-15', '2023-09-15 07:51:17', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8390, 19, 852, 'M', '', '2023-09-15', '2023-09-15 07:51:17', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8391, 19, 853, 'M', '', '2023-09-15', '2023-09-15 07:51:17', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8392, 19, 854, 'M', '', '2023-09-15', '2023-09-15 07:51:17', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8393, 19, 855, 'S', '', '2023-09-15', '2023-09-15 07:51:17', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8394, 19, 856, 'M', '', '2023-09-15', '2023-09-15 07:51:17', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8395, 19, 857, 'M', '', '2023-09-15', '2023-09-15 07:51:17', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8396, 19, 858, 'M', '', '2023-09-15', '2023-09-15 07:51:17', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8397, 19, 859, 'M', '', '2023-09-15', '2023-09-15 07:51:17', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8398, 19, 860, 'M', '', '2023-09-15', '2023-09-15 07:51:17', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8399, 19, 861, 'M', '', '2023-09-15', '2023-09-15 07:51:17', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8400, 19, 862, 'S', '', '2023-09-15', '2023-09-15 07:51:18', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8401, 7, 877, 'A', '', '2023-09-15', '2023-09-15 08:30:48', 7, 61);
+INSERT INTO `presensi_harian` VALUES (8402, 7, 879, 'M', '', '2023-09-15', '2023-09-15 08:30:48', 7, 61);
+INSERT INTO `presensi_harian` VALUES (8403, 7, 880, 'A', '', '2023-09-15', '2023-09-15 08:30:48', 7, 61);
+INSERT INTO `presensi_harian` VALUES (8404, 7, 881, 'A', '', '2023-09-15', '2023-09-15 08:30:48', 7, 61);
+INSERT INTO `presensi_harian` VALUES (8405, 7, 882, 'M', '', '2023-09-15', '2023-09-15 08:30:48', 7, 61);
+INSERT INTO `presensi_harian` VALUES (8406, 7, 883, 'M', '', '2023-09-15', '2023-09-15 08:30:48', 7, 61);
+INSERT INTO `presensi_harian` VALUES (8407, 7, 884, 'A', '', '2023-09-15', '2023-09-15 08:30:48', 7, 61);
+INSERT INTO `presensi_harian` VALUES (8408, 7, 885, 'M', '', '2023-09-15', '2023-09-15 08:30:48', 7, 61);
+INSERT INTO `presensi_harian` VALUES (8409, 7, 886, 'M', '', '2023-09-15', '2023-09-15 08:30:48', 7, 61);
+INSERT INTO `presensi_harian` VALUES (8410, 7, 887, 'A', '', '2023-09-15', '2023-09-15 08:30:48', 7, 61);
+INSERT INTO `presensi_harian` VALUES (8411, 32, 770, 'M', '', '2023-09-15', '2023-09-15 09:18:13', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8412, 32, 771, 'M', '', '2023-09-15', '2023-09-15 09:18:13', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8413, 32, 772, 'A', '', '2023-09-15', '2023-09-15 09:18:13', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8414, 32, 773, 'M', '', '2023-09-15', '2023-09-15 09:18:13', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8415, 32, 774, 'M', '', '2023-09-15', '2023-09-15 09:18:13', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8416, 32, 775, 'I', '', '2023-09-15', '2023-09-15 09:18:13', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8417, 32, 776, 'M', '', '2023-09-15', '2023-09-15 09:18:13', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8418, 32, 777, 'M', '', '2023-09-15', '2023-09-15 09:18:13', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8419, 32, 778, 'M', '', '2023-09-15', '2023-09-15 09:18:13', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8420, 32, 779, 'I', '', '2023-09-15', '2023-09-15 09:18:13', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8421, 32, 780, 'M', '', '2023-09-15', '2023-09-15 09:18:13', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8422, 32, 781, 'M', '', '2023-09-15', '2023-09-15 09:18:13', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8423, 32, 782, 'M', '', '2023-09-15', '2023-09-15 09:18:13', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8424, 32, 783, 'M', '', '2023-09-15', '2023-09-15 09:18:13', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8425, 32, 784, 'M', '', '2023-09-15', '2023-09-15 09:18:13', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8426, 32, 785, 'I', '', '2023-09-15', '2023-09-15 09:18:13', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8427, 32, 786, 'M', '', '2023-09-15', '2023-09-15 09:18:13', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8428, 32, 787, 'M', '', '2023-09-15', '2023-09-15 09:18:13', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8429, 32, 979, 'M', '', '2023-09-15', '2023-09-15 09:18:13', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8430, 17, 956, 'I', '', '2023-09-15', '2023-09-15 09:27:17', 7, 53);
+INSERT INTO `presensi_harian` VALUES (8431, 17, 957, 'S', '', '2023-09-15', '2023-09-15 09:27:17', 7, 53);
+INSERT INTO `presensi_harian` VALUES (8432, 17, 958, 'I', '', '2023-09-15', '2023-09-15 09:27:17', 7, 53);
+INSERT INTO `presensi_harian` VALUES (8433, 17, 959, 'I', '', '2023-09-15', '2023-09-15 09:27:17', 7, 53);
+INSERT INTO `presensi_harian` VALUES (8434, 17, 960, 'M', '', '2023-09-15', '2023-09-15 09:27:17', 7, 53);
+INSERT INTO `presensi_harian` VALUES (8435, 17, 963, 'M', '', '2023-09-15', '2023-09-15 09:27:17', 7, 53);
+INSERT INTO `presensi_harian` VALUES (8436, 17, 964, 'M', '', '2023-09-15', '2023-09-15 09:27:17', 7, 53);
+INSERT INTO `presensi_harian` VALUES (8437, 17, 965, 'M', '', '2023-09-15', '2023-09-15 09:27:17', 7, 53);
+INSERT INTO `presensi_harian` VALUES (8438, 17, 967, 'M', '', '2023-09-15', '2023-09-15 09:27:17', 7, 53);
+INSERT INTO `presensi_harian` VALUES (8439, 17, 968, 'M', '', '2023-09-15', '2023-09-15 09:27:17', 7, 53);
+INSERT INTO `presensi_harian` VALUES (8440, 17, 969, 'M', '', '2023-09-15', '2023-09-15 09:27:17', 7, 53);
+INSERT INTO `presensi_harian` VALUES (8441, 17, 930, 'M', '', '2023-09-15', '2023-09-15 09:28:12', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8442, 17, 931, 'M', '', '2023-09-15', '2023-09-15 09:28:12', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8443, 17, 932, 'M', '', '2023-09-15', '2023-09-15 09:28:12', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8444, 17, 933, 'M', '', '2023-09-15', '2023-09-15 09:28:12', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8445, 17, 934, 'M', '', '2023-09-15', '2023-09-15 09:28:12', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8446, 17, 935, 'M', '', '2023-09-15', '2023-09-15 09:28:12', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8447, 17, 936, 'M', '', '2023-09-15', '2023-09-15 09:28:12', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8448, 17, 937, 'M', '', '2023-09-15', '2023-09-15 09:28:12', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8449, 17, 938, 'M', '', '2023-09-15', '2023-09-15 09:28:12', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8450, 17, 939, 'M', '', '2023-09-15', '2023-09-15 09:28:12', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8451, 17, 940, 'M', '', '2023-09-15', '2023-09-15 09:28:12', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8452, 17, 941, 'M', '', '2023-09-15', '2023-09-15 09:28:12', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8453, 17, 942, 'M', '', '2023-09-15', '2023-09-15 09:28:12', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8454, 17, 943, 'M', '', '2023-09-15', '2023-09-15 09:28:12', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8455, 17, 944, 'M', '', '2023-09-15', '2023-09-15 09:28:12', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8456, 17, 966, 'M', '', '2023-09-15', '2023-09-15 09:28:12', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8457, 13, 745, 'M', '', '2023-09-15', '2023-09-15 09:33:20', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8458, 13, 746, 'M', '', '2023-09-15', '2023-09-15 09:33:20', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8459, 13, 747, 'I', '', '2023-09-15', '2023-09-15 09:33:20', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8460, 13, 748, 'A', '', '2023-09-15', '2023-09-15 09:33:20', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8461, 13, 749, 'M', '', '2023-09-15', '2023-09-15 09:33:20', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8462, 13, 750, 'M', '', '2023-09-15', '2023-09-15 09:33:20', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8463, 13, 751, 'M', '', '2023-09-15', '2023-09-15 09:33:20', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8464, 13, 752, 'M', '', '2023-09-15', '2023-09-15 09:33:20', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8465, 13, 753, 'I', '', '2023-09-15', '2023-09-15 09:33:20', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8466, 13, 754, 'M', '', '2023-09-15', '2023-09-15 09:33:20', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8467, 13, 755, 'M', '', '2023-09-15', '2023-09-15 09:33:20', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8468, 13, 757, 'M', '', '2023-09-15', '2023-09-15 09:33:20', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8469, 13, 758, 'M', '', '2023-09-15', '2023-09-15 09:33:20', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8470, 13, 761, 'A', '', '2023-09-15', '2023-09-15 09:33:20', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8471, 13, 763, 'M', '', '2023-09-15', '2023-09-15 09:33:20', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8472, 13, 764, 'M', '', '2023-09-15', '2023-09-15 09:33:20', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8473, 13, 766, 'M', '', '2023-09-15', '2023-09-15 09:33:20', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8474, 13, 767, 'M', '', '2023-09-15', '2023-09-15 09:33:20', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8475, 13, 768, 'M', '', '2023-09-15', '2023-09-15 09:33:20', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8476, 13, 769, 'M', '', '2023-09-15', '2023-09-15 09:33:20', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8477, 7, 788, 'M', '', '2023-09-15', '2023-09-15 10:35:22', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8478, 7, 789, 'A', '', '2023-09-15', '2023-09-15 10:35:22', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8479, 7, 790, 'A', '', '2023-09-15', '2023-09-15 10:35:22', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8480, 7, 791, 'M', '', '2023-09-15', '2023-09-15 10:35:22', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8481, 7, 792, 'M', '', '2023-09-15', '2023-09-15 10:35:22', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8482, 7, 793, 'M', '', '2023-09-15', '2023-09-15 10:35:22', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8483, 7, 794, 'A', '', '2023-09-15', '2023-09-15 10:35:22', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8484, 7, 795, 'M', '', '2023-09-15', '2023-09-15 10:35:22', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8485, 7, 796, 'A', '', '2023-09-15', '2023-09-15 10:35:22', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8486, 7, 797, 'A', '', '2023-09-15', '2023-09-15 10:35:22', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8487, 7, 798, 'A', '', '2023-09-15', '2023-09-15 10:35:22', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8488, 7, 799, 'A', '', '2023-09-15', '2023-09-15 10:35:22', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8489, 7, 800, 'M', '', '2023-09-15', '2023-09-15 10:35:22', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8490, 7, 801, 'A', '', '2023-09-15', '2023-09-15 10:35:22', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8491, 7, 802, 'M', '', '2023-09-15', '2023-09-15 10:35:22', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8492, 7, 803, 'M', '', '2023-09-15', '2023-09-15 10:35:22', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8493, 7, 804, 'M', '', '2023-09-15', '2023-09-15 10:35:22', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8494, 7, 805, 'M', '', '2023-09-15', '2023-09-15 10:35:22', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8495, 7, 806, 'A', '', '2023-09-15', '2023-09-15 10:35:22', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8496, 7, 807, 'A', '', '2023-09-15', '2023-09-15 10:35:22', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8497, 7, 808, 'A', '', '2023-09-15', '2023-09-15 10:35:22', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8498, 10, 788, 'M', '', '2023-09-15', '2023-09-15 10:35:48', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8499, 10, 789, 'S', '', '2023-09-15', '2023-09-15 10:35:48', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8500, 10, 790, 'M', '', '2023-09-15', '2023-09-15 10:35:48', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8501, 10, 791, 'M', '', '2023-09-15', '2023-09-15 10:35:48', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8502, 10, 792, 'M', '', '2023-09-15', '2023-09-15 10:35:48', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8503, 10, 793, 'M', '', '2023-09-15', '2023-09-15 10:35:48', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8504, 10, 794, 'A', '', '2023-09-15', '2023-09-15 10:35:48', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8505, 10, 795, 'M', '', '2023-09-15', '2023-09-15 10:35:48', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8506, 10, 796, 'M', '', '2023-09-15', '2023-09-15 10:35:48', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8507, 10, 797, 'A', '', '2023-09-15', '2023-09-15 10:35:48', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8508, 10, 798, 'M', '', '2023-09-15', '2023-09-15 10:35:48', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8509, 10, 799, 'M', '', '2023-09-15', '2023-09-15 10:35:48', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8510, 10, 800, 'M', '', '2023-09-15', '2023-09-15 10:35:48', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8511, 10, 801, 'S', '', '2023-09-15', '2023-09-15 10:35:48', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8512, 10, 802, 'M', '', '2023-09-15', '2023-09-15 10:35:48', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8513, 10, 803, 'M', '', '2023-09-15', '2023-09-15 10:35:48', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8514, 10, 804, 'M', '', '2023-09-15', '2023-09-15 10:35:48', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8515, 10, 805, 'M', '', '2023-09-15', '2023-09-15 10:35:48', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8516, 10, 806, 'A', '', '2023-09-15', '2023-09-15 10:35:48', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8517, 10, 807, 'M', '', '2023-09-15', '2023-09-15 10:35:48', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8518, 10, 808, 'A', '', '2023-09-15', '2023-09-15 10:35:48', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8519, 10, 838, 'A', '', '2023-09-15', '2023-09-15 10:36:40', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8520, 10, 839, 'M', '', '2023-09-15', '2023-09-15 10:36:40', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8521, 10, 840, 'M', '', '2023-09-15', '2023-09-15 10:36:40', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8522, 10, 841, 'M', '', '2023-09-15', '2023-09-15 10:36:40', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8523, 10, 842, 'M', '', '2023-09-15', '2023-09-15 10:36:40', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8524, 10, 843, 'M', '', '2023-09-15', '2023-09-15 10:36:40', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8525, 10, 844, 'A', '', '2023-09-15', '2023-09-15 10:36:40', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8526, 10, 845, 'M', '', '2023-09-15', '2023-09-15 10:36:40', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8527, 10, 846, 'A', '', '2023-09-15', '2023-09-15 10:36:40', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8528, 10, 847, 'M', '', '2023-09-15', '2023-09-15 10:36:40', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8529, 10, 848, 'M', '', '2023-09-15', '2023-09-15 10:36:40', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8530, 10, 849, 'S', '', '2023-09-15', '2023-09-15 10:36:40', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8531, 10, 850, 'A', '', '2023-09-15', '2023-09-15 10:36:40', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8532, 10, 851, 'M', '', '2023-09-15', '2023-09-15 10:36:40', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8533, 10, 852, 'M', '', '2023-09-15', '2023-09-15 10:36:40', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8534, 10, 853, 'M', '', '2023-09-15', '2023-09-15 10:36:40', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8535, 10, 854, 'M', '', '2023-09-15', '2023-09-15 10:36:40', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8536, 10, 855, 'M', '', '2023-09-15', '2023-09-15 10:36:40', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8537, 10, 856, 'M', '', '2023-09-15', '2023-09-15 10:36:40', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8538, 10, 857, 'M', '', '2023-09-15', '2023-09-15 10:36:40', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8539, 10, 858, 'M', '', '2023-09-15', '2023-09-15 10:36:40', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8540, 10, 859, 'M', '', '2023-09-15', '2023-09-15 10:36:40', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8541, 10, 860, 'A', '', '2023-09-15', '2023-09-15 10:36:40', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8542, 10, 861, 'M', '', '2023-09-15', '2023-09-15 10:36:40', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8543, 10, 862, 'M', '', '2023-09-15', '2023-09-15 10:36:40', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8544, 19, 770, 'M', '', '2023-09-15', '2023-09-15 10:47:51', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8545, 19, 771, 'M', '', '2023-09-15', '2023-09-15 10:47:51', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8546, 19, 772, 'M', '', '2023-09-15', '2023-09-15 10:47:51', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8547, 19, 773, 'M', '', '2023-09-15', '2023-09-15 10:47:51', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8548, 19, 774, 'M', '', '2023-09-15', '2023-09-15 10:47:51', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8549, 19, 775, 'A', '', '2023-09-15', '2023-09-15 10:47:51', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8550, 19, 776, 'M', '', '2023-09-15', '2023-09-15 10:47:51', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8551, 19, 777, 'M', '', '2023-09-15', '2023-09-15 10:47:51', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8552, 19, 778, 'M', '', '2023-09-15', '2023-09-15 10:47:51', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8553, 19, 779, 'A', '', '2023-09-15', '2023-09-15 10:47:51', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8554, 19, 780, 'M', '', '2023-09-15', '2023-09-15 10:47:51', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8555, 19, 781, 'M', '', '2023-09-15', '2023-09-15 10:47:51', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8556, 19, 782, 'M', '', '2023-09-15', '2023-09-15 10:47:51', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8557, 19, 783, 'M', '', '2023-09-15', '2023-09-15 10:47:51', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8558, 19, 784, 'M', '', '2023-09-15', '2023-09-15 10:47:51', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8559, 19, 785, 'I', '', '2023-09-15', '2023-09-15 10:47:51', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8560, 19, 786, 'M', '', '2023-09-15', '2023-09-15 10:47:51', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8561, 19, 787, 'M', '', '2023-09-15', '2023-09-15 10:47:51', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8562, 19, 979, 'M', '', '2023-09-15', '2023-09-15 10:47:51', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8563, 33, 877, 'M', '', '2023-09-15', '2023-09-15 10:48:21', 7, 61);
+INSERT INTO `presensi_harian` VALUES (8564, 33, 879, 'M', '', '2023-09-15', '2023-09-15 10:48:21', 7, 61);
+INSERT INTO `presensi_harian` VALUES (8565, 33, 880, 'M', '', '2023-09-15', '2023-09-15 10:48:21', 7, 61);
+INSERT INTO `presensi_harian` VALUES (8566, 33, 881, 'A', '', '2023-09-15', '2023-09-15 10:48:21', 7, 61);
+INSERT INTO `presensi_harian` VALUES (8567, 33, 882, 'A', '', '2023-09-15', '2023-09-15 10:48:21', 7, 61);
+INSERT INTO `presensi_harian` VALUES (8568, 33, 883, 'M', '', '2023-09-15', '2023-09-15 10:48:21', 7, 61);
+INSERT INTO `presensi_harian` VALUES (8569, 33, 884, 'A', '', '2023-09-15', '2023-09-15 10:48:21', 7, 61);
+INSERT INTO `presensi_harian` VALUES (8570, 33, 885, 'M', '', '2023-09-15', '2023-09-15 10:48:21', 7, 61);
+INSERT INTO `presensi_harian` VALUES (8571, 33, 886, 'M', '', '2023-09-15', '2023-09-15 10:48:21', 7, 61);
+INSERT INTO `presensi_harian` VALUES (8572, 33, 887, 'M', '', '2023-09-15', '2023-09-15 10:48:21', 7, 61);
+INSERT INTO `presensi_harian` VALUES (8573, 17, 925, 'M', '', '2023-09-15', '2023-09-15 13:35:32', 7, 52);
+INSERT INTO `presensi_harian` VALUES (8574, 17, 926, 'M', '', '2023-09-15', '2023-09-15 13:35:32', 7, 52);
+INSERT INTO `presensi_harian` VALUES (8575, 17, 927, 'M', '', '2023-09-15', '2023-09-15 13:35:32', 7, 52);
+INSERT INTO `presensi_harian` VALUES (8576, 17, 928, 'M', '', '2023-09-15', '2023-09-15 13:35:32', 7, 52);
+INSERT INTO `presensi_harian` VALUES (8577, 17, 929, 'M', '', '2023-09-15', '2023-09-15 13:35:32', 7, 52);
+INSERT INTO `presensi_harian` VALUES (8578, 17, 945, 'M', '', '2023-09-15', '2023-09-15 13:36:35', 7, 67);
+INSERT INTO `presensi_harian` VALUES (8579, 17, 946, 'M', '', '2023-09-15', '2023-09-15 13:36:36', 7, 67);
+INSERT INTO `presensi_harian` VALUES (8580, 17, 947, 'M', '', '2023-09-15', '2023-09-15 13:36:36', 7, 67);
+INSERT INTO `presensi_harian` VALUES (8581, 17, 948, 'M', '', '2023-09-15', '2023-09-15 13:36:36', 7, 67);
+INSERT INTO `presensi_harian` VALUES (8582, 17, 949, 'M', '', '2023-09-15', '2023-09-15 13:36:36', 7, 67);
+INSERT INTO `presensi_harian` VALUES (8583, 17, 950, 'M', '', '2023-09-15', '2023-09-15 13:36:36', 7, 67);
+INSERT INTO `presensi_harian` VALUES (8584, 17, 951, 'I', '', '2023-09-15', '2023-09-15 13:36:36', 7, 67);
+INSERT INTO `presensi_harian` VALUES (8585, 17, 952, 'I', '', '2023-09-15', '2023-09-15 13:36:36', 7, 67);
+INSERT INTO `presensi_harian` VALUES (8586, 17, 953, 'M', '', '2023-09-15', '2023-09-15 13:36:36', 7, 67);
+INSERT INTO `presensi_harian` VALUES (8587, 17, 954, 'I', '', '2023-09-15', '2023-09-15 13:36:36', 7, 67);
+INSERT INTO `presensi_harian` VALUES (8588, 17, 955, 'M', '', '2023-09-15', '2023-09-15 13:36:36', 7, 67);
+INSERT INTO `presensi_harian` VALUES (8589, 32, 788, 'I', '', '2023-09-16', '2023-09-16 08:42:25', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8590, 32, 789, 'I', '', '2023-09-16', '2023-09-16 08:42:25', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8591, 32, 790, 'M', '', '2023-09-16', '2023-09-16 08:42:25', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8592, 32, 791, 'I', '', '2023-09-16', '2023-09-16 08:42:25', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8593, 32, 792, 'M', '', '2023-09-16', '2023-09-16 08:42:25', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8594, 32, 793, 'I', '', '2023-09-16', '2023-09-16 08:42:25', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8595, 32, 794, 'M', '', '2023-09-16', '2023-09-16 08:42:25', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8596, 32, 795, 'I', '', '2023-09-16', '2023-09-16 08:42:25', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8597, 32, 796, 'I', '', '2023-09-16', '2023-09-16 08:42:25', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8598, 32, 797, 'I', '', '2023-09-16', '2023-09-16 08:42:25', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8599, 32, 798, 'I', '', '2023-09-16', '2023-09-16 08:42:25', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8600, 32, 799, 'I', '', '2023-09-16', '2023-09-16 08:42:25', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8601, 32, 800, 'I', '', '2023-09-16', '2023-09-16 08:42:25', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8602, 32, 801, 'I', '', '2023-09-16', '2023-09-16 08:42:25', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8603, 32, 802, 'I', '', '2023-09-16', '2023-09-16 08:42:25', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8604, 32, 803, 'I', '', '2023-09-16', '2023-09-16 08:42:25', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8605, 32, 804, 'I', '', '2023-09-16', '2023-09-16 08:42:25', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8606, 32, 805, 'M', '', '2023-09-16', '2023-09-16 08:42:25', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8607, 32, 806, 'I', '', '2023-09-16', '2023-09-16 08:42:25', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8608, 32, 807, 'M', '', '2023-09-16', '2023-09-16 08:42:25', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8609, 32, 808, 'I', '', '2023-09-16', '2023-09-16 08:42:25', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8610, 9, 877, 'M', '', '2023-09-16', '2023-09-16 08:55:13', 7, 61);
+INSERT INTO `presensi_harian` VALUES (8611, 9, 879, 'M', '', '2023-09-16', '2023-09-16 08:55:13', 7, 61);
+INSERT INTO `presensi_harian` VALUES (8612, 9, 880, 'M', '', '2023-09-16', '2023-09-16 08:55:13', 7, 61);
+INSERT INTO `presensi_harian` VALUES (8613, 9, 881, 'M', '', '2023-09-16', '2023-09-16 08:55:13', 7, 61);
+INSERT INTO `presensi_harian` VALUES (8614, 9, 882, 'M', '', '2023-09-16', '2023-09-16 08:55:13', 7, 61);
+INSERT INTO `presensi_harian` VALUES (8615, 9, 883, 'M', '', '2023-09-16', '2023-09-16 08:55:13', 7, 61);
+INSERT INTO `presensi_harian` VALUES (8616, 9, 884, 'M', '', '2023-09-16', '2023-09-16 08:55:13', 7, 61);
+INSERT INTO `presensi_harian` VALUES (8617, 9, 885, 'M', '', '2023-09-16', '2023-09-16 08:55:13', 7, 61);
+INSERT INTO `presensi_harian` VALUES (8618, 9, 886, 'M', '', '2023-09-16', '2023-09-16 08:55:13', 7, 61);
+INSERT INTO `presensi_harian` VALUES (8619, 9, 887, 'A', '', '2023-09-16', '2023-09-16 08:55:13', 7, 61);
+INSERT INTO `presensi_harian` VALUES (8620, 14, 877, 'M', '', '2023-09-16', '2023-09-16 09:38:33', 7, 61);
+INSERT INTO `presensi_harian` VALUES (8621, 14, 879, 'M', '', '2023-09-16', '2023-09-16 09:38:33', 7, 61);
+INSERT INTO `presensi_harian` VALUES (8622, 14, 880, 'M', '', '2023-09-16', '2023-09-16 09:38:33', 7, 61);
+INSERT INTO `presensi_harian` VALUES (8623, 14, 881, 'M', '', '2023-09-16', '2023-09-16 09:38:33', 7, 61);
+INSERT INTO `presensi_harian` VALUES (8624, 14, 882, 'M', '', '2023-09-16', '2023-09-16 09:38:33', 7, 61);
+INSERT INTO `presensi_harian` VALUES (8625, 14, 883, 'M', '', '2023-09-16', '2023-09-16 09:38:33', 7, 61);
+INSERT INTO `presensi_harian` VALUES (8626, 14, 884, 'M', '', '2023-09-16', '2023-09-16 09:38:33', 7, 61);
+INSERT INTO `presensi_harian` VALUES (8627, 14, 885, 'M', '', '2023-09-16', '2023-09-16 09:38:33', 7, 61);
+INSERT INTO `presensi_harian` VALUES (8628, 14, 886, 'M', '', '2023-09-16', '2023-09-16 09:38:33', 7, 61);
+INSERT INTO `presensi_harian` VALUES (8629, 14, 887, 'A', '', '2023-09-16', '2023-09-16 09:38:33', 7, 61);
+INSERT INTO `presensi_harian` VALUES (8630, 10, 956, 'A', '', '2023-09-16', '2023-09-16 09:42:29', 7, 53);
+INSERT INTO `presensi_harian` VALUES (8631, 10, 957, 'A', '', '2023-09-16', '2023-09-16 09:42:29', 7, 53);
+INSERT INTO `presensi_harian` VALUES (8632, 10, 958, 'A', '', '2023-09-16', '2023-09-16 09:42:29', 7, 53);
+INSERT INTO `presensi_harian` VALUES (8633, 10, 959, 'A', '', '2023-09-16', '2023-09-16 09:42:29', 7, 53);
+INSERT INTO `presensi_harian` VALUES (8634, 10, 960, 'M', '', '2023-09-16', '2023-09-16 09:42:29', 7, 53);
+INSERT INTO `presensi_harian` VALUES (8635, 10, 963, 'A', '', '2023-09-16', '2023-09-16 09:42:30', 7, 53);
+INSERT INTO `presensi_harian` VALUES (8636, 10, 964, 'M', '', '2023-09-16', '2023-09-16 09:42:30', 7, 53);
+INSERT INTO `presensi_harian` VALUES (8637, 10, 965, 'M', '', '2023-09-16', '2023-09-16 09:42:30', 7, 53);
+INSERT INTO `presensi_harian` VALUES (8638, 10, 967, 'A', '', '2023-09-16', '2023-09-16 09:42:30', 7, 53);
+INSERT INTO `presensi_harian` VALUES (8639, 10, 968, 'A', '', '2023-09-16', '2023-09-16 09:42:30', 7, 53);
+INSERT INTO `presensi_harian` VALUES (8640, 10, 969, 'A', '', '2023-09-16', '2023-09-16 09:42:30', 7, 53);
+INSERT INTO `presensi_harian` VALUES (8641, 24, 956, 'I', '', '2023-09-16', '2023-09-16 10:15:10', 7, 53);
+INSERT INTO `presensi_harian` VALUES (8642, 24, 957, 'I', '', '2023-09-16', '2023-09-16 10:15:10', 7, 53);
+INSERT INTO `presensi_harian` VALUES (8643, 24, 958, 'I', '', '2023-09-16', '2023-09-16 10:15:10', 7, 53);
+INSERT INTO `presensi_harian` VALUES (8644, 24, 959, 'I', '', '2023-09-16', '2023-09-16 10:15:10', 7, 53);
+INSERT INTO `presensi_harian` VALUES (8645, 24, 960, 'M', '', '2023-09-16', '2023-09-16 10:15:10', 7, 53);
+INSERT INTO `presensi_harian` VALUES (8646, 24, 963, 'S', '', '2023-09-16', '2023-09-16 10:15:10', 7, 53);
+INSERT INTO `presensi_harian` VALUES (8647, 24, 964, 'M', '', '2023-09-16', '2023-09-16 10:15:10', 7, 53);
+INSERT INTO `presensi_harian` VALUES (8648, 24, 965, 'M', '', '2023-09-16', '2023-09-16 10:15:10', 7, 53);
+INSERT INTO `presensi_harian` VALUES (8649, 24, 967, 'S', '', '2023-09-16', '2023-09-16 10:15:10', 7, 53);
+INSERT INTO `presensi_harian` VALUES (8650, 24, 968, 'S', '', '2023-09-16', '2023-09-16 10:15:10', 7, 53);
+INSERT INTO `presensi_harian` VALUES (8651, 24, 969, 'S', '', '2023-09-16', '2023-09-16 10:15:10', 7, 53);
+INSERT INTO `presensi_harian` VALUES (8652, 7, 894, 'S', '', '2023-09-16', '2023-09-16 10:27:37', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8653, 7, 895, 'M', '', '2023-09-16', '2023-09-16 10:27:37', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8654, 7, 896, 'M', '', '2023-09-16', '2023-09-16 10:27:37', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8655, 7, 897, 'M', '', '2023-09-16', '2023-09-16 10:27:37', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8656, 7, 898, 'S', '', '2023-09-16', '2023-09-16 10:27:37', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8657, 7, 899, 'M', '', '2023-09-16', '2023-09-16 10:27:37', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8658, 7, 900, 'A', '', '2023-09-16', '2023-09-16 10:27:37', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8659, 7, 901, 'S', '', '2023-09-16', '2023-09-16 10:27:37', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8660, 7, 902, 'M', '', '2023-09-16', '2023-09-16 10:27:37', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8661, 7, 903, 'M', '', '2023-09-16', '2023-09-16 10:27:37', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8662, 7, 904, 'S', '', '2023-09-16', '2023-09-16 10:27:37', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8663, 7, 905, 'M', '', '2023-09-16', '2023-09-16 10:27:37', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8664, 7, 906, 'M', '', '2023-09-16', '2023-09-16 10:27:37', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8665, 7, 907, 'A', '', '2023-09-16', '2023-09-16 10:27:37', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8666, 7, 908, 'I', '', '2023-09-16', '2023-09-16 10:27:37', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8667, 7, 909, 'A', '', '2023-09-16', '2023-09-16 10:27:37', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8668, 7, 910, 'M', '', '2023-09-16', '2023-09-16 10:27:37', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8669, 7, 911, 'M', '', '2023-09-16', '2023-09-16 10:27:37', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8670, 7, 912, 'I', '', '2023-09-16', '2023-09-16 10:27:37', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8671, 7, 913, 'A', '', '2023-09-16', '2023-09-16 10:27:37', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8672, 7, 914, 'M', '', '2023-09-16', '2023-09-16 10:27:37', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8673, 7, 915, 'M', '', '2023-09-16', '2023-09-16 10:27:37', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8674, 7, 916, 'M', '', '2023-09-16', '2023-09-16 10:27:37', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8675, 7, 917, 'M', '', '2023-09-16', '2023-09-16 10:27:37', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8676, 7, 918, 'M', '', '2023-09-16', '2023-09-16 10:27:37', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8677, 7, 919, 'M', '', '2023-09-16', '2023-09-16 10:27:37', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8678, 7, 920, 'M', '', '2023-09-16', '2023-09-16 10:27:37', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8679, 7, 921, 'M', '', '2023-09-16', '2023-09-16 10:27:37', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8680, 7, 922, 'M', '', '2023-09-16', '2023-09-16 10:27:37', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8681, 7, 961, 'M', '', '2023-09-16', '2023-09-16 10:27:37', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8682, 7, 962, 'I', '', '2023-09-16', '2023-09-16 10:27:37', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8683, 33, 745, 'M', '', '2023-09-16', '2023-09-16 10:32:48', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8684, 33, 746, 'M', '', '2023-09-16', '2023-09-16 10:32:48', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8685, 33, 747, 'M', '', '2023-09-16', '2023-09-16 10:32:48', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8686, 33, 748, 'M', '', '2023-09-16', '2023-09-16 10:32:48', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8687, 33, 749, 'M', '', '2023-09-16', '2023-09-16 10:32:48', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8688, 33, 750, 'M', '', '2023-09-16', '2023-09-16 10:32:48', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8689, 33, 751, 'M', '', '2023-09-16', '2023-09-16 10:32:48', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8690, 33, 752, 'M', '', '2023-09-16', '2023-09-16 10:32:48', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8691, 33, 753, 'M', '', '2023-09-16', '2023-09-16 10:32:48', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8692, 33, 754, 'M', '', '2023-09-16', '2023-09-16 10:32:48', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8693, 33, 755, 'M', '', '2023-09-16', '2023-09-16 10:32:48', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8694, 33, 757, 'M', '', '2023-09-16', '2023-09-16 10:32:48', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8695, 33, 758, 'M', '', '2023-09-16', '2023-09-16 10:32:48', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8696, 33, 761, 'I', '', '2023-09-16', '2023-09-16 10:32:48', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8697, 33, 763, 'M', '', '2023-09-16', '2023-09-16 10:32:48', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8698, 33, 764, 'M', '', '2023-09-16', '2023-09-16 10:32:48', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8699, 33, 766, 'M', '', '2023-09-16', '2023-09-16 10:32:48', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8700, 33, 767, 'M', '', '2023-09-16', '2023-09-16 10:32:48', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8701, 33, 768, 'M', '', '2023-09-16', '2023-09-16 10:32:48', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8702, 33, 769, 'M', '', '2023-09-16', '2023-09-16 10:32:48', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8703, 33, 788, 'M', '', '2023-09-16', '2023-09-16 10:34:28', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8704, 33, 789, 'S', '', '2023-09-16', '2023-09-16 10:34:28', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8705, 33, 790, 'M', '', '2023-09-16', '2023-09-16 10:34:28', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8706, 33, 791, 'M', '', '2023-09-16', '2023-09-16 10:34:28', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8707, 33, 792, 'M', '', '2023-09-16', '2023-09-16 10:34:28', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8708, 33, 793, 'M', '', '2023-09-16', '2023-09-16 10:34:28', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8709, 33, 794, 'M', '', '2023-09-16', '2023-09-16 10:34:28', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8710, 33, 795, 'M', '', '2023-09-16', '2023-09-16 10:34:28', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8711, 33, 796, 'M', '', '2023-09-16', '2023-09-16 10:34:28', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8712, 33, 797, 'S', '', '2023-09-16', '2023-09-16 10:34:28', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8713, 33, 798, 'S', '', '2023-09-16', '2023-09-16 10:34:28', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8714, 33, 799, 'M', '', '2023-09-16', '2023-09-16 10:34:28', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8715, 33, 800, 'S', '', '2023-09-16', '2023-09-16 10:34:28', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8716, 33, 801, 'S', '', '2023-09-16', '2023-09-16 10:34:28', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8717, 33, 802, 'M', '', '2023-09-16', '2023-09-16 10:34:28', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8718, 33, 803, 'M', '', '2023-09-16', '2023-09-16 10:34:28', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8719, 33, 804, 'S', '', '2023-09-16', '2023-09-16 10:34:28', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8720, 33, 805, 'M', '', '2023-09-16', '2023-09-16 10:34:28', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8721, 33, 806, 'A', '', '2023-09-16', '2023-09-16 10:34:28', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8722, 33, 807, 'M', '', '2023-09-16', '2023-09-16 10:34:28', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8723, 33, 808, 'S', '', '2023-09-16', '2023-09-16 10:34:28', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8724, 17, 745, 'M', '', '2023-09-16', '2023-09-16 10:38:21', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8725, 17, 746, 'M', '', '2023-09-16', '2023-09-16 10:38:21', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8726, 17, 747, 'M', '', '2023-09-16', '2023-09-16 10:38:21', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8727, 17, 748, 'A', '', '2023-09-16', '2023-09-16 10:38:21', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8728, 17, 749, 'A', '', '2023-09-16', '2023-09-16 10:38:21', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8729, 17, 750, 'M', '', '2023-09-16', '2023-09-16 10:38:21', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8730, 17, 751, 'A', '', '2023-09-16', '2023-09-16 10:38:21', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8731, 17, 752, 'M', '', '2023-09-16', '2023-09-16 10:38:21', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8732, 17, 753, 'M', '', '2023-09-16', '2023-09-16 10:38:21', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8733, 17, 754, 'M', '', '2023-09-16', '2023-09-16 10:38:21', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8734, 17, 755, 'M', '', '2023-09-16', '2023-09-16 10:38:21', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8735, 17, 757, 'M', '', '2023-09-16', '2023-09-16 10:38:21', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8736, 17, 758, 'M', '', '2023-09-16', '2023-09-16 10:38:21', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8737, 17, 761, 'I', '', '2023-09-16', '2023-09-16 10:38:21', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8738, 17, 763, 'M', '', '2023-09-16', '2023-09-16 10:38:21', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8739, 17, 764, 'M', '', '2023-09-16', '2023-09-16 10:38:22', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8740, 17, 766, 'M', '', '2023-09-16', '2023-09-16 10:38:22', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8741, 17, 767, 'M', '', '2023-09-16', '2023-09-16 10:38:22', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8742, 17, 768, 'M', '', '2023-09-16', '2023-09-16 10:38:22', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8743, 17, 769, 'M', '', '2023-09-16', '2023-09-16 10:38:22', 7, 54);
+INSERT INTO `presensi_harian` VALUES (8744, 17, 770, 'M', '', '2023-09-16', '2023-09-16 10:39:20', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8745, 17, 771, 'M', '', '2023-09-16', '2023-09-16 10:39:20', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8746, 17, 772, 'M', '', '2023-09-16', '2023-09-16 10:39:21', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8747, 17, 773, 'M', '', '2023-09-16', '2023-09-16 10:39:21', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8748, 17, 774, 'M', '', '2023-09-16', '2023-09-16 10:39:21', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8749, 17, 775, 'M', '', '2023-09-16', '2023-09-16 10:39:21', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8750, 17, 776, 'M', '', '2023-09-16', '2023-09-16 10:39:21', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8751, 17, 777, 'M', '', '2023-09-16', '2023-09-16 10:39:21', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8752, 17, 778, 'M', '', '2023-09-16', '2023-09-16 10:39:21', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8753, 17, 779, 'A', '', '2023-09-16', '2023-09-16 10:39:21', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8754, 17, 780, 'M', '', '2023-09-16', '2023-09-16 10:39:21', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8755, 17, 781, 'M', '', '2023-09-16', '2023-09-16 10:39:21', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8756, 17, 782, 'M', '', '2023-09-16', '2023-09-16 10:39:21', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8757, 17, 783, 'A', '', '2023-09-16', '2023-09-16 10:39:21', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8758, 17, 784, 'A', '', '2023-09-16', '2023-09-16 10:39:21', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8759, 17, 785, 'S', '', '2023-09-16', '2023-09-16 10:39:21', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8760, 17, 786, 'M', '', '2023-09-16', '2023-09-16 10:39:21', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8761, 17, 787, 'M', '', '2023-09-16', '2023-09-16 10:39:21', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8762, 17, 979, 'M', '', '2023-09-16', '2023-09-16 10:39:21', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8763, 13, 838, 'M', '', '2023-09-16', '2023-09-16 10:57:08', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8764, 13, 839, 'M', '', '2023-09-16', '2023-09-16 10:57:08', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8765, 13, 840, 'M', '', '2023-09-16', '2023-09-16 10:57:08', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8766, 13, 841, 'M', '', '2023-09-16', '2023-09-16 10:57:08', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8767, 13, 842, 'M', '', '2023-09-16', '2023-09-16 10:57:08', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8768, 13, 843, 'M', '', '2023-09-16', '2023-09-16 10:57:08', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8769, 13, 844, 'I', '', '2023-09-16', '2023-09-16 10:57:08', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8770, 13, 845, 'M', '', '2023-09-16', '2023-09-16 10:57:08', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8771, 13, 846, 'M', '', '2023-09-16', '2023-09-16 10:57:08', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8772, 13, 847, 'M', '', '2023-09-16', '2023-09-16 10:57:08', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8773, 13, 848, 'M', '', '2023-09-16', '2023-09-16 10:57:08', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8774, 13, 849, 'M', '', '2023-09-16', '2023-09-16 10:57:08', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8775, 13, 850, 'M', '', '2023-09-16', '2023-09-16 10:57:08', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8776, 13, 851, 'M', '', '2023-09-16', '2023-09-16 10:57:08', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8777, 13, 852, 'M', '', '2023-09-16', '2023-09-16 10:57:08', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8778, 13, 853, 'M', '', '2023-09-16', '2023-09-16 10:57:08', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8779, 13, 854, 'M', '', '2023-09-16', '2023-09-16 10:57:08', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8780, 13, 855, 'M', '', '2023-09-16', '2023-09-16 10:57:08', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8781, 13, 856, 'M', '', '2023-09-16', '2023-09-16 10:57:08', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8782, 13, 857, 'M', '', '2023-09-16', '2023-09-16 10:57:08', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8783, 13, 858, 'M', '', '2023-09-16', '2023-09-16 10:57:08', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8784, 13, 859, 'M', '', '2023-09-16', '2023-09-16 10:57:08', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8785, 13, 860, 'A', '', '2023-09-16', '2023-09-16 10:57:08', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8786, 13, 861, 'M', '', '2023-09-16', '2023-09-16 10:57:08', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8787, 13, 862, 'M', '', '2023-09-16', '2023-09-16 10:57:08', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8788, 30, 838, 'M', '', '2023-09-16', '2023-09-16 11:07:21', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8789, 30, 839, 'M', '', '2023-09-16', '2023-09-16 11:07:21', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8790, 30, 840, 'M', '', '2023-09-16', '2023-09-16 11:07:21', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8791, 30, 841, 'M', '', '2023-09-16', '2023-09-16 11:07:21', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8792, 30, 842, 'M', '', '2023-09-16', '2023-09-16 11:07:21', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8793, 30, 843, 'A', '', '2023-09-16', '2023-09-16 11:07:21', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8794, 30, 844, 'I', '', '2023-09-16', '2023-09-16 11:07:21', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8795, 30, 845, 'A', '', '2023-09-16', '2023-09-16 11:07:21', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8796, 30, 846, 'M', '', '2023-09-16', '2023-09-16 11:07:21', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8797, 30, 847, 'I', '', '2023-09-16', '2023-09-16 11:07:21', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8798, 30, 848, 'M', '', '2023-09-16', '2023-09-16 11:07:21', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8799, 30, 849, 'M', '', '2023-09-16', '2023-09-16 11:07:21', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8800, 30, 850, 'A', '', '2023-09-16', '2023-09-16 11:07:21', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8801, 30, 851, 'M', '', '2023-09-16', '2023-09-16 11:07:21', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8802, 30, 852, 'M', '', '2023-09-16', '2023-09-16 11:07:21', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8803, 30, 853, 'A', '', '2023-09-16', '2023-09-16 11:07:21', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8804, 30, 854, 'A', '', '2023-09-16', '2023-09-16 11:07:21', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8805, 30, 855, 'M', '', '2023-09-16', '2023-09-16 11:07:21', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8806, 30, 856, 'A', '', '2023-09-16', '2023-09-16 11:07:21', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8807, 30, 857, 'M', '', '2023-09-16', '2023-09-16 11:07:21', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8808, 30, 858, 'M', '', '2023-09-16', '2023-09-16 11:07:21', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8809, 30, 859, 'M', '', '2023-09-16', '2023-09-16 11:07:21', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8810, 30, 860, 'I', '', '2023-09-16', '2023-09-16 11:07:21', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8811, 30, 861, 'M', '', '2023-09-16', '2023-09-16 11:07:21', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8812, 30, 862, 'A', '', '2023-09-16', '2023-09-16 11:07:21', 7, 56);
+INSERT INTO `presensi_harian` VALUES (8813, 11, 788, 'M', '', '2023-09-16', '2023-09-16 11:14:04', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8814, 11, 789, 'S', '', '2023-09-16', '2023-09-16 11:14:04', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8815, 11, 790, 'M', '', '2023-09-16', '2023-09-16 11:14:04', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8816, 11, 791, 'M', '', '2023-09-16', '2023-09-16 11:14:04', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8817, 11, 792, 'M', '', '2023-09-16', '2023-09-16 11:14:04', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8818, 11, 793, 'M', '', '2023-09-16', '2023-09-16 11:14:04', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8819, 11, 794, 'M', '', '2023-09-16', '2023-09-16 11:14:04', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8820, 11, 795, 'M', '', '2023-09-16', '2023-09-16 11:14:04', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8821, 11, 796, 'I', '', '2023-09-16', '2023-09-16 11:14:04', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8822, 11, 797, 'S', '', '2023-09-16', '2023-09-16 11:14:04', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8823, 11, 798, 'A', '', '2023-09-16', '2023-09-16 11:14:04', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8824, 11, 799, 'I', '', '2023-09-16', '2023-09-16 11:14:04', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8825, 11, 800, 'A', '', '2023-09-16', '2023-09-16 11:14:04', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8826, 11, 801, 'S', '', '2023-09-16', '2023-09-16 11:14:04', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8827, 11, 802, 'M', '', '2023-09-16', '2023-09-16 11:14:04', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8828, 11, 803, 'M', '', '2023-09-16', '2023-09-16 11:14:04', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8829, 11, 804, 'A', '', '2023-09-16', '2023-09-16 11:14:04', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8830, 11, 805, 'M', '', '2023-09-16', '2023-09-16 11:14:04', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8831, 11, 806, 'A', '', '2023-09-16', '2023-09-16 11:14:04', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8832, 11, 807, 'M', '', '2023-09-16', '2023-09-16 11:14:04', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8833, 11, 808, 'S', '', '2023-09-16', '2023-09-16 11:14:04', 7, 59);
+INSERT INTO `presensi_harian` VALUES (8834, 31, 930, 'M', '', '2023-09-16', '2023-09-16 11:34:23', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8835, 31, 931, 'M', '', '2023-09-16', '2023-09-16 11:34:23', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8836, 31, 932, 'A', '', '2023-09-16', '2023-09-16 11:34:23', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8837, 31, 933, 'S', '', '2023-09-16', '2023-09-16 11:34:23', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8838, 31, 934, 'M', '', '2023-09-16', '2023-09-16 11:34:23', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8839, 31, 935, 'M', '', '2023-09-16', '2023-09-16 11:34:23', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8840, 31, 936, 'M', '', '2023-09-16', '2023-09-16 11:34:23', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8841, 31, 937, 'M', '', '2023-09-16', '2023-09-16 11:34:23', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8842, 31, 938, 'M', '', '2023-09-16', '2023-09-16 11:34:23', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8843, 31, 939, 'A', '', '2023-09-16', '2023-09-16 11:34:23', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8844, 31, 940, 'M', '', '2023-09-16', '2023-09-16 11:34:23', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8845, 31, 941, 'A', '', '2023-09-16', '2023-09-16 11:34:23', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8846, 31, 942, 'M', '', '2023-09-16', '2023-09-16 11:34:23', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8847, 31, 943, 'S', '', '2023-09-16', '2023-09-16 11:34:23', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8848, 31, 944, 'A', '', '2023-09-16', '2023-09-16 11:34:23', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8849, 31, 966, 'I', '', '2023-09-16', '2023-09-16 11:34:23', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8850, 30, 863, 'M', '', '2023-09-16', '2023-09-16 12:38:51', 7, 57);
+INSERT INTO `presensi_harian` VALUES (8851, 30, 864, 'M', '', '2023-09-16', '2023-09-16 12:38:51', 7, 57);
+INSERT INTO `presensi_harian` VALUES (8852, 30, 865, 'M', '', '2023-09-16', '2023-09-16 12:38:51', 7, 57);
+INSERT INTO `presensi_harian` VALUES (8853, 30, 866, 'M', '', '2023-09-16', '2023-09-16 12:38:51', 7, 57);
+INSERT INTO `presensi_harian` VALUES (8854, 30, 867, 'M', '', '2023-09-16', '2023-09-16 12:38:51', 7, 57);
+INSERT INTO `presensi_harian` VALUES (8855, 30, 868, 'I', '', '2023-09-16', '2023-09-16 12:38:51', 7, 57);
+INSERT INTO `presensi_harian` VALUES (8856, 30, 869, 'M', '', '2023-09-16', '2023-09-16 12:38:51', 7, 57);
+INSERT INTO `presensi_harian` VALUES (8857, 30, 870, 'M', '', '2023-09-16', '2023-09-16 12:38:51', 7, 57);
+INSERT INTO `presensi_harian` VALUES (8858, 30, 871, 'M', '', '2023-09-16', '2023-09-16 12:38:51', 7, 57);
+INSERT INTO `presensi_harian` VALUES (8859, 30, 872, 'M', '', '2023-09-16', '2023-09-16 12:38:51', 7, 57);
+INSERT INTO `presensi_harian` VALUES (8860, 30, 873, 'M', '', '2023-09-16', '2023-09-16 12:38:51', 7, 57);
+INSERT INTO `presensi_harian` VALUES (8861, 30, 874, 'M', '', '2023-09-16', '2023-09-16 12:38:51', 7, 57);
+INSERT INTO `presensi_harian` VALUES (8862, 30, 875, 'M', '', '2023-09-16', '2023-09-16 12:38:51', 7, 57);
+INSERT INTO `presensi_harian` VALUES (8863, 30, 876, 'M', '', '2023-09-16', '2023-09-16 12:38:51', 7, 57);
+INSERT INTO `presensi_harian` VALUES (8864, 28, 970, 'M', '', '2023-09-16', '2023-09-16 12:58:41', 7, 65);
+INSERT INTO `presensi_harian` VALUES (8865, 28, 971, 'M', '', '2023-09-16', '2023-09-16 12:58:41', 7, 65);
+INSERT INTO `presensi_harian` VALUES (8866, 28, 972, 'I', '', '2023-09-16', '2023-09-16 12:58:41', 7, 65);
+INSERT INTO `presensi_harian` VALUES (8867, 28, 973, 'I', '', '2023-09-16', '2023-09-16 12:58:41', 7, 65);
+INSERT INTO `presensi_harian` VALUES (8868, 28, 974, 'M', '', '2023-09-16', '2023-09-16 12:58:41', 7, 65);
+INSERT INTO `presensi_harian` VALUES (8869, 28, 975, 'M', '', '2023-09-16', '2023-09-16 12:58:41', 7, 65);
+INSERT INTO `presensi_harian` VALUES (8870, 28, 976, 'M', '', '2023-09-16', '2023-09-16 12:58:41', 7, 65);
+INSERT INTO `presensi_harian` VALUES (8871, 28, 977, 'M', '', '2023-09-16', '2023-09-16 12:58:41', 7, 65);
+INSERT INTO `presensi_harian` VALUES (8872, 28, 978, 'M', '', '2023-09-16', '2023-09-16 12:58:41', 7, 65);
+INSERT INTO `presensi_harian` VALUES (8873, 28, 770, 'M', '', '2023-09-16', '2023-09-16 12:59:14', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8874, 28, 771, 'I', '', '2023-09-16', '2023-09-16 12:59:14', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8875, 28, 772, 'M', '', '2023-09-16', '2023-09-16 12:59:14', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8876, 28, 773, 'M', '', '2023-09-16', '2023-09-16 12:59:14', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8877, 28, 774, 'M', '', '2023-09-16', '2023-09-16 12:59:14', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8878, 28, 775, 'A', '', '2023-09-16', '2023-09-16 12:59:14', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8879, 28, 776, 'M', '', '2023-09-16', '2023-09-16 12:59:14', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8880, 28, 777, 'M', '', '2023-09-16', '2023-09-16 12:59:14', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8881, 28, 778, 'M', '', '2023-09-16', '2023-09-16 12:59:14', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8882, 28, 779, 'M', '', '2023-09-16', '2023-09-16 12:59:14', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8883, 28, 780, 'M', '', '2023-09-16', '2023-09-16 12:59:14', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8884, 28, 781, 'M', '', '2023-09-16', '2023-09-16 12:59:14', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8885, 28, 782, 'M', '', '2023-09-16', '2023-09-16 12:59:14', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8886, 28, 783, 'M', '', '2023-09-16', '2023-09-16 12:59:14', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8887, 28, 784, 'A', '', '2023-09-16', '2023-09-16 12:59:14', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8888, 28, 785, 'A', '', '2023-09-16', '2023-09-16 12:59:14', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8889, 28, 786, 'M', '', '2023-09-16', '2023-09-16 12:59:14', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8890, 28, 787, 'M', '', '2023-09-16', '2023-09-16 12:59:14', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8891, 28, 979, 'M', '', '2023-09-16', '2023-09-16 12:59:14', 7, 55);
+INSERT INTO `presensi_harian` VALUES (8892, 13, 821, 'M', '', '2023-09-16', '2023-09-16 13:32:42', 7, 58);
+INSERT INTO `presensi_harian` VALUES (8893, 13, 822, 'M', '', '2023-09-16', '2023-09-16 13:32:42', 7, 58);
+INSERT INTO `presensi_harian` VALUES (8894, 13, 823, 'S', '', '2023-09-16', '2023-09-16 13:32:42', 7, 58);
+INSERT INTO `presensi_harian` VALUES (8895, 13, 824, 'M', '', '2023-09-16', '2023-09-16 13:32:42', 7, 58);
+INSERT INTO `presensi_harian` VALUES (8896, 14, 888, 'M', '', '2023-09-16', '2023-09-16 13:48:46', 7, 66);
+INSERT INTO `presensi_harian` VALUES (8897, 14, 889, 'I', '', '2023-09-16', '2023-09-16 13:48:46', 7, 66);
+INSERT INTO `presensi_harian` VALUES (8898, 14, 890, 'M', '', '2023-09-16', '2023-09-16 13:48:46', 7, 66);
+INSERT INTO `presensi_harian` VALUES (8899, 14, 891, 'I', '', '2023-09-16', '2023-09-16 13:48:46', 7, 66);
+INSERT INTO `presensi_harian` VALUES (8900, 14, 892, 'M', '', '2023-09-16', '2023-09-16 13:48:46', 7, 66);
+INSERT INTO `presensi_harian` VALUES (8901, 14, 893, 'I', '', '2023-09-16', '2023-09-16 13:48:46', 7, 66);
+INSERT INTO `presensi_harian` VALUES (8902, 33, 809, 'M', '', '2023-09-16', '2023-09-16 13:49:36', 7, 60);
+INSERT INTO `presensi_harian` VALUES (8903, 33, 810, 'M', '', '2023-09-16', '2023-09-16 13:49:36', 7, 60);
+INSERT INTO `presensi_harian` VALUES (8904, 33, 811, 'M', '', '2023-09-16', '2023-09-16 13:49:36', 7, 60);
+INSERT INTO `presensi_harian` VALUES (8905, 33, 812, 'M', '', '2023-09-16', '2023-09-16 13:49:36', 7, 60);
+INSERT INTO `presensi_harian` VALUES (8906, 33, 813, 'M', '', '2023-09-16', '2023-09-16 13:49:36', 7, 60);
+INSERT INTO `presensi_harian` VALUES (8907, 33, 814, 'M', '', '2023-09-16', '2023-09-16 13:49:36', 7, 60);
+INSERT INTO `presensi_harian` VALUES (8908, 33, 815, 'M', '', '2023-09-16', '2023-09-16 13:49:36', 7, 60);
+INSERT INTO `presensi_harian` VALUES (8909, 33, 816, 'M', '', '2023-09-16', '2023-09-16 13:49:36', 7, 60);
+INSERT INTO `presensi_harian` VALUES (8910, 33, 817, 'M', '', '2023-09-16', '2023-09-16 13:49:36', 7, 60);
+INSERT INTO `presensi_harian` VALUES (8911, 33, 818, 'M', '', '2023-09-16', '2023-09-16 13:49:36', 7, 60);
+INSERT INTO `presensi_harian` VALUES (8912, 33, 819, 'M', '', '2023-09-16', '2023-09-16 13:49:36', 7, 60);
+INSERT INTO `presensi_harian` VALUES (8913, 33, 820, 'M', '', '2023-09-16', '2023-09-16 13:49:36', 7, 60);
+INSERT INTO `presensi_harian` VALUES (8914, 33, 888, 'M', '', '2023-09-16', '2023-09-16 13:50:05', 7, 66);
+INSERT INTO `presensi_harian` VALUES (8915, 33, 889, 'I', '', '2023-09-16', '2023-09-16 13:50:05', 7, 66);
+INSERT INTO `presensi_harian` VALUES (8916, 33, 890, 'M', '', '2023-09-16', '2023-09-16 13:50:05', 7, 66);
+INSERT INTO `presensi_harian` VALUES (8917, 33, 891, 'I', '', '2023-09-16', '2023-09-16 13:50:05', 7, 66);
+INSERT INTO `presensi_harian` VALUES (8918, 33, 892, 'M', '', '2023-09-16', '2023-09-16 13:50:05', 7, 66);
+INSERT INTO `presensi_harian` VALUES (8919, 33, 893, 'A', '', '2023-09-16', '2023-09-16 13:50:05', 7, 66);
+INSERT INTO `presensi_harian` VALUES (8920, 33, 825, 'M', '', '2023-09-16', '2023-09-16 13:50:48', 7, 62);
+INSERT INTO `presensi_harian` VALUES (8921, 33, 827, 'M', '', '2023-09-16', '2023-09-16 13:50:48', 7, 62);
+INSERT INTO `presensi_harian` VALUES (8922, 33, 828, 'M', '', '2023-09-16', '2023-09-16 13:50:48', 7, 62);
+INSERT INTO `presensi_harian` VALUES (8923, 33, 829, 'M', '', '2023-09-16', '2023-09-16 13:50:48', 7, 62);
+INSERT INTO `presensi_harian` VALUES (8924, 33, 830, 'M', '', '2023-09-16', '2023-09-16 13:50:48', 7, 62);
+INSERT INTO `presensi_harian` VALUES (8925, 33, 831, 'M', '', '2023-09-16', '2023-09-16 13:50:48', 7, 62);
+INSERT INTO `presensi_harian` VALUES (8926, 33, 832, 'M', '', '2023-09-16', '2023-09-16 13:50:48', 7, 62);
+INSERT INTO `presensi_harian` VALUES (8927, 33, 833, 'M', '', '2023-09-16', '2023-09-16 13:50:48', 7, 62);
+INSERT INTO `presensi_harian` VALUES (8928, 33, 834, 'M', '', '2023-09-16', '2023-09-16 13:50:48', 7, 62);
+INSERT INTO `presensi_harian` VALUES (8929, 33, 835, 'M', '', '2023-09-16', '2023-09-16 13:50:48', 7, 62);
+INSERT INTO `presensi_harian` VALUES (8930, 33, 836, 'M', '', '2023-09-16', '2023-09-16 13:50:48', 7, 62);
+INSERT INTO `presensi_harian` VALUES (8931, 33, 837, 'M', '', '2023-09-16', '2023-09-16 13:50:48', 7, 62);
+INSERT INTO `presensi_harian` VALUES (8932, 12, 894, 'A', '', '2023-09-16', '2023-09-16 14:39:11', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8933, 12, 895, 'M', '', '2023-09-16', '2023-09-16 14:39:11', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8934, 12, 896, 'M', '', '2023-09-16', '2023-09-16 14:39:11', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8935, 12, 897, 'M', '', '2023-09-16', '2023-09-16 14:39:11', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8936, 12, 898, 'S', '', '2023-09-16', '2023-09-16 14:39:11', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8937, 12, 899, 'M', '', '2023-09-16', '2023-09-16 14:39:11', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8938, 12, 900, 'M', '', '2023-09-16', '2023-09-16 14:39:11', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8939, 12, 901, 'M', '', '2023-09-16', '2023-09-16 14:39:11', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8940, 12, 902, 'M', '', '2023-09-16', '2023-09-16 14:39:11', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8941, 12, 903, 'M', '', '2023-09-16', '2023-09-16 14:39:11', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8942, 12, 904, 'S', '', '2023-09-16', '2023-09-16 14:39:11', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8943, 12, 905, 'M', '', '2023-09-16', '2023-09-16 14:39:11', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8944, 12, 906, 'M', '', '2023-09-16', '2023-09-16 14:39:11', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8945, 12, 907, 'M', '', '2023-09-16', '2023-09-16 14:39:11', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8946, 12, 908, 'A', '', '2023-09-16', '2023-09-16 14:39:11', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8947, 12, 909, 'M', '', '2023-09-16', '2023-09-16 14:39:11', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8948, 12, 910, 'M', '', '2023-09-16', '2023-09-16 14:39:11', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8949, 12, 911, 'A', '', '2023-09-16', '2023-09-16 14:39:11', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8950, 12, 912, 'A', '', '2023-09-16', '2023-09-16 14:39:11', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8951, 12, 913, 'A', '', '2023-09-16', '2023-09-16 14:39:11', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8952, 12, 914, 'A', '', '2023-09-16', '2023-09-16 14:39:11', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8953, 12, 915, 'M', '', '2023-09-16', '2023-09-16 14:39:11', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8954, 12, 916, 'M', '', '2023-09-16', '2023-09-16 14:39:11', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8955, 12, 917, 'M', '', '2023-09-16', '2023-09-16 14:39:11', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8956, 12, 918, 'M', '', '2023-09-16', '2023-09-16 14:39:11', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8957, 12, 919, 'M', '', '2023-09-16', '2023-09-16 14:39:11', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8958, 12, 920, 'M', '', '2023-09-16', '2023-09-16 14:39:11', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8959, 12, 921, 'M', '', '2023-09-16', '2023-09-16 14:39:11', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8960, 12, 922, 'M', '', '2023-09-16', '2023-09-16 14:39:11', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8961, 12, 961, 'A', '', '2023-09-16', '2023-09-16 14:39:11', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8962, 12, 962, 'I', '', '2023-09-16', '2023-09-16 14:39:12', 7, 49);
+INSERT INTO `presensi_harian` VALUES (8963, 13, 970, 'M', '', '2023-09-16', '2023-09-16 14:39:58', 7, 65);
+INSERT INTO `presensi_harian` VALUES (8964, 13, 971, 'M', '', '2023-09-16', '2023-09-16 14:39:58', 7, 65);
+INSERT INTO `presensi_harian` VALUES (8965, 13, 972, 'A', '', '2023-09-16', '2023-09-16 14:39:58', 7, 65);
+INSERT INTO `presensi_harian` VALUES (8966, 13, 973, 'S', '', '2023-09-16', '2023-09-16 14:39:58', 7, 65);
+INSERT INTO `presensi_harian` VALUES (8967, 13, 974, 'M', '', '2023-09-16', '2023-09-16 14:39:58', 7, 65);
+INSERT INTO `presensi_harian` VALUES (8968, 13, 975, 'M', '', '2023-09-16', '2023-09-16 14:39:58', 7, 65);
+INSERT INTO `presensi_harian` VALUES (8969, 13, 976, 'M', '', '2023-09-16', '2023-09-16 14:39:58', 7, 65);
+INSERT INTO `presensi_harian` VALUES (8970, 13, 977, 'M', '', '2023-09-16', '2023-09-16 14:39:58', 7, 65);
+INSERT INTO `presensi_harian` VALUES (8971, 13, 978, 'M', '', '2023-09-16', '2023-09-16 14:39:58', 7, 65);
+INSERT INTO `presensi_harian` VALUES (8972, 27, 930, 'M', '', '2023-09-16', '2023-09-16 15:31:10', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8973, 27, 931, 'M', '', '2023-09-16', '2023-09-16 15:31:10', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8974, 27, 932, 'M', '', '2023-09-16', '2023-09-16 15:31:10', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8975, 27, 933, 'A', '', '2023-09-16', '2023-09-16 15:31:10', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8976, 27, 934, 'M', '', '2023-09-16', '2023-09-16 15:31:10', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8977, 27, 935, 'M', '', '2023-09-16', '2023-09-16 15:31:10', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8978, 27, 936, 'M', '', '2023-09-16', '2023-09-16 15:31:10', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8979, 27, 937, 'M', '', '2023-09-16', '2023-09-16 15:31:10', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8980, 27, 938, 'M', '', '2023-09-16', '2023-09-16 15:31:10', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8981, 27, 939, 'A', '', '2023-09-16', '2023-09-16 15:31:10', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8982, 27, 940, 'M', '', '2023-09-16', '2023-09-16 15:31:10', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8983, 27, 941, 'A', '', '2023-09-16', '2023-09-16 15:31:10', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8984, 27, 942, 'M', '', '2023-09-16', '2023-09-16 15:31:10', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8985, 27, 943, 'A', '', '2023-09-16', '2023-09-16 15:31:10', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8986, 27, 944, 'M', '', '2023-09-16', '2023-09-16 15:31:10', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8987, 27, 966, 'A', '', '2023-09-16', '2023-09-16 15:31:10', 7, 51);
+INSERT INTO `presensi_harian` VALUES (8988, 27, 945, 'M', '', '2023-09-16', '2023-09-16 15:33:38', 7, 67);
+INSERT INTO `presensi_harian` VALUES (8989, 27, 946, 'M', '', '2023-09-16', '2023-09-16 15:33:38', 7, 67);
+INSERT INTO `presensi_harian` VALUES (8990, 27, 947, 'M', '', '2023-09-16', '2023-09-16 15:33:38', 7, 67);
+INSERT INTO `presensi_harian` VALUES (8991, 27, 948, 'M', '', '2023-09-16', '2023-09-16 15:33:38', 7, 67);
+INSERT INTO `presensi_harian` VALUES (8992, 27, 949, 'I', '', '2023-09-16', '2023-09-16 15:33:38', 7, 67);
+INSERT INTO `presensi_harian` VALUES (8993, 27, 950, 'M', '', '2023-09-16', '2023-09-16 15:33:38', 7, 67);
+INSERT INTO `presensi_harian` VALUES (8994, 27, 951, 'I', '', '2023-09-16', '2023-09-16 15:33:38', 7, 67);
+INSERT INTO `presensi_harian` VALUES (8995, 27, 952, 'I', '', '2023-09-16', '2023-09-16 15:33:39', 7, 67);
+INSERT INTO `presensi_harian` VALUES (8996, 27, 953, 'M', '', '2023-09-16', '2023-09-16 15:33:39', 7, 67);
+INSERT INTO `presensi_harian` VALUES (8997, 27, 954, 'I', '', '2023-09-16', '2023-09-16 15:33:39', 7, 67);
+INSERT INTO `presensi_harian` VALUES (8998, 27, 955, 'M', '', '2023-09-16', '2023-09-16 15:33:39', 7, 67);
+INSERT INTO `presensi_harian` VALUES (8999, 13, 863, 'M', '', '2023-09-16', '2023-09-16 15:34:12', 7, 57);
+INSERT INTO `presensi_harian` VALUES (9000, 13, 864, 'M', '', '2023-09-16', '2023-09-16 15:34:12', 7, 57);
+INSERT INTO `presensi_harian` VALUES (9001, 13, 865, 'M', '', '2023-09-16', '2023-09-16 15:34:12', 7, 57);
+INSERT INTO `presensi_harian` VALUES (9002, 13, 866, 'M', '', '2023-09-16', '2023-09-16 15:34:12', 7, 57);
+INSERT INTO `presensi_harian` VALUES (9003, 13, 867, 'M', '', '2023-09-16', '2023-09-16 15:34:12', 7, 57);
+INSERT INTO `presensi_harian` VALUES (9004, 13, 868, 'I', '', '2023-09-16', '2023-09-16 15:34:12', 7, 57);
+INSERT INTO `presensi_harian` VALUES (9005, 13, 869, 'M', '', '2023-09-16', '2023-09-16 15:34:12', 7, 57);
+INSERT INTO `presensi_harian` VALUES (9006, 13, 870, 'M', '', '2023-09-16', '2023-09-16 15:34:12', 7, 57);
+INSERT INTO `presensi_harian` VALUES (9007, 13, 871, 'M', '', '2023-09-16', '2023-09-16 15:34:12', 7, 57);
+INSERT INTO `presensi_harian` VALUES (9008, 13, 872, 'M', '', '2023-09-16', '2023-09-16 15:34:12', 7, 57);
+INSERT INTO `presensi_harian` VALUES (9009, 13, 873, 'M', '', '2023-09-16', '2023-09-16 15:34:12', 7, 57);
+INSERT INTO `presensi_harian` VALUES (9010, 13, 874, 'M', '', '2023-09-16', '2023-09-16 15:34:12', 7, 57);
+INSERT INTO `presensi_harian` VALUES (9011, 13, 875, 'M', '', '2023-09-16', '2023-09-16 15:34:12', 7, 57);
+INSERT INTO `presensi_harian` VALUES (9012, 13, 876, 'M', '', '2023-09-16', '2023-09-16 15:34:12', 7, 57);
+INSERT INTO `presensi_harian` VALUES (9013, 27, 925, 'M', '', '2023-09-16', '2023-09-16 15:34:18', 7, 52);
+INSERT INTO `presensi_harian` VALUES (9014, 27, 926, 'M', '', '2023-09-16', '2023-09-16 15:34:18', 7, 52);
+INSERT INTO `presensi_harian` VALUES (9015, 27, 927, 'I', '', '2023-09-16', '2023-09-16 15:34:18', 7, 52);
+INSERT INTO `presensi_harian` VALUES (9016, 27, 928, 'M', '', '2023-09-16', '2023-09-16 15:34:18', 7, 52);
+INSERT INTO `presensi_harian` VALUES (9017, 27, 929, 'M', '', '2023-09-16', '2023-09-16 15:34:18', 7, 52);
+INSERT INTO `presensi_harian` VALUES (9018, 29, 821, 'M', '', '2023-09-16', '2023-09-16 15:36:07', 7, 58);
+INSERT INTO `presensi_harian` VALUES (9019, 29, 822, 'M', '', '2023-09-16', '2023-09-16 15:36:07', 7, 58);
+INSERT INTO `presensi_harian` VALUES (9020, 29, 823, 'S', '', '2023-09-16', '2023-09-16 15:36:07', 7, 58);
+INSERT INTO `presensi_harian` VALUES (9021, 29, 824, 'M', '', '2023-09-16', '2023-09-16 15:36:07', 7, 58);
+INSERT INTO `presensi_harian` VALUES (9022, 32, 930, 'M', '', '2023-09-18', '2023-09-18 08:44:25', 7, 51);
+INSERT INTO `presensi_harian` VALUES (9023, 32, 931, 'M', '', '2023-09-18', '2023-09-18 08:44:25', 7, 51);
+INSERT INTO `presensi_harian` VALUES (9024, 32, 932, 'A', '', '2023-09-18', '2023-09-18 08:44:25', 7, 51);
+INSERT INTO `presensi_harian` VALUES (9025, 32, 933, 'S', '', '2023-09-18', '2023-09-18 08:44:25', 7, 51);
+INSERT INTO `presensi_harian` VALUES (9026, 32, 934, 'I', '', '2023-09-18', '2023-09-18 08:44:25', 7, 51);
+INSERT INTO `presensi_harian` VALUES (9027, 32, 935, 'M', '', '2023-09-18', '2023-09-18 08:44:25', 7, 51);
+INSERT INTO `presensi_harian` VALUES (9028, 32, 936, 'S', '', '2023-09-18', '2023-09-18 08:44:25', 7, 51);
+INSERT INTO `presensi_harian` VALUES (9029, 32, 937, 'M', '', '2023-09-18', '2023-09-18 08:44:25', 7, 51);
+INSERT INTO `presensi_harian` VALUES (9030, 32, 938, 'S', '', '2023-09-18', '2023-09-18 08:44:25', 7, 51);
+INSERT INTO `presensi_harian` VALUES (9031, 32, 939, 'A', '', '2023-09-18', '2023-09-18 08:44:25', 7, 51);
+INSERT INTO `presensi_harian` VALUES (9032, 32, 940, 'M', '', '2023-09-18', '2023-09-18 08:44:25', 7, 51);
+INSERT INTO `presensi_harian` VALUES (9033, 32, 941, 'A', '', '2023-09-18', '2023-09-18 08:44:25', 7, 51);
+INSERT INTO `presensi_harian` VALUES (9034, 32, 942, 'M', '', '2023-09-18', '2023-09-18 08:44:25', 7, 51);
+INSERT INTO `presensi_harian` VALUES (9035, 32, 943, 'A', '', '2023-09-18', '2023-09-18 08:44:25', 7, 51);
+INSERT INTO `presensi_harian` VALUES (9036, 32, 944, 'M', '', '2023-09-18', '2023-09-18 08:44:25', 7, 51);
+INSERT INTO `presensi_harian` VALUES (9037, 32, 966, 'M', '', '2023-09-18', '2023-09-18 08:44:25', 7, 51);
+INSERT INTO `presensi_harian` VALUES (9038, 32, 956, 'I', '', '2023-09-18', '2023-09-18 08:46:20', 7, 53);
+INSERT INTO `presensi_harian` VALUES (9039, 32, 957, 'I', '', '2023-09-18', '2023-09-18 08:46:20', 7, 53);
+INSERT INTO `presensi_harian` VALUES (9040, 32, 958, 'A', '', '2023-09-18', '2023-09-18 08:46:20', 7, 53);
+INSERT INTO `presensi_harian` VALUES (9041, 32, 959, 'I', '', '2023-09-18', '2023-09-18 08:46:20', 7, 53);
+INSERT INTO `presensi_harian` VALUES (9042, 32, 960, 'A', '', '2023-09-18', '2023-09-18 08:46:20', 7, 53);
+INSERT INTO `presensi_harian` VALUES (9043, 32, 963, 'A', '', '2023-09-18', '2023-09-18 08:46:20', 7, 53);
+INSERT INTO `presensi_harian` VALUES (9044, 32, 964, 'M', '', '2023-09-18', '2023-09-18 08:46:20', 7, 53);
+INSERT INTO `presensi_harian` VALUES (9045, 32, 965, 'M', '', '2023-09-18', '2023-09-18 08:46:20', 7, 53);
+INSERT INTO `presensi_harian` VALUES (9046, 32, 967, 'M', '', '2023-09-18', '2023-09-18 08:46:20', 7, 53);
+INSERT INTO `presensi_harian` VALUES (9047, 32, 968, 'M', '', '2023-09-18', '2023-09-18 08:46:20', 7, 53);
+INSERT INTO `presensi_harian` VALUES (9048, 32, 969, 'A', '', '2023-09-18', '2023-09-18 08:46:20', 7, 53);
+INSERT INTO `presensi_harian` VALUES (9049, 24, 894, 'M', '', '2023-09-18', '2023-09-18 09:03:50', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9050, 24, 895, 'M', '', '2023-09-18', '2023-09-18 09:03:50', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9051, 24, 896, 'M', '', '2023-09-18', '2023-09-18 09:03:50', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9052, 24, 897, 'M', '', '2023-09-18', '2023-09-18 09:03:50', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9053, 24, 898, 'M', '', '2023-09-18', '2023-09-18 09:03:50', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9054, 24, 899, 'A', '', '2023-09-18', '2023-09-18 09:03:50', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9055, 24, 900, 'S', '', '2023-09-18', '2023-09-18 09:03:50', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9056, 24, 901, 'A', '', '2023-09-18', '2023-09-18 09:03:50', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9057, 24, 902, 'M', '', '2023-09-18', '2023-09-18 09:03:50', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9058, 24, 903, 'M', '', '2023-09-18', '2023-09-18 09:03:50', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9059, 24, 904, 'M', '', '2023-09-18', '2023-09-18 09:03:50', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9060, 24, 905, 'M', '', '2023-09-18', '2023-09-18 09:03:50', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9061, 24, 906, 'A', '', '2023-09-18', '2023-09-18 09:03:50', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9062, 24, 907, 'M', '', '2023-09-18', '2023-09-18 09:03:50', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9063, 24, 908, 'M', '', '2023-09-18', '2023-09-18 09:03:50', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9064, 24, 909, 'M', '', '2023-09-18', '2023-09-18 09:03:50', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9065, 24, 910, 'M', '', '2023-09-18', '2023-09-18 09:03:50', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9066, 24, 911, 'M', '', '2023-09-18', '2023-09-18 09:03:50', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9067, 24, 912, 'A', '', '2023-09-18', '2023-09-18 09:03:50', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9068, 24, 913, 'M', '', '2023-09-18', '2023-09-18 09:03:50', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9069, 24, 914, 'M', '', '2023-09-18', '2023-09-18 09:03:50', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9070, 24, 915, 'M', '', '2023-09-18', '2023-09-18 09:03:50', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9071, 24, 916, 'M', '', '2023-09-18', '2023-09-18 09:03:50', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9072, 24, 917, 'M', '', '2023-09-18', '2023-09-18 09:03:50', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9073, 24, 918, 'M', '', '2023-09-18', '2023-09-18 09:03:50', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9074, 24, 919, 'M', '', '2023-09-18', '2023-09-18 09:03:50', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9075, 24, 920, 'M', '', '2023-09-18', '2023-09-18 09:03:50', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9076, 24, 921, 'M', '', '2023-09-18', '2023-09-18 09:03:50', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9077, 24, 922, 'M', '', '2023-09-18', '2023-09-18 09:03:50', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9078, 24, 961, 'M', '', '2023-09-18', '2023-09-18 09:03:50', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9079, 24, 962, 'M', '', '2023-09-18', '2023-09-18 09:03:50', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9080, 14, 877, 'M', '', '2023-09-18', '2023-09-18 09:07:21', 7, 61);
+INSERT INTO `presensi_harian` VALUES (9081, 14, 879, 'M', '', '2023-09-18', '2023-09-18 09:07:21', 7, 61);
+INSERT INTO `presensi_harian` VALUES (9082, 14, 880, 'M', '', '2023-09-18', '2023-09-18 09:07:21', 7, 61);
+INSERT INTO `presensi_harian` VALUES (9083, 14, 881, 'M', '', '2023-09-18', '2023-09-18 09:07:21', 7, 61);
+INSERT INTO `presensi_harian` VALUES (9084, 14, 882, 'M', '', '2023-09-18', '2023-09-18 09:07:21', 7, 61);
+INSERT INTO `presensi_harian` VALUES (9085, 14, 883, 'M', '', '2023-09-18', '2023-09-18 09:07:21', 7, 61);
+INSERT INTO `presensi_harian` VALUES (9086, 14, 884, 'A', '', '2023-09-18', '2023-09-18 09:07:21', 7, 61);
+INSERT INTO `presensi_harian` VALUES (9087, 14, 885, 'M', '', '2023-09-18', '2023-09-18 09:07:21', 7, 61);
+INSERT INTO `presensi_harian` VALUES (9088, 14, 886, 'M', '', '2023-09-18', '2023-09-18 09:07:21', 7, 61);
+INSERT INTO `presensi_harian` VALUES (9089, 14, 887, 'M', '', '2023-09-18', '2023-09-18 09:07:21', 7, 61);
+INSERT INTO `presensi_harian` VALUES (9090, 9, 788, 'M', '', '2023-09-18', '2023-09-18 09:16:49', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9091, 9, 789, 'I', '', '2023-09-18', '2023-09-18 09:16:49', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9092, 9, 790, 'M', '', '2023-09-18', '2023-09-18 09:16:49', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9093, 9, 791, 'M', '', '2023-09-18', '2023-09-18 09:16:49', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9094, 9, 792, 'A', '', '2023-09-18', '2023-09-18 09:16:49', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9095, 9, 793, 'M', '', '2023-09-18', '2023-09-18 09:16:49', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9096, 9, 794, 'S', '', '2023-09-18', '2023-09-18 09:16:49', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9097, 9, 795, 'M', '', '2023-09-18', '2023-09-18 09:16:49', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9098, 9, 796, 'A', '', '2023-09-18', '2023-09-18 09:16:49', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9099, 9, 797, 'M', '', '2023-09-18', '2023-09-18 09:16:49', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9100, 9, 798, 'M', '', '2023-09-18', '2023-09-18 09:16:49', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9101, 9, 799, 'A', '', '2023-09-18', '2023-09-18 09:16:49', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9102, 9, 800, 'A', '', '2023-09-18', '2023-09-18 09:16:49', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9103, 9, 801, 'A', '', '2023-09-18', '2023-09-18 09:16:49', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9104, 9, 802, 'M', '', '2023-09-18', '2023-09-18 09:16:49', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9105, 9, 803, 'M', '', '2023-09-18', '2023-09-18 09:16:49', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9106, 9, 804, 'M', '', '2023-09-18', '2023-09-18 09:16:49', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9107, 9, 805, 'M', '', '2023-09-18', '2023-09-18 09:16:49', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9108, 9, 806, 'A', '', '2023-09-18', '2023-09-18 09:16:49', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9109, 9, 807, 'M', '', '2023-09-18', '2023-09-18 09:16:49', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9110, 9, 808, 'M', '', '2023-09-18', '2023-09-18 09:16:49', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9111, 10, 770, 'M', '', '2023-09-18', '2023-09-18 09:20:02', 7, 55);
+INSERT INTO `presensi_harian` VALUES (9112, 10, 771, 'M', '', '2023-09-18', '2023-09-18 09:20:02', 7, 55);
+INSERT INTO `presensi_harian` VALUES (9113, 10, 772, 'M', '', '2023-09-18', '2023-09-18 09:20:02', 7, 55);
+INSERT INTO `presensi_harian` VALUES (9114, 10, 773, 'M', '', '2023-09-18', '2023-09-18 09:20:02', 7, 55);
+INSERT INTO `presensi_harian` VALUES (9115, 10, 774, 'M', '', '2023-09-18', '2023-09-18 09:20:02', 7, 55);
+INSERT INTO `presensi_harian` VALUES (9116, 10, 775, 'A', '', '2023-09-18', '2023-09-18 09:20:02', 7, 55);
+INSERT INTO `presensi_harian` VALUES (9117, 10, 776, 'M', '', '2023-09-18', '2023-09-18 09:20:02', 7, 55);
+INSERT INTO `presensi_harian` VALUES (9118, 10, 777, 'M', '', '2023-09-18', '2023-09-18 09:20:02', 7, 55);
+INSERT INTO `presensi_harian` VALUES (9119, 10, 778, 'S', '', '2023-09-18', '2023-09-18 09:20:02', 7, 55);
+INSERT INTO `presensi_harian` VALUES (9120, 10, 779, 'M', '', '2023-09-18', '2023-09-18 09:20:02', 7, 55);
+INSERT INTO `presensi_harian` VALUES (9121, 10, 780, 'M', '', '2023-09-18', '2023-09-18 09:20:02', 7, 55);
+INSERT INTO `presensi_harian` VALUES (9122, 10, 781, 'M', '', '2023-09-18', '2023-09-18 09:20:02', 7, 55);
+INSERT INTO `presensi_harian` VALUES (9123, 10, 782, 'M', '', '2023-09-18', '2023-09-18 09:20:02', 7, 55);
+INSERT INTO `presensi_harian` VALUES (9124, 10, 783, 'M', '', '2023-09-18', '2023-09-18 09:20:02', 7, 55);
+INSERT INTO `presensi_harian` VALUES (9125, 10, 784, 'A', '', '2023-09-18', '2023-09-18 09:20:02', 7, 55);
+INSERT INTO `presensi_harian` VALUES (9126, 10, 785, 'I', '', '2023-09-18', '2023-09-18 09:20:02', 7, 55);
+INSERT INTO `presensi_harian` VALUES (9127, 10, 786, 'M', '', '2023-09-18', '2023-09-18 09:20:02', 7, 55);
+INSERT INTO `presensi_harian` VALUES (9128, 10, 787, 'M', '', '2023-09-18', '2023-09-18 09:20:02', 7, 55);
+INSERT INTO `presensi_harian` VALUES (9129, 10, 979, 'M', '', '2023-09-18', '2023-09-18 09:20:02', 7, 55);
+INSERT INTO `presensi_harian` VALUES (9130, 14, 838, 'M', '', '2023-09-18', '2023-09-18 09:42:32', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9131, 14, 839, 'M', '', '2023-09-18', '2023-09-18 09:42:32', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9132, 14, 840, 'I', '', '2023-09-18', '2023-09-18 09:42:32', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9133, 14, 841, 'A', '', '2023-09-18', '2023-09-18 09:42:32', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9134, 14, 842, 'I', '', '2023-09-18', '2023-09-18 09:42:32', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9135, 14, 843, 'A', '', '2023-09-18', '2023-09-18 09:42:32', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9136, 14, 844, 'A', '', '2023-09-18', '2023-09-18 09:42:32', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9137, 14, 845, 'A', '', '2023-09-18', '2023-09-18 09:42:32', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9138, 14, 846, 'M', '', '2023-09-18', '2023-09-18 09:42:32', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9139, 14, 847, 'A', '', '2023-09-18', '2023-09-18 09:42:32', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9140, 14, 848, 'I', '', '2023-09-18', '2023-09-18 09:42:32', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9141, 14, 849, 'I', '', '2023-09-18', '2023-09-18 09:42:32', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9142, 14, 850, 'A', '', '2023-09-18', '2023-09-18 09:42:32', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9143, 14, 851, 'M', '', '2023-09-18', '2023-09-18 09:42:32', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9144, 14, 852, 'I', '', '2023-09-18', '2023-09-18 09:42:32', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9145, 14, 853, 'A', '', '2023-09-18', '2023-09-18 09:42:32', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9146, 14, 854, 'M', '', '2023-09-18', '2023-09-18 09:42:32', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9147, 14, 855, 'M', '', '2023-09-18', '2023-09-18 09:42:32', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9148, 14, 856, 'M', '', '2023-09-18', '2023-09-18 09:42:32', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9149, 14, 857, 'M', '', '2023-09-18', '2023-09-18 09:42:32', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9150, 14, 858, 'M', '', '2023-09-18', '2023-09-18 09:42:32', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9151, 14, 859, 'I', '', '2023-09-18', '2023-09-18 09:42:32', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9152, 14, 860, 'A', '', '2023-09-18', '2023-09-18 09:42:32', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9153, 14, 861, 'A', '', '2023-09-18', '2023-09-18 09:42:32', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9154, 14, 862, 'M', '', '2023-09-18', '2023-09-18 09:42:32', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9155, 11, 788, 'M', '', '2023-09-18', '2023-09-18 09:58:27', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9156, 11, 789, 'S', '', '2023-09-18', '2023-09-18 09:58:27', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9157, 11, 790, 'M', '', '2023-09-18', '2023-09-18 09:58:27', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9158, 11, 791, 'M', '', '2023-09-18', '2023-09-18 09:58:27', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9159, 11, 792, 'A', '', '2023-09-18', '2023-09-18 09:58:27', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9160, 11, 793, 'M', '', '2023-09-18', '2023-09-18 09:58:27', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9161, 11, 794, 'M', '', '2023-09-18', '2023-09-18 09:58:27', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9162, 11, 795, 'M', '', '2023-09-18', '2023-09-18 09:58:27', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9163, 11, 796, 'A', '', '2023-09-18', '2023-09-18 09:58:27', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9164, 11, 797, 'M', '', '2023-09-18', '2023-09-18 09:58:27', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9165, 11, 798, 'A', '', '2023-09-18', '2023-09-18 09:58:27', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9166, 11, 799, 'A', '', '2023-09-18', '2023-09-18 09:58:27', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9167, 11, 800, 'A', '', '2023-09-18', '2023-09-18 09:58:27', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9168, 11, 801, 'A', '', '2023-09-18', '2023-09-18 09:58:27', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9169, 11, 802, 'M', '', '2023-09-18', '2023-09-18 09:58:27', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9170, 11, 803, 'M', '', '2023-09-18', '2023-09-18 09:58:27', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9171, 11, 804, 'S', '', '2023-09-18', '2023-09-18 09:58:27', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9172, 11, 805, 'M', '', '2023-09-18', '2023-09-18 09:58:27', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9173, 11, 806, 'A', '', '2023-09-18', '2023-09-18 09:58:27', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9174, 11, 807, 'M', '', '2023-09-18', '2023-09-18 09:58:27', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9175, 11, 808, 'M', '', '2023-09-18', '2023-09-18 09:58:27', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9176, 10, 745, 'A', '', '2023-09-18', '2023-09-18 10:02:24', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9177, 10, 746, 'A', '', '2023-09-18', '2023-09-18 10:02:24', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9178, 10, 747, 'A', '', '2023-09-18', '2023-09-18 10:02:24', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9179, 10, 748, 'A', '', '2023-09-18', '2023-09-18 10:02:24', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9180, 10, 749, 'M', '', '2023-09-18', '2023-09-18 10:02:24', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9181, 10, 750, 'A', '', '2023-09-18', '2023-09-18 10:02:24', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9182, 10, 751, 'A', '', '2023-09-18', '2023-09-18 10:02:24', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9183, 10, 752, 'A', '', '2023-09-18', '2023-09-18 10:02:24', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9184, 10, 753, 'M', '', '2023-09-18', '2023-09-18 10:02:24', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9185, 10, 754, 'M', '', '2023-09-18', '2023-09-18 10:02:24', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9186, 10, 755, 'A', '', '2023-09-18', '2023-09-18 10:02:24', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9187, 10, 757, 'M', '', '2023-09-18', '2023-09-18 10:02:24', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9188, 10, 758, 'M', '', '2023-09-18', '2023-09-18 10:02:24', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9189, 10, 761, 'A', '', '2023-09-18', '2023-09-18 10:02:24', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9190, 10, 763, 'M', '', '2023-09-18', '2023-09-18 10:02:24', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9191, 10, 764, 'M', '', '2023-09-18', '2023-09-18 10:02:24', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9192, 10, 766, 'M', '', '2023-09-18', '2023-09-18 10:02:24', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9193, 10, 767, 'A', '', '2023-09-18', '2023-09-18 10:02:24', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9194, 10, 768, 'M', '', '2023-09-18', '2023-09-18 10:02:24', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9195, 10, 769, 'M', '', '2023-09-18', '2023-09-18 10:02:24', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9196, 24, 838, 'M', '', '2023-09-18', '2023-09-18 10:28:16', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9197, 24, 839, 'M', '', '2023-09-18', '2023-09-18 10:28:16', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9198, 24, 840, 'M', '', '2023-09-18', '2023-09-18 10:28:16', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9199, 24, 841, 'S', '', '2023-09-18', '2023-09-18 10:28:16', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9200, 24, 842, 'M', '', '2023-09-18', '2023-09-18 10:28:16', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9201, 24, 843, 'I', '', '2023-09-18', '2023-09-18 10:28:16', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9202, 24, 844, 'M', '', '2023-09-18', '2023-09-18 10:28:16', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9203, 24, 845, 'S', '', '2023-09-18', '2023-09-18 10:28:16', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9204, 24, 846, 'I', '', '2023-09-18', '2023-09-18 10:28:16', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9205, 24, 847, 'M', '', '2023-09-18', '2023-09-18 10:28:16', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9206, 24, 848, 'M', '', '2023-09-18', '2023-09-18 10:28:16', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9207, 24, 849, 'I', '', '2023-09-18', '2023-09-18 10:28:17', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9208, 24, 850, 'A', '', '2023-09-18', '2023-09-18 10:28:17', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9209, 24, 851, 'M', '', '2023-09-18', '2023-09-18 10:28:17', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9210, 24, 852, 'M', '', '2023-09-18', '2023-09-18 10:28:17', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9211, 24, 853, 'A', '', '2023-09-18', '2023-09-18 10:28:17', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9212, 24, 854, 'M', '', '2023-09-18', '2023-09-18 10:28:17', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9213, 24, 855, 'M', '', '2023-09-18', '2023-09-18 10:28:17', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9214, 24, 856, 'I', '', '2023-09-18', '2023-09-18 10:28:17', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9215, 24, 857, 'M', '', '2023-09-18', '2023-09-18 10:28:17', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9216, 24, 858, 'M', '', '2023-09-18', '2023-09-18 10:28:17', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9217, 24, 859, 'M', '', '2023-09-18', '2023-09-18 10:28:17', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9218, 24, 860, 'M', '', '2023-09-18', '2023-09-18 10:28:17', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9219, 24, 861, 'M', '', '2023-09-18', '2023-09-18 10:28:17', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9220, 24, 862, 'M', '', '2023-09-18', '2023-09-18 10:28:17', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9221, 24, 877, 'M', '', '2023-09-18', '2023-09-18 10:31:34', 7, 61);
+INSERT INTO `presensi_harian` VALUES (9222, 24, 879, 'M', '', '2023-09-18', '2023-09-18 10:31:34', 7, 61);
+INSERT INTO `presensi_harian` VALUES (9223, 24, 880, 'M', '', '2023-09-18', '2023-09-18 10:31:34', 7, 61);
+INSERT INTO `presensi_harian` VALUES (9224, 24, 881, 'M', '', '2023-09-18', '2023-09-18 10:31:34', 7, 61);
+INSERT INTO `presensi_harian` VALUES (9225, 24, 882, 'M', '', '2023-09-18', '2023-09-18 10:31:34', 7, 61);
+INSERT INTO `presensi_harian` VALUES (9226, 24, 883, 'M', '', '2023-09-18', '2023-09-18 10:31:34', 7, 61);
+INSERT INTO `presensi_harian` VALUES (9227, 24, 884, 'M', '', '2023-09-18', '2023-09-18 10:31:34', 7, 61);
+INSERT INTO `presensi_harian` VALUES (9228, 24, 885, 'M', '', '2023-09-18', '2023-09-18 10:31:34', 7, 61);
+INSERT INTO `presensi_harian` VALUES (9229, 24, 886, 'M', '', '2023-09-18', '2023-09-18 10:31:34', 7, 61);
+INSERT INTO `presensi_harian` VALUES (9230, 24, 887, 'M', '', '2023-09-18', '2023-09-18 10:31:34', 7, 61);
+INSERT INTO `presensi_harian` VALUES (9231, 32, 745, 'A', '', '2023-09-18', '2023-09-18 10:48:11', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9232, 32, 746, 'A', '', '2023-09-18', '2023-09-18 10:48:11', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9233, 32, 747, 'A', '', '2023-09-18', '2023-09-18 10:48:11', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9234, 32, 748, 'A', '', '2023-09-18', '2023-09-18 10:48:11', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9235, 32, 749, 'M', '', '2023-09-18', '2023-09-18 10:48:11', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9236, 32, 750, 'A', '', '2023-09-18', '2023-09-18 10:48:11', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9237, 32, 751, 'A', '', '2023-09-18', '2023-09-18 10:48:11', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9238, 32, 752, 'A', '', '2023-09-18', '2023-09-18 10:48:11', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9239, 32, 753, 'A', '', '2023-09-18', '2023-09-18 10:48:11', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9240, 32, 754, 'A', '', '2023-09-18', '2023-09-18 10:48:11', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9241, 32, 755, 'A', '', '2023-09-18', '2023-09-18 10:48:11', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9242, 32, 757, 'A', '', '2023-09-18', '2023-09-18 10:48:11', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9243, 32, 758, 'A', '', '2023-09-18', '2023-09-18 10:48:11', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9244, 32, 761, 'A', '', '2023-09-18', '2023-09-18 10:48:11', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9245, 32, 763, 'A', '', '2023-09-18', '2023-09-18 10:48:11', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9246, 32, 764, 'A', '', '2023-09-18', '2023-09-18 10:48:11', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9247, 32, 766, 'A', '', '2023-09-18', '2023-09-18 10:48:11', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9248, 32, 767, 'A', '', '2023-09-18', '2023-09-18 10:48:11', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9249, 32, 768, 'M', '', '2023-09-18', '2023-09-18 10:48:11', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9250, 32, 769, 'M', '', '2023-09-18', '2023-09-18 10:48:11', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9251, 19, 956, 'I', '', '2023-09-18', '2023-09-18 10:55:03', 7, 53);
+INSERT INTO `presensi_harian` VALUES (9252, 19, 957, 'I', '', '2023-09-18', '2023-09-18 10:55:03', 7, 53);
+INSERT INTO `presensi_harian` VALUES (9253, 19, 958, 'I', '', '2023-09-18', '2023-09-18 10:55:03', 7, 53);
+INSERT INTO `presensi_harian` VALUES (9254, 19, 959, 'I', '', '2023-09-18', '2023-09-18 10:55:03', 7, 53);
+INSERT INTO `presensi_harian` VALUES (9255, 19, 960, 'S', '', '2023-09-18', '2023-09-18 10:55:03', 7, 53);
+INSERT INTO `presensi_harian` VALUES (9256, 19, 963, 'S', '', '2023-09-18', '2023-09-18 10:55:03', 7, 53);
+INSERT INTO `presensi_harian` VALUES (9257, 19, 964, 'M', '', '2023-09-18', '2023-09-18 10:55:03', 7, 53);
+INSERT INTO `presensi_harian` VALUES (9258, 19, 965, 'M', '', '2023-09-18', '2023-09-18 10:55:03', 7, 53);
+INSERT INTO `presensi_harian` VALUES (9259, 19, 967, 'M', '', '2023-09-18', '2023-09-18 10:55:03', 7, 53);
+INSERT INTO `presensi_harian` VALUES (9260, 19, 968, 'M', '', '2023-09-18', '2023-09-18 10:55:03', 7, 53);
+INSERT INTO `presensi_harian` VALUES (9261, 19, 969, 'S', '', '2023-09-18', '2023-09-18 10:55:03', 7, 53);
+INSERT INTO `presensi_harian` VALUES (9262, 8, 894, 'M', '', '2023-09-18', '2023-09-18 11:48:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9263, 8, 895, 'M', '', '2023-09-18', '2023-09-18 11:48:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9264, 8, 896, 'A', '', '2023-09-18', '2023-09-18 11:48:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9265, 8, 897, 'M', '', '2023-09-18', '2023-09-18 11:48:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9266, 8, 898, 'M', '', '2023-09-18', '2023-09-18 11:48:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9267, 8, 899, 'M', '', '2023-09-18', '2023-09-18 11:48:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9268, 8, 900, 'S', '', '2023-09-18', '2023-09-18 11:48:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9269, 8, 901, 'A', '', '2023-09-18', '2023-09-18 11:48:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9270, 8, 902, 'M', '', '2023-09-18', '2023-09-18 11:48:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9271, 8, 903, 'M', '', '2023-09-18', '2023-09-18 11:48:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9272, 8, 904, 'M', '', '2023-09-18', '2023-09-18 11:48:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9273, 8, 905, 'M', '', '2023-09-18', '2023-09-18 11:48:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9274, 8, 906, 'M', '', '2023-09-18', '2023-09-18 11:48:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9275, 8, 907, 'S', '', '2023-09-18', '2023-09-18 11:48:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9276, 8, 908, 'M', '', '2023-09-18', '2023-09-18 11:48:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9277, 8, 909, 'S', '', '2023-09-18', '2023-09-18 11:48:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9278, 8, 910, 'M', '', '2023-09-18', '2023-09-18 11:48:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9279, 8, 911, 'M', '', '2023-09-18', '2023-09-18 11:48:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9280, 8, 912, 'M', '', '2023-09-18', '2023-09-18 11:48:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9281, 8, 913, 'M', '', '2023-09-18', '2023-09-18 11:48:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9282, 8, 914, 'M', '', '2023-09-18', '2023-09-18 11:48:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9283, 8, 915, 'M', '', '2023-09-18', '2023-09-18 11:48:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9284, 8, 916, 'M', '', '2023-09-18', '2023-09-18 11:48:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9285, 8, 917, 'M', '', '2023-09-18', '2023-09-18 11:48:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9286, 8, 918, 'M', '', '2023-09-18', '2023-09-18 11:48:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9287, 8, 919, 'M', '', '2023-09-18', '2023-09-18 11:48:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9288, 8, 920, 'M', '', '2023-09-18', '2023-09-18 11:48:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9289, 8, 921, 'M', '', '2023-09-18', '2023-09-18 11:48:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9290, 8, 922, 'M', '', '2023-09-18', '2023-09-18 11:48:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9291, 8, 961, 'M', '', '2023-09-18', '2023-09-18 11:48:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9292, 8, 962, 'I', '', '2023-09-18', '2023-09-18 11:48:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9293, 15, 925, 'M', '', '2023-09-18', '2023-09-18 12:52:52', 7, 52);
+INSERT INTO `presensi_harian` VALUES (9294, 15, 926, 'M', '', '2023-09-18', '2023-09-18 12:52:52', 7, 52);
+INSERT INTO `presensi_harian` VALUES (9295, 15, 927, 'M', '', '2023-09-18', '2023-09-18 12:52:52', 7, 52);
+INSERT INTO `presensi_harian` VALUES (9296, 15, 928, 'I', '', '2023-09-18', '2023-09-18 12:52:52', 7, 52);
+INSERT INTO `presensi_harian` VALUES (9297, 15, 929, 'M', '', '2023-09-18', '2023-09-18 12:52:52', 7, 52);
+INSERT INTO `presensi_harian` VALUES (9298, 17, 809, 'M', '', '2023-09-18', '2023-09-18 12:56:24', 7, 60);
+INSERT INTO `presensi_harian` VALUES (9299, 17, 810, 'M', '', '2023-09-18', '2023-09-18 12:56:24', 7, 60);
+INSERT INTO `presensi_harian` VALUES (9300, 17, 811, 'M', '', '2023-09-18', '2023-09-18 12:56:24', 7, 60);
+INSERT INTO `presensi_harian` VALUES (9301, 17, 812, 'M', '', '2023-09-18', '2023-09-18 12:56:24', 7, 60);
+INSERT INTO `presensi_harian` VALUES (9302, 17, 813, 'M', '', '2023-09-18', '2023-09-18 12:56:24', 7, 60);
+INSERT INTO `presensi_harian` VALUES (9303, 17, 814, 'M', '', '2023-09-18', '2023-09-18 12:56:24', 7, 60);
+INSERT INTO `presensi_harian` VALUES (9304, 17, 815, 'M', '', '2023-09-18', '2023-09-18 12:56:24', 7, 60);
+INSERT INTO `presensi_harian` VALUES (9305, 17, 816, 'M', '', '2023-09-18', '2023-09-18 12:56:24', 7, 60);
+INSERT INTO `presensi_harian` VALUES (9306, 17, 817, 'M', '', '2023-09-18', '2023-09-18 12:56:24', 7, 60);
+INSERT INTO `presensi_harian` VALUES (9307, 17, 818, 'M', '', '2023-09-18', '2023-09-18 12:56:24', 7, 60);
+INSERT INTO `presensi_harian` VALUES (9308, 17, 819, 'M', '', '2023-09-18', '2023-09-18 12:56:24', 7, 60);
+INSERT INTO `presensi_harian` VALUES (9309, 17, 820, 'M', '', '2023-09-18', '2023-09-18 12:56:24', 7, 60);
+INSERT INTO `presensi_harian` VALUES (9310, 20, 945, 'M', '', '2023-09-18', '2023-09-18 14:06:26', 7, 67);
+INSERT INTO `presensi_harian` VALUES (9311, 20, 946, 'M', '', '2023-09-18', '2023-09-18 14:06:26', 7, 67);
+INSERT INTO `presensi_harian` VALUES (9312, 20, 947, 'M', '', '2023-09-18', '2023-09-18 14:06:26', 7, 67);
+INSERT INTO `presensi_harian` VALUES (9313, 20, 948, 'M', '', '2023-09-18', '2023-09-18 14:06:27', 7, 67);
+INSERT INTO `presensi_harian` VALUES (9314, 20, 949, 'M', '', '2023-09-18', '2023-09-18 14:06:27', 7, 67);
+INSERT INTO `presensi_harian` VALUES (9315, 20, 950, 'M', '', '2023-09-18', '2023-09-18 14:06:27', 7, 67);
+INSERT INTO `presensi_harian` VALUES (9316, 20, 951, 'M', '', '2023-09-18', '2023-09-18 14:06:27', 7, 67);
+INSERT INTO `presensi_harian` VALUES (9317, 20, 952, 'M', '', '2023-09-18', '2023-09-18 14:06:27', 7, 67);
+INSERT INTO `presensi_harian` VALUES (9318, 20, 953, 'M', '', '2023-09-18', '2023-09-18 14:06:27', 7, 67);
+INSERT INTO `presensi_harian` VALUES (9319, 20, 954, 'M', '', '2023-09-18', '2023-09-18 14:06:27', 7, 67);
+INSERT INTO `presensi_harian` VALUES (9320, 20, 955, 'I', '', '2023-09-18', '2023-09-18 14:06:27', 7, 67);
+INSERT INTO `presensi_harian` VALUES (9321, 14, 863, 'M', '', '2023-09-18', '2023-09-18 14:25:29', 7, 57);
+INSERT INTO `presensi_harian` VALUES (9322, 14, 864, 'M', '', '2023-09-18', '2023-09-18 14:25:29', 7, 57);
+INSERT INTO `presensi_harian` VALUES (9323, 14, 865, 'M', '', '2023-09-18', '2023-09-18 14:25:29', 7, 57);
+INSERT INTO `presensi_harian` VALUES (9324, 14, 866, 'M', '', '2023-09-18', '2023-09-18 14:25:29', 7, 57);
+INSERT INTO `presensi_harian` VALUES (9325, 14, 867, 'M', '', '2023-09-18', '2023-09-18 14:25:29', 7, 57);
+INSERT INTO `presensi_harian` VALUES (9326, 14, 868, 'I', '', '2023-09-18', '2023-09-18 14:25:29', 7, 57);
+INSERT INTO `presensi_harian` VALUES (9327, 14, 869, 'M', '', '2023-09-18', '2023-09-18 14:25:29', 7, 57);
+INSERT INTO `presensi_harian` VALUES (9328, 14, 870, 'M', '', '2023-09-18', '2023-09-18 14:25:29', 7, 57);
+INSERT INTO `presensi_harian` VALUES (9329, 14, 871, 'M', '', '2023-09-18', '2023-09-18 14:25:29', 7, 57);
+INSERT INTO `presensi_harian` VALUES (9330, 14, 872, 'M', '', '2023-09-18', '2023-09-18 14:25:29', 7, 57);
+INSERT INTO `presensi_harian` VALUES (9331, 14, 873, 'M', '', '2023-09-18', '2023-09-18 14:25:29', 7, 57);
+INSERT INTO `presensi_harian` VALUES (9332, 14, 874, 'M', '', '2023-09-18', '2023-09-18 14:25:29', 7, 57);
+INSERT INTO `presensi_harian` VALUES (9333, 14, 875, 'M', '', '2023-09-18', '2023-09-18 14:25:29', 7, 57);
+INSERT INTO `presensi_harian` VALUES (9334, 14, 876, 'M', '', '2023-09-18', '2023-09-18 14:25:29', 7, 57);
+INSERT INTO `presensi_harian` VALUES (9335, 17, 888, 'M', '', '2023-09-18', '2023-09-18 14:28:34', 7, 66);
+INSERT INTO `presensi_harian` VALUES (9336, 17, 889, 'S', '', '2023-09-18', '2023-09-18 14:28:34', 7, 66);
+INSERT INTO `presensi_harian` VALUES (9337, 17, 890, 'M', '', '2023-09-18', '2023-09-18 14:28:34', 7, 66);
+INSERT INTO `presensi_harian` VALUES (9338, 17, 891, 'M', '', '2023-09-18', '2023-09-18 14:28:34', 7, 66);
+INSERT INTO `presensi_harian` VALUES (9339, 17, 892, 'M', '', '2023-09-18', '2023-09-18 14:28:34', 7, 66);
+INSERT INTO `presensi_harian` VALUES (9340, 17, 893, 'I', '', '2023-09-18', '2023-09-18 14:28:34', 7, 66);
+INSERT INTO `presensi_harian` VALUES (9341, 17, 825, 'M', '', '2023-09-18', '2023-09-18 14:28:57', 7, 62);
+INSERT INTO `presensi_harian` VALUES (9342, 17, 827, 'A', '', '2023-09-18', '2023-09-18 14:28:57', 7, 62);
+INSERT INTO `presensi_harian` VALUES (9343, 17, 828, 'M', '', '2023-09-18', '2023-09-18 14:28:57', 7, 62);
+INSERT INTO `presensi_harian` VALUES (9344, 17, 829, 'M', '', '2023-09-18', '2023-09-18 14:28:57', 7, 62);
+INSERT INTO `presensi_harian` VALUES (9345, 17, 830, 'S', '', '2023-09-18', '2023-09-18 14:28:57', 7, 62);
+INSERT INTO `presensi_harian` VALUES (9346, 17, 831, 'M', '', '2023-09-18', '2023-09-18 14:28:57', 7, 62);
+INSERT INTO `presensi_harian` VALUES (9347, 17, 832, 'S', '', '2023-09-18', '2023-09-18 14:28:57', 7, 62);
+INSERT INTO `presensi_harian` VALUES (9348, 17, 833, 'M', '', '2023-09-18', '2023-09-18 14:28:57', 7, 62);
+INSERT INTO `presensi_harian` VALUES (9349, 17, 834, 'M', '', '2023-09-18', '2023-09-18 14:28:57', 7, 62);
+INSERT INTO `presensi_harian` VALUES (9350, 17, 835, 'M', '', '2023-09-18', '2023-09-18 14:28:57', 7, 62);
+INSERT INTO `presensi_harian` VALUES (9351, 17, 836, 'M', '', '2023-09-18', '2023-09-18 14:28:57', 7, 62);
+INSERT INTO `presensi_harian` VALUES (9352, 17, 837, 'M', '', '2023-09-18', '2023-09-18 14:28:57', 7, 62);
+INSERT INTO `presensi_harian` VALUES (9353, 24, 970, 'M', '', '2023-09-18', '2023-09-18 14:30:18', 7, 65);
+INSERT INTO `presensi_harian` VALUES (9354, 24, 971, 'M', '', '2023-09-18', '2023-09-18 14:30:18', 7, 65);
+INSERT INTO `presensi_harian` VALUES (9355, 24, 972, 'M', '', '2023-09-18', '2023-09-18 14:30:18', 7, 65);
+INSERT INTO `presensi_harian` VALUES (9356, 24, 973, 'I', '', '2023-09-18', '2023-09-18 14:30:18', 7, 65);
+INSERT INTO `presensi_harian` VALUES (9357, 24, 974, 'M', '', '2023-09-18', '2023-09-18 14:30:18', 7, 65);
+INSERT INTO `presensi_harian` VALUES (9358, 24, 975, 'M', '', '2023-09-18', '2023-09-18 14:30:18', 7, 65);
+INSERT INTO `presensi_harian` VALUES (9359, 24, 976, 'M', '', '2023-09-18', '2023-09-18 14:30:18', 7, 65);
+INSERT INTO `presensi_harian` VALUES (9360, 24, 977, 'M', '', '2023-09-18', '2023-09-18 14:30:18', 7, 65);
+INSERT INTO `presensi_harian` VALUES (9361, 24, 978, 'M', '', '2023-09-18', '2023-09-18 14:30:18', 7, 65);
+INSERT INTO `presensi_harian` VALUES (9362, 24, 888, 'M', '', '2023-09-18', '2023-09-18 14:31:39', 7, 66);
+INSERT INTO `presensi_harian` VALUES (9363, 24, 889, 'I', '', '2023-09-18', '2023-09-18 14:31:39', 7, 66);
+INSERT INTO `presensi_harian` VALUES (9364, 24, 890, 'M', '', '2023-09-18', '2023-09-18 14:31:39', 7, 66);
+INSERT INTO `presensi_harian` VALUES (9365, 24, 891, 'M', '', '2023-09-18', '2023-09-18 14:31:39', 7, 66);
+INSERT INTO `presensi_harian` VALUES (9366, 24, 892, 'M', '', '2023-09-18', '2023-09-18 14:31:39', 7, 66);
+INSERT INTO `presensi_harian` VALUES (9367, 24, 893, 'I', '', '2023-09-18', '2023-09-18 14:31:39', 7, 66);
+INSERT INTO `presensi_harian` VALUES (9368, 24, 825, 'M', '', '2023-09-18', '2023-09-18 14:47:30', 7, 62);
+INSERT INTO `presensi_harian` VALUES (9369, 24, 827, 'M', '', '2023-09-18', '2023-09-18 14:47:30', 7, 62);
+INSERT INTO `presensi_harian` VALUES (9370, 24, 828, 'M', '', '2023-09-18', '2023-09-18 14:47:30', 7, 62);
+INSERT INTO `presensi_harian` VALUES (9371, 24, 829, 'M', '', '2023-09-18', '2023-09-18 14:47:30', 7, 62);
+INSERT INTO `presensi_harian` VALUES (9372, 24, 830, 'M', '', '2023-09-18', '2023-09-18 14:47:30', 7, 62);
+INSERT INTO `presensi_harian` VALUES (9373, 24, 831, 'M', '', '2023-09-18', '2023-09-18 14:47:30', 7, 62);
+INSERT INTO `presensi_harian` VALUES (9374, 24, 832, 'M', '', '2023-09-18', '2023-09-18 14:47:30', 7, 62);
+INSERT INTO `presensi_harian` VALUES (9375, 24, 833, 'M', '', '2023-09-18', '2023-09-18 14:47:30', 7, 62);
+INSERT INTO `presensi_harian` VALUES (9376, 24, 834, 'M', '', '2023-09-18', '2023-09-18 14:47:30', 7, 62);
+INSERT INTO `presensi_harian` VALUES (9377, 24, 835, 'M', '', '2023-09-18', '2023-09-18 14:47:30', 7, 62);
+INSERT INTO `presensi_harian` VALUES (9378, 24, 836, 'M', '', '2023-09-18', '2023-09-18 14:47:30', 7, 62);
+INSERT INTO `presensi_harian` VALUES (9379, 24, 837, 'M', '', '2023-09-18', '2023-09-18 14:47:30', 7, 62);
+INSERT INTO `presensi_harian` VALUES (9380, 24, 809, 'M', '', '2023-09-18', '2023-09-18 14:47:59', 7, 60);
+INSERT INTO `presensi_harian` VALUES (9381, 24, 810, 'M', '', '2023-09-18', '2023-09-18 14:47:59', 7, 60);
+INSERT INTO `presensi_harian` VALUES (9382, 24, 811, 'M', '', '2023-09-18', '2023-09-18 14:47:59', 7, 60);
+INSERT INTO `presensi_harian` VALUES (9383, 24, 812, 'M', '', '2023-09-18', '2023-09-18 14:47:59', 7, 60);
+INSERT INTO `presensi_harian` VALUES (9384, 24, 813, 'M', '', '2023-09-18', '2023-09-18 14:47:59', 7, 60);
+INSERT INTO `presensi_harian` VALUES (9385, 24, 814, 'M', '', '2023-09-18', '2023-09-18 14:47:59', 7, 60);
+INSERT INTO `presensi_harian` VALUES (9386, 24, 815, 'M', '', '2023-09-18', '2023-09-18 14:47:59', 7, 60);
+INSERT INTO `presensi_harian` VALUES (9387, 24, 816, 'M', '', '2023-09-18', '2023-09-18 14:47:59', 7, 60);
+INSERT INTO `presensi_harian` VALUES (9388, 24, 817, 'M', '', '2023-09-18', '2023-09-18 14:48:00', 7, 60);
+INSERT INTO `presensi_harian` VALUES (9389, 24, 818, 'M', '', '2023-09-18', '2023-09-18 14:48:00', 7, 60);
+INSERT INTO `presensi_harian` VALUES (9390, 24, 819, 'M', '', '2023-09-18', '2023-09-18 14:48:00', 7, 60);
+INSERT INTO `presensi_harian` VALUES (9391, 24, 820, 'M', '', '2023-09-18', '2023-09-18 14:48:00', 7, 60);
+INSERT INTO `presensi_harian` VALUES (9392, 24, 863, 'M', '', '2023-09-18', '2023-09-18 15:02:50', 7, 57);
+INSERT INTO `presensi_harian` VALUES (9393, 24, 864, 'M', '', '2023-09-18', '2023-09-18 15:02:50', 7, 57);
+INSERT INTO `presensi_harian` VALUES (9394, 24, 865, 'M', '', '2023-09-18', '2023-09-18 15:02:50', 7, 57);
+INSERT INTO `presensi_harian` VALUES (9395, 24, 866, 'M', '', '2023-09-18', '2023-09-18 15:02:50', 7, 57);
+INSERT INTO `presensi_harian` VALUES (9396, 24, 867, 'M', '', '2023-09-18', '2023-09-18 15:02:50', 7, 57);
+INSERT INTO `presensi_harian` VALUES (9397, 24, 868, 'M', '', '2023-09-18', '2023-09-18 15:02:50', 7, 57);
+INSERT INTO `presensi_harian` VALUES (9398, 24, 869, 'M', '', '2023-09-18', '2023-09-18 15:02:50', 7, 57);
+INSERT INTO `presensi_harian` VALUES (9399, 24, 870, 'M', '', '2023-09-18', '2023-09-18 15:02:50', 7, 57);
+INSERT INTO `presensi_harian` VALUES (9400, 24, 871, 'M', '', '2023-09-18', '2023-09-18 15:02:50', 7, 57);
+INSERT INTO `presensi_harian` VALUES (9401, 24, 872, 'M', '', '2023-09-18', '2023-09-18 15:02:50', 7, 57);
+INSERT INTO `presensi_harian` VALUES (9402, 24, 873, 'M', '', '2023-09-18', '2023-09-18 15:02:50', 7, 57);
+INSERT INTO `presensi_harian` VALUES (9403, 24, 874, 'M', '', '2023-09-18', '2023-09-18 15:02:50', 7, 57);
+INSERT INTO `presensi_harian` VALUES (9404, 24, 875, 'M', '', '2023-09-18', '2023-09-18 15:02:50', 7, 57);
+INSERT INTO `presensi_harian` VALUES (9405, 24, 876, 'M', '', '2023-09-18', '2023-09-18 15:02:50', 7, 57);
+INSERT INTO `presensi_harian` VALUES (9406, 24, 821, 'M', '', '2023-09-18', '2023-09-18 15:03:07', 7, 58);
+INSERT INTO `presensi_harian` VALUES (9407, 24, 822, 'M', '', '2023-09-18', '2023-09-18 15:03:07', 7, 58);
+INSERT INTO `presensi_harian` VALUES (9408, 24, 823, 'M', '', '2023-09-18', '2023-09-18 15:03:07', 7, 58);
+INSERT INTO `presensi_harian` VALUES (9409, 24, 824, 'M', '', '2023-09-18', '2023-09-18 15:03:07', 7, 58);
+INSERT INTO `presensi_harian` VALUES (9410, 32, 894, 'M', '', '2023-09-19', '2023-09-19 08:22:43', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9411, 32, 895, 'M', '', '2023-09-19', '2023-09-19 08:22:43', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9412, 32, 896, 'M', '', '2023-09-19', '2023-09-19 08:22:43', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9413, 32, 897, 'M', '', '2023-09-19', '2023-09-19 08:22:44', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9414, 32, 898, 'M', '', '2023-09-19', '2023-09-19 08:22:44', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9415, 32, 899, 'M', '', '2023-09-19', '2023-09-19 08:22:44', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9416, 32, 900, 'M', '', '2023-09-19', '2023-09-19 08:22:44', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9417, 32, 901, 'M', '', '2023-09-19', '2023-09-19 08:22:44', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9418, 32, 902, 'M', '', '2023-09-19', '2023-09-19 08:22:44', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9419, 32, 903, 'M', '', '2023-09-19', '2023-09-19 08:22:44', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9420, 32, 904, 'M', '', '2023-09-19', '2023-09-19 08:22:44', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9421, 32, 905, 'M', '', '2023-09-19', '2023-09-19 08:22:44', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9422, 32, 906, 'M', '', '2023-09-19', '2023-09-19 08:22:44', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9423, 32, 907, 'M', '', '2023-09-19', '2023-09-19 08:22:44', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9424, 32, 908, 'M', '', '2023-09-19', '2023-09-19 08:22:44', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9425, 32, 909, 'M', '', '2023-09-19', '2023-09-19 08:22:44', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9426, 32, 910, 'M', '', '2023-09-19', '2023-09-19 08:22:44', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9427, 32, 911, 'M', '', '2023-09-19', '2023-09-19 08:22:44', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9428, 32, 912, 'M', '', '2023-09-19', '2023-09-19 08:22:44', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9429, 32, 913, 'M', '', '2023-09-19', '2023-09-19 08:22:44', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9430, 32, 914, 'M', '', '2023-09-19', '2023-09-19 08:22:44', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9431, 32, 915, 'M', '', '2023-09-19', '2023-09-19 08:22:44', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9432, 32, 916, 'M', '', '2023-09-19', '2023-09-19 08:22:44', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9433, 32, 917, 'M', '', '2023-09-19', '2023-09-19 08:22:44', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9434, 32, 918, 'M', '', '2023-09-19', '2023-09-19 08:22:44', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9435, 32, 919, 'M', '', '2023-09-19', '2023-09-19 08:22:44', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9436, 32, 920, 'M', '', '2023-09-19', '2023-09-19 08:22:44', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9437, 32, 921, 'M', '', '2023-09-19', '2023-09-19 08:22:44', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9438, 32, 922, 'M', '', '2023-09-19', '2023-09-19 08:22:44', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9439, 32, 961, 'M', '', '2023-09-19', '2023-09-19 08:22:44', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9440, 32, 962, 'M', '', '2023-09-19', '2023-09-19 08:22:44', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9441, 11, 770, 'S', '', '2023-09-19', '2023-09-19 08:40:12', 7, 55);
+INSERT INTO `presensi_harian` VALUES (9442, 11, 771, 'M', '', '2023-09-19', '2023-09-19 08:40:12', 7, 55);
+INSERT INTO `presensi_harian` VALUES (9443, 11, 772, 'A', '', '2023-09-19', '2023-09-19 08:40:12', 7, 55);
+INSERT INTO `presensi_harian` VALUES (9444, 11, 773, 'M', '', '2023-09-19', '2023-09-19 08:40:12', 7, 55);
+INSERT INTO `presensi_harian` VALUES (9445, 11, 774, 'A', '', '2023-09-19', '2023-09-19 08:40:12', 7, 55);
+INSERT INTO `presensi_harian` VALUES (9446, 11, 775, 'A', '', '2023-09-19', '2023-09-19 08:40:12', 7, 55);
+INSERT INTO `presensi_harian` VALUES (9447, 11, 776, 'M', '', '2023-09-19', '2023-09-19 08:40:12', 7, 55);
+INSERT INTO `presensi_harian` VALUES (9448, 11, 777, 'M', '', '2023-09-19', '2023-09-19 08:40:12', 7, 55);
+INSERT INTO `presensi_harian` VALUES (9449, 11, 778, 'M', '', '2023-09-19', '2023-09-19 08:40:12', 7, 55);
+INSERT INTO `presensi_harian` VALUES (9450, 11, 779, 'A', '', '2023-09-19', '2023-09-19 08:40:12', 7, 55);
+INSERT INTO `presensi_harian` VALUES (9451, 11, 780, 'M', '', '2023-09-19', '2023-09-19 08:40:12', 7, 55);
+INSERT INTO `presensi_harian` VALUES (9452, 11, 781, 'M', '', '2023-09-19', '2023-09-19 08:40:12', 7, 55);
+INSERT INTO `presensi_harian` VALUES (9453, 11, 782, 'M', '', '2023-09-19', '2023-09-19 08:40:12', 7, 55);
+INSERT INTO `presensi_harian` VALUES (9454, 11, 783, 'M', '', '2023-09-19', '2023-09-19 08:40:13', 7, 55);
+INSERT INTO `presensi_harian` VALUES (9455, 11, 784, 'M', '', '2023-09-19', '2023-09-19 08:40:13', 7, 55);
+INSERT INTO `presensi_harian` VALUES (9456, 11, 785, 'M', '', '2023-09-19', '2023-09-19 08:40:13', 7, 55);
+INSERT INTO `presensi_harian` VALUES (9457, 11, 786, 'I', '', '2023-09-19', '2023-09-19 08:40:13', 7, 55);
+INSERT INTO `presensi_harian` VALUES (9458, 11, 787, 'I', '', '2023-09-19', '2023-09-19 08:40:13', 7, 55);
+INSERT INTO `presensi_harian` VALUES (9459, 11, 979, 'M', '', '2023-09-19', '2023-09-19 08:40:13', 7, 55);
+INSERT INTO `presensi_harian` VALUES (9460, 17, 788, 'M', '', '2023-09-19', '2023-09-19 08:48:36', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9461, 17, 789, 'M', '', '2023-09-19', '2023-09-19 08:48:36', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9462, 17, 790, 'M', '', '2023-09-19', '2023-09-19 08:48:36', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9463, 17, 791, 'M', '', '2023-09-19', '2023-09-19 08:48:36', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9464, 17, 792, 'M', '', '2023-09-19', '2023-09-19 08:48:36', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9465, 17, 793, 'M', '', '2023-09-19', '2023-09-19 08:48:36', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9466, 17, 794, 'M', '', '2023-09-19', '2023-09-19 08:48:36', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9467, 17, 795, 'M', '', '2023-09-19', '2023-09-19 08:48:36', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9468, 17, 796, 'M', '', '2023-09-19', '2023-09-19 08:48:36', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9469, 17, 797, 'I', '', '2023-09-19', '2023-09-19 08:48:36', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9470, 17, 798, 'M', '', '2023-09-19', '2023-09-19 08:48:36', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9471, 17, 799, 'M', '', '2023-09-19', '2023-09-19 08:48:36', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9472, 17, 800, 'M', '', '2023-09-19', '2023-09-19 08:48:36', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9473, 17, 801, 'M', '', '2023-09-19', '2023-09-19 08:48:36', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9474, 17, 802, 'M', '', '2023-09-19', '2023-09-19 08:48:36', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9475, 17, 803, 'M', '', '2023-09-19', '2023-09-19 08:48:36', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9476, 17, 804, 'I', '', '2023-09-19', '2023-09-19 08:48:36', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9477, 17, 805, 'M', '', '2023-09-19', '2023-09-19 08:48:36', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9478, 17, 806, 'A', '', '2023-09-19', '2023-09-19 08:48:36', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9479, 17, 807, 'M', '', '2023-09-19', '2023-09-19 08:48:37', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9480, 17, 808, 'S', '', '2023-09-19', '2023-09-19 08:48:37', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9481, 11, 745, 'M', '', '2023-09-19', '2023-09-19 08:48:39', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9482, 11, 746, 'M', '', '2023-09-19', '2023-09-19 08:48:39', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9483, 11, 747, 'I', '', '2023-09-19', '2023-09-19 08:48:39', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9484, 11, 748, 'M', '', '2023-09-19', '2023-09-19 08:48:39', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9485, 11, 749, 'M', '', '2023-09-19', '2023-09-19 08:48:39', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9486, 11, 750, 'M', '', '2023-09-19', '2023-09-19 08:48:39', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9487, 11, 751, 'A', '', '2023-09-19', '2023-09-19 08:48:39', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9488, 11, 752, 'A', '', '2023-09-19', '2023-09-19 08:48:39', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9489, 11, 753, 'I', '', '2023-09-19', '2023-09-19 08:48:39', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9490, 11, 754, 'M', '', '2023-09-19', '2023-09-19 08:48:39', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9491, 11, 755, 'M', '', '2023-09-19', '2023-09-19 08:48:39', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9492, 11, 757, 'M', '', '2023-09-19', '2023-09-19 08:48:39', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9493, 11, 758, 'M', '', '2023-09-19', '2023-09-19 08:48:39', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9494, 11, 761, 'A', '', '2023-09-19', '2023-09-19 08:48:39', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9495, 11, 763, 'M', '', '2023-09-19', '2023-09-19 08:48:39', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9496, 11, 764, 'M', '', '2023-09-19', '2023-09-19 08:48:39', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9497, 11, 766, 'M', '', '2023-09-19', '2023-09-19 08:48:39', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9498, 11, 767, 'M', '', '2023-09-19', '2023-09-19 08:48:39', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9499, 11, 768, 'M', '', '2023-09-19', '2023-09-19 08:48:39', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9500, 11, 769, 'M', '', '2023-09-19', '2023-09-19 08:48:39', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9501, 17, 877, 'M', '', '2023-09-19', '2023-09-19 08:53:04', 7, 61);
+INSERT INTO `presensi_harian` VALUES (9502, 17, 879, 'M', '', '2023-09-19', '2023-09-19 08:53:05', 7, 61);
+INSERT INTO `presensi_harian` VALUES (9503, 17, 880, 'I', '', '2023-09-19', '2023-09-19 08:53:05', 7, 61);
+INSERT INTO `presensi_harian` VALUES (9504, 17, 881, 'S', '', '2023-09-19', '2023-09-19 08:53:05', 7, 61);
+INSERT INTO `presensi_harian` VALUES (9505, 17, 882, 'M', '', '2023-09-19', '2023-09-19 08:53:05', 7, 61);
+INSERT INTO `presensi_harian` VALUES (9506, 17, 883, 'M', '', '2023-09-19', '2023-09-19 08:53:05', 7, 61);
+INSERT INTO `presensi_harian` VALUES (9507, 17, 884, 'M', '', '2023-09-19', '2023-09-19 08:53:05', 7, 61);
+INSERT INTO `presensi_harian` VALUES (9508, 17, 885, 'M', '', '2023-09-19', '2023-09-19 08:53:05', 7, 61);
+INSERT INTO `presensi_harian` VALUES (9509, 17, 886, 'M', '', '2023-09-19', '2023-09-19 08:53:05', 7, 61);
+INSERT INTO `presensi_harian` VALUES (9510, 17, 887, 'M', '', '2023-09-19', '2023-09-19 08:53:05', 7, 61);
+INSERT INTO `presensi_harian` VALUES (9511, 7, 838, 'M', '', '2023-09-19', '2023-09-19 09:42:42', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9512, 7, 839, 'M', '', '2023-09-19', '2023-09-19 09:42:42', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9513, 7, 840, 'M', '', '2023-09-19', '2023-09-19 09:42:42', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9514, 7, 841, 'A', '', '2023-09-19', '2023-09-19 09:42:42', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9515, 7, 842, 'M', '', '2023-09-19', '2023-09-19 09:42:42', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9516, 7, 843, 'A', '', '2023-09-19', '2023-09-19 09:42:42', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9517, 7, 844, 'M', '', '2023-09-19', '2023-09-19 09:42:42', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9518, 7, 845, 'M', '', '2023-09-19', '2023-09-19 09:42:42', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9519, 7, 846, 'A', '', '2023-09-19', '2023-09-19 09:42:42', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9520, 7, 847, 'M', '', '2023-09-19', '2023-09-19 09:42:42', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9521, 7, 848, 'M', '', '2023-09-19', '2023-09-19 09:42:42', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9522, 7, 849, 'A', '', '2023-09-19', '2023-09-19 09:42:42', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9523, 7, 850, 'A', '', '2023-09-19', '2023-09-19 09:42:42', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9524, 7, 851, 'M', '', '2023-09-19', '2023-09-19 09:42:42', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9525, 7, 852, 'M', '', '2023-09-19', '2023-09-19 09:42:42', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9526, 7, 853, 'M', '', '2023-09-19', '2023-09-19 09:42:42', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9527, 7, 854, 'M', '', '2023-09-19', '2023-09-19 09:42:42', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9528, 7, 855, 'A', '', '2023-09-19', '2023-09-19 09:42:42', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9529, 7, 856, 'S', '', '2023-09-19', '2023-09-19 09:42:42', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9530, 7, 857, 'M', '', '2023-09-19', '2023-09-19 09:42:42', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9531, 7, 858, 'M', '', '2023-09-19', '2023-09-19 09:42:42', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9532, 7, 859, 'M', '', '2023-09-19', '2023-09-19 09:42:42', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9533, 7, 860, 'M', '', '2023-09-19', '2023-09-19 09:42:42', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9534, 7, 861, 'M', '', '2023-09-19', '2023-09-19 09:42:42', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9535, 7, 862, 'M', '', '2023-09-19', '2023-09-19 09:42:42', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9536, 8, 956, 'M', '', '2023-09-19', '2023-09-19 09:43:41', 7, 53);
+INSERT INTO `presensi_harian` VALUES (9537, 8, 957, 'I', '', '2023-09-19', '2023-09-19 09:43:41', 7, 53);
+INSERT INTO `presensi_harian` VALUES (9538, 8, 958, 'I', '', '2023-09-19', '2023-09-19 09:43:41', 7, 53);
+INSERT INTO `presensi_harian` VALUES (9539, 8, 959, 'I', '', '2023-09-19', '2023-09-19 09:43:41', 7, 53);
+INSERT INTO `presensi_harian` VALUES (9540, 8, 960, 'M', '', '2023-09-19', '2023-09-19 09:43:41', 7, 53);
+INSERT INTO `presensi_harian` VALUES (9541, 8, 963, 'M', '', '2023-09-19', '2023-09-19 09:43:41', 7, 53);
+INSERT INTO `presensi_harian` VALUES (9542, 8, 964, 'M', '', '2023-09-19', '2023-09-19 09:43:41', 7, 53);
+INSERT INTO `presensi_harian` VALUES (9543, 8, 965, 'M', '', '2023-09-19', '2023-09-19 09:43:41', 7, 53);
+INSERT INTO `presensi_harian` VALUES (9544, 8, 967, 'M', '', '2023-09-19', '2023-09-19 09:43:41', 7, 53);
+INSERT INTO `presensi_harian` VALUES (9545, 8, 968, 'M', '', '2023-09-19', '2023-09-19 09:43:41', 7, 53);
+INSERT INTO `presensi_harian` VALUES (9546, 8, 969, 'M', '', '2023-09-19', '2023-09-19 09:43:41', 7, 53);
+INSERT INTO `presensi_harian` VALUES (9547, 8, 930, 'M', '', '2023-09-19', '2023-09-19 09:48:33', 7, 51);
+INSERT INTO `presensi_harian` VALUES (9548, 8, 931, 'S', '', '2023-09-19', '2023-09-19 09:48:33', 7, 51);
+INSERT INTO `presensi_harian` VALUES (9549, 8, 932, 'A', '', '2023-09-19', '2023-09-19 09:48:33', 7, 51);
+INSERT INTO `presensi_harian` VALUES (9550, 8, 933, 'M', '', '2023-09-19', '2023-09-19 09:48:33', 7, 51);
+INSERT INTO `presensi_harian` VALUES (9551, 8, 934, 'I', '', '2023-09-19', '2023-09-19 09:48:33', 7, 51);
+INSERT INTO `presensi_harian` VALUES (9552, 8, 935, 'S', '', '2023-09-19', '2023-09-19 09:48:33', 7, 51);
+INSERT INTO `presensi_harian` VALUES (9553, 8, 936, 'M', '', '2023-09-19', '2023-09-19 09:48:33', 7, 51);
+INSERT INTO `presensi_harian` VALUES (9554, 8, 937, 'M', '', '2023-09-19', '2023-09-19 09:48:33', 7, 51);
+INSERT INTO `presensi_harian` VALUES (9555, 8, 938, 'A', '', '2023-09-19', '2023-09-19 09:48:33', 7, 51);
+INSERT INTO `presensi_harian` VALUES (9556, 8, 939, 'A', '', '2023-09-19', '2023-09-19 09:48:33', 7, 51);
+INSERT INTO `presensi_harian` VALUES (9557, 8, 940, 'M', '', '2023-09-19', '2023-09-19 09:48:33', 7, 51);
+INSERT INTO `presensi_harian` VALUES (9558, 8, 941, 'M', '', '2023-09-19', '2023-09-19 09:48:33', 7, 51);
+INSERT INTO `presensi_harian` VALUES (9559, 8, 942, 'M', '', '2023-09-19', '2023-09-19 09:48:33', 7, 51);
+INSERT INTO `presensi_harian` VALUES (9560, 8, 943, 'A', '', '2023-09-19', '2023-09-19 09:48:33', 7, 51);
+INSERT INTO `presensi_harian` VALUES (9561, 8, 944, 'A', '', '2023-09-19', '2023-09-19 09:48:33', 7, 51);
+INSERT INTO `presensi_harian` VALUES (9562, 8, 966, 'I', '', '2023-09-19', '2023-09-19 09:48:33', 7, 51);
+INSERT INTO `presensi_harian` VALUES (9563, 31, 894, 'M', '', '2023-09-19', '2023-09-19 10:16:41', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9564, 31, 895, 'S', '', '2023-09-19', '2023-09-19 10:16:41', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9565, 31, 896, 'A', '', '2023-09-19', '2023-09-19 10:16:41', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9566, 31, 897, 'M', '', '2023-09-19', '2023-09-19 10:16:41', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9567, 31, 898, 'S', '', '2023-09-19', '2023-09-19 10:16:41', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9568, 31, 899, 'A', '', '2023-09-19', '2023-09-19 10:16:41', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9569, 31, 900, 'M', '', '2023-09-19', '2023-09-19 10:16:41', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9570, 31, 901, 'A', '', '2023-09-19', '2023-09-19 10:16:41', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9571, 31, 902, 'M', '', '2023-09-19', '2023-09-19 10:16:41', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9572, 31, 903, 'I', '', '2023-09-19', '2023-09-19 10:16:41', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9573, 31, 904, 'M', '', '2023-09-19', '2023-09-19 10:16:41', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9574, 31, 905, 'I', '', '2023-09-19', '2023-09-19 10:16:41', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9575, 31, 906, 'A', '', '2023-09-19', '2023-09-19 10:16:41', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9576, 31, 907, 'S', '', '2023-09-19', '2023-09-19 10:16:41', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9577, 31, 908, 'M', '', '2023-09-19', '2023-09-19 10:16:41', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9578, 31, 909, 'S', '', '2023-09-19', '2023-09-19 10:16:41', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9579, 31, 910, 'S', '', '2023-09-19', '2023-09-19 10:16:41', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9580, 31, 911, 'S', '', '2023-09-19', '2023-09-19 10:16:41', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9581, 31, 912, 'S', '', '2023-09-19', '2023-09-19 10:16:41', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9582, 31, 913, 'A', '', '2023-09-19', '2023-09-19 10:16:41', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9583, 31, 914, 'M', '', '2023-09-19', '2023-09-19 10:16:41', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9584, 31, 915, 'S', '', '2023-09-19', '2023-09-19 10:16:41', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9585, 31, 916, 'M', '', '2023-09-19', '2023-09-19 10:16:41', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9586, 31, 917, 'M', '', '2023-09-19', '2023-09-19 10:16:41', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9587, 31, 918, 'M', '', '2023-09-19', '2023-09-19 10:16:41', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9588, 31, 919, 'M', '', '2023-09-19', '2023-09-19 10:16:41', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9589, 31, 920, 'I', '', '2023-09-19', '2023-09-19 10:16:41', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9590, 31, 921, 'A', '', '2023-09-19', '2023-09-19 10:16:41', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9591, 31, 922, 'M', '', '2023-09-19', '2023-09-19 10:16:41', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9592, 31, 961, 'M', '', '2023-09-19', '2023-09-19 10:16:41', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9593, 31, 962, 'I', '', '2023-09-19', '2023-09-19 10:16:41', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9594, 24, 770, 'A', '', '2023-09-19', '2023-09-19 10:21:30', 7, 55);
+INSERT INTO `presensi_harian` VALUES (9595, 24, 771, 'M', '', '2023-09-19', '2023-09-19 10:21:30', 7, 55);
+INSERT INTO `presensi_harian` VALUES (9596, 24, 772, 'A', '', '2023-09-19', '2023-09-19 10:21:30', 7, 55);
+INSERT INTO `presensi_harian` VALUES (9597, 24, 773, 'M', '', '2023-09-19', '2023-09-19 10:21:30', 7, 55);
+INSERT INTO `presensi_harian` VALUES (9598, 24, 774, 'A', '', '2023-09-19', '2023-09-19 10:21:30', 7, 55);
+INSERT INTO `presensi_harian` VALUES (9599, 24, 775, 'M', '', '2023-09-19', '2023-09-19 10:21:30', 7, 55);
+INSERT INTO `presensi_harian` VALUES (9600, 24, 776, 'A', '', '2023-09-19', '2023-09-19 10:21:30', 7, 55);
+INSERT INTO `presensi_harian` VALUES (9601, 24, 777, 'M', '', '2023-09-19', '2023-09-19 10:21:30', 7, 55);
+INSERT INTO `presensi_harian` VALUES (9602, 24, 778, 'I', '', '2023-09-19', '2023-09-19 10:21:30', 7, 55);
+INSERT INTO `presensi_harian` VALUES (9603, 24, 779, 'M', '', '2023-09-19', '2023-09-19 10:21:30', 7, 55);
+INSERT INTO `presensi_harian` VALUES (9604, 24, 780, 'M', '', '2023-09-19', '2023-09-19 10:21:30', 7, 55);
+INSERT INTO `presensi_harian` VALUES (9605, 24, 781, 'M', '', '2023-09-19', '2023-09-19 10:21:30', 7, 55);
+INSERT INTO `presensi_harian` VALUES (9606, 24, 782, 'M', '', '2023-09-19', '2023-09-19 10:21:30', 7, 55);
+INSERT INTO `presensi_harian` VALUES (9607, 24, 783, 'M', '', '2023-09-19', '2023-09-19 10:21:30', 7, 55);
+INSERT INTO `presensi_harian` VALUES (9608, 24, 784, 'M', '', '2023-09-19', '2023-09-19 10:21:30', 7, 55);
+INSERT INTO `presensi_harian` VALUES (9609, 24, 785, 'M', '', '2023-09-19', '2023-09-19 10:21:30', 7, 55);
+INSERT INTO `presensi_harian` VALUES (9610, 24, 786, 'I', '', '2023-09-19', '2023-09-19 10:21:30', 7, 55);
+INSERT INTO `presensi_harian` VALUES (9611, 24, 787, 'I', '', '2023-09-19', '2023-09-19 10:21:30', 7, 55);
+INSERT INTO `presensi_harian` VALUES (9612, 24, 979, 'M', '', '2023-09-19', '2023-09-19 10:21:30', 7, 55);
+INSERT INTO `presensi_harian` VALUES (9613, 14, 838, 'M', '', '2023-09-19', '2023-09-19 10:37:08', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9614, 14, 839, 'M', '', '2023-09-19', '2023-09-19 10:37:08', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9615, 14, 840, 'M', '', '2023-09-19', '2023-09-19 10:37:08', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9616, 14, 841, 'A', '', '2023-09-19', '2023-09-19 10:37:08', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9617, 14, 842, 'M', '', '2023-09-19', '2023-09-19 10:37:08', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9618, 14, 843, 'A', '', '2023-09-19', '2023-09-19 10:37:08', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9619, 14, 844, 'I', '', '2023-09-19', '2023-09-19 10:37:08', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9620, 14, 845, 'M', '', '2023-09-19', '2023-09-19 10:37:08', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9621, 14, 846, 'A', '', '2023-09-19', '2023-09-19 10:37:08', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9622, 14, 847, 'I', '', '2023-09-19', '2023-09-19 10:37:08', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9623, 14, 848, 'M', '', '2023-09-19', '2023-09-19 10:37:08', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9624, 14, 849, 'A', '', '2023-09-19', '2023-09-19 10:37:08', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9625, 14, 850, 'I', '', '2023-09-19', '2023-09-19 10:37:08', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9626, 14, 851, 'M', '', '2023-09-19', '2023-09-19 10:37:08', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9627, 14, 852, 'M', '', '2023-09-19', '2023-09-19 10:37:08', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9628, 14, 853, 'A', '', '2023-09-19', '2023-09-19 10:37:08', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9629, 14, 854, 'A', '', '2023-09-19', '2023-09-19 10:37:08', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9630, 14, 855, 'A', '', '2023-09-19', '2023-09-19 10:37:08', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9631, 14, 856, 'A', '', '2023-09-19', '2023-09-19 10:37:08', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9632, 14, 857, 'M', '', '2023-09-19', '2023-09-19 10:37:08', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9633, 14, 858, 'M', '', '2023-09-19', '2023-09-19 10:37:08', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9634, 14, 859, 'M', '', '2023-09-19', '2023-09-19 10:37:08', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9635, 14, 860, 'I', '', '2023-09-19', '2023-09-19 10:37:08', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9636, 14, 861, 'A', '', '2023-09-19', '2023-09-19 10:37:08', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9637, 14, 862, 'M', '', '2023-09-19', '2023-09-19 10:37:08', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9638, 11, 788, 'M', '', '2023-09-19', '2023-09-19 12:17:55', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9639, 11, 789, 'M', '', '2023-09-19', '2023-09-19 12:17:55', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9640, 11, 790, 'M', '', '2023-09-19', '2023-09-19 12:17:55', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9641, 11, 791, 'M', '', '2023-09-19', '2023-09-19 12:17:55', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9642, 11, 792, 'M', '', '2023-09-19', '2023-09-19 12:17:55', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9643, 11, 793, 'M', '', '2023-09-19', '2023-09-19 12:17:55', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9644, 11, 794, 'M', '', '2023-09-19', '2023-09-19 12:17:55', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9645, 11, 795, 'M', '', '2023-09-19', '2023-09-19 12:17:55', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9646, 11, 796, 'M', '', '2023-09-19', '2023-09-19 12:17:55', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9647, 11, 797, 'M', '', '2023-09-19', '2023-09-19 12:17:55', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9648, 11, 798, 'M', '', '2023-09-19', '2023-09-19 12:17:55', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9649, 11, 799, 'M', '', '2023-09-19', '2023-09-19 12:17:55', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9650, 11, 800, 'M', '', '2023-09-19', '2023-09-19 12:17:55', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9651, 11, 801, 'M', '', '2023-09-19', '2023-09-19 12:17:55', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9652, 11, 802, 'M', '', '2023-09-19', '2023-09-19 12:17:55', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9653, 11, 803, 'M', '', '2023-09-19', '2023-09-19 12:17:55', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9654, 11, 804, 'M', '', '2023-09-19', '2023-09-19 12:17:55', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9655, 11, 805, 'M', '', '2023-09-19', '2023-09-19 12:17:55', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9656, 11, 806, 'A', '', '2023-09-19', '2023-09-19 12:17:55', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9657, 11, 807, 'M', '', '2023-09-19', '2023-09-19 12:17:55', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9658, 11, 808, 'M', '', '2023-09-19', '2023-09-19 12:17:55', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9659, 32, 945, 'M', '', '2023-09-19', '2023-09-19 12:31:25', 7, 67);
+INSERT INTO `presensi_harian` VALUES (9660, 32, 946, 'M', '', '2023-09-19', '2023-09-19 12:31:25', 7, 67);
+INSERT INTO `presensi_harian` VALUES (9661, 32, 947, 'M', '', '2023-09-19', '2023-09-19 12:31:25', 7, 67);
+INSERT INTO `presensi_harian` VALUES (9662, 32, 948, 'M', '', '2023-09-19', '2023-09-19 12:31:25', 7, 67);
+INSERT INTO `presensi_harian` VALUES (9663, 32, 949, 'M', '', '2023-09-19', '2023-09-19 12:31:25', 7, 67);
+INSERT INTO `presensi_harian` VALUES (9664, 32, 950, 'M', '', '2023-09-19', '2023-09-19 12:31:25', 7, 67);
+INSERT INTO `presensi_harian` VALUES (9665, 32, 951, 'M', '', '2023-09-19', '2023-09-19 12:31:25', 7, 67);
+INSERT INTO `presensi_harian` VALUES (9666, 32, 952, 'M', '', '2023-09-19', '2023-09-19 12:31:25', 7, 67);
+INSERT INTO `presensi_harian` VALUES (9667, 32, 953, 'M', '', '2023-09-19', '2023-09-19 12:31:25', 7, 67);
+INSERT INTO `presensi_harian` VALUES (9668, 32, 954, 'M', '', '2023-09-19', '2023-09-19 12:31:25', 7, 67);
+INSERT INTO `presensi_harian` VALUES (9669, 32, 955, 'I', '', '2023-09-19', '2023-09-19 12:31:25', 7, 67);
+INSERT INTO `presensi_harian` VALUES (9670, 32, 925, 'M', '', '2023-09-19', '2023-09-19 12:31:53', 7, 52);
+INSERT INTO `presensi_harian` VALUES (9671, 32, 926, 'M', '', '2023-09-19', '2023-09-19 12:31:53', 7, 52);
+INSERT INTO `presensi_harian` VALUES (9672, 32, 927, 'M', '', '2023-09-19', '2023-09-19 12:31:53', 7, 52);
+INSERT INTO `presensi_harian` VALUES (9673, 32, 928, 'M', '', '2023-09-19', '2023-09-19 12:31:53', 7, 52);
+INSERT INTO `presensi_harian` VALUES (9674, 32, 929, 'M', '', '2023-09-19', '2023-09-19 12:31:53', 7, 52);
+INSERT INTO `presensi_harian` VALUES (9675, 14, 863, 'M', '', '2023-09-19', '2023-09-19 12:48:19', 7, 57);
+INSERT INTO `presensi_harian` VALUES (9676, 14, 864, 'M', '', '2023-09-19', '2023-09-19 12:48:19', 7, 57);
+INSERT INTO `presensi_harian` VALUES (9677, 14, 865, 'M', '', '2023-09-19', '2023-09-19 12:48:19', 7, 57);
+INSERT INTO `presensi_harian` VALUES (9678, 14, 866, 'M', '', '2023-09-19', '2023-09-19 12:48:19', 7, 57);
+INSERT INTO `presensi_harian` VALUES (9679, 14, 867, 'M', '', '2023-09-19', '2023-09-19 12:48:19', 7, 57);
+INSERT INTO `presensi_harian` VALUES (9680, 14, 868, 'I', '', '2023-09-19', '2023-09-19 12:48:19', 7, 57);
+INSERT INTO `presensi_harian` VALUES (9681, 14, 869, 'M', '', '2023-09-19', '2023-09-19 12:48:19', 7, 57);
+INSERT INTO `presensi_harian` VALUES (9682, 14, 870, 'M', '', '2023-09-19', '2023-09-19 12:48:19', 7, 57);
+INSERT INTO `presensi_harian` VALUES (9683, 14, 871, 'M', '', '2023-09-19', '2023-09-19 12:48:19', 7, 57);
+INSERT INTO `presensi_harian` VALUES (9684, 14, 872, 'M', '', '2023-09-19', '2023-09-19 12:48:19', 7, 57);
+INSERT INTO `presensi_harian` VALUES (9685, 14, 873, 'M', '', '2023-09-19', '2023-09-19 12:48:19', 7, 57);
+INSERT INTO `presensi_harian` VALUES (9686, 14, 874, 'M', '', '2023-09-19', '2023-09-19 12:48:19', 7, 57);
+INSERT INTO `presensi_harian` VALUES (9687, 14, 875, 'M', '', '2023-09-19', '2023-09-19 12:48:19', 7, 57);
+INSERT INTO `presensi_harian` VALUES (9688, 14, 876, 'S', '', '2023-09-19', '2023-09-19 12:48:19', 7, 57);
+INSERT INTO `presensi_harian` VALUES (9689, 14, 888, 'M', '', '2023-09-19', '2023-09-19 13:30:21', 7, 66);
+INSERT INTO `presensi_harian` VALUES (9690, 14, 889, 'M', '', '2023-09-19', '2023-09-19 13:30:21', 7, 66);
+INSERT INTO `presensi_harian` VALUES (9691, 14, 890, 'M', '', '2023-09-19', '2023-09-19 13:30:21', 7, 66);
+INSERT INTO `presensi_harian` VALUES (9692, 14, 891, 'M', '', '2023-09-19', '2023-09-19 13:30:21', 7, 66);
+INSERT INTO `presensi_harian` VALUES (9693, 14, 892, 'M', '', '2023-09-19', '2023-09-19 13:30:21', 7, 66);
+INSERT INTO `presensi_harian` VALUES (9694, 14, 893, 'A', '', '2023-09-19', '2023-09-19 13:30:21', 7, 66);
+INSERT INTO `presensi_harian` VALUES (9695, 20, 956, 'I', '', '2023-09-19', '2023-09-19 14:27:00', 7, 53);
+INSERT INTO `presensi_harian` VALUES (9696, 20, 957, 'I', '', '2023-09-19', '2023-09-19 14:27:00', 7, 53);
+INSERT INTO `presensi_harian` VALUES (9697, 20, 958, 'I', '', '2023-09-19', '2023-09-19 14:27:00', 7, 53);
+INSERT INTO `presensi_harian` VALUES (9698, 20, 959, 'I', '', '2023-09-19', '2023-09-19 14:27:00', 7, 53);
+INSERT INTO `presensi_harian` VALUES (9699, 20, 960, 'M', '', '2023-09-19', '2023-09-19 14:27:00', 7, 53);
+INSERT INTO `presensi_harian` VALUES (9700, 20, 963, 'M', '', '2023-09-19', '2023-09-19 14:27:00', 7, 53);
+INSERT INTO `presensi_harian` VALUES (9701, 20, 964, 'M', '', '2023-09-19', '2023-09-19 14:27:00', 7, 53);
+INSERT INTO `presensi_harian` VALUES (9702, 20, 965, 'M', '', '2023-09-19', '2023-09-19 14:27:00', 7, 53);
+INSERT INTO `presensi_harian` VALUES (9703, 20, 967, 'M', '', '2023-09-19', '2023-09-19 14:27:00', 7, 53);
+INSERT INTO `presensi_harian` VALUES (9704, 20, 968, 'M', '', '2023-09-19', '2023-09-19 14:27:00', 7, 53);
+INSERT INTO `presensi_harian` VALUES (9705, 20, 969, 'M', '', '2023-09-19', '2023-09-19 14:27:00', 7, 53);
+INSERT INTO `presensi_harian` VALUES (9706, 16, 821, 'M', '', '2023-09-19', '2023-09-19 14:28:13', 7, 58);
+INSERT INTO `presensi_harian` VALUES (9707, 16, 822, 'M', '', '2023-09-19', '2023-09-19 14:28:13', 7, 58);
+INSERT INTO `presensi_harian` VALUES (9708, 16, 823, 'M', '', '2023-09-19', '2023-09-19 14:28:13', 7, 58);
+INSERT INTO `presensi_harian` VALUES (9709, 16, 824, 'M', '', '2023-09-19', '2023-09-19 14:28:13', 7, 58);
+INSERT INTO `presensi_harian` VALUES (9710, 33, 894, 'M', '', '2023-09-19', '2023-09-19 15:24:28', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9711, 33, 895, 'M', '', '2023-09-19', '2023-09-19 15:24:28', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9712, 33, 896, 'A', '', '2023-09-19', '2023-09-19 15:24:28', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9713, 33, 897, 'M', '', '2023-09-19', '2023-09-19 15:24:28', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9714, 33, 898, 'A', '', '2023-09-19', '2023-09-19 15:24:28', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9715, 33, 899, 'A', '', '2023-09-19', '2023-09-19 15:24:28', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9716, 33, 900, 'M', '', '2023-09-19', '2023-09-19 15:24:28', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9717, 33, 901, 'M', '', '2023-09-19', '2023-09-19 15:24:28', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9718, 33, 902, 'M', '', '2023-09-19', '2023-09-19 15:24:28', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9719, 33, 903, 'I', '', '2023-09-19', '2023-09-19 15:24:28', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9720, 33, 904, 'M', '', '2023-09-19', '2023-09-19 15:24:28', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9721, 33, 905, 'A', '', '2023-09-19', '2023-09-19 15:24:28', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9722, 33, 906, 'M', '', '2023-09-19', '2023-09-19 15:24:28', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9723, 33, 907, 'M', '', '2023-09-19', '2023-09-19 15:24:28', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9724, 33, 908, 'M', '', '2023-09-19', '2023-09-19 15:24:28', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9725, 33, 909, 'A', '', '2023-09-19', '2023-09-19 15:24:28', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9726, 33, 910, 'A', '', '2023-09-19', '2023-09-19 15:24:28', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9727, 33, 911, 'A', '', '2023-09-19', '2023-09-19 15:24:28', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9728, 33, 912, 'A', '', '2023-09-19', '2023-09-19 15:24:28', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9729, 33, 913, 'M', '', '2023-09-19', '2023-09-19 15:24:28', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9730, 33, 914, 'M', '', '2023-09-19', '2023-09-19 15:24:28', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9731, 33, 915, 'A', '', '2023-09-19', '2023-09-19 15:24:28', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9732, 33, 916, 'M', '', '2023-09-19', '2023-09-19 15:24:28', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9733, 33, 917, 'M', '', '2023-09-19', '2023-09-19 15:24:28', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9734, 33, 918, 'M', '', '2023-09-19', '2023-09-19 15:24:28', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9735, 33, 919, 'M', '', '2023-09-19', '2023-09-19 15:24:28', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9736, 33, 920, 'A', '', '2023-09-19', '2023-09-19 15:24:28', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9737, 33, 921, 'A', '', '2023-09-19', '2023-09-19 15:24:28', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9738, 33, 922, 'M', '', '2023-09-19', '2023-09-19 15:24:28', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9739, 33, 961, 'M', '', '2023-09-19', '2023-09-19 15:24:28', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9740, 33, 962, 'I', '', '2023-09-19', '2023-09-19 15:24:28', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9741, 19, 925, 'M', '', '2023-09-19', '2023-09-19 15:24:43', 7, 52);
+INSERT INTO `presensi_harian` VALUES (9742, 19, 926, 'M', '', '2023-09-19', '2023-09-19 15:24:43', 7, 52);
+INSERT INTO `presensi_harian` VALUES (9743, 19, 927, 'M', '', '2023-09-19', '2023-09-19 15:24:43', 7, 52);
+INSERT INTO `presensi_harian` VALUES (9744, 19, 928, 'M', '', '2023-09-19', '2023-09-19 15:24:43', 7, 52);
+INSERT INTO `presensi_harian` VALUES (9745, 19, 929, 'M', '', '2023-09-19', '2023-09-19 15:24:43', 7, 52);
+INSERT INTO `presensi_harian` VALUES (9746, 33, 925, 'M', '', '2023-09-19', '2023-09-19 15:24:53', 7, 52);
+INSERT INTO `presensi_harian` VALUES (9747, 33, 926, 'M', '', '2023-09-19', '2023-09-19 15:24:53', 7, 52);
+INSERT INTO `presensi_harian` VALUES (9748, 33, 927, 'M', '', '2023-09-19', '2023-09-19 15:24:53', 7, 52);
+INSERT INTO `presensi_harian` VALUES (9749, 33, 928, 'M', '', '2023-09-19', '2023-09-19 15:24:53', 7, 52);
+INSERT INTO `presensi_harian` VALUES (9750, 33, 929, 'M', '', '2023-09-19', '2023-09-19 15:24:53', 7, 52);
+INSERT INTO `presensi_harian` VALUES (9751, 19, 945, 'M', '', '2023-09-19', '2023-09-19 15:25:11', 7, 67);
+INSERT INTO `presensi_harian` VALUES (9752, 19, 946, 'M', '', '2023-09-19', '2023-09-19 15:25:11', 7, 67);
+INSERT INTO `presensi_harian` VALUES (9753, 19, 947, 'M', '', '2023-09-19', '2023-09-19 15:25:11', 7, 67);
+INSERT INTO `presensi_harian` VALUES (9754, 19, 948, 'M', '', '2023-09-19', '2023-09-19 15:25:11', 7, 67);
+INSERT INTO `presensi_harian` VALUES (9755, 19, 949, 'M', '', '2023-09-19', '2023-09-19 15:25:11', 7, 67);
+INSERT INTO `presensi_harian` VALUES (9756, 19, 950, 'M', '', '2023-09-19', '2023-09-19 15:25:11', 7, 67);
+INSERT INTO `presensi_harian` VALUES (9757, 19, 951, 'M', '', '2023-09-19', '2023-09-19 15:25:11', 7, 67);
+INSERT INTO `presensi_harian` VALUES (9758, 19, 952, 'M', '', '2023-09-19', '2023-09-19 15:25:11', 7, 67);
+INSERT INTO `presensi_harian` VALUES (9759, 19, 953, 'M', '', '2023-09-19', '2023-09-19 15:25:11', 7, 67);
+INSERT INTO `presensi_harian` VALUES (9760, 19, 954, 'M', '', '2023-09-19', '2023-09-19 15:25:11', 7, 67);
+INSERT INTO `presensi_harian` VALUES (9761, 19, 955, 'I', '', '2023-09-19', '2023-09-19 15:25:11', 7, 67);
+INSERT INTO `presensi_harian` VALUES (9762, 33, 945, 'M', '', '2023-09-19', '2023-09-19 15:25:26', 7, 67);
+INSERT INTO `presensi_harian` VALUES (9763, 33, 946, 'M', '', '2023-09-19', '2023-09-19 15:25:26', 7, 67);
+INSERT INTO `presensi_harian` VALUES (9764, 33, 947, 'M', '', '2023-09-19', '2023-09-19 15:25:26', 7, 67);
+INSERT INTO `presensi_harian` VALUES (9765, 33, 948, 'M', '', '2023-09-19', '2023-09-19 15:25:26', 7, 67);
+INSERT INTO `presensi_harian` VALUES (9766, 33, 949, 'M', '', '2023-09-19', '2023-09-19 15:25:26', 7, 67);
+INSERT INTO `presensi_harian` VALUES (9767, 33, 950, 'M', '', '2023-09-19', '2023-09-19 15:25:26', 7, 67);
+INSERT INTO `presensi_harian` VALUES (9768, 33, 951, 'M', '', '2023-09-19', '2023-09-19 15:25:26', 7, 67);
+INSERT INTO `presensi_harian` VALUES (9769, 33, 952, 'M', '', '2023-09-19', '2023-09-19 15:25:26', 7, 67);
+INSERT INTO `presensi_harian` VALUES (9770, 33, 953, 'M', '', '2023-09-19', '2023-09-19 15:25:26', 7, 67);
+INSERT INTO `presensi_harian` VALUES (9771, 33, 954, 'M', '', '2023-09-19', '2023-09-19 15:25:26', 7, 67);
+INSERT INTO `presensi_harian` VALUES (9772, 33, 955, 'I', '', '2023-09-19', '2023-09-19 15:25:26', 7, 67);
+INSERT INTO `presensi_harian` VALUES (9773, 10, 809, 'M', '', '2023-09-19', '2023-09-19 18:38:43', 7, 60);
+INSERT INTO `presensi_harian` VALUES (9774, 10, 810, 'M', '', '2023-09-19', '2023-09-19 18:38:43', 7, 60);
+INSERT INTO `presensi_harian` VALUES (9775, 10, 811, 'M', '', '2023-09-19', '2023-09-19 18:38:43', 7, 60);
+INSERT INTO `presensi_harian` VALUES (9776, 10, 812, 'M', '', '2023-09-19', '2023-09-19 18:38:43', 7, 60);
+INSERT INTO `presensi_harian` VALUES (9777, 10, 813, 'M', '', '2023-09-19', '2023-09-19 18:38:43', 7, 60);
+INSERT INTO `presensi_harian` VALUES (9778, 10, 814, 'M', '', '2023-09-19', '2023-09-19 18:38:43', 7, 60);
+INSERT INTO `presensi_harian` VALUES (9779, 10, 815, 'M', '', '2023-09-19', '2023-09-19 18:38:43', 7, 60);
+INSERT INTO `presensi_harian` VALUES (9780, 10, 816, 'M', '', '2023-09-19', '2023-09-19 18:38:43', 7, 60);
+INSERT INTO `presensi_harian` VALUES (9781, 10, 817, 'M', '', '2023-09-19', '2023-09-19 18:38:43', 7, 60);
+INSERT INTO `presensi_harian` VALUES (9782, 10, 818, 'M', '', '2023-09-19', '2023-09-19 18:38:43', 7, 60);
+INSERT INTO `presensi_harian` VALUES (9783, 10, 819, 'M', '', '2023-09-19', '2023-09-19 18:38:43', 7, 60);
+INSERT INTO `presensi_harian` VALUES (9784, 10, 820, 'M', '', '2023-09-19', '2023-09-19 18:38:43', 7, 60);
+INSERT INTO `presensi_harian` VALUES (9785, 10, 888, 'M', '', '2023-09-19', '2023-09-19 18:38:56', 7, 66);
+INSERT INTO `presensi_harian` VALUES (9786, 10, 889, 'M', '', '2023-09-19', '2023-09-19 18:38:56', 7, 66);
+INSERT INTO `presensi_harian` VALUES (9787, 10, 890, 'M', '', '2023-09-19', '2023-09-19 18:38:56', 7, 66);
+INSERT INTO `presensi_harian` VALUES (9788, 10, 891, 'M', '', '2023-09-19', '2023-09-19 18:38:56', 7, 66);
+INSERT INTO `presensi_harian` VALUES (9789, 10, 892, 'M', '', '2023-09-19', '2023-09-19 18:38:56', 7, 66);
+INSERT INTO `presensi_harian` VALUES (9790, 10, 893, 'I', '', '2023-09-19', '2023-09-19 18:38:56', 7, 66);
+INSERT INTO `presensi_harian` VALUES (9791, 10, 825, 'M', '', '2023-09-19', '2023-09-19 18:39:10', 7, 62);
+INSERT INTO `presensi_harian` VALUES (9792, 10, 827, 'M', '', '2023-09-19', '2023-09-19 18:39:10', 7, 62);
+INSERT INTO `presensi_harian` VALUES (9793, 10, 828, 'M', '', '2023-09-19', '2023-09-19 18:39:10', 7, 62);
+INSERT INTO `presensi_harian` VALUES (9794, 10, 829, 'M', '', '2023-09-19', '2023-09-19 18:39:10', 7, 62);
+INSERT INTO `presensi_harian` VALUES (9795, 10, 830, 'M', '', '2023-09-19', '2023-09-19 18:39:10', 7, 62);
+INSERT INTO `presensi_harian` VALUES (9796, 10, 831, 'M', '', '2023-09-19', '2023-09-19 18:39:10', 7, 62);
+INSERT INTO `presensi_harian` VALUES (9797, 10, 832, 'M', '', '2023-09-19', '2023-09-19 18:39:10', 7, 62);
+INSERT INTO `presensi_harian` VALUES (9798, 10, 833, 'M', '', '2023-09-19', '2023-09-19 18:39:10', 7, 62);
+INSERT INTO `presensi_harian` VALUES (9799, 10, 834, 'M', '', '2023-09-19', '2023-09-19 18:39:10', 7, 62);
+INSERT INTO `presensi_harian` VALUES (9800, 10, 835, 'M', '', '2023-09-19', '2023-09-19 18:39:10', 7, 62);
+INSERT INTO `presensi_harian` VALUES (9801, 10, 836, 'M', '', '2023-09-19', '2023-09-19 18:39:10', 7, 62);
+INSERT INTO `presensi_harian` VALUES (9802, 10, 837, 'M', '', '2023-09-19', '2023-09-19 18:39:10', 7, 62);
+INSERT INTO `presensi_harian` VALUES (9803, 7, 745, 'A', '', '2023-09-20', '2023-09-20 08:33:39', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9804, 7, 746, 'A', '', '2023-09-20', '2023-09-20 08:33:39', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9805, 7, 747, 'A', '', '2023-09-20', '2023-09-20 08:33:39', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9806, 7, 748, 'A', '', '2023-09-20', '2023-09-20 08:33:39', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9807, 7, 749, 'M', '', '2023-09-20', '2023-09-20 08:33:39', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9808, 7, 750, 'A', '', '2023-09-20', '2023-09-20 08:33:39', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9809, 7, 751, 'A', '', '2023-09-20', '2023-09-20 08:33:39', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9810, 7, 752, 'M', '', '2023-09-20', '2023-09-20 08:33:39', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9811, 7, 753, 'M', '', '2023-09-20', '2023-09-20 08:33:39', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9812, 7, 754, 'M', '', '2023-09-20', '2023-09-20 08:33:39', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9813, 7, 755, 'M', '', '2023-09-20', '2023-09-20 08:33:39', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9814, 7, 757, 'M', '', '2023-09-20', '2023-09-20 08:33:39', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9815, 7, 758, 'M', '', '2023-09-20', '2023-09-20 08:33:39', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9816, 7, 761, 'A', '', '2023-09-20', '2023-09-20 08:33:39', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9817, 7, 763, 'M', '', '2023-09-20', '2023-09-20 08:33:39', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9818, 7, 764, 'M', '', '2023-09-20', '2023-09-20 08:33:39', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9819, 7, 766, 'M', '', '2023-09-20', '2023-09-20 08:33:39', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9820, 7, 767, 'M', '', '2023-09-20', '2023-09-20 08:33:39', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9821, 7, 768, 'M', '', '2023-09-20', '2023-09-20 08:33:39', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9822, 7, 769, 'M', '', '2023-09-20', '2023-09-20 08:33:39', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9823, 24, 788, 'M', '', '2023-09-20', '2023-09-20 08:44:49', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9824, 24, 789, 'M', '', '2023-09-20', '2023-09-20 08:44:49', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9825, 24, 790, 'M', '', '2023-09-20', '2023-09-20 08:44:49', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9826, 24, 791, 'M', '', '2023-09-20', '2023-09-20 08:44:49', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9827, 24, 792, 'M', '', '2023-09-20', '2023-09-20 08:44:49', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9828, 24, 793, 'M', '', '2023-09-20', '2023-09-20 08:44:49', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9829, 24, 794, 'A', '', '2023-09-20', '2023-09-20 08:44:49', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9830, 24, 795, 'M', '', '2023-09-20', '2023-09-20 08:44:50', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9831, 24, 796, 'M', '', '2023-09-20', '2023-09-20 08:44:50', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9832, 24, 797, 'M', '', '2023-09-20', '2023-09-20 08:44:50', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9833, 24, 798, 'M', '', '2023-09-20', '2023-09-20 08:44:50', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9834, 24, 799, 'M', '', '2023-09-20', '2023-09-20 08:44:50', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9835, 24, 800, 'I', '', '2023-09-20', '2023-09-20 08:44:50', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9836, 24, 801, 'M', '', '2023-09-20', '2023-09-20 08:44:50', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9837, 24, 802, 'M', '', '2023-09-20', '2023-09-20 08:44:50', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9838, 24, 803, 'M', '', '2023-09-20', '2023-09-20 08:44:50', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9839, 24, 804, 'I', '', '2023-09-20', '2023-09-20 08:44:50', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9840, 24, 805, 'M', '', '2023-09-20', '2023-09-20 08:44:50', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9841, 24, 806, 'I', '', '2023-09-20', '2023-09-20 08:44:50', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9842, 24, 807, 'M', '', '2023-09-20', '2023-09-20 08:44:50', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9843, 24, 808, 'M', '', '2023-09-20', '2023-09-20 08:44:50', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9844, 31, 956, 'I', '', '2023-09-20', '2023-09-20 09:04:24', 7, 53);
+INSERT INTO `presensi_harian` VALUES (9845, 31, 957, 'I', '', '2023-09-20', '2023-09-20 09:04:24', 7, 53);
+INSERT INTO `presensi_harian` VALUES (9846, 31, 958, 'M', '', '2023-09-20', '2023-09-20 09:04:24', 7, 53);
+INSERT INTO `presensi_harian` VALUES (9847, 31, 959, 'I', '', '2023-09-20', '2023-09-20 09:04:24', 7, 53);
+INSERT INTO `presensi_harian` VALUES (9848, 31, 960, 'M', '', '2023-09-20', '2023-09-20 09:04:24', 7, 53);
+INSERT INTO `presensi_harian` VALUES (9849, 31, 963, 'S', '', '2023-09-20', '2023-09-20 09:04:24', 7, 53);
+INSERT INTO `presensi_harian` VALUES (9850, 31, 964, 'M', '', '2023-09-20', '2023-09-20 09:04:24', 7, 53);
+INSERT INTO `presensi_harian` VALUES (9851, 31, 965, 'M', '', '2023-09-20', '2023-09-20 09:04:24', 7, 53);
+INSERT INTO `presensi_harian` VALUES (9852, 31, 967, 'M', '', '2023-09-20', '2023-09-20 09:04:24', 7, 53);
+INSERT INTO `presensi_harian` VALUES (9853, 31, 968, 'M', '', '2023-09-20', '2023-09-20 09:04:24', 7, 53);
+INSERT INTO `presensi_harian` VALUES (9854, 31, 969, 'M', '', '2023-09-20', '2023-09-20 09:04:24', 7, 53);
+INSERT INTO `presensi_harian` VALUES (9855, 12, 894, 'M', '', '2023-09-20', '2023-09-20 09:26:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9856, 12, 895, 'M', '', '2023-09-20', '2023-09-20 09:26:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9857, 12, 896, 'A', '', '2023-09-20', '2023-09-20 09:26:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9858, 12, 897, 'M', '', '2023-09-20', '2023-09-20 09:26:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9859, 12, 898, 'S', '', '2023-09-20', '2023-09-20 09:26:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9860, 12, 899, 'A', '', '2023-09-20', '2023-09-20 09:26:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9861, 12, 900, 'M', '', '2023-09-20', '2023-09-20 09:26:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9862, 12, 901, 'M', '', '2023-09-20', '2023-09-20 09:26:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9863, 12, 902, 'M', '', '2023-09-20', '2023-09-20 09:26:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9864, 12, 903, 'M', '', '2023-09-20', '2023-09-20 09:26:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9865, 12, 904, 'A', '', '2023-09-20', '2023-09-20 09:26:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9866, 12, 905, 'M', '', '2023-09-20', '2023-09-20 09:26:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9867, 12, 906, 'M', '', '2023-09-20', '2023-09-20 09:26:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9868, 12, 907, 'S', '', '2023-09-20', '2023-09-20 09:26:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9869, 12, 908, 'M', '', '2023-09-20', '2023-09-20 09:26:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9870, 12, 909, 'M', '', '2023-09-20', '2023-09-20 09:26:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9871, 12, 910, 'S', '', '2023-09-20', '2023-09-20 09:26:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9872, 12, 911, 'M', '', '2023-09-20', '2023-09-20 09:26:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9873, 12, 912, 'A', '', '2023-09-20', '2023-09-20 09:26:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9874, 12, 913, 'A', '', '2023-09-20', '2023-09-20 09:26:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9875, 12, 914, 'M', '', '2023-09-20', '2023-09-20 09:26:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9876, 12, 915, 'M', '', '2023-09-20', '2023-09-20 09:26:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9877, 12, 916, 'M', '', '2023-09-20', '2023-09-20 09:26:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9878, 12, 917, 'M', '', '2023-09-20', '2023-09-20 09:26:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9879, 12, 918, 'M', '', '2023-09-20', '2023-09-20 09:26:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9880, 12, 919, 'M', '', '2023-09-20', '2023-09-20 09:26:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9881, 12, 920, 'M', '', '2023-09-20', '2023-09-20 09:26:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9882, 12, 921, 'A', '', '2023-09-20', '2023-09-20 09:26:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9883, 12, 922, 'M', '', '2023-09-20', '2023-09-20 09:26:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9884, 12, 961, 'M', '', '2023-09-20', '2023-09-20 09:26:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9885, 12, 962, 'I', '', '2023-09-20', '2023-09-20 09:26:24', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9886, 13, 788, 'M', '', '2023-09-20', '2023-09-20 09:27:55', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9887, 13, 789, 'M', '', '2023-09-20', '2023-09-20 09:27:55', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9888, 13, 790, 'A', '', '2023-09-20', '2023-09-20 09:27:55', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9889, 13, 791, 'M', '', '2023-09-20', '2023-09-20 09:27:55', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9890, 13, 792, 'M', '', '2023-09-20', '2023-09-20 09:27:55', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9891, 13, 793, 'M', '', '2023-09-20', '2023-09-20 09:27:55', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9892, 13, 794, 'S', '', '2023-09-20', '2023-09-20 09:27:55', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9893, 13, 795, 'M', '', '2023-09-20', '2023-09-20 09:27:55', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9894, 13, 796, 'A', '', '2023-09-20', '2023-09-20 09:27:55', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9895, 13, 797, 'M', '', '2023-09-20', '2023-09-20 09:27:55', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9896, 13, 798, 'M', '', '2023-09-20', '2023-09-20 09:27:55', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9897, 13, 799, 'A', '', '2023-09-20', '2023-09-20 09:27:55', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9898, 13, 800, 'S', '', '2023-09-20', '2023-09-20 09:27:55', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9899, 13, 801, 'M', '', '2023-09-20', '2023-09-20 09:27:55', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9900, 13, 802, 'M', '', '2023-09-20', '2023-09-20 09:27:55', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9901, 13, 803, 'M', '', '2023-09-20', '2023-09-20 09:27:55', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9902, 13, 804, 'I', '', '2023-09-20', '2023-09-20 09:27:55', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9903, 13, 805, 'M', '', '2023-09-20', '2023-09-20 09:27:55', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9904, 13, 806, 'A', '', '2023-09-20', '2023-09-20 09:27:55', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9905, 13, 807, 'A', '', '2023-09-20', '2023-09-20 09:27:55', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9906, 13, 808, 'A', '', '2023-09-20', '2023-09-20 09:27:55', 7, 59);
+INSERT INTO `presensi_harian` VALUES (9907, 15, 930, 'M', '', '2023-09-20', '2023-09-20 10:10:43', 7, 51);
+INSERT INTO `presensi_harian` VALUES (9908, 15, 931, 'M', '', '2023-09-20', '2023-09-20 10:10:43', 7, 51);
+INSERT INTO `presensi_harian` VALUES (9909, 15, 932, 'M', '', '2023-09-20', '2023-09-20 10:10:43', 7, 51);
+INSERT INTO `presensi_harian` VALUES (9910, 15, 933, 'S', '', '2023-09-20', '2023-09-20 10:10:43', 7, 51);
+INSERT INTO `presensi_harian` VALUES (9911, 15, 934, 'M', '', '2023-09-20', '2023-09-20 10:10:43', 7, 51);
+INSERT INTO `presensi_harian` VALUES (9912, 15, 935, 'M', '', '2023-09-20', '2023-09-20 10:10:43', 7, 51);
+INSERT INTO `presensi_harian` VALUES (9913, 15, 936, 'M', '', '2023-09-20', '2023-09-20 10:10:43', 7, 51);
+INSERT INTO `presensi_harian` VALUES (9914, 15, 937, 'M', '', '2023-09-20', '2023-09-20 10:10:43', 7, 51);
+INSERT INTO `presensi_harian` VALUES (9915, 15, 938, 'M', '', '2023-09-20', '2023-09-20 10:10:43', 7, 51);
+INSERT INTO `presensi_harian` VALUES (9916, 15, 939, 'A', '', '2023-09-20', '2023-09-20 10:10:43', 7, 51);
+INSERT INTO `presensi_harian` VALUES (9917, 15, 940, 'M', '', '2023-09-20', '2023-09-20 10:10:43', 7, 51);
+INSERT INTO `presensi_harian` VALUES (9918, 15, 941, 'M', '', '2023-09-20', '2023-09-20 10:10:43', 7, 51);
+INSERT INTO `presensi_harian` VALUES (9919, 15, 942, 'M', '', '2023-09-20', '2023-09-20 10:10:43', 7, 51);
+INSERT INTO `presensi_harian` VALUES (9920, 15, 943, 'S', '', '2023-09-20', '2023-09-20 10:10:43', 7, 51);
+INSERT INTO `presensi_harian` VALUES (9921, 15, 944, 'I', '', '2023-09-20', '2023-09-20 10:10:43', 7, 51);
+INSERT INTO `presensi_harian` VALUES (9922, 15, 966, 'I', '', '2023-09-20', '2023-09-20 10:10:43', 7, 51);
+INSERT INTO `presensi_harian` VALUES (9923, 24, 745, 'A', '', '2023-09-20', '2023-09-20 10:45:00', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9924, 24, 746, 'M', '', '2023-09-20', '2023-09-20 10:45:00', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9925, 24, 747, 'M', '', '2023-09-20', '2023-09-20 10:45:00', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9926, 24, 748, 'A', '', '2023-09-20', '2023-09-20 10:45:00', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9927, 24, 749, 'M', '', '2023-09-20', '2023-09-20 10:45:00', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9928, 24, 750, 'A', '', '2023-09-20', '2023-09-20 10:45:00', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9929, 24, 751, 'A', '', '2023-09-20', '2023-09-20 10:45:00', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9930, 24, 752, 'M', '', '2023-09-20', '2023-09-20 10:45:00', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9931, 24, 753, 'M', '', '2023-09-20', '2023-09-20 10:45:00', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9932, 24, 754, 'M', '', '2023-09-20', '2023-09-20 10:45:00', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9933, 24, 755, 'M', '', '2023-09-20', '2023-09-20 10:45:00', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9934, 24, 757, 'M', '', '2023-09-20', '2023-09-20 10:45:00', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9935, 24, 758, 'M', '', '2023-09-20', '2023-09-20 10:45:00', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9936, 24, 761, 'I', '', '2023-09-20', '2023-09-20 10:45:00', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9937, 24, 763, 'M', '', '2023-09-20', '2023-09-20 10:45:00', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9938, 24, 764, 'A', '', '2023-09-20', '2023-09-20 10:45:00', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9939, 24, 766, 'A', '', '2023-09-20', '2023-09-20 10:45:00', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9940, 24, 767, 'M', '', '2023-09-20', '2023-09-20 10:45:00', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9941, 24, 768, 'M', '', '2023-09-20', '2023-09-20 10:45:01', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9942, 24, 769, 'M', '', '2023-09-20', '2023-09-20 10:45:01', 7, 54);
+INSERT INTO `presensi_harian` VALUES (9943, 10, 894, 'M', '', '2023-09-20', '2023-09-20 11:02:27', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9944, 10, 895, 'M', '', '2023-09-20', '2023-09-20 11:02:27', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9945, 10, 896, 'A', '', '2023-09-20', '2023-09-20 11:02:27', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9946, 10, 897, 'M', '', '2023-09-20', '2023-09-20 11:02:27', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9947, 10, 898, 'S', '', '2023-09-20', '2023-09-20 11:02:27', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9948, 10, 899, 'A', '', '2023-09-20', '2023-09-20 11:02:27', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9949, 10, 900, 'M', '', '2023-09-20', '2023-09-20 11:02:27', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9950, 10, 901, 'M', '', '2023-09-20', '2023-09-20 11:02:27', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9951, 10, 902, 'M', '', '2023-09-20', '2023-09-20 11:02:27', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9952, 10, 903, 'M', '', '2023-09-20', '2023-09-20 11:02:27', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9953, 10, 904, 'M', '', '2023-09-20', '2023-09-20 11:02:27', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9954, 10, 905, 'M', '', '2023-09-20', '2023-09-20 11:02:27', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9955, 10, 906, 'M', '', '2023-09-20', '2023-09-20 11:02:27', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9956, 10, 907, 'M', '', '2023-09-20', '2023-09-20 11:02:27', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9957, 10, 908, 'M', '', '2023-09-20', '2023-09-20 11:02:27', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9958, 10, 909, 'M', '', '2023-09-20', '2023-09-20 11:02:27', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9959, 10, 910, 'M', '', '2023-09-20', '2023-09-20 11:02:27', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9960, 10, 911, 'M', '', '2023-09-20', '2023-09-20 11:02:27', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9961, 10, 912, 'M', '', '2023-09-20', '2023-09-20 11:02:27', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9962, 10, 913, 'M', '', '2023-09-20', '2023-09-20 11:02:27', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9963, 10, 914, 'M', '', '2023-09-20', '2023-09-20 11:02:27', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9964, 10, 915, 'M', '', '2023-09-20', '2023-09-20 11:02:27', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9965, 10, 916, 'M', '', '2023-09-20', '2023-09-20 11:02:27', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9966, 10, 917, 'M', '', '2023-09-20', '2023-09-20 11:02:27', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9967, 10, 918, 'M', '', '2023-09-20', '2023-09-20 11:02:27', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9968, 10, 919, 'M', '', '2023-09-20', '2023-09-20 11:02:27', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9969, 10, 920, 'M', '', '2023-09-20', '2023-09-20 11:02:27', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9970, 10, 921, 'M', '', '2023-09-20', '2023-09-20 11:02:27', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9971, 10, 922, 'M', '', '2023-09-20', '2023-09-20 11:02:27', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9972, 10, 961, 'M', '', '2023-09-20', '2023-09-20 11:02:27', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9973, 10, 962, 'I', '', '2023-09-20', '2023-09-20 11:02:27', 7, 49);
+INSERT INTO `presensi_harian` VALUES (9974, 17, 838, 'M', '', '2023-09-20', '2023-09-20 11:06:30', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9975, 17, 839, 'M', '', '2023-09-20', '2023-09-20 11:06:30', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9976, 17, 840, 'M', '', '2023-09-20', '2023-09-20 11:06:30', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9977, 17, 841, 'M', '', '2023-09-20', '2023-09-20 11:06:30', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9978, 17, 842, 'M', '', '2023-09-20', '2023-09-20 11:06:30', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9979, 17, 843, 'A', '', '2023-09-20', '2023-09-20 11:06:30', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9980, 17, 844, 'M', '', '2023-09-20', '2023-09-20 11:06:30', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9981, 17, 845, 'S', '', '2023-09-20', '2023-09-20 11:06:30', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9982, 17, 846, 'M', '', '2023-09-20', '2023-09-20 11:06:30', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9983, 17, 847, 'M', '', '2023-09-20', '2023-09-20 11:06:30', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9984, 17, 848, 'M', '', '2023-09-20', '2023-09-20 11:06:30', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9985, 17, 849, 'I', '', '2023-09-20', '2023-09-20 11:06:30', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9986, 17, 850, 'A', '', '2023-09-20', '2023-09-20 11:06:30', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9987, 17, 851, 'M', '', '2023-09-20', '2023-09-20 11:06:30', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9988, 17, 852, 'M', '', '2023-09-20', '2023-09-20 11:06:30', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9989, 17, 853, 'M', '', '2023-09-20', '2023-09-20 11:06:30', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9990, 17, 854, 'A', '', '2023-09-20', '2023-09-20 11:06:30', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9991, 17, 855, 'M', '', '2023-09-20', '2023-09-20 11:06:30', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9992, 17, 856, 'A', '', '2023-09-20', '2023-09-20 11:06:30', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9993, 17, 857, 'M', '', '2023-09-20', '2023-09-20 11:06:30', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9994, 17, 858, 'M', '', '2023-09-20', '2023-09-20 11:06:30', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9995, 17, 859, 'M', '', '2023-09-20', '2023-09-20 11:06:30', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9996, 17, 860, 'M', '', '2023-09-20', '2023-09-20 11:06:30', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9997, 17, 861, 'M', '', '2023-09-20', '2023-09-20 11:06:30', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9998, 17, 862, 'M', '', '2023-09-20', '2023-09-20 11:06:30', 7, 56);
+INSERT INTO `presensi_harian` VALUES (9999, 27, 956, 'A', '', '2023-09-20', '2023-09-20 11:09:21', 7, 53);
+INSERT INTO `presensi_harian` VALUES (10000, 27, 957, 'A', '', '2023-09-20', '2023-09-20 11:09:21', 7, 53);
+INSERT INTO `presensi_harian` VALUES (10001, 27, 958, 'M', '', '2023-09-20', '2023-09-20 11:09:21', 7, 53);
+INSERT INTO `presensi_harian` VALUES (10002, 27, 959, 'A', '', '2023-09-20', '2023-09-20 11:09:21', 7, 53);
+INSERT INTO `presensi_harian` VALUES (10003, 27, 960, 'M', '', '2023-09-20', '2023-09-20 11:09:21', 7, 53);
+INSERT INTO `presensi_harian` VALUES (10004, 27, 963, 'A', '', '2023-09-20', '2023-09-20 11:09:21', 7, 53);
+INSERT INTO `presensi_harian` VALUES (10005, 27, 964, 'A', '', '2023-09-20', '2023-09-20 11:09:21', 7, 53);
+INSERT INTO `presensi_harian` VALUES (10006, 27, 965, 'M', '', '2023-09-20', '2023-09-20 11:09:21', 7, 53);
+INSERT INTO `presensi_harian` VALUES (10007, 27, 967, 'M', '', '2023-09-20', '2023-09-20 11:09:21', 7, 53);
+INSERT INTO `presensi_harian` VALUES (10008, 27, 968, 'M', '', '2023-09-20', '2023-09-20 11:09:21', 7, 53);
+INSERT INTO `presensi_harian` VALUES (10009, 27, 969, 'M', '', '2023-09-20', '2023-09-20 11:09:21', 7, 53);
+INSERT INTO `presensi_harian` VALUES (10010, 9, 877, 'M', '', '2023-09-20', '2023-09-20 11:10:01', 7, 61);
+INSERT INTO `presensi_harian` VALUES (10011, 9, 879, 'M', '', '2023-09-20', '2023-09-20 11:10:01', 7, 61);
+INSERT INTO `presensi_harian` VALUES (10012, 9, 880, 'M', '', '2023-09-20', '2023-09-20 11:10:01', 7, 61);
+INSERT INTO `presensi_harian` VALUES (10013, 9, 881, 'M', '', '2023-09-20', '2023-09-20 11:10:01', 7, 61);
+INSERT INTO `presensi_harian` VALUES (10014, 9, 882, 'M', '', '2023-09-20', '2023-09-20 11:10:01', 7, 61);
+INSERT INTO `presensi_harian` VALUES (10015, 9, 883, 'M', '', '2023-09-20', '2023-09-20 11:10:01', 7, 61);
+INSERT INTO `presensi_harian` VALUES (10016, 9, 884, 'M', '', '2023-09-20', '2023-09-20 11:10:01', 7, 61);
+INSERT INTO `presensi_harian` VALUES (10017, 9, 885, 'M', '', '2023-09-20', '2023-09-20 11:10:01', 7, 61);
+INSERT INTO `presensi_harian` VALUES (10018, 9, 886, 'M', '', '2023-09-20', '2023-09-20 11:10:01', 7, 61);
+INSERT INTO `presensi_harian` VALUES (10019, 9, 887, 'M', '', '2023-09-20', '2023-09-20 11:10:01', 7, 61);
+INSERT INTO `presensi_harian` VALUES (10020, 24, 877, 'M', '', '2023-09-20', '2023-09-20 11:33:02', 7, 61);
+INSERT INTO `presensi_harian` VALUES (10021, 24, 879, 'M', '', '2023-09-20', '2023-09-20 11:33:02', 7, 61);
+INSERT INTO `presensi_harian` VALUES (10022, 24, 880, 'M', '', '2023-09-20', '2023-09-20 11:33:02', 7, 61);
+INSERT INTO `presensi_harian` VALUES (10023, 24, 881, 'M', '', '2023-09-20', '2023-09-20 11:33:02', 7, 61);
+INSERT INTO `presensi_harian` VALUES (10024, 24, 882, 'M', '', '2023-09-20', '2023-09-20 11:33:02', 7, 61);
+INSERT INTO `presensi_harian` VALUES (10025, 24, 883, 'M', '', '2023-09-20', '2023-09-20 11:33:02', 7, 61);
+INSERT INTO `presensi_harian` VALUES (10026, 24, 884, 'M', '', '2023-09-20', '2023-09-20 11:33:02', 7, 61);
+INSERT INTO `presensi_harian` VALUES (10027, 24, 885, 'M', '', '2023-09-20', '2023-09-20 11:33:02', 7, 61);
+INSERT INTO `presensi_harian` VALUES (10028, 24, 886, 'M', '', '2023-09-20', '2023-09-20 11:33:02', 7, 61);
+INSERT INTO `presensi_harian` VALUES (10029, 24, 887, 'A', '', '2023-09-20', '2023-09-20 11:33:02', 7, 61);
+INSERT INTO `presensi_harian` VALUES (10030, 32, 809, 'M', '', '2023-09-20', '2023-09-20 12:40:12', 7, 60);
+INSERT INTO `presensi_harian` VALUES (10031, 32, 810, 'M', '', '2023-09-20', '2023-09-20 12:40:12', 7, 60);
+INSERT INTO `presensi_harian` VALUES (10032, 32, 811, 'M', '', '2023-09-20', '2023-09-20 12:40:12', 7, 60);
+INSERT INTO `presensi_harian` VALUES (10033, 32, 812, 'M', '', '2023-09-20', '2023-09-20 12:40:12', 7, 60);
+INSERT INTO `presensi_harian` VALUES (10034, 32, 813, 'M', '', '2023-09-20', '2023-09-20 12:40:12', 7, 60);
+INSERT INTO `presensi_harian` VALUES (10035, 32, 814, 'M', '', '2023-09-20', '2023-09-20 12:40:12', 7, 60);
+INSERT INTO `presensi_harian` VALUES (10036, 32, 815, 'M', '', '2023-09-20', '2023-09-20 12:40:12', 7, 60);
+INSERT INTO `presensi_harian` VALUES (10037, 32, 816, 'M', '', '2023-09-20', '2023-09-20 12:40:12', 7, 60);
+INSERT INTO `presensi_harian` VALUES (10038, 32, 817, 'M', '', '2023-09-20', '2023-09-20 12:40:12', 7, 60);
+INSERT INTO `presensi_harian` VALUES (10039, 32, 818, 'M', '', '2023-09-20', '2023-09-20 12:40:12', 7, 60);
+INSERT INTO `presensi_harian` VALUES (10040, 32, 819, 'M', '', '2023-09-20', '2023-09-20 12:40:12', 7, 60);
+INSERT INTO `presensi_harian` VALUES (10041, 32, 820, 'M', '', '2023-09-20', '2023-09-20 12:40:12', 7, 60);
+INSERT INTO `presensi_harian` VALUES (10042, 32, 888, 'M', '', '2023-09-20', '2023-09-20 12:41:28', 7, 66);
+INSERT INTO `presensi_harian` VALUES (10043, 32, 889, 'M', '', '2023-09-20', '2023-09-20 12:41:28', 7, 66);
+INSERT INTO `presensi_harian` VALUES (10044, 32, 890, 'M', '', '2023-09-20', '2023-09-20 12:41:28', 7, 66);
+INSERT INTO `presensi_harian` VALUES (10045, 32, 891, 'M', '', '2023-09-20', '2023-09-20 12:41:28', 7, 66);
+INSERT INTO `presensi_harian` VALUES (10046, 32, 892, 'M', '', '2023-09-20', '2023-09-20 12:41:28', 7, 66);
+INSERT INTO `presensi_harian` VALUES (10047, 32, 893, 'I', '', '2023-09-20', '2023-09-20 12:41:28', 7, 66);
+INSERT INTO `presensi_harian` VALUES (10048, 32, 825, 'M', '', '2023-09-20', '2023-09-20 12:42:12', 7, 62);
+INSERT INTO `presensi_harian` VALUES (10049, 32, 827, 'A', '', '2023-09-20', '2023-09-20 12:42:12', 7, 62);
+INSERT INTO `presensi_harian` VALUES (10050, 32, 828, 'M', '', '2023-09-20', '2023-09-20 12:42:12', 7, 62);
+INSERT INTO `presensi_harian` VALUES (10051, 32, 829, 'M', '', '2023-09-20', '2023-09-20 12:42:12', 7, 62);
+INSERT INTO `presensi_harian` VALUES (10052, 32, 830, 'M', '', '2023-09-20', '2023-09-20 12:42:12', 7, 62);
+INSERT INTO `presensi_harian` VALUES (10053, 32, 831, 'M', '', '2023-09-20', '2023-09-20 12:42:12', 7, 62);
+INSERT INTO `presensi_harian` VALUES (10054, 32, 832, 'I', '', '2023-09-20', '2023-09-20 12:42:12', 7, 62);
+INSERT INTO `presensi_harian` VALUES (10055, 32, 833, 'M', '', '2023-09-20', '2023-09-20 12:42:12', 7, 62);
+INSERT INTO `presensi_harian` VALUES (10056, 32, 834, 'M', '', '2023-09-20', '2023-09-20 12:42:12', 7, 62);
+INSERT INTO `presensi_harian` VALUES (10057, 32, 835, 'M', '', '2023-09-20', '2023-09-20 12:42:12', 7, 62);
+INSERT INTO `presensi_harian` VALUES (10058, 32, 836, 'M', '', '2023-09-20', '2023-09-20 12:42:12', 7, 62);
+INSERT INTO `presensi_harian` VALUES (10059, 32, 837, 'M', '', '2023-09-20', '2023-09-20 12:42:12', 7, 62);
+INSERT INTO `presensi_harian` VALUES (10060, 24, 925, 'M', '', '2023-09-20', '2023-09-20 12:43:01', 7, 52);
+INSERT INTO `presensi_harian` VALUES (10061, 24, 926, 'M', '', '2023-09-20', '2023-09-20 12:43:01', 7, 52);
+INSERT INTO `presensi_harian` VALUES (10062, 24, 927, 'M', '', '2023-09-20', '2023-09-20 12:43:01', 7, 52);
+INSERT INTO `presensi_harian` VALUES (10063, 24, 928, 'M', '', '2023-09-20', '2023-09-20 12:43:01', 7, 52);
+INSERT INTO `presensi_harian` VALUES (10064, 24, 929, 'M', '', '2023-09-20', '2023-09-20 12:43:01', 7, 52);
+INSERT INTO `presensi_harian` VALUES (10065, 24, 945, 'M', '', '2023-09-20', '2023-09-20 12:43:53', 7, 67);
+INSERT INTO `presensi_harian` VALUES (10066, 24, 946, 'M', '', '2023-09-20', '2023-09-20 12:43:53', 7, 67);
+INSERT INTO `presensi_harian` VALUES (10067, 24, 947, 'M', '', '2023-09-20', '2023-09-20 12:43:53', 7, 67);
+INSERT INTO `presensi_harian` VALUES (10068, 24, 948, 'M', '', '2023-09-20', '2023-09-20 12:43:53', 7, 67);
+INSERT INTO `presensi_harian` VALUES (10069, 24, 949, 'M', '', '2023-09-20', '2023-09-20 12:43:53', 7, 67);
+INSERT INTO `presensi_harian` VALUES (10070, 24, 950, 'M', '', '2023-09-20', '2023-09-20 12:43:53', 7, 67);
+INSERT INTO `presensi_harian` VALUES (10071, 24, 951, 'M', '', '2023-09-20', '2023-09-20 12:43:53', 7, 67);
+INSERT INTO `presensi_harian` VALUES (10072, 24, 952, 'M', '', '2023-09-20', '2023-09-20 12:43:53', 7, 67);
+INSERT INTO `presensi_harian` VALUES (10073, 24, 953, 'M', '', '2023-09-20', '2023-09-20 12:43:53', 7, 67);
+INSERT INTO `presensi_harian` VALUES (10074, 24, 954, 'M', '', '2023-09-20', '2023-09-20 12:43:53', 7, 67);
+INSERT INTO `presensi_harian` VALUES (10075, 24, 955, 'M', '', '2023-09-20', '2023-09-20 12:43:53', 7, 67);
+INSERT INTO `presensi_harian` VALUES (10076, 9, 809, 'M', '', '2023-09-20', '2023-09-20 14:04:59', 7, 60);
+INSERT INTO `presensi_harian` VALUES (10077, 9, 810, 'M', '', '2023-09-20', '2023-09-20 14:04:59', 7, 60);
+INSERT INTO `presensi_harian` VALUES (10078, 9, 811, 'M', '', '2023-09-20', '2023-09-20 14:04:59', 7, 60);
+INSERT INTO `presensi_harian` VALUES (10079, 9, 812, 'M', '', '2023-09-20', '2023-09-20 14:04:59', 7, 60);
+INSERT INTO `presensi_harian` VALUES (10080, 9, 813, 'M', '', '2023-09-20', '2023-09-20 14:04:59', 7, 60);
+INSERT INTO `presensi_harian` VALUES (10081, 9, 814, 'M', '', '2023-09-20', '2023-09-20 14:04:59', 7, 60);
+INSERT INTO `presensi_harian` VALUES (10082, 9, 815, 'M', '', '2023-09-20', '2023-09-20 14:04:59', 7, 60);
+INSERT INTO `presensi_harian` VALUES (10083, 9, 816, 'M', '', '2023-09-20', '2023-09-20 14:04:59', 7, 60);
+INSERT INTO `presensi_harian` VALUES (10084, 9, 817, 'M', '', '2023-09-20', '2023-09-20 14:04:59', 7, 60);
+INSERT INTO `presensi_harian` VALUES (10085, 9, 818, 'M', '', '2023-09-20', '2023-09-20 14:04:59', 7, 60);
+INSERT INTO `presensi_harian` VALUES (10086, 9, 819, 'M', '', '2023-09-20', '2023-09-20 14:04:59', 7, 60);
+INSERT INTO `presensi_harian` VALUES (10087, 9, 820, 'M', '', '2023-09-20', '2023-09-20 14:04:59', 7, 60);
+INSERT INTO `presensi_harian` VALUES (10088, 9, 888, 'M', '', '2023-09-20', '2023-09-20 14:05:27', 7, 66);
+INSERT INTO `presensi_harian` VALUES (10089, 9, 889, 'M', '', '2023-09-20', '2023-09-20 14:05:27', 7, 66);
+INSERT INTO `presensi_harian` VALUES (10090, 9, 890, 'M', '', '2023-09-20', '2023-09-20 14:05:27', 7, 66);
+INSERT INTO `presensi_harian` VALUES (10091, 9, 891, 'M', '', '2023-09-20', '2023-09-20 14:05:27', 7, 66);
+INSERT INTO `presensi_harian` VALUES (10092, 9, 892, 'M', '', '2023-09-20', '2023-09-20 14:05:27', 7, 66);
+INSERT INTO `presensi_harian` VALUES (10093, 9, 893, 'I', '', '2023-09-20', '2023-09-20 14:05:27', 7, 66);
+INSERT INTO `presensi_harian` VALUES (10094, 33, 770, 'A', '', '2023-09-20', '2023-09-20 15:39:05', 7, 55);
+INSERT INTO `presensi_harian` VALUES (10095, 33, 771, 'A', '', '2023-09-20', '2023-09-20 15:39:05', 7, 55);
+INSERT INTO `presensi_harian` VALUES (10096, 33, 772, 'A', '', '2023-09-20', '2023-09-20 15:39:05', 7, 55);
+INSERT INTO `presensi_harian` VALUES (10097, 33, 773, 'M', '', '2023-09-20', '2023-09-20 15:39:05', 7, 55);
+INSERT INTO `presensi_harian` VALUES (10098, 33, 774, 'M', '', '2023-09-20', '2023-09-20 15:39:05', 7, 55);
+INSERT INTO `presensi_harian` VALUES (10099, 33, 775, 'A', '', '2023-09-20', '2023-09-20 15:39:05', 7, 55);
+INSERT INTO `presensi_harian` VALUES (10100, 33, 776, 'A', '', '2023-09-20', '2023-09-20 15:39:05', 7, 55);
+INSERT INTO `presensi_harian` VALUES (10101, 33, 777, 'M', '', '2023-09-20', '2023-09-20 15:39:05', 7, 55);
+INSERT INTO `presensi_harian` VALUES (10102, 33, 778, 'A', '', '2023-09-20', '2023-09-20 15:39:05', 7, 55);
+INSERT INTO `presensi_harian` VALUES (10103, 33, 779, 'A', '', '2023-09-20', '2023-09-20 15:39:05', 7, 55);
+INSERT INTO `presensi_harian` VALUES (10104, 33, 780, 'M', '', '2023-09-20', '2023-09-20 15:39:05', 7, 55);
+INSERT INTO `presensi_harian` VALUES (10105, 33, 781, 'A', '', '2023-09-20', '2023-09-20 15:39:05', 7, 55);
+INSERT INTO `presensi_harian` VALUES (10106, 33, 782, 'M', '', '2023-09-20', '2023-09-20 15:39:05', 7, 55);
+INSERT INTO `presensi_harian` VALUES (10107, 33, 783, 'M', '', '2023-09-20', '2023-09-20 15:39:05', 7, 55);
+INSERT INTO `presensi_harian` VALUES (10108, 33, 784, 'M', '', '2023-09-20', '2023-09-20 15:39:05', 7, 55);
+INSERT INTO `presensi_harian` VALUES (10109, 33, 785, 'M', '', '2023-09-20', '2023-09-20 15:39:05', 7, 55);
+INSERT INTO `presensi_harian` VALUES (10110, 33, 786, 'A', '', '2023-09-20', '2023-09-20 15:39:05', 7, 55);
+INSERT INTO `presensi_harian` VALUES (10111, 33, 787, 'A', '', '2023-09-20', '2023-09-20 15:39:05', 7, 55);
+INSERT INTO `presensi_harian` VALUES (10112, 33, 979, 'M', '', '2023-09-20', '2023-09-20 15:39:05', 7, 55);
+INSERT INTO `presensi_harian` VALUES (10113, 33, 838, 'M', '', '2023-09-20', '2023-09-20 15:40:45', 7, 56);
+INSERT INTO `presensi_harian` VALUES (10114, 33, 839, 'M', '', '2023-09-20', '2023-09-20 15:40:45', 7, 56);
+INSERT INTO `presensi_harian` VALUES (10115, 33, 840, 'M', '', '2023-09-20', '2023-09-20 15:40:45', 7, 56);
+INSERT INTO `presensi_harian` VALUES (10116, 33, 841, 'M', '', '2023-09-20', '2023-09-20 15:40:45', 7, 56);
+INSERT INTO `presensi_harian` VALUES (10117, 33, 842, 'M', '', '2023-09-20', '2023-09-20 15:40:45', 7, 56);
+INSERT INTO `presensi_harian` VALUES (10118, 33, 843, 'A', '', '2023-09-20', '2023-09-20 15:40:45', 7, 56);
+INSERT INTO `presensi_harian` VALUES (10119, 33, 844, 'M', '', '2023-09-20', '2023-09-20 15:40:45', 7, 56);
+INSERT INTO `presensi_harian` VALUES (10120, 33, 845, 'S', '', '2023-09-20', '2023-09-20 15:40:45', 7, 56);
+INSERT INTO `presensi_harian` VALUES (10121, 33, 846, 'M', '', '2023-09-20', '2023-09-20 15:40:45', 7, 56);
+INSERT INTO `presensi_harian` VALUES (10122, 33, 847, 'A', '', '2023-09-20', '2023-09-20 15:40:45', 7, 56);
+INSERT INTO `presensi_harian` VALUES (10123, 33, 848, 'M', '', '2023-09-20', '2023-09-20 15:40:45', 7, 56);
+INSERT INTO `presensi_harian` VALUES (10124, 33, 849, 'I', '', '2023-09-20', '2023-09-20 15:40:45', 7, 56);
+INSERT INTO `presensi_harian` VALUES (10125, 33, 850, 'A', '', '2023-09-20', '2023-09-20 15:40:45', 7, 56);
+INSERT INTO `presensi_harian` VALUES (10126, 33, 851, 'M', '', '2023-09-20', '2023-09-20 15:40:45', 7, 56);
+INSERT INTO `presensi_harian` VALUES (10127, 33, 852, 'M', '', '2023-09-20', '2023-09-20 15:40:45', 7, 56);
+INSERT INTO `presensi_harian` VALUES (10128, 33, 853, 'M', '', '2023-09-20', '2023-09-20 15:40:45', 7, 56);
+INSERT INTO `presensi_harian` VALUES (10129, 33, 854, 'A', '', '2023-09-20', '2023-09-20 15:40:45', 7, 56);
+INSERT INTO `presensi_harian` VALUES (10130, 33, 855, 'M', '', '2023-09-20', '2023-09-20 15:40:45', 7, 56);
+INSERT INTO `presensi_harian` VALUES (10131, 33, 856, 'M', '', '2023-09-20', '2023-09-20 15:40:45', 7, 56);
+INSERT INTO `presensi_harian` VALUES (10132, 33, 857, 'M', '', '2023-09-20', '2023-09-20 15:40:45', 7, 56);
+INSERT INTO `presensi_harian` VALUES (10133, 33, 858, 'M', '', '2023-09-20', '2023-09-20 15:40:45', 7, 56);
+INSERT INTO `presensi_harian` VALUES (10134, 33, 859, 'M', '', '2023-09-20', '2023-09-20 15:40:45', 7, 56);
+INSERT INTO `presensi_harian` VALUES (10135, 33, 860, 'A', '', '2023-09-20', '2023-09-20 15:40:45', 7, 56);
+INSERT INTO `presensi_harian` VALUES (10136, 33, 861, 'M', '', '2023-09-20', '2023-09-20 15:40:45', 7, 56);
+INSERT INTO `presensi_harian` VALUES (10137, 33, 862, 'M', '', '2023-09-20', '2023-09-20 15:40:45', 7, 56);
+INSERT INTO `presensi_harian` VALUES (10138, 33, 970, 'M', '', '2023-09-20', '2023-09-20 15:41:56', 7, 65);
+INSERT INTO `presensi_harian` VALUES (10139, 33, 971, 'M', '', '2023-09-20', '2023-09-20 15:41:56', 7, 65);
+INSERT INTO `presensi_harian` VALUES (10140, 33, 972, 'M', '', '2023-09-20', '2023-09-20 15:41:56', 7, 65);
+INSERT INTO `presensi_harian` VALUES (10141, 33, 973, 'I', '', '2023-09-20', '2023-09-20 15:41:56', 7, 65);
+INSERT INTO `presensi_harian` VALUES (10142, 33, 974, 'M', '', '2023-09-20', '2023-09-20 15:41:56', 7, 65);
+INSERT INTO `presensi_harian` VALUES (10143, 33, 975, 'M', '', '2023-09-20', '2023-09-20 15:41:56', 7, 65);
+INSERT INTO `presensi_harian` VALUES (10144, 33, 976, 'M', '', '2023-09-20', '2023-09-20 15:41:56', 7, 65);
+INSERT INTO `presensi_harian` VALUES (10145, 33, 977, 'M', '', '2023-09-20', '2023-09-20 15:41:56', 7, 65);
+INSERT INTO `presensi_harian` VALUES (10146, 33, 978, 'M', '', '2023-09-20', '2023-09-20 15:41:57', 7, 65);
+INSERT INTO `presensi_harian` VALUES (10147, 33, 863, 'M', '', '2023-09-20', '2023-09-20 15:42:21', 7, 57);
+INSERT INTO `presensi_harian` VALUES (10148, 33, 864, 'M', '', '2023-09-20', '2023-09-20 15:42:21', 7, 57);
+INSERT INTO `presensi_harian` VALUES (10149, 33, 865, 'S', '', '2023-09-20', '2023-09-20 15:42:21', 7, 57);
+INSERT INTO `presensi_harian` VALUES (10150, 33, 866, 'M', '', '2023-09-20', '2023-09-20 15:42:21', 7, 57);
+INSERT INTO `presensi_harian` VALUES (10151, 33, 867, 'M', '', '2023-09-20', '2023-09-20 15:42:21', 7, 57);
+INSERT INTO `presensi_harian` VALUES (10152, 33, 868, 'M', '', '2023-09-20', '2023-09-20 15:42:21', 7, 57);
+INSERT INTO `presensi_harian` VALUES (10153, 33, 869, 'M', '', '2023-09-20', '2023-09-20 15:42:21', 7, 57);
+INSERT INTO `presensi_harian` VALUES (10154, 33, 870, 'M', '', '2023-09-20', '2023-09-20 15:42:21', 7, 57);
+INSERT INTO `presensi_harian` VALUES (10155, 33, 871, 'M', '', '2023-09-20', '2023-09-20 15:42:21', 7, 57);
+INSERT INTO `presensi_harian` VALUES (10156, 33, 872, 'M', '', '2023-09-20', '2023-09-20 15:42:21', 7, 57);
+INSERT INTO `presensi_harian` VALUES (10157, 33, 873, 'M', '', '2023-09-20', '2023-09-20 15:42:21', 7, 57);
+INSERT INTO `presensi_harian` VALUES (10158, 33, 874, 'M', '', '2023-09-20', '2023-09-20 15:42:21', 7, 57);
+INSERT INTO `presensi_harian` VALUES (10159, 33, 875, 'M', '', '2023-09-20', '2023-09-20 15:42:21', 7, 57);
+INSERT INTO `presensi_harian` VALUES (10160, 33, 876, 'M', '', '2023-09-20', '2023-09-20 15:42:21', 7, 57);
+INSERT INTO `presensi_harian` VALUES (10161, 33, 821, 'M', '', '2023-09-20', '2023-09-20 15:42:31', 7, 58);
+INSERT INTO `presensi_harian` VALUES (10162, 33, 822, 'M', '', '2023-09-20', '2023-09-20 15:42:31', 7, 58);
+INSERT INTO `presensi_harian` VALUES (10163, 33, 823, 'M', '', '2023-09-20', '2023-09-20 15:42:31', 7, 58);
+INSERT INTO `presensi_harian` VALUES (10164, 33, 824, 'M', '', '2023-09-20', '2023-09-20 15:42:31', 7, 58);
+INSERT INTO `presensi_harian` VALUES (10165, 19, 970, 'M', '', '2023-09-20', '2023-09-20 15:42:47', 7, 65);
+INSERT INTO `presensi_harian` VALUES (10166, 19, 971, 'M', '', '2023-09-20', '2023-09-20 15:42:47', 7, 65);
+INSERT INTO `presensi_harian` VALUES (10167, 19, 972, 'M', '', '2023-09-20', '2023-09-20 15:42:47', 7, 65);
+INSERT INTO `presensi_harian` VALUES (10168, 19, 973, 'I', '', '2023-09-20', '2023-09-20 15:42:47', 7, 65);
+INSERT INTO `presensi_harian` VALUES (10169, 19, 974, 'M', '', '2023-09-20', '2023-09-20 15:42:47', 7, 65);
+INSERT INTO `presensi_harian` VALUES (10170, 19, 975, 'M', '', '2023-09-20', '2023-09-20 15:42:47', 7, 65);
+INSERT INTO `presensi_harian` VALUES (10171, 19, 976, 'M', '', '2023-09-20', '2023-09-20 15:42:47', 7, 65);
+INSERT INTO `presensi_harian` VALUES (10172, 19, 977, 'M', '', '2023-09-20', '2023-09-20 15:42:47', 7, 65);
+INSERT INTO `presensi_harian` VALUES (10173, 19, 978, 'M', '', '2023-09-20', '2023-09-20 15:42:47', 7, 65);
+INSERT INTO `presensi_harian` VALUES (10174, 19, 863, 'M', '', '2023-09-20', '2023-09-20 15:43:00', 7, 57);
+INSERT INTO `presensi_harian` VALUES (10175, 19, 864, 'M', '', '2023-09-20', '2023-09-20 15:43:00', 7, 57);
+INSERT INTO `presensi_harian` VALUES (10176, 19, 865, 'S', '', '2023-09-20', '2023-09-20 15:43:00', 7, 57);
+INSERT INTO `presensi_harian` VALUES (10177, 19, 866, 'M', '', '2023-09-20', '2023-09-20 15:43:00', 7, 57);
+INSERT INTO `presensi_harian` VALUES (10178, 19, 867, 'M', '', '2023-09-20', '2023-09-20 15:43:00', 7, 57);
+INSERT INTO `presensi_harian` VALUES (10179, 19, 868, 'M', '', '2023-09-20', '2023-09-20 15:43:00', 7, 57);
+INSERT INTO `presensi_harian` VALUES (10180, 19, 869, 'M', '', '2023-09-20', '2023-09-20 15:43:00', 7, 57);
+INSERT INTO `presensi_harian` VALUES (10181, 19, 870, 'M', '', '2023-09-20', '2023-09-20 15:43:00', 7, 57);
+INSERT INTO `presensi_harian` VALUES (10182, 19, 871, 'M', '', '2023-09-20', '2023-09-20 15:43:00', 7, 57);
+INSERT INTO `presensi_harian` VALUES (10183, 19, 872, 'M', '', '2023-09-20', '2023-09-20 15:43:00', 7, 57);
+INSERT INTO `presensi_harian` VALUES (10184, 19, 873, 'M', '', '2023-09-20', '2023-09-20 15:43:00', 7, 57);
+INSERT INTO `presensi_harian` VALUES (10185, 19, 874, 'M', '', '2023-09-20', '2023-09-20 15:43:00', 7, 57);
+INSERT INTO `presensi_harian` VALUES (10186, 19, 875, 'M', '', '2023-09-20', '2023-09-20 15:43:00', 7, 57);
+INSERT INTO `presensi_harian` VALUES (10187, 19, 876, 'M', '', '2023-09-20', '2023-09-20 15:43:00', 7, 57);
+INSERT INTO `presensi_harian` VALUES (10188, 19, 821, 'M', '', '2023-09-20', '2023-09-20 15:43:09', 7, 58);
+INSERT INTO `presensi_harian` VALUES (10189, 19, 822, 'M', '', '2023-09-20', '2023-09-20 15:43:09', 7, 58);
+INSERT INTO `presensi_harian` VALUES (10190, 19, 823, 'M', '', '2023-09-20', '2023-09-20 15:43:09', 7, 58);
+INSERT INTO `presensi_harian` VALUES (10191, 19, 824, 'M', '', '2023-09-20', '2023-09-20 15:43:09', 7, 58);
+INSERT INTO `presensi_harian` VALUES (10192, 7, 877, 'M', '', '2023-09-20', '2023-09-20 17:01:19', 7, 61);
+INSERT INTO `presensi_harian` VALUES (10193, 7, 879, 'M', '', '2023-09-20', '2023-09-20 17:01:19', 7, 61);
+INSERT INTO `presensi_harian` VALUES (10194, 7, 880, 'M', '', '2023-09-20', '2023-09-20 17:01:19', 7, 61);
+INSERT INTO `presensi_harian` VALUES (10195, 7, 881, 'M', '', '2023-09-20', '2023-09-20 17:01:19', 7, 61);
+INSERT INTO `presensi_harian` VALUES (10196, 7, 882, 'M', '', '2023-09-20', '2023-09-20 17:01:19', 7, 61);
+INSERT INTO `presensi_harian` VALUES (10197, 7, 883, 'M', '', '2023-09-20', '2023-09-20 17:01:19', 7, 61);
+INSERT INTO `presensi_harian` VALUES (10198, 7, 884, 'M', '', '2023-09-20', '2023-09-20 17:01:19', 7, 61);
+INSERT INTO `presensi_harian` VALUES (10199, 7, 885, 'M', '', '2023-09-20', '2023-09-20 17:01:19', 7, 61);
+INSERT INTO `presensi_harian` VALUES (10200, 7, 886, 'M', '', '2023-09-20', '2023-09-20 17:01:19', 7, 61);
+INSERT INTO `presensi_harian` VALUES (10201, 7, 887, 'M', '', '2023-09-20', '2023-09-20 17:01:19', 7, 61);
+INSERT INTO `presensi_harian` VALUES (10202, 20, 945, 'M', '', '2023-09-20', '2023-09-20 17:01:49', 7, 67);
+INSERT INTO `presensi_harian` VALUES (10203, 20, 946, 'M', '', '2023-09-20', '2023-09-20 17:01:49', 7, 67);
+INSERT INTO `presensi_harian` VALUES (10204, 20, 947, 'M', '', '2023-09-20', '2023-09-20 17:01:49', 7, 67);
+INSERT INTO `presensi_harian` VALUES (10205, 20, 948, 'M', '', '2023-09-20', '2023-09-20 17:01:49', 7, 67);
+INSERT INTO `presensi_harian` VALUES (10206, 20, 949, 'M', '', '2023-09-20', '2023-09-20 17:01:49', 7, 67);
+INSERT INTO `presensi_harian` VALUES (10207, 20, 950, 'M', '', '2023-09-20', '2023-09-20 17:01:49', 7, 67);
+INSERT INTO `presensi_harian` VALUES (10208, 20, 951, 'M', '', '2023-09-20', '2023-09-20 17:01:49', 7, 67);
+INSERT INTO `presensi_harian` VALUES (10209, 20, 952, 'M', '', '2023-09-20', '2023-09-20 17:01:49', 7, 67);
+INSERT INTO `presensi_harian` VALUES (10210, 20, 953, 'M', '', '2023-09-20', '2023-09-20 17:01:49', 7, 67);
+INSERT INTO `presensi_harian` VALUES (10211, 20, 954, 'M', '', '2023-09-20', '2023-09-20 17:01:49', 7, 67);
+INSERT INTO `presensi_harian` VALUES (10212, 20, 955, 'M', '', '2023-09-20', '2023-09-20 17:01:49', 7, 67);
+INSERT INTO `presensi_harian` VALUES (10213, 9, 770, 'A', '', '2023-09-20', '2023-09-20 18:03:13', 7, 55);
+INSERT INTO `presensi_harian` VALUES (10214, 9, 771, 'I', '', '2023-09-20', '2023-09-20 18:03:13', 7, 55);
+INSERT INTO `presensi_harian` VALUES (10215, 9, 772, 'A', '', '2023-09-20', '2023-09-20 18:03:13', 7, 55);
+INSERT INTO `presensi_harian` VALUES (10216, 9, 773, 'M', '', '2023-09-20', '2023-09-20 18:03:13', 7, 55);
+INSERT INTO `presensi_harian` VALUES (10217, 9, 774, 'M', '', '2023-09-20', '2023-09-20 18:03:13', 7, 55);
+INSERT INTO `presensi_harian` VALUES (10218, 9, 775, 'A', '', '2023-09-20', '2023-09-20 18:03:13', 7, 55);
+INSERT INTO `presensi_harian` VALUES (10219, 9, 776, 'M', '', '2023-09-20', '2023-09-20 18:03:13', 7, 55);
+INSERT INTO `presensi_harian` VALUES (10220, 9, 777, 'M', '', '2023-09-20', '2023-09-20 18:03:13', 7, 55);
+INSERT INTO `presensi_harian` VALUES (10221, 9, 778, 'A', '', '2023-09-20', '2023-09-20 18:03:13', 7, 55);
+INSERT INTO `presensi_harian` VALUES (10222, 9, 779, 'A', '', '2023-09-20', '2023-09-20 18:03:13', 7, 55);
+INSERT INTO `presensi_harian` VALUES (10223, 9, 780, 'M', '', '2023-09-20', '2023-09-20 18:03:13', 7, 55);
+INSERT INTO `presensi_harian` VALUES (10224, 9, 781, 'M', '', '2023-09-20', '2023-09-20 18:03:13', 7, 55);
+INSERT INTO `presensi_harian` VALUES (10225, 9, 782, 'M', '', '2023-09-20', '2023-09-20 18:03:13', 7, 55);
+INSERT INTO `presensi_harian` VALUES (10226, 9, 783, 'M', '', '2023-09-20', '2023-09-20 18:03:13', 7, 55);
+INSERT INTO `presensi_harian` VALUES (10227, 9, 784, 'A', '', '2023-09-20', '2023-09-20 18:03:13', 7, 55);
+INSERT INTO `presensi_harian` VALUES (10228, 9, 785, 'M', '', '2023-09-20', '2023-09-20 18:03:13', 7, 55);
+INSERT INTO `presensi_harian` VALUES (10229, 9, 786, 'A', '', '2023-09-20', '2023-09-20 18:03:13', 7, 55);
+INSERT INTO `presensi_harian` VALUES (10230, 9, 787, 'A', '', '2023-09-20', '2023-09-20 18:03:13', 7, 55);
+INSERT INTO `presensi_harian` VALUES (10231, 9, 979, 'M', '', '2023-09-20', '2023-09-20 18:03:13', 7, 55);
+INSERT INTO `presensi_harian` VALUES (10232, 32, 970, 'M', '', '2023-09-20', '2023-09-20 18:04:36', 7, 65);
+INSERT INTO `presensi_harian` VALUES (10233, 32, 971, 'M', '', '2023-09-20', '2023-09-20 18:04:36', 7, 65);
+INSERT INTO `presensi_harian` VALUES (10234, 32, 972, 'M', '', '2023-09-20', '2023-09-20 18:04:36', 7, 65);
+INSERT INTO `presensi_harian` VALUES (10235, 32, 973, 'I', '', '2023-09-20', '2023-09-20 18:04:36', 7, 65);
+INSERT INTO `presensi_harian` VALUES (10236, 32, 974, 'M', '', '2023-09-20', '2023-09-20 18:04:36', 7, 65);
+INSERT INTO `presensi_harian` VALUES (10237, 32, 975, 'M', '', '2023-09-20', '2023-09-20 18:04:36', 7, 65);
+INSERT INTO `presensi_harian` VALUES (10238, 32, 976, 'M', '', '2023-09-20', '2023-09-20 18:04:36', 7, 65);
+INSERT INTO `presensi_harian` VALUES (10239, 32, 977, 'M', '', '2023-09-20', '2023-09-20 18:04:36', 7, 65);
+INSERT INTO `presensi_harian` VALUES (10240, 32, 978, 'M', '', '2023-09-20', '2023-09-20 18:04:36', 7, 65);
+INSERT INTO `presensi_harian` VALUES (10241, 32, 863, 'M', '', '2023-09-20', '2023-09-20 18:04:48', 7, 57);
+INSERT INTO `presensi_harian` VALUES (10242, 32, 864, 'M', '', '2023-09-20', '2023-09-20 18:04:48', 7, 57);
+INSERT INTO `presensi_harian` VALUES (10243, 32, 865, 'S', '', '2023-09-20', '2023-09-20 18:04:48', 7, 57);
+INSERT INTO `presensi_harian` VALUES (10244, 32, 866, 'M', '', '2023-09-20', '2023-09-20 18:04:48', 7, 57);
+INSERT INTO `presensi_harian` VALUES (10245, 32, 867, 'M', '', '2023-09-20', '2023-09-20 18:04:48', 7, 57);
+INSERT INTO `presensi_harian` VALUES (10246, 32, 868, 'M', '', '2023-09-20', '2023-09-20 18:04:48', 7, 57);
+INSERT INTO `presensi_harian` VALUES (10247, 32, 869, 'M', '', '2023-09-20', '2023-09-20 18:04:48', 7, 57);
+INSERT INTO `presensi_harian` VALUES (10248, 32, 870, 'M', '', '2023-09-20', '2023-09-20 18:04:48', 7, 57);
+INSERT INTO `presensi_harian` VALUES (10249, 32, 871, 'M', '', '2023-09-20', '2023-09-20 18:04:48', 7, 57);
+INSERT INTO `presensi_harian` VALUES (10250, 32, 872, 'M', '', '2023-09-20', '2023-09-20 18:04:48', 7, 57);
+INSERT INTO `presensi_harian` VALUES (10251, 32, 873, 'M', '', '2023-09-20', '2023-09-20 18:04:48', 7, 57);
+INSERT INTO `presensi_harian` VALUES (10252, 32, 874, 'M', '', '2023-09-20', '2023-09-20 18:04:48', 7, 57);
+INSERT INTO `presensi_harian` VALUES (10253, 32, 875, 'M', '', '2023-09-20', '2023-09-20 18:04:48', 7, 57);
+INSERT INTO `presensi_harian` VALUES (10254, 32, 876, 'M', '', '2023-09-20', '2023-09-20 18:04:48', 7, 57);
+INSERT INTO `presensi_harian` VALUES (10255, 32, 821, 'M', '', '2023-09-20', '2023-09-20 18:05:00', 7, 58);
+INSERT INTO `presensi_harian` VALUES (10256, 32, 822, 'M', '', '2023-09-20', '2023-09-20 18:05:00', 7, 58);
+INSERT INTO `presensi_harian` VALUES (10257, 32, 823, 'M', '', '2023-09-20', '2023-09-20 18:05:00', 7, 58);
+INSERT INTO `presensi_harian` VALUES (10258, 32, 824, 'M', '', '2023-09-20', '2023-09-20 18:05:00', 7, 58);
+INSERT INTO `presensi_harian` VALUES (10259, 9, 825, 'M', '', '2023-09-20', '2023-09-20 18:05:30', 7, 62);
+INSERT INTO `presensi_harian` VALUES (10260, 9, 827, 'A', '', '2023-09-20', '2023-09-20 18:05:30', 7, 62);
+INSERT INTO `presensi_harian` VALUES (10261, 9, 828, 'M', '', '2023-09-20', '2023-09-20 18:05:30', 7, 62);
+INSERT INTO `presensi_harian` VALUES (10262, 9, 829, 'M', '', '2023-09-20', '2023-09-20 18:05:30', 7, 62);
+INSERT INTO `presensi_harian` VALUES (10263, 9, 830, 'M', '', '2023-09-20', '2023-09-20 18:05:30', 7, 62);
+INSERT INTO `presensi_harian` VALUES (10264, 9, 831, 'M', '', '2023-09-20', '2023-09-20 18:05:30', 7, 62);
+INSERT INTO `presensi_harian` VALUES (10265, 9, 832, 'I', '', '2023-09-20', '2023-09-20 18:05:30', 7, 62);
+INSERT INTO `presensi_harian` VALUES (10266, 9, 833, 'M', '', '2023-09-20', '2023-09-20 18:05:30', 7, 62);
+INSERT INTO `presensi_harian` VALUES (10267, 9, 834, 'M', '', '2023-09-20', '2023-09-20 18:05:30', 7, 62);
+INSERT INTO `presensi_harian` VALUES (10268, 9, 835, 'M', '', '2023-09-20', '2023-09-20 18:05:30', 7, 62);
+INSERT INTO `presensi_harian` VALUES (10269, 9, 836, 'M', '', '2023-09-20', '2023-09-20 18:05:30', 7, 62);
+INSERT INTO `presensi_harian` VALUES (10270, 9, 837, 'M', '', '2023-09-20', '2023-09-20 18:05:30', 7, 62);
+INSERT INTO `presensi_harian` VALUES (10271, 15, 925, 'M', '', '2023-09-20', '2023-09-20 18:05:31', 7, 52);
+INSERT INTO `presensi_harian` VALUES (10272, 15, 926, 'M', '', '2023-09-20', '2023-09-20 18:05:31', 7, 52);
+INSERT INTO `presensi_harian` VALUES (10273, 15, 927, 'M', '', '2023-09-20', '2023-09-20 18:05:31', 7, 52);
+INSERT INTO `presensi_harian` VALUES (10274, 15, 928, 'M', '', '2023-09-20', '2023-09-20 18:05:31', 7, 52);
+INSERT INTO `presensi_harian` VALUES (10275, 15, 929, 'I', '', '2023-09-20', '2023-09-20 18:05:31', 7, 52);
+INSERT INTO `presensi_harian` VALUES (10276, 24, 930, 'M', '', '2023-09-20', '2023-09-20 18:09:04', 7, 51);
+INSERT INTO `presensi_harian` VALUES (10277, 24, 931, 'M', '', '2023-09-20', '2023-09-20 18:09:04', 7, 51);
+INSERT INTO `presensi_harian` VALUES (10278, 24, 932, 'M', '', '2023-09-20', '2023-09-20 18:09:04', 7, 51);
+INSERT INTO `presensi_harian` VALUES (10279, 24, 933, 'S', '', '2023-09-20', '2023-09-20 18:09:04', 7, 51);
+INSERT INTO `presensi_harian` VALUES (10280, 24, 934, 'M', '', '2023-09-20', '2023-09-20 18:09:04', 7, 51);
+INSERT INTO `presensi_harian` VALUES (10281, 24, 935, 'M', '', '2023-09-20', '2023-09-20 18:09:04', 7, 51);
+INSERT INTO `presensi_harian` VALUES (10282, 24, 936, 'M', '', '2023-09-20', '2023-09-20 18:09:04', 7, 51);
+INSERT INTO `presensi_harian` VALUES (10283, 24, 937, 'M', '', '2023-09-20', '2023-09-20 18:09:04', 7, 51);
+INSERT INTO `presensi_harian` VALUES (10284, 24, 938, 'M', '', '2023-09-20', '2023-09-20 18:09:04', 7, 51);
+INSERT INTO `presensi_harian` VALUES (10285, 24, 939, 'A', '', '2023-09-20', '2023-09-20 18:09:04', 7, 51);
+INSERT INTO `presensi_harian` VALUES (10286, 24, 940, 'M', '', '2023-09-20', '2023-09-20 18:09:04', 7, 51);
+INSERT INTO `presensi_harian` VALUES (10287, 24, 941, 'M', '', '2023-09-20', '2023-09-20 18:09:04', 7, 51);
+INSERT INTO `presensi_harian` VALUES (10288, 24, 942, 'M', '', '2023-09-20', '2023-09-20 18:09:04', 7, 51);
+INSERT INTO `presensi_harian` VALUES (10289, 24, 943, 'S', '', '2023-09-20', '2023-09-20 18:09:04', 7, 51);
+INSERT INTO `presensi_harian` VALUES (10290, 24, 944, 'I', '', '2023-09-20', '2023-09-20 18:09:04', 7, 51);
+INSERT INTO `presensi_harian` VALUES (10291, 24, 966, 'I', '', '2023-09-20', '2023-09-20 18:09:04', 7, 51);
 
 -- ----------------------------
 -- Table structure for presensi_rapor
@@ -11290,4 +14939,1631 @@ INSERT INTO `provinces` VALUES (28, 'Sulawesi Tenggara', '2019-10-22 07:49:59', 
 INSERT INTO `provinces` VALUES (29, 'Gorontalo', '2019-10-22 07:49:59', '2019-10-22 07:49:59');
 INSERT INTO `provinces` VALUES (30, 'Sulawesi Barat', '2019-10-22 07:49:59', '2019-10-22 07:49:59');
 INSERT INTO `provinces` VALUES (31, 'Maluku', '2019-10-22 07:50:00', '2019-10-22 07:50:00');
-INSERT INTO `provinces` VALUES (32, 'Maluku Utara', '2019-10-22 07:50:0                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+INSERT INTO `provinces` VALUES (32, 'Maluku Utara', '2019-10-22 07:50:00', '2019-10-22 07:50:00');
+INSERT INTO `provinces` VALUES (33, 'Papua Barat', '2019-10-22 07:50:00', '2019-10-22 07:50:00');
+INSERT INTO `provinces` VALUES (34, 'Papua', '2019-10-22 07:50:01', '2019-10-22 07:50:01');
+
+-- ----------------------------
+-- Table structure for question_cas
+-- ----------------------------
+DROP TABLE IF EXISTS `question_cas`;
+CREATE TABLE `question_cas`  (
+  `id_question_cas` int(11) NOT NULL AUTO_INCREMENT,
+  `type` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `idbanksoal_fk` int(11) NULL DEFAULT NULL,
+  `idquiz_fk` int(11) NULL DEFAULT NULL,
+  PRIMARY KEY (`id_question_cas`) USING BTREE,
+  INDEX `idbanksoal_fk`(`idbanksoal_fk`) USING BTREE,
+  INDEX `idassesmentcas_fk`(`idquiz_fk`) USING BTREE,
+  CONSTRAINT `question_cas_ibfk_1` FOREIGN KEY (`idbanksoal_fk`) REFERENCES `bank_soal` (`id_bank_soal`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `question_cas_ibfk_2` FOREIGN KEY (`idquiz_fk`) REFERENCES `quiz` (`id_quiz`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for quiz
+-- ----------------------------
+DROP TABLE IF EXISTS `quiz`;
+CREATE TABLE `quiz`  (
+  `id_quiz` int(11) NOT NULL AUTO_INCREMENT,
+  `quiz_name` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `quiz_type` int(11) NULL DEFAULT NULL COMMENT '0 = Multiple choixe\r\n1 = single choice\r\n2 = Survey',
+  `password` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `idmatapelajaran_fk` int(11) NULL DEFAULT NULL,
+  `iduser_fk` int(11) NULL DEFAULT NULL,
+  `open_access` int(255) NULL DEFAULT NULL COMMENT '0 = Private Access\r\n1 = Open Access(student only)\r\n2 = All Access(public can read)',
+  PRIMARY KEY (`id_quiz`) USING BTREE,
+  INDEX `idmatapelajaran_fk`(`idmatapelajaran_fk`) USING BTREE,
+  CONSTRAINT `quiz_ibfk_1` FOREIGN KEY (`idmatapelajaran_fk`) REFERENCES `mata_pelajaran` (`id_mata_pelajaran`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for riwayat_kerja_pns_pegawai
+-- ----------------------------
+DROP TABLE IF EXISTS `riwayat_kerja_pns_pegawai`;
+CREATE TABLE `riwayat_kerja_pns_pegawai`  (
+  `id_riwayat_kerja_pns_pegawai` int(11) NOT NULL AUTO_INCREMENT,
+  `idguru_fk` int(11) NULL DEFAULT NULL,
+  `pangkat` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `jabatan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `gaji` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `terhitung_mulai` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `keterangan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  PRIMARY KEY (`id_riwayat_kerja_pns_pegawai`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for riwayat_kerja_swasta_pegawai
+-- ----------------------------
+DROP TABLE IF EXISTS `riwayat_kerja_swasta_pegawai`;
+CREATE TABLE `riwayat_kerja_swasta_pegawai`  (
+  `id_riwayat_kerja_swasta_pegawai` int(11) NOT NULL AUTO_INCREMENT,
+  `idguru_fk` int(11) NULL DEFAULT NULL,
+  `jenis` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `tahun` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `keterangan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  PRIMARY KEY (`id_riwayat_kerja_swasta_pegawai`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for rpp
+-- ----------------------------
+DROP TABLE IF EXISTS `rpp`;
+CREATE TABLE `rpp`  (
+  `id_rpp` int(11) NOT NULL AUTO_INCREMENT,
+  `idguru_fk` int(11) NULL DEFAULT NULL,
+  `idtahunajaran_fk` int(11) NULL DEFAULT NULL,
+  `idkelas_fk` int(11) NULL DEFAULT NULL,
+  `idmateri_fk` int(11) NULL DEFAULT NULL,
+  `alokasi_waktu` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `file` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `idmatapelajaran_fk` int(11) NULL DEFAULT NULL,
+  PRIMARY KEY (`id_rpp`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for ruangan
+-- ----------------------------
+DROP TABLE IF EXISTS `ruangan`;
+CREATE TABLE `ruangan`  (
+  `id_ruangan` int(11) NOT NULL AUTO_INCREMENT,
+  `ruangan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  PRIMARY KEY (`id_ruangan`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for sarana
+-- ----------------------------
+DROP TABLE IF EXISTS `sarana`;
+CREATE TABLE `sarana`  (
+  `id_sarana` int(11) NOT NULL AUTO_INCREMENT,
+  `sarana` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `jumlah` int(11) NULL DEFAULT NULL,
+  `idkelompoksarana_fk` int(11) NULL DEFAULT NULL,
+  `idkondisisarana_fk` int(11) NULL DEFAULT NULL,
+  `no_inventaris` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `spesifikasi` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `foto` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `tahun_pengadaan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `tanggal_pengadaan` date NULL DEFAULT NULL,
+  `idlokasi_fk` int(11) NULL DEFAULT NULL,
+  PRIMARY KEY (`id_sarana`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 131 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of sarana
+-- ----------------------------
+INSERT INTO `sarana` VALUES (11, 'Monitor LG 24 inc', 1, 7, 1, 'INK/A2/1', 'LG ', '', '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (12, 'Monitor LG 24 inc', 1, 7, 1, 'INK/A2/2', 'LG', '', '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (13, 'Monitor LG 24 inc', 1, 7, 1, 'INK/A2/3', 'LG', '', '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (14, 'Monitor LG 16 inc', 1, 7, 1, 'INK/A2/4', 'LG', '', '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (15, 'Monitor LG 16 inc', 1, 7, 1, 'INK/A2/5', 'LG', '', '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (16, 'Monitor Samsung 16 inc', 1, 7, 1, 'INK/A2/6', 'Samsung', '', '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (17, 'Monitor LG', 1, 7, 1, 'INK/A2/7', 'LG', '', '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (18, 'Monitor LG', 1, 7, 1, 'INK/A2/8', 'LG', '', '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (19, 'Monitor LG', 1, 7, 1, 'INK/A2/9', 'LG', '', '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (20, 'Monitor LG', 1, 7, 1, 'INK/A2/10', 'LG', '', '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (21, 'Monitor LG', 1, 7, 1, 'INK/A2/11', 'LG', '', '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (22, 'Monitor LG', 1, 7, 1, 'INK/A2/12', 'LG', '', '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (23, 'Monitor LG', 1, 7, 1, 'INK/A2/13', 'LG', '', '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (26, 'Keyboard Logitech', 1, 7, 1, 'INK/A9/1', 'Keyboard Logitech', NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (27, 'Keyboard M-Tech', 1, 7, 1, 'INK/A9/2', 'Keyboard M-Tech', NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (28, 'Keyboard M-Tech', 1, 7, 1, 'INK/A9/3', 'Keyboard M-Tech', NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (29, 'Keyboard Eyota', 1, 7, 1, 'INK/A9/4', 'Keyboard Eyota', NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (30, 'Keyboard M-Tech', 1, 7, 1, 'INK/A9/5', 'Keyboard M-Tech', NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (31, 'Keyboard Logitech', 1, 7, 1, 'INK/A9/6', 'Keyboard Logitech', NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (32, 'Keyboard M-Tech', 1, 7, 3, 'INK/A9/7', 'Keyboard M-Tech', NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (33, 'Keyboard M-Tech', 1, 7, 1, 'INK/A9/8', 'Keyboard M-Tech', NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (34, 'Keyboard Ikedo', 1, 7, 3, 'INK/A9/9', 'Keyboard Ikedo', NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (35, 'Keyboard Eyota', 1, 7, 1, 'INK/A9/10', 'Keyboard Eyota', NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (36, 'Keyboard Logitech', 1, 7, 1, 'INK/A9/11', 'Keyboard Logitech', NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (37, 'Keyboard ', 1, 7, 1, 'INK/A9/12', 'Keyboard ', NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (38, 'Lan Tester Kuning', 1, 7, 1, 'INK/A13/1', NULL, NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (39, 'Baterai ABC', 1, 7, 1, 'INK/B1/1', NULL, NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (40, 'Baterai ABC', 1, 7, 1, 'INK/B1/2', NULL, NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (41, 'IOT Rack Staterkit', 1, 7, 1, 'INK/A14/1', NULL, NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (42, 'Jumper Jumper', 1, 7, 1, 'INK/A14/2', NULL, NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (43, 'Obeng Kecil Obeng Kecil', 1, 7, 1, 'INK/A13/2', NULL, NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (44, 'AFO ', 1, 7, 1, 'INK/A13/3', NULL, NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (45, 'Solder ', 1, 7, 1, 'INK/A14/3', NULL, NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (46, 'Cas Baterai ', 1, 7, 1, 'INK/A14/4', NULL, NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (47, 'CPU 15-4570, 868,2TB', 1, 7, 1, 'INK/A1/1', NULL, NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (48, 'Monitor LG', 1, 7, 1, 'INK/A2/1', NULL, NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (49, 'CPU 15-4570,868,2TB', 1, 7, 1, 'INK/A1/2', NULL, NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (50, 'CPU 15-4570,868,2TB', 1, 7, 1, 'INK/A1/3', NULL, NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (51, 'CPU Core I3', 1, 7, 1, 'INK/A1/4', NULL, NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (52, 'CPU Server Mini Core 2Pro', 1, 7, 1, 'INK/A1/5', NULL, NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (53, 'CPU Server 17', 1, 7, 1, 'INK/A1/6', NULL, NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (54, 'Mouse Logitech', 1, 7, 1, 'INK/A10/1', NULL, NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (55, 'Mouse M4 Tech', 1, 7, 1, 'INK/A10/2', NULL, NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (56, 'Mouse Biru Hitam', 1, 7, 1, 'INK/A10/3', NULL, NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (57, 'Mouse Votre Biru', 1, 7, 1, 'INK/A10/4', NULL, NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (58, 'Mouse Votre Biru', 1, 7, 1, 'INK/A10/5', NULL, NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (59, 'Mouse Votre Hitam', 1, 7, 1, 'INK/A10/6', NULL, NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (60, 'HDD Seagak 160GB', 1, 7, 1, 'INK/A4/1', NULL, NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (61, 'HDD Seagak 160GB', 1, 7, 1, 'INK/A4/2', NULL, NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (62, 'HDD Lup 360GB', 1, 7, 1, 'INK/A4/3', NULL, NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (63, 'HDD Seagak 80GB', 1, 7, 1, 'INK/A4/4', NULL, NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (64, 'HDD Seagak 160GB', 1, 7, 1, 'INK/A4/5', NULL, NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (65, 'HDD Seagak 160GB', 1, 7, 1, 'INK/A4/6', NULL, NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (66, 'HDD Seagak 160GB', 1, 7, 1, 'INK/A4/7', NULL, NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (67, 'HDD Samsung 160GB', 1, 7, 1, 'INK/A4/8', NULL, NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (68, 'HDD WP 160GB', 1, 7, 1, 'INK/A4/9', NULL, NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (69, 'HDD LT No Spec', 1, 7, 1, 'INK/A4/10', NULL, NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (70, 'PSU Putih', 1, 7, 1, 'INK/A3/1', NULL, NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (71, 'PSU Putih', 1, 7, 1, 'INK/A3/2', NULL, NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (72, 'PSU Putih', 1, 7, 1, 'INK/A3/3', NULL, NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (73, 'PSU Putih', 1, 7, 1, 'INK/A3/4', NULL, NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (74, 'PSU Putih', 1, 7, 1, 'INK/A3/5', NULL, NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (75, 'PSU Hitam', 1, 7, 1, 'INK/A3/6', NULL, NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (76, 'PSU Hitam', 1, 7, 1, 'INK/A3/7', NULL, NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (77, 'PSU Hitam', 1, 7, 1, 'INK/A3/8', NULL, NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (78, 'PSU Hitam', 1, 7, 1, 'INK/A3/9', NULL, NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (79, 'PSU Hitam', 1, 7, 1, 'INK/A3/10', NULL, NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (81, 'Lan Tester Maxline Putih', 1, 9, 1, 'INK/A13/4', NULL, NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (82, 'Lan Tester Maxline Putih', 1, 9, 1, 'INK/A13/5', NULL, NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (83, 'Lan Tester Maxline Putih', 1, 9, 1, 'INK/A13/6', NULL, NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (84, 'Tang Krimping Merah', 1, 9, 1, 'INK/A13/7', NULL, NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (85, 'Tang Krimping Hijau', 1, 9, 1, 'INK/A13/8', NULL, NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (86, 'Tang Krimping Hijau', 1, 9, 1, 'INK/A13/9', NULL, NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (87, 'Tang Krimping Hijau', 1, 9, 1, 'INK/A13/10', NULL, NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (88, 'Tang Krimping Hijau', 1, 9, 1, 'INK/A13/11', NULL, NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (89, 'Switch Hitam 8 Port', 1, 9, 1, 'INK/A13/12', NULL, NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (90, 'Switch Putih 8 Port', 1, 9, 1, 'INK/A13/13', NULL, NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (91, 'Switch Hitam 24 Port', 1, 9, 1, 'INK/A13/14', NULL, NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (92, 'Pisau Krimping Kuning', 1, 9, 1, 'INK/A13/15', NULL, NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (93, 'Pisau Krimping Kuning', 1, 9, 1, 'INK/A13/16', NULL, NULL, '2023', '2023-07-04', 2);
+INSERT INTO `sarana` VALUES (94, 'asus notebook - khomsun', 1, 8, 1, 'SMK/980408/09', 'charger, adapter LAN, hardisk, headset', '', '2023', '2023-09-14', 5);
+INSERT INTO `sarana` VALUES (95, 'asus silver - rahmat', 1, 8, 1, 'SMK/8622312/09', 'charger, headset, charger(hp)', '', '2023', '2023-09-14', 5);
+INSERT INTO `sarana` VALUES (96, 'hp elitebook - bagas', 1, 8, 1, 'SMK/7943710/09', 'mouse, headset, charger', '', '2023', '2023-09-14', 5);
+INSERT INTO `sarana` VALUES (97, 'victus hitam - izuddin', 1, 8, 1, 'SMK/7512248/09', 'charger, headset, charger(hp)', '', '2023', '2023-09-14', 6);
+INSERT INTO `sarana` VALUES (98, 'lenovo thinkpad - ainur(opik)', 0, 8, 1, 'SMK/6505643/09', 'charger, headset, charger(hp)', '', '2023', '2023-09-14', 6);
+INSERT INTO `sarana` VALUES (99, 'alfin', 1, 8, 1, 'SMK/2957757/09', 'mouse, headset, charger', '', '2023', '2023-09-14', 6);
+INSERT INTO `sarana` VALUES (100, 'lenovo silver - ajib', 1, 8, 1, 'SMK/4393434/09', 'headset, charger, mouse, charger(hp)', '', '2023', '2023-09-14', 7);
+INSERT INTO `sarana` VALUES (101, 'hp silver - ary', 1, 8, 1, 'SMK/7439440/09', 'headset, mouse, charger, flashdisk', '', '2023', '2023-09-14', 7);
+INSERT INTO `sarana` VALUES (102, 'lenovo thinkpad - syauqi', 1, 8, 1, 'SMK/1704637/09', 'charger, mouse, mp3, alat IoT, flashdisk', '', '2023', '2023-09-14', 7);
+INSERT INTO `sarana` VALUES (103, 'lenovo hitam - indra', 1, 8, 1, 'SMK/3032475/09', 'charger, mouse', '', '2023', '2023-09-14', 11);
+INSERT INTO `sarana` VALUES (104, 'asus notebook - hadi', 1, 8, 1, 'SMK/4097126/09', 'mouse, headset, charger', '', '2023', '2023-09-14', 11);
+INSERT INTO `sarana` VALUES (105, 'Toshiba hitam - qodim', 1, 8, 1, 'SMK/8353250/09', 'charger', '', '2023', '2023-09-14', 11);
+INSERT INTO `sarana` VALUES (106, 'LENOVO THINKPAD - DHONI', 1, 8, 1, 'SMK/9499635/09', 'CHARGER,headset2,camera,mause,', '', '2023', '2023-09-14', 17);
+INSERT INTO `sarana` VALUES (107, 'ACER ASPIRE - DZIKRU', 1, 8, 1, 'SMK/3774167/09', '', '', '2023', '2023-09-14', 30);
+INSERT INTO `sarana` VALUES (108, 'HP hitam  - ANGGA', 1, 8, 1, 'SMK/1356367/09', '', '', '2023', '2023-09-14', 18);
+INSERT INTO `sarana` VALUES (109, 'Axioo Coklat - RAFLI ISROFI', 1, 8, 1, 'SMK/968677/09', 'CHARGER', '', '2023', '2023-09-14', 18);
+INSERT INTO `sarana` VALUES (110, 'axioo neon ', 1, 8, 1, 'SMK/1136664/09', 'Charger,Mouse 2', '', '2023', '2023-09-14', 18);
+INSERT INTO `sarana` VALUES (111, 'Thosiba hitam', 1, 8, 1, 'SMK/1131229/09', 'Charger', '', '2023', '2023-09-14', 24);
+INSERT INTO `sarana` VALUES (112, 'Asus Putih - adef', 1, 8, 1, 'SMK/1702389/09', 'Charger,Power Bank', '', '2023', '2023-09-14', 24);
+INSERT INTO `sarana` VALUES (113, 'Asus Vivobook - Rehan', 1, 8, 1, 'SMK/1185550/09', 'Charger,Mouse', '', '2023', '2023-09-14', 24);
+INSERT INTO `sarana` VALUES (114, 'Axioo Silver-Razaq ', 1, 8, 1, 'SMK/7359451/09', 'Charger', '', '2023', '2023-09-14', 25);
+INSERT INTO `sarana` VALUES (115, 'acer hitam - panca', 1, 8, 1, 'SMK/5545170/09', 'Charger', '', '2023', '2023-09-14', 25);
+INSERT INTO `sarana` VALUES (116, 'lenovo hitam - ardi', 1, 8, 1, 'SMK/8062605/09', 'Charger', '', '2023', '2023-09-14', 25);
+INSERT INTO `sarana` VALUES (117, 'asus silver - eka jaya', 1, 8, 1, 'SMK/7392988/09', 'Charger', '', '2023', '2023-09-14', 26);
+INSERT INTO `sarana` VALUES (118, 'thosiba', 1, 8, 1, 'SMK/8667577/09', 'Charger,Hardisk', '', '2023', '2023-09-14', 26);
+INSERT INTO `sarana` VALUES (119, 'lenovo mini notebook - yasinta', 1, 8, 1, 'SMK/9926224/09', 'Charger,Mouse', '', '2023', '2023-09-14', 26);
+INSERT INTO `sarana` VALUES (120, 'lenovo hitam - nisrina', 1, 8, 1, 'SMK/7309174/09', 'Charger', '', '2023', '2023-09-14', 28);
+INSERT INTO `sarana` VALUES (121, 'asus silver', 1, 8, 1, 'SMK/2664672/09', 'Charger,player DVD', '', '2023', '2023-09-14', 28);
+INSERT INTO `sarana` VALUES (122, 'axioo merah - wahyu', 1, 8, 1, 'SMK/2149470/09', 'charger', '', '2023', '2023-09-14', 28);
+INSERT INTO `sarana` VALUES (123, 'hp chrome book - cinta', 1, 8, 1, 'SMK/7221965/09', 'Charger', '', '2023', '2023-09-14', 29);
+INSERT INTO `sarana` VALUES (124, 'samsung chrome google - nazilla', 1, 8, 1, 'SMK/6952962/09', 'Charger', '', '2023', '2023-09-14', 29);
+INSERT INTO `sarana` VALUES (125, 'acer incopolated - udin', 1, 8, 1, 'SMK/5355478/09', 'charger', '', '2023', '2023-09-14', 29);
+INSERT INTO `sarana` VALUES (126, 'lenovo abu-abu - Fian', 1, 8, 1, 'SMK/6149629/09', 'headset', '', '2023', '2023-09-14', 30);
+INSERT INTO `sarana` VALUES (127, 'asus hitam - Nadia', 1, 8, 1, 'SMK/1548124/09', '', '', '2023', '2023-09-14', 30);
+INSERT INTO `sarana` VALUES (128, 'lenovo ideaped - Amir', 1, 8, 1, 'SMK/1767291/09', 'headset,mouse,charger,batrai', '', '2023', '2023-09-14', 31);
+INSERT INTO `sarana` VALUES (129, 'hp - Amanda', 1, 8, 1, 'SMK/4977633/09', '', '', '2023', '2023-09-14', 31);
+INSERT INTO `sarana` VALUES (130, 'lenovo thinkpad - Adin', 1, 8, 1, 'SMK/9756213/09', 'charger', '', '2023', '2023-09-14', 31);
+
+-- ----------------------------
+-- Table structure for semester
+-- ----------------------------
+DROP TABLE IF EXISTS `semester`;
+CREATE TABLE `semester`  (
+  `id_semester` int(11) NOT NULL AUTO_INCREMENT,
+  `semester` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `create_at` timestamp(0) NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id_semester`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of semester
+-- ----------------------------
+INSERT INTO `semester` VALUES (1, 'Genap', '2020-06-07 10:07:53');
+INSERT INTO `semester` VALUES (2, 'Ganjil', '2020-06-07 10:08:00');
+
+-- ----------------------------
+-- Table structure for setting_akun
+-- ----------------------------
+DROP TABLE IF EXISTS `setting_akun`;
+CREATE TABLE `setting_akun`  (
+  `id_setting_akun` int(11) NOT NULL AUTO_INCREMENT,
+  `kode` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `nama` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `debit` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `kredit` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  PRIMARY KEY (`id_setting_akun`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for setting_table
+-- ----------------------------
+DROP TABLE IF EXISTS `setting_table`;
+CREATE TABLE `setting_table`  (
+  `id_setting_table` int(11) NOT NULL AUTO_INCREMENT,
+  `table` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `name` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `value` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `keterangan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  PRIMARY KEY (`id_setting_table`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 22 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of setting_table
+-- ----------------------------
+INSERT INTO `setting_table` VALUES (1, 'buku_tamu', 'template_excel', 'include/template/excel/format_cetak_buku_tamu', 'Template Buku Tamu');
+INSERT INTO `setting_table` VALUES (2, 'prestasi_siswa', 'template_excel', 'include/template/excel/format_cetak_prestasi_siswa', 'Template Prestasi Siswa');
+INSERT INTO `setting_table` VALUES (3, 'kontrol_sarana', 'trans_code', 'KS/{rand}/{date}', 'Template Kontrol Sarana');
+INSERT INTO `setting_table` VALUES (4, 'peminjaman_sarana', 'trans_code', 'PS/{rand}/{month}', NULL);
+INSERT INTO `setting_table` VALUES (5, 'pengembalian_sarana', 'trans_code', 'NP/001/{rand}', NULL);
+INSERT INTO `setting_table` VALUES (6, 'surat_masuk', 'kode_arsip', 'ARSIP/{rand}/{date}', NULL);
+INSERT INTO `setting_table` VALUES (7, 'surat_masuk', 'no_surat', 'NOS-{date}-{rand}', NULL);
+INSERT INTO `setting_table` VALUES (8, 'surat_keluar', 'kode_arsip', 'SK/{rand}/{date}', NULL);
+INSERT INTO `setting_table` VALUES (9, 'surat_keluar', 'no_surat', 'NSK-{rand}-{year}', NULL);
+INSERT INTO `setting_table` VALUES (10, 'Transaksi_tanggungan_siswa', 'invoice', 'TS/{rand}/{month}', NULL);
+INSERT INTO `setting_table` VALUES (11, 'Transaksi_tanggungan_alumni', 'invoice', 'TTA/{rand}/{year}', NULL);
+INSERT INTO `setting_table` VALUES (12, 'pemasukan_lain', 'trans_code', 'PML/{rand}/{date_of_month}', NULL);
+INSERT INTO `setting_table` VALUES (13, 'pengeluaran_lain', 'trans_code', 'OUT/{rand}', NULL);
+INSERT INTO `setting_table` VALUES (14, 'buku_pemanggilan_siswa', 'kode_pemanggilan', 'BPS/{rand}/{date}', NULL);
+INSERT INTO `setting_table` VALUES (15, 'guru', 'kode_pegawai', 'PGW{rand}', NULL);
+INSERT INTO `setting_table` VALUES (16, 'sarana', 'no_inventaris', 'SMK/{rand}/{month}', NULL);
+INSERT INTO `setting_table` VALUES (17, 'prasarana', 'no_inventaris', 'PRS{rand}', NULL);
+INSERT INTO `setting_table` VALUES (18, 'buku_tamu', 'header_print_data', '<p><strong>Cetak Buku Tamu </strong>dengan detail sebagai berikut :</p>\r\n', NULL);
+INSERT INTO `setting_table` VALUES (19, 'buku_tamu', 'footer_print_data', '<p><strong>Cetak Buku Tamu </strong>dengan detail sebagai berikut {date}:</p>\r\n', NULL);
+INSERT INTO `setting_table` VALUES (20, 'buku_tamu', 'title_print_data', 'Tanda Terima Buku Tamu', NULL);
+INSERT INTO `setting_table` VALUES (21, 'buku_tamu', 'title_print_table', 'Cetak Data Buku Tamu', NULL);
+
+-- ----------------------------
+-- Table structure for setting_website
+-- ----------------------------
+DROP TABLE IF EXISTS `setting_website`;
+CREATE TABLE `setting_website`  (
+  `SPP` double(20, 0) NULL DEFAULT NULL,
+  `DSP` double(20, 0) NULL DEFAULT NULL
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of setting_website
+-- ----------------------------
+INSERT INTO `setting_website` VALUES (0, NULL);
+
+-- ----------------------------
+-- Table structure for silabus
+-- ----------------------------
+DROP TABLE IF EXISTS `silabus`;
+CREATE TABLE `silabus`  (
+  `id_silabus` int(11) NOT NULL AUTO_INCREMENT,
+  `idguru_fk` int(11) NULL DEFAULT NULL,
+  `idtahunajaran_fk` int(11) NULL DEFAULT NULL,
+  `idtingkat_fk` int(11) NULL DEFAULT NULL,
+  `idjurusan_fk` int(11) NULL DEFAULT NULL,
+  `idmatapelajaran_fk` int(11) NULL DEFAULT NULL,
+  `file` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  PRIMARY KEY (`id_silabus`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for siswa
+-- ----------------------------
+DROP TABLE IF EXISTS `siswa`;
+CREATE TABLE `siswa`  (
+  `id_siswa` int(11) NOT NULL AUTO_INCREMENT,
+  `nis` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `nama` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `idkelas_fk` int(11) NULL DEFAULT NULL,
+  `idjurusan_fk` int(11) NULL DEFAULT NULL,
+  `agama` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `nisn` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `no_ijazah_sekolah_asal` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `no_skhun_sekolah_asal` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `no_un_sekolah_asal` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `no_kk` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `npsn_sekolah_asal` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `nama_sekolah_asal` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `tempat_lahir` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `tanggal_lahir` date NULL DEFAULT NULL,
+  `berkebutuhan_khusus` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `alamat` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `dusun` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `rt` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `rw` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `kelurahan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `foto` text CHARACTER SET hp8 COLLATE hp8_english_ci NULL,
+  `idprovince_fk` int(11) NULL DEFAULT NULL,
+  `idcities_fk` int(11) NULL DEFAULT NULL,
+  `nama_ayah` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `tempat_lahir_ayah` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `tanggal_lahir_ayah` date NULL DEFAULT NULL,
+  `pendidikan_ayah` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `pekerjaan_ayah` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `penghasilan_ayah` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `nama_ibu` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `tempat_lahir_ibu` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `tanggal_lahir_ibu` date NULL DEFAULT NULL,
+  `pendidikan_ibu` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `pekerjaan_ibu` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `penghasilan_ibu` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `tinggi_badan` int(11) NULL DEFAULT NULL,
+  `berat_badan` int(11) NULL DEFAULT NULL,
+  `jarak_ke_sekolah` int(255) NULL DEFAULT NULL,
+  `waktu_ke_sekolah` int(255) NULL DEFAULT NULL,
+  `jumlah_saudara` int(255) NULL DEFAULT NULL,
+  `jenis_kelamin` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `saldo` double NULL DEFAULT NULL,
+  `is_alumni` int(255) NULL DEFAULT 0,
+  `iddepartment_fk` int(11) NULL DEFAULT NULL,
+  PRIMARY KEY (`id_siswa`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 980 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of siswa
+-- ----------------------------
+INSERT INTO `siswa` VALUES (745, '0418/0379.066', 'ABDU RAHMAN FANSYAH', 54, 15, NULL, '0069165142', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (746, '0419/0380.066', 'ABDUL HALIM RADITYANSYAH', 54, 15, NULL, '0064649235', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (747, '0420/0381.066', 'ACHMAD FALIH SABILARROSYAD', 54, 15, NULL, '3074543635', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (748, '0421/0382.066', 'ACHMAD MUSTOFA', 54, 15, NULL, '3064306739', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (749, '0422/0383.066', 'AHMAD AKIA RAIHAN ILYASA', 54, 15, NULL, '0073136292', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (750, '0423/0384.066', 'AHMAD DANI LASMANA', 54, 15, NULL, '0061371837', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (751, '0424/0385.066', 'AHMAD FIRQI', 54, 15, NULL, '3078421180', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (752, '0425/0386.066', 'AHMAD HABIBUROSYAD', 54, 15, NULL, '0062799392', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (753, '0426/0387.066', 'AHMAD NUR ROFI\'UDDIN', 54, 15, NULL, '0072789295', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (754, '0428/0389.066', 'AJIB BAHRUL IHSAN', 54, 15, NULL, '0137713577', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (755, '0429/0390.066', 'ANDIKA BAYU NUGROHO', 54, 15, NULL, '0075426850', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (757, '0431/0392.066', 'DIMAS PRAWIRO GHIFARI', 54, 15, NULL, '0073463642', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (758, '0432/0393.066', 'FAHMI ZAINUL MUTTAQIN', 54, 15, NULL, '0079131597', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (761, '0435/0396.066', 'FATHUN NAJA', 54, 15, NULL, '0073095114', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (763, '0437/0398.066', 'M. ALFIATUR ROHMAN', 54, 15, NULL, '0078941559', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (764, '0438/0399.066', 'M. BAGAS FATURRAHMAN', 54, 15, NULL, '3073037538', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (766, '0440/0401.066', 'M. KHOMSUN FADLI', 54, 15, NULL, '0065423383', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (767, '0441/0402.066', 'MUHAMMAD RABBANI ARDIANSYAH', 54, 15, NULL, '0077553331', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (768, '0442/0403.066', 'QODIMUL ZAKWAN MUCHTAR', 54, 15, NULL, '0075749439', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (769, '0527/0442.066', 'AHMAD RAYHAN ARDHANI PUTRA', 54, 15, NULL, '0078509847', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (770, '0443/0404.066', 'MAULANA FAIZ FIRMANSYAH', 55, 15, NULL, '0075501673', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (771, '0444/0405.066', 'MOCHAMAD BASUKI RAHMAT', 55, 15, NULL, '0069430185', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (772, '0445/0406.066', 'MOCHAMMAD MIFTAH ULUMIDDIN', 55, 15, NULL, '0072551440', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (773, '0446/0407.066', 'MOH. ANGGA ARDIANSYAH', 55, 15, NULL, '3140925766', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (774, '0447/0408.066', 'MOH. DAFFA SAFIRUZZAHIQ', 55, 15, NULL, '0071260146', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (775, '0346/0338.066', 'MOH. SAFI', 55, 15, NULL, '0057890376', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (776, '0448/0409.066', 'MOHAMMAD BURHANUDDIN', 55, 15, NULL, '0072388192', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (777, '0449/0410.066', 'MUCHAMMAD ABDUL HADI', 55, 15, NULL, '0076698204', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (778, '0450/0411.066', 'MUCHAMMAD ROYKHAN FIRDAUS', 55, 15, NULL, '0079080304', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (779, '0451/0412.066', 'MUH MAULANA FAHMI RAMADAN', 55, 15, NULL, '0071874212', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (780, '0452/0413.066', 'MUH. SAIFUDDIN ZAKARIA', 55, 15, NULL, '0081788883', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (781, '0453/0414.066', 'MUHAMMAD ASHRUL', 55, 15, NULL, '0068199958', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (782, '0454/0415.066', 'MUHAMMAD FAHRI HUSEIN', 55, 15, NULL, '0062722726', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (783, '0455/0416.066', 'MUHAMMAD HASYIM MASHURI', 55, 15, NULL, '0076831619', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (784, '0456/0417.066', 'MUHAMMAD KHOIRON KHOLES', 55, 15, NULL, '0061884649', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (785, '0457/0418.066', 'R. FANDI MUDIAN PRADANA', 55, 15, NULL, '0062515946', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (786, '0458/0419.066', 'RIDHO SAPUTRA', 55, 15, NULL, '0079697772', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (787, '0459/0420.066', 'SYAHRUL MINAN', 55, 15, NULL, '0066001948', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (788, '0373/0375.066', 'ABDURAHMAN', 59, 15, NULL, '0067880353', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (789, '0330/0322.066', 'ACHMAD THORIQ AL-AYYUBI', 59, 15, NULL, '0056608424', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (790, '0332/0324.066', 'BAGUS SANDIARTA', 59, 15, NULL, '0068814134', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (791, '0333/0325.066', 'CAHYA INDRA LUKMANA', 59, 15, NULL, '0047199197', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (792, '0334/0326.066', 'DANIEL DECO NAJHAN ZALFA', 59, 15, NULL, '0057748395', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (793, '0335/0327.066', 'DHONI AHMAD MUHAJJIR', 59, 15, NULL, '0067878114', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (794, '0336/0328.066', 'DZIKRU ROZAQ', 59, 15, NULL, '0057422277', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (795, '0337/0329.066', 'ERLANGGA CAHYA PUTRA', 59, 15, NULL, '0040594985', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (796, '0338/0330.066', 'FARIHIN IHSAN', 59, 15, NULL, '0066679121', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (797, '0339/0331.066', 'M. DAWAM ROYHANUL MUKAROM', 59, 15, NULL, '0059147289', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (798, '0341/0333.066', 'MOCHAMAD ROYKHAN KEN IZZUDDIN', 59, 15, NULL, '0063548177', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (799, '0342/0334.066', 'MOCHAMMAD FAQIHUDDIN HUDA', 59, 15, NULL, '0062544895', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (800, '0343/0335.066', 'MOCHAMMAD GIAN HARJA YODHA', 59, 15, NULL, '0063349095', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (801, '0347/0339.066', 'MOKHAMAD ZULFIKAR PUTRA IMRON', 59, 15, NULL, '0061887505', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (802, '0351/0343.066', 'MUKHAMAD AMIR AKHSANUL KHOLIQIN', 59, 15, NULL, '0051277067', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (803, '0352/0344.066', 'NAIL MAJID SANTOSO', 59, 15, NULL, '0062660804', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (804, '0353/0345.066', 'NAWWAL IRFAN MUHAMMAD', 59, 15, NULL, '9015710923', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (805, '0354/0346.066', 'NOZA JIMMY PRASETYO', 59, 15, NULL, '0058955052', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (806, '0355/0347.066', 'RAIHAN ALFARIZI', 59, 15, NULL, '0047175695', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (807, '0356/0348.066', 'ROISUL AHYER', 59, 15, NULL, '0054714506', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (808, '0360/0362.066', 'YUSRIL SAFRIL AHMADA', 59, 15, NULL, '0063148476', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (809, '0361/0363.066', 'AGUSTI REVI NUHHA', 60, 15, NULL, '0054483225', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (810, '0362/0364.066', 'AUHA MAY ZIADAH', 60, 15, NULL, '0057243211', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (811, '0363/0365.066', 'DYAH RINI KUSUMAWATI', 60, 15, NULL, '0069144139', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (812, '0528/0443.066', 'ASHA AZARIA', 60, 15, NULL, '0065917319', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (813, '0366/0368.066', 'AISYATUR RIDHO', 60, 15, NULL, '3066149152', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (814, '0367/0369.066', 'FAKHMADIANA MAULIDAH HAFSOH', 60, 15, NULL, '0067749903', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (815, '0368/0370.066', 'FEBBY KHUSNUL RAHMAWATI', 60, 15, NULL, '0061465631', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (816, '0369/0371.066', 'NADINE SYARA FEBRIANA', 60, 15, NULL, '0068591330', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (817, '0370/0372.066', 'TUHFATUS SANIYYAH SALSABILA', 60, 15, NULL, '0068786584', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (818, '0371/0373.066', 'ZAHWA FARAHDINA MAULIDI', 60, 15, NULL, '0067616431', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (819, '0372/0374.066', 'ISMI HELMA RAHMAWATI', 60, 15, NULL, '0058264514', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (820, '0374/0376.066', 'MIRZA IMELIA ANJANI', 60, 15, NULL, '0059090740', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (821, '0523/0121.089', 'ANNISA HARTANTI', 58, 16, NULL, '0065260243', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (822, '0524/0122.089', 'DEVI ZASKIA TIARA R.', 58, 16, NULL, '0068665861', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (823, '0525/0123.089', 'OLGA BERLIN AGUSTIN', 58, 16, NULL, '0067135489', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (824, '0526/0124.089', 'SAFEBRILA', 58, 16, NULL, '0075728322', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (825, '0373/0109.089', 'AINUN JAMILA', 62, 16, NULL, '0052334753', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (827, '0375/0111.089', 'AULIA NABILATUZ ZAHRO AL MAWADDAH', 62, 16, NULL, '0053542754', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (828, '0376/0112.089', 'CITRA CHINTIYA SARI', 62, 16, NULL, '0068427623', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (829, '0377/0113.089', 'EKA FARIHATUL AFIANTI', 62, 16, NULL, '0062729010', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (830, '0364/0366.066', 'KHUSNUL KHOTIMAH PUTRI WIJAYA', 62, 16, NULL, '0061695528', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (831, '0378/0114.089', 'NADIA RAHMA PUTRI', 62, 16, NULL, '0055404878', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (832, '0379/0115.089', 'NAILAL FAROHAH ABIDIN', 62, 16, NULL, '0055065967', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (833, '0380/0116.089', 'NAZLATUS MASDHA', 62, 16, NULL, '0064513847', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (834, '0381/0117.089', 'RENATA SYAKILLA ROHMATUS SYA\'DIYAH', 62, 16, NULL, '0069163400', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (835, '0382/0118.089', 'UMI FARIDA ZULFA', 62, 16, NULL, '0054460115', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (836, '0383/0119.089', 'YASINTA HASNA ANWAR', 62, 16, NULL, '0062008680', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (837, '0384/0120.089', 'ZAKIYAH NAYLAL IZZAH', 62, 16, NULL, '0065032872', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (838, '0482/0150.126', 'ABDUL MUN\'IM ZAM ZAMY', 56, 17, NULL, '0066259392', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (839, '0483/0151.126', 'ABDULLOH ABID AL-QODRI', 56, 17, NULL, '0072608620', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (840, '0485/0152.126', 'AHMAD ROZAK RABANI ', 56, 17, NULL, '0061300124', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (841, '0486/0153.126', 'ALIF MUHAMMAD GATRA ABDULLAH', 56, 17, NULL, '0071343492', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (842, '0487/0154.126', 'ARY ARDIANSYAH', 56, 17, NULL, '0055139870', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (843, '0488/0155.126', 'DAMMAWUZ ZAINAL ALFATH', 56, 17, NULL, '0074572997', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (844, '0490/0157.126', 'DEEDAD AL BALIYA', 56, 17, NULL, '0066782020', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (845, '0492/0159.126', 'FIAN MAULIDAN HARDIYANTA', 56, 17, NULL, '0072547745', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (846, '0493/0160.126', 'GALANG ULUL ALBAB', 56, 17, NULL, '0065148726', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (847, '0494/0161.126', 'GILANG SATRIA RAMADHANI', 56, 17, NULL, '0077913368', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (848, '0495/0162.126', 'IMAM AHMAD KHUDAEFI ALBAR', 56, 17, NULL, '0061429078', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (849, '0496/0163.126', 'KHANSA AFRINANDA AGASI', 56, 17, NULL, '00743950676', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (850, '0529/0444.066', 'M. AGUS SAIFUDIN ZUHRI', 56, 17, NULL, '3060985986', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (851, '0497/0164.126', 'M. FAKHRUR RAMADHANI', 56, 17, NULL, '0069608542', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (852, '0498/0165.126', 'M. IZZUDDIN RIFQI', 56, 17, NULL, '0067447751', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (853, '0499/0166.126', 'MOCH. RAFY DENIS SYAHBANA', 56, 17, NULL, '3068442841', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (854, '0500/0167.126', 'MUCHAMMAD AZAM FANANI', 56, 17, NULL, '0081109823', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (855, '0501/0168.126', 'MUHAMMAD ADILAH RAYHAN', 56, 17, NULL, '0072886495', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (856, '0502/0169.126', 'MUHAMMAD FAROUQ ABDUL GHONI', 56, 17, NULL, '0067454815', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (857, '0503/0170.126', 'MUHAMMAD MAKAYLA AKBAR', 56, 17, NULL, '0079757883', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (858, '0504/0171.126', 'MUHAMMAD RIDWAN KAUTSAR FATAHILLAH', 56, 17, NULL, '3078830961', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (859, '0505/0172.126', 'MUHAMMAD SYAUQI', 56, 17, NULL, '0064331432', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (860, '0506/0173.126', 'SULTAN BILAL AN-NAFI\'', 56, 17, NULL, '0067590318', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (861, '0507/0174.126', 'TRIO MICKI GALIH SAPUTRA', 56, 17, NULL, '0072024702', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (862, '0508/0175.126', 'ZUNNOON NAZRAN JANKI DAUSAT', 56, 17, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (863, '0509/0176.126', 'AFRINA FAROH FIRJANI', 57, 17, NULL, '0066655578', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (864, '0511/0178.126', 'ALIF ALFIYATUS SA\'DIYAH', 57, 17, NULL, '0073331914', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (865, '0512/0179.126', 'AZZAH RATUL KHUSNIAH', 57, 17, NULL, '0078157507', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (866, '0513/0180.126', 'DIHAN AMELIA PUTRI', 57, 17, NULL, '0079035274', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (867, '0481/0191.066', 'DINDA AKTHA FEBIANA', 57, 17, NULL, '0075893411', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (868, '0514/0181.126', 'DWI AFIFAH KHOIRUNISA', 57, 17, NULL, '0077477614', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (869, '0515/0182.126', 'ELSA SALSABILA', 57, 17, NULL, '0065520544', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (870, '0516/0183.126', 'FIRDA NADHIFAH MAULANA', 57, 17, NULL, '0071372648', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (871, '0517/0184.126', 'HIMA TALIA EL-FURQONIA', 57, 17, NULL, '0078626899', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (872, '0518/0185.126', 'INTAN AYU PERMATA SARI', 57, 17, NULL, '0078634684', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (873, '0519/0186.126', 'NAJWA NAJUBA', 57, 17, NULL, '0072568723', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (874, '0520/0187.126', 'RIMAS NIA AGUSTIN', 57, 17, NULL, '0069457284', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (875, '0521/0188.126', 'TATIA NUR DIANA', 57, 17, NULL, '0065492014', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (876, '0522/0189.126', 'ZAFITRI OCTAVIANI', 57, 17, NULL, '0065492014', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (877, '0385/0121.126', 'ACHMAD WAHYU AL-BAIHAQI', 61, 17, NULL, '0053620090', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (879, '0391/0127.126', 'DICKY PUTRA ARDIANSYAH', 61, 17, NULL, '0052215578', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (880, '0392/0128.126', 'FIDI GAUTAMA VALENTINO ANTOLIN', 61, 17, NULL, '0067937559', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (881, '0393/0129.126', 'FIRZHA IBRAHIM WIDYA NUGROHO', 61, 17, NULL, '0065552760', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (882, '0394/0130.126', 'FITRA AL INSANI', 61, 17, NULL, '0062112675', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (883, '0395/0131.126', 'HABIB MAS\'UD DJAZULI', 61, 17, NULL, '0062088628', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (884, '0397/0133.126', 'HASBI AFRIZAL FAHMI', 61, 17, NULL, '0055870342', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (885, '0401/0137.126', 'MUHAMMAD ROIZU DZUL FIKRI', 61, 17, NULL, '0053709363', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (886, '0402/0138.126', 'MUHAMMAD YASYFI FUADANA', 61, 17, NULL, '0069710443', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (887, '0408/0144.126', 'WILDAN SALASA', 61, 17, NULL, '0068160996', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (888, '0386/0122.126', 'ADHELIA PUTRI ISLAMIAH', 66, 17, NULL, '52646450', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (889, '0388/0124.126', 'AMANDA RAHMAWATI', 66, 17, NULL, '67413209', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (890, '0389/0125.126', 'CHOIROTUL ULA', 66, 17, NULL, '59215471', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (891, '0396/0132.126', 'HABIBAH SHOFI FUTUHIL AULIA', 66, 17, NULL, '52600824', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (892, '0403/0139.126', 'NISRINA WASHFA NABILA', 66, 17, NULL, '55944451', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (893, '0406/0142.126', 'SHOFI SAVIRA', 66, 17, NULL, '55178461', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (894, NULL, 'RAVKA MAULANA', 49, 15, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (895, NULL, 'MUHAMMAD RIFQI MUBAROK', 49, 15, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (896, NULL, 'ELANG FIGO PRATAMA', 49, 15, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (897, NULL, 'MUHAMMAD SYAIFUDDIN', 49, 15, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (898, NULL, 'M. NUR SEFI ULIN NUHA LUTHFILKARIEM', 49, 15, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (899, NULL, 'MUHAMMAD AMRU AZZAKY', 49, 15, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (900, NULL, 'AHMAD ZAIHAN AL QODRI', 49, 15, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (901, NULL, 'MUKHAMAD FARKHAN FADLI', 49, 15, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (902, NULL, 'MUKHAMMAD MIFTAKHUL AMIN', 49, 15, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (903, NULL, 'EKA WIJAYANTO', 49, 15, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (904, NULL, 'M. VAZA ZAKIYAN', 49, 15, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (905, NULL, 'RIFQI ROSUL', 49, 15, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (906, NULL, 'MISBAHUL UMAMI AL HAFIDI', 49, 15, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (907, NULL, 'MUHAMMAD ABDUL RAMADHANI', 49, 15, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (908, NULL, 'MOCHAMAD ALSAR MAULANA MUSTOFA', 49, 15, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (909, NULL, 'MUAMAR KHADAFI', 49, 15, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (910, NULL, 'MUHAMMAD YUSRIL FAIDZIN', 49, 15, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (911, NULL, 'FAWAZ IZZUDIN ARIF', 49, 15, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (912, NULL, 'AHMAD RIDHO AL-FAQIH', 49, 15, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (913, NULL, 'SATRIA PRIMA PUTRA', 49, 15, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (914, NULL, 'M. FANDI NARENDRA MUTTAQIN', 49, 15, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (915, NULL, 'MUHAMMAD RAYHAN IBRAHIM', 49, 15, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (916, NULL, 'NUR MUHAMMAD KHAIDIR ALHAMID', 49, 15, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (917, NULL, 'A. ARIF HIDAYAT', 49, 15, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (918, NULL, 'NAUFAL MISBAHUDDIN', 49, 15, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (919, NULL, 'ACHMAD RIZKY HIDAYAH', 49, 15, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (920, NULL, 'SYAIFUDDIN ZUHRY', 49, 15, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (921, NULL, 'MUHAMMAD AFSYA RAYHANY', 49, 15, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (922, NULL, 'AHMAD MAULANA MAQDUM IBRAHIM', 49, 15, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (925, NULL, 'ANDRIANI NOVITRI', 52, 17, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (926, NULL, 'FAILA IMADA MILLAH', 52, 17, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (927, NULL, 'NABILLA MAULIDYA CAHAYA RANI', 52, 17, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (928, NULL, 'PUTRI AZZAHRA NABILA RAMADHANI', 52, 17, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (929, NULL, 'LULUK NUR JAMILAH', 52, 17, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (930, NULL, 'RIZAL ZIAT AL FIKRI', 51, 17, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (931, NULL, 'ACHMAD NAJIB RIDHWAN', 51, 17, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (932, NULL, 'REYZA MUHAMMAD ULIN NUHA', 51, 17, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (933, NULL, 'MUHAMMAD WILDAN MUZAKI AFIFUDDIN', 51, 17, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (934, NULL, 'VIQI HIDAYAT', 51, 17, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (935, NULL, 'ABDILLAH LUCKY MAULANA', 51, 17, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (936, NULL, 'DZIKRA SATYA NABIHI SYAKIR', 51, 17, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (937, NULL, 'ROZAN MUHAMMAD LAUDZA\'I', 51, 17, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (938, NULL, 'MOCH.GALIH PRATAMA PUTRA', 51, 17, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (939, NULL, 'FEBRIAN FERDIANSYAH', 51, 17, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (940, NULL, 'MUHAMMAD NABIL SIROJUDIN', 51, 17, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (941, NULL, 'ACHMAD WAHYU HIDAYAT', 51, 17, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (942, NULL, 'DHIMAS ALI MUZAKKI', 51, 17, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (943, NULL, 'BAKAS RIDHO SYAIMONA S. W', 51, 17, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (944, NULL, 'FEBRIYAN AULIA RAHMAN', 51, 17, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (945, NULL, 'AULIA AHSANAH PUTRI', 67, 16, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (946, NULL, 'SAFIRA AZZAHRAH BERLIANA SUPRIANTO', 67, 16, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (947, NULL, 'BADZLINA DIAN MASHLUHA', 67, 16, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (948, NULL, 'AVISHA FAIRUUZ DZAKIYYAH PUTRI', 67, 16, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (949, NULL, 'YASMIN PUTRI ABDULLAH', 67, 16, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (950, NULL, 'SILVIATUS SHOLIHA', 67, 16, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (951, NULL, 'BADRIYYAH UQNUTY', 67, 16, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (952, NULL, 'NURUS SA\'DIYAH', 67, 16, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (953, NULL, 'ELVIADO NURIL AZMI', 67, 16, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (954, NULL, 'SINARUN KHOIRUN NISA', 67, 16, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (955, NULL, 'GHANIA FAIRUZ AZIZAH', 67, 16, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (956, NULL, 'MUHAMMAD ADIB IN\'AM ROMADHONI', 53, 16, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (957, NULL, 'AJIB MULTAZAM', 53, 16, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (958, NULL, 'AQLIHADIS IMTIYAS ARZAK', 53, 16, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (959, NULL, 'MOCHAMAD FAIZ YOGA PRATAMA', 53, 16, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (960, NULL, 'ABDULLOH ROSYID', 53, 16, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (961, '', 'GABRIEL AZIZ ALFANI ', 49, 15, 'islam', '', '', '', '', '', '', '', '', '0000-00-00', 'Ya', '', '', '', '', '', NULL, NULL, NULL, '', '', '0000-00-00', '', '', '', '', '', '0000-00-00', '', '', '', 0, 0, 0, NULL, 0, 'L', NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (962, '', 'ALIFLAMMIM SIR EISY AS SANUSI', 49, 15, 'islam', '', '', '', '', '', '', '', '', '0000-00-00', 'Ya', '', '', '', '', '', NULL, NULL, NULL, '', '', '0000-00-00', '', '', '', '', '', '0000-00-00', '', '', '', 0, 0, 0, NULL, 0, 'L', NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (963, NULL, 'AHMAD SYAHRUL LAILI', 53, 16, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (964, NULL, 'ACHMAD MAULANA RIZKY', 53, 16, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (965, NULL, 'KAFI FAHRILAH', 53, 16, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (966, '', 'MUHAMMAD ZIA RIDLO MUSYAFI\' AL-FATHONI', 51, 17, 'islam', '', '', '', '', '', '', '', '', '0000-00-00', 'Ya', '', '', '', '', '', NULL, NULL, NULL, '', '', '0000-00-00', '', '', '', '', '', '0000-00-00', '', '', '', 0, 0, 0, NULL, 0, 'L', NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (967, NULL, 'MUHAMMAD MIRZA AMINULLAH', 53, 16, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (968, NULL, 'DAVY FIROS FAWAZI', 53, 16, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (969, NULL, 'UYUN MUSA ABDILLAH', 53, 16, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (970, '0462/0423.066', 'FAZA ATI\'ILLAH', 65, 15, NULL, '3076294154', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (971, '0463/0424.066', 'FISCHA HABIBAH', 65, 15, NULL, '0089936698', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (972, '0464/0425.066', 'KAFFANA AL KHANANI', 65, 15, NULL, '0075209783', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (973, '0465/0426.066', 'NABILA SHOFIYATUL AMELIA', 65, 15, NULL, '0073139482', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (974, '0466/0427.066', 'NAILA FALENTINA NAHYATUL A.', 65, 15, NULL, '0079116108', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (975, '0467/0428.066', 'RIZKY FAJAR WAHYUNI', 65, 15, NULL, '0072804274', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (976, '0468/0429.066', 'ROZA FITRIANI WULANDARI', 65, 15, NULL, '0061491213', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (977, '0469/0430.066', 'SALSABILA SEPVIA PUTRI', 65, 15, NULL, '0066728605', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (978, '0470/0431.066', 'ZUHROTUS SANIIYAH', 65, 15, NULL, '0073175019', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `siswa` VALUES (979, '0460/0421.066', 'VANESA WILDAN AL-FATIH', 55, 15, 'islam', '0076297394', '', '', '', '', '', '', 'Malang', '2007-08-15', 'Tidak', '', '', '', '', '', '', 15, 226, '', '', '0000-00-00', '', '', '', '', '', '0000-00-00', '', '', '', 0, 0, 0, NULL, 0, 'L', NULL, 0, NULL);
+
+-- ----------------------------
+-- Table structure for siswa_beasiswa
+-- ----------------------------
+DROP TABLE IF EXISTS `siswa_beasiswa`;
+CREATE TABLE `siswa_beasiswa`  (
+  `id_siswa_beasiswa` int(11) NOT NULL AUTO_INCREMENT,
+  `idsiswa_fk` int(11) NULL DEFAULT NULL,
+  `jenis` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `penyelenggara` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `tahun_mulai` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `tahun_selesai` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  PRIMARY KEY (`id_siswa_beasiswa`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for siswa_dokumen
+-- ----------------------------
+DROP TABLE IF EXISTS `siswa_dokumen`;
+CREATE TABLE `siswa_dokumen`  (
+  `id_siswa_dokumen` int(11) NOT NULL AUTO_INCREMENT,
+  `idsiswa_fk` int(11) NULL DEFAULT NULL,
+  `keterangan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `foto` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  PRIMARY KEY (`id_siswa_dokumen`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for siswa_mapel
+-- ----------------------------
+DROP TABLE IF EXISTS `siswa_mapel`;
+CREATE TABLE `siswa_mapel`  (
+  `id_siswa_mapel` int(11) NOT NULL AUTO_INCREMENT,
+  `idsiswa_fk` int(11) NULL DEFAULT NULL,
+  `idmatapelajaran_fk` int(11) NULL DEFAULT NULL,
+  PRIMARY KEY (`id_siswa_mapel`) USING BTREE,
+  INDEX `idsiswa_fk`(`idsiswa_fk`) USING BTREE,
+  INDEX `idmatapelajaran_fk`(`idmatapelajaran_fk`) USING BTREE,
+  CONSTRAINT `siswa_mapel_ibfk_1` FOREIGN KEY (`idsiswa_fk`) REFERENCES `siswa` (`id_siswa`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `siswa_mapel_ibfk_2` FOREIGN KEY (`idmatapelajaran_fk`) REFERENCES `mata_pelajaran` (`id_mata_pelajaran`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for siswa_prestasi
+-- ----------------------------
+DROP TABLE IF EXISTS `siswa_prestasi`;
+CREATE TABLE `siswa_prestasi`  (
+  `id_siswa_prestasi` int(11) NOT NULL AUTO_INCREMENT,
+  `idsiswa_fk` int(11) NULL DEFAULT NULL,
+  `jenis` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `tingkat` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `nama` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `tahun` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `penyelenggara` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  PRIMARY KEY (`id_siswa_prestasi`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for sosialisasi
+-- ----------------------------
+DROP TABLE IF EXISTS `sosialisasi`;
+CREATE TABLE `sosialisasi`  (
+  `id_sosialisasi` int(11) NOT NULL AUTO_INCREMENT,
+  `tanggal` date NULL DEFAULT NULL,
+  `judul` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `keterangan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `berkas` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  PRIMARY KEY (`id_sosialisasi`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of sosialisasi
+-- ----------------------------
+INSERT INTO `sosialisasi` VALUES (3, '2022-10-23', 'Sosialisasi guru merdeka', 'uji coba sosialisasi guru merdeka yang diadakan di sekolah', '2cf6d1d285fda26618f15829a709bdba.jpg');
+INSERT INTO `sosialisasi` VALUES (4, '2022-10-23', 'Sosialisasi Praktek Kerja Industri', 'kegiatan dilaksanakan di sekolah', 'b368005d51ca9118ea7942f83f404e4c.jpg');
+INSERT INTO `sosialisasi` VALUES (5, '2022-10-24', 'Sosialisasi gerakan berkoperasi', 'adsad', '57aff1c469ed6b78a4cdfe63453eaeee.jpg');
+
+-- ----------------------------
+-- Table structure for student_account
+-- ----------------------------
+DROP TABLE IF EXISTS `student_account`;
+CREATE TABLE `student_account`  (
+  `id_student_account` int(11) NOT NULL AUTO_INCREMENT,
+  `idsiswa_fk` int(11) NULL DEFAULT NULL,
+  `username` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `pass` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `create_at` timestamp(0) NULL DEFAULT current_timestamp(),
+  `update_at` timestamp(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0),
+  PRIMARY KEY (`id_student_account`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of student_account
+-- ----------------------------
+INSERT INTO `student_account` VALUES (1, 285, 'ferdy', '55f3fc2fdb2fea1f635521b79abfe204', '2022-05-31 07:20:14', NULL);
+
+-- ----------------------------
+-- Table structure for subkompetensi_pkg
+-- ----------------------------
+DROP TABLE IF EXISTS `subkompetensi_pkg`;
+CREATE TABLE `subkompetensi_pkg`  (
+  `id_subkompetensi_pkg` int(11) NOT NULL AUTO_INCREMENT,
+  `idkompetensipkg_fk` int(11) NULL DEFAULT NULL,
+  `subkompetensi` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `kode` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  PRIMARY KEY (`id_subkompetensi_pkg`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for submenu
+-- ----------------------------
+DROP TABLE IF EXISTS `submenu`;
+CREATE TABLE `submenu`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `menu_id` int(11) NULL DEFAULT NULL,
+  `submenu` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `link` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `c` tinyint(4) NULL DEFAULT NULL,
+  `r` tinyint(4) NULL DEFAULT NULL,
+  `u` tinyint(4) NULL DEFAULT NULL,
+  `d` tinyint(4) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 29 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Table structure for submodul
+-- ----------------------------
+DROP TABLE IF EXISTS `submodul`;
+CREATE TABLE `submodul`  (
+  `id_submodul` int(11) NOT NULL AUTO_INCREMENT,
+  `idmodul_fk` int(11) NULL DEFAULT NULL,
+  `submodul` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `url` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  PRIMARY KEY (`id_submodul`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of submodul
+-- ----------------------------
+INSERT INTO `submodul` VALUES (1, 2, 'Prestasi Siswa', 'Prestasi_siswa/get_data');
+INSERT INTO `submodul` VALUES (2, 2, 'Buku Tamu', 'Buku_tamu/get_data');
+INSERT INTO `submodul` VALUES (3, 2, 'Surat Masuk', 'Surat_masuk/get_data');
+INSERT INTO `submodul` VALUES (4, 2, 'Surat Keluar', 'Surat_keluar/get_data');
+INSERT INTO `submodul` VALUES (5, 2, 'Buku Induk Kepegawaian', 'Kepegawaian//get_data');
+INSERT INTO `submodul` VALUES (6, 3, 'Chart Of Account', 'coa/get_data');
+INSERT INTO `submodul` VALUES (7, 3, 'Jenis Tanggungan', 'Jenis_penerimaan/get_data');
+
+-- ----------------------------
+-- Table structure for suplier
+-- ----------------------------
+DROP TABLE IF EXISTS `suplier`;
+CREATE TABLE `suplier`  (
+  `id_suplier` int(11) NOT NULL AUTO_INCREMENT,
+  `suplier` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
+  `no_hp` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
+  PRIMARY KEY (`id_suplier`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for surat_keluar
+-- ----------------------------
+DROP TABLE IF EXISTS `surat_keluar`;
+CREATE TABLE `surat_keluar`  (
+  `id_surat_keluar` int(11) NOT NULL AUTO_INCREMENT,
+  `tujuan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `perihal` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `no_surat` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `kode_arsip` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `file_arsip` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `tanggal_surat` date NULL DEFAULT NULL,
+  `create_at` timestamp(0) NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id_surat_keluar`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for surat_masuk
+-- ----------------------------
+DROP TABLE IF EXISTS `surat_masuk`;
+CREATE TABLE `surat_masuk`  (
+  `id_surat_masuk` int(11) NOT NULL AUTO_INCREMENT,
+  `pengirim` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `perihal` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `tanggal_surat` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `kode_arsip` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `create_at` timestamp(0) NULL DEFAULT current_timestamp(),
+  `no_surat` longtext CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `file_arsip` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
+  PRIMARY KEY (`id_surat_masuk`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for tahun_ajaran
+-- ----------------------------
+DROP TABLE IF EXISTS `tahun_ajaran`;
+CREATE TABLE `tahun_ajaran`  (
+  `id_tahun_ajaran` int(11) NOT NULL AUTO_INCREMENT,
+  `tahun_ajaran` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `create_at` timestamp(0) NULL DEFAULT current_timestamp(),
+  `is_active` int(11) NULL DEFAULT NULL,
+  `semester` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  PRIMARY KEY (`id_tahun_ajaran`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of tahun_ajaran
+-- ----------------------------
+INSERT INTO `tahun_ajaran` VALUES (7, '2023/2024', '2023-05-15 09:50:52', 1, 'Ganjil');
+
+-- ----------------------------
+-- Table structure for tahun_buku
+-- ----------------------------
+DROP TABLE IF EXISTS `tahun_buku`;
+CREATE TABLE `tahun_buku`  (
+  `id_tahun_buku` int(11) NOT NULL AUTO_INCREMENT,
+  `tahun_buku` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `tanggal_mulai` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `awalan_kwitansi` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `is_active` int(255) NULL DEFAULT NULL,
+  PRIMARY KEY (`id_tahun_buku`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Table structure for tanggungan_alumni
+-- ----------------------------
+DROP TABLE IF EXISTS `tanggungan_alumni`;
+CREATE TABLE `tanggungan_alumni`  (
+  `id_tanggungan_alumni` int(11) NOT NULL AUTO_INCREMENT,
+  `idalumni_fk` int(11) NULL DEFAULT NULL,
+  `keterangan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `jumlah` decimal(20, 0) NULL DEFAULT NULL,
+  `idjenispenerimaan_fk` int(11) NULL DEFAULT NULL,
+  `trans_code` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `kas` int(11) NULL DEFAULT NULL,
+  `pendapatan` int(11) NULL DEFAULT NULL,
+  `piutang` int(11) NULL DEFAULT NULL,
+  `diskon` int(11) NULL DEFAULT NULL,
+  PRIMARY KEY (`id_tanggungan_alumni`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 14 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Table structure for tanggungan_siswa
+-- ----------------------------
+DROP TABLE IF EXISTS `tanggungan_siswa`;
+CREATE TABLE `tanggungan_siswa`  (
+  `id_tanggungan_siswa` int(11) NOT NULL AUTO_INCREMENT,
+  `idsiswa_fk` int(11) NULL DEFAULT NULL,
+  `idjenispenerimaan_fk` int(11) NULL DEFAULT NULL,
+  `jumlah` double(255, 0) NULL DEFAULT NULL,
+  `invoice` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  PRIMARY KEY (`id_tanggungan_siswa`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 227 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of tanggungan_siswa
+-- ----------------------------
+INSERT INTO `tanggungan_siswa` VALUES (207, 745, 8, 150000, '4412964');
+INSERT INTO `tanggungan_siswa` VALUES (208, 746, 8, 150000, '4667843');
+INSERT INTO `tanggungan_siswa` VALUES (209, 747, 8, 150000, '76862');
+INSERT INTO `tanggungan_siswa` VALUES (210, 748, 8, 150000, '9605407');
+INSERT INTO `tanggungan_siswa` VALUES (211, 749, 8, 150000, '9413182');
+INSERT INTO `tanggungan_siswa` VALUES (212, 750, 8, 150000, '9829687');
+INSERT INTO `tanggungan_siswa` VALUES (213, 751, 8, 150000, '6617203');
+INSERT INTO `tanggungan_siswa` VALUES (214, 752, 8, 150000, '2947411');
+INSERT INTO `tanggungan_siswa` VALUES (215, 753, 8, 150000, '1915064');
+INSERT INTO `tanggungan_siswa` VALUES (216, 754, 8, 150000, '2959098');
+INSERT INTO `tanggungan_siswa` VALUES (217, 755, 8, 150000, '7901352');
+INSERT INTO `tanggungan_siswa` VALUES (218, 757, 8, 150000, '3451312');
+INSERT INTO `tanggungan_siswa` VALUES (219, 758, 8, 150000, '7400859');
+INSERT INTO `tanggungan_siswa` VALUES (220, 761, 8, 150000, '6573200');
+INSERT INTO `tanggungan_siswa` VALUES (221, 763, 8, 150000, '7848769');
+INSERT INTO `tanggungan_siswa` VALUES (222, 764, 8, 150000, '7510497');
+INSERT INTO `tanggungan_siswa` VALUES (223, 766, 8, 150000, '7028348');
+INSERT INTO `tanggungan_siswa` VALUES (224, 767, 8, 150000, '1671100');
+INSERT INTO `tanggungan_siswa` VALUES (225, 768, 8, 150000, '3024341');
+INSERT INTO `tanggungan_siswa` VALUES (226, 769, 8, 150000, '5758914');
+
+-- ----------------------------
+-- Table structure for task
+-- ----------------------------
+DROP TABLE IF EXISTS `task`;
+CREATE TABLE `task`  (
+  `id_task` int(11) NOT NULL AUTO_INCREMENT,
+  `task_code` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `task` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `idguru_fk` int(11) NULL DEFAULT NULL,
+  `idmapel_fk` int(11) NULL DEFAULT NULL,
+  `title` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `type` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  PRIMARY KEY (`id_task`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for task_answer
+-- ----------------------------
+DROP TABLE IF EXISTS `task_answer`;
+CREATE TABLE `task_answer`  (
+  `id_task_answer` int(11) NOT NULL AUTO_INCREMENT,
+  `idsiswa_fk` int(11) NULL DEFAULT NULL,
+  `ans` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `idtask_fk` int(11) NULL DEFAULT NULL,
+  `type` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `nilai` int(255) NULL DEFAULT NULL,
+  PRIMARY KEY (`id_task_answer`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for template_penggajian
+-- ----------------------------
+DROP TABLE IF EXISTS `template_penggajian`;
+CREATE TABLE `template_penggajian`  (
+  `id_template_penggajian` int(11) NOT NULL AUTO_INCREMENT,
+  `kode` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `nama` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `is_active` int(11) NULL DEFAULT NULL,
+  PRIMARY KEY (`id_template_penggajian`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of template_penggajian
+-- ----------------------------
+INSERT INTO `template_penggajian` VALUES (1, '1', 'Template 1', 1);
+INSERT INTO `template_penggajian` VALUES (2, '2', 'Template 2', 0);
+
+-- ----------------------------
+-- Table structure for tindakan_catatan_siswa
+-- ----------------------------
+DROP TABLE IF EXISTS `tindakan_catatan_siswa`;
+CREATE TABLE `tindakan_catatan_siswa`  (
+  `id_tindakan_catatan_siswa` int(11) NOT NULL AUTO_INCREMENT,
+  `idcatatansiswa_fk` int(11) NULL DEFAULT NULL,
+  `tanggal` date NULL DEFAULT NULL,
+  `tindakan` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
+  PRIMARY KEY (`id_tindakan_catatan_siswa`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for tingkat
+-- ----------------------------
+DROP TABLE IF EXISTS `tingkat`;
+CREATE TABLE `tingkat`  (
+  `id_tingkat` int(11) NOT NULL AUTO_INCREMENT,
+  `tingkat` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `create_at` timestamp(0) NULL DEFAULT current_timestamp(),
+  `iddepartment_fk` int(11) NULL DEFAULT NULL,
+  PRIMARY KEY (`id_tingkat`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of tingkat
+-- ----------------------------
+INSERT INTO `tingkat` VALUES (1, 'X', '2020-06-07 09:54:48', 1);
+INSERT INTO `tingkat` VALUES (2, 'XI', '2020-06-07 09:54:48', 1);
+INSERT INTO `tingkat` VALUES (3, 'XII', '2020-06-07 09:55:06', 1);
+INSERT INTO `tingkat` VALUES (5, 'VII', '2022-11-04 20:45:32', 2);
+INSERT INTO `tingkat` VALUES (6, 'VIII', '2022-11-04 20:45:42', 2);
+INSERT INTO `tingkat` VALUES (7, 'IX', '2022-11-04 20:45:49', 2);
+
+-- ----------------------------
+-- Table structure for transaksi_saldo
+-- ----------------------------
+DROP TABLE IF EXISTS `transaksi_saldo`;
+CREATE TABLE `transaksi_saldo`  (
+  `id_transaksi` int(11) NOT NULL AUTO_INCREMENT,
+  `jenis_transaksi` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
+  `idsiswa_fk` int(11) NULL DEFAULT NULL,
+  `jumlah` double NULL DEFAULT NULL,
+  `tanggal` date NULL DEFAULT NULL,
+  `status` int(11) NULL DEFAULT 0,
+  `order_id` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
+  PRIMARY KEY (`id_transaksi`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 27 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for transaksi_tanggungan_alumni
+-- ----------------------------
+DROP TABLE IF EXISTS `transaksi_tanggungan_alumni`;
+CREATE TABLE `transaksi_tanggungan_alumni`  (
+  `id_transaksi_tanggungan_alumni` int(11) NOT NULL AUTO_INCREMENT,
+  `idalumni_fk` int(11) NULL DEFAULT NULL,
+  `tanggal` date NULL DEFAULT NULL,
+  `invoice` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `catatan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `jumlah` decimal(20, 0) NULL DEFAULT NULL,
+  `create_at` timestamp(0) NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id_transaksi_tanggungan_alumni`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of transaksi_tanggungan_alumni
+-- ----------------------------
+INSERT INTO `transaksi_tanggungan_alumni` VALUES (2, 14, '2022-08-23', 'P1741155', 'dasj', 165000, '2022-08-23 12:18:33');
+
+-- ----------------------------
+-- Table structure for transaksi_tanggungan_siswa
+-- ----------------------------
+DROP TABLE IF EXISTS `transaksi_tanggungan_siswa`;
+CREATE TABLE `transaksi_tanggungan_siswa`  (
+  `id_transaksi_tanggungan_siswa` int(11) NOT NULL AUTO_INCREMENT,
+  `idsiswa_fk` int(11) NULL DEFAULT NULL,
+  `tanggal` date NULL DEFAULT NULL,
+  `invoice` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `catatan` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `jumlah` decimal(20, 0) NULL DEFAULT NULL,
+  `create_at` timestamp(0) NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id_transaksi_tanggungan_siswa`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of transaksi_tanggungan_siswa
+-- ----------------------------
+INSERT INTO `transaksi_tanggungan_siswa` VALUES (1, 647, '2022-08-22', 'P5231289', 'pembayaran tanggungan', 250000, '2022-08-22 18:13:47');
+
+-- ----------------------------
+-- Table structure for user_modul
+-- ----------------------------
+DROP TABLE IF EXISTS `user_modul`;
+CREATE TABLE `user_modul`  (
+  `id_user_modul` int(11) NOT NULL AUTO_INCREMENT,
+  `iduser_fk` int(11) NULL DEFAULT NULL,
+  `idmodul_fk` int(11) NULL DEFAULT NULL,
+  `c` int(255) NULL DEFAULT 0,
+  `r` int(255) NULL DEFAULT 0,
+  `u` int(255) NULL DEFAULT 0,
+  `d` int(255) NULL DEFAULT 0,
+  PRIMARY KEY (`id_user_modul`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of user_modul
+-- ----------------------------
+INSERT INTO `user_modul` VALUES (2, 8, 3, 0, 0, 0, 0);
+
+-- ----------------------------
+-- Table structure for users
+-- ----------------------------
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users`  (
+  `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `ip_address` varchar(45) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `username` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `salt` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `email` varchar(254) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `activation_code` varchar(40) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `forgotten_password_code` varchar(40) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `forgotten_password_time` int(11) UNSIGNED NULL DEFAULT NULL,
+  `remember_code` varchar(40) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `created_on` int(11) UNSIGNED NOT NULL,
+  `last_login` int(11) UNSIGNED NULL DEFAULT NULL,
+  `active` tinyint(1) UNSIGNED NULL DEFAULT NULL,
+  `first_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `last_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `company` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `phone` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `foto` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
+  `anggota_id` int(11) NULL DEFAULT NULL,
+  `table` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
+  `is_walas` int(11) NULL DEFAULT NULL,
+  `is_absen` int(11) NULL DEFAULT NULL,
+  `c` int(255) NULL DEFAULT 1,
+  `r` int(255) NULL DEFAULT 1,
+  `u` int(255) NULL DEFAULT 1,
+  `d` int(255) NULL DEFAULT 1,
+  `device_id` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 54 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of users
+-- ----------------------------
+INSERT INTO `users` VALUES (1, '127.0.0.1', '404', '$2y$08$xCWrpjrMknwHLIZIycDiRu9ZLNqEr53xA6DVGh0U7yZ1tbjUhyLMC', '', 'hello@admin.com', '', NULL, NULL, NULL, 1268889823, 1695204753, 1, 'admin', 'Yani', 'ADMIN', '085894632505', '3c8f6f36f650d5ce07803470b4f4d4ff.jpg', NULL, NULL, NULL, NULL, 1, 1, 1, 1, NULL);
+INSERT INTO `users` VALUES (17, '::1', 'avi', '$2y$08$26COncN1CmGyf9DMjwWQ1uv7BTkep.72/9lN3gsMGy7Y.R53EOSyu', NULL, 'avi@gmail.com', NULL, NULL, NULL, NULL, 1684289201, 1695176564, 1, 'Avi Hendratmoko, S.Kom', NULL, NULL, NULL, NULL, 31, 'guru', NULL, NULL, 1, 1, 1, 1, NULL);
+INSERT INTO `users` VALUES (18, '::1', 'bucin', '$2y$08$ac9q6y7ZJ1JctdH1.EgtlOn20AAq6.C1SzdscU/yqjLDqcYPF3nh6', NULL, 'bucin@gmail.com', NULL, NULL, NULL, NULL, 1684289369, 1695181899, 1, 'Cindy Permata Putri, S.Pd', NULL, NULL, NULL, NULL, 46, 'guru', NULL, NULL, 1, 1, 1, 1, NULL);
+INSERT INTO `users` VALUES (20, '140.213.57.203', 'dhani', '$2y$08$B/jrm1i1Df7UAY3sv6n8Ou2JuNxDvus70Ha0607TM.jcEFqPtWqO2', NULL, 'dhani@gmail.com', NULL, NULL, NULL, NULL, 1684291380, 1691196119, 1, 'Ramadhani Samboga, S.Pd', NULL, NULL, NULL, NULL, 52, 'guru', NULL, NULL, 1, 1, 1, 1, NULL);
+INSERT INTO `users` VALUES (21, '140.213.57.161', 'nazib', '$2y$08$QXtCxq7sdoYWHCy7dR1mJuJVqXP3g4wESpSfrM7u2Ax3zENRL/49S', NULL, 'nazib@gmail.com', NULL, NULL, NULL, NULL, 1684294587, 1695184212, 1, 'Mohammad Nazibullah, M.Pd', NULL, NULL, NULL, NULL, 45, 'guru', NULL, NULL, 1, 1, 1, 1, NULL);
+INSERT INTO `users` VALUES (24, '::1', 'rendy', '$2y$08$xCWrpjrMknwHLIZIycDiRu9ZLNqEr53xA6DVGh0U7yZ1tbjUhyLMC', NULL, 'rendy@gmail.com', NULL, NULL, NULL, NULL, 1691044792, 1695207217, 1, 'Rendy Yani Susanto, S.Pd', NULL, NULL, NULL, NULL, 40, 'guru', NULL, NULL, 1, 1, 1, 1, NULL);
+INSERT INTO `users` VALUES (25, '::1', 'zein', '$2y$08$HBXSBSsNs7pA6tI4A7hsIO88o1DoXCr13xXx7QEbL98wkEimz8sOO', NULL, 'zein@gmail.com', NULL, NULL, NULL, NULL, 1691069119, 1695193471, 1, 'Zein Iqbal Zarkasi, S.Pd', NULL, NULL, NULL, NULL, 30, 'guru', NULL, NULL, 1, 1, 1, 1, NULL);
+INSERT INTO `users` VALUES (26, '::1', 'mymun', '$2y$08$nxiU8D1kW0qMlqrWyD7tAughnigcH1c2vFz7JRGdT0A.GdgTSOvIu', NULL, 'mymun@gmail.com', NULL, NULL, NULL, NULL, 1691069200, 1695176786, 1, 'M. Maimun Muzakka, S.Kom', NULL, NULL, NULL, NULL, 32, 'guru', NULL, NULL, 1, 1, 1, 1, NULL);
+INSERT INTO `users` VALUES (27, '::1', 'revita', '$2y$08$6ZnL2rd3XQjwDI2OX3boT.S4.NYhpjPF1gED.8kGb.xOUgUBcMcoi', NULL, 'revita@gmail.com', NULL, NULL, NULL, NULL, 1691069273, 1691457484, 1, 'Revita Fardiani', NULL, NULL, NULL, NULL, 34, 'guru', NULL, NULL, 1, 1, 1, 1, NULL);
+INSERT INTO `users` VALUES (28, '::1', 'rosyi', '$2y$08$d.nV0Myd2csphBIdZvXQHOU3gsEsENpYa45A0xDwCrT1.f8bf9S3m', NULL, 'buros@gmail.com', NULL, NULL, NULL, NULL, 1691069347, 1695175072, 1, 'Ulfatul Rosyidah Al Fikriyah, S.P', NULL, NULL, NULL, NULL, 35, 'guru', NULL, NULL, 1, 1, 1, 1, NULL);
+INSERT INTO `users` VALUES (29, '::1', 'faldi', '$2y$08$kUWJhXE.eVXSO/vk5io9VupmfFBWuzps1cvBXRNRDMA3kqDOJFB5W', NULL, 'faldi@gmail.com', NULL, NULL, NULL, NULL, 1691069407, 1695082909, 1, 'A. Faldiansyah Havis', NULL, NULL, NULL, NULL, 37, 'guru', NULL, NULL, 1, 1, 1, 1, NULL);
+INSERT INTO `users` VALUES (30, '::1', 'ega', '$2y$08$1lt3HguDDde/XAPHsXEbwO4lV4UDUHsdH7WzXiChZfrjDNtrUSjYe', NULL, 'ega@gmail.com', NULL, NULL, NULL, NULL, 1691069434, 1694660460, 1, 'Ega Kurniawan', NULL, NULL, NULL, NULL, 38, 'guru', NULL, NULL, 1, 1, 1, 1, NULL);
+INSERT INTO `users` VALUES (31, '::1', 'nadya', '$2y$08$R0w5DU0IYCzGXtHE/rYwLOvbaZHYPeQrsGetVqySoYuNzZqjQROoi', NULL, 'nadya@gmail.com', NULL, NULL, NULL, NULL, 1691069460, 1695029568, 1, 'Nadya Anastasya Paramita, S.Or', NULL, NULL, NULL, NULL, 39, 'guru', NULL, NULL, 1, 1, 1, 1, NULL);
+INSERT INTO `users` VALUES (32, '::1', 'bulala', '$2y$08$uzHplA0ovUE5LswDAccp8.3JJzpXCKZR5fwMD2RAJbERiT5o153cm', NULL, 'bulala@gmail.com', NULL, NULL, NULL, NULL, 1691069492, 1695099442, 1, 'Nailatur Risqiyah, S.P', NULL, NULL, NULL, NULL, 41, 'guru', NULL, NULL, 1, 1, 1, 1, NULL);
+INSERT INTO `users` VALUES (33, '::1', 'taufiq', '$2y$08$9IT3UnAjanFGBzH17jPFZeYwVbnbOBd3CrV1QmS4YSc5FhjPS1Vme', NULL, 'taufiq@gmail.com', NULL, NULL, NULL, NULL, 1691069525, 1695188317, 1, 'Sutan Taufiq, S.Hum', NULL, NULL, NULL, NULL, 42, 'guru', NULL, NULL, 1, 1, 1, 1, NULL);
+INSERT INTO `users` VALUES (34, '::1', 'buiza', '$2y$08$ofSIMTt9dF7yH/UN0WEVn.DIfYjonj5lG5BPxF3Fc9F.QzuOeSgfa', NULL, 'buiza@gmail.com', NULL, NULL, NULL, NULL, 1691069552, 1695199013, 1, 'Roikhatul Uzza, S.Psi', NULL, NULL, NULL, NULL, 43, 'guru', NULL, NULL, 1, 1, 1, 1, NULL);
+INSERT INTO `users` VALUES (35, '::1', 'syamsul', '$2y$08$tFkq21f9xunzeSuq0.xUq.qdne1TXkXSRYNn70h7HHNlzklbC5EGC', NULL, 'syamsul@gmail.com', NULL, NULL, NULL, NULL, 1691069590, NULL, 1, 'Syamsul Arifin, S. Pd', NULL, NULL, NULL, NULL, 47, 'guru', NULL, NULL, 1, 1, 1, 1, NULL);
+INSERT INTO `users` VALUES (36, '::1', 'buandin', '$2y$08$EIzM74P7O5vWc4p2/Jxuu.q.iuRjUKkAeiu8H0pVgCVb97q6p9YiC', NULL, 'buandin@gmail.com', NULL, NULL, NULL, NULL, 1691069662, 1695184350, 1, 'Andiani Kristanti, S.Pd', NULL, NULL, NULL, NULL, 44, 'guru', NULL, NULL, 1, 1, 1, 1, NULL);
+INSERT INTO `users` VALUES (37, '::1', 'saifudin', '$2y$08$mf6nRtVxTkngyzMsHONYWetRhXGTeMWYn8NcZcLUX0YoQK.7/ABee', NULL, 'saifudin@gmail.com', NULL, NULL, NULL, NULL, 1691069694, 1691822808, 1, 'Saifudin Mansur, S.TP', NULL, NULL, NULL, NULL, 48, 'guru', NULL, NULL, 1, 1, 1, 1, NULL);
+INSERT INTO `users` VALUES (38, '::1', 'faridatuz', '$2y$08$3fd6kRZ4GoI6EmUsU3ZBK.Dv/VtSd2.ZSyCiwI3qQwMfgm7kQ.W.C', NULL, 'faridatuz@gmail.com', NULL, NULL, NULL, NULL, 1691069720, 1691824933, 1, 'Faridatuz Zakiyah, S.TP', NULL, NULL, NULL, NULL, 49, 'guru', NULL, NULL, 1, 1, 1, 1, NULL);
+INSERT INTO `users` VALUES (39, '::1', 'nailah', '$2y$08$akAzVdxP2auroeo/Q.1q8OKYt8hDCGQblpbKptlzHv5a0bI9GIuzW', NULL, 'nailah@gmail.com', NULL, NULL, NULL, NULL, 1691069751, 1695205420, 1, 'Na\'ilah Fauziyah, S.Pd.,M.Pd', NULL, NULL, NULL, NULL, 50, 'guru', NULL, NULL, 1, 1, 1, 1, NULL);
+INSERT INTO `users` VALUES (40, '::1', 'ika', '$2y$08$moDZcYT6F8MsqPUf5GuxOu.ABRKVXb33L4U2Drn12D9zcHwE.cUjC', NULL, 'ika@gmail.com', NULL, NULL, NULL, NULL, 1691069778, 1695181408, 1, 'Ika Uswatun Hasanah, S.Pd', NULL, NULL, NULL, NULL, 51, 'guru', NULL, NULL, 1, 1, 1, 1, NULL);
+INSERT INTO `users` VALUES (41, '::1', 'farah', '$2y$08$Bivi9fZeQ1n5OLYOya4ckuoXiRWs3l68ILEWCl4Xxe7XM9b/ll3r2', NULL, 'farah@gmail.com', NULL, NULL, NULL, NULL, 1691069801, 1695204067, 1, 'Farah Rosyidah Diana, S.T', NULL, NULL, NULL, NULL, 53, 'guru', NULL, NULL, 1, 1, 1, 1, NULL);
+INSERT INTO `users` VALUES (42, '::1', 'pohet', '$2y$08$AkP0WgDbUXXuEd4mx.xLd.4YltVNoFrqiXFkRRQ9316THZ0xV2T3y', NULL, 'pohet@gmail.com', NULL, NULL, NULL, NULL, 1691131672, 1695170671, 1, 'Pohet Bintoto, S.Pd., M.Si', NULL, NULL, NULL, NULL, 29, 'guru', NULL, NULL, 1, 1, 1, 1, NULL);
+INSERT INTO `users` VALUES (43, '192.168.1.59', 'rys', '$2y$08$O0XrWORF0qdVTyW3.ep5JeJxsFK9bs7DBDDtw1dz41XMxu3jH0l..', NULL, 'rys@gmail.com', NULL, NULL, NULL, NULL, 1691137310, 1691981739, 1, 'Rendy Yani Susanto, S.Pd', NULL, NULL, NULL, NULL, 40, 'guru', NULL, NULL, 1, 1, 1, 1, NULL);
+INSERT INTO `users` VALUES (44, '::1', 'fio', '$2y$08$UdhqKoSdzVdDh/ylyI88heIetqpnBGgNq8adE/a0iLmlPiZrTN/0.', NULL, 'fio@gmail.com', NULL, NULL, NULL, NULL, 1691656058, 1695167917, 1, 'FIORENTINA RAMADHANI', NULL, NULL, NULL, NULL, 54, 'guru', NULL, NULL, 1, 1, 1, 1, NULL);
+INSERT INTO `users` VALUES (45, '::1', 'ratna', '$2y$08$V.5dj3fqaWTN5KxBbeLEh.krMvkXnCkN2Cg.zrMessqV0zst7KPr6', NULL, 'ratna@gmail.com', NULL, NULL, NULL, NULL, 1691656089, 1695173069, 1, 'Ratna Wijaya Ningrum', NULL, NULL, NULL, NULL, 55, 'guru', NULL, NULL, 1, 1, 1, 1, NULL);
+INSERT INTO `users` VALUES (46, '::1', 'rosa', '$2y$08$FSMwr6PpwBb3fwrDorLRB.hpZRagSjdJMKggwlMmbRPH3n0/VNu0a', NULL, 'rosa@gmail.com', NULL, NULL, NULL, NULL, 1694392750, 1695207917, 1, 'Jauhar Rosanah, S.Pd', NULL, NULL, NULL, NULL, 56, 'guru', NULL, NULL, 1, 1, 1, 1, NULL);
+INSERT INTO `users` VALUES (47, '::1', 'fajar', '$2y$08$mw/a69DrfO3KCKRj4ACk9ulzq3nKJDBGpiwZazYyKuh8v3JWjIgau', NULL, 'fajar@gmail.com', NULL, NULL, NULL, NULL, 1694396015, 1695205297, 1, 'Fajar Jatmiko, S.Sn', NULL, NULL, NULL, NULL, 57, 'guru', NULL, NULL, 1, 1, 1, 1, NULL);
+INSERT INTO `users` VALUES (48, '::1', 'pakpo', '$2y$08$8kV56oFlnZfYkhxL6rEYSO5gSKISVu2vjTrLIAyO.9KXET1VK84WC', NULL, 'pakpo@gmail.com', NULL, NULL, NULL, NULL, 1694396523, 1695193122, 1, 'Pohet Bintoto, S.Pd., M.Si', NULL, NULL, NULL, NULL, 29, 'guru', NULL, NULL, 1, 1, 1, 1, NULL);
+INSERT INTO `users` VALUES (49, '::1', 'bendahara01', '$2y$08$ZcqaUQ/J75NIO1KnebeIr.q6Azat5l992KmfS.VV2IkDGvLOGdwQW', NULL, 'bendahara01@gmail.com', NULL, NULL, NULL, NULL, 1694570810, 1694579704, 1, 'Ulfatul Rosyida Al Fikriyah, S.P', NULL, NULL, NULL, NULL, 35, 'guru', NULL, NULL, 1, 1, 1, 1, NULL);
+INSERT INTO `users` VALUES (50, '::1', 'kesiswaan', '$2y$08$oSR3uTHpu9wacm.3TXLZuu9mBdOfLpqvT4d4xqN6lPQKAtSnRkcjO', NULL, 'kesiswaan@gmail.com', NULL, NULL, NULL, NULL, 1694575198, 1694741412, 1, 'Zein Iqbal Zarkasi, S.Pd', NULL, NULL, NULL, NULL, 30, 'guru', NULL, NULL, 1, 1, 1, 1, NULL);
+INSERT INTO `users` VALUES (51, '::1', 'tes', '$2y$08$.c.Ph/Tp7LmYtZlEqKqHD.dIOy/JChlMJtip4Sa4PZ/DFyJdxzYh6', NULL, 'tes@gmail.com', NULL, NULL, NULL, NULL, 1694578827, 1695208733, 1, 'Tes', NULL, NULL, NULL, NULL, 1, 'operator', NULL, NULL, 1, 1, 1, 1, NULL);
+INSERT INTO `users` VALUES (52, '::1', 'sarpras', '$2y$08$Zro5dJrLlea5MZBvaTtzIuySETcG5e2.xqFUJKi7P/fPMtOMTMfM2', NULL, 'sarpras@gmail.com', NULL, NULL, NULL, NULL, 1694586155, 1694745699, 1, 'Rendy Yani Susanto, S.Pd', NULL, NULL, NULL, NULL, 40, 'guru', NULL, NULL, 1, 1, 1, 1, NULL);
+INSERT INTO `users` VALUES (53, '::1', 'adminavi', '$2y$08$TG/LvqyXNXQQhu5LPjs5YO4KI7nOlPeoKD8.sxqXAVF8gf1PcGqmq', NULL, 'adminavi@gmail.com', NULL, NULL, NULL, NULL, 1694657198, 1695091993, 1, 'Avi Hendratmoko, S.Kom', NULL, NULL, NULL, NULL, 31, 'guru', NULL, NULL, 1, 1, 1, 1, NULL);
+
+-- ----------------------------
+-- Table structure for users_groups
+-- ----------------------------
+DROP TABLE IF EXISTS `users_groups`;
+CREATE TABLE `users_groups`  (
+  `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) UNSIGNED NOT NULL,
+  `group_id` mediumint(8) UNSIGNED NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  UNIQUE INDEX `uc_users_groups`(`user_id`, `group_id`) USING BTREE,
+  INDEX `fk_users_groups_users1_idx`(`user_id`) USING BTREE,
+  INDEX `fk_users_groups_groups1_idx`(`group_id`) USING BTREE,
+  CONSTRAINT `users_groups_ibfk_1` FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  CONSTRAINT `users_groups_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
+) ENGINE = InnoDB AUTO_INCREMENT = 54 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of users_groups
+-- ----------------------------
+INSERT INTO `users_groups` VALUES (1, 1, 1);
+INSERT INTO `users_groups` VALUES (17, 17, 3);
+INSERT INTO `users_groups` VALUES (18, 18, 3);
+INSERT INTO `users_groups` VALUES (20, 20, 3);
+INSERT INTO `users_groups` VALUES (21, 21, 3);
+INSERT INTO `users_groups` VALUES (24, 24, 3);
+INSERT INTO `users_groups` VALUES (25, 25, 3);
+INSERT INTO `users_groups` VALUES (26, 26, 3);
+INSERT INTO `users_groups` VALUES (27, 27, 3);
+INSERT INTO `users_groups` VALUES (28, 28, 3);
+INSERT INTO `users_groups` VALUES (29, 29, 3);
+INSERT INTO `users_groups` VALUES (30, 30, 3);
+INSERT INTO `users_groups` VALUES (31, 31, 3);
+INSERT INTO `users_groups` VALUES (32, 32, 3);
+INSERT INTO `users_groups` VALUES (33, 33, 3);
+INSERT INTO `users_groups` VALUES (34, 34, 3);
+INSERT INTO `users_groups` VALUES (35, 35, 3);
+INSERT INTO `users_groups` VALUES (36, 36, 3);
+INSERT INTO `users_groups` VALUES (37, 37, 3);
+INSERT INTO `users_groups` VALUES (38, 38, 3);
+INSERT INTO `users_groups` VALUES (39, 39, 3);
+INSERT INTO `users_groups` VALUES (40, 40, 3);
+INSERT INTO `users_groups` VALUES (41, 41, 3);
+INSERT INTO `users_groups` VALUES (42, 42, 3);
+INSERT INTO `users_groups` VALUES (43, 43, 3);
+INSERT INTO `users_groups` VALUES (44, 44, 3);
+INSERT INTO `users_groups` VALUES (45, 45, 3);
+INSERT INTO `users_groups` VALUES (46, 46, 3);
+INSERT INTO `users_groups` VALUES (47, 47, 3);
+INSERT INTO `users_groups` VALUES (48, 48, 1);
+INSERT INTO `users_groups` VALUES (49, 49, 12);
+INSERT INTO `users_groups` VALUES (50, 50, 1);
+INSERT INTO `users_groups` VALUES (51, 51, 14);
+INSERT INTO `users_groups` VALUES (52, 52, 15);
+INSERT INTO `users_groups` VALUES (53, 53, 1);
+
+-- ----------------------------
+-- Table structure for wali_kelas
+-- ----------------------------
+DROP TABLE IF EXISTS `wali_kelas`;
+CREATE TABLE `wali_kelas`  (
+  `id_wali_kelas` int(11) NOT NULL AUTO_INCREMENT,
+  `idguru_fk` int(11) NULL DEFAULT NULL,
+  `idtahunajaran_fk` int(11) NULL DEFAULT NULL,
+  `idkelas_fk` int(11) NULL DEFAULT NULL,
+  PRIMARY KEY (`id_wali_kelas`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of wali_kelas
+-- ----------------------------
+INSERT INTO `wali_kelas` VALUES (1, 1, 4, 39);
+
+-- ----------------------------
+-- View structure for v_bank_soal_quiz
+-- ----------------------------
+DROP VIEW IF EXISTS `v_bank_soal_quiz`;
+CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `v_bank_soal_quiz` AS select `bank_soal`.`id_bank_soal` AS `id_bank_soal`,`bank_soal`.`soal` AS `soal`,`bank_soal`.`time_soal` AS `time_soal`,`bank_soal`.`code_soal` AS `code_soal`,`bank_soal`.`idmatapelajaran_fk` AS `idmatapelajaran_fk`,`bank_soal`.`idguru_fk` AS `idguru_fk`,`question_cas`.`id_question_cas` AS `id_question_cas`,`question_cas`.`type` AS `type`,`question_cas`.`idbanksoal_fk` AS `idbanksoal_fk`,`question_cas`.`idquiz_fk` AS `idquiz_fk` from (`bank_soal` join `question_cas` on(`question_cas`.`idbanksoal_fk` = `bank_soal`.`id_bank_soal`)) ;
+
+-- ----------------------------
+-- View structure for v_buku_pemanggilan_siswa
+-- ----------------------------
+DROP VIEW IF EXISTS `v_buku_pemanggilan_siswa`;
+CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `v_buku_pemanggilan_siswa` AS SELECT
+buku_pemanggilan_siswa.id_buku_pemanggilan_siswa AS id_buku_pemanggilan_siswa,
+buku_pemanggilan_siswa.idsiswa_fk AS idsiswa_fk,
+buku_pemanggilan_siswa.masalah AS masalah,
+buku_pemanggilan_siswa.pemecahan AS pemecahan,
+buku_pemanggilan_siswa.tindak_lanjut AS tindak_lanjut,
+buku_pemanggilan_siswa.keterangan AS keterangan,
+buku_pemanggilan_siswa.tanggal AS tanggal,
+buku_pemanggilan_siswa.kode_pemanggilan AS kode_pemanggilan,
+siswa.id_siswa AS id_siswa,
+siswa.nis AS nis,
+siswa.nama AS nama,
+siswa.idkelas_fk AS idkelas_fk,
+siswa.idjurusan_fk AS idjurusan_fk,
+siswa.agama AS agama,
+siswa.nisn AS nisn,
+siswa.no_ijazah_sekolah_asal AS no_ijazah_sekolah_asal,
+siswa.no_skhun_sekolah_asal AS no_skhun_sekolah_asal,
+siswa.no_un_sekolah_asal AS no_un_sekolah_asal,
+siswa.no_kk AS no_kk,
+siswa.npsn_sekolah_asal AS npsn_sekolah_asal,
+siswa.nama_sekolah_asal AS nama_sekolah_asal,
+siswa.tempat_lahir AS tempat_lahir,
+siswa.tanggal_lahir AS tanggal_lahir,
+siswa.berkebutuhan_khusus AS berkebutuhan_khusus,
+siswa.alamat AS alamat,
+siswa.dusun AS dusun,
+siswa.rt AS rt,
+siswa.rw AS rw,
+siswa.kelurahan AS kelurahan,
+siswa.foto AS foto,
+siswa.idprovince_fk AS idprovince_fk,
+siswa.idcities_fk AS idcities_fk,
+siswa.nama_ayah AS nama_ayah,
+siswa.tempat_lahir_ayah AS tempat_lahir_ayah,
+siswa.tanggal_lahir_ayah AS tanggal_lahir_ayah,
+siswa.pendidikan_ayah AS pendidikan_ayah,
+siswa.pekerjaan_ayah AS pekerjaan_ayah,
+siswa.penghasilan_ayah AS penghasilan_ayah,
+siswa.nama_ibu AS nama_ibu,
+siswa.tempat_lahir_ibu AS tempat_lahir_ibu,
+siswa.tanggal_lahir_ibu AS tanggal_lahir_ibu,
+siswa.pendidikan_ibu AS pendidikan_ibu,
+siswa.pekerjaan_ibu AS pekerjaan_ibu,
+siswa.penghasilan_ibu AS penghasilan_ibu,
+siswa.tinggi_badan AS tinggi_badan,
+siswa.berat_badan AS berat_badan,
+siswa.jarak_ke_sekolah AS jarak_ke_sekolah,
+siswa.waktu_ke_sekolah AS waktu_ke_sekolah,
+siswa.jumlah_saudara AS jumlah_saudara,
+siswa.jenis_kelamin AS jenis_kelamin,
+buku_pemanggilan_siswa.dokumen
+FROM
+(buku_pemanggilan_siswa
+JOIN siswa ON (siswa.id_siswa = buku_pemanggilan_siswa.idsiswa_fk)) ;
+
+-- ----------------------------
+-- View structure for v_catatan_siswa
+-- ----------------------------
+DROP VIEW IF EXISTS `v_catatan_siswa`;
+CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `v_catatan_siswa` AS select `catatan_siswa`.`id_catatan_siswa` AS `id_catatan_siswa`,`catatan_siswa`.`idsiswa_fk` AS `idsiswa_fk`,`catatan_siswa`.`idkelas_fk` AS `idkelas_fk`,`catatan_siswa`.`idguru_fk` AS `idguru_fk`,`catatan_siswa`.`tanggal` AS `tanggal`,`catatan_siswa`.`uraian` AS `uraian`,`catatan_siswa`.`teruskan_ke` AS `teruskan_ke`,`catatan_siswa`.`idtahunajaran_fk` AS `idtahunajaran_fk`,`catatan_siswa`.`idmapel_fk` AS `idmapel_fk`,`siswa`.`id_siswa` AS `id_siswa`,`siswa`.`nis` AS `nis`,`siswa`.`nama` AS `nama`,`siswa`.`idjurusan_fk` AS `idjurusan_fk`,`siswa`.`agama` AS `agama`,`siswa`.`nisn` AS `nisn`,`siswa`.`no_ijazah_sekolah_asal` AS `no_ijazah_sekolah_asal`,`siswa`.`no_skhun_sekolah_asal` AS `no_skhun_sekolah_asal`,`siswa`.`no_un_sekolah_asal` AS `no_un_sekolah_asal`,`siswa`.`no_kk` AS `no_kk`,`siswa`.`npsn_sekolah_asal` AS `npsn_sekolah_asal`,`siswa`.`nama_sekolah_asal` AS `nama_sekolah_asal`,`siswa`.`tempat_lahir` AS `tempat_lahir`,`siswa`.`tanggal_lahir` AS `tanggal_lahir`,`siswa`.`berkebutuhan_khusus` AS `berkebutuhan_khusus`,`siswa`.`alamat` AS `alamat`,`siswa`.`dusun` AS `dusun`,`siswa`.`rt` AS `rt`,`siswa`.`rw` AS `rw`,`siswa`.`kelurahan` AS `kelurahan`,`siswa`.`foto` AS `foto`,`siswa`.`idprovince_fk` AS `idprovince_fk`,`siswa`.`idcities_fk` AS `idcities_fk`,`siswa`.`nama_ayah` AS `nama_ayah`,`siswa`.`tempat_lahir_ayah` AS `tempat_lahir_ayah`,`siswa`.`tanggal_lahir_ayah` AS `tanggal_lahir_ayah`,`siswa`.`pendidikan_ayah` AS `pendidikan_ayah`,`siswa`.`pekerjaan_ayah` AS `pekerjaan_ayah`,`siswa`.`penghasilan_ayah` AS `penghasilan_ayah`,`siswa`.`nama_ibu` AS `nama_ibu`,`siswa`.`tempat_lahir_ibu` AS `tempat_lahir_ibu`,`siswa`.`tanggal_lahir_ibu` AS `tanggal_lahir_ibu`,`siswa`.`pendidikan_ibu` AS `pendidikan_ibu`,`siswa`.`pekerjaan_ibu` AS `pekerjaan_ibu`,`siswa`.`penghasilan_ibu` AS `penghasilan_ibu`,`siswa`.`tinggi_badan` AS `tinggi_badan`,`siswa`.`berat_badan` AS `berat_badan`,`siswa`.`jarak_ke_sekolah` AS `jarak_ke_sekolah`,`siswa`.`waktu_ke_sekolah` AS `waktu_ke_sekolah`,`siswa`.`jumlah_saudara` AS `jumlah_saudara`,`siswa`.`jenis_kelamin` AS `jenis_kelamin` from (`catatan_siswa` join `siswa` on(`catatan_siswa`.`idsiswa_fk` = `siswa`.`id_siswa`)) ;
+
+-- ----------------------------
+-- View structure for v_catatan_siswa_harian
+-- ----------------------------
+DROP VIEW IF EXISTS `v_catatan_siswa_harian`;
+CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `v_catatan_siswa_harian` AS select `catatan_siswa`.`id_catatan_siswa` AS `id_catatan_siswa`,`catatan_siswa`.`idsiswa_fk` AS `idsiswa_fk`,`catatan_siswa`.`idkelas_fk` AS `idkelas_fk`,`catatan_siswa`.`idguru_fk` AS `idguru_fk`,`catatan_siswa`.`tanggal` AS `tanggal`,`catatan_siswa`.`uraian` AS `uraian`,`catatan_siswa`.`teruskan_ke` AS `teruskan_ke`,`catatan_siswa`.`idtahunajaran_fk` AS `idtahunajaran_fk`,`catatan_siswa`.`idmapel_fk` AS `idmapel_fk`,`catatan_siswa`.`is_tindakan` AS `is_tindakan`,`siswa`.`id_siswa` AS `id_siswa`,`siswa`.`nis` AS `nis`,`siswa`.`nama` AS `nama`,`siswa`.`agama` AS `agama`,`siswa`.`nisn` AS `nisn`,`siswa`.`no_ijazah_sekolah_asal` AS `no_ijazah_sekolah_asal`,`siswa`.`no_skhun_sekolah_asal` AS `no_skhun_sekolah_asal`,`siswa`.`no_un_sekolah_asal` AS `no_un_sekolah_asal`,`siswa`.`no_kk` AS `no_kk`,`siswa`.`npsn_sekolah_asal` AS `npsn_sekolah_asal`,`siswa`.`nama_sekolah_asal` AS `nama_sekolah_asal`,`siswa`.`tempat_lahir` AS `tempat_lahir`,`siswa`.`tanggal_lahir` AS `tanggal_lahir`,`siswa`.`berkebutuhan_khusus` AS `berkebutuhan_khusus`,`siswa`.`alamat` AS `alamat`,`siswa`.`dusun` AS `dusun`,`siswa`.`rt` AS `rt`,`siswa`.`rw` AS `rw`,`siswa`.`kelurahan` AS `kelurahan`,`siswa`.`foto` AS `foto`,`siswa`.`idprovince_fk` AS `idprovince_fk`,`siswa`.`idcities_fk` AS `idcities_fk`,`siswa`.`nama_ayah` AS `nama_ayah`,`siswa`.`tempat_lahir_ayah` AS `tempat_lahir_ayah`,`siswa`.`tanggal_lahir_ayah` AS `tanggal_lahir_ayah`,`siswa`.`pendidikan_ayah` AS `pendidikan_ayah`,`siswa`.`pekerjaan_ayah` AS `pekerjaan_ayah`,`siswa`.`penghasilan_ayah` AS `penghasilan_ayah`,`siswa`.`nama_ibu` AS `nama_ibu`,`siswa`.`tempat_lahir_ibu` AS `tempat_lahir_ibu`,`siswa`.`tanggal_lahir_ibu` AS `tanggal_lahir_ibu`,`siswa`.`pendidikan_ibu` AS `pendidikan_ibu`,`siswa`.`pekerjaan_ibu` AS `pekerjaan_ibu`,`siswa`.`penghasilan_ibu` AS `penghasilan_ibu`,`siswa`.`tinggi_badan` AS `tinggi_badan`,`siswa`.`berat_badan` AS `berat_badan`,`siswa`.`jarak_ke_sekolah` AS `jarak_ke_sekolah`,`siswa`.`waktu_ke_sekolah` AS `waktu_ke_sekolah`,`siswa`.`jumlah_saudara` AS `jumlah_saudara`,`siswa`.`jenis_kelamin` AS `jenis_kelamin`,`kelas`.`id_kelas` AS `id_kelas`,`kelas`.`kelas` AS `kelas`,`kelas`.`idtingkat_fk` AS `idtingkat_fk`,`kelas`.`create_at` AS `create_at`,`kelas`.`idjurusan_fk` AS `idjurusan_fk`,`guru`.`id_guru` AS `id_guru`,`guru`.`nama` AS `nama_guru`,`guru`.`nip` AS `nip`,`guru`.`alamat` AS `alamat_guru`,`mata_pelajaran`.`idjenismatapelajaran_fk` AS `idjenismatapelajaran_fk`,`mata_pelajaran`.`id_mata_pelajaran` AS `id_mata_pelajaran`,`mata_pelajaran`.`mata_pelajaran` AS `mata_pelajaran`,`mata_pelajaran`.`kode` AS `kode` from ((((`catatan_siswa` left join `siswa` on(`catatan_siswa`.`idsiswa_fk` = `siswa`.`id_siswa`)) left join `kelas` on(`catatan_siswa`.`idkelas_fk` = `kelas`.`kelas`)) left join `guru` on(`catatan_siswa`.`idguru_fk` = `guru`.`id_guru`)) left join `mata_pelajaran` on(`catatan_siswa`.`idmapel_fk` = `mata_pelajaran`.`id_mata_pelajaran`)) ;
+
+-- ----------------------------
+-- View structure for v_catatan_siswa_new
+-- ----------------------------
+DROP VIEW IF EXISTS `v_catatan_siswa_new`;
+CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `v_catatan_siswa_new` AS select `catatan_siswa`.`id_catatan_siswa` AS `id_catatan_siswa`,`catatan_siswa`.`idsiswa_fk` AS `idsiswa_fk`,`catatan_siswa`.`idkelas_fk` AS `idkelas_fk`,`catatan_siswa`.`idguru_fk` AS `idguru_fk`,`catatan_siswa`.`tanggal` AS `tanggal`,`catatan_siswa`.`uraian` AS `uraian`,`catatan_siswa`.`teruskan_ke` AS `teruskan_ke`,`catatan_siswa`.`idtahunajaran_fk` AS `idtahunajaran_fk`,`catatan_siswa`.`idmapel_fk` AS `idmapel_fk`,`siswa`.`id_siswa` AS `id_siswa`,`siswa`.`nis` AS `nis`,`siswa`.`nama` AS `nama`,`siswa`.`idjurusan_fk` AS `idjurusan_fk`,`siswa`.`agama` AS `agama`,`siswa`.`nisn` AS `nisn`,(select `kelas`.`kelas` from `kelas` where `kelas`.`id_kelas` = `catatan_siswa`.`idkelas_fk`) AS `nama_kelas`,(select `guru`.`nama` from `guru` where `guru`.`id_guru` = `catatan_siswa`.`idguru_fk`) AS `nama_guru`,(select `mata_pelajaran`.`mata_pelajaran` from `mata_pelajaran` where `mata_pelajaran`.`id_mata_pelajaran` = `catatan_siswa`.`idmapel_fk`) AS `mapel` from (`catatan_siswa` join `siswa` on(`catatan_siswa`.`idsiswa_fk` = `siswa`.`id_siswa`)) ;
+
+-- ----------------------------
+-- View structure for v_detail_komponen_penggajian
+-- ----------------------------
+DROP VIEW IF EXISTS `v_detail_komponen_penggajian`;
+CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `v_detail_komponen_penggajian` AS SELECT
+detail_komponen_penggajian.id_detail_komponen_penggajian,
+detail_komponen_penggajian.idkomponenpenggajian_fk,
+detail_komponen_penggajian.jumlah,
+detail_komponen_penggajian.idpenggajian_fk,
+detail_komponen_penggajian.sum,
+detail_komponen_penggajian.total,
+penggajian.id_penggajian,
+penggajian.bulan,
+penggajian.tahun,
+penggajian.keterangan,
+penggajian.create_at,
+penggajian.idguru_fk,
+komponen_penggajian.id_komponen_penggajian,
+komponen_penggajian.idtemplatepenggajian_fk,
+komponen_penggajian.komponen_penggajian,
+komponen_penggajian.idjenispenggajian_fk,
+komponen_penggajian.is_sum,
+jenis_penggajian.id_jenis_penggajian,
+jenis_penggajian.jenis_penggajian,
+jenis_penggajian.saldo
+FROM
+detail_komponen_penggajian
+INNER JOIN penggajian ON detail_komponen_penggajian.idpenggajian_fk = penggajian.id_penggajian
+INNER JOIN komponen_penggajian ON detail_komponen_penggajian.idkomponenpenggajian_fk = komponen_penggajian.id_komponen_penggajian
+INNER JOIN jenis_penggajian ON komponen_penggajian.idjenispenggajian_fk = jenis_penggajian.id_jenis_penggajian ;
+
+-- ----------------------------
+-- View structure for v_groups_detail_submenu
+-- ----------------------------
+DROP VIEW IF EXISTS `v_groups_detail_submenu`;
+CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `v_groups_detail_submenu` AS select `groups_detail`.`id` AS `id`,`groups_detail`.`groups_id` AS `groups_id`,`groups_detail`.`submenu_id` AS `submenu_id`,`groups_detail`.`c` AS `c`,`groups_detail`.`r` AS `r`,`groups_detail`.`u` AS `u`,`groups_detail`.`d` AS `d`,`submenu`.`menu_id` AS `menu_id`,`submenu`.`submenu` AS `submenu`,`submenu`.`link` AS `link` from (`groups_detail` join `submenu` on(`groups_detail`.`submenu_id` = `submenu`.`id`)) ;
+
+-- ----------------------------
+-- View structure for v_guru_mapel
+-- ----------------------------
+DROP VIEW IF EXISTS `v_guru_mapel`;
+CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `v_guru_mapel` AS select `guru`.`id_guru` AS `id_guru`,`guru`.`nama` AS `nama`,`guru`.`nip` AS `nip`,`guru`.`alamat` AS `alamat`,`guru`.`agama` AS `agama`,`guru`.`foto` AS `foto`,`guru`.`pendidikan_terakhir` AS `pendidikan_terakhir`,`guru`.`instansi` AS `instansi`,`guru`.`fb` AS `fb`,`guru`.`ig` AS `ig`,`guru`.`twitter` AS `twitter`,`guru`.`youtube` AS `youtube`,`guru`.`jabatan` AS `jabatan`,`guru`.`email` AS `email`,`guru`.`no_hp` AS `no_hp`,`guru_mapel`.`id_guru_mapel` AS `id_guru_mapel`,`guru_mapel`.`idguru_fk` AS `idguru_fk`,`guru_mapel`.`idmapel_fk` AS `idmapel_fk`,`guru_mapel`.`idkelas_fk` AS `idkelas_fk`,`mata_pelajaran`.`id_mata_pelajaran` AS `id_mata_pelajaran`,`mata_pelajaran`.`mata_pelajaran` AS `mata_pelajaran`,`mata_pelajaran`.`kode` AS `kode`,`kelas`.`id_kelas` AS `id_kelas`,`kelas`.`kelas` AS `kelas`,`kelas`.`idtingkat_fk` AS `idtingkat_fk`,`kelas`.`create_at` AS `create_at`,`kelas`.`idjurusan_fk` AS `idjurusan_fk`,`kelas`.`idtahunajaran_fk` AS `idtahunajaran_fk`,`tahun_ajaran`.`id_tahun_ajaran` AS `id_tahun_ajaran`,`tahun_ajaran`.`tahun_ajaran` AS `tahun_ajaran`,`tahun_ajaran`.`is_active` AS `is_active`,`tahun_ajaran`.`semester` AS `semester`,`mata_pelajaran`.`idjenismatapelajaran_fk` AS `idjenismatapelajaran_fk`,`guru`.`kode_pegawai` AS `kode_pegawai` from ((((`guru` join `guru_mapel` on(`guru_mapel`.`idguru_fk` = `guru`.`id_guru`)) join `mata_pelajaran` on(`guru_mapel`.`idmapel_fk` = `mata_pelajaran`.`id_mata_pelajaran`)) join `kelas` on(`kelas`.`id_kelas` = `guru_mapel`.`idkelas_fk`)) join `tahun_ajaran` on(`tahun_ajaran`.`id_tahun_ajaran` = `guru_mapel`.`idtahunajaran_fk`)) ;
+
+-- ----------------------------
+-- View structure for v_jadwal_lab
+-- ----------------------------
+DROP VIEW IF EXISTS `v_jadwal_lab`;
+CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `v_jadwal_lab` AS SELECT
+	jadwal_lab.*, 
+	jam_pelajaran.*,
+	(select nama from guru where id_guru = idguru_fk) as nama_guru,
+	(select mata_pelajaran from mata_pelajaran where idmapel_fk = id_mata_pelajaran) as nama_mapel,
+	(select kelas from kelas where id_kelas = idkelas_fk) as nama_kelas
+FROM
+	detail_jadwal_lab
+	INNER JOIN
+	jadwal_lab
+	ON 
+		detail_jadwal_lab.idjadwallab_fk = jadwal_lab.id_jadwal_lab
+	INNER JOIN
+	jam_pelajaran
+	ON 
+		detail_jadwal_lab.idjampelajaran_fk = jam_pelajaran.id_jam_pelajaran ;
+
+-- ----------------------------
+-- View structure for v_jadwal_pelajaran
+-- ----------------------------
+DROP VIEW IF EXISTS `v_jadwal_pelajaran`;
+CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `v_jadwal_pelajaran` AS SELECT
+jadwal_pelajaran.id_jadwal_pelajaran AS id_jadwal_pelajaran,
+jadwal_pelajaran.idgurumapel_fk AS idgurumapel_fk,
+jadwal_pelajaran.idhari_fk AS idhari_fk,
+jadwal_pelajaran.idjampelajaran_fk AS idjampelajaran_fk,
+guru_mapel.id_guru_mapel AS id_guru_mapel,
+guru_mapel.idguru_fk AS idguru_fk,
+guru_mapel.idmapel_fk AS idmapel_fk,
+guru_mapel.idkelas_fk AS idkelas_fk,
+( SELECT `guru`.`nama` FROM `guru` WHERE `guru`.`id_guru` = `guru_mapel`.`idguru_fk` ) AS nama_guru,
+( SELECT `guru`.`nip` FROM `guru` WHERE `guru`.`id_guru` = `guru_mapel`.`idguru_fk` ) AS nip,
+( SELECT `guru`.`kode_pegawai` FROM `guru` WHERE `guru`.`id_guru` = `guru_mapel`.`idguru_fk` ) AS kode_pegawai,
+( SELECT `mata_pelajaran`.`kode` FROM `mata_pelajaran` WHERE `guru_mapel`.`idmapel_fk` = `mata_pelajaran`.`id_mata_pelajaran` ) AS kode_pelajaran,
+( SELECT `mata_pelajaran`.`mata_pelajaran` FROM `mata_pelajaran` WHERE `guru_mapel`.`idmapel_fk` = `mata_pelajaran`.`id_mata_pelajaran` ) AS mata_pelajaran,
+hari.id_hari AS id_hari,
+hari.hari AS hari,
+hari.`code` AS `code`,
+jam_pelajaran.id_jam_pelajaran AS id_jam_pelajaran,
+jam_pelajaran.nama AS nama,
+jam_pelajaran.jam_mulai AS jam_mulai,
+jam_pelajaran.jam_selesai AS jam_selesai,
+kelas.id_kelas AS id_kelas,
+kelas.kelas AS kelas,
+kelas.idtingkat_fk AS idtingkat_fk,
+kelas.create_at AS create_at,
+kelas.idjurusan_fk AS idjurusan_fk,
+guru_mapel.idtahunajaran_fk
+FROM
+((((jadwal_pelajaran
+JOIN guru_mapel ON (jadwal_pelajaran.idgurumapel_fk = guru_mapel.id_guru_mapel))
+JOIN hari ON (hari.id_hari = jadwal_pelajaran.idhari_fk))
+JOIN jam_pelajaran ON (jam_pelajaran.id_jam_pelajaran = jadwal_pelajaran.idjampelajaran_fk))
+JOIN kelas ON (guru_mapel.idkelas_fk = kelas.id_kelas)) ;
+
+-- ----------------------------
+-- View structure for v_jenis_penerimaan
+-- ----------------------------
+DROP VIEW IF EXISTS `v_jenis_penerimaan`;
+CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `v_jenis_penerimaan` AS select `jenis_penerimaan`.`id_jenis_penerimaan` AS `id_jenis_penerimaan`,`jenis_penerimaan`.`nama` AS `nama`,`jenis_penerimaan`.`kas` AS `kas`,`jenis_penerimaan`.`pendapatan` AS `pendapatan`,`jenis_penerimaan`.`piutang` AS `piutang`,`jenis_penerimaan`.`diskon` AS `diskon`,`jenis_penerimaan`.`is_edit` AS `is_edit`,`jenis_penerimaan`.`bulanan` AS `bulanan`,`jenis_penerimaan`.`template_nota` AS `template_nota`,(select `akun`.`no_ref` from `akun` where `jenis_penerimaan`.`kas` = `akun`.`id_akun`) AS `norefkas`,(select `akun`.`no_ref` from `akun` where `jenis_penerimaan`.`pendapatan` = `akun`.`id_akun`) AS `norefpendapatan`,(select `akun`.`no_ref` from `akun` where `jenis_penerimaan`.`piutang` = `akun`.`id_akun`) AS `norefpiutang`,(select `akun`.`no_ref` from `akun` where `jenis_penerimaan`.`diskon` = `akun`.`id_akun`) AS `norefdiskon`,(select `akun`.`saldo_normal` from `akun` where `jenis_penerimaan`.`kas` = `akun`.`id_akun`) AS `snkas`,(select `akun`.`saldo_normal` from `akun` where `jenis_penerimaan`.`pendapatan` = `akun`.`id_akun`) AS `snpendapatan`,(select `akun`.`saldo_normal` from `akun` where `jenis_penerimaan`.`piutang` = `akun`.`id_akun`) AS `snpiutang`,(select `akun`.`saldo_normal` from `akun` where `jenis_penerimaan`.`diskon` = `akun`.`id_akun`) AS `sndiskon` from `jenis_penerimaan` ;
+
+-- ----------------------------
+-- View structure for v_komponen_penggajian
+-- ----------------------------
+DROP VIEW IF EXISTS `v_komponen_penggajian`;
+CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `v_komponen_penggajian` AS SELECT
+komponen_penggajian.id_komponen_penggajian,
+komponen_penggajian.idtemplatepenggajian_fk,
+komponen_penggajian.komponen_penggajian,
+komponen_penggajian.jumlah,
+komponen_penggajian.idjenispenggajian_fk,
+komponen_penggajian.is_sum,
+jenis_penggajian.id_jenis_penggajian,
+jenis_penggajian.jenis_penggajian,
+jenis_penggajian.saldo
+FROM
+komponen_penggajian
+INNER JOIN jenis_penggajian ON komponen_penggajian.idjenispenggajian_fk = jenis_penggajian.id_jenis_penggajian ;
+
+-- ----------------------------
+-- View structure for v_learning
+-- ----------------------------
+DROP VIEW IF EXISTS `v_learning`;
+CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `v_learning` AS select `learning`.`id_learning` AS `id_learning`,`learning`.`idmatapelajaran_fk` AS `idmatapelajaran_fk`,`learning`.`idkd_fk` AS `idkd_fk`,`learning`.`materi` AS `materi`,`learning`.`open_access` AS `open_access`,`learning`.`password` AS `password`,`learning`.`iduser_fk` AS `iduser_fk`,`learning`.`judul` AS `judul`,`learning`.`create_at` AS `create_at`,`learning`.`idtingkat_fk` AS `idtingkat_fk`,`mata_pelajaran`.`id_mata_pelajaran` AS `id_mata_pelajaran`,`mata_pelajaran`.`mata_pelajaran` AS `mata_pelajaran`,`mata_pelajaran`.`kode` AS `kode`,`mata_pelajaran`.`idjenismatapelajaran_fk` AS `idjenismatapelajaran_fk`,`mata_pelajaran`.`jKode` AS `jKode`,`learning`.`cover` AS `cover`,`learning`.`task_code` AS `task_code` from (`learning` join `mata_pelajaran` on(`learning`.`idmatapelajaran_fk` = `mata_pelajaran`.`id_mata_pelajaran`)) ;
+
+-- ----------------------------
+-- View structure for v_materi
+-- ----------------------------
+DROP VIEW IF EXISTS `v_materi`;
+CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `v_materi` AS select distinct `materi`.`materi` AS `materi`,`materi`.`id_materi` AS `id_materi`,`materi`.`file_materi` AS `file_materi`,`materi`.`file_rpp` AS `file_rpp`,`materi`.`idkelas_fk` AS `idkelas_fk`,`materi`.`idguru_fk` AS `idguru_fk`,`materi`.`idtahunajaran_fk` AS `idtahunajaran_fk`,`materi`.`idmatapelajaran_fk` AS `idmatapelajaran_fk`,`materi`.`trans_code` AS `trans_code`,(select `guru`.`nama` from `guru` where `guru`.`id_guru` = `materi`.`idguru_fk`) AS `nama_guru` from `materi` ;
+
+-- ----------------------------
+-- View structure for v_nilai_keterampilan
+-- ----------------------------
+DROP VIEW IF EXISTS `v_nilai_keterampilan`;
+CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `v_nilai_keterampilan` AS select `input_nilai_keterampilan`.`id_input_nilai_keterampilan` AS `id_input_nilai_keterampilan`,`input_nilai_keterampilan`.`idmatapelajaran_fk` AS `idmatapelajaran_fk`,`input_nilai_keterampilan`.`idtahunajaran_fk` AS `idtahunajaran_fk`,`input_nilai_keterampilan`.`trans_code` AS `trans_code`,`input_nilai_keterampilan`.`idguru_fk` AS `idguru_fk`,`input_nilai_keterampilan`.`idkelas_fk` AS `idkelas_fk`,`input_nilai_keterampilan`.`idjenisketerampilan_fk` AS `idjenisketerampilan_fk`,`nilai_keterampilan`.`id_nilai_keterampilan` AS `id_nilai_keterampilan`,`nilai_keterampilan`.`idsiswa_fk` AS `idsiswa_fk`,`nilai_keterampilan`.`nilai` AS `nilai`,`nilai_keterampilan`.`idinputnilaiketerampilan_fk` AS `idinputnilaiketerampilan_fk`,`nilai_keterampilan`.`create_at` AS `create_at`,`nilai_keterampilan`.`idkd_fk` AS `idkd_fk` from (`input_nilai_keterampilan` join `nilai_keterampilan` on(`input_nilai_keterampilan`.`id_input_nilai_keterampilan` = `nilai_keterampilan`.`idinputnilaiketerampilan_fk`)) ;
+
+-- ----------------------------
+-- View structure for v_nilai_pas
+-- ----------------------------
+DROP VIEW IF EXISTS `v_nilai_pas`;
+CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `v_nilai_pas` AS select `input_nilai_pas`.`id_input_nilai_pas` AS `id_input_nilai_pas`,`input_nilai_pas`.`idmatapelajaran_fk` AS `idmatapelajaran_fk`,`input_nilai_pas`.`idtahunajaran_fk` AS `idtahunajaran_fk`,`input_nilai_pas`.`trans_code` AS `trans_code`,`input_nilai_pas`.`idguru_fk` AS `idguru_fk`,`input_nilai_pas`.`idkelas_fk` AS `idkelas_fk`,`nilai_pas`.`id_nilai_pas` AS `id_nilai_pas`,`nilai_pas`.`idsiswa_fk` AS `idsiswa_fk`,`nilai_pas`.`nilai` AS `nilai`,`nilai_pas`.`idinputnilaipas_fk` AS `idinputnilaipas_fk`,`nilai_pas`.`create_at` AS `create_at` from (`input_nilai_pas` join `nilai_pas` on(`input_nilai_pas`.`id_input_nilai_pas` = `nilai_pas`.`idinputnilaipas_fk`)) ;
+
+-- ----------------------------
+-- View structure for v_nilai_pengetahuan
+-- ----------------------------
+DROP VIEW IF EXISTS `v_nilai_pengetahuan`;
+CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `v_nilai_pengetahuan` AS select `nilai_pengetahuan`.`id_nilai_pengetahuan` AS `id_nilai_pengetahuan`,`nilai_pengetahuan`.`idsiswa_fk` AS `idsiswa_fk`,`nilai_pengetahuan`.`nilai` AS `nilai`,`nilai_pengetahuan`.`idinputnilaipengetahuan_fk` AS `idinputnilaipengetahuan_fk`,`nilai_pengetahuan`.`create_at` AS `create_at`,`nilai_pengetahuan`.`idkd_fk` AS `idkd_fk`,`input_nilai_pengetahuan`.`id_input_nilai_pengetahuan` AS `id_input_nilai_pengetahuan`,`input_nilai_pengetahuan`.`idmatapelajaran_fk` AS `idmatapelajaran_fk`,`input_nilai_pengetahuan`.`idtahunajaran_fk` AS `idtahunajaran_fk`,`input_nilai_pengetahuan`.`trans_code` AS `trans_code`,`input_nilai_pengetahuan`.`idguru_fk` AS `idguru_fk`,`input_nilai_pengetahuan`.`idkelas_fk` AS `idkelas_fk`,`input_nilai_pengetahuan`.`idjenispengetahuan_fk` AS `idjenispengetahuan_fk` from (`nilai_pengetahuan` join `input_nilai_pengetahuan` on(`input_nilai_pengetahuan`.`id_input_nilai_pengetahuan` = `nilai_pengetahuan`.`idinputnilaipengetahuan_fk`)) ;
+
+-- ----------------------------
+-- View structure for v_nilai_pts
+-- ----------------------------
+DROP VIEW IF EXISTS `v_nilai_pts`;
+CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `v_nilai_pts` AS select `input_nilai_pts`.`id_input_nilai_pts` AS `id_input_nilai_pts`,`input_nilai_pts`.`idmatapelajaran_fk` AS `idmatapelajaran_fk`,`input_nilai_pts`.`idtahunajaran_fk` AS `idtahunajaran_fk`,`input_nilai_pts`.`trans_code` AS `trans_code`,`input_nilai_pts`.`idguru_fk` AS `idguru_fk`,`input_nilai_pts`.`idkelas_fk` AS `idkelas_fk`,`nilai_pts`.`id_nilai_pts` AS `id_nilai_pts`,`nilai_pts`.`idsiswa_fk` AS `idsiswa_fk`,`nilai_pts`.`nilai` AS `nilai`,`nilai_pts`.`idinputnilaipts_fk` AS `idinputnilaipts_fk`,`nilai_pts`.`create_at` AS `create_at` from (`input_nilai_pts` join `nilai_pts` on(`input_nilai_pts`.`id_input_nilai_pts` = `nilai_pts`.`idinputnilaipts_fk`)) ;
+
+-- ----------------------------
+-- View structure for v_oas_soal
+-- ----------------------------
+DROP VIEW IF EXISTS `v_oas_soal`;
+CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `v_oas_soal` AS select `oas_soal`.`id_oas_soal` AS `id_oas_soal`,`oas_soal`.`idbanksoal_fk` AS `idbanksoal_fk`,`oas_soal`.`idoas_fk` AS `idoas_fk`,`bank_soal`.`id_bank_soal` AS `id_bank_soal`,`bank_soal`.`soal` AS `soal`,`bank_soal`.`time_soal` AS `time_soal`,`bank_soal`.`code_soal` AS `code_soal`,`bank_soal`.`idmatapelajaran_fk` AS `idmatapelajaran_fk`,`bank_soal`.`idguru_fk` AS `idguru_fk`,`oas`.`id_oas` AS `id_oas`,`oas`.`tanggal_mulai` AS `tanggal_mulai`,`oas`.`tanggal_selesai` AS `tanggal_selesai`,`oas`.`keterangan` AS `keterangan`,`oas`.`is_active` AS `is_active`,`oas`.`kode` AS `kode`,`oas`.`idmapel_fk` AS `idmapel_fk` from ((`oas_soal` join `bank_soal` on(`oas_soal`.`idbanksoal_fk` = `bank_soal`.`id_bank_soal`)) join `oas` on(`oas_soal`.`idoas_fk` = `oas`.`id_oas`)) ;
+
+-- ----------------------------
+-- View structure for v_pelanggaran_siswa
+-- ----------------------------
+DROP VIEW IF EXISTS `v_pelanggaran_siswa`;
+CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `v_pelanggaran_siswa` AS select `pelanggaran_siswa`.`id_pelanggaran_siswa` AS `id_pelanggaran_siswa`,`pelanggaran_siswa`.`tanggal` AS `tanggal`,`pelanggaran_siswa`.`uraian_pelanggaran` AS `uraian_pelanggaran`,`pelanggaran_siswa`.`idpoinpelanggaran_fk` AS `idpoinpelanggaran_fk`,`pelanggaran_siswa`.`idsiswa_fk` AS `idsiswa_fk`,`poin_pelanggaran`.`id_poin_pelanggaran` AS `id_poin_pelanggaran`,`poin_pelanggaran`.`idjenispelanggaran_fk` AS `idjenispelanggaran_fk`,`poin_pelanggaran`.`nama_pelanggaran` AS `nama_pelanggaran`,`poin_pelanggaran`.`poin` AS `poin`,`poin_pelanggaran`.`kode_pelanggaran` AS `kode_pelanggaran`,`jenis_pelanggaran`.`id_jenis_pelanggaran` AS `id_jenis_pelanggaran`,`jenis_pelanggaran`.`jenis_pelanggaran` AS `jenis_pelanggaran`,(select `siswa`.`nama` from `siswa` where `siswa`.`id_siswa` = `pelanggaran_siswa`.`idsiswa_fk`) AS `nama_siswa` from ((`pelanggaran_siswa` left join `poin_pelanggaran` on(`poin_pelanggaran`.`id_poin_pelanggaran` = `pelanggaran_siswa`.`idpoinpelanggaran_fk`)) left join `jenis_pelanggaran` on(`jenis_pelanggaran`.`id_jenis_pelanggaran` = `poin_pelanggaran`.`idjenispelanggaran_fk`)) ;
+
+-- ----------------------------
+-- View structure for v_penerimaan
+-- ----------------------------
+DROP VIEW IF EXISTS `v_penerimaan`;
+CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `v_penerimaan` AS select `penerimaan`.`id_penerimaan` AS `id_penerimaan`,`penerimaan`.`idsiswa_fk` AS `idsiswa_fk`,`penerimaan`.`idjenispenerimaan_fk` AS `idjenispenerimaan_fk`,`penerimaan`.`metode_pembayaran` AS `metode_pembayaran`,`penerimaan`.`tanggal` AS `tanggal`,`penerimaan`.`catatan` AS `catatan`,`penerimaan`.`jumlah` AS `jumlah`,`penerimaan`.`create_at` AS `create_at`,`penerimaan`.`invoice` AS `invoice`,`penerimaan`.`diskon` AS `diskon_penerimaan`,`jenis_penerimaan`.`id_jenis_penerimaan` AS `id_jenis_penerimaan`,`jenis_penerimaan`.`nama` AS `nama`,`jenis_penerimaan`.`kas` AS `kas`,`jenis_penerimaan`.`pendapatan` AS `pendapatan`,`jenis_penerimaan`.`piutang` AS `piutang`,`jenis_penerimaan`.`is_edit` AS `is_edit`,`jenis_penerimaan`.`bulanan` AS `bulanan`,`jenis_penerimaan`.`template_nota` AS `template_nota`,`jenis_penerimaan`.`diskon` AS `diskon`,`siswa`.`id_siswa` AS `id_siswa`,`siswa`.`nis` AS `nis`,`siswa`.`nama` AS `nama_siswa`,`siswa`.`idkelas_fk` AS `idkelas_fk`,`siswa`.`idjurusan_fk` AS `idjurusan_fk`,`siswa`.`agama` AS `agama`,`siswa`.`nisn` AS `nisn`,`siswa`.`no_ijazah_sekolah_asal` AS `no_ijazah_sekolah_asal`,`siswa`.`no_skhun_sekolah_asal` AS `no_skhun_sekolah_asal`,`siswa`.`no_un_sekolah_asal` AS `no_un_sekolah_asal`,`siswa`.`no_kk` AS `no_kk`,`siswa`.`npsn_sekolah_asal` AS `npsn_sekolah_asal`,`siswa`.`nama_sekolah_asal` AS `nama_sekolah_asal`,`siswa`.`tempat_lahir` AS `tempat_lahir`,`siswa`.`tanggal_lahir` AS `tanggal_lahir`,`siswa`.`berkebutuhan_khusus` AS `berkebutuhan_khusus`,`siswa`.`alamat` AS `alamat`,`siswa`.`dusun` AS `dusun`,`siswa`.`rt` AS `rt`,`siswa`.`rw` AS `rw`,`siswa`.`kelurahan` AS `kelurahan`,`siswa`.`foto` AS `foto`,`siswa`.`idprovince_fk` AS `idprovince_fk`,`siswa`.`idcities_fk` AS `idcities_fk`,`siswa`.`nama_ayah` AS `nama_ayah`,`siswa`.`tempat_lahir_ayah` AS `tempat_lahir_ayah`,`siswa`.`tanggal_lahir_ayah` AS `tanggal_lahir_ayah`,`siswa`.`pendidikan_ayah` AS `pendidikan_ayah`,`siswa`.`pekerjaan_ayah` AS `pekerjaan_ayah`,`siswa`.`penghasilan_ayah` AS `penghasilan_ayah`,`siswa`.`nama_ibu` AS `nama_ibu`,`siswa`.`tempat_lahir_ibu` AS `tempat_lahir_ibu`,`siswa`.`tanggal_lahir_ibu` AS `tanggal_lahir_ibu`,`siswa`.`pendidikan_ibu` AS `pendidikan_ibu`,`siswa`.`pekerjaan_ibu` AS `pekerjaan_ibu`,`siswa`.`penghasilan_ibu` AS `penghasilan_ibu`,`siswa`.`tinggi_badan` AS `tinggi_badan`,`siswa`.`berat_badan` AS `berat_badan`,`siswa`.`jarak_ke_sekolah` AS `jarak_ke_sekolah`,`siswa`.`waktu_ke_sekolah` AS `waktu_ke_sekolah`,`siswa`.`jumlah_saudara` AS `jumlah_saudara`,`siswa`.`jenis_kelamin` AS `jenis_kelamin`,`siswa`.`saldo` AS `saldo`,(select `kelas`.`kelas` from `kelas` where `siswa`.`idkelas_fk` = `kelas`.`id_kelas`) AS `kelas` from ((`penerimaan` join `jenis_penerimaan` on(`penerimaan`.`idjenispenerimaan_fk` = `jenis_penerimaan`.`id_jenis_penerimaan`)) join `siswa` on(`penerimaan`.`idsiswa_fk` = `siswa`.`id_siswa`)) ;
+
+-- ----------------------------
+-- View structure for v_pkg
+-- ----------------------------
+DROP VIEW IF EXISTS `v_pkg`;
+CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `v_pkg` AS select `component_penilaian_kinerja_guru`.`idpenilaiankinerjaguru_fk` AS `idpenilaiankinerjaguru_fk`,`penilaian_kinerja_guru`.`id_penilaian_kinerja_guru` AS `id_penilaian_kinerja_guru`,`penilaian_kinerja_guru`.`idguru_fk` AS `idguru_fk`,`penilaian_kinerja_guru`.`bulan` AS `bulan`,`penilaian_kinerja_guru`.`tahun` AS `tahun`,`penilaian_kinerja_guru`.`idtahunajaran_fk` AS `idtahunajaran_fk`,`penilaian_kinerja_guru`.`create_at` AS `create_at`,`penilaian_kinerja_guru`.`trans_code` AS `trans_code`,`component_penilaian_kinerja_guru`.`id_component_penilaian_kinerja_guru` AS `id_component_penilaian_kinerja_guru`,`component_penilaian_kinerja_guru`.`idsubkompetensipkg_fk` AS `idsubkompetensipkg_fk`,`component_penilaian_kinerja_guru`.`nilai` AS `nilai` from (`penilaian_kinerja_guru` join `component_penilaian_kinerja_guru` on(`penilaian_kinerja_guru`.`id_penilaian_kinerja_guru` = `component_penilaian_kinerja_guru`.`idpenilaiankinerjaguru_fk`)) ;
+
+-- ----------------------------
+-- View structure for v_poin_pelanggaran
+-- ----------------------------
+DROP VIEW IF EXISTS `v_poin_pelanggaran`;
+CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `v_poin_pelanggaran` AS SELECT
+poin_pelanggaran.id_poin_pelanggaran AS id_poin_pelanggaran,
+poin_pelanggaran.idjenispelanggaran_fk AS idjenispelanggaran_fk,
+poin_pelanggaran.nama_pelanggaran AS nama_pelanggaran,
+poin_pelanggaran.poin AS poin,
+jenis_pelanggaran.id_jenis_pelanggaran AS id_jenis_pelanggaran,
+jenis_pelanggaran.jenis_pelanggaran AS jenis_pelanggaran,
+poin_pelanggaran.kategori_pelanggaran,
+poin_pelanggaran.kode_pelanggaran
+FROM
+(poin_pelanggaran
+JOIN jenis_pelanggaran ON (jenis_pelanggaran.id_jenis_pelanggaran = poin_pelanggaran.idjenispelanggaran_fk)) ;
+
+-- ----------------------------
+-- View structure for v_poin_pelanggaran_siswa
+-- ----------------------------
+DROP VIEW IF EXISTS `v_poin_pelanggaran_siswa`;
+CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `v_poin_pelanggaran_siswa` AS select `siswa`.`id_siswa` AS `id_siswa`,`siswa`.`nisn` AS `nisn`,`siswa`.`nis` AS `nis`,`siswa`.`nama` AS `nama`,(select sum(`v_pelanggaran_siswa`.`poin`) from `v_pelanggaran_siswa` where `v_pelanggaran_siswa`.`idsiswa_fk` = `siswa`.`id_siswa`) AS `poin` from `siswa` where (select sum(`v_pelanggaran_siswa`.`poin`) from `v_pelanggaran_siswa` where `v_pelanggaran_siswa`.`idsiswa_fk` = `siswa`.`id_siswa`) > 0 ;
+
+-- ----------------------------
+-- View structure for v_presensi_event
+-- ----------------------------
+DROP VIEW IF EXISTS `v_presensi_event`;
+CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `v_presensi_event` AS select `event`.`id_event` AS `id_event`,`event`.`event` AS `event`,`event`.`tanggal` AS `tanggal`,`event`.`notulensi` AS `notulensi`,`presensi_event`.`id_presensi_event` AS `id_presensi_event`,`presensi_event`.`idevent_fk` AS `idevent_fk`,`presensi_event`.`idguru_fk` AS `idguru_fk`,`presensi_event`.`is_hadir` AS `is_hadir`,(select `guru`.`nama` from `guru` where `guru`.`id_guru` = `presensi_event`.`idguru_fk`) AS `nama_guru` from (`event` join `presensi_event` on(`presensi_event`.`idevent_fk` = `event`.`id_event`)) ;
+
+-- ----------------------------
+-- View structure for v_presensi_harian_set
+-- ----------------------------
+DROP VIEW IF EXISTS `v_presensi_harian_set`;
+CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `v_presensi_harian_set` AS select `presensi_harian`.`id_presensi_harian` AS `id_presensi_harian`,`presensi_harian`.`idmatapelajaran_fk` AS `idmatapelajaran_fk`,`presensi_harian`.`idsiswa_fk` AS `idsiswa_fk`,`presensi_harian`.`presensi` AS `presensi`,`presensi_harian`.`keterangan` AS `keterangan`,`presensi_harian`.`tanggal` AS `tanggal`,`presensi_harian`.`create_at` AS `create_at`,`presensi_harian`.`idtahunajaran_fk` AS `idtahunajaran_fk`,`presensi_harian`.`idkelas_fk` AS `idkelas_fk`,(select `kelas`.`idjurusan_fk` from `kelas` where `kelas`.`id_kelas` = `presensi_harian`.`idkelas_fk`) AS `id_jurusan` from `presensi_harian` ;
+
+-- ----------------------------
+-- View structure for v_prestasi_siswa
+-- ----------------------------
+DROP VIEW IF EXISTS `v_prestasi_siswa`;
+CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `v_prestasi_siswa` AS select `prestasi_siswa`.`id_prestasi_siswa` AS `id_prestasi_siswa`,`prestasi_siswa`.`idsiswa_fk` AS `idsiswa_fk`,`prestasi_siswa`.`prestasi` AS `prestasi`,`prestasi_siswa`.`lomba` AS `lomba`,`prestasi_siswa`.`tahun` AS `tahun`,`prestasi_siswa`.`jenis_perlombaan` AS `jenis_perlombaan`,(select `siswa`.`nama` from `siswa` where `siswa`.`id_siswa` = `prestasi_siswa`.`idsiswa_fk`) AS `nama_siswa`,(select `siswa`.`nis` from `siswa` where `siswa`.`id_siswa` = `prestasi_siswa`.`idsiswa_fk`) AS `nis_siswa` from `prestasi_siswa` ;
+
+-- ----------------------------
+-- View structure for v_siswa_jurusan
+-- ----------------------------
+DROP VIEW IF EXISTS `v_siswa_jurusan`;
+CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `v_siswa_jurusan` AS select `siswa`.`id_siswa` AS `id_siswa`,`siswa`.`nis` AS `nis`,`siswa`.`nama` AS `nama`,`siswa`.`idkelas_fk` AS `idkelas_fk`,`siswa`.`idjurusan_fk` AS `idjurusan_fk`,`siswa`.`agama` AS `agama`,`siswa`.`nisn` AS `nisn`,`siswa`.`no_ijazah_sekolah_asal` AS `no_ijazah_sekolah_asal`,`siswa`.`no_skhun_sekolah_asal` AS `no_skhun_sekolah_asal`,`siswa`.`no_un_sekolah_asal` AS `no_un_sekolah_asal`,`siswa`.`no_kk` AS `no_kk`,`siswa`.`npsn_sekolah_asal` AS `npsn_sekolah_asal`,`siswa`.`nama_sekolah_asal` AS `nama_sekolah_asal`,`siswa`.`tempat_lahir` AS `tempat_lahir`,`siswa`.`tanggal_lahir` AS `tanggal_lahir`,`siswa`.`berkebutuhan_khusus` AS `berkebutuhan_khusus`,`siswa`.`alamat` AS `alamat`,`siswa`.`dusun` AS `dusun`,`siswa`.`rt` AS `rt`,`siswa`.`rw` AS `rw`,`siswa`.`kelurahan` AS `kelurahan`,`siswa`.`foto` AS `foto`,`siswa`.`idprovince_fk` AS `idprovince_fk`,`siswa`.`idcities_fk` AS `idcities_fk`,`siswa`.`nama_ayah` AS `nama_ayah`,`siswa`.`tempat_lahir_ayah` AS `tempat_lahir_ayah`,`siswa`.`tanggal_lahir_ayah` AS `tanggal_lahir_ayah`,`siswa`.`pendidikan_ayah` AS `pendidikan_ayah`,`siswa`.`pekerjaan_ayah` AS `pekerjaan_ayah`,`siswa`.`penghasilan_ayah` AS `penghasilan_ayah`,`siswa`.`nama_ibu` AS `nama_ibu`,`siswa`.`tempat_lahir_ibu` AS `tempat_lahir_ibu`,`siswa`.`tanggal_lahir_ibu` AS `tanggal_lahir_ibu`,`siswa`.`pendidikan_ibu` AS `pendidikan_ibu`,`siswa`.`pekerjaan_ibu` AS `pekerjaan_ibu`,`siswa`.`penghasilan_ibu` AS `penghasilan_ibu`,`siswa`.`tinggi_badan` AS `tinggi_badan`,`siswa`.`berat_badan` AS `berat_badan`,`siswa`.`jarak_ke_sekolah` AS `jarak_ke_sekolah`,`siswa`.`waktu_ke_sekolah` AS `waktu_ke_sekolah`,`siswa`.`jumlah_saudara` AS `jumlah_saudara`,`siswa`.`jenis_kelamin` AS `jenis_kelamin`,`kelas`.`id_kelas` AS `id_kelas`,`kelas`.`kelas` AS `kelas`,`kelas`.`idtingkat_fk` AS `idtingkat_fk`,`kelas`.`create_at` AS `create_at`,`kelas`.`idtahunajaran_fk` AS `idtahunajaran_fk`,`jurusan`.`id_jurusan` AS `id_jurusan`,`jurusan`.`jurusan` AS `jurusan`,`jurusan`.`singkatan` AS `singkatan`,(select `tingkat`.`tingkat` from `tingkat` where `tingkat`.`id_tingkat` = `kelas`.`idtingkat_fk`) AS `nama_tingkat` from ((`siswa` join `kelas` on(`kelas`.`id_kelas` = `siswa`.`idkelas_fk`)) join `jurusan` on(`jurusan`.`id_jurusan` = `siswa`.`idjurusan_fk`)) ;
+
+-- ----------------------------
+-- View structure for v_tanggungan_siswa
+-- ----------------------------
+DROP VIEW IF EXISTS `v_tanggungan_siswa`;
+CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `v_tanggungan_siswa` AS select `tanggungan_siswa`.`id_tanggungan_siswa` AS `id_tanggungan_siswa`,`tanggungan_siswa`.`idsiswa_fk` AS `idsiswa_fk`,`tanggungan_siswa`.`idjenispenerimaan_fk` AS `idjenispenerimaan_fk`,`tanggungan_siswa`.`jumlah` AS `jumlah`,`jenis_penerimaan`.`id_jenis_penerimaan` AS `id_jenis_penerimaan`,`jenis_penerimaan`.`nama` AS `nama`,`jenis_penerimaan`.`kas` AS `kas`,`jenis_penerimaan`.`pendapatan` AS `pendapatan`,`jenis_penerimaan`.`piutang` AS `piutang`,`jenis_penerimaan`.`diskon` AS `diskon`,`jenis_penerimaan`.`is_edit` AS `is_edit`,`jenis_penerimaan`.`bulanan` AS `bulanan`,`jenis_penerimaan`.`template_nota` AS `template_nota` from (`tanggungan_siswa` join `jenis_penerimaan` on(`tanggungan_siswa`.`idjenispenerimaan_fk` = `jenis_penerimaan`.`id_jenis_penerimaan`)) ;
+
+-- ----------------------------
+-- View structure for v_task
+-- ----------------------------
+DROP VIEW IF EXISTS `v_task`;
+CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `v_task` AS select `task_answer`.`id_task_answer` AS `id_task_answer`,`task_answer`.`idsiswa_fk` AS `idsiswa_fk`,`task_answer`.`ans` AS `ans`,`task_answer`.`idtask_fk` AS `idtask_fk`,`task_answer`.`type` AS `type`,`task`.`id_task` AS `id_task`,`task`.`task_code` AS `task_code`,`task`.`task` AS `task`,`task`.`idguru_fk` AS `idguru_fk`,`task`.`idmapel_fk` AS `idmapel_fk`,`task`.`title` AS `title`,`siswa`.`id_siswa` AS `id_siswa`,`siswa`.`nis` AS `nis`,`siswa`.`nama` AS `nama`,`siswa`.`idkelas_fk` AS `idkelas_fk`,`siswa`.`idjurusan_fk` AS `idjurusan_fk`,`siswa`.`agama` AS `agama`,`siswa`.`nisn` AS `nisn`,`siswa`.`no_ijazah_sekolah_asal` AS `no_ijazah_sekolah_asal`,`siswa`.`no_skhun_sekolah_asal` AS `no_skhun_sekolah_asal`,`siswa`.`no_un_sekolah_asal` AS `no_un_sekolah_asal`,`siswa`.`no_kk` AS `no_kk`,`siswa`.`npsn_sekolah_asal` AS `npsn_sekolah_asal`,`siswa`.`nama_sekolah_asal` AS `nama_sekolah_asal`,`siswa`.`tempat_lahir` AS `tempat_lahir`,`siswa`.`tanggal_lahir` AS `tanggal_lahir`,`siswa`.`berkebutuhan_khusus` AS `berkebutuhan_khusus`,`siswa`.`alamat` AS `alamat`,`siswa`.`dusun` AS `dusun`,`siswa`.`rt` AS `rt`,`siswa`.`rw` AS `rw`,`siswa`.`kelurahan` AS `kelurahan`,`siswa`.`foto` AS `foto`,`siswa`.`idprovince_fk` AS `idprovince_fk`,`siswa`.`idcities_fk` AS `idcities_fk`,`siswa`.`nama_ayah` AS `nama_ayah`,`siswa`.`tempat_lahir_ayah` AS `tempat_lahir_ayah`,`siswa`.`tanggal_lahir_ayah` AS `tanggal_lahir_ayah`,`siswa`.`pendidikan_ayah` AS `pendidikan_ayah`,`siswa`.`pekerjaan_ayah` AS `pekerjaan_ayah`,`siswa`.`penghasilan_ayah` AS `penghasilan_ayah`,`siswa`.`nama_ibu` AS `nama_ibu`,`siswa`.`tempat_lahir_ibu` AS `tempat_lahir_ibu`,`siswa`.`tanggal_lahir_ibu` AS `tanggal_lahir_ibu`,`siswa`.`pendidikan_ibu` AS `pendidikan_ibu`,`siswa`.`pekerjaan_ibu` AS `pekerjaan_ibu`,`siswa`.`penghasilan_ibu` AS `penghasilan_ibu`,`siswa`.`tinggi_badan` AS `tinggi_badan`,`siswa`.`berat_badan` AS `berat_badan`,`siswa`.`jarak_ke_sekolah` AS `jarak_ke_sekolah`,`siswa`.`waktu_ke_sekolah` AS `waktu_ke_sekolah`,`siswa`.`jumlah_saudara` AS `jumlah_saudara`,`siswa`.`jenis_kelamin` AS `jenis_kelamin`,`task_answer`.`nilai` AS `nilai` from ((`task_answer` join `task` on(`task_answer`.`idtask_fk` = `task`.`id_task`)) join `siswa` on(`task_answer`.`idsiswa_fk` = `siswa`.`id_siswa`)) ;
+
+-- ----------------------------
+-- View structure for v_walas
+-- ----------------------------
+DROP VIEW IF EXISTS `v_walas`;
+CREATE ALGORITHM = UNDEFINED DEFINER = `root`@`localhost` SQL SECURITY DEFINER VIEW `v_walas` AS select `wali_kelas`.`id_wali_kelas` AS `id_wali_kelas`,`wali_kelas`.`idguru_fk` AS `idguru_fk`,`wali_kelas`.`idtahunajaran_fk` AS `idtahunajaran_fk`,`wali_kelas`.`idkelas_fk` AS `idkelas_fk`,`kelas`.`id_kelas` AS `id_kelas`,`kelas`.`kelas` AS `kelas`,`kelas`.`idtingkat_fk` AS `idtingkat_fk`,`kelas`.`idjurusan_fk` AS `idjurusan_fk`,`tingkat`.`id_tingkat` AS `id_tingkat`,`tingkat`.`tingkat` AS `tingkat`,`jurusan`.`id_jurusan` AS `id_jurusan`,`jurusan`.`jurusan` AS `jurusan`,`jurusan`.`singkatan` AS `singkatan` from (((`wali_kelas` left join `kelas` on(`wali_kelas`.`idkelas_fk` = `kelas`.`id_kelas`)) left join `tingkat` on(`kelas`.`idtingkat_fk` = `tingkat`.`id_tingkat`)) left join `jurusan` on(`kelas`.`idjurusan_fk` = `jurusan`.`id_jurusan`)) ;
+
+-- ----------------------------
+-- Triggers structure for table pemasukan_lain
+-- ----------------------------
+DROP TRIGGER IF EXISTS `jurnal_pemasukan`;
+delimiter ;;
+CREATE DEFINER = `root`@`localhost` TRIGGER `jurnal_pemasukan` AFTER INSERT ON `pemasukan_lain` FOR EACH ROW BEGIN
+-- 	Debit
+	INSERT into jurnal_umum(ref, idakun_fk, debit, kredit, keterangan, jurnal_umum.table, idtable_fk) VALUES (new.trans_code, new.akun_kas, new.total, 0, new.keterangan, "pemasukan_lain", new.id_pemasukan_lain);
+-- 	Kredit
+	INSERT into jurnal_umum(ref, idakun_fk, debit, kredit, keterangan, jurnal_umum.table, idtable_fk) VALUES (new.trans_code, new.akun_beban, 0, new.total, new.keterangan, "pemasukan_lain", new.id_pemasukan_lain);
+
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Triggers structure for table penerimaan
+-- ----------------------------
+DROP TRIGGER IF EXISTS `delete_jurnal_umum_from_penerimaan`;
+delimiter ;;
+CREATE DEFINER = `root`@`localhost` TRIGGER `delete_jurnal_umum_from_penerimaan` AFTER DELETE ON `penerimaan` FOR EACH ROW BEGIN
+		delete from jurnal_umum where jurnal_umum.table = "penerimaan" and idtable_fk=old.id_penerimaan;
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Triggers structure for table pengeluaran_lain
+-- ----------------------------
+DROP TRIGGER IF EXISTS `jurnal`;
+delimiter ;;
+CREATE DEFINER = `root`@`localhost` TRIGGER `jurnal` AFTER INSERT ON `pengeluaran_lain` FOR EACH ROW BEGIN
+-- 	Debit
+	INSERT into jurnal_umum(ref, idakun_fk, debit, kredit, keterangan, jurnal_umum.table, idtable_fk) VALUES (new.trans_code, new.jenis, new.total, 0, new.keterangan, "pengeluaran_lain", new.id_pengeluaran_lain);
+-- 	Kredit
+	INSERT into jurnal_umum(ref, idakun_fk, debit, kredit, keterangan, jurnal_umum.table, idtable_fk) VALUES (new.trans_code, new.jenis_kas, 0, new.total, new.keterangan, "pengeluaran_lain", new.id_pengeluaran_lain);
+
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Triggers structure for table tanggungan_alumni
+-- ----------------------------
+DROP TRIGGER IF EXISTS `update_jurnal_tanggungan_alumni`;
+delimiter ;;
+CREATE DEFINER = `root`@`localhost` TRIGGER `update_jurnal_tanggungan_alumni` AFTER UPDATE ON `tanggungan_alumni` FOR EACH ROW BEGIN
+-- 	Debit
+	update jurnal_umum set debit = new.jumlah, idakun_fk = new.pendapatan where jurnal_umum.table = "tanggungan_alumni" and idtable_fk=old.id_tanggungan_alumni and kredit=0;
+-- 	Kredit
+	update jurnal_umum set kredit = new.jumlah, idakun_fk = new.piutang where jurnal_umum.table = "tanggungan_alumni" and idtable_fk=old.id_tanggungan_alumni and debit=0;
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Triggers structure for table tanggungan_alumni
+-- ----------------------------
+DROP TRIGGER IF EXISTS `delete_jurnal_tanggungan_alumni`;
+delimiter ;;
+CREATE DEFINER = `root`@`localhost` TRIGGER `delete_jurnal_tanggungan_alumni` AFTER DELETE ON `tanggungan_alumni` FOR EACH ROW BEGIN
+-- 	Debit
+	delete from jurnal_umum where jurnal_umum.table = "tanggungan_alumni" and idtable_fk=old.id_tanggungan_alumni;
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Triggers structure for table tanggungan_siswa
+-- ----------------------------
+DROP TRIGGER IF EXISTS `update_jurnal`;
+delimiter ;;
+CREATE DEFINER = `root`@`localhost` TRIGGER `update_jurnal` AFTER UPDATE ON `tanggungan_siswa` FOR EACH ROW BEGIN
+-- 	Debit
+	update jurnal_umum set debit = new.jumlah where jurnal_umum.table = "tanggungan" and idtable_fk=old.id_tanggungan_siswa and kredit=0;
+-- 	Kredit
+	update jurnal_umum set kredit = new.jumlah where jurnal_umum.table = "tanggungan" and idtable_fk=old.id_tanggungan_siswa and debit=0;
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Triggers structure for table tanggungan_siswa
+-- ----------------------------
+DROP TRIGGER IF EXISTS `delete_jurnal`;
+delimiter ;;
+CREATE DEFINER = `root`@`localhost` TRIGGER `delete_jurnal` AFTER DELETE ON `tanggungan_siswa` FOR EACH ROW BEGIN
+-- 	Debit
+	delete from jurnal_umum where jurnal_umum.table = "tanggungan" and idtable_fk=old.id_tanggungan_siswa;
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Triggers structure for table transaksi_tanggungan_siswa
+-- ----------------------------
+DROP TRIGGER IF EXISTS `delete_trig`;
+delimiter ;;
+CREATE DEFINER = `root`@`localhost` TRIGGER `delete_trig` AFTER DELETE ON `transaksi_tanggungan_siswa` FOR EACH ROW BEGIN
+	delete from penerimaan where penerimaan.idsiswa_fk = old.idsiswa_fk and penerimaan.invoice=old.invoice;
+END
+;;
+delimiter ;
+
+SET FOREIGN_KEY_CHECKS = 1;
