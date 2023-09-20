@@ -198,6 +198,8 @@
       <li><a href="Buku_besar/get_data" class="app-item">Buku Besar</a></li>
     </ul>
   </li>
+  <li class="navigation-header"><span>Custom Fitur</span> <i class="icon-menu" title="Page kits"></i></li>
+  <li><a href="Ijin_siswa/get_data" class="app-item"><i class="icon-users2"></i> <span>Laporan Ijin Siswa</span></a></li>
   <li class="navigation-header"><span>Setting kits</span> <i class="icon-menu" title="Page kits"></i></li>
   <li>
     <a href="#"><i class="icon-stack2"></i> <span>Master</span></a>

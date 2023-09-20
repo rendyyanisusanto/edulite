@@ -24,7 +24,7 @@ class presensi_guru extends MY_Controller {
 		$data['account']	=	$this->get_user_account();
 		$data['param'] 		= 	$this->arr;
 		$data['tahun_ajaran']		=	$this->my_where('tahun_ajaran',['is_active'=>1])->row_array();
-		$data['guru']		=	$this->my_where('guru',[])->result_array();
+		$data['guru']		=	$this->my_where('guru',['is_active'=>1])->result_array();
 			
 		$this->load->library('ciqrcode');
 
@@ -46,7 +46,7 @@ class presensi_guru extends MY_Controller {
 	public function proses_rekap()
 	{
 		$data['tahun_ajaran']		=	$this->my_where('tahun_ajaran',['is_active'=>1])->row_array();
-		$guru				=	$this->my_where('guru',[])->result_array();
+		$guru				=	$this->my_where('guru',['is_active'=>1])->result_array();
 		$data['guru']		=	[];
 		foreach ($guru as $key => $value) {
 			$kumulatif = 0;
@@ -169,7 +169,7 @@ class presensi_guru extends MY_Controller {
 	{
 
 		$tahun_ajaran		=	$this->my_where('tahun_ajaran',['is_active'=>1])->row_array();
-		$data['guru']		=	$this->my_where('guru', [])->result_array();
+		$data['guru']		=	$this->my_where('guru', ['is_active'=>1])->result_array();
 		$data['presensi'] 	= 	[];
 
 		foreach ($data['guru'] as $key => $value) {

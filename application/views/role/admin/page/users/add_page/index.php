@@ -22,6 +22,7 @@
                   <option value="">Pilih</option>
                   <option value="siswa">Siswa</option>
                   <option value="guru">Guru</option>
+                  <option value="operator">Operator</option>
                 </select>
               </div>
             </div>
