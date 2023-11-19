@@ -18,7 +18,7 @@
 						<td><?php echo ++$no ?></td>
 						<td><?php echo $value['kelas']['kelas'] ?></td>
 						<td><?php echo (!empty($value['guru'])) ? '<b class="text-success">'.$value['guru']['nama'].'</b>' : '<b class="text-danger" style="font-weight : bold;"> Belum Disetting </b>'; ?></td>
-						<td><button type="button" data-kelas="<?php echo $value['kelas']['kelas'] ?>" data-id="<?php echo $value['kelas']['id_kelas'] ?>" class="btn btn-sm btn-config btn-primary"><i class="icon-pencil3"></i></button></td>
+						<td><button type="button" data-kelas="<?php echo $value['kelas']['kelas'] ?>" onclick="setting_walas('<?php echo $value['kelas']['kelas'] ?>', <?php echo $value['kelas']['id_kelas'] ?>)" data-id="<?php echo $value['kelas']['id_kelas'] ?>" class="btn btn-sm btn-primary"><i class="icon-pencil3"></i></button></td>
 					</tr>
 				<?php endforeach ?>
 			</tbody>
@@ -26,7 +26,7 @@
 	</div>
 </div>
 
-<div class="modal">
+<div class="modal modal-walas">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<form action="Wali_kelas/simpan_data" class="frm-wali" method="POST">

@@ -13,6 +13,8 @@ class Dashboard extends MY_Controller {
 		$mapel_hari_ini 	=	$this->my_where('v_jadwal_pelajaran', ['idguru_fk' => $data['guru']['id_guru'], 'code' => date('N')])->result_array();
 		$data['jadwal_guru']	=  $this->cek_jadwal_guru_hari_ini($data['guru']['id_guru'], $data['tahun_ajaran']['id_tahun_ajaran']);
 		$data['presensi']		=	$this->cek_presensi_guru_hari_ini($data['guru']['id_guru'], $data['tahun_ajaran']['id_tahun_ajaran']);
+		$data['ijin_siswa']		=	$this->db->query("select * from ijin_siswa where tanggal='".date('Y-m-d')."'")->num_rows();
+		$data['kelas']			=	$this->my_where('kelas', [])->result_array();
 		foreach ($mapel_hari_ini as $key => $value) {
 			$data['mapel_hari_ini'][] =[
 				'mapel'		=>		$value,
@@ -40,6 +42,14 @@ class Dashboard extends MY_Controller {
 		$data['cek_kd']		=	$this->cek_kd();
 		$data['tahun_ajaran']	=	$this->tahun_ajaran_aktif();
 		$this->my_view(['role/guru/page/dashboard/index_page/index','role/guru/page/dashboard/index_page/js'],$data);
+	}
+
+	public function ijin_siswa()
+	{
+		$filterkelas = (!empty($_POST['id_kelas'])) ? "idkelas_fk = ".$_POST['id_kelas']. ' and ' : "" ;
+		$data['ijin']	=	$this->db->query("select *, (select kelas from kelas where idkelas_fk = id_kelas) as kelas from v_ijin_siswa where ".$filterkelas." tanggal = '".date('Y-m-d')."'")->result_array();
+
+		$this->my_view(['role/guru/page/dashboard/index_page/ijin_siswa'],$data);
 	}
 
 	function check()

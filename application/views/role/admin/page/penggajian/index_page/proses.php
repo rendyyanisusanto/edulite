@@ -13,6 +13,7 @@
 					<td width="5%">Status Payroll</td>
 					<td width="2%">Proses</td>
 					<td width="2%">Print</td>
+					<td width="2%">Share</td>
 				</tr>
 			</thead>
 			<tbody>
@@ -38,6 +39,16 @@
 							<?php }else{ ?>
 								<a class="btn btn-xs btn-success" target="__blank" href="<?= base_url('admin/penggajian/print_nota/'.$value['id_guru'].'/'.$data_get['bulan'].'/'.$data_get['tahun']); ?>"><i class=" icon-printer"></i></a>
 
+							<?php } ?>
+						</td>
+						<td>
+							<?php if ($value['shared'] == 1){ ?>
+								
+								<a class="btn btn-xs btn-warning" target="__blank" href="<?= base_url('admin/penggajian/shared_status/'.$value['id_guru'].'/'.$data_get['bulan'].'/'.$data_get['tahun']); ?>"><i class=" icon-undo"></i> Tarik</a>
+
+							<?php }else{ ?>
+								
+								<a class="btn btn-xs btn-info" target="__blank" href="<?= base_url('admin/penggajian/shared_status/'.$value['id_guru'].'/'.$data_get['bulan'].'/'.$data_get['tahun']); ?>"><i class=" icon-spinner"></i> Share</a>
 							<?php } ?>
 						</td>
 					</tr>

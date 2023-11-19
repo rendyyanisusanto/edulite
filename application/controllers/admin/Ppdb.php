@@ -23,6 +23,7 @@ class Ppdb extends MY_Controller {
 	{
 		$data['account']	=	$this->get_user_account();
 		$data['param'] 		= 	$this->arr;
+		$data['result'] = json_decode($this->curl->simple_get('https://apippdb.smkitasy-syadzili.sch.id/index.php/register/all'));
 		$this->my_view(['role/admin/page/ppdb/index_page/index','role/admin/page/ppdb/index_page/js'],$data);
 	}
 

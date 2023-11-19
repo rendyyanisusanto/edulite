@@ -166,7 +166,15 @@
         <li><a href="Lowongan/get_data" class="app-item">Lowongan</a></li>
       </ul>
   </li>
+  <li>
+    <a href="#"><i class="icon-archive"></i> <span>PPDB</span></a>
+    <ul>
+      <li><a href="PPDB/get_data" class="app-item">Pendaftar Baru</a></li>
+      <li><a href="Calon_siswa/get_data" class="app-item">Calon Siswa</a></li>
+    </ul>
+  </li>
 
+  
   <li class="navigation-header"><span>Sarana Prasarana</span> <i class="icon-menu" title="Page kits"></i></li>
   <li>
       <a href="#"><i class="icon-cabinet"></i> <span>Sarana</span></a>

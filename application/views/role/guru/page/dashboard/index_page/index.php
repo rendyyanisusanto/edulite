@@ -101,6 +101,36 @@
 </div>
 
 <?php endif ?>
+
+<?php if ($data_get['ijin_siswa'] > 0): ?>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="panel">
+				<div class="panel-body">
+					<center><b><u>Siswa Ijin Hari Ini</u></b></center>
+
+					<div class="ijin-siswa"></div>
+				</div>
+				<div class="panel-footer">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group" style="margin-left: 5%;">
+								<b>Filter : </b>
+					            <select style="width: 80%;" class="form-control filterkelas" onchange="ijin_siswa()">
+					            	<option value=""> Semua Kelas</option>
+					            	<?php foreach ($data_get['kelas'] as $key => $value): ?>
+					            		<option value="<?php echo $value['id_kelas'] ?>"><?php echo $value['kelas'] ?></option>
+					            	<?php endforeach ?>
+					            </select>
+					          </div>
+						</div>
+					</div>
+			          
+			    </div>
+			</div>
+		</div>
+	</div>
+<?php endif ?>
 <div class="row">
 	<div class="col-md-4">
 		<div class="content-group">

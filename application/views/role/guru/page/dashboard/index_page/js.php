@@ -9,6 +9,16 @@ getLocation()
 		});
 	})
 
+	ijin_siswa();
+	function ijin_siswa(){
+		send_ajax("Dashboard/ijin_siswa", {
+			id_kelas : $('.filterkelas').val()
+		}).then(function(data){
+			$('.ijin-siswa').html(data);
+		})
+	}
+
+
 	var x = document.getElementById("mesJadwal");
 
 	function getLocation() {
@@ -23,7 +33,7 @@ getLocation()
 
 	    var dst = distance(position.coords.latitude, position.coords.longitude, -7.9710528895669945, 112.73827940793157,"K");
 	
-	    if (dst <= 0.05) {
+	    if (dst <= 0.09) {
 	    	$('.rowabsen').css('display', '');
 		    x.innerHTML="Latitude: " + position.coords.latitude + 
 		    "<br>Longitude: " + position.coords.longitude +

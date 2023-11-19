@@ -9,9 +9,9 @@ class ijin_siswa extends MY_Controller {
 	public $arr = [
 			'title'				=>	'Halaman ijin_siswa',
 			'table'				=>	'ijin_siswa',
-			'column'			=>	[ 'nama', 'alamat','jabatan', 'keperluan','saran', 'tanggal'],
-			'column_order'		=>	[ 'id_ijin_siswa','nama', 'alamat', 'jabatan', 'keperluan','saran', 'tanggal'],
-			'column_search'		=>	[ 'id_ijin_siswa','nama', 'alamat', 'jabatan', 'keperluan','saran', 'tanggal'],
+			'column'			=>	[ 'idsiswa_fk', 'tanggal'],
+			'column_order'		=>	[ 'id_ijin_siswa','idsiswa_fk', 'tanggal'],
+			'column_search'		=>	[ 'id_ijin_siswa','idsiswa_fk', 'tanggal'],
 			'order'				=>	['id_ijin_siswa'	=>	'DESC'],
 			'id'				=>	'id_ijin_siswa'
 	];

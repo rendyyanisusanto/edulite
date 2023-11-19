@@ -368,6 +368,14 @@ class MY_Controller extends CI_Controller {
         return $data;
     }
 
+    public function get_siswa()
+    {
+        $data['account']    =   $this->get_user_account();
+        $data['siswa']       =   $this->my_where('siswa', ['id_siswa'=>$data['account']['anggota_id']])->row_array();
+        
+        return $data;
+    }
+
     public function save_media($data)
     {
         $config['upload_path']=$data['path'] ; //path folder file upload

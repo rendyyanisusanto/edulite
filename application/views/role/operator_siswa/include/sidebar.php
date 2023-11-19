@@ -7,6 +7,7 @@
   <!-- Page kits -->
   <li class="navigation-header"><span>Role Management</span> <i class="icon-menu" title="Page kits"></i></li>
   <li><a href="Ijin_siswa/get_data" class="app-item"><i class="icon-users2"></i> <span>Laporan Ijin Siswa</span></a></li>
+  <li><a href="Surat_keluar/get_data" class="app-item"><i class="icon-file-text2"></i> <span>Surat Ijin Sekolah</span></a></li>
   <li class="navigation-header"><span>Setting</span> <i class="icon-menu" title="Page kits"></i></li>
   <li>
     <a href="#"><i class="icon-users2"></i> <span>Account</span></a>
