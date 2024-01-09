@@ -4,26 +4,14 @@
     <div class="panel panel-flat">
       <div class="panel-heading">
         <h6 class="panel-title"><?php echo ucwords(str_replace('_', ' ', $data_get['param']['title'])) ?><a class="heading-elements-toggle"><i class="icon-more"></i></a></h6>
-        <div class="heading-elements">
-          <ul class="icons-list">
-            <li><a data-action="collapse"></a></li>
-            <li><a data-action="reload"></a></li>
-            <li><a data-action="close"></a></li>
-          </ul>
+        <div class="heading-elements stats-nav" >
         </div>
       </div>
       <div class="panel-body">
-        <?php if ($user_account['c'] == 1): ?>
-          <a href="<?php echo $data_get['param']['table'] ?>/add_page" class="btn app-item bg-teal-400 btn-labeled legitRipple"><b><i class="icon-plus3"></i></b> Tambah (<i>add</i>)</a>
-        <?php endif ?>
+        <a href="<?php echo $data_get['param']['table'] ?>/add_page" class="btn app-item bg-teal-400 btn-labeled legitRipple"><b><i class="icon-plus3"></i></b> Tambah (<i>add</i>)</a>
+        <a class="btn bg-success-400 btn-labeled legitRipple" id="edit-btn"><b><i class="icon-pencil4"></i></b> Edit</a>
+        <a class="btn bg-danger-400 btn-labeled legitRipple" id="del-btn"><b><i class="icon-bin"></i></b> Hapus</a>
         
-        <?php if ($user_account['u'] == 1): ?>
-          <a class="btn bg-success-400 btn-labeled legitRipple" id="edit-btn"><b><i class="icon-pencil4"></i></b> Edit</a>
-        <?php endif ?>
-
-        <?php if ($user_account['d'] == 1): ?>
-          <a class="btn bg-danger-400 btn-labeled legitRipple" id="del-btn"><b><i class="icon-bin"></i></b> Hapus</a>
-        <?php endif ?>
         <a class="btn bg-purple-400 btn-labeled legitRipple" id="cetak-btn"><b><i class="icon-printer"></i></b> Print</a>
         <a class="btn bg-info-400 btn-labeled legitRipple" target="__blank" href="<?php echo $data_get['param']['table'] ?>/print_hari_ini"><b><i class="icon-printer2"></i></b> Print hari ini</a>
         <hr>
@@ -43,6 +31,20 @@
         </table>
         </div>
       </div>
+      <div class="panel-footer"><a class="heading-elements-toggle"><i class="icon-more"></i></a>
+      <div class="heading-elements pull-right">
+        <span class="heading-text text-semibold">Range Tanggal:</span>
+        <form class="heading-form" action="#">
+          <div class="form-group">
+            <input type="date" class="form-control tanggal_mulai" placeholder="Search...">
+          </div>
+          
+          <div class="form-group">
+            <input type="date" class="form-control tanggal_selesai" placeholder="Search...">
+          </div>
+        </form>
+      </div>
+    </div>
     </div>
   </div>
 </div>

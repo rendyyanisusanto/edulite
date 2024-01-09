@@ -9,11 +9,17 @@
   <li>
     <a href="#"><i class="icon-magazine"></i> <span>Administrasi</span></a>
     <ul>
-      <li><a href="Prestasi_siswa/get_data" class="app-item">Prestasi Siswa</a></li>
       <li><a href="Buku_tamu/get_data" class="app-item">Buku Tamu</a></li>
       <li><a href="Surat_masuk/get_data" class="app-item">Surat Masuk</a></li>
       <li><a href="Surat_keluar/get_data" class="app-item">Surat Keluar</a></li>
       <li><a href="Kepegawaian/get_data" class="app-item">Buku Induk Kepegawaian</a></li>
+    </ul>
+  </li>
+  <li>
+    <a href="#"><i class="icon-archive"></i> <span>PPDB</span></a>
+    <ul>
+      <li><a href="PPDB/get_data" class="app-item">Pendaftar Baru</a></li>
+      <li><a href="Calon_siswa/get_data" class="app-item">Calon Siswa</a></li>
     </ul>
   </li>
   <?php if (!empty($user_modul)): ?>

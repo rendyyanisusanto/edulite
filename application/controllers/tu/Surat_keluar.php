@@ -30,6 +30,7 @@ class surat_keluar extends MY_Controller {
 	{
 		$data['account']	=	$this->get_user_account();
 		$data['param'] 		= 	$this->arr;
+		$data['kategori_surat_keluar']	=	$this->my_where("kategori_surat_keluar", [])->result_array();
 		$this->my_view(['role/tu/page/surat_keluar/add_page/index','role/tu/page/surat_keluar/add_page/js'],$data);
 	}
 
@@ -59,7 +60,9 @@ class surat_keluar extends MY_Controller {
 			'kode_arsip' 	=> $_POST['kode_arsip'],
 			'tujuan' 		=> $_POST['tujuan'],
 			'tanggal_surat' => $_POST['tanggal_surat'],
+			'tanggal_deadline' => $_POST['tanggal_deadline'],
 			'perihal' 		=> $_POST['perihal'],
+			'idkategorisuratkeluar_fk' 		=> $_POST['idkategorisuratkeluar_fk'],
 			'no_surat' 		=> $_POST['no_surat'],
 			'file_arsip'	=>	((isset($file_arsip)) ? $file_arsip['file_name'] : ''),
 		];
@@ -203,6 +206,12 @@ class surat_keluar extends MY_Controller {
 
 	public function datatable()
 	{
+		if ($_POST['tanggal_mulai'] != '') {
+       		$this->db->where('tanggal_surat >=',$_POST['tanggal_mulai']);
+       	}
+       	if ($_POST['tanggal_selesai'] != '') {
+			$this->db->where('tanggal_surat <=',$_POST['tanggal_selesai']);
+       	}
         $_POST['frm']   =   $this->arr;
         $list           =   $this->mod_datatable->get_datatables();
         $data           =   array();
@@ -231,4 +240,11 @@ class surat_keluar extends MY_Controller {
 	}
 	
 	
+	function get_stats_nav()
+	{
+		$data['total']		=	$this->my_where('surat_keluar', [])->num_rows();
+		$data['hari_ini']	=	$this->my_where('surat_keluar', ['tanggal_surat'=>date('Y-m-d')])->num_rows();
+
+		$this->my_view(['role/tu/page/surat_keluar/index_page/stats'],$data);
+	}
 }

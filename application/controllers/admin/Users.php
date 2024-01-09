@@ -40,6 +40,16 @@ class users extends MY_Controller {
 		$this->my_view(['role/admin/page/users/add_page/index','role/admin/page/users/add_page/js'],$data);
 	}
 
+	public function bulk_page()
+	{
+		$data['account']			=	$this->get_user_account();
+		$data['groups']				=	$this->my_where('groups',[])->result_array();
+		$data['random_username']	=	"is_".rand(0,999999);
+		$data['param']				=	$this->arr;
+		$data['kelas']				=	$this->my_where('kelas', [])->result_array();
+		$this->my_view(['role/admin/page/users/bulk_page/index','role/admin/page/users/bulk_page/js'],$data);
+	}
+
 	public function edit_page($id)
 	{
 		if (isset($id)) {
@@ -57,6 +67,44 @@ class users extends MY_Controller {
 	/*
 		ADD DATA
 	*/
+	function bulk_proses(){
+
+		$table = $_POST['table'];
+		$hak_akses = $_POST['hak_akses'];
+		$kelas =	$_POST['idkelas_fk'];
+
+
+		$data['kelas']				=	$this->my_where('kelas', ['id_kelas'=>$kelas])->row_array();
+		$data['siswa']	=	$this->my_where('siswa', [
+			'idkelas_fk'	=> $kelas
+		])->result_array();
+
+		$this->my_view(['role/admin/page/users/bulk_page/proses'],$data);
+	}
+
+	public function save_bulk_proses()
+	{
+		foreach ($_POST['data'] as $key => $value) {
+			$data = [
+				'username'	=>	$value['username'],
+				'password'	=>	$value['password'],
+				'email'		=>	$value['username'].'@gmail.com',
+				'additional_data'	=>	[
+					'first_name'	=>	$value['username'],
+					'table'			=>	'siswa',
+					'c'			=>	((isset($_POST['c'])) ? 1 : 0),
+					'r'			=>	((isset($_POST['r'])) ? 1 : 0),
+					'u'			=>	((isset($_POST['u'])) ? 1 : 0),
+					'd'			=>	((isset($_POST['d'])) ? 1 : 0),
+					'anggota_id'	=>	$value['id_siswa']
+				],
+				'group'	=>	[2]
+			];
+			$this->ion_auth->register($data['username'], $data['password'], $data['email'], $data['additional_data'], $data['group']);
+		}
+
+		echo json_encode($_POST);
+	}
 
 	public function simpan_data()
 	{	

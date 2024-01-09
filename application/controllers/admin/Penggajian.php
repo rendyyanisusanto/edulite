@@ -204,6 +204,22 @@ class penggajian extends MY_Controller {
 			echo json_encode($res);
 		}
 	}
+
+	function share(){
+		if ($this->my_update('penggajian',['shared'=>	(($_POST['share'] == 1) ? 0:1)], [
+			'idguru_fk' => $_POST['id'],
+			'bulan' => $_POST['bulan'],
+			'tahun' => $_POST['tahun'],
+			
+		])) {
+			$res = [
+					'status' => 200,
+					'msg' => 'Berhasil membatalkan data'
+				];	
+
+			echo json_encode($res);
+		}
+	}
 	/*
 		EDIT DATA
 	*/

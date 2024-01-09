@@ -19,15 +19,17 @@
 							<?php 
 							$no = 0;
 							foreach ($data_get['penggajian'] as $value): ?>
-								<tr>
-									<td><?= ++$no; ?></td>
-									<td><?= $value['bulan'] ?>/<?= $value['tahun'] ?></td>
-									<td>Rp. <?= number_format($value['total'], 0, '.','.') ?></td>
-									<th><span class="label label-success">Terkonfirmasi</span></th>
-									<th>
-										<a class="btn btn-xs btn-success" target="__blank" href="<?= base_url('guru/penggajian/print_nota/'.$value['idguru_fk'].'/'.$value['bulan'].'/'.$value['tahun']); ?>"><i class=" icon-printer"></i></a>
-									</th>
-								</tr>
+								<?php if ($value['shared'] == 1): ?>
+									<tr>
+										<td><?= ++$no; ?></td>
+										<td><?= $value['bulan'] ?>/<?= $value['tahun'] ?></td>
+										<td>Rp. <?= number_format($value['total'], 0, '.','.') ?></td>
+										<th><span class="label label-success">Terkonfirmasi</span></th>
+										<th>
+											<a class="btn btn-xs btn-success" target="__blank" href="<?= base_url('guru/penggajian/print_nota/'.$value['idguru_fk'].'/'.$value['bulan'].'/'.$value['tahun']); ?>"><i class=" icon-printer"></i></a>
+										</th>
+									</tr>
+								<?php endif ?>
 							<?php endforeach ?>
 						</tbody>
 					</table>

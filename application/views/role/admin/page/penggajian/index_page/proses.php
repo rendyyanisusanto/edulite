@@ -19,7 +19,7 @@
 			<tbody>
 				<?php foreach ($data_get['guru'] as $value): ?>
 					<tr>
-						<td><?= $value['kode_pegawai'] ?></td>
+						<td><?= $value['shared'].$value['kode_pegawai'] ?></td>
 						<td><?= $value['nama'] ?></td>
 						<td><?= ($value['status_penggajian'] == 0) ? "<span class='label label-danger'>Belum diproses</span>":"<span class='label label-success'>Selesai</label>" ?></td>
 						<td>
@@ -42,13 +42,18 @@
 							<?php } ?>
 						</td>
 						<td>
-							<?php if ($value['shared'] == 1){ ?>
-								
-								<a class="btn btn-xs btn-warning" target="__blank" href="<?= base_url('admin/penggajian/shared_status/'.$value['id_guru'].'/'.$data_get['bulan'].'/'.$data_get['tahun']); ?>"><i class=" icon-undo"></i> Tarik</a>
+							<?php if (isset($value['shared'])){ ?>
+								<?php if ($value['shared'] == 1){ ?>
+									
+									<button class="btn btn-xs btn-danger btn-share" onclick="share(<?= ($value['shared'] == 1) ? 1 : 0;?>, <?=$value['id_guru'];?>, <?=$data_get['bulan'];?>, <?=$data_get['tahun'];?>);" type="button" ><i class=" icon-undo"></i> Tarik</button>
+
+								<?php }else{ ?>
+									
+									<button class="btn btn-xs btn-info btn-share" onclick="share(<?= ($value['shared'] == 1) ? 1 : 0;?>, <?=$value['id_guru'];?>, <?=$data_get['bulan'];?>, <?=$data_get['tahun'];?>);" type="button" ><i class=" icon-spinner"></i> Share</button>
+								<?php } ?>
 
 							<?php }else{ ?>
-								
-								<a class="btn btn-xs btn-info" target="__blank" href="<?= base_url('admin/penggajian/shared_status/'.$value['id_guru'].'/'.$data_get['bulan'].'/'.$data_get['tahun']); ?>"><i class=" icon-spinner"></i> Share</a>
+								<button class="btn btn-xs btn-default btn-share" disabled type="button" ><i class=" icon-spinner"></i> Share</button>
 							<?php } ?>
 						</td>
 					</tr>
