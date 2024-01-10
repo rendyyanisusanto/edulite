@@ -42,6 +42,63 @@ class Jurnal_guru extends MY_Controller {
  		}
 		
 	}
+	function presensi_prakerin($idkelompok='', $stat = '')
+	{
+		$data['keterangan'] = ($stat == 'M') ? "Masuk" : "Pulang";
+		$data['stat']	=	$stat;
+		$data['idkelompok']	= $idkelompok;
+		$data['prakerin']=$this->my_where('prakerin_kelompok', ['id_prakerin_kelompok'=>$idkelompok])->row_array();
+		$siswa = $this->my_where('prakerin_siswa', ['idprakerinkelompok_fk'=>$idkelompok])->result_array();
+		$data['siswa'] = [];
+		foreach ($siswa as $value) {
+			$presensi = $this->my_where('presensi_prakerin', [
+					'idsiswa_fk'			=>	$value['idsiswa_fk'],
+					'idprakerinkelompok_fk' => 	$idkelompok,
+					'tanggal'				=>	date('Y-m-d')
+				])->row_array();
+
+			$dtsiswa = $this->my_where('siswa', ['id_siswa'=>$value['idsiswa_fk']])->row_array();
+		 	$data['siswa'][] = [
+				'siswa' => $dtsiswa,
+				'presensi' => !empty($presensi) ? $presensi : []
+			];
+		} 
+		if ($this->agent->is_mobile()) {
+ 			$this->my_view(['role/guru/page_mobile/presensi_prakerin/index_page/absen'],$data);
+ 		}else{
+ 			$this->my_view(['role/guru/page/presensi_prakerin/index_page/absen'],$data);
+ 		}
+	}
+	function save_presensi_prakerin()
+	{
+		if (count($_POST['data']) > 0) {
+			$stat = $_POST['stat'];
+			foreach ($_POST['data'] as $key => $value) {
+				$data = [
+					'idprakerin_fk' 		=> 	$_POST['idprakerin_fk'],
+					'idsiswa_fk'			=>	$value['idsiswa_fk'],
+					(($stat == "M") ? 'presensi_masuk' : 'presensi_pulang')		=>	$value['presensi'],
+					'tanggal'				=>	$_POST['tanggal'],
+					'idprakerinkelompok_fk' => 	$_POST['idkelompok']
+				];
+
+				$presensi = $this->my_where('presensi_prakerin', [
+					'idprakerin_fk' 		=> 	$_POST['idprakerin_fk'],
+					'idsiswa_fk'			=>	$value['idsiswa_fk'],
+					'idprakerinkelompok_fk' => 	$_POST['idkelompok'],
+					'tanggal'				=>	$_POST['tanggal'],
+				]);
+
+				if ($presensi->num_rows() > 0) {
+					 $this->my_update('presensi_prakerin', $data, ['id_presensi_prakerin'=>$presensi->row_array()['id_presensi_prakerin']]);
+				}else{
+					$this->save_data('presensi_prakerin', $data);
+				}
+
+			}
+		}
+		echo json_encode($_POST);
+	}
 	public function jurnal_guru_set($idmapel)
 	{
 		$mapel_get					=	$this->my_where('v_jadwal_pelajaran', ['id_jadwal_pelajaran'=>$idmapel])->row_array();

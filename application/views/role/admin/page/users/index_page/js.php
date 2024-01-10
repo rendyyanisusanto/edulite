@@ -75,34 +75,35 @@
             }
     });
 
+
+
     $('#import-btn').click(function(){
         set_content('<?php echo $data_get['param']['table'] ?>/import',{});
     });
     $("#dtl-btn").click(function(){
             var check = [];
             if ($("input[name='get-check']:checked").length==0) {
-
                 toastr.options.positionClass = "toast-bottom-right";
                 toastr.options.progressBar = true;
                 toastr.options.closeButton = true;
                 toastr.error('PILIH DATA TERLEBIH DAHULU');
             }else if ($("input[name='get-check']:checked").length>1) {
-
                 toastr.options.positionClass = "toast-bottom-right";
                 toastr.options.progressBar = true;
                 toastr.options.closeButton = true;
                 toastr.error('PILIH SATU DATA');
             }else{
-                set_content('<?php echo $data_get['param']['table'] ?>/detail_all',{send_data:$("input[name='get-check']:checked").val()});
+                set_content('<?php echo $data_get['param']['table'] ?>/detail_all/'+$("input[name='get-check']:checked").val(),{});
             }
     });
 
-    $("#cetak-btn").click(function(){
+    $("#cetak-btn").click(function(e){
+    e.stopImmediatePropagation();
             var check = [];
-            
                 $.each($("input[name='get-check']:checked"), function(){            
                     check.push($(this).val());
                 });
+                console.log(check);
                 set_content('<?php echo $data_get['param']['table'] ?>/cetak_page',{send_data:check});
             
     });

@@ -364,7 +364,6 @@ class MY_Controller extends CI_Controller {
         $data['walas']      =   (($this->my_where('v_walas', ['idguru_fk'=>$data['account']['anggota_id']])->num_rows()) > 0  ) ? $this->my_where('v_walas', ['idguru_fk'=>$data['account']['anggota_id']])->result_array() : [];
         $data['guru']       =   $this->my_where('guru', ['id_guru'=>$data['account']['anggota_id']])->row_array();
         $data['mapel']      =   $this->my_where('v_guru_mapel', ['id_guru'=>$data['account']['anggota_id']])->result_array();
-        
         return $data;
     }
 

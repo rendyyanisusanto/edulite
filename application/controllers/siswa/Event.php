@@ -69,8 +69,6 @@ class event extends MY_Controller {
 	}
 
 	public function simpan_data_sekolah(){
-
-		
 		$this->save_data('aspirasi_ans_sekolah', [
 			'idsiswa_fk'	=>  $this->get_siswa()['siswa']['id_siswa'],
 			'kritik'		=>	$_POST['kritik'],

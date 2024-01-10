@@ -41,6 +41,19 @@ class Dashboard extends MY_Controller {
 		}
 		$data['cek_kd']		=	$this->cek_kd();
 		$data['tahun_ajaran']	=	$this->tahun_ajaran_aktif();
+
+
+		// prakerin
+
+		$data['prakerin']		=	[];
+		$prakerin				=	$this->my_where('v_prakerin_kelompok', ['status'=>1])->result_array();
+		foreach ($prakerin as $value) {
+			$data['prakerin'][] = [
+				'prakerin' => $value,
+				'absen_masuk_prakerin' => $this->my_where('presensi_prakerin', ['idprakerinkelompok_fk'=>$value['id_prakerin_kelompok'], 'tanggal'	=>	date('Y-m-d'), 'presensi_masuk !='	=> 'NULL'  ])->num_rows(),
+				'absen_pulang_prakerin' => $this->my_where('presensi_prakerin', ['idprakerinkelompok_fk'=>$value['id_prakerin_kelompok'], 'tanggal'	=>	date('Y-m-d'), 'presensi_pulang !='	=> 'NULL'  ])->num_rows(), 
+			];
+		}
 		$this->my_view(['role/guru/page/dashboard/index_page/index','role/guru/page/dashboard/index_page/js'],$data);
 	}
 

@@ -196,6 +196,16 @@
   <li><a href="Pengembalian_sarana/get_data" class="app-item"><i class="icon-clipboard5"></i> <span>Pengembalian Sarana</span></a></li>
   <li><a href="Kontrol_sarana/get_data" class="app-item"><i class="icon-archive"></i> <span>Kontrol Sarana</span></a></li>
   <li><a href="Jadwal_lab/get_data" class="app-item"><i class="icon-archive"></i> <span>Penjadwalan Laboratorium</span></a></li>
+  
+  <li>
+    <a href="#"><i class="icon-stack-text"></i> <span>Prakerin</span></a>
+    <ul>
+      <li><a href="prakerin_kelompok/get_data" class="app-item">Kelompok Prakerin</a></li>
+      <li><a href="Neraca/get_data" class="app-item">Neraca</a></li>
+      <li><a href="Jurnal_umum/get_data" class="app-item">Jurnal Umum</a></li>
+      <li><a href="Buku_besar/get_data" class="app-item">Buku Besar</a></li>
+    </ul>
+  </li>
   <li class="navigation-header"><span>Laporan & Statistik</span> <i class="icon-menu" title="Page kits"></i></li>
   <li>
     <a href="#"><i class="icon-stack-text"></i> <span>Laporan Keuangan</span></a>
