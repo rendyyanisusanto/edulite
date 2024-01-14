@@ -44,6 +44,7 @@ class Dashboard extends MY_Controller {
 
 
 		// prakerin
+		$data['pembimbing']		=	$this->my_where('prakerin_pembimbing', ['idguru_fk'=>$data['guru']['id_guru']])->num_rows();
 
 		$data['prakerin']		=	[];
 		$prakerin				=	$this->my_where('v_prakerin_kelompok', ['status'=>1])->result_array();

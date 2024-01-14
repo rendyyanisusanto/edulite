@@ -4,7 +4,7 @@
 
 <div class="row">
 	<div class="panel panel-body">
-		<center><h4><b>Absen <?= $data_get['keterangan'] ?> - PRAKERIN</b></h4></center>
+		<center><h4><b>Absen <?= $data_get['keterangan'] ?> - <?= $data_get['prakerin']['nama_kelompok'] ?></b></h4></center>
 		<form  action="Jurnal_guru/save_presensi_prakerin" id="app-absen-save" method="POST">
 		<input type="hidden" name="idprakerin_fk" value="<?php echo $data_get['prakerin']['idprakerin_fk'] ?>">
 		<input type="hidden" name="stat" value="<?php echo $data_get['stat'] ?>">
@@ -39,6 +39,8 @@
 		</table>
 		</div>
 		<hr>
+		
+		<button class="btn btn-danger" type="button" onclick="window.history.back();"><i class="icon-arrow-left7"></i>  Kembali</button>
 		<button class="btn btn-success btn-absen-submit" type="submit"><i class=" icon-floppy-disk"></i> Simpan</button>
 		</form>
 	</div>

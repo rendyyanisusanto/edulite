@@ -67,36 +67,38 @@
 	</div>
 <?php endif ?>
 
+<?php if ($data_get['pembimbing']>0): ?>
+	
+	<div class="row">
+		<div class="col-md-12">
+				<div class="panel panel-body">
+					<center><b><u>Presensi Prakerin</u></b></center>
 
-<div class="row">
-	<div class="col-md-12">
-			<div class="panel panel-body">
-				<center><b><u>Presensi Prakerin</u></b></center>
-
-				<table class="table table-bordered table-xxs table-framed">
-					<thead>
-						<tr>
-							<th width="1%">No</th>
-							<th>Keterangan</th>
-							<th width="1%">Absen Masuk</th>
-							<th width="1%">Absen Pulang</th>
-						</tr>
-					</thead>
-					<tbody>
-						<?php $no = 0; ?>
-						<?php foreach ($data_get['prakerin'] as $value): ?>
+					<table class="table table-bordered table-xxs table-framed">
+						<thead>
 							<tr>
-								<td><?= (++$no); ?></td>
-								<td><?= '<b>'.$value['prakerin']['nama_kelompok'].'</b>' ?></td>
-								<td><a href="Jurnal_guru/presensi_prakerin/<?= $value['prakerin']['id_prakerin_kelompok'] ?>/M" class="app-item"><?= ($value['absen_masuk_prakerin'] == 0) ? "Belum" : "Sudah" ?></a></td>
-								<td><a href="Jurnal_guru/presensi_prakerin/<?= $value['prakerin']['id_prakerin_kelompok'] ?>/P" class="app-item"><?= ($value['absen_pulang_prakerin'] == 0) ? "Belum" : "Sudah" ?></a></td>
+								<th width="1%">No</th>
+								<th>Keterangan</th>
+								<th width="1%">Absen Masuk</th>
+								<th width="1%">Absen Pulang</th>
 							</tr>
-						<?php endforeach ?>
-					</tbody>
-				</table>
+						</thead>
+						<tbody>
+							<?php $no = 0; ?>
+							<?php foreach ($data_get['prakerin'] as $value): ?>
+								<tr>
+									<td><?= (++$no); ?></td>
+									<td><?= '<b>'.$value['prakerin']['nama_kelompok'].'</b>' ?></td>
+									<td><a href="Jurnal_guru/presensi_prakerin/<?= $value['prakerin']['id_prakerin_kelompok'] ?>/M" class="app-item"><?= ($value['absen_masuk_prakerin'] == 0) ? "Belum" : "Sudah" ?></a></td>
+									<td><a href="Jurnal_guru/presensi_prakerin/<?= $value['prakerin']['id_prakerin_kelompok'] ?>/P" class="app-item"><?= ($value['absen_pulang_prakerin'] == 0) ? "Belum" : "Sudah" ?></a></td>
+								</tr>
+							<?php endforeach ?>
+						</tbody>
+					</table>
+				</div>
 			</div>
-		</div>
-</div>
+	</div>
+<?php endif ?>
 
 
 <?php if (count($data_get['mapel_hari_ini']) > 0): ?>
