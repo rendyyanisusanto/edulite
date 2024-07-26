@@ -131,6 +131,39 @@ class sarana extends MY_Controller {
 				$data['sarana'] 	= $this->db->query('SELECT * FROM `sarana` where date(tanggal_surat) = DATE(NOW())')->result_array();
 				$this->load->view('role/admin/page/sarana/print/index',$data);
 		}
+
+		public function print_semua()
+		{
+				$data['param'] 		= 	$this->arr;
+				$data['sarana'] 	= $this->db->query('SELECT *, (select prasarana from prasarana where id_prasarana = sarana.idlokasi_fk) as ruang FROM `sarana` ')->result_array();
+				$data['kondisi_sarana'] 	= $this->db->query('SELECT * FROM `kondisi_sarana` ')->result_array();
+				$this->load->view('role/admin/page/sarana/print/all',$data);
+		}
+		public function print_kategori()
+		{
+				$data['param'] 		= 	$this->arr;
+				$data['sarana'] 	= $this->db->query('SELECT *, (select sum(jumlah) from sarana where idkelompoksarana_fk=id_kelompok_sarana) as jumlah FROM `kelompok_sarana` ')->result_array();
+				$this->load->view('role/admin/page/sarana/print/kategori',$data);
+		}
+
+		public function print_ruangan()
+		{
+				$data['param'] 		= 	$this->arr;
+				$data['send']	=	[];
+				$data['kondisi_sarana'] 	= $this->db->query('SELECT * FROM `kondisi_sarana` ')->result_array();
+				$ruangan =	$this->my_where("prasarana", [])->result_array();
+				foreach ($ruangan as $key => $value) {
+					$sarana = $this->my_where("sarana", ['idlokasi_fk'=>$value['id_prasarana']])->result_array();
+					if (!empty($sarana)) {
+						// code...
+						$data['send'][] = [
+							'ruangan'	=> $value,
+							'sarana'	=>	$sarana
+						];
+					}
+				}
+				$this->load->view('role/admin/page/sarana/print/ruangan',$data);
+		}
 		function cetak_page()
 		{
 			$dt = $this->arr;

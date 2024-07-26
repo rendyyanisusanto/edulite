@@ -37,6 +37,31 @@ class presensi_harian extends MY_Controller {
 		$data['kelas']		=	$this->my_where('kelas', [])->result_array();
 		$this->my_view(['role/admin/page/presensi_harian/rekap/index','role/admin/page/presensi_harian/rekap/js'],$data);
 	}
+	function get_jadwal(){
+
+		$data['account']	=	$this->get_user_account();
+		$data['param'] 		= 	$this->arr;
+		$tanggal 	=	$_POST['tanggal'];
+		$data['tanggal'] 	=	$_POST['tanggal'];
+		$kelas		=	$this->my_where('kelas', [])->result_array();
+		foreach ($kelas as $key => $value) {
+			$data['kelas'][] = [
+				'kelas'	=>$value,
+				'p_masuk'	=>	$this->my_where('presensi_harian_siswa', [
+					'tanggal'	=> $tanggal,
+					'idkelas_fk'	=>	$value['id_kelas'],
+					'presensi_masuk !='	=> 'null'
+				])->num_rows(),
+				'p_pulang'	=>	$this->my_where('presensi_harian_siswa', [
+					'tanggal'	=> $tanggal,
+					'idkelas_fk'	=>	$value['id_kelas'],
+					'presensi_pulang !='	=> 'null'
+				])->num_rows(),
+			];
+		}
+
+		$this->my_view(['role/admin/page/presensi_harian/presensi_siswa_masuk_pulang/content_jadwal'],$data);
+	}
 	public function presensi_siswa()
 	{
 		$data['account']	=	$this->get_user_account();
@@ -44,6 +69,38 @@ class presensi_harian extends MY_Controller {
 		$data['tahun_ajaran']		=	$this->my_where('tahun_ajaran', [])->result_array();
 		$data['kelas']		=	$this->my_where('kelas', [])->result_array();
 		$this->my_view(['role/admin/page/presensi_harian/presensi_siswa/index','role/admin/page/presensi_harian/presensi_siswa/js'],$data);
+	}
+	function presensi_siswa_masuk_pulang(){
+
+		$data['account']	=	$this->get_user_account();
+		$data['param'] 		= 	$this->arr;
+		$data['tahun_ajaran']		=	$this->my_where('tahun_ajaran', [])->result_array();
+		
+		$this->my_view(['role/admin/page/presensi_harian/presensi_siswa_masuk_pulang/index','role/admin/page/presensi_harian/presensi_siswa_masuk_pulang/js'],$data);
+	}
+	function proses_presensi_masuk_pulang($idkelas_fk = "",$status="M",$tanggal=""){
+		if ($idkelas_fk !== "") {
+			$data['account']	=	$this->get_user_account();
+			$data['param'] 		= 	$this->arr;
+			$data['tahun_ajaran']		=	$this->my_where('tahun_ajaran', ['is_active'	=> 1])->row_array();
+			$data['kelas']		=	$this->my_where('kelas', ['id_kelas' => $idkelas_fk])->row_array();
+			$data['tanggal']	=	$tanggal;
+			$data['stat']	=	$status;
+			$data['siswa']		=	[];
+			$siswa 				=	$this->my_where('siswa', ['idkelas_fk' => $idkelas_fk])->result_array();
+			foreach ($siswa as $value) {
+				$presensi = $this->my_where('presensi_harian_siswa', [
+						'idsiswa_fk'			=>	$value['id_siswa'],
+						'tanggal'				=>	date('Y-m-d')
+					])->row_array();
+
+			 	$data['siswa'][] = [
+					'siswa' => $value,
+					'presensi' => !empty($presensi) ? $presensi : []
+				];
+			} 
+			$this->my_view(['role/admin/page/presensi_harian/presensi_siswa_masuk_pulang/absen','role/admin/page/presensi_harian/presensi_siswa_masuk_pulang/js_absen'],$data);
+		}
 	}
 	public function absen($idmapel, $tanggal)
 	{
@@ -71,6 +128,37 @@ class presensi_harian extends MY_Controller {
 			];
  		}
 		$this->my_view(['role/admin/page/presensi_harian/presensi_siswa/absen'],$data);
+	}
+	function save_presensi_harian_siswa()
+	{
+		if (count($_POST['data']) > 0) {
+			$stat = $_POST['stat'];
+			foreach ($_POST['data'] as $key => $value) {
+				$data = [
+					'idsiswa_fk'			=>	$value['idsiswa_fk'],
+					(($stat == "M") ? 'presensi_masuk' : 'presensi_pulang')		=>	$value['presensi'],
+					'tanggal'				=>	$_POST['tanggal'],
+					'idtahunajaran_fk'				=>	$_POST['idtahunajaran_fk'],
+					'idkelas_fk'				=>	$_POST['idkelas_fk'],
+					'keterangan' 			=> 	$value['keterangan']
+				];
+
+				$presensi = $this->my_where('presensi_harian_siswa', [
+					'tanggal'				=>	$_POST['tanggal'],
+					'idsiswa_fk'			=>	$value['idsiswa_fk'],
+					'idtahunajaran_fk'				=>	$_POST['idtahunajaran_fk'],
+					'idkelas_fk'				=>	$_POST['idkelas_fk']
+				]);
+
+				if ($presensi->num_rows() > 0) {
+					 $this->my_update('presensi_harian_siswa', $data, ['id_presensi_harian_siswa'=>$presensi->row_array()['id_presensi_harian_siswa']]);
+				}else{
+					$this->save_data('presensi_harian_siswa', $data);
+				}
+
+			}
+		}
+		echo json_encode($_POST);
 	}
 	public function proses_presensi_harian($value='')
 	{
@@ -374,6 +462,153 @@ class presensi_harian extends MY_Controller {
 			// print_r($data['siswa']);
 
 			$this->my_view(['role/admin/page/presensi_harian/rekap/list_siswa_4'],$data);
+		}elseif ($_POST['tipe'] == 8) {
+			
+			foreach ($siswa as $key => $value) {
+				
+				$presensi = $this->my_where('presensi_harian_siswa', [
+					'tanggal'				=>	$_POST['tanggal'],
+					'idsiswa_fk'			=>	$value['id_siswa'],
+					'idtahunajaran_fk'				=>	$_POST['idtahunajaran_fk'],
+					'idkelas_fk'				=>	$_POST['idkelas_fk']
+				])->row_array();
+				$data['siswa'][] = [
+					'siswa' => $value,
+					'presensi' => !empty($presensi) ? $presensi : []
+				];
+	 		}
+			$this->my_view(['role/admin/page/presensi_harian/rekap/list_siswa_8'],$data);
+		}elseif ($_POST['tipe'] == 9) {
+			$tg = $this->getStartAndEndDate(date("W", strtotime($_POST['tanggal'])),date("Y", strtotime($_POST['tanggal'])));
+			$begin = new DateTime($tg['start_date']);
+			$end = new DateTime($tg['end_date']);
+			$interval = DateInterval::createFromDateString('1 day');
+			$period = new DatePeriod($begin, $interval, $end);
+			$data['tg']	=	$period;
+			foreach ($siswa as $key => $value) {
+				$i = 0;
+				$m = 0;
+				$tm = 0;
+				$presensi = [];
+				foreach ($period as $dt) {
+				    $tgl = $dt->format("d");
+
+				    $query = $this->db->query("Select *,
+									count(if(presensi_masuk='M', presensi_masuk, null)) as M,  
+									count(if(presensi_masuk='S', presensi_masuk, null)) as S,  
+									count(if(presensi_masuk='I', presensi_masuk, null)) as I,  
+									count(if(presensi_masuk='A', presensi_masuk, null)) as A,  
+									count(if(presensi_masuk<>'M', presensi_masuk, null)) as TM 
+									 from presensi_harian_siswa where 
+									idsiswa_fk = ".$value['id_siswa']." and
+									idtahunajaran_fk = ".$_POST['idtahunajaran_fk']." and
+									MONTH(tanggal) = ".$dt->format("m")." and
+									YEAR(tanggal) = ".$dt->format("Y")." and
+									DAY(tanggal) = ".$tgl."
+									group by tanggal")->row_array();
+
+						if ($query['A'] > 0) {
+							$presensi[$i]['presensi'] = 'A';
+							$tm++;
+						}else if($query['I'] > 0){
+							$presensi[$i]['presensi'] = 'I';
+							$tm++;
+						}else if($query['S'] > 0){
+							$presensi[$i]['presensi'] = 'S';
+							$tm++;
+						}else if($query['M'] > 0){
+							$presensi[$i]['presensi'] = 'M';
+							$m++;
+						}else{
+							$presensi[$i]['presensi'] = '';
+						}
+
+
+						$query_pulang = $this->db->query("Select *,
+									count(if(presensi_pulang='M', presensi_pulang, null)) as M,  
+									count(if(presensi_pulang='S', presensi_pulang, null)) as S,  
+									count(if(presensi_pulang='I', presensi_pulang, null)) as I,  
+									count(if(presensi_pulang='A', presensi_pulang, null)) as A,  
+									count(if(presensi_pulang<>'M', presensi_pulang, null)) as TM 
+									 from presensi_harian_siswa where 
+									idsiswa_fk = ".$value['id_siswa']." and
+									idtahunajaran_fk = ".$_POST['idtahunajaran_fk']." and
+									MONTH(tanggal) = ".$dt->format("m")." and
+									YEAR(tanggal) = ".$dt->format("Y")." and
+									DAY(tanggal) = ".$tgl."
+									group by tanggal")->row_array();
+
+						if ($query_pulang['A'] > 0) {
+							$presensi[$i]['presensi_pulang'] = 'A';
+						}else if($query_pulang['I'] > 0){
+							$presensi[$i]['presensi_pulang'] = 'I';
+						}else if($query_pulang['S'] > 0){
+							$presensi[$i]['presensi_pulang'] = 'S';
+						}else if($query_pulang['M'] > 0){
+							$presensi[$i]['presensi_pulang'] = 'M';
+						}else{
+							$presensi[$i]['presensi_pulang'] = '';
+						}
+
+						$i++;
+				}
+				$data['siswa'][] = [
+					'siswa' => $value,
+					'presensi' => !empty($presensi) ? $presensi : [],
+					'm'=>$m,
+					'tm'	=>	$tm
+				];
+
+			}
+			
+			$this->my_view(['role/admin/page/presensi_harian/rekap/list_siswa_9'],$data);
+		}elseif($_POST['tipe'] == 10){
+				foreach ($siswa as $key => $value) {
+				$all_day 		= cal_days_in_month(CAL_GREGORIAN, date_format(date_create($_POST['tanggal']), "m"), date_format(date_create($_POST['tanggal']), "Y"));
+				$presensi = [];
+				$m = 0;
+				$tm = 0;
+				for ($i=1; $i <= $all_day ; $i++) { 
+
+					$query = $this->db->query("Select *,
+								count(if(presensi_masuk='M', presensi_masuk, null)) as M,  
+								count(if(presensi_masuk='S', presensi_masuk, null)) as S,  
+								count(if(presensi_masuk='I', presensi_masuk, null)) as I,  
+								count(if(presensi_masuk='A', presensi_masuk, null)) as A,  
+								count(if(presensi_masuk<>'M', presensi_masuk, null)) as TM 
+								 from presensi_harian_siswa where 
+								idsiswa_fk = ".$value['id_siswa']." and
+								idtahunajaran_fk = ".$_POST['idtahunajaran_fk']." and
+								MONTH(tanggal) = ".date_format(date_create($_POST['tanggal']), "m")." and
+								YEAR(tanggal) = ".date_format(date_create($_POST['tanggal']), "Y")." and
+								DAY(tanggal) = ".$i."
+								group by tanggal")->row_array();
+
+					if ($query['A'] > 0) {
+						$tm ++;
+						$presensi[$i]['presensi'] = 'A';
+					}else if($query['I'] > 0){
+						$tm++;
+						$presensi[$i]['presensi'] = 'I';
+					}else if($query['S'] > 0){
+						$tm++;
+						$presensi[$i]['presensi'] = 'S';
+					}else if($query['M'] > 0){
+						$m++;
+						$presensi[$i]['presensi'] = 'M';
+					}else{
+						$presensi[$i]['presensi'] = '';
+					}
+					
+				}
+				$data['siswa'][] = [
+					'siswa' => $value,
+					'presensi' => !empty($presensi) ? $presensi : [],
+					'm'=>$m,
+					'tm'=>$tm
+				];
+	 		}
+			$this->my_view(['role/admin/page/presensi_harian/rekap/list_siswa_10'],$data);
 		}
 		
 	}

@@ -723,7 +723,7 @@ class siswa extends MY_Controller {
 			'is_siswa_id'			=>	$id_siswa,
 		];
 		$this->save_data('alumni', $alumni);
-		$this->my_update('siswa', ['is_alumni'=>1, 'idkelas_fk'=>'', 'idjurusan_fk'=>''], ['id_siswa' =>$id_siswa]);
+		$this->db->delete('siswa', ['id_siswa' =>$id_siswa]);
 	}
 
 	function proses_alumni_kelas()
@@ -776,7 +776,7 @@ class siswa extends MY_Controller {
 				'is_siswa_id'			=>	$siswa['id_siswa'],
 			];
 			$this->save_data('alumni', $alumni);
-			$this->my_update('siswa', ['is_alumni'=>1, 'idkelas_fk'=>'', 'idjurusan_fk'=>''], ['id_siswa' =>$siswa['id_siswa']]);
+			$this->db->delete('siswa', ['id_siswa' =>$siswa['id_siswa']]);
 		}
 	}
 	function get_kelas_kenaikan()

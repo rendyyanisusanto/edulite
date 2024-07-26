@@ -2,6 +2,8 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 		use PhpOffice\PhpSpreadsheet\Spreadsheet;
 		use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+		use Mike42\Escpos\PrintConnectors\FilePrintConnector;
+		use Mike42\Escpos\Printer;
 
 class peminjaman_sarana extends MY_Controller {
 	
@@ -27,6 +29,12 @@ class peminjaman_sarana extends MY_Controller {
 	*/
 	public function get_data()
 	{
+		$connector = new FilePrintConnector("php://stdout");
+		$printer = new Printer($connector);
+		$printer -> text("Hello World!\n");
+		$printer -> cut();
+		$printer -> close();
+		echo "string";
 		$data['account']	=	$this->get_user_account();
 		$data['param'] 		= 	$this->arr;
 		$this->my_view(['role/admin/page/peminjaman_sarana/index_page/index','role/admin/page/peminjaman_sarana/index_page/js'],$data);

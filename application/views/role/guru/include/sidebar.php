@@ -31,14 +31,12 @@
     </ul>
   </li> -->
   <?php if (!empty($user_account['pembimbing_prakerin'])): ?>
-    <li>
+    <!-- <li>
       <a href="#"><i class="icon-people"></i> <span>PRAKERIN </span></a>
       <ul>
-        <!-- <li><a href="Presensi_guru/get_data" class="app-item">Presensi Guru</a></li> -->
         <li><a href="Presensi_guru/history" class="app-item">Rekap Presensi</a></li>
-        <li><a href="Penggajian/get_data" class="app-item">HR</a></li>
       </ul>
-    </li>
+    </li> -->
   <?php endif ?>
   <?php if (!empty($user_account['is_walas'])): ?>
     <li class="navigation-header"><span>Wali Kelas</span> <i class="icon-menu" title="Page kits"></i></li>
@@ -67,6 +65,7 @@
     </li>
     <li><a href="Catatan_siswa/get_data" class="app-item"><i class="icon-book"></i> <span>Catatan Siswa</span></a></li>
   <?php endif ?>
+  <li><a href="tugas/get_data" class="app-item"><i class="icon-book"></i> <span>Penugasan Siswa</span></a></li>
   <li><a href="jadwal_lab/get_data" class="app-item"><i class="icon-notebook"></i> <span>Peminjaman Laboratorium</span></a></li>
   <!-- <li>
     <a href="#"><i class="icon-pencil3"></i> <span>Blog</span></a>

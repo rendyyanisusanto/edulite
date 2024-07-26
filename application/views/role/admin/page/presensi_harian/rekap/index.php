@@ -35,6 +35,9 @@
           <option value="1">Laporan Total Presensi Mingguan(Hitungan Jam Pelajaran)</option>
           <option value="4">Laporan Total Presensi Bulanan(Hitungan Jam Pelajaran)</option>
           <option value="5">Laporan Total Presensi Bulanan(Hitungan Hari)</option>
+          <option value="8">Laporan Presensi Harian (Masuk-Pulang)</option>
+          <option value="9">Laporan Presensi Mingguan (Masuk-Pulang)</option>
+          <option value="10">Laporan Presensi Bulanan (Masuk-Pulang)</option>
         </select>
 
         <div class="p-next">

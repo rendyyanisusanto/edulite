@@ -68,7 +68,7 @@
 <?php endif ?>
 
 <?php if ($data_get['pembimbing']>0): ?>
-	
+	<?php if (!empty($data_get['prakerin'])): ?>
 	<div class="row">
 		<div class="col-md-12">
 				<div class="panel panel-body">
@@ -98,6 +98,7 @@
 				</div>
 			</div>
 	</div>
+<?php endif ?>
 <?php endif ?>
 
 

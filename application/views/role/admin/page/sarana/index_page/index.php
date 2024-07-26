@@ -7,6 +7,15 @@
         <div class="heading-elements">
           <ul class="icons-list">
             <li>
+              <a href="<?php echo $data_get['param']['table'] ?>/print_semua" class="btn btn-primary" style="color: white;" target="blank"><b><i class="icon-printer"></i></b> Print (<i>Semua Sarpras</i>)</a>
+            </li>
+            <li>
+              <a href="<?php echo $data_get['param']['table'] ?>/print_kategori" class="btn btn-primary" style="color: white;" target="blank"><b><i class="icon-printer"></i></b> Print (<i>Per Kategori</i>)</a>
+            </li>
+            <li>
+              <a href="<?php echo $data_get['param']['table'] ?>/print_ruangan" class="btn btn-primary" style="color: white;" target="blank"><b><i class="icon-printer"></i></b> Print (<i>Per Ruangan</i>)</a>
+              </li>
+            <li>
               <select class="form-control input-sm idkondisisarana_fk" >
                 <option value="">Filter Kondisi Sarana</option>
                 <?php foreach ($data_get['kondisi_sarana'] as $value): ?>
