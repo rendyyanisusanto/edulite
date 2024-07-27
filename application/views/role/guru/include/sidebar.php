@@ -5,31 +5,11 @@
   <li>
     <a href="#"><i class="icon-book"></i> <span>Kepegawaian </span></a>
     <ul>
-      <!-- <li><a href="Presensi_guru/get_data" class="app-item">Presensi Guru</a></li> -->
       <li><a href="Presensi_guru/history" class="app-item">Rekap Presensi</a></li>
       <li><a href="Penggajian/get_data" class="app-item">HR</a></li>
     </ul>
   </li>
-  <!-- <li>
-    <a href="#"><i class="icon-book"></i> <span>Buku Kerja Guru</span></a>
-    <ul>
-      <li><a href="Kd/get_data" class="app-item">Identifikasi KI/KD</a></li>
-      <li><a href="Silabus/get_data" class="app-item">Silabus</a></li>
-      <li><a href="Rpp/get_data" class="app-item">Rpp</a></li>
-      <li><a href="Prota/get_data" class="app-item">Prota</a></li>
-      <li><a href="Promes/get_data" class="app-item">Promes</a></li>
-      <li><a href="Banksoal/get_data" class="app-item">Bank soal</a></li>
-    </ul>
-  </li>
-  <li>
-    <a href="#"><i class="icon-book"></i> <span>Akademik</span></a>
-    <ul>
-      <li><a href="Akademik/presensi_siswa" class="app-item">Presensi Siswa</a></li>
-      <li><a href="Akademik/jurnal" class="app-item">Jurnal Guru</a></li>
-      <li><a href="Akademik/catatan" class="app-item">Catatan Siswa</a></li>
-      <li><a href="Akademik/nilai_tugas" class="app-item">Nilai Tugas Siswa</a></li>
-    </ul>
-  </li> -->
+
   <?php if (!empty($user_account['pembimbing_prakerin'])): ?>
     <!-- <li>
       <a href="#"><i class="icon-people"></i> <span>PRAKERIN </span></a>
@@ -65,17 +45,9 @@
     </li>
     <li><a href="Catatan_siswa/get_data" class="app-item"><i class="icon-book"></i> <span>Catatan Siswa</span></a></li>
   <?php endif ?>
-  <li><a href="tugas/get_data" class="app-item"><i class="icon-book"></i> <span>Penugasan Siswa</span></a></li>
   <li><a href="jadwal_lab/get_data" class="app-item"><i class="icon-notebook"></i> <span>Peminjaman Laboratorium</span></a></li>
-  <!-- <li>
-    <a href="#"><i class="icon-pencil3"></i> <span>Blog</span></a>
-    <ul>
-      <li><a href="Blog/profil" class="app-item">Profil</a></li>
-      <li><a href="Blog/biografi" class="app-item">Biografi</a></li>
-      <li><a href="Blog/add_artikel" class="app-item">Post Artikel</a></li>
-    </ul>
-  </li> -->
-
+  <li class="navigation-header"><span>Custom Fitur</span> <i class="icon-menu" title="Page kits"></i></li>
+  <li><a href="tugas/get_data" class="app-item"><i class="icon-book"></i> <span>Penugasan Siswa</span></a></li>
   <!-- Page kits -->
   <li class="navigation-header"><span>Setting kits</span> <i class="icon-menu" title="Page kits"></i></li>
   <li>
