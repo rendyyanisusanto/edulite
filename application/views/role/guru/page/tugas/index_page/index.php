@@ -19,11 +19,12 @@
               <tr>
                 <th width="1%">#</th>
                 <th>Tanggal</th>
-                <th>Kode</th>
                 <th>Judul</th>
                 <th>Kelas</th>
                 <th>Mapel</th>
                 <th>Deadline</th>
+                <th>Submit</th>
+                <th></th>
               </tr>
             </thead>
           </table>

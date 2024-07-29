@@ -22,6 +22,25 @@ class tugas extends MY_Controller {
 		$this->my_view(['role/guru/page/tugas/index_page/index','role/guru/page/tugas/index_page/js'],$data);
 	}
 
+	public function pengumpulan($id_tugas)
+	{
+		$data['account']	=	$this->get_user_account();
+		$data['param'] 		= 	$this->arr;
+		$data['guru']		=	$this->my_where('guru', ['id_guru'=>$data['account']['anggota_id']])->row_array();
+		$data['dt_guru']	=	$this->get_guru();
+		$data['tugas']		=	$this->my_where('tugas', ['id_tugas'=>$id_tugas])->row_array();
+		$data['kelas']		=	$this->my_where('kelas', ['id_kelas'=>$data['tugas']['idkelas_fk']])->row_array();
+		$pengumpulan_tugas = $this->my_where('pengumpulan_tugas', ['idtugas_fk'=>$id_tugas])->result_array();
+		$data['pengumpulan_tugas'] = [];
+		foreach ($pengumpulan_tugas as $key => $value) {
+			$data['pengumpulan_tugas'][] = [
+				'tugas'=>$value,
+				'siswa'=>$this->my_where('siswa', ['id_siswa'=>$value['idsiswa_fk']])->row_array()
+			];
+		}
+		$this->my_view(['role/guru/page/tugas/index_page/pengumpulan_tugas'],$data);
+	}
+
 	public function add_page()
 	{
 		$data['account']	=	$this->get_user_account();
@@ -110,13 +129,15 @@ class tugas extends MY_Controller {
             $row        =   array();
             $kelas 					=	$this->my_where('kelas', ['id_kelas'=>$field['idkelas_fk']])->row_array();
             $mata_pelajaran 		=	$this->my_where('mata_pelajaran', ['id_mata_pelajaran'=>$field['idmapel_fk']])->row_array();
+            $pengumpulan_tugas		=	$this->my_where('pengumpulan_tugas', ['idtugas_fk'=>$field['id_tugas']]);
             $row[]      =   '<input type="checkbox" name="get-check" value="'.$field['id_tugas'].'"></input>';
             $row[]		=	!empty($field['tanggal']) ? date_format(date_create($field['tanggal']), 'd-m-Y') : '-';
-            $row[]		=	$field['kode'];
-            $row[]		=	$field['judul'];
+            $row[]		=	$field['kode'].' - '.$field['judul'];
             $row[]		=	$kelas['kelas'];
             $row[]		=	$mata_pelajaran['mata_pelajaran'];
             $row[]		=	$field['deadline'];
+            $row[]		=	$pengumpulan_tugas->num_rows();
+            $row[]		=	'<a href="Tugas/pengumpulan/'.$field['id_tugas'].'" class="app-item btn btn-xs btn-success"><i class="icon-eye"></i></a>';
             $data[]     =   $row;
         }
         $output = array(
