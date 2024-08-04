@@ -1,7 +1,7 @@
 
 
 			<!-- Main content -->
-			<div class="content-wrapper" style="padding-bottom: 10px; ">
+			<div class="content-wrapper" style="padding-bottom: 10px; " >
 				<div id="focus-set" style="padding-bottom: 10px; "></div>
 				<!-- Page header -->
 				<!-- <div class="page-header">
@@ -39,9 +39,9 @@
 				</div> -->
 				<!-- /page header -->
 
-
+				<!-- data-spy="affix" data-offset-top="205" -->
 				<!-- Content area -->
 				<div class="content">
-					<div class="app-content">
+					<div class="app-content" style="width: 95%" >
 					</div>
 

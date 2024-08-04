@@ -1,7 +1,7 @@
   <div class="page-container">
 
     <!-- Page content -->
-    <div class="page-content">
+    <div class="page-content" >
 
 
       <div class="sidebar sidebar-main">

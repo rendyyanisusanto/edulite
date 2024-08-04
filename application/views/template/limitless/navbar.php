@@ -2,7 +2,7 @@
   
 <div class="se-pre-con" style="display: none;"></div>
   <div class="navbar navbar-default header-highlight">
-    <div class="navbar-header">
+    <div class="navbar-header" >
       <a class="navbar-brand" style="color:white !important;" href="#"><?php echo $profil_website['nama_website'] ?></a>
 
       <ul class="nav navbar-nav visible-xs-block">
@@ -11,7 +11,7 @@
       </ul>
     </div>
 
-    <div class="navbar-collapse collapse" id="navbar-mobile">
+    <div class="navbar-collapse collapse" id="navbar-mobile" >
       <ul class="nav navbar-nav">
         <li><a class="sidebar-control sidebar-main-toggle hidden-xs"><i class="icon-paragraph-justify3"></i></a></li>
       </ul>
