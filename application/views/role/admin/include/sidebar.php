@@ -186,6 +186,14 @@
       </ul>
   </li>
   <li>
+      <a href="#"><i class="icon-cabinet"></i> <span>Penitipan Barang</span></a>
+      <ul>
+        <li><a href="Penitipan_barang/get_data" class="app-item">Daf. Penitipan</a></li>
+        <li><a href="Kategori_penitipan/get_data" class="app-item">Kategori Penitipan</a></li>
+        <li><a href="Lokasi_penitipan/get_data" class="app-item">Lokasi Penitipan</a></li>
+      </ul>
+  </li>
+  <li>
       <a href="#"><i class="icon-office"></i> <span>Prasarana</span></a>
       <ul>
         <li><a href="Prasarana/get_data" class="app-item">Daf. Prasarana</a></li>
@@ -195,6 +203,7 @@
   </li>
   <li><a href="Peminjaman_sarana/get_data" class="app-item"><i class="icon-notebook"></i> <span>Peminjaman Sarana</span></a></li>
   <li><a href="Pengembalian_sarana/get_data" class="app-item"><i class="icon-clipboard5"></i> <span>Pengembalian Sarana</span></a></li>
+  <li><a href="Mutasi_penitipan/get_data" class="app-item"><i class="icon-clipboard5"></i> <span>Mutasi Penitipan</span></a></li>
   <li><a href="Kontrol_sarana/get_data" class="app-item"><i class="icon-archive"></i> <span>Kontrol Sarana</span></a></li>
   <li><a href="Jadwal_lab/get_data" class="app-item"><i class="icon-archive"></i> <span>Penjadwalan Laboratorium</span></a></li>
   
