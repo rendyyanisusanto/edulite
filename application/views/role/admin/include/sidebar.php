@@ -60,19 +60,7 @@
       <li><a href="Tanggungan_alumni/get_data" class="app-item">Tanggungan Alumni</a></li>
       <li><a href="Alumni/persebaran_alumni" class="app-item">Persebaran Alumni</a></li>
     </ul>
-  </li>
-
- <!--  <li>
-    <a href="#"><i class="icon-book"></i> <span>PPDB</span></a>
-    <ul>
-      <li><a href="Ppdb/get_data" class="app-item">Data Pendaftar Baru</a></li>
-      <li><a href="Ppdb/list" class="app-item">List Pendaftar Baru</a></li>
-    </ul>
-  </li>
- -->
- 
-  <!-- Page kits -->
-  
+  </li> 
 
   <li class="navigation-header"><span>Kepegawaian</span> <i class="icon-menu" title="Page kits"></i></li>
    <li>
@@ -88,6 +76,7 @@
     <a href="#"><i class=" icon-compose"></i> <span>Presensi Guru</span></a>
     <ul>
       <li><a href="Presensi_guru/get_data" class="app-item">Presensi Guru</a></li>
+      <li><a href="Request_absen/get_data" class="app-item">Request Presensi Guru</a></li>
       <li><a href="Presensi_guru/rekap" class="app-item">Rekap Presensi Guru</a></li>
     </ul>
   </li>
@@ -139,6 +128,7 @@
       <a href="#"><i class="icon-file-text2"></i> <span>Laporan</span></a>
       <ul>
         <li><a href="Presensi_harian/rekap" class="app-item">Rekap Presensi Siswa</a></li>
+        <li><a href="Presensi_guru/rekap_presensi" class="app-item">Rekap Presensi Guru</a></li>
         <li><a href="Statistik/rekap" class="app-item">Statistik Siswa & Kelas</a></li>
       </ul>
     </li>
@@ -146,11 +136,17 @@
     <a href="#"><i class=" icon-database"></i> <span>Pengaturan Lain</span></a>
     <ul>
       <li><a href="Wali_kelas/get_data" class="app-item">Setting Wali Kelas</a></li>
-      <li><a href="Prestasi_siswa/get_data" class="app-item">Prestasi Siswa</a></li>
     </ul>
   </li>
 
   <li class="navigation-header"><span>Humas</span> <i class="icon-menu" title="Page kits"></i></li>
+  <li>
+      <a href="#"><i class="icon-collaboration"></i> <span>Lomba & Prestasi</span></a>
+      <ul>
+        <li><a href="Partisipasi_lomba/get_data" class="app-item">Tambah Partisipasi Lomba</a></li>
+        <li><a href="Prestasi_siswa/get_data" class="app-item">Prestasi Siswa</a></li>
+      </ul>
+  </li>
   <li>
       <a href="#"><i class="icon-collaboration"></i> <span>Sosialisasi</span></a>
       <ul>
@@ -174,6 +170,7 @@
       <li><a href="Calon_siswa/get_data" class="app-item">Calon Siswa</a></li>
     </ul>
   </li>
+      
 
   
   <li class="navigation-header"><span>Sarana Prasarana</span> <i class="icon-menu" title="Page kits"></i></li>

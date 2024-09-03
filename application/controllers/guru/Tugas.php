@@ -19,8 +19,23 @@ class tugas extends MY_Controller {
 		$data['param'] 		= 	$this->arr;
 		$data['guru']		=	$this->my_where('guru', ['id_guru'=>$data['account']['anggota_id']])->row_array();
 		$data['dt_guru']	=	$this->get_guru();
-		$this->my_view(['role/guru/page/tugas/index_page/index','role/guru/page/tugas/index_page/js'],$data);
+		if ($this->agent->is_mobile()) {
+ 			$this->my_view(['role/guru/page_mobile/tugas/index_page/index','role/guru/page_mobile/tugas/index_page/js'],$data);
+ 		}else{
+ 			$this->my_view(['role/guru/page/tugas/index_page/index','role/guru/page/tugas/index_page/js'],$data);
+ 		}
+		
 	}
+
+	function get_data_request(){
+		$data['account']	=	$this->get_user_account();
+		$data['param'] 		= 	$this->arr;
+		$data['guru']		=	$this->get_guru();
+		$data['tahun_ajaran']		=	$this->my_where('tahun_ajaran', [])->result_array();
+		$data['tugas']	=	$this->db->query('select * from tugas where idguru_fk='.$data['guru']['guru']['id_guru'].' order by id_tugas desc limit 10')->result_array();
+		$this->my_view(['role/guru/page_mobile/tugas/index_page/get_data'],$data);
+	}
+
 
 	public function pengumpulan($id_tugas)
 	{

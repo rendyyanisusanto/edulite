@@ -43,6 +43,21 @@ class presensi_guru extends MY_Controller {
 
 		$this->my_view(['role/admin/page/presensi_guru/rekap/index','role/admin/page/presensi_guru/rekap/js'],$data);
 	}
+
+	
+	function rekap_presensi(){
+		$data['account']	=	$this->get_user_account();
+		$data['param'] 		= 	$this->arr;
+		
+
+		$this->my_view(['role/admin/page/presensi_guru/rekap_presensi/index','role/admin/page/presensi_guru/rekap_presensi/js'],$data);
+	}
+	function get_rekap($rekap = 1){
+		$data['account']	=	$this->get_user_account();
+		$data['param'] 		= 	$this->arr;
+		
+		$this->my_view(['role/admin/page/presensi_guru/rekap_presensi/filter/filter'.$rekap] ,$data);
+	}
 	public function proses_rekap()
 	{
 		$data['tahun_ajaran']		=	$this->my_where('tahun_ajaran',['is_active'=>1])->row_array();
@@ -69,6 +84,28 @@ class presensi_guru extends MY_Controller {
 		$data['bulan'] = $_POST['bulan'];
 		$data['tahun'] = date('Y');
 		$this->my_view(['role/admin/page/presensi_guru/rekap/rekap'],$data);
+	}
+	function proses_rekap_laporan(){
+		if ($_POST['rekap'] == 1) {
+			$this->rekap_harian($_POST);
+		}
+	}
+	function rekap_harian($post){
+		$data = [];
+		$guru		=	$this->my_where('guru', ['is_active'=>1])->result_array();
+		foreach ($guru as $key => $value) {
+			
+			$presensi_guru 	= $this->my_where('presensi_guru', ['idguru_fk'=>$value['id_guru'], 'DATE(tanggal)'=>date("Y-m-d", strtotime($post['tanggal']))])->row_array();
+			$jadwal_guru 	= $this->my_where('jadwal_guru', ['idguru_fk'=>$value['id_guru'], 'idhari_fk'=>date('N',strtotime($post['tanggal']))]);
+			$data['presensi'][]	=	[
+				'guru'	=>	$value,
+				'is_jadwal'		=>	(($jadwal_guru->num_rows() > 0) ? 1 : 0),
+				'presensi_guru'	=>	$presensi_guru,
+
+			];
+		}
+		$data['tanggal'] = date('d-m-Y', strtotime($post['tanggal']));
+		$this->my_view(['role/admin/page/presensi_guru/rekap_presensi/rekap/rekap1'],$data);
 	}
 	public function history($id_guru="" ,$bulan="", $tahun=""){
 		$hari 			= [];

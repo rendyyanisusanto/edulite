@@ -6,14 +6,14 @@
 </div>
 <?php if ($data_get['cek_kd'] == 0): ?>
 	
-<div class="row">
+<!-- <div class="row">
 	<div class="alert alert-danger">
 		<b>Message from the system</b> :
 		<ul>
 			<li>Download aplikasi Edulite Mobile untuk melakukan presensi guru, untuk mendownload silahkan klik <a href="<?= base_url('include/media/M-Edulite.apk'); ?>" target="__blank">link ini</a></li>
 		</ul>
 	</div>
-</div>
+</div> -->
 
 <?php endif ?>
 

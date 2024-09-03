@@ -38,6 +38,8 @@ class penitipan_barang extends MY_Controller {
 	{
 		if (isset($id)) {
 				$data['param'] 		= 	$this->arr;
+				$data['lokasi_penitipan']	=	$this->my_where('lokasi_penitipan', [])->result_array();
+				$data['kategori_penitipan']	=	$this->my_where('kategori_penitipan', [])->result_array();
 				$data['penitipan_barang'] = 	$this->my_where('penitipan_barang',['id_penitipan_barang'=>$id])->row_array();
 				$this->my_view(['role/admin/page/penitipan_barang/edit_page/index','role/admin/page/penitipan_barang/edit_page/js'],$data);
 		} else {
@@ -82,11 +84,23 @@ class penitipan_barang extends MY_Controller {
 
 	function update_data()
 	{
+		$foto = $this->save_media([
+			'path'	=>	"./include/media/foto_penitipan_barang/",
+			'filename' => 'foto',
+		]);
+
 		$data = [
-			'kategori' 	=> $_POST['kategori'],
+			'nama_barang' 	=> $_POST['nama_barang'],
+			'idlokasipenitipan_fk' 	=> $_POST['idlokasipenitipan_fk'],
+			'idkategoripenitipan_fk' 	=> $_POST['idkategoripenitipan_fk'],
+			'tanggal' 	=> $_POST['tanggal'],
+			'spesifikasi' 	=> $_POST['spesifikasi'],
+			'keterangan' 	=> $_POST['keterangan'],
+			'kode' 	=> $_POST['kode'],
+			'rfid' => $_POST['rfid'],
+			'foto'	=>	((isset($foto)) ? $foto['file_name'] : $_POST['foto_before']),
 		];
 		if ($this->my_update('penitipan_barang',$data,['id_penitipan_barang'=>$_POST['id_penitipan_barang']])) {
-			// print_r(((isset($foto)) ? $foto['file_name'] : $_POST['foto_before']));
 		}	else 	{
 			echo "error";
 		}

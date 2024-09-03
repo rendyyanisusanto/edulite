@@ -27,7 +27,22 @@ class penggajian extends MY_Controller {
 		$data['guru']		=	$this->get_guru();
 		$data['tahun_ajaran']		=	$this->my_where('tahun_ajaran', [])->result_array();
 		$data['penggajian']	=	$this->db->query('select * from penggajian where idguru_fk='.$data['guru']['guru']['id_guru'].' limit 10')->result_array();
-		$this->my_view(['role/guru/page/penggajian/index_page/index','role/guru/page/penggajian/index_page/js'],$data);
+
+ 		if ($this->agent->is_mobile()) {
+ 			$this->my_view(['role/guru/page_mobile/penggajian/index_page/index','role/guru/page_mobile/penggajian/index_page/js'],$data);
+ 		}else{
+ 			$this->my_view(['role/guru/page/penggajian/index_page/index','role/guru/page/penggajian/index_page/js'],$data);
+ 		}
+		
+	}
+
+	function get_data_hr(){
+		$data['account']	=	$this->get_user_account();
+		$data['param'] 		= 	$this->arr;
+		$data['guru']		=	$this->get_guru();
+		$data['tahun_ajaran']		=	$this->my_where('tahun_ajaran', [])->result_array();
+		$data['penggajian']	=	$this->db->query('select * from penggajian where idguru_fk='.$data['guru']['guru']['id_guru'].' order by id_penggajian desc limit 10')->result_array();
+		$this->my_view(['role/guru/page_mobile/penggajian/index_page/get_data'],$data);
 	}
 	function print_nota($id='', $bulan='', $tahun = '')
 	{

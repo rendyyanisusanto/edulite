@@ -23,7 +23,11 @@ class surat_keluar extends MY_Controller {
 	{
 		$data['account']	=	$this->get_user_account();
 		$data['param'] 		= 	$this->arr;
-		$this->my_view(['role/operator_siswa/page/surat_keluar/index_page/index','role/operator_siswa/page/surat_keluar/index_page/js'],$data);
+		if ($this->agent->is_mobile()) {
+ 			$this->my_view(['role/operator_siswa/page_mobile/surat_keluar/index_page/index','role/operator_siswa/page_mobile/surat_keluar/index_page/js'],$data);
+ 		}else{
+ 			$this->my_view(['role/operator_siswa/page/surat_keluar/index_page/index','role/operator_siswa/page/surat_keluar/index_page/js'],$data);
+ 		}
 	}
 
 	public function add_page()
@@ -49,6 +53,16 @@ class surat_keluar extends MY_Controller {
 		ADD DATA
 	*/
 
+	function get_data_surat_keluar(){
+		$data['param'] 		= 	$this->arr;
+		$surat_keluar			=	$this->db->query('SELECT * FROM `surat_keluar` order by id_surat_keluar desc limit 10')->result_array();
+		foreach ($surat_keluar as $key => $value) {
+			$data['surat_keluar'][] = [
+				'surat_keluar'	=>	$value,
+			];
+		}
+		$this->my_view(['role/operator_siswa/page_mobile/surat_keluar/index_page/get_data'],$data);
+	}
 
 	public function simpan_data()
 	{	

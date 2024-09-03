@@ -45,7 +45,39 @@ class presensi_guru extends MY_Controller {
 		$data['param'] 		= 	$this->arr;
 		
 
-		$this->my_view(['role/guru/page/presensi_guru/rekap/index','role/guru/page/presensi_guru/rekap/js'],$data);
+		if ($this->agent->is_mobile()) {
+ 			$this->my_view(['role/guru/page_mobile/presensi_guru/rekap/index','role/guru/page_mobile/presensi_guru/rekap/js'],$data);
+ 		}else{
+ 			$this->my_view(['role/guru/page/presensi_guru/rekap/index','role/guru/page/presensi_guru/rekap/js'],$data);
+ 		}
+ 		
+		
+	}
+	function get_data_rekap(){
+		$hari 			= [];
+		$bulan 			=date("m");
+		$tahun 			=date("Y");
+		$id_guru 		= $this->get_guru()['guru']['id_guru'];
+		
+		$all_day 		= cal_days_in_month(CAL_GREGORIAN, $bulan, $tahun);
+
+		for ($i=1; $i <= $all_day ; $i++) { 
+			$presensi_guru 	= $this->my_where('presensi_guru', ['idguru_fk'=>$id_guru, 'MONTH(tanggal)'=>$bulan, 'YEAR(tanggal)'=>$tahun, 'DAY(tanggal)'=>$i])->row_array();
+			$jadwal_guru 	= $this->my_where('jadwal_guru', ['idguru_fk'=>$id_guru, 'idhari_fk'=>date('N',strtotime($tahun.'-'.$bulan.'-'.$i))]);
+
+			$hari[]		=	[
+				'id_hari'		=>	date('N',strtotime($tahun.'-'.$bulan.'-'.$i)),
+				'hari'			=>	$this->arr_hari[date('N',strtotime($tahun.'-'.$bulan.'-'.$i))],
+				'tanggal'		=>	date('d-M-Y',strtotime($tahun.'-'.$bulan.'-'.$i)),
+				'is_jadwal'		=>	(($jadwal_guru->num_rows() > 0) ? 1 : 0),
+				'presensi_guru'	=>	$presensi_guru
+			];
+		}
+
+		$data['hari']			=	$hari;
+		$data['presensi_guru'] 	= 	$presensi_guru;
+		$data['guru']			=	$this->my_where('guru', ['id_guru'=>$id_guru])->row_array();
+		$this->my_view(['role/guru/page_mobile/presensi_guru/rekap/get_data'],$data);
 	}
 	public function proses_rekap()
 	{

@@ -1,6 +1,6 @@
 
 <script type="text/javascript">
-    get_stats_nav()
+
     var table=$('#tabel-data').DataTable( {
        "processing": true, 
             "serverSide": true, 
@@ -125,14 +125,4 @@
     });
     
 
-    function get_stats_nav()
-    {
-        blockui('.stats-nav');
-        send_ajax("Buku_tamu/get_stats_nav", {}).then(function(data){
-            setTimeout(function(){
-                $('.stats-nav').html(data);
-                unblockui('.stats-nav');
-            }, 1000)
-        });
-    }
 </script>

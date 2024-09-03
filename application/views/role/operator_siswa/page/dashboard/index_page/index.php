@@ -4,36 +4,7 @@
 	</div>
 </div>
 <div class="row">
-	<div class="col-md-6">
-		<div class="panel panel-body">
-			<table class="table table-framed table-xxs">
-				<thead>
-					<tr>
-						<th>No</th>
-						<th>Tanggal</th>
-						<th>Nama</th>
-						<th>Kelas</th>
-						<th>Keterangan</th>
-					</tr>
-				</thead>
-				<tbody>
-					<?php
-					$no = 0;
-					foreach ($data_get['ijin_siswa'] as $key => $value): ?>
-					<tr>
-						<td><?php echo ++$no; ?></td>
-						<td><?php echo $value['tanggal'] ?></td>
-						<td><?php echo $value['nama'] ?></td>
-						<td><?php echo $value['kelas'] ?></td>
-						<td><b style="color: <?php echo $value['c_jenis_ijin'] ?>"><?php echo $value['jenis_ijin'] ?></b></td>
-					</tr>
-					<?php endforeach ?>
-				</tbody>
-			</table>
-			<hr>
-			<a href="Ijin_siswa/get_data" class="app-item btn btn-primary"><i class="icon-magazine"></i> Tambah Ijin Siswa</a>
-		</div>
-	</div>
+	
 	<div class="col-md-6">
 		<div class="row">
 			<div class="col-sm-6 col-md-6">
@@ -62,6 +33,43 @@
 					</div>
 				</div>
 			</div>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<button type="button" class="btn btn-danger btn-float btn-float-lg"><i class="icon-html52"></i> <span>Download</span></button>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<div class="panel panel-body">
+			<table class="table table-framed table-xxs">
+				<thead>
+					<tr>
+						<th>No</th>
+						<th>Tanggal</th>
+						<th>Nama</th>
+						<th>Kelas</th>
+						<th>Keterangan</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php
+					$no = 0;
+					foreach ($data_get['ijin_siswa'] as $key => $value): ?>
+					<tr>
+						<td><?php echo ++$no; ?></td>
+						<td><?php echo $value['tanggal'] ?></td>
+						<td><?php echo $value['nama'] ?></td>
+						<td><?php echo $value['kelas'] ?></td>
+						<td><b style="color: <?php echo $value['c_jenis_ijin'] ?>"><?php echo $value['jenis_ijin'] ?></b></td>
+					</tr>
+					<?php endforeach ?>
+				</tbody>
+			</table>
+			<hr>
+			<a href="Ijin_siswa/get_data" class="app-item btn btn-primary"><i class="icon-magazine"></i> Tambah Ijin Siswa</a>
 		</div>
 	</div>
 </div>

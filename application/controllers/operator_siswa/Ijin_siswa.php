@@ -24,7 +24,12 @@ class ijin_siswa extends MY_Controller {
 
 		$data['account']	=	$this->get_user_account();
 		$data['param'] 		= 	$this->arr;
-		$this->my_view(['role/operator_siswa/page/ijin_siswa/index_page/index','role/operator_siswa/page/ijin_siswa/index_page/js'],$data);
+		if ($this->agent->is_mobile()) {
+ 			$this->my_view(['role/operator_siswa/page_mobile/ijin_siswa/index_page/index','role/operator_siswa/page_mobile/ijin_siswa/index_page/js'],$data);
+ 		}else{
+ 			$this->my_view(['role/operator_siswa/page/ijin_siswa/index_page/index','role/operator_siswa/page/ijin_siswa/index_page/js'],$data);
+ 		}
+		
 	}
 
 	public function add_page()
@@ -54,7 +59,26 @@ class ijin_siswa extends MY_Controller {
 	/*
 		ADD DATA
 	*/
+	function get_data_ijin(){
+		$data['param'] 		= 	$this->arr;
+		$ijin_siswa			=	$this->db->query('SELECT * FROM `ijin_siswa` where date(tanggal) = curdate()')->result_array();
+		foreach ($ijin_siswa as $key => $value) {
 
+            $siswa = $this->my_where('siswa', ['id_siswa'=>$value['idsiswa_fk']])->row_array();
+            $kelas = $this->my_where('kelas', ['id_kelas'=>$siswa['idkelas_fk']])->row_array();
+            $operator = $this->my_where('operator', ['id_operator'=>$value['idoperator_fk']])->row_array();
+            $jenis_ijin = $this->my_where('jenis_ijin', ['id_jenis_ijin'=>$value['idjenisijin_fk']])->row_array();
+
+			$data['ijin_siswa'][] = [
+				'ijin_siswa'	=>	$value,
+				'siswa' => $siswa,
+				'kelas'	=>	$kelas,
+				'operator' => $operator,
+				'jenis_ijin'=> $jenis_ijin
+			];
+		}
+		$this->my_view(['role/operator_siswa/page_mobile/ijin_siswa/index_page/get_data'],$data);
+	}
 	function get_siswa()
 	{
 		$searchTerm = $this->input->post('searchTerm');
@@ -126,7 +150,10 @@ class ijin_siswa extends MY_Controller {
 			$this->db->delete($dt['table'],[$dt['id']=>$value]);
 		}
 	}
-
+	function hapus_data($id){
+		$dt = $this->arr;
+		$this->db->delete($dt['table'],[$dt['id']=>$id]);
+	}
 	/*
 		PRINT DATA
 	*/

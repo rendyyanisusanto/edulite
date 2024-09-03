@@ -1,0 +1,29 @@
+<div class="row">
+<?php foreach ($data_get['hari'] as $key => $value): ?>
+	
+		<div class="col-xs-12">
+			<div class="panel panel-body">
+
+				<table style="width: 100%;">
+					<tr>
+						<td style="padding-left: 3%;" width="30%">Tanggal</td>
+						<td width="1%">:</td>
+						<td style="padding-left: 3%;"><?php echo ucfirst($value['hari']) ?>, <?php echo $value['tanggal'] ?></td>
+					</tr>
+					<tr>
+						<td style="padding-left: 3%;" width="30%">Jam Masuk</td>
+						<td width="1%">:</td>
+						<td style="padding-left: 3%;" ><?php echo ($value['is_jadwal'] == 0) ? "Tidak ada jadwal" : ((!empty($value['presensi_guru']['jam_masuk']) && $value['presensi_guru']['jam_masuk'] !== '00:00:00') ? "<b class='text-success'>".$value['presensi_guru']['jam_masuk']."</b>" : "<b class='text-danger'><i class='icon-close2'></i></b>"); ?></td>
+					</tr>
+					<tr>
+						<td style="padding-left: 3%;" width="30%">Jam Pulang</td>
+						<td width="1%">:</td>
+						<td style="padding-left: 3%;" ><?php echo ($value['is_jadwal'] == 0) ? "Tidak ada jadwal" : ((!empty($value['presensi_guru']['jam_keluar']) &&  $value['presensi_guru']['jam_keluar'] !== '00:00:00') ? "<b class='text-success'>".$value['presensi_guru']['jam_keluar']."</b>" : "<b class='text-danger'><i class='icon-close2'></i></b>") ?></td>
+					</tr>
+					
+				</table>
+			</div>
+		</div>
+	
+<?php endforeach ?>
+</div>

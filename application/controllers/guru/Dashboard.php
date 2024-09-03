@@ -55,7 +55,13 @@ class Dashboard extends MY_Controller {
 				'absen_pulang_prakerin' => $this->my_where('presensi_prakerin', ['idprakerinkelompok_fk'=>$value['id_prakerin_kelompok'], 'tanggal'	=>	date('Y-m-d'), 'presensi_pulang !='	=> 'NULL'  ])->num_rows(), 
 			];
 		}
-		$this->my_view(['role/guru/page/dashboard/index_page/index','role/guru/page/dashboard/index_page/js'],$data);
+
+		if ($this->agent->is_mobile()) {
+ 			$this->my_view(['role/guru/page_mobile/dashboard/index_page/index','role/guru/page_mobile/dashboard/index_page/js'],$data);
+ 		}else{
+ 			$this->my_view(['role/guru/page/dashboard/index_page/index','role/guru/page/dashboard/index_page/js'],$data);
+ 		}
+ 		
 	}
 
 	public function ijin_siswa()

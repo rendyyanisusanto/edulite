@@ -15,6 +15,17 @@
 	              </div>
 	            </div>
 	            <div class="form-group">
+	              <label class="col-lg-3 control-label">Guru:</label>
+	              <div class="col-lg-4">
+	              	<select name="idguru_fk" required class="form-control">
+	              		<option value="">--Pilih--</option>
+	              		<?php foreach ($data_get['guru'] as $key => $value): ?>
+	              			<option value="<?php echo $value['id_guru'] ?>"><?php echo $value['nama'] ?></option>
+	              		<?php endforeach ?>
+	              	</select>
+	              </div>
+	            </div>
+	            <div class="form-group">
 	              <label class="col-lg-3 control-label">Kelas:</label>
 	              <div class="col-lg-4">
 	              	<select name="idkelas_fk" required class="form-control">
@@ -37,27 +48,20 @@
 	              </div>
 	            </div>
 	            <div class="form-group">
-	              <label class="col-lg-3 control-label">Jam Mulai:</label>
+	              <label class="col-lg-3 control-label">Jam Pelajaran:</label>
 	              <div class="col-lg-4">
-	              	<select name="idjampelajaranmulai_fk" required class="form-control">
-	              		<option value="">--Pilih--</option>
+	              	<table class="table table-xxs table-bordered">
 	              		<?php foreach ($data_get['jam_pelajaran'] as $key => $value): ?>
-	              			<option value="<?php echo $value['id_jam_pelajaran'] ?>"><?php echo $value['nama'].'('.$value['jam_mulai'].' / '.$value['jam_selesai'].')' ?></option>
+	              			<tr>
+	              				<td width="1%"><input type="checkbox"  value="<?= $value['id_jam_pelajaran'] ?>" name="jam_pelajaran[<?= $key ?>]"></td>
+	              				<td>Jam ke-<?= $value['nama'].' ('.$value['jam_mulai'].' - '.$value['jam_selesai'].')' ?></td>
+
+	              			</tr>
 	              		<?php endforeach ?>
-	              	</select>
+	              	</table>
 	              </div>
 	            </div>
-	            <div class="form-group">
-	              <label class="col-lg-3 control-label">Jam Selesai:</label>
-	              <div class="col-lg-4">
-	              	<select name="idjampelajaranselesai_fk" required class="form-control">
-	              		<option value="">--Pilih--</option>
-	              		<?php foreach ($data_get['jam_pelajaran'] as $key => $value): ?>
-	              			<option value="<?php echo $value['id_jam_pelajaran'] ?>"><?php echo $value['nama'].'('.$value['jam_mulai'].' / '.$value['jam_selesai'].')' ?></option>
-	              		<?php endforeach ?>
-	              	</select>
-	              </div>
-	            </div>
+	           
 	            
 
 	            <div class="form-group">
@@ -73,6 +77,7 @@
             </fieldset>	
 		</div>
 	</div>
+	
 	<div class="col-md-6">
 		<div class="jadwal"></div>
 	</div>
