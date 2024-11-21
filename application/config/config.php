@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $http = 'http' . ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') ? 's' : '') . '://';
 $newurl = str_replace("index.php","", $_SERVER['SCRIPT_NAME']);
-$config['base_url']    = "https://" . $_SERVER['SERVER_NAME'] . "" . $newurl;
+$config['base_url']    = isset($_SERVER['SERVER_NAME']) ? "https://" . $_SERVER['SERVER_NAME'] . "" . $newurl : "http://localhost/edulite";
 date_default_timezone_set("Asia/Jakarta");
 /*
 |--------------------------------------------------------------------------

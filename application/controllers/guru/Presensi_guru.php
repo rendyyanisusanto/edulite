@@ -54,26 +54,46 @@ class presensi_guru extends MY_Controller {
 		
 	}
 	function get_data_rekap(){
-		$hari 			= [];
-		$bulan 			=date("m");
-		$tahun 			=date("Y");
-		$id_guru 		= $this->get_guru()['guru']['id_guru'];
-		
-		$all_day 		= cal_days_in_month(CAL_GREGORIAN, $bulan, $tahun);
+		$hari = [];
+		$hari = [];
+		$bulan_sekarang = date("m");
+		$tahun_sekarang = date("Y");
+		$id_guru = $this->get_guru()['guru']['id_guru'];
 
-		for ($i=1; $i <= $all_day ; $i++) { 
-			$presensi_guru 	= $this->my_where('presensi_guru', ['idguru_fk'=>$id_guru, 'MONTH(tanggal)'=>$bulan, 'YEAR(tanggal)'=>$tahun, 'DAY(tanggal)'=>$i])->row_array();
-			$jadwal_guru 	= $this->my_where('jadwal_guru', ['idguru_fk'=>$id_guru, 'idhari_fk'=>date('N',strtotime($tahun.'-'.$bulan.'-'.$i))]);
+		for ($b = 1; $b >= 0; $b--) { // Loop dimulai dari dua bulan lalu ke bulan ini
+		    $bulan = $bulan_sekarang - $b;
+		    $tahun = $tahun_sekarang;
 
-			$hari[]		=	[
-				'id_hari'		=>	date('N',strtotime($tahun.'-'.$bulan.'-'.$i)),
-				'hari'			=>	$this->arr_hari[date('N',strtotime($tahun.'-'.$bulan.'-'.$i))],
-				'tanggal'		=>	date('d-M-Y',strtotime($tahun.'-'.$bulan.'-'.$i)),
-				'is_jadwal'		=>	(($jadwal_guru->num_rows() > 0) ? 1 : 0),
-				'presensi_guru'	=>	$presensi_guru
-			];
+		    // Jika bulan kurang dari 1 (misalnya bulan sekarang Januari), maka mundur ke bulan Desember tahun sebelumnya
+		    if ($bulan < 1) {
+		        $bulan = 12 + $bulan; // Menjadi 12 jika -1, 11 jika -2
+		        $tahun--;
+		    }
+
+		    $all_day = cal_days_in_month(CAL_GREGORIAN, $bulan, $tahun);
+
+		    for ($i = 1; $i <= $all_day; $i++) {
+		        $presensi_guru = $this->my_where('presensi_guru', [
+		            'idguru_fk' => $id_guru,
+		            'MONTH(tanggal)' => $bulan,
+		            'YEAR(tanggal)' => $tahun,
+		            'DAY(tanggal)' => $i
+		        ])->row_array();
+
+		        $jadwal_guru = $this->my_where('jadwal_guru', [
+		            'idguru_fk' => $id_guru,
+		            'idhari_fk' => date('N', strtotime($tahun . '-' . $bulan . '-' . $i))
+		        ]);
+
+		        $hari[] = [
+		            'id_hari' => date('N', strtotime($tahun . '-' . $bulan . '-' . $i)),
+		            'hari' => $this->arr_hari[date('N', strtotime($tahun . '-' . $bulan . '-' . $i))],
+		            'tanggal' => date('d-M-Y', strtotime($tahun . '-' . $bulan . '-' . $i)),
+		            'is_jadwal' => ($jadwal_guru->num_rows() > 0 ? 1 : 0),
+		            'presensi_guru' => $presensi_guru
+		        ];
+		    }
 		}
-
 		$data['hari']			=	$hari;
 		$data['presensi_guru'] 	= 	$presensi_guru;
 		$data['guru']			=	$this->my_where('guru', ['id_guru'=>$id_guru])->row_array();

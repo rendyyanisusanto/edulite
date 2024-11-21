@@ -44,7 +44,7 @@ class penggajian extends MY_Controller {
 		$data['param'] 		= 	$this->arr;
 		$bulan			=	date_format(date_create($_POST['bulan']), 'm');
 		$tahun			=	date_format(date_create($_POST['bulan']), 'Y');
-		$data['guru']	=	$this->db->query("select *, (select count(*) from penggajian where idguru_fk=id_guru and bulan=".$bulan." and tahun=".$tahun.") as status_penggajian, (select shared from penggajian where idguru_fk=id_guru and bulan=".$bulan." and tahun=".$tahun.") as shared from guru where is_active = 1")->result_array();
+		$data['guru']	=	$this->db->query("select *, (select count(*) from penggajian where idguru_fk=id_guru and bulan=".$bulan." and tahun=".$tahun.") as status_penggajian, (select shared from penggajian where idguru_fk=id_guru and bulan=".$bulan." and tahun=".$tahun." ORDER BY id_penggajian DESC limit 1) as shared from guru where is_active = 1")->result_array();
 		$data['bulan']	=	$bulan;
 		$data['tahun']	=	$tahun;
 		$this->my_view([$data['param']['parents_link'].'/index_page/proses'],$data);
@@ -214,8 +214,24 @@ class penggajian extends MY_Controller {
 		])) {
 			$res = [
 					'status' => 200,
-					'msg' => 'Berhasil membatalkan data'
+					'msg' => 'Berhasil share data'
 				];	
+
+			$guru = $this->my_where('guru', ['id_guru'=>$_POST['id']])->row_array();
+			$penggajian = $this->my_where('penggajian', [
+				'idguru_fk' => $_POST['id'],
+				'bulan' => $_POST['bulan'],
+				'tahun' => $_POST['tahun'],
+			])->row_array();
+			$msg = $requestAbsen ="Halo ".$guru['nama'].", Status HR Anda telah dikonfirmasi dengan detail : \n\n"
+               . "\tNama  \t\t\t: " . str_pad($guru['nama'], 40) . "\n"
+               . "\tPeriode \t\t: " . str_pad(date_format(date_create($penggajian['tanggal']), 'd-M-Y'), 40) . "\n"
+               . "\tTotal HR \t\t: " . str_pad(number_format($penggajian['total'], 0 ,'.','.'), 40) . "\n"
+               . "\tKeterangan \t\t: " . str_pad((($penggajian['keterangan'] !== "") ? $penggajian['keterangan'] : "-"), 40). "\n\n"
+               . "\tuntuk detail lebih lengkap bisa lihat di edulite menggunakan akun anda.\n\n"
+               . "No Reply : BOT WA SMKKITA\n\n";
+
+			$this->bot_wa($guru['no_hp'], $msg, 'penggajian', $penggajian['id_penggajian'], 'admin');
 
 			echo json_encode($res);
 		}

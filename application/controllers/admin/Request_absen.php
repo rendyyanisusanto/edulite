@@ -358,6 +358,17 @@ class request_absen extends MY_Controller {
 				if ($flag == 1) {
 					$this->my_update('request_absen', ['status'=>1], ['id_request_absen'=>$id]);
 				}
+				$guru = $this->my_where('guru', ['id_guru'=>$get_absen['idguru_fk']])->row_array();
+				$msg = $requestAbsen ="Halo ".$guru['nama'].", status request absen anda : \n\n"
+               . "\tNama  \t\t\t: " . str_pad($guru['nama'], 40) . "\n"
+               . "\tTanggal \t\t\t: " . str_pad(date_format(date_create($get_absen['tanggal']), 'd-M-Y'), 40) . "\n"
+               . "\tJam masuk \t\t: " . str_pad($get_absen['jam_masuk'], 40) . "\n"
+               . "\tJam keluar \t\t: " . str_pad($get_absen['jam_pulang'], 40) . "\n"
+               . "\tKeterangan \t\t: " . str_pad($get_absen['keterangan'], 40). "\n"
+               . "\tTelah dikonfirmasi.\n\n"
+               . "No Reply : BOT WA SMKKITA\n\n";
+
+				$this->bot_wa($guru['no_hp'], $msg, 'request_absen', $id, 'admin');
 
 			} catch (Exception $e) {
 				
@@ -385,4 +396,5 @@ class request_absen extends MY_Controller {
 	}
 	
 	
+
 }

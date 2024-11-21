@@ -3,6 +3,7 @@
     var table=$('#tabel-data').DataTable( {
        "processing": true, 
             "serverSide": true, 
+            "stateSave": true,
             "order": [], 
              
             "ajax": {
@@ -18,7 +19,7 @@
             ],
     } );
     $('#filter_submit').on('click',function(){
-        table.ajax.reload();
+        table.ajax.reload(null, false);
     });  
     $("#del-btn").click(function(){
             var check = [];
@@ -110,7 +111,7 @@
 
     function konfirmasi(id){
         send_ajax('Request_absen/konfirmasi/'+id, {}).then(function(data){
-            table.ajax.reload();
+            table.ajax.reload(null, false);
         })
     }
     

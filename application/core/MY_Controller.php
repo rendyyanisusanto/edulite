@@ -472,5 +472,99 @@ class MY_Controller extends CI_Controller {
             return $cek->num_rows();
     }
 
+    function bot_wa($no_hp, $message, $table, $table_id, $from){ 
 
+        // check spam
+
+        $data_spam = $this->my_where('log_wa', ['tanggal'=>date('Y-m-d'),'no_hp'=>$this->formatNomorHP($no_hp), 'table'=> $table])->num_rows();
+
+        if ($data_spam < 5) {
+            // proses
+
+            $curl = curl_init();
+
+            curl_setopt_array($curl, array(
+              CURLOPT_URL => 'localhost:5001/send-message',
+              CURLOPT_RETURNTRANSFER => true,
+              CURLOPT_ENCODING => '',
+              CURLOPT_MAXREDIRS => 10,
+              CURLOPT_TIMEOUT => 0,
+              CURLOPT_FOLLOWLOCATION => true,
+              CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+              CURLOPT_CUSTOMREQUEST => 'POST',
+              CURLOPT_POSTFIELDS => 'message='.urlencode($message).'&number='.$this->formatNomorHP($no_hp),
+              CURLOPT_HTTPHEADER => array(
+                'Content-Type: application/x-www-form-urlencoded'
+              ),
+            ));
+
+            $response = curl_exec($curl);
+
+            curl_close($curl);
+
+
+            // save logs to db
+            $response_data = json_decode($response, true);
+
+            // Cek apakah decoding berhasil dan response status adalah true
+            if ($response_data && $response_data['status'] === true) {
+                // Ambil status utama dari response
+                $main_status = $response_data['status'];
+
+                // Ambil status pesan (pending, delivered, dll.)
+                $message_status = $response_data['response']['status'];
+
+                // Tampilkan hasilnya atau lakukan tindakan lainnya
+                echo "Status utama: " . ($main_status ? 'true' : 'false') . "<br>";
+                echo "Status pesan: " . $message_status . "<br>";
+
+                $data = [
+                    'no_hp'         =>  $this->formatNomorHP($no_hp),
+                    'msg'           =>  urlencode($message),
+                    'table'         =>  $table,
+                    'table_id'      =>  $table_id,
+                    'status'        =>  ($main_status ? 'true' : 'false'),
+                    'msg_status'    =>  $message_status,
+                    'tanggal'       => date('Y-m-d'),
+                    'from'    =>  $from,
+                    'logs'          =>  '',
+                ];
+
+                $this->save_data('log_wa', $data);
+            } else {
+                // Tampilkan pesan error jika response tidak valid atau gagal
+                // echo "Gagal mendapatkan status dari response";
+            }
+        }else{
+            $data = [
+                    'no_hp'         =>  $this->formatNomorHP($no_hp),
+                    'msg'           =>  urlencode($message),
+                    'table'         =>  $table,
+                    'table_id'      =>  $table_id,
+                    'status'        =>  'SKIPPED',
+                    'tanggal'       => date('Y-m-d'),
+                    'msg_status'    =>  '',
+                    'from'          =>  $from,
+                    'logs'          =>  '',
+                ];
+
+                $this->save_data('log_wa', $data);
+        }
+        
+    }
+    function formatNomorHP($nomor) {
+        // Hapus spasi atau tanda minus (-) yang mungkin dimasukkan oleh pengguna
+        $nomor = str_replace([' ', '-', '(', ')'], '', $nomor);
+
+        // Jika nomor diawali dengan "08", ubah menjadi "628"
+        if (substr($nomor, 0, 2) === '08') {
+            $nomor = '628' . substr($nomor, 2);
+        }
+        // Jika nomor diawali dengan "+62", ubah menjadi "62"
+        elseif (substr($nomor, 0, 3) === '+62') {
+            $nomor = '62' . substr($nomor, 3);
+        }
+
+        return $nomor;
+    }
 }

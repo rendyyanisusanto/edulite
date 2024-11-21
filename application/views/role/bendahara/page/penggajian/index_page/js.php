@@ -43,6 +43,28 @@
             
         }
     }
+    function share(share, id, bulan, tahun){
+        let dialog = prompt("Ketik YAKIN untuk mengubah status share", "");
+        
+        if (dialog == "YAKIN") {
+          send_ajax("penggajian/share", {share:share, id:id, bulan : bulan, tahun : tahun}).then(function(data){
+                    var resp = JSON.parse(data);
+
+                    if (resp.status == 200) {
+                        toastr.success(resp.msg);
+                    }else{
+                        toastr.error(resp.msg);
+
+                    }
+
+                proses();
+            })
+        } else{
+            alert("Gagal membatalkan data");
+            
+        }
+    }
+
     function proses(){
         send_ajax("penggajian/proses_index", {bulan:$('.bulan').val()}).then(function(data){
             $('.proses-absen').html(data);

@@ -44,7 +44,7 @@ class penggajian extends MY_Controller {
 		$data['param'] 		= 	$this->arr;
 		$bulan			=	date_format(date_create($_POST['bulan']), 'm');
 		$tahun			=	date_format(date_create($_POST['bulan']), 'Y');
-		$data['guru']	=	$this->db->query("select *, (select count(*) from penggajian where idguru_fk=id_guru and bulan=".$bulan." and tahun=".$tahun.") as status_penggajian from guru where is_active = 1")->result_array();
+		$data['guru']	=	$this->db->query("select *, (select count(*) from penggajian where idguru_fk=id_guru and bulan=".$bulan." and tahun=".$tahun.") as status_penggajian, (select shared from penggajian where idguru_fk=id_guru and bulan=".$bulan." and tahun=".$tahun.") as shared from guru where is_active = 1")->result_array();
 		$data['bulan']	=	$bulan;
 		$data['tahun']	=	$tahun;
 		$this->my_view([$data['param']['parents_link'].'/index_page/proses'],$data);
@@ -119,63 +119,73 @@ class penggajian extends MY_Controller {
 			'total' 						=> $_POST['total'],
 		];
 
-		if ($this->save_data('penggajian', $data)) {
-			$detail_penggajian = $this->my_where('penggajian', [
-				'bulan' 						=> $_POST['bulan'],
-				'tahun' 						=> $_POST['tahun'],
-				'idguru_fk' 					=> $_POST['idguru_fk'],
-			])->row_array();
+		$query_penggajian = $this->my_where('penggajian', [
+			'bulan' 						=> $_POST['bulan'],
+			'tahun' 						=> $_POST['tahun'],
+			'idguru_fk' 					=> $_POST['idguru_fk']
+		]);
 
-				foreach ($_POST['data']['komponen'] as $value_komponen) {
-					
-					$this->save_data('detail_komponen_penggajian', [
-						'idkomponenpenggajian_fk' => $value_komponen['idkomponenpenggajian_fk'],
-						'jumlah' => $value_komponen['jumlah'],
-						'idpenggajian_fk' => $detail_penggajian['id_penggajian'],
-						'keterangan' => $value_komponen['keterangan'],
-						'sum' => (isset($value_komponen['sum'])) ? $value_komponen['sum'] : 1 ,
-						'total' => $value_komponen['total'],
-					]);
-				}
-				foreach ($_POST['data']['komponen_kredit'] as $value_komponen_kredit) {
-					
-					$this->save_data('detail_komponen_penggajian', [
-						'idkomponenpenggajian_fk' => $value_komponen_kredit['idkomponenpenggajian_fk'],
-						'jumlah' => $value_komponen_kredit['jumlah'],
-						'idpenggajian_fk' => $detail_penggajian['id_penggajian'],
-						'keterangan' => $value_komponen_kredit['keterangan'],
-						'sum' =>  1 ,
-						'total' => $value_komponen_kredit['jumlah'],
-					]);
-				}
+		if ($query_penggajian->num_rows() == 0) {
+			// code...
+		
+			if ($this->save_data('penggajian', $data)) {
+				$detail_penggajian = $this->my_where('penggajian', [
+					'bulan' 						=> $_POST['bulan'],
+					'tahun' 						=> $_POST['tahun'],
+					'idguru_fk' 					=> $_POST['idguru_fk'],
+				])->row_array();
 
-				if (isset($_POST['data']['komponen_tambahan_debit'])) {
-					foreach ($_POST['data']['komponen_tambahan_debit'] as $value_komponen_tambahan_debit) {
-						$this->save_data('detail_tambahan_penggajian', [
-							'nama' => $value_komponen_tambahan_debit['nama'],
-							'jumlah' => $value_komponen_tambahan_debit['jumlah'],
+					foreach ($_POST['data']['komponen'] as $value_komponen) {
+						
+						$this->save_data('detail_komponen_penggajian', [
+							'idkomponenpenggajian_fk' => $value_komponen['idkomponenpenggajian_fk'],
+							'jumlah' => $value_komponen['jumlah'],
 							'idpenggajian_fk' => $detail_penggajian['id_penggajian'],
-							'keterangan' => $value_komponen_tambahan_debit['keterangan'],
-							'saldo' =>  'D' 
+							'keterangan' => $value_komponen['keterangan'],
+							'sum' => (isset($value_komponen['sum'])) ? $value_komponen['sum'] : 1 ,
+							'total' => $value_komponen['total'],
 						]);
 					}
-				}
-				if (isset($_POST['data']['komponen_tambahan_kredit'])) {
-					foreach ($_POST['data']['komponen_tambahan_kredit'] as $value_komponen_tambahan_kredit) {
-						$this->save_data('detail_tambahan_penggajian', [
-							'nama' => $value_komponen_tambahan_kredit['nama'],
-							'jumlah' => $value_komponen_tambahan_kredit['jumlah'],
+					foreach ($_POST['data']['komponen_kredit'] as $value_komponen_kredit) {
+						
+						$this->save_data('detail_komponen_penggajian', [
+							'idkomponenpenggajian_fk' => $value_komponen_kredit['idkomponenpenggajian_fk'],
+							'jumlah' => $value_komponen_kredit['jumlah'],
 							'idpenggajian_fk' => $detail_penggajian['id_penggajian'],
-							'keterangan' => $value_komponen_tambahan_kredit['keterangan'],
-							'saldo' =>  'K' 
+							'keterangan' => $value_komponen_kredit['keterangan'],
+							'sum' =>  1 ,
+							'total' => $value_komponen_kredit['jumlah'],
 						]);
 					}
+
+					if (isset($_POST['data']['komponen_tambahan_debit'])) {
+						foreach ($_POST['data']['komponen_tambahan_debit'] as $value_komponen_tambahan_debit) {
+							$this->save_data('detail_tambahan_penggajian', [
+								'nama' => $value_komponen_tambahan_debit['nama'],
+								'jumlah' => $value_komponen_tambahan_debit['jumlah'],
+								'idpenggajian_fk' => $detail_penggajian['id_penggajian'],
+								'keterangan' => $value_komponen_tambahan_debit['keterangan'],
+								'saldo' =>  'D' 
+							]);
+						}
+					}
+					if (isset($_POST['data']['komponen_tambahan_kredit'])) {
+						foreach ($_POST['data']['komponen_tambahan_kredit'] as $value_komponen_tambahan_kredit) {
+							$this->save_data('detail_tambahan_penggajian', [
+								'nama' => $value_komponen_tambahan_kredit['nama'],
+								'jumlah' => $value_komponen_tambahan_kredit['jumlah'],
+								'idpenggajian_fk' => $detail_penggajian['id_penggajian'],
+								'keterangan' => $value_komponen_tambahan_kredit['keterangan'],
+								'saldo' =>  'K' 
+							]);
+						}
+					}
+					$res = [
+						'status' => 200,
+						'msg' => 'Berhasil menambahkan data'
+					];
 				}
-				$res = [
-					'status' => 200,
-					'msg' => 'Berhasil menambahkan data'
-				];
-			}
+		}
 
 		echo json_encode($res);
 	}
@@ -190,6 +200,38 @@ class penggajian extends MY_Controller {
 					'status' => 200,
 					'msg' => 'Berhasil membatalkan data'
 				];	
+
+			echo json_encode($res);
+		}
+	}
+
+	function share(){
+		if ($this->my_update('penggajian',['shared'=>	(($_POST['share'] == 1) ? 0:1)], [
+			'idguru_fk' => $_POST['id'],
+			'bulan' => $_POST['bulan'],
+			'tahun' => $_POST['tahun'],
+			
+		])) {
+			$res = [
+					'status' => 200,
+					'msg' => 'Berhasil share data'
+				];	
+
+			$guru = $this->my_where('guru', ['id_guru'=>$_POST['id']])->row_array();
+			$penggajian = $this->my_where('penggajian', [
+				'idguru_fk' => $_POST['id'],
+				'bulan' => $_POST['bulan'],
+				'tahun' => $_POST['tahun'],
+			])->row_array();
+			$msg = $requestAbsen ="Halo ".$guru['nama'].", Status HR Anda telah dikonfirmasi dengan detail : \n\n"
+               . "\tNama  \t\t\t: " . str_pad($guru['nama'], 40) . "\n"
+               . "\tPeriode \t\t: " . str_pad(date_format(date_create($penggajian['tanggal']), 'd-M-Y'), 40) . "\n"
+               . "\tTotal HR \t\t: " . str_pad(number_format($penggajian['total'], 0 ,'.','.'), 40) . "\n"
+               . "\tKeterangan \t\t: " . str_pad((($penggajian['keterangan'] !== "") ? $penggajian['keterangan'] : "-"), 40). "\n\n"
+               . "\tuntuk detail lebih lengkap bisa lihat di edulite menggunakan akun anda.\n\n"
+               . "No Reply : BOT WA SMKKITA\n\n";
+
+			$this->bot_wa($guru['no_hp'], $msg, 'penggajian', $penggajian['id_penggajian'], 'admin');
 
 			echo json_encode($res);
 		}

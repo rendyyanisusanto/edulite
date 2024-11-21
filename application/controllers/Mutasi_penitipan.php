@@ -18,9 +18,13 @@ class Mutasi_penitipan extends CI_Controller {
 		foreach ($mutasi_penitipan as $value) {
 			$detail_penitipan = $this->db->get_where("penitipan_barang", ['id_penitipan_barang'=>$value['idpenitipanbarang_fk']])->row_array();
 			$penitip = $this->db->get_where($detail_penitipan['table'], ['id_'.$detail_penitipan['table']=>$detail_penitipan['idtable_fk']])->row_array();
+			if ($detail_penitipan['table'] == 'siswa') {
+				$kelas = $this->db->get_where('kelas', ['id_kelas'=>$penitip['idkelas_fk']])->row_array();
+			}
 			$data['mutasi_penitipan'][]	=	[
 				'mutasi_penitipan'=>$value,
 				'detail_penitipan'=>$detail_penitipan,
+				'kelas'		=>(($detail_penitipan['table'] == 'siswa') ? $kelas : ""),
 				'penitip' => $penitip
 			];
 		}
