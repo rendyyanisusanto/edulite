@@ -5,7 +5,6 @@
 			<label>Pilih Rekap</label>
 			<select name="rekap" class="form-control rekap" onchange="get_rekap();">
 				<option value="1">Harian</option>
-				<option value="2">Mingguan</option>
 				<option value="3">Bulanan</option>
 				<option value="4">Range Tanggal</option>
 			</select>

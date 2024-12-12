@@ -89,6 +89,58 @@ class presensi_guru extends MY_Controller {
 		if ($_POST['rekap'] == 1) {
 			$this->rekap_harian($_POST);
 		}
+		if ($_POST['rekap'] == 3) {
+			$this->rekap_bulanan($_POST);
+		}
+	}
+	function rekap_bulanan($post){
+		$data['bulan']	=	date("m", strtotime($post['tanggal']));
+		$data['tahun']	=	date("Y", strtotime($post['tanggal']));
+		$num_days = cal_days_in_month(CAL_GREGORIAN, date("m", strtotime($post['tanggal'])), date("Y", strtotime($post['tanggal'])));
+        $dates = [];
+        for ($i = 1; $i <= $num_days; $i++) {
+            $dates[] = sprintf('%04d-%02d-%02d', date("Y", strtotime($post['tanggal'])), date("m", strtotime($post['tanggal'])), $i);
+        }
+		$query = $this->db->query("
+            SELECT 
+                g.id_guru, 
+                g.nama, 
+                j.idhari_fk
+            FROM guru g
+            LEFT JOIN jadwal_guru j ON g.id_guru = j.idguru_fk
+            where is_active = 1
+            ORDER BY g.nama ASC
+        ");
+        $data_guru = $query->result_array();
+
+        // Proses data untuk laporan
+        $report = [];
+        foreach ($data_guru as $row) {
+            $idguru = $row['id_guru'];
+            $nama = $row['nama'];
+
+            if (!isset($report[$idguru])) {
+                $report[$idguru] = [
+                    'nama' => $nama,
+                    'dates' => array_fill_keys($dates, 'black') // Default: tidak ada jadwal
+                ];
+            }
+
+            foreach ($dates as $date) {
+                $hari = date('N', strtotime($date)); // Hari dalam bentuk angka (1 = Senin, 7 = Minggu)
+                $is_jadwal = $row['idhari_fk'] == $hari; // Cek apakah ada jadwal
+                $is_presensi = $this->db->query('select idguru_fk, jam_masuk, jam_keluar from presensi_guru where idguru_fk = '.$idguru.' and tanggal="'.date('Y-m-d', strtotime($date)).'"');
+
+                if ($is_jadwal) {
+                    $report[$idguru]['dates'][$date] = ($is_presensi->num_rows() > 0) ? 'check' : 'x'; // Presensi atau tidak
+                }
+            }
+        }
+
+        // Kirim data ke view
+        $data['report'] = $report;
+        $data['dates'] = $dates;
+		$this->my_view(['role/admin/page/presensi_guru/rekap_presensi/rekap/rekap3'],$data);
 	}
 	function rekap_harian($post){
 		$data = [];

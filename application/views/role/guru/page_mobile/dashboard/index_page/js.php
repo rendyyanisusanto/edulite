@@ -40,7 +40,7 @@ getLocation()
 	    }else{
 	    	$('.rowabsen').css('display', 'none');
 	    	$('.row-request').css('display', '');
-	    	x.innerHTML = "<b class='text-danger'><i class='icon-warning'></i> Anda tidak berada dalam jangkauan Edulite</b>";
+	    	x.innerHTML = "<i class='icon-warning'></i> Anda tidak berada dalam jangkauan Edulite";
 	    }
 	}	
 

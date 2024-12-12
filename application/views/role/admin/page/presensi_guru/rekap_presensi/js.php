@@ -9,8 +9,10 @@
 	}
 	$( "#app-submit" ).on('submit',function( e ) {
 	    e.preventDefault();
+	    blockui('.panel-proses');
 	        send_ajax( $(this).attr('action'),$(this).serialize() ).then( function(data){
 	            $('.panel-proses').html(data);
+	    		unblockui('.panel-proses');
 	        });
 	    return false;
 	});
