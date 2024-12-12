@@ -19,26 +19,28 @@
 	    <p style='margin-top: 15px;text-align:center;color:red;font-size:10px;' id="mesJadwal"></p>
 	</center>
 
-	<div class="buttons">
+	<!-- <div class="buttons"> -->
 
-			<div style="display: none;" class="rowabsen">
+			<div style="display: none;" class="rowabsen buttons">
 				<?php if (isset($data_get['presensi'])){ ?>
 					<?php if (!empty($data_get['presensi']['jam_masuk']) && $data_get['presensi']['jam_masuk'] !== '00:00:00' ){ ?>
 					<?php }else{ ?>
-						<button class="btn btn-success btn-check" data-status="0" type="button">Absen Masuk</button>
+						<button class="btn btn-masuk btn-check" data-status="0" type="button">Absen Masuk</button>
+						<button class="btn btn-pulang " disabled type="button">Absen Pulang</button>
 					<?php } ?>
 					<?php if (!empty($data_get['presensi']['jam_keluar']) && $data_get['presensi']['jam_keluar'] !== '00:00:00' ){ ?>
 					<?php }else{ ?>
-						<button class="btn btn-danger btn-check" data-status="1" type="button">Absen Pulang</button>
+						<button class="btn btn-masuk btn-check" disabled type="button">Absen Masuk</button>
+						<button class="btn btn-pulang btn-check" data-status="1" type="button">Absen Pulang</button>
 					<?php } ?>
 				<?php }else{ ?>
-					<button class="btn btn-success btn-check" data-status="0" type="button">Absen Masuk</button>
-					<button class="btn btn-danger btn-check" data-status="1" type="button">Absen Pulang</button>
+					<button class="btn btn-pulang btn-check" data-status="0" type="button">Absen Masuk</button>
+					<button class="btn btn-masuk btn-check" data-status="1" type="button">Absen Pulang</button>
 				<?php } ?>
 			</div>
 
 			
-	</div>
+	<!-- </div> -->
 </div>
 
 
@@ -100,6 +102,10 @@
         </div>
     </div>
 
+	
+<div class="floating-btn-container">
+    <a href="Request_absen/get_data"  class="floating-btn app-item">Request Absen Guru</a>
+</div>
 <style>
     .menu-card {
         width: 100%;
@@ -115,23 +121,26 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        height: 100px; /* Menyesuaikan tinggi card */
+        height: 150px; /* Menyesuaikan tinggi card */
+	    justify-content: center; /* Menyusun konten di tengah secara horizontal */
+	    align-items: center; /* Menyusun konten di tengah secara vertikal */
     }
 
     .menu-card a {
         text-decoration: none;
-        color: #333;
+        color: #2c3e50;
         display: block;
     }
 
     .menu-card i {
-        font-size: 20px;
+        font-size: 30px;
+        color: #2c3e50;
         margin-bottom: 10px;
     }
 
     .menu-card span {
         display: block;
-        font-size: 10px;
+        font-size: 12px;
         font-weight: bold;
     }
 
@@ -164,17 +173,19 @@
 	    justify-content: center; /* Menempatkan tombol di tengah */
 	    z-index: 1000; /* Menjaga agar tombol selalu berada di atas */
 	}
-
-	/* Styling tombol */
 	.floating-btn {
+	    display: inline-block; /* Agar elemen <a> diperlakukan seperti tombol */
+	    text-align: center; /* Pusatkan teks */
+	    text-decoration: none; /* Hilangkan garis bawah */
 	    background-color: #2c3e50; /* Warna latar tombol */
-	    color: white;
+	    color: white; /* Warna teks */
 	    font-size: 16px;
-	    padding: 15px;
+	    font-weight: bold;
+	    padding: 15px 20px; /* Memberikan padding untuk kenyamanan */
 	    width: 90%; /* Lebar tombol 90% dari lebar layar */
 	    max-width: 400px; /* Batasi lebar tombol agar tidak terlalu besar */
 	    border: none;
-	    border-radius: 10px; /* Membuat tombol melengkung */
+	    border-radius: 10px; /* Membuat sudut membulat */
 	    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Memberikan efek bayangan */
 	    cursor: pointer;
 	    transition: background-color 0.3s ease;
@@ -183,8 +194,8 @@
 	/* Efek hover */
 	.floating-btn:hover {
 	    background-color: #2980b9; /* Warna ketika tombol disentuh */
+	    text-decoration: none; /* Pastikan tidak ada underline saat hover */
 	}
-
 
 	/* Main Container */
 	.container-t {
@@ -276,8 +287,3 @@
 	    opacity: 0.8;
 	}
 </style>
-
-	
-<div class="floating-btn-container">
-    <button class="floating-btn">Request Absen Guru</button>
-</div>
