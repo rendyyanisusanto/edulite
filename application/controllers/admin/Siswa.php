@@ -32,6 +32,13 @@ class siswa extends MY_Controller {
 		$data['kelas']		=	$this->my_where('kelas', [])->result_array();
 		$this->my_view(['role/admin/page/siswa/mutasi/index','role/admin/page/siswa/mutasi/js'],$data);
 	}
+	public function rfid()
+	{
+		$data['account']	=	$this->get_user_account();
+		$data['param'] 		= 	$this->arr;
+		$data['kelas']		=	$this->my_where('kelas', [])->result_array();
+		$this->my_view(['role/admin/page/siswa/rfid/index','role/admin/page/siswa/rfid/js'],$data);
+	}
 	public function kenaikan()
 	{
 		$data['account']	=	$this->get_user_account();
@@ -509,6 +516,16 @@ class siswa extends MY_Controller {
 		$data['kelas']	=	$this->my_where('kelas', ['id_kelas'=>$_POST['id_kelas']])->row_array();
 		$this->my_view(['role/kesiswaan/page/siswa/perkelas/proses_siswa','role/kesiswaan/page/siswa/perkelas/js_proses'],$data);
 	}
+
+	public function proses_siswa_rfid($value='')
+	{
+		
+		$data['account']	=	$this->get_user_account();
+		$data['param'] 		= 	$this->arr;
+		$data['siswa'] = $this->my_where('v_siswa_jurusan', ['idkelas_fk'=>$_POST['id_kelas']])->result_array(); 
+		$data['kelas']	=	$this->my_where('kelas', ['id_kelas'=>$_POST['id_kelas']])->row_array();
+		$this->my_view(['role/admin/page/siswa/rfid/proses_siswa'],$data);
+	}
 	public function import_siswa($value='')
 	{
 		$file_mimes = array('application/octet-stream', 'application/vnd.ms-excel', 'application/x-csv', 'text/x-csv', 'text/csv', 'application/csv', 'application/excel', 'application/vnd.msexcel', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
@@ -671,6 +688,14 @@ class siswa extends MY_Controller {
 		],[
 			'id_siswa'=>$id_siswa
 		]);
+	}
+
+	function simpan_rfid(){
+		foreach ($_POST['data'] as $key => $value) {
+			$this->my_update('siswa', ['rfid'=>$value['rfid']], ['id_siswa'=>$value['id_siswa']]);
+		}
+
+		echo json_encode($_POST['data']);
 	}
 
 	function proses_alumni()

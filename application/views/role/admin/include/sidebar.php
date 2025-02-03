@@ -112,6 +112,7 @@
         <li><a href="Siswa/import_page" class="app-item">Import Siswa</a></li>
         <li><a href="Siswa/get_data" class="app-item">Semua Siswa</a></li>
         <li><a href="Siswa/perkelas" class="app-item">Data Siswa Perkelas</a></li>
+        <li><a href="Siswa/rfid" class="app-item">Data Siswa RFID</a></li>
         <li><a href="Presensi_harian/presensi_siswa" class="app-item">Presensi Siswa</a></li>
         <li><a href="Presensi_harian/presensi_siswa_masuk_pulang" class="app-item">Presensi Siswa (Masuk-Pulang)</a></li>
       </ul>
