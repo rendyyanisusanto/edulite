@@ -23,13 +23,13 @@ class Presence_system extends CI_Controller {
 			                 waktu > (SELECT MAX(waktu) FROM presensi_rfid 
 			                          WHERE status = 'IJIN KELUAR' 
 			                          AND idsiswa_fk = presensi_rfid.idsiswa_fk 
-			                          AND tanggal = presensi_rfid.tanggal) 
+			                          AND tanggal = curdate()) 
 			             THEN waktu ELSE NULL END) AS ijin_kembali,
 			    MAX(CASE WHEN status = 'PULANG' THEN waktu ELSE NULL END) AS pulang
 			FROM 
 			    presensi_rfid
 			WHERE 
-			     tanggal = '2025-02-03' -- Ganti dengan tanggal yang sesuai
+			     tanggal = CURDATE() -- Ganti dengan tanggal yang sesuai
 			GROUP BY 
 			    idsiswa_fk
 			ORDER BY 

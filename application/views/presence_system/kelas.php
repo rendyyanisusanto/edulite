@@ -1,5 +1,4 @@
 <?php foreach ($kelas as $key => $value): ?>
-    <!-- Kelas A -->
                             <div class="card p-2">
                                 <div class="d-flex gap-2">
 
