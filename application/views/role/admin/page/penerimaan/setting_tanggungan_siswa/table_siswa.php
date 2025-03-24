@@ -16,9 +16,8 @@
 							<td><?= $value['siswa']['nama'] ?></td>
 							<td><?= $value['siswa']['kelas'] ?></td>
 							<td><?= ($value['tanggungan_count'] > 0) ? "<b class='text-success'>Tersetting</b>":"<b class='text-danger'>Belum Tersetting</b>" ; ?></td>
-							<td><button type="button" data-idsiswa="<?= $value['siswa']['id_siswa'] ?>" class="btn btn-detail btn-sm btn-<?= ($value['tanggungan_count'] > 0) ? "success":"danger" ; ?>"><i class="icon-pencil3"></i></button></td>
+							<td><button type="button" onclick="get_tanggungan_siswa(<?= $value['siswa']['id_siswa'] ?>)" class="btn btn-sm btn-<?= ($value['tanggungan_count'] > 0) ? "success":"danger" ; ?>"><i class="icon-pencil3"></i></button></td>
 						</tr>
-
 					<?php endforeach ?>
 				</tbody>
 			</table>

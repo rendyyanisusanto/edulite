@@ -6,22 +6,21 @@
 			$('.data').html(data)
 		})
 	}
-	$(document).on('click', '.btn-detail', function(e){
-		e.stopImmediatePropagation();
-		var idsiswa = $(this).data('idsiswa')
-		send_ajax('Penerimaan/detail_setting',{id_siswa:idsiswa}).then(function(data){
+	
 
-			$('.modal').modal('toggle');
+	function get_tanggungan_siswa(idsiswa){
+		send_ajax('Penerimaan/detail_setting',{id_siswa:idsiswa}).then(function(data){
+			$('.modal-tanggungan').modal('toggle');
 			$('.contentform').html(data)
 		});
-	});
+	}
 	$(document).on('submit', '#app-tanggungan', function(e){
 			e.stopImmediatePropagation();
-            blockui($('.modal'));
+            blockui($('.modal-tanggungan'));
 			send_ajax($(this).attr('action'), $(this).serialize()).then(function(data){
-            	unblockui($('.modal'));
+            	unblockui($('.modal-tanggungan'));
 				toastr.success("data berhasil ditambahkan");
-				$('.modal').modal('toggle');
+				$('.modal-tanggungan').modal('toggle');
 				get_data();
 			});
 			return false;
