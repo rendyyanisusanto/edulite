@@ -20,9 +20,22 @@
 				<td>
 					<div class="input-group">
 						<span class="input-group-addon">Rp.</span>
-						<input type="number" class="form-control" required="" value="<?= $value['tanggungan_siswa']['jumlah'] ?>" name="data[<?php echo $key ?>][jumlah]"></td>
+						<input type="number" class="form-control" required="" value="<?= $value['tanggungan_siswa']['jumlah'] ?>" name="data[<?php echo $key ?>][jumlah]">
 					</div>
+					<?php
+						if($value['jenis_penerimaan']['bulanan'] == 1){
+					?>
+					<hr>
+					<b>Periode Awal :</b>
+					<input type="month" name="data[<?php echo $key ?>][periode_awal]" value="<?= $value['tanggungan_siswa']['periode_awal'] ?>" required class="form-control">
+					<br>
+					<b>Periode Akhir: </b>
 					
+					<input type="month" name="data[<?php echo $key ?>][periode_akhir]" value="<?= $value['tanggungan_siswa']['periode_akhir'] ?>" required class="form-control">
+					<?php
+					}
+					?>
+					</td>
 				</tr>
 				<?php endforeach ?>
 			</tbody>

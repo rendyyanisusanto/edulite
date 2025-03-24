@@ -2,9 +2,15 @@
 <form class="form-horizontal" action="<?php echo $data_get['param']['table'] ?>/simpan_data" id="app-submit" method="POST">
 
 <div class="row">
-	<div class="col-md-8">
+	<div class="col-md-6">
 		<div class="panel panel-body">
-			
+			<div class="form-group">
+              <label class="col-lg-3 control-label">Siswa:</label>
+              <div class="col-lg-9">
+                <select data-placeholder="Pilih Siswa" name="idsiswa_fk" class="select siswa">
+				</select>
+              </div>
+            </div>
 			<div class="form-group">
               <label class="col-lg-3 control-label">Kode:</label>
               <div class="col-lg-4">
@@ -27,13 +33,7 @@
                 <input type="text" name="catatan" class="form-control" required placeholder="Input here......">
               </div>
             </div>
-            <div class="form-group">
-              <label class="col-lg-3 control-label">Siswa:</label>
-              <div class="col-lg-9">
-                <select data-placeholder="Pilih Siswa" name="idsiswa_fk" class="select siswa">
-				</select>
-              </div>
-            </div>
+            
             <div class="form-group">
               <label class="col-lg-3 control-label">Metode Pembayaran:</label>
               <div class="col-lg-4">
@@ -47,8 +47,8 @@
 
 		</div>
 	</div>
-	<div class="col-lg-4">
-		
+	<div class="col-lg-6" style="background-color: gray; padding: 1%;height: 320px; overflow-y: auto;">
+		<div class="content-siswa" ></div>
 	</div>
 </div>
 <div class="row">

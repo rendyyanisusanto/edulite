@@ -55,7 +55,23 @@ class transaksi_tanggungan_siswa extends MY_Controller {
 	/*
 		ADD DATA
 	*/
+	function get_content_siswa(){
+		$id = $_POST['id'];
+		
+		$tanggungan 				= 	$this->my_where('v_tanggungan_siswa', ['idsiswa_fk'=>$id])->result_array();
+		foreach ($tanggungan as $value) {
+			$pembayaran = $this->db->select('sum(jumlah) as jml')->get_where('penerimaan', ['idsiswa_fk'=>$_POST['id'], 'idjenispenerimaan_fk'=>$value['id_jenis_penerimaan']])->row_array();
+			$data['tanggungan'][]	=	[
+				'id_jenis_penerimaan'	=>	$value['idjenispenerimaan_fk'],
+				'nama'		=>	$value['nama'],
+				'jumlah'	=>	($value['bulanan'] == 1) ? $value['jumlah']*$value['jumlah_bulan'] : $value['jumlah'],
+				'pembayaran'	=>	$pembayaran['jml']
+			];
 
+		}				
+		$this->my_view(['role/admin/page/transaksi_tanggungan_siswa/add_page/list_tanggungan'],$data);
+
+	}
 
 	public function simpan_data()
 	{	
@@ -368,6 +384,7 @@ class transaksi_tanggungan_siswa extends MY_Controller {
 				$data['tanggungan'][]	=	[
 					'id_jenis_penerimaan'	=>	$value['idjenispenerimaan_fk'],
 					'nama'					=>	$value['nama'],
+					'bulanan'				=>	$value['bulanan'],
 					'jumlah'				=>	$value['jumlah'],
 					'pembayaran'			=>	$pembayaran['jml']
 				];

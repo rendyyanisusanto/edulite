@@ -18,24 +18,23 @@
 	           cache: true
 	         }
 	     });
+	$('.siswa').on('select2:select', function (e) {
+			var data = e.params.data; // Ambil data yang dipilih
+			console.log('ID:', data.id, 'Text:', data.text);
+
+			send_ajax('Transaksi_tanggungan_siswa/get_content_siswa', {id:data.id}).then(function(data){
+				$('.content-siswa').html(data);
+			});
+	});
 	$('.siswa').on('change', function(e){
 		e.stopImmediatePropagation()
 		clear_table();
 	})
 	function add_cart(kode) {
-		// 
 		send_ajax('Transaksi_tanggungan_siswa/add_row', {id:$('.siswa').val()}).then(function(data){
 			$('.tbl-cart tbody').append(data);
 			count_tr();
 		});
-		// var number = 1 + Math.floor(Math.random() * 9999999);
-		// var td = '<tr id="tr'+number+'">';
-		// 	td += '<td width="1%"><button class="btn btn-xs btn-danger btn-dl-item" data-rowid="'+number+'" type="button"><i class="icon-trash"></i></button></td>';
-		// 	td += '<td><input type="text" name="detail['+number+'][keterangan]" class="form-control"></td>';
-		// 	td += '<td><input type="number" name="detail['+number+'][jumlah]" class="form-control inp-jml" ></td>';
-		// 	td += '</tr>';
-		
-
 	}
 	function count_tr()
 	{
@@ -102,10 +101,17 @@
 		$('.tbl-cart tbody tr').remove();
 		count_tr();
 	}
-	$(document).on('change click','.select-tanggungan', function(e){
+	$(document).on('change','.select-tanggungan', function(e){
 		e.stopImmediatePropagation();
 		var rowid = $(this).data('row');
-
+		if($(this).find(':selected').attr('data-bulanan') == 1){
+			$('.periode'+rowid).css('display', '');
+			$('.bulanan'+rowid).val(1);
+		}else{
+			$('.periode'+rowid).css('display', 'none');
+			$('.bulanan'+rowid).val(0);
+		}
+		
 		$('.total'+rowid).val($(this).find(':selected').attr('data-jumlah'));
 		$('.sisa'+rowid).val($(this).find(':selected').attr('data-sisa'));
 		if ($(this).find(':selected').attr('data-sisa') == "0") {

@@ -32,7 +32,7 @@
 	$('.btn-add-kelas').on('click', function(e){
 		if ($('.idkelas').val()!=='') {
 			send_ajax('Penerimaan/modal_setting_all_class', {idkelas:$('.idkelas').val()}).then(function(data){
-				$('.modal').modal('toggle');	
+				$('.modal-tanggungan').modal('toggle');	
 
 				$('.contentform').html(data)
 			});

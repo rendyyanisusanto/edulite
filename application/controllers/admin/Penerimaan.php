@@ -198,6 +198,8 @@ class Penerimaan extends MY_Controller {
 					'idsiswa_fk' 			=>  $_POST['idsiswa_fk'],
 					'idjenispenerimaan_fk'	=>	$value['id_jenis_penerimaan'],
 					'jumlah'				=>	$value['jumlah'],
+					'periode_awal'			=>	$value['periode_awal'],
+					'periode_akhir'			=>	$value['periode_akhir'],
 					'invoice'				=>	$inv
 				];
 				if($this->save_data('tanggungan_siswa', $data)){
@@ -242,7 +244,9 @@ class Penerimaan extends MY_Controller {
 				];
 				$this->my_update('tanggungan_siswa', $data, [
 					'idsiswa_fk' 			=>  $data_flag['idsiswa_fk'],
-					'idjenispenerimaan_fk'	=>	$data_flag['idjenispenerimaan_fk'],
+					'periode_awal'			=>	$value['periode_awal'],
+					'periode_akhir'			=>	$value['periode_akhir'],
+					'idjenispenerimaan_fk'	=>	$data_flag['idjenispenerimaan_fk']
 				]);
 			}
 		}
