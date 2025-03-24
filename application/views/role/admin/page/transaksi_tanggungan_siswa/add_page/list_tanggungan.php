@@ -30,33 +30,31 @@
 					<td><?= $value['nama'] ?></td>
 					<td>Rp. <?= number_format($value['jumlah'],0,'.','.'); ?></td>
 					<td>Rp. <?= number_format($value['pembayaran'],0,'.','.'); ?></td>
-					<td><b class="text-danger">Rp. <?= number_format(($value['jumlah']-$value['pembayaran']),0,'.','.'); ?></b></td>
+					<td><b class="text-<?= (($value['jumlah']-$value['pembayaran']) <= 0) ? 'success' : 'danger' ?>"><?= (($value['jumlah']-$value['pembayaran']) <= 0) ? 'LUNAS' : 'Rp.'.number_format(($value['jumlah']-$value['pembayaran']),0,'.','.') ?></b></td>
 				</tr>
 				<?php endforeach ?>
 				
 			</tbody>
 		</table>
 		<hr>
-		<b>Histori Transaksi</b>
+		<b>Tanggungan SPP</b>
 		<table class="table table-framed table-bordered table-xxs">
 			<thead>
 				<tr>
-					<th>No</th>
-					<th>Tgl</th>
-					<th>Jenis</th>
-					<th>Jumlah</th>
-					<th>Diskon</th>
+					<th width="1%">No</th>
+					<th>Periode</th>
+					<th>Bayar</th>
+					<th>Status</th>
 				</tr>
 			</thead>
 			<tbody>
 				<?php $no = 0; ?>
-				<?php foreach ($data_get['histori_pembayaran'] as $value): ?>
+				<?php foreach ($data_get['tanggungan_spp'] as $key=>$value): ?>
 					<tr>
 						<td><?= (++$no) ?></td>
-						<td><?= date_format(date_create($value['tanggal']),'d-M-y') ?></td>
-						<td><?= $value['nama'] ?></td>
-						<td><b>Rp. <?= number_format($value['jumlah'],0,'.','.') ?></b></td>
-						<td><b>Rp. <?= number_format($value['diskon_penerimaan'], 0, '.','.') ?></b></td>
+						<td><?= $key?></td>
+						<td><b>Rp. <?= number_format($value['jumlah']['jumlah'],0,'.','.') ?></b></td>
+						<td><b class="text-<?= (($value['jumlah']['jumlah']) > 0) ? 'success' : 'danger' ?>"><?= (($value['jumlah']['jumlah']) > 0) ? 'LUNAS' : 'BELUM LUNAS';?></b></td>
 					</tr>
 				<?php endforeach ?>
 			</tbody>

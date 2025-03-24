@@ -67,8 +67,18 @@ class transaksi_tanggungan_siswa extends MY_Controller {
 				'jumlah'	=>	($value['bulanan'] == 1) ? $value['jumlah']*$value['jumlah_bulan'] : $value['jumlah'],
 				'pembayaran'	=>	$pembayaran['jml']
 			];
+		}	
+		
+		$periode_spp = $this->db->query('select periode_awal, periode_akhir from tanggungan_siswa where idsiswa_fk='.$id.' and idjenispenerimaan_fk=999')->row_array();
+		$current = strtotime($periode_spp['periode_awal'] . "-01");
+        $end = strtotime($periode_spp['periode_akhir'] . "-01");
 
-		}				
+        $periode_list = [];
+        while ($current <= $end) {
+            $periode_list = date('Y-m', $current);
+			$data['tanggungan_spp'][date('m-Y', $current)]['jumlah'] = $this->db->query('select jumlah from v_transaksi_tanggungan_siswa where idsiswa_fk='.$id.' and idjenispenerimaan_fk=999 and periode="'.$periode_list.'"')->row_array();
+            $current = strtotime("+1 month", $current);
+        }
 		$this->my_view(['role/admin/page/transaksi_tanggungan_siswa/add_page/list_tanggungan'],$data);
 
 	}
@@ -89,6 +99,7 @@ class transaksi_tanggungan_siswa extends MY_Controller {
 				$detail = [
 					'idtransaksitanggungansiswa_fk'	=>	$datatrs['id_transaksi_tanggungan_siswa'],
 					'idjenispenerimaan_fk'			=>	$value['idjenispenerimaan_fk'],
+					'periode'						=>	$value['periode'],
 					'jumlah'						=>	$value['jumlah']
 				];
 
