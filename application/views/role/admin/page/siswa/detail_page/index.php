@@ -148,7 +148,7 @@
 						</div>
 						
 						<div class="col-md-3">
-							<img src="<?php echo base_url(((!empty($data_get['siswa']['foto']) ? 'include/media/foto_siswa/'.$data_get['siswa']['foto'] : 'include/media/system/no_image.jpg'))) ?>" class="img-responsive" style="width:100%;max-width: 300px;max-height: 400px" >
+							<img src="<?php echo base_url(((!empty($data_get['siswa']['foto']) ? 'include/media/siswa/'.$data_get['siswa']['foto'] : 'include/media/system/no_image.jpg'))) ?>" class="img-responsive" style="width:100%;max-width: 300px;max-height: 400px" >
 							<br>
 							<button class="btn btn-success " type="button" id="btn-edit" data-id="<?php echo $data_get['siswa']['id_siswa'] ?>"><i class="icon-pencil"></i> Edit</button>
 							<a href="<?php echo base_url('admin/siswa/cetak_page/'.$data_get['siswa']['id_siswa']) ?>" target="__blank" class="btn btn-info"><i class="icon-printer"></i> Print</a>

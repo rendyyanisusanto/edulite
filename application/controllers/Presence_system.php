@@ -25,7 +25,11 @@ class Presence_system extends CI_Controller {
 			                          AND idsiswa_fk = presensi_rfid.idsiswa_fk 
 			                          AND tanggal = curdate()) 
 			             THEN waktu ELSE NULL END) AS ijin_kembali,
-			    MAX(CASE WHEN status = 'PULANG' THEN waktu ELSE NULL END) AS pulang
+			    MAX(CASE WHEN status = 'PULANG' THEN waktu ELSE NULL END) AS pulang,
+				(SELECT COUNT(*) FROM presensi_rfid pr2 
+             WHERE pr2.idsiswa_fk = presensi_rfid.idsiswa_fk 
+               AND pr2.status = 'IJIN KELUAR' 
+               AND pr2.tanggal = CURDATE()) AS jumlah_ijin
 			FROM 
 			    presensi_rfid
 			WHERE 
@@ -40,18 +44,34 @@ class Presence_system extends CI_Controller {
 		$this->load->view('presence_system/table', $data);
 	}
 
-	function get_kelas(){
+	function get_last_presence(){
 		$data=[];
-		$data['kelas'] 	=	$this->db->query("SELECT 
-		    k.id_kelas,
-		    k.kelas,
-		    COUNT(p.idsiswa_fk) AS jumlah_absen,
-		    (COUNT(s.id_siswa) - COUNT(p.idsiswa_fk)) AS jumlah_tidak_absen
-		FROM kelas k
-		JOIN siswa s ON k.id_kelas = s.idkelas_fk
-		LEFT JOIN presensi_rfid p ON s.id_siswa = p.idsiswa_fk AND p.tanggal = CURDATE() AND p.`status` = 'MASUK'
-		GROUP BY k.id_kelas, k.kelas;")->result_array();
-
+		$data['presence'] 	=	$this->db->query(" SELECT 
+        pr.idsiswa_fk,
+        s.nama AS nama,
+		s.foto as foto,
+        pr.status,
+        pr.waktu
+    FROM 
+        (
+            SELECT 
+                idsiswa_fk, 
+                MAX(waktu) AS max_waktu
+            FROM 
+                presensi_rfid
+            WHERE 
+                tanggal = CURDATE()
+            GROUP BY 
+                idsiswa_fk
+        ) AS last_per_siswa
+    INNER JOIN 
+        presensi_rfid pr 
+        ON pr.idsiswa_fk = last_per_siswa.idsiswa_fk AND pr.waktu = last_per_siswa.max_waktu
+    INNER JOIN 
+        siswa s ON pr.idsiswa_fk = s.id_siswa
+    ORDER BY 
+        pr.waktu DESC
+    LIMIT 3")->result_array();
 		$this->load->view('presence_system/kelas', $data);
 	}
 
@@ -99,16 +119,16 @@ class Presence_system extends CI_Controller {
 	            $this->insertAbsensi($id_siswa, 'IJIN KEMBALI', $now);
 	            echo json_encode(['msg'=>$siswa_data['nama']." | Berhasil Absen IJIN KEMBALI"]);
 	        } elseif ($last_status == 'IJIN KEMBALI') {
-	            if ($jenis_kelamin == 'L' && $now_timestamp >= strtotime('11:30:00')) {
-	            	echo json_encode(['msg'=>$siswa_data['nama']." | Berhasil Absen PULANG"]);
-	                $this->insertAbsensi($id_siswa, 'PULANG', $now);
-	            } elseif ($jenis_kelamin == 'P' && $now_timestamp >= strtotime('15:30:00')) {
-	            	echo json_encode(['msg'=>$siswa_data['nama']." | Berhasil Absen PULANG"]);
-	                $this->insertAbsensi($id_siswa, 'PULANG', $now);
-	            } else {
-	                echo json_encode(['msg' => $siswa_data['nama'].' | Tidak dapat absen pulang sebelum waktu yang ditentukan']);
-	                return;
-	            }
+	            // Cek apakah mau PULANG atau mau IJIN lagi
+					if (($jenis_kelamin == 'L' && $now_timestamp >= strtotime('11:30:00')) || 
+						($jenis_kelamin == 'P' && $now_timestamp >= strtotime('15:30:00'))) {
+						echo json_encode(['msg'=>$siswa_data['nama']." | Berhasil Absen PULANG"]);
+						$this->insertAbsensi($id_siswa, 'PULANG', $now);
+					} else {
+						// Kalau belum waktunya pulang, ijinkan untuk Ijin Keluar lagi
+						echo json_encode(['msg'=>$siswa_data['nama']." | Berhasil Absen IJIN KELUAR"]);
+						$this->insertAbsensi($id_siswa, 'IJIN KELUAR', $now);
+					}
 	        } elseif (($last_status == 'MASUK' && $now_timestamp >= strtotime('11:30:00') && $jenis_kelamin == 'L') || 
 	                  ($last_status == 'MASUK' && $now_timestamp >= strtotime('15:30:00') && $jenis_kelamin == 'P')) {
 	        		echo json_encode(['msg'=>$siswa_data['nama']." | Berhasil Absen PULANG"]);

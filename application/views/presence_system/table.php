@@ -18,7 +18,7 @@
                             <?php echo $value['masuk'] ?: '-' ?>
                         </td>
                         <td class="text-center  fw-semibold">
-                            <?php echo $value['ijin_keluar'] ?: '-' ?>
+                            <?php echo $value['ijin_keluar'].'('.$value['jumlah_ijin'].')' ?: '-' ?>
                         </td>
                         <td class="text-center  fw-semibold">
                             <?php echo $value['ijin_kembali'] ?: '-' ?>

@@ -201,7 +201,7 @@
                   <label class="col-lg-3 control-label">Foto:</label>
                   <div class="col-lg-9">
 
-                    <img src="<?php echo base_url(((!empty($data_get['siswa']['foto']) ? 'include/media/foto_siswa/'.$data_get['siswa']['foto'] : 'include/media/system/no_image.jpg'))) ?>" class="img-responsive" style="width:100%;max-width: 120px;max-height: 160px" >
+                    <img src="<?php echo base_url(((!empty($data_get['siswa']['foto']) ? 'include/media/siswa/'.$data_get['siswa']['foto'] : 'include/media/system/no_image.jpg'))) ?>" class="img-responsive" style="width:100%;max-width: 120px;max-height: 160px" >
                     <input type="hidden" name="foto_before" value="<?php echo $data_get['siswa']['foto'] ?>">
                     <input type="file" class="form-control" name="foto">
                   </div>

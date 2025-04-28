@@ -86,7 +86,10 @@
                     <!-- Log Absensi -->
                     <div class="mt-4">
                         
+                        <div class="presense-alert">
+                        </div>
 
+                        <h4 style="font-weight: bold; text-align:center;">3 Aktivitas Terakhir</h4>
                         <div class="status-absen-container">
                             
                         </div>
@@ -100,8 +103,7 @@
             <div class="col-md-6">
                 <div class="card p-4">
 
-                    <div class="presense-alert">
-                    </div>
+                    
                     <div class="presense-container">
                     </div>
                 </div>
@@ -111,7 +113,7 @@
 
     <script>
         get_presence();
-        get_kelas();
+        get_last_presence();
         // Update jam digital
         function updateJam() {
             const now = new Date();
@@ -144,7 +146,7 @@
                     $('.presense-alert').html("<div class='alert alert-success'><center><H4>"+rsp.msg+"</H4></center></div>");
 
                     get_presence();
-                    get_kelas();
+                    get_last_presence();
                     setTimeout(function() {
                         $('.presense-alert').html("");
                     }, 4000);
@@ -160,8 +162,8 @@
                 $('.presense-container').html(data);
             })
         }
-        function get_kelas(){
-            send_ajax('<?= base_url("Presence_system/get_kelas")?>', {}).then(function(data){
+        function get_last_presence(){
+            send_ajax('<?= base_url("Presence_system/get_last_presence")?>', {}).then(function(data){
                 // $('.presense-container').html(data);
                 $('.status-absen-container').html(data);
             })
