@@ -45,9 +45,6 @@
 					</form>
 				</div>
 			</div>
-			<div class="col-md-12">
-				<img src="<?php echo base_url('include/media/qr/'.date('Y-m-d').'.png') ?>" class="img">
-			</div>
 		</div>
 		
 	</div>

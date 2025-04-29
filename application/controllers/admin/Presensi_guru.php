@@ -24,15 +24,7 @@ class presensi_guru extends MY_Controller {
 		$data['account']	=	$this->get_user_account();
 		$data['param'] 		= 	$this->arr;
 		$data['tahun_ajaran']		=	$this->my_where('tahun_ajaran',['is_active'=>1])->row_array();
-		$data['guru']		=	$this->my_where('guru',['is_active'=>1])->result_array();
-			
-		$this->load->library('ciqrcode');
-
-		$params['data'] = date('Y-m-d');
-		$params['level'] = 'H';
-		$params['size'] = 10;
-		$params['savename'] = "./include/media/qr/".date('Y-m-d').".png";
-		$this->ciqrcode->generate($params);
+		$data['guru']		=	$this->db->query('select * from guru where is_active = 1 order by kode_pegawai')->result_array();
 		$this->my_view(['role/admin/page/presensi_guru/index_page/index','role/admin/page/presensi_guru/index_page/js'],$data);
 	}
 
@@ -258,7 +250,7 @@ class presensi_guru extends MY_Controller {
 	{
 
 		$tahun_ajaran		=	$this->my_where('tahun_ajaran',['is_active'=>1])->row_array();
-		$data['guru']		=	$this->my_where('guru', ['is_active'=>1])->result_array();
+		$data['guru']		=	$this->db->query('select * from guru where is_active = 1 order by CAST(kode_pegawai AS UNSIGNED)')->result_array();
 		$data['presensi'] 	= 	[];
 
 		foreach ($data['guru'] as $key => $value) {
