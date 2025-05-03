@@ -1,4 +1,6 @@
 <script src="<?php echo base_url('include/template/dashboard/')?>js/plugins/forms/selects/select2.min.js"></script>
+
+<script src="<?php echo base_url('include/template/dashboard/')?>/js/plugins/tables/handsontable/handsontable.min.js"></script>
 <form class="form-horizontal" action="<?php echo $data_get['param']['table'] ?>/simpan_data" id="app-submit" method="POST">
 
 <div class="row">
@@ -55,24 +57,16 @@
 	<div class="col-md-12">
 
 		<div class="panel panel-body">
-			<button class="btn btn-primary btn-add" type="button" style="margin-bottom: 1%;"><i class="icon-plus3"></i> Tambah data</button>
-			<table class="table table-framed tbl-cart">
-				<thead>
-					<tr>
-						<th width="2%">#</th>
-						<th width="30%">Keterangan</th>
-						<th width="10%">Total</th>
-						<th width="10%">Sisa</th>
-						<th width="15%">Jumlah(Rp.)</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr class="empty-data">
-						<td colspan="5"><center><b>Data masih kosong</b></center></td>
-					</tr>
-				</tbody>
-			</table>
-			<br>
+			<b style="font-weight: bold;">Detail Pembayaran</b>
+			<hr>
+			
+
+		<div class="hot-container">
+			<div id="hot_headers"></div>
+		</div>
+		<br>
+		
+
 			<input type="hidden" name="total" class="total">
 			<b class="text-danger text-total" style="font-size: 20px;">Total : Rp.0</b>
 			<hr style="border-top: 1.4px dashed  red;">
@@ -94,3 +88,30 @@
 </div>
 
 </form>
+
+<style>
+	.handsontable .htCore {
+		border-collapse: separate;
+		border-spacing: 0;
+		border: 1px solid #ccc;
+		border-radius: 1px;
+		overflow: hidden;
+	}
+	.ht_master .handsontable td {
+		font-size: 16px !important;
+		padding: 10px !important;
+	}
+
+	/* Header juga diperbesar */
+	.ht_master .handsontable th {
+		font-size: 16px !important;
+		padding: 10px !important;
+		background-color: #f0f0f0;
+	}
+
+	/* Kolom Jumlah diberi background terang */
+	.highlight-jumlah {
+		background-color: #e0f7fa !important;
+		font-weight: bold;
+	}
+</style>

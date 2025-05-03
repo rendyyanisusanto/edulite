@@ -67,18 +67,8 @@ class transaksi_tanggungan_siswa extends MY_Controller {
 				'jumlah'	=>	($value['bulanan'] == 1) ? $value['jumlah']*$value['jumlah_bulan'] : $value['jumlah'],
 				'pembayaran'	=>	$pembayaran['jml']
 			];
-		}	
-		
-		$periode_spp = $this->db->query('select periode_awal, periode_akhir from tanggungan_siswa where idsiswa_fk='.$id.' and idjenispenerimaan_fk=999')->row_array();
-		$current = strtotime($periode_spp['periode_awal'] . "-01");
-        $end = strtotime($periode_spp['periode_akhir'] . "-01");
 
-        $periode_list = [];
-        while ($current <= $end) {
-            $periode_list = date('Y-m', $current);
-			$data['tanggungan_spp'][date('m-Y', $current)]['jumlah'] = $this->db->query('select jumlah from v_transaksi_tanggungan_siswa where idsiswa_fk='.$id.' and idjenispenerimaan_fk=999 and periode="'.$periode_list.'"')->row_array();
-            $current = strtotime("+1 month", $current);
-        }
+		}				
 		$this->my_view(['role/admin/page/transaksi_tanggungan_siswa/add_page/list_tanggungan'],$data);
 
 	}
@@ -86,32 +76,34 @@ class transaksi_tanggungan_siswa extends MY_Controller {
 	public function simpan_data()
 	{	
 		$data = [
-			'idsiswa_fk' 	=>	$_POST['idsiswa_fk'],
-			'tanggal'		=>	$_POST['tanggal'],
-			'invoice'		=>	$_POST['invoice'],
-			'catatan'		=>	$_POST['catatan'],
-			'jumlah'		=>	$_POST['total']
+			'idsiswa_fk' 	=> $_POST['idsiswa_fk'],
+			'tanggal'		=> $_POST['tanggal'],
+			'invoice'		=> $_POST['invoice'],
+			'catatan'		=> $_POST['catatan'],
+			'jumlah'		=> $_POST['total']
 		];
 
-		if ($this->save_data('transaksi_tanggungan_siswa', $data)) {
-			$datatrs = $this->my_where('transaksi_tanggungan_siswa', $data)->row_array();
+		if ($this->db->insert('transaksi_tanggungan_siswa', $data)) {
+			$insert_id = $this->db->insert_id();
+
 			foreach ($_POST['detail'] as $key => $value) {
 				$detail = [
-					'idtransaksitanggungansiswa_fk'	=>	$datatrs['id_transaksi_tanggungan_siswa'],
-					'idjenispenerimaan_fk'			=>	$value['idjenispenerimaan_fk'],
-					'periode'						=>	$value['periode'],
-					'jumlah'						=>	$value['jumlah']
+					'idtransaksitanggungansiswa_fk'	=> $insert_id,
+					'idjenispenerimaan_fk'			=> $value['idjenispenerimaan_fk'],
+					'keterangan'					=> $value['keterangan'],
+					'periode'						=> $value['periode'],
+					'jumlah'						=> $value['jumlah']
 				];
 
-				$this->save_data('detail_transaksi_tanggungan_siswa', $detail);
+				$this->db->insert('detail_transaksi_tanggungan_siswa', $detail);
 
-				$this->add_penerimaan($_POST, $value);
-
+				$this->add_penerimaan($_POST, $value); // Tetap panggil ini kalau perlu
 			}
 		}
 
 		echo json_encode($_POST);
 	}
+
 
 	function add_penerimaan($post, $data_value)
 	{
@@ -332,7 +324,7 @@ class transaksi_tanggungan_siswa extends MY_Controller {
             $row[]		=	'<b class="text-danger">'.$field['invoice'].'</b>';
             $row[]		=	"Pembayaran tanggungan siswa a/n ".$siswa['nama'];
             $row[]		=	'<b class="text-success">Rp. '.number_format($field['jumlah'] , 0, '.','.').'</b>';
-            $row[]		=	'<button class="btn btn-success btn-dtl btn-sm" data-id="'.$field['id_transaksi_tanggungan_siswa'].'" type="button" ><i class="icon-eye"></i></button>';
+            $row[]		=	'<button class="btn btn-primary btn-sm" data-id="'.$field['id_transaksi_tanggungan_siswa'].'" type="button" ><i class="icon-printer"></i></button>';
             $data[]     =   $row;
         }
         $output = array(
@@ -404,6 +396,68 @@ class transaksi_tanggungan_siswa extends MY_Controller {
 
 		$this->my_view(['role/admin/page/transaksi_tanggungan_siswa/add_page/row'],$data);
 	}
+
+	function get_tanggungan() {
+		$data['tanggungan'] = [];
+		$tanggungan = $this->my_where('v_tanggungan_siswa', ['idsiswa_fk' => $_POST['id']])->result_array();
+	
+		foreach ($tanggungan as $value) {
+			$total_jumlah = $value['jumlah'];
+			$total_jumlah_bulanan = 0;
+			if ($value['bulanan'] == 1 && !empty($value['periode_awal']) && !empty($value['periode_akhir'])) {
+				$start = new DateTime($value['periode_awal']);
+				$end = new DateTime($value['periode_akhir']);
+				$interval = $start->diff($end);
+				$selisih_bulan = ($interval->y * 12) + $interval->m + 1; // +1 supaya inklusif
+	
+				$total_jumlah_bulanan = $selisih_bulan * $value['jumlah'];
+			}
+	
+			$pembayaran = $this->db->select('SUM(jumlah) as jml')
+				->get_where('penerimaan', [
+					'idsiswa_fk' => $_POST['id'],
+					'idjenispenerimaan_fk' => $value['id_jenis_penerimaan']
+				])->row_array();
+	
+			$data['tanggungan'][] = [
+				'id'			=> $value['idjenispenerimaan_fk'],
+				'nama'			=> $value['nama'],
+				'bulanan'		=> $value['bulanan'],
+				'jumlah'		=> (($value['bulanan'] == 0) ? $total_jumlah: $total_jumlah_bulanan),
+				'pembayaran'	=> $pembayaran['jml'],
+				'jumlah_bayar'	=>	(($value['bulanan'] == 0) ? $total_jumlah-$pembayaran['jml'] : $total_jumlah)
+			];
+		}
+	
+		echo json_encode($data);
+	}
+	public function cek_periode_terpakai() {
+		$idsiswa = $this->input->post('idsiswa_fk');
+		$idjenis = $this->input->post('idjenispenerimaan_fk');
+		$periode = $this->input->post('periode'); // format: 2025-02
+	
+		$this->db->select('dts.id_detail_transaksi_tanggungan_siswa');
+		$this->db->from('detail_transaksi_tanggungan_siswa dts');
+		$this->db->join('transaksi_tanggungan_siswa tts', 'tts.id_transaksi_tanggungan_siswa = dts.idtransaksitanggungansiswa_fk');
+		$this->db->where('tts.idsiswa_fk', $idsiswa);
+		$this->db->where('dts.idjenispenerimaan_fk', $idjenis);
+		$this->db->where('dts.periode =', $periode); // penting: pastikan field 'periode' bertipe date atau string dengan format YYYY-MM
+	
+		$cek = $this->db->get()->row_array();
+	
+		if ($cek) {
+			echo json_encode([
+				'status' => true,
+				'msg' => 'Periode ' . $periode . ' sudah dibayarkan oleh siswa ini.'
+			]);
+		} else {
+			echo json_encode(['status' => false]);
+		}
+	}
+	
+	
+	
+	
 
 	
 	

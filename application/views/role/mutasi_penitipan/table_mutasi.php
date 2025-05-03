@@ -18,7 +18,7 @@
             <td><?= ucwords(strtolower($value['penitip']['nama'])) ?></td>
             <td><?= ucwords(strtolower($value['kelas']['kelas'])) ?></td>
             <td><?= ucwords(strtolower($value['detail_penitipan']['nama_barang'])) ?></td>
-            <td><?= ucwords(strtolower($value['detail_penitipan']['kode'])) ?></td>
+            <td><?= ucwords(strtolower($value['detail_penitipan']['lokasi'])) ?></td>
             <td style="text-align: center"><?php echo (!empty($value['mutasi_penitipan']['pinjam'])) ? "<b class='text-success'>".$value['mutasi_penitipan']['pinjam']."</b>":"<b class='text-danger'>Absent<b>" ; ?></td>
             <td style="text-align: center"><?php echo (!empty($value['mutasi_penitipan']['kembali'])) ? "<b class='text-success'>".$value['mutasi_penitipan']['kembali']."</b>":"<b class='text-danger'>Belum Kembali<b>" ; ?></td>
         </tr>

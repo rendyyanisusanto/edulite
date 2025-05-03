@@ -16,7 +16,8 @@ class Mutasi_penitipan extends CI_Controller {
 		$data['mutasi_penitipan'] = [];
 		$mutasi_penitipan	=	$this->db->get_where("mutasi_penitipan", ['tanggal' => date('Y-m-d')])->result_array();
 		foreach ($mutasi_penitipan as $value) {
-			$detail_penitipan = $this->db->get_where("penitipan_barang", ['id_penitipan_barang'=>$value['idpenitipanbarang_fk']])->row_array();
+			$detail_penitipan = $this->db->query('select *, (select lokasi from lokasi_penitipan where id_lokasi_penitipan=idlokasipenitipan_fk) as lokasi from penitipan_barang where id_penitipan_barang = '.$value['idpenitipanbarang_fk'])("penitipan_barang", ['id_penitipan_barang'=>$value['idpenitipanbarang_fk']])->row_array();
+			
 			$penitip = $this->db->get_where($detail_penitipan['table'], ['id_'.$detail_penitipan['table']=>$detail_penitipan['idtable_fk']])->row_array();
 			if ($detail_penitipan['table'] == 'siswa') {
 				$kelas = $this->db->get_where('kelas', ['id_kelas'=>$penitip['idkelas_fk']])->row_array();
