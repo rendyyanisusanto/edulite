@@ -60,6 +60,90 @@
 		</div>
 	</div>
 </div>
+<style>
+.quick-access .menu-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px 10px;
+    border-radius: 12px;
+    color: #fff;
+    text-decoration: none;
+    background: linear-gradient(135deg, #4e73df, #1cc88a); /* gradient modern */
+    transition: all 0.3s ease;
+    height: 120px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.quick-access .menu-box:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+    text-decoration: none;
+}
+.quick-access .menu-icon {
+    font-size: 28px;
+    margin-bottom: 8px;
+    line-height: 1;
+}
+.quick-access small {
+    font-weight: 600;
+    font-size: 13px;
+}
+</style>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-stats-pasien">
+            <div class="panel-heading">
+                <h5 class="panel-title"><b>Akses Cepat</b></h5>
+            </div>
+            <div class="panel-body quick-access">
+                <div class="row">
+
+                    <div class="col-sm-2 col-xs-4">
+                        <a href="pembayaran_siswa" class="menu-box">
+                            <i class="menu-icon icon-credit-card"></i>
+                            <small>Pembayaran Siswa</small>
+                        </a>
+                    </div>
+
+                    <div class="col-sm-2 col-xs-4">
+                        <a href="hr_guru" class="menu-box">
+                            <i class="menu-icon icon-users"></i>
+                            <small>HR Guru</small>
+                        </a>
+                    </div>
+
+
+                    <div class="col-sm-2 col-xs-4">
+                        <a href="setting_tagihan" class="menu-box">
+                            <i class="menu-icon icon-cog"></i>
+                            <small>Setting Tagihan</small>
+                        </a>
+                    </div>
+
+                    <div class="col-sm-2 col-xs-4">
+                        <a href="rekap_keuangan" class="menu-box">
+                            <i class="menu-icon icon-stats-bars2"></i>
+                            <small>Rekap Keuangan</small>
+                        </a>
+                    </div>
+
+                    <div class="col-sm-2 col-xs-4">
+                        <a href="pengaturan_user" class="menu-box">
+                            <i class="menu-icon icon-user-check"></i>
+                            <small>Pengaturan User</small>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <div class="row">
 	<div class="col-md-12">
 		<div class="panel panel-stats-pasien">

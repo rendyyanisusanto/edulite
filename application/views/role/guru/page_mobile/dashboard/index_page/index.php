@@ -49,115 +49,118 @@
 		<center><b style="text-align: center; !important;">Fitur :</b></center>
 	</div>
 </div>
-    <div class="row">
-        <div class="col-xs-4">
-            <div class="menu-card">
-                <a href="Jurnal_guru/cek_jurnal" class="app-item">
-                    <i class="icon-magazine"></i> 
-                    <span>Presensi Siswa</span>
-                </a>
-            </div>
-        </div>
-        <div class="col-xs-4">
-            <div class="menu-card">
-                <a href="Presensi_guru/rekap" class="app-item">
-                    <i class="icon-stack-empty"></i> 
-                    <span>Log Absen Guru</span>
-                </a>
-            </div>
-        </div>
-        <div class="col-xs-4">
-            <div class="menu-card">
-                <a href="Penggajian/get_data" class="app-item">
-                    <i class="icon-coin-dollar"></i> 
-                    <span>HR</span>
-                </a>
-            </div>
-        </div>
+<div class="menu-grid">
+    <div class="menu-card">
+        <a href="Jurnal_guru/cek_jurnal" class="app-item">
+            <i class="icon-magazine"></i>
+            <span>Presensi Siswa</span>
+        </a>
     </div>
-    <div class="row">
-        <div class="col-xs-4">
-            <div class="menu-card">
-                <a href="Request_absen/get_data" class="app-item">
-                    <i class="icon-file-text2"></i> 
-                    <span>Request Absen Guru</span>
-                </a>
-            </div>
-        </div>
-        <div class="col-xs-4">
-            <div class="menu-card">
-                <a href="Tugas/get_data" class="app-item">
-                    <i class="icon-file-text3"></i> 
-                    <span>Ijin/Tidak Masuk</span>
-                </a>
-            </div>
-        </div>
-        <div class="col-xs-4">
-            <div class="menu-card logout-card">
-                <a href="Logout" class="app-item">
-                    <i class="icon-exit2"></i> 
-                    <span>Logout</span>
-                </a>
-            </div>
-        </div>
+    <div class="menu-card">
+        <a href="Presensi_guru/rekap" class="app-item">
+            <i class="icon-stack-empty"></i>
+            <span>Log Absen Guru</span>
+        </a>
     </div>
+    <div class="menu-card">
+        <a href="Penggajian/get_data" class="app-item">
+            <i class="icon-coin-dollar"></i>
+            <span>HR</span>
+        </a>
+    </div>
+    <div class="menu-card">
+        <a href="Request_absen/get_data" class="app-item">
+            <i class="icon-file-text2"></i>
+            <span>Request Absen Guru</span>
+        </a>
+    </div>
+    <div class="menu-card">
+        <a href="Tugas/get_data" class="app-item">
+            <i class="icon-file-text3"></i>
+            <span>Ijin/Tidak Masuk</span>
+        </a>
+    </div>
+    <div class="menu-card logout-card">
+        <a href="Logout" class="app-item">
+            <i class="icon-exit2"></i>
+            <span>Logout</span>
+        </a>
+    </div>
+</div>
 
 	
 <div class="floating-btn-container">
     <a href="Request_absen/get_data"  class="floating-btn app-item">Request Absen Guru</a>
 </div>
 <style>
-    .menu-card {
-        width: 100%;
-        background-color: #f8f9fa; /* Gunakan warna netral terang */
-        border-radius: 12px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan lembut untuk kedalaman */
-        margin: 10px;
-        text-align: center;
-        padding: 20px;
-        transition: all 0.3s ease;
-        cursor: pointer;
-        flex: 1 1 30%; /* Membuat 3 elemen per baris */
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        height: 150px; /* Menyesuaikan tinggi card */
-	    justify-content: center; /* Menyusun konten di tengah secara horizontal */
-	    align-items: center; /* Menyusun konten di tengah secara vertikal */
-    }
+    .menu-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+		gap: 15px;
+		margin: 10px 0;
+	}
 
-    .menu-card a {
-        text-decoration: none;
-        color: #2c3e50;
-        display: block;
-    }
+/* Menu Card */
+	.menu-card {
+		background: #ffffff; /* Latar belakang putih */
+		border-radius: 12px;
+		box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Shadow lembut */
+		padding: 20px;
+		text-align: center;
+		transition: all 0.3s ease-in-out; /* Animasi transisi */
+		color: #34495e; /* Teks berwarna abu-abu gelap */
+		position: relative;
+		overflow: hidden;
+	}
 
-    .menu-card i {
-        font-size: 30px;
-        color: #2c3e50;
-        margin-bottom: 10px;
-    }
+	/* Gradasi Animasi */
+	.menu-card::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(45deg, rgba(52, 152, 219, 0.1), rgba(231, 76, 60, 0.1)); /* Gradasi lembut */
+		transition: opacity 0.3s ease;
+		opacity: 0;
+		pointer-events: none;
+	}
 
-    .menu-card span {
-        display: block;
-        font-size: 12px;
-        font-weight: bold;
-    }
+	/* Hover Effect - Animasi Gradasi */
+	.menu-card:hover::after {
+		opacity: 1; /* Menampilkan gradasi saat hover */
+	}
 
-    .menu-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-    }
+	.menu-card:hover {
+		transform: translateY(-8px); /* Efek angkat lebih besar saat hover */
+		box-shadow: 0 18px 40px rgba(0, 0, 0, 0.2); /* Shadow lebih dramatis */
+	}
 
-    .logout-card {
-        background-color: #f8d7da;
-        border: 1px solid #f5c6cb;
-    }
+	/* Icon inside Menu Card */
+	.menu-card i {
+		font-size: 32px;
+		margin-bottom: 10px;
+		color: #34495e; /* Warna ikon yang lebih gelap */
+	}
 
-    .logout-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-    }
+	/* Menu Card Text */
+	.menu-card span {
+		font-size: 14px;
+		font-weight: bold;
+		display: block;
+		color: #34495e; /* Teks abu-abu gelap untuk kontras */
+	}
+
+		.logout-card {
+			background: #dc3545;
+		}
+
+		.logout-card:hover {
+			background: #a71d2a;
+		}
+
+
     .row {
 	    display: flex;
 	    flex-wrap: wrap;
@@ -177,7 +180,7 @@
 	    display: inline-block; /* Agar elemen <a> diperlakukan seperti tombol */
 	    text-align: center; /* Pusatkan teks */
 	    text-decoration: none; /* Hilangkan garis bawah */
-	    background-color: #2c3e50; /* Warna latar tombol */
+	    background-color: #341f97; /* Warna latar tombol */
 	    color: white; /* Warna teks */
 	    font-size: 16px;
 	    font-weight: bold;
@@ -200,12 +203,13 @@
 	/* Main Container */
 	.container-t {
 		margin-top: 10px;
-	    background-color: #2c3e50; /* Warna biru */
-	    padding: 20px;
-	    border-radius: 10px;
-	    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-	    width: 104%;
-	    max-width: 600px;
+		background-color: #341f97; /* Warna putih cerah, lebih elegan */
+		padding: 20px;
+		border-radius: 15px;
+		box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); /* Shadow lebih tebal dan elegan */
+		width: 100%;
+		max-width: 600px;
+		transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animasi saat hover */
 	}
 
 	/* Header Section */
@@ -219,7 +223,8 @@
 	    display: flex;
 	    flex-direction: column;
 	    align-items: center;
-	    background-color: #2c3e50;
+		background-color: #341f97; /* Warna putih cerah, lebih elegan */
+	    
 	    padding: 19px;
 	    border-radius: 8px;
 	    min-width: 100px;
@@ -245,7 +250,7 @@
 	    align-items: center; /* Menyusun konten di tengah secara vertikal */
 	    width: 40px;
 	    height: 40px;
-	    background-color: #2c3e50;
+	    background-color: #341f97;
 	    border-radius: 50%;
 	    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 	}

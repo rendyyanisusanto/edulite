@@ -5,6 +5,7 @@
 	// Initialize with options
 	// Data dummy komponen dari server (bisa replace dengan ajax)
 	var komponenList = [
+		{id: 1, nama:'SPP', jumlah:50000, pembayaran:20000, bulanan:1}
 	];
 	
 	var komponenDropdown = komponenList.map(k => k.nama); // Untuk dropdown saja
