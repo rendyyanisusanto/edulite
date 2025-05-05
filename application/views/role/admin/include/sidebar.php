@@ -118,6 +118,14 @@
       </ul>
     </li>
     <li>
+      
+   <li>
+      <a href="#"><i class="icon-user-check"></i> <span>Dokumen Kelulusan</span></a>
+      <ul>
+        <li><a href="Skl/get_data" class="app-item">SKL</a></li>
+      </ul>
+   </li>
+  <li>
       <a href="#"><i class="icon-sort"></i> <span>Kenaikan dan Kelulusan</span></a>
       <ul>
         <li><a href="Siswa/mutasi" class="app-item">Pindah Kelas</a></li>

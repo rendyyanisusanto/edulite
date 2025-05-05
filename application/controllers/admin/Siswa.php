@@ -636,7 +636,7 @@ class siswa extends MY_Controller {
 	{
 		$data['account']	=	$this->get_user_account();
 		$data['param'] 		= 	$this->arr;
-		$data['siswa']		=	$this->my_where('siswa', ['idkelas_fk'=>$_POST['idkelas']])->result_array();
+		$data['siswa']		=	$this->my_where('siswa', ['idkelas_fk'=>$_POST['idkelas'], 'is_alumni'=>0])->result_array();
 		$data['kelas']		=	$this->my_where('kelas', ['id_kelas'=>$_POST['idkelas']])->row_array();
 		$this->my_view(['role/admin/page/siswa/kelulusan/get_siswa'],$data);		
 	}
@@ -702,54 +702,7 @@ class siswa extends MY_Controller {
 	function proses_alumni()
 	{
 		$id_siswa = $_POST['idsiswa_fk'];
-
-		$siswa = $this->my_where('siswa', ['id_siswa'=>$id_siswa])->row_array();
-		$jurusan = $this->my_where('jurusan', ['id_jurusan'=>$siswa['idjurusan_fk']])->row_array();
-		$alumni = [
-			'foto'					=>	$siswa['foto'],
-			'tahun_lulus' 			=>	$_POST['tahun_lulus'], 	
-			'nis'					=>	$siswa['nis'],
-			'nama' 					=>	$siswa['nama'],
-			'jurusan'				=>	$jurusan['jurusan'],
-			'agama' 				=>	$siswa['agama'],
-			'jenis_kelamin'			=>	$siswa['jenis_kelamin'],
-			'nisn' 					=>	$siswa['nisn'],
-			'no_ijazah_sekolah_asal'=>	$siswa['no_ijazah_sekolah_asal'],
-			'no_skhun_sekolah_asal'	=>	$siswa['no_skhun_sekolah_asal'],
-			'no_un_sekolah_asal'	=>	$siswa['no_un_sekolah_asal'],
-			'no_kk'					=>	$siswa['no_kk'],
-			'npsn_sekolah_asal'		=>	$siswa['npsn_sekolah_asal'],
-			'nama_sekolah_asal'		=>	$siswa['nama_sekolah_asal'],	
-			'tempat_lahir'			=>	$siswa['tempat_lahir'],
-			'tanggal_lahir'			=>	$siswa['tanggal_lahir'],
-			'berkebutuhan_khusus'	=>	$siswa['berkebutuhan_khusus'],
-			'alamat'				=>	$siswa['alamat'],
-			'dusun'					=>	$siswa['dusun'],
-			'rt'					=>	$siswa['rt'],
-			'rw'					=>	$siswa['rw'],
-			'kelurahan'				=>	$siswa['kelurahan'],
-			'idprovince_fk'			=>	$siswa['idprovince_fk'],
-			'idcities_fk'			=>	$siswa['idcities_fk'],
-			'nama_ayah'				=>	$siswa['nama_ayah'],
-			'tempat_lahir_ayah'		=>	$siswa['tempat_lahir_ayah'],
-			'tanggal_lahir_ayah'	=>	$siswa['tanggal_lahir_ayah'],
-			'pendidikan_ayah'		=>	$siswa['pendidikan_ayah'],
-			'pekerjaan_ayah'		=>	$siswa['pekerjaan_ayah'],
-			'penghasilan_ayah'		=>	$siswa['penghasilan_ayah'],
-			'nama_ibu'				=>	$siswa['nama_ibu'],
-			'tempat_lahir_ibu'		=>	$siswa['tempat_lahir_ibu'],
-			'tanggal_lahir_ibu'		=>	$siswa['tanggal_lahir_ibu'],
-			'pendidikan_ibu'		=>	$siswa['pendidikan_ibu'],
-			'pekerjaan_ibu'			=>	$siswa['pekerjaan_ibu'],
-			'penghasilan_ibu'		=>	$siswa['penghasilan_ibu'],
-			'tinggi_badan'			=>	$siswa['tinggi_badan'],
-			'berat_badan'			=>	$siswa['berat_badan'],
-			'jarak_ke_sekolah'		=>	$siswa['jarak_ke_sekolah'],
-			'jumlah_saudara'		=>	$siswa['jumlah_saudara'],
-			'is_siswa_id'			=>	$id_siswa,
-		];
-		$this->save_data('alumni', $alumni);
-		$this->db->delete('siswa', ['id_siswa' =>$id_siswa]);
+		$this->my_update('siswa', ['is_alumni'=>1, 'tahun_lulus'=>$_POST['tahun_lulus']], ['id_siswa'=>$id_siswa]);
 	}
 
 	function proses_alumni_kelas()
