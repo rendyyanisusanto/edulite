@@ -71,7 +71,7 @@ class skl extends MY_Controller {
         $data = [
             'idsiswa_fk'     => $id_siswa,
             'kode'           => $kode,
-            'file'           => $file_name_db,
+            'file'           => base_url('include/skl/').$file_name_db,
             'download_count' => 0,
             'status'         => $status,
             'keterangan'     => $keterangan,
