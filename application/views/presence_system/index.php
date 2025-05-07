@@ -102,14 +102,13 @@
             <!-- Panel Promosi (Lebih kecil 30%) -->
             <div class="col-md-6">
                 <div class="card p-4">
-
-                    
                     <div class="presense-container">
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <audio id="audio-success" src="<?= base_url('include/media/sound/success.mp3') ?>" preload="auto"></audio>
 
     <script>
         get_presence();
@@ -144,7 +143,7 @@
                 send_ajax('<?= base_url("Presence_system/simpan_absen")?>', {rfid:rfid}).then(function(data){
                     var rsp = JSON.parse(data);
                     $('.presense-alert').html("<div class='alert alert-success'><center><H4>"+rsp.msg+"</H4></center></div>");
-
+                    document.getElementById('audio-success').play();
                     get_presence();
                     get_last_presence();
                     setTimeout(function() {

@@ -1,7 +1,7 @@
 <?php
     foreach ($presence as $key => $value) {
         ?>
-        <div class="col-md-4">
+        <div>
 
             <div class="card shadow-lg p-3 mb-3 bg-body rounded mx-auto" style="width: 100%;">
                 <!-- Foto Siswa dengan tampilan persegi -->
