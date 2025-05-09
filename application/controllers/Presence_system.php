@@ -99,6 +99,12 @@ class Presence_system extends CI_Controller {
 	            LIMIT 1
 	        ");
 
+			$setting_status_pulang = $this->db->query("SELECT value FROM setting_table WHERE `table` = 'status_pulang'")->row_array();
+			$status_pulang_enabled = 0;
+			if ($setting_status_pulang) {
+				$status_pulang_enabled = $setting_status_pulang['value']; // 1 = aktif, 0 = nonaktif
+			}
+
 	        if ($status_data->num_rows() > 0) {
 	            $last_absen = $status_data->row_array();
 	            $last_status = $last_absen['status'];
@@ -114,34 +120,32 @@ class Presence_system extends CI_Controller {
 	        }
 
 	        // Logika Absensi
-	        if ($last_status == 'MASUK') {
-	            $this->insertAbsensi($id_siswa, 'IJIN KELUAR', $now);
-	            echo json_encode(['msg'=>$siswa_data['nama']." | Berhasil Absen IJIN KELUAR"]);
-	        } elseif ($last_status == 'IJIN KELUAR') {
-	            $this->insertAbsensi($id_siswa, 'IJIN KEMBALI', $now);
-	            echo json_encode(['msg'=>$siswa_data['nama']." | Berhasil Absen IJIN KEMBALI"]);
-	        } elseif ($last_status == 'IJIN KEMBALI') {
-	            // Cek apakah mau PULANG atau mau IJIN lagi
-					if (($jenis_kelamin == 'L' && $now_timestamp >= strtotime('11:30:00')) || 
-						($jenis_kelamin == 'P' && $now_timestamp >= strtotime('15:30:00'))) {
-						echo json_encode(['msg'=>$siswa_data['nama']." | Berhasil Absen PULANG"]);
-						$this->insertAbsensi($id_siswa, 'PULANG', $now);
-					} else {
-						// Kalau belum waktunya pulang, ijinkan untuk Ijin Keluar lagi
-						echo json_encode(['msg'=>$siswa_data['nama']." | Berhasil Absen IJIN KELUAR"]);
-						$this->insertAbsensi($id_siswa, 'IJIN KELUAR', $now);
-					}
-	        } elseif (($last_status == 'MASUK' && $now_timestamp >= strtotime('11:30:00') && $jenis_kelamin == 'L') || 
-	                  ($last_status == 'MASUK' && $now_timestamp >= strtotime('15:30:00') && $jenis_kelamin == 'P')) {
-	        		echo json_encode(['msg'=>$siswa_data['nama']." | Berhasil Absen PULANG"]);
-	            $this->insertAbsensi($id_siswa, 'PULANG', $now);
-	        } elseif ($last_status == 'PULANG') {
-	                echo json_encode(['msg' => $siswa_data['nama'].' | ANDA SUDAH ABSEN']);
-	                return;
-	        } else {
-	        	echo json_encode(['msg'=>$siswa_data['nama']." | Berhasil Absen Masuk"]);
-	            $this->insertAbsensi($id_siswa, 'MASUK', $now);
-	        }
+			if($status_pulang_enabled == 1){
+				echo json_encode(['msg'=>$siswa_data['nama']." | Berhasil Absen PULANG"]);
+	            	$this->insertAbsensi($id_siswa, 'PULANG', $now);
+			}else{
+				if ($last_status == 'MASUK') {
+					$this->insertAbsensi($id_siswa, 'IJIN KELUAR', $now);
+					echo json_encode(['msg'=>$siswa_data['nama']." | Berhasil Absen IJIN KELUAR"]);
+				} elseif ($last_status == 'IJIN KELUAR') {
+					$this->insertAbsensi($id_siswa, 'IJIN KEMBALI', $now);
+					echo json_encode(['msg'=>$siswa_data['nama']." | Berhasil Absen IJIN KEMBALI"]);
+				} elseif ($last_status == 'IJIN KEMBALI') {
+						if ($status_pulang_enabled == 1) {
+							echo json_encode(['msg' => $siswa_data['nama'] . " | Berhasil Absen PULANG"]);
+							$this->insertAbsensi($id_siswa, 'PULANG', $now);
+						} else {
+							echo json_encode(['msg'=>$siswa_data['nama']." | Berhasil Absen IJIN KELUAR"]);
+							$this->insertAbsensi($id_siswa, 'IJIN KELUAR', $now);
+						}
+				}  elseif ($last_status == 'PULANG') {
+						echo json_encode(['msg' => $siswa_data['nama'].' | ANDA SUDAH ABSEN']);
+						return;
+				} else {
+					echo json_encode(['msg'=>$siswa_data['nama']." | Berhasil Absen Masuk"]);
+					$this->insertAbsensi($id_siswa, 'MASUK', $now);
+				}
+			}
 	    }
 	}
 

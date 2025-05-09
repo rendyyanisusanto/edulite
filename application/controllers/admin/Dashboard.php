@@ -5,6 +5,7 @@ class Dashboard extends MY_Controller {
 	public function get_data()
 	{
 		$data['account']	=	$this->get_user_account();
+		$data['status_pulang'] = $this->db->query('SELECT * FROM setting_table WHERE `table` = "status_pulang"')->row_array();
 
 		$this->my_view(['role/admin/page/dashboard/index_page/index','role/admin/page/dashboard/index_page/js'],$data);
 	}
@@ -25,6 +26,16 @@ class Dashboard extends MY_Controller {
 		$data['guru_total']				=	$this->my_where('guru',[])->num_rows();
 		$this->my_view(['role/admin/page/dashboard/index_page/stats'],$data);
 		
+	}
+
+	function update_status_pulang_ajax(){
+		$status = $this->input->post('status_pulang'); // nilai 1 atau 0
+
+		// Update status berdasarkan keterangan atau kondisi lainnya
+		$this->db->where('table', 'status_pulang'); // sesuaikan dengan kondisi Anda
+		$this->db->update('setting_table', ['value' => $status]);
+
+		echo json_encode(['success' => true]);
 	}
 	
 }
