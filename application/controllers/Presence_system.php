@@ -38,7 +38,7 @@ class Presence_system extends CI_Controller {
 			GROUP BY 
 			    idsiswa_fk
 			ORDER BY 
-			    id_presensi_rfid
+			    id_presensi_rfid DESC
 			limit 15;
 			    ")->result_array();
 
