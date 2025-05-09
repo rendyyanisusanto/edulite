@@ -93,7 +93,7 @@ class Presence_system extends CI_Controller {
 	            SELECT status, waktu 
 	            FROM presensi_rfid 
 	            WHERE idsiswa_fk = '".$id_siswa."' 
-				AND DATE(waktu) = CURDATE() 
+				AND DATE(tanggal) = CURDATE() 
 	            ORDER BY waktu DESC 
 	            LIMIT 1
 	        ");
