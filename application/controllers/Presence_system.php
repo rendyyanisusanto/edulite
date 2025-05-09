@@ -15,6 +15,7 @@ class Presence_system extends CI_Controller {
 		$data=[];
 		$data['presence'] 	=	$this->db->query("
 						SELECT 
+				id_presensi_rfid,
 			    idsiswa_fk,
 			    (select nama from siswa where idsiswa_fk = siswa.id_siswa) as nama_siswa,
 			    MIN(CASE WHEN status = 'MASUK' THEN waktu ELSE NULL END) AS masuk,
@@ -37,8 +38,8 @@ class Presence_system extends CI_Controller {
 			GROUP BY 
 			    idsiswa_fk
 			ORDER BY 
-			    idsiswa_fk;
-
+			    id_presensi_rfid
+			limit 15;
 			    ")->result_array();
 
 		$this->load->view('presence_system/table', $data);
