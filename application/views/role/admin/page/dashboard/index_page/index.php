@@ -21,7 +21,7 @@
                name="status_pulang"
                id="status-pulang-toggle"
                value="1"
-               <?= $status_pulang['value'] == '1' ? 'checked' : ''; ?>
+               <?= $data_get['status_pulang']['value'] == '1' ? 'checked' : ''; ?>
                data-toggle="toggle"
                data-on="ON"
                data-off="OFF"

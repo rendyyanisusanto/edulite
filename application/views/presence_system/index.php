@@ -80,7 +80,7 @@
 
                     <!-- Input RFID -->
                     <form id="form-absen">
-                        <input type="text" id="rfid-input" autocomplete="new-password" class="form-control form-control-lg text-center" placeholder="Scan Kartu RFID..." autofocus>
+                        <input type="password" id="rfid-input" class="form-control form-control-lg text-center" placeholder="Scan Kartu RFID..." autofocus>
                     </form>
 
                     <!-- Log Absensi -->
