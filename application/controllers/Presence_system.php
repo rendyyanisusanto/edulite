@@ -149,6 +149,12 @@ class Presence_system extends CI_Controller {
 	    }
 	}
 
+	function get_status_pulang(){
+		$data = $this->db->query('select `value` from setting_table where `table` = "status_pulang"')->row_array();
+
+		echo ($data['value'] == 0) ? "<h4 style='font-weight:bold;' class='text-center text-danger'>Status Pulang : Belum Waktunya</h4>" : "<h4 style='font-weight:bold;' class='text-center text-success'>Status Pulang : Sudah Waktunya Pulang</h4>";
+	}
+
 	private function getAbsensiStatus($idsiswa_fk)
 	{
 	    // Ambil status terakhir berdasarkan RFID

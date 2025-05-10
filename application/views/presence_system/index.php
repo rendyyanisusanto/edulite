@@ -74,7 +74,6 @@
             <div class="col-md-6">
                 <div class="card p-4">
                     <h3 class="text-center mb-3">Live Presence System</h3>
-                    
                     <!-- Jam Digital -->
                     <div id="jam-digital" class="mb-3"></div>
 
@@ -102,6 +101,9 @@
             <!-- Panel Promosi (Lebih kecil 30%) -->
             <div class="col-md-6">
                 <div class="card p-4">
+                    <div style="margin-top: 2%;" class="status_pulang">
+
+                    </div>
                     <div class="presense-container">
                     </div>
                 </div>
@@ -124,6 +126,14 @@
         setInterval(updateJam, 1000);
         updateJam();
 
+        function status_pulang(){
+            send_ajax('<?= base_url("Presence_system/get_status_pulang")?>', {}).then(function(data){
+                $('.status_pulang').html(data)
+            })
+        }
+
+        setInterval(status_pulang, 60000);
+        status_pulang();
         // Fokus kembali ke input RFID
         const rfidInput = document.getElementById("rfid-input");
         rfidInput.addEventListener("blur", () => {
