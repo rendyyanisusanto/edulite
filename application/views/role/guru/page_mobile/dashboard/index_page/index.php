@@ -75,9 +75,9 @@
         </a>
     </div>
     <div class="menu-card">
-        <a href="Tugas/get_data" class="app-item">
+        <a href="Laporan_presensi_siswa/laporan_per_siswa" class="app-item">
             <i class="icon-file-text3"></i>
-            <span>Ijin/Tidak Masuk</span>
+            <span>Laporan Presensi Siswa</span>
         </a>
     </div>
     <div class="menu-card logout-card">
