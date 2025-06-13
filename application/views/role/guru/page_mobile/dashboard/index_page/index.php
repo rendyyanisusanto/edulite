@@ -51,9 +51,9 @@
 </div>
 <div class="menu-grid">
     <div class="menu-card">
-        <a href="Jurnal_guru/cek_jurnal" class="app-item">
+        <a href="Laporan_presensi_siswa/get_data" class="app-item">
             <i class="icon-magazine"></i>
-            <span>Presensi Siswa tes</span>
+            <span>Laporan Presensi Siswa</span>
         </a>
     </div>
     <div class="menu-card">

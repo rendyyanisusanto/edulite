@@ -7,7 +7,6 @@
 <div class="row" style="margin-top: 5%;">
 	<div class="col-xs-12">
 		<a href="dashboard/get_data" class="btn app-item bg-warning-400 btn-labeled legitRipple"><b><i class="icon-home"></i></b> Home (<i>Home</i>)</a>
-		<!-- <a href="Request_absen/add_page" class="btn app-item bg-success-400 btn-labeled legitRipple"><b><i class="icon-plus2"></i></b> Tambah (<i>add</i>)</a> -->
 		<hr>
 	</div>
 </div>
@@ -26,16 +25,15 @@
         <div class="form-group">
           <label class="col-lg-3 control-label">Tanggal Mulai:</label>
           <div class="col-lg-4">
-            <input type="date" name="tanggal_mulai" class="form-control" required placeholder="Input here......">
+            <input type="date" name="tanggal_mulai" class="form-control" value="<?= date('Y-m-01')?>" required placeholder="Input here......">
           </div>
         </div>
         <div class="form-group">
           <label class="col-lg-3 control-label">Tanggal Sampai:</label>
           <div class="col-lg-4">
-            <input type="date" name="tanggal_selesai" class="form-control" required placeholder="Input here......">
+            <input type="date" name="tanggal_selesai" class="form-control" value="<?= date('Y-m-d')?>" required placeholder="Input here......">
           </div>
         </div>
-
         <button class="btn btn-success" type="submit"><i class="icon-spinner"></i> Proses</button>
     </div>
 

@@ -7,7 +7,6 @@
 <div class="row" style="margin-top: 5%;">
 	<div class="col-xs-12">
 		<a href="dashboard/get_data" class="btn app-item bg-warning-400 btn-labeled legitRipple"><b><i class="icon-home"></i></b> Home (<i>Home</i>)</a>
-		<a href="Request_absen/add_page" class="btn app-item bg-success-400 btn-labeled legitRipple"><b><i class="icon-plus2"></i></b> Tambah (<i>add</i>)</a>
 		<hr>
 	</div>
 </div>
@@ -23,12 +22,6 @@
         <a href="Laporan_presensi_siswa/laporan_per_siswa" class="app-item">
             <i class="icon-stack-empty"></i>
             <span>Laporan Per Siswa</span>
-        </a>
-    </div>
-    <div class="menu-card">
-        <a href="Penggajian/get_data" class="app-item">
-            <i class="icon-coin-dollar"></i>
-            <span>Laporan Per Minggu</span>
         </a>
     </div>
 </div>
