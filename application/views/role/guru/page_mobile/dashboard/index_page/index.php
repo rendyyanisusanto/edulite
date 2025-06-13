@@ -53,7 +53,7 @@
     <div class="menu-card">
         <a href="Jurnal_guru/cek_jurnal" class="app-item">
             <i class="icon-magazine"></i>
-            <span>Presensi Siswa</span>
+            <span>Presensi Siswa tes</span>
         </a>
     </div>
     <div class="menu-card">

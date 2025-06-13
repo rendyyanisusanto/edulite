@@ -56,7 +56,6 @@
 			unblockui('.panel-proses');
 			set_content('<?php echo $data_get['param']['table'] ?>/get_data');
 		});
-
 		return false;
 	})
 </script>

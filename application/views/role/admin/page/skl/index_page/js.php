@@ -5,6 +5,7 @@
 		});
     }
 
+    proses();
     
 
 </script>
