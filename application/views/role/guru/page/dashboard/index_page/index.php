@@ -41,8 +41,7 @@
 						<button class="btn btn-danger btn-check" data-status="1" type="button">Check OUT</button>
 					<?php } ?>
 				<?php }else{ ?>
-					<button class="btn btn-success btn-check" data-status="0" type="button">Check IN</button>
-					<button class="btn btn-danger btn-check" data-status="1" type="button">Check OUT</button>
+					<b>Tidak ada jadwal hari ini/libur</b>
 				<?php } ?>
 			</div>
 			

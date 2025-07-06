@@ -78,6 +78,8 @@
       <li><a href="Presensi_guru/get_data" class="app-item">Presensi Guru</a></li>
       <li><a href="Request_absen/get_data" class="app-item">Request Presensi Guru</a></li>
       <li><a href="Presensi_guru/rekap" class="app-item">Rekap Presensi Guru</a></li>
+      <li><a href="Hari_libur/get_data" class="app-item">Setting Hari Libur</a></li>
+      
     </ul>
   </li>
   <li>

@@ -185,8 +185,29 @@ class presensi_guru extends MY_Controller {
 	}
 	function simpan_data()
 	{
-
+		
 		$tahun_ajaran		=	$this->my_where('tahun_ajaran',['is_active'=>1])->row_array();
+		$tanggal = $_POST['tanggal'];
+		$id_guru = $_POST['idguru_fk'];
+		// 💡 1. Cek apakah tanggal ini adalah hari libur
+		$libur = $this->my_where('hari_libur', ['tanggal' => $tanggal])->row_array();
+
+		if ($libur) {
+			// 💡 2. Jika libur, cek pengecualian untuk guru ini
+			$pengecualian = $this->my_where('pengecualian_hari_libur', [
+				'idguru_fk' => $id_guru,
+				'idharilibur_fk' => $libur['id_hari_libur']
+			])->row_array();
+
+			if (!$pengecualian) {
+				// ❌ Libur dan tidak ada pengecualian
+				echo json_encode([
+					'status' => 500,
+					'message' => 'Hari ini adalah hari libur: ' . $libur['keterangan'] . ', dan guru ini tidak termasuk pengecualian.'
+				]);
+				return;
+			}
+		}
 		$data = [
 			'idguru_fk'			=>	$_POST['idguru_fk'],
 			'tanggal'			=>	$_POST['tanggal'],
@@ -203,15 +224,7 @@ class presensi_guru extends MY_Controller {
 
 		if ($cek->num_rows() == 0) {
 			if ($this->save_data('presensi_guru', $data)) {
-				
 				$guru = $this->my_where('guru', ['id_guru'=>$_POST['idguru_fk']])->row_array();
-
-				$this->curl->simple_post('http://localhost:8000/send-message', 
-					[
-						'number'	=>	$guru['no_hp'].'@c.us', 
-						'message'	=>	'Hay '.$guru['nama'].', Anda sudah melakukan presensi pada pukul '.$_POST['pukul']
-					]
-					);
 			}
 		}else{
 			if ($_POST['status'] == 1) {
@@ -238,7 +251,10 @@ class presensi_guru extends MY_Controller {
 			
 		}
 
-		echo json_encode($_POST);
+		echo json_encode([
+			'status' => 200,
+			'message' => 'Data berhasil disimpan.'
+		]);
 	}
 
 	function hapus_hari()
@@ -248,30 +264,67 @@ class presensi_guru extends MY_Controller {
 
 	public function get_presensi()
 	{
+		$tanggal_hari_ini = date('Y-m-d');
+		$hari_ini = date('w', strtotime($tanggal_hari_ini)); // 0 (Minggu) - 6 (Sabtu)
 
-		$tahun_ajaran		=	$this->my_where('tahun_ajaran',['is_active'=>1])->row_array();
-		$data['guru']		=	$this->db->query('select * from guru where is_active = 1 order by CAST(kode_pegawai AS UNSIGNED)')->result_array();
-		$data['presensi'] 	= 	[];
+		$tahun_ajaran = $this->my_where('tahun_ajaran', ['is_active' => 1])->row_array();
+		$data['guru'] = $this->db->query('SELECT * FROM guru WHERE is_active = 1 ORDER BY CAST(kode_pegawai AS UNSIGNED)')->result_array();
+		$data['presensi'] = [];
 
-		foreach ($data['guru'] as $key => $value) {
-			$day = date('w', strtotime("now"));
+		// Cek apakah hari ini adalah hari libur
+		$libur_hari_ini = $this->my_where('hari_libur', ['tanggal' => $tanggal_hari_ini])->row_array();
 
-			$cek_absen = $this->my_where('jadwal_guru', ['idguru_fk'=>$value['id_guru'], 'idhari_fk'=>$day]);
+		foreach ($data['guru'] as $guru) {
+			$id_guru = $guru['id_guru'];
 
-			if ($cek_absen->num_rows() > 0) {
-				$cek = $this->my_where('presensi_guru', ['idguru_fk'=>$value['id_guru'],'idtahunajaran_fk'=>$tahun_ajaran['id_tahun_ajaran'],'tanggal'=>date('Y-m-d')])->row_array();
+			// Jika hari ini libur
+			if ($libur_hari_ini) {
+				// Cek apakah guru ini masuk daftar pengecualian pada hari libur tersebut
+				$pengecualian = $this->my_where('pengecualian_hari_libur', [
+					'idguru_fk' => $id_guru,
+					'idharilibur_fk' => $libur_hari_ini['id_hari_libur']
+				])->row_array();
 
-				$data['presensi'][] = [
-					'guru' => $value,
-					'presensi' => $cek
-				];
+				if ($pengecualian) {
+					// Guru masuk walaupun hari libur
+					$cek = $this->my_where('presensi_guru', [
+						'idguru_fk' => $id_guru,
+						'idtahunajaran_fk' => $tahun_ajaran['id_tahun_ajaran'],
+						'tanggal' => $tanggal_hari_ini
+					])->row_array();
+
+					$data['presensi'][] = [
+						'guru' => $guru,
+						'presensi' => $cek,
+						'status_hari' => 'Libur - Masuk (Pengecualian)'
+					];
+				}
+			} else {
+				// Hari biasa, cek apakah guru punya jadwal hari ini
+				$cek_jadwal = $this->my_where('jadwal_guru', [
+					'idguru_fk' => $id_guru,
+					'idhari_fk' => $hari_ini
+				]);
+
+				if ($cek_jadwal->num_rows() > 0) {
+					$cek = $this->my_where('presensi_guru', [
+						'idguru_fk' => $id_guru,
+						'idtahunajaran_fk' => $tahun_ajaran['id_tahun_ajaran'],
+						'tanggal' => $tanggal_hari_ini
+					])->row_array();
+
+					$data['presensi'][] = [
+						'guru' => $guru,
+						'presensi' => $cek,
+						'status_hari' => 'Masuk (Hari Aktif)'
+					];
+				}
 			}
-			
 		}
 
-		$this->my_view(['role/admin/page/presensi_guru/index_page/presensi'],$data);
-
+		$this->my_view(['role/admin/page/presensi_guru/index_page/presensi'], $data);
 	}
+
 
 	public function save_presensi_firebase()
 	{

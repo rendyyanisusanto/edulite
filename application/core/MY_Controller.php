@@ -411,15 +411,50 @@ class MY_Controller extends CI_Controller {
         $kd = $this->my_where('kd', ['idtahunajaran_fk'=>$ta['id_tahun_ajaran'], 'idguru_fk'=>$data['account']['anggota_id'], 'idmatapelajaran_fk'=>$mapel, 'idkelas_fk'=>$kelas])->num_rows();
         return $kd;
     }
-
+    /**
+     * Cek apakah guru boleh absen hari ini.
+     * – Return 1  : boleh absen
+     * – Return 0  : tidak boleh absen
+     */
     public function cek_jadwal_guru_hari_ini($idguru_fk = "", $tahun_ajaran = "")
     {
-        if (!empty($idguru_fk)) {
-            $day = date('w', strtotime("now"));
-            $cek_jadwal = $this->my_where('jadwal_guru', ['idguru_fk'=>$idguru_fk, 'idhari_fk'=>$day, 'idtahunajaran_fk'=>$tahun_ajaran]);
-
-            return $cek_jadwal->num_rows();
+        if (empty($idguru_fk) || empty($tahun_ajaran)) {
+            return 0;
         }
+
+        $tanggal_hari_ini = date('Y-m-d');
+        $hari_index       = date('w');           // 0=Minggu … 6=Sabtu
+
+        /* ------------------------------------------------------------------
+        * 1. Cek apakah tanggal ini adalah hari libur
+        * ----------------------------------------------------------------*/
+        $libur = $this->my_where('hari_libur', ['tanggal' => $tanggal_hari_ini])->row_array();
+        if ($libur) {
+            // Hari ini memang libur ➜ cek pengecualian guru
+            $pengecualian = $this->my_where('pengecualian_hari_libur', [
+                'idguru_fk'      => $idguru_fk,
+                'idharilibur_fk' => $libur['id_hari_libur']
+            ])->row_array();
+
+            // ‑ Guru bukan pengecualian ➜ tidak boleh absen
+            if (!$pengecualian) {
+                return 0;
+            }
+
+            // ‑ Guru pengecualian ➜ BOLEH absen walau libur
+            return 1;
+        }
+
+        /* ------------------------------------------------------------------
+        * 2. Hari biasa ➜ cek apakah guru punya jadwal hari ini
+        * ----------------------------------------------------------------*/
+        $cek_jadwal = $this->my_where('jadwal_guru', [
+            'idguru_fk'         => $idguru_fk,
+            'idhari_fk'         => $hari_index,
+            'idtahunajaran_fk'  => $tahun_ajaran
+        ]);
+
+        return $cek_jadwal->num_rows();   // 1 ➜ boleh | 0 ➜ tidak ada jadwal
     }
 
     public function cek_presensi_guru_hari_ini($idguru_fk="", $tahun_ajaran="")

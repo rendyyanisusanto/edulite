@@ -34,8 +34,6 @@
 						<button class="btn btn-pulang btn-check" data-status="1" type="button">Absen Pulang</button>
 					<?php } ?>
 				<?php }else{ ?>
-					<button class="btn btn-pulang btn-check" data-status="0" type="button">Absen Masuk</button>
-					<button class="btn btn-masuk btn-check" data-status="1" type="button">Absen Pulang</button>
 				<?php } ?>
 			</div>
 
