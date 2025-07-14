@@ -22,7 +22,7 @@
 	<!-- <div class="buttons"> -->
 
 			<div style="display: none;" class="rowabsen buttons">
-				<?php if (isset($data_get['presensi'])){ ?>
+				<?php if (isset($data_get['jadwal_guru'])){ ?>
 					<?php if (!empty($data_get['presensi']['jam_masuk']) && $data_get['presensi']['jam_masuk'] !== '00:00:00' ){ ?>
 					<?php }else{ ?>
 						<button class="btn btn-masuk btn-check" data-status="0" type="button">Absen Masuk</button>

@@ -411,7 +411,7 @@ class MY_Controller extends CI_Controller {
         $kd = $this->my_where('kd', ['idtahunajaran_fk'=>$ta['id_tahun_ajaran'], 'idguru_fk'=>$data['account']['anggota_id'], 'idmatapelajaran_fk'=>$mapel, 'idkelas_fk'=>$kelas])->num_rows();
         return $kd;
     }
-    /**
+    /** 
      * Cek apakah guru boleh absen hari ini.
      * – Return 1  : boleh absen
      * – Return 0  : tidak boleh absen
