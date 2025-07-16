@@ -84,7 +84,7 @@
         </a>
     </div>
     <div class="menu-card logout-card">
-        <a href="Logout" class="app-item">
+        <a href="<?= base_url('auth/logout');?>">
             <i class="icon-exit2"></i>
             <span>Logout</span>
         </a>
