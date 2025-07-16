@@ -186,7 +186,7 @@ class users extends MY_Controller {
             $row[]		=	$field['username'];
             $row[]		=	$field['first_name'];
             $row[]		=	strtoupper($groups['name']);
-			
+			$row[]		=	'<a href="Users/reset_password" target="__blank" class="btn btn-primary btn-xs"><i class="icon-pencil7"></i> Reset password</a>';
             $data[]     =   $row;
         }
         $output = array(
