@@ -220,7 +220,11 @@ class users extends MY_Controller {
 		if ($updated) {
 			// 4. Kirim pesan WA jika nomor tersedia
 			if (!empty($guru['no_hp'])) {
-				$message = "Halo {$user->first_name},\n\nPassword Anda telah direset.\nUsername: *{$user->username}*\nPassword baru: *{$new_password}*\n\nSilakan login kembali ke Edulite.";
+				$link_login = base_url('auth/login');
+				$message = "Halo {$user->first_name},\n\nPassword Anda telah direset.\n"
+					. "Username: *{$user->username}*\nPassword baru: *{$new_password}*\n\n"
+					. "Silakan login ke Edulite melalui link berikut:\n{$link_login}\n\n"
+					. "Terima kasih 🙏";
 				bot_wa($this, $guru['no_hp'], $message, 'reset_password', $id, 'admin');
 			}
 
