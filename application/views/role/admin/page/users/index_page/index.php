@@ -28,6 +28,7 @@
               <th>Username</th>
               <th>Name</th>
               <th>Role</th>
+              <th>Reset</th>
             </tr>
           </thead>
         </table>
