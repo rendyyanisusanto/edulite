@@ -203,7 +203,7 @@ class users extends MY_Controller {
 	{
 		// 1. Ambil user berdasarkan ID
 		$user = $this->ion_auth->user($id)->row();
-		$guru = $this->my_where('guru', ['id_guru' => $user->additional_data['anggota_id']])->row_array();
+		$guru = $this->my_where('guru', ['id_guru' => $user->anggota_id])->row_array();
 
 		if (!$user) {
 			echo json_encode(['status' => 'error', 'message' => 'User tidak ditemukan']);
