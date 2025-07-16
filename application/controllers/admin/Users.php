@@ -212,10 +212,10 @@ class users extends MY_Controller {
 
 		// 2. Set password baru = username
 		$new_password = $user->username;
-		$hashed_password = $this->ion_auth->hash_password($new_password);
+		// $hashed_password = $this->ion_auth->hash_password($new_password);
 
 		// 3. Update password
-		$updated = $this->ion_auth->update($id, ['password' => $hashed_password]);
+		$updated =$this->ion_auth->update($id, ['password' => $new_password]);
 
 		if ($updated) {
 			// 4. Kirim pesan WA jika nomor tersedia
