@@ -186,7 +186,7 @@ class users extends MY_Controller {
             $row[]		=	$field['username'];
             $row[]		=	$field['first_name'];
             $row[]		=	strtoupper($groups['name']);
-			$row[]		=	'<a href="Users/reset_password" target="__blank" class="btn btn-primary btn-xs"><i class="icon-pencil7"></i> Reset password</a>';
+			$row[]		=	'<a href="Users/reset_password/'.$field['id'].'" target="__blank" class="btn btn-primary btn-xs"><i class="icon-pencil7"></i> Reset password</a>';
             $data[]     =   $row;
         }
         $output = array(
@@ -199,20 +199,39 @@ class users extends MY_Controller {
         echo json_encode($output);
 	}
 
-	function reset_password()
+	public function reset_password($id)
 	{
-		// $id = $_POST['id'];
-		// $data = [
-		// 	'password' => $this->ion_auth->hash_password($_POST['password'])
-		// ];
-		// if ($this->ion_auth->update($id, $data)) {
-		// 	echo json_encode(['status' => 'success', 'message' => 'Password berhasil direset']);
-		// } else {
-		// 	echo json_encode(['status' => 'error', 'message' => 'Gagal mereset password']);
-		// }
+		$this->load->library('ion_auth');
+		$this->load->helper('wa'); // Jika pakai helper WA
 
-		echo json_encode(['status' => 'success', 'message' => 'Fitur ini belum tersedia']);
+		// 1. Ambil user berdasarkan ID
+		$user = $this->ion_auth->user($id)->row();
+
+		if (!$user) {
+			echo json_encode(['status' => 'error', 'message' => 'User tidak ditemukan']);
+			return;
+		}
+
+		// 2. Set password baru = username
+		$new_password = $user->username;
+		$hashed_password = $this->ion_auth->hash_password($new_password);
+
+		// 3. Update password
+		$updated = $this->ion_auth->update($id, ['password' => $hashed_password]);
+
+		if ($updated) {
+			// 4. Kirim pesan WA jika nomor tersedia
+			if (!empty($user->no_hp)) {
+				$message = "Halo {$user->first_name},\n\nPassword Anda telah direset.\nUsername: *{$user->username}*\nPassword baru: *{$new_password}*\n\nSilakan login kembali ke Edulite.";
+				bot_wa($this, $user->no_hp, $message, 'reset_password', $id, 'admin');
+			}
+
+			echo json_encode(['status' => 'success', 'message' => 'Password berhasil direset dan dikirim ke WhatsApp']);
+		} else {
+			echo json_encode(['status' => 'error', 'message' => 'Gagal mereset password']);
+		}
 	}
+
 
 	public function get_user()
 	{
