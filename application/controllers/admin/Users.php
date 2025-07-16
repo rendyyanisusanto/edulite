@@ -201,9 +201,6 @@ class users extends MY_Controller {
 
 	public function reset_password($id)
 	{
-		$this->load->library('ion_auth');
-		$this->load->helper('wa'); // Jika pakai helper WA
-
 		// 1. Ambil user berdasarkan ID
 		$user = $this->ion_auth->user($id)->row();
 
