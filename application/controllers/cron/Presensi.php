@@ -74,7 +74,7 @@ class Presensi extends CI_Controller {
 
 
         // Cek hari libur
-        $libur = $this->my_where('hari_libur', ['tanggal' => $today])->row_array();
+        $libur = $this->db->get_where('hari_libur', ['tanggal' => $today])->row_array();
         $query = null;
 
         if ($libur) {
