@@ -133,7 +133,7 @@ class Presensi extends CI_Controller {
                 . "Silakan gunakan fitur *Request Absen* jika Anda tidak dalam jangkauan.\n\n"
                 . "No Reply: BOT WA SMKKITA";
 
-            // $this->bot_wa($guru['no_hp'], $msg, 'request_absen', null, 'admin');
+            $this->bot_wa($guru['no_hp'], $msg, 'request_absen', null, 'admin');
 
             $result[] = [
                 'idguru' => $idguru,
