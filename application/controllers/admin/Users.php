@@ -203,6 +203,7 @@ class users extends MY_Controller {
 	{
 		// 1. Ambil user berdasarkan ID
 		$user = $this->ion_auth->user($id)->row();
+		$guru = $this->my_where('guru', ['id_guru' => $user->additional_data['anggota_id']])->row_array();
 
 		if (!$user) {
 			echo json_encode(['status' => 'error', 'message' => 'User tidak ditemukan']);
@@ -218,9 +219,9 @@ class users extends MY_Controller {
 
 		if ($updated) {
 			// 4. Kirim pesan WA jika nomor tersedia
-			if (!empty($user->no_hp)) {
+			if (!empty($guru['no_hp'])) {
 				$message = "Halo {$user->first_name},\n\nPassword Anda telah direset.\nUsername: *{$user->username}*\nPassword baru: *{$new_password}*\n\nSilakan login kembali ke Edulite.";
-				bot_wa($this, $user->no_hp, $message, 'reset_password', $id, 'admin');
+				bot_wa($this, $guru['no_hp'], $message, 'reset_password', $id, 'admin');
 			}
 
 			echo json_encode(['status' => 'success', 'message' => 'Password berhasil direset dan dikirim ke WhatsApp']);
