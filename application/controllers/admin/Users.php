@@ -199,6 +199,21 @@ class users extends MY_Controller {
         echo json_encode($output);
 	}
 
+	function reset_password()
+	{
+		// $id = $_POST['id'];
+		// $data = [
+		// 	'password' => $this->ion_auth->hash_password($_POST['password'])
+		// ];
+		// if ($this->ion_auth->update($id, $data)) {
+		// 	echo json_encode(['status' => 'success', 'message' => 'Password berhasil direset']);
+		// } else {
+		// 	echo json_encode(['status' => 'error', 'message' => 'Gagal mereset password']);
+		// }
+
+		echo json_encode(['status' => 'success', 'message' => 'Fitur ini belum tersedia']);
+	}
+
 	public function get_user()
 	{
 		$table = $_POST['table'];
