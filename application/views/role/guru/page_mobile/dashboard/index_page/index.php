@@ -22,20 +22,25 @@
 	<!-- <div class="buttons"> -->
 
 			<div style="display: none;" class="rowabsen buttons">
-				<?php if (isset($data_get['jadwal_guru'])){ ?>
-					<?php if (!empty($data_get['presensi']['jam_masuk']) && $data_get['presensi']['jam_masuk'] !== '00:00:00' ){ ?>
-					<?php }else{ ?>
+				<?php if (isset($data_get['jadwal_guru']) && $data_get['jadwal_guru'] > 0){ ?>
+					<?php if (empty($data_get['presensi']['jam_masuk']) || $data_get['presensi']['jam_masuk'] === '00:00:00'){ ?>
+						<!-- Belum absen masuk -->
 						<button class="btn btn-masuk btn-check" data-status="0" type="button">Absen Masuk</button>
-						<button class="btn btn-pulang " disabled type="button">Absen Pulang</button>
-					<?php } ?>
-					<?php if (!empty($data_get['presensi']['jam_keluar']) && $data_get['presensi']['jam_keluar'] !== '00:00:00' ){ ?>
-					<?php }else{ ?>
-						<button class="btn btn-masuk btn-check" disabled type="button">Absen Masuk</button>
+						<button class="btn btn-pulang" disabled type="button">Absen Pulang</button>
+					<?php } elseif (empty($data_get['presensi']['jam_keluar']) || $data_get['presensi']['jam_keluar'] === '00:00:00'){ ?>
+						<!-- Sudah absen masuk tapi belum absen pulang -->
+						<button class="btn btn-masuk" disabled type="button">Absen Masuk</button>
 						<button class="btn btn-pulang btn-check" data-status="1" type="button">Absen Pulang</button>
+					<?php } else { ?>
+						<!-- Sudah absen masuk dan keluar -->
+						<button class="btn btn-masuk" disabled type="button">Absen Masuk</button>
+						<button class="btn btn-pulang" disabled type="button">Absen Pulang</button>
 					<?php } ?>
-				<?php }else{ ?>
+				<?php } else { ?>
+					<p style="color:red; font-size: 12px; text-align:center;">Anda tidak memiliki jadwal mengajar hari ini</p>
 				<?php } ?>
 			</div>
+
 
 			
 	<!-- </div> -->
