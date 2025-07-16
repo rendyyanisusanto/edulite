@@ -72,14 +72,6 @@ class Presensi extends CI_Controller {
             'guru_tidak_ditemukan' => [],
         ];
 
-        if (!$this->input->is_ajax_request()) {
-            return $this->output
-                ->set_content_type('application/json')
-                ->set_output(json_encode([
-                    'success' => false,
-                    'message' => 'Request bukan AJAX.'
-                ]));
-        }
 
         // Cek hari libur
         $libur = $this->my_where('hari_libur', ['tanggal' => $today])->row_array();
