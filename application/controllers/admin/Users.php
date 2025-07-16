@@ -186,10 +186,7 @@ class users extends MY_Controller {
             $row[]		=	$field['username'];
             $row[]		=	$field['first_name'];
             $row[]		=	strtoupper($groups['name']);
-            $row[]		=	($field['c'] == 1) ? "<b class='text-success'>YES</b>" :"<b class='text-danger'>NO</b>";
-            $row[]		=	($field['r'] == 1) ? "<b class='text-success'>YES</b>" :"<b class='text-danger'>NO</b>";
-            $row[]		=	($field['u'] == 1) ? "<b class='text-success'>YES</b>" :"<b class='text-danger'>NO</b>";
-            $row[]		=	($field['d'] == 1) ? "<b class='text-success'>YES</b>" :"<b class='text-danger'>NO</b>";
+			
             $data[]     =   $row;
         }
         $output = array(

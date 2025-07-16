@@ -59,18 +59,41 @@ class Presensi extends CI_Controller {
     public function get_guru_belum_absen_pulang_hari_ini()
     {
         $today = date('Y-m-d');
-        $hariIni = date('w'); // 0 = Minggu, 6 = Sabtu
+        $hariIni = date('w');
 
-        // 1. Cek apakah hari ini hari libur
+        $result = [];
+        $debug = [
+            'tanggal' => $today,
+            'hari_index' => $hariIni,
+            'is_libur' => false,
+            'compiled_subquery' => '',
+            'presensi_query_ok' => false,
+            'guru_ditemukan' => [],
+            'guru_tidak_ditemukan' => [],
+        ];
+
+        if (!$this->input->is_ajax_request()) {
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_output(json_encode([
+                    'success' => false,
+                    'message' => 'Request bukan AJAX.'
+                ]));
+        }
+
+        // Cek hari libur
         $libur = $this->my_where('hari_libur', ['tanggal' => $today])->row_array();
+        $query = null;
 
         if ($libur) {
-            // Hari libur ➜ Ambil guru pengecualian
+            $debug['is_libur'] = true;
+
             $this->db->select('phl.idguru_fk');
             $this->db->from('pengecualian_hari_libur phl');
             $this->db->join('hari_libur hl', 'hl.id_hari_libur = phl.idharilibur_fk');
             $this->db->where('hl.tanggal', $today);
             $subquery = $this->db->get_compiled_select();
+            $debug['compiled_subquery'] = $subquery;
 
             $query = $this->db->query("
                 SELECT idguru_fk
@@ -82,15 +105,15 @@ class Presensi extends CI_Controller {
                 )
             ");
         } else {
-            // Hari biasa ➜ ambil guru yang punya jadwal hari ini dan belum absen pulang
             $this->db->select('idguru_fk');
             $this->db->from('jadwal_guru');
             $this->db->where('idhari_fk', $hariIni);
             $subquery = $this->db->get_compiled_select();
+            $debug['compiled_subquery'] = $subquery;
 
             $query = $this->db->query("
                 SELECT idguru_fk
-                FROM ($subquery) AS jadwal_hari_ini
+                FROM ($subquery) AS jadwal
                 WHERE idguru_fk IN (
                     SELECT idguru_fk
                     FROM presensi_guru
@@ -99,16 +122,46 @@ class Presensi extends CI_Controller {
             ");
         }
 
-        foreach ($query->result_array() as $key => $value) {
-            $guru = $this->db->query('SELECT nama, no_hp FROM guru WHERE id_guru = ' . (int)$value['idguru_fk'])->row_array();
+        if ($query) {
+            $debug['presensi_query_ok'] = true;
+        }
+
+        foreach ($query->result_array() as $value) {
+            $idguru = (int)$value['idguru_fk'];
+            $guru = $this->db->query('SELECT nama, no_hp FROM guru WHERE id_guru = ' . $idguru)->row_array();
+
+            if (!$guru) {
+                $debug['guru_tidak_ditemukan'][] = $idguru;
+                continue;
+            }
+
+            $debug['guru_ditemukan'][] = $guru['nama'];
 
             $msg = "Halo " . $guru['nama'] . ", Bapak/Ibu guru belum absen pulang hari ini di Edulite. "
                 . "Silakan gunakan fitur *Request Absen* jika Anda tidak dalam jangkauan.\n\n"
                 . "No Reply: BOT WA SMKKITA";
 
             $this->bot_wa($guru['no_hp'], $msg, 'request_absen', null, 'admin');
+
+            $result[] = [
+                'idguru' => $idguru,
+                'nama' => $guru['nama'],
+                'no_hp' => $guru['no_hp'],
+                'status' => 'Belum absen pulang',
+                'pesan' => $msg,
+            ];
         }
+
+        return $this->output
+            ->set_content_type('application/json')
+            ->set_output(json_encode([
+                'success' => true,
+                'total' => count($result),
+                'data' => $result,
+                'debug' => $debug
+            ]));
     }
+
 
 
 
