@@ -18,7 +18,7 @@
 						<tr>
 							<td style="padding-left: 3%;" width="30%">Jenis</td>
 							<td width="1%">:</td>
-							<td style="padding-left: 3%;" ><?php echo $value['jam_masuk']; ?></td>
+							<td style="padding-left: 3%;" ><b class="text-<?= ($value['jenis'] == 'PELANGGARAN') ? 'danger' : 'success' ?>"></b><?php echo $value['jenis']; ?></td>
 						</tr>
 						<tr>
 							<td style="padding-left: 3%;" width="30%">Keterangan</td>
