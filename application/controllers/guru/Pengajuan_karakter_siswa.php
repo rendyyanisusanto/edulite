@@ -63,7 +63,7 @@ class pengajuan_karakter_siswa extends MY_Controller {
 				// 🚀 Upload foto ke MinIO
 				if (!empty($_FILES['foto']['name'])) {
 					$foto_nama = upload_to_minio('foto', 'pengajuan_karakter_siswa', $id, 'foto', true); // compress gambar
-					$this->db->update('pengajuan_karakter_siswa', ['foto' => $foto_nama], ['id' => $id]);
+					$this->db->update('pengajuan_karakter_siswa', ['foto' => $foto_nama], ['id_pengajuan_karakter_siswa' => $id]);
 				}
 
 				echo json_encode(['status' => 200, 'msg' => 'Data santri berhasil disimpan']);
