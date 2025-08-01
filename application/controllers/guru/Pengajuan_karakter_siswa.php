@@ -40,7 +40,6 @@ class pengajuan_karakter_siswa extends MY_Controller {
 		$data['account']	=	$this->get_user_account();
 		$data['param'] 		= 	$this->arr;
 
-        print_r($data['account']);
 		
  		$this->my_view(['role/guru/page_mobile/pengajuan_karakter_siswa/add_page/index','role/guru/page_mobile/pengajuan_karakter_siswa/add_page/js'],$data);
 	}
@@ -56,7 +55,7 @@ class pengajuan_karakter_siswa extends MY_Controller {
                 'jenis' => $_POST['jenis'],
                 'siswa' => $_POST['siswa'],
                 'keterangan' => $_POST['keterangan'],
-                'idguru_fk' => $this->get_user_account()['id_guru']
+                'idguru_fk' => $this->get_user_account()['anggota_id']
 			];
 
 			if ($this->db->insert('pengajuan_karakter_siswa', $data)) {
