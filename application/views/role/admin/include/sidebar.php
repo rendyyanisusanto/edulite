@@ -130,6 +130,7 @@
   <li>
       <a href="#"><i class="icon-sort"></i> <span>Kenaikan dan Kelulusan</span></a>
       <ul>
+        <li><a href="Mutasi_siswa/get_data" class="app-item">Mutasi Siswa</a></li>
         <li><a href="Siswa/mutasi" class="app-item">Pindah Kelas</a></li>
         <li><a href="Siswa/kenaikan" class="app-item">Kenaikan Kelas</a></li>
         <li><a href="Siswa/kelulusan" class="app-item">Kelulusan Kelas</a></li>

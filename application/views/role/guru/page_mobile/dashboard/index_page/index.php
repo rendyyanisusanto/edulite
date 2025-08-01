@@ -54,6 +54,12 @@
 </div>
 <div class="menu-grid">
     <div class="menu-card">
+        <a href="Pengajuan_karakter_siswa/get_data" class="app-item">
+            <i class="icon-magazine"></i>
+            <span>Sistem Aduan Siswa</span>
+        </a>
+    </div>
+    <div class="menu-card">
         <a href="Laporan_presensi_siswa/get_data" class="app-item">
             <i class="icon-magazine"></i>
             <span>Laporan Presensi Siswa</span>
