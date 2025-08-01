@@ -39,6 +39,8 @@ class pengajuan_karakter_siswa extends MY_Controller {
 	{
 		$data['account']	=	$this->get_user_account();
 		$data['param'] 		= 	$this->arr;
+
+        print_r($data['account']);
 		
  		$this->my_view(['role/guru/page_mobile/pengajuan_karakter_siswa/add_page/index','role/guru/page_mobile/pengajuan_karakter_siswa/add_page/js'],$data);
 	}
