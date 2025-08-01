@@ -67,6 +67,16 @@ class pengajuan_karakter_siswa extends MY_Controller {
 					$this->db->update('pengajuan_karakter_siswa', ['foto' => $foto_nama], ['id_pengajuan_karakter_siswa' => $id]);
 				}
 
+                
+
+                $guru = $this->my_where('guru', ["id_guru"=>$this->get_user_account()['anggota_id']])->row_array();
+                $msg = "Sistem Aduan Siswa oleh ".$guru['nama'].": \n\n"
+                . "\tSiswa  \t\t\t: " . str_pad($_POST['siswa'], 40) . "\n"
+                . "\tTanggal \t\t\t: " . str_pad($_POST['tanggal'], 40) . "\n"
+                . "\tKeterangan \t\t: " . str_pad($_POST['keterangan'], 40);
+
+                $this->bot_wa('085894632505', $msg, 'pengajuan_karakter_siswa', $dt['pengajuan_karakter_siswa'], 'guru');
+
 				echo json_encode(['status' => 200, 'msg' => 'Data santri berhasil disimpan']);
 			} else {
 				echo json_encode(['status' => 500, 'msg' => 'Data santri gagal disimpan']);
