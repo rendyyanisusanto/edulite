@@ -2,13 +2,15 @@
 	get_jadwal();
 	function get_jadwal(){
 		var nweek = $('.nweek').val();
-		send_ajax('Jadwal_lab/jadwal', {tanggal:nweek}).then(function(data){
+		var id_lab = $('.lab').val();
+		send_ajax('Jadwal_lab/jadwal', {tanggal:nweek, id_lab : id_lab}).then(function(data){
 			$('.content-jadwal').html(data)
 		})
 	}
 	function get_jadwal_rilis(){
 		var nweek = $('.nweek').val();
-		send_ajax('Jadwal_lab/jadwal_rilis', {tanggal:nweek}).then(function(data){
+		var id_lab = $('.lab').val();
+		send_ajax('Jadwal_lab/jadwal_rilis', {tanggal:nweek, id_lab:id_lab}).then(function(data){
 			$('.content-jadwal').html(data)
 		})
 	}

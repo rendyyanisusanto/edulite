@@ -23,6 +23,7 @@ class jadwal_lab extends MY_Controller {
 	{
 		$data['account']	=	$this->get_user_account();
 		$data['param'] 		= 	$this->arr;
+		$data['lab']		=	$this->my_where('laboratorium', [])->result_array();
 		$this->my_view(['role/admin/page/jadwal_lab/index_page/penjadwalan','role/admin/page/jadwal_lab/index_page/js_penjadwalan'],$data);
 	}
 	function jadwal(){
@@ -41,7 +42,8 @@ class jadwal_lab extends MY_Controller {
 			foreach ($period as $dt) {
 				$tgl = $dt->format("d");
 
-				$query = $this->db->query("Select * from v_jadwal_lab where id_jam_pelajaran=".$value['id_jam_pelajaran']." and 
+				$query = $this->db->query("Select * from v_jadwal_lab where id_jam_pelajaran=".$value['id_jam_pelajaran']." and
+					idlaboratorium_fk = ".$_POST['id_lab']." and 
 					MONTH(tanggal) = ".$dt->format("m")." and
 					YEAR(tanggal) = ".$dt->format("Y")." and
 					DAY(tanggal) = ".(int)$tgl."");
@@ -110,7 +112,7 @@ class jadwal_lab extends MY_Controller {
 			foreach ($period as $dt) {
 				$tgl = $dt->format("d");
 
-				$query = $this->db->query("Select * from v_jadwal_lab where status=1 and id_jam_pelajaran=".$value['id_jam_pelajaran']." and 
+				$query = $this->db->query("Select * from v_jadwal_lab where idlaboratorium_fk=".$_POST['id_lab']." and status=1 and id_jam_pelajaran=".$value['id_jam_pelajaran']." and 
 					MONTH(tanggal) = ".$dt->format("m")." and
 					YEAR(tanggal) = ".$dt->format("Y")." and
 					DAY(tanggal) = ".$tgl."");
@@ -133,6 +135,7 @@ class jadwal_lab extends MY_Controller {
 		$data['jadwal_lab']	=	$this->my_where('jadwal_lab', ['id_jadwal_lab'=>$id])->row_array();
 		$data['detail']		=	$this->my_where('v_jadwal_lab', ['id_jadwal_lab' => $id])->result_array();
 		$data['guru']		=	$this->my_where('guru', ['id_guru' => $data['jadwal_lab']['idguru_fk']])->row_array();
+		$data['laboratorium']	=	$this->my_where('laboratorium', ['id_laboratorium' => $data['jadwal_lab']['idlaboratorium_fk']])->row_array();
 
 		$this->my_view(['role/admin/page/jadwal_lab/index_page/detail_content'],$data);
 	}

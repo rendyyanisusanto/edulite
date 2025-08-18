@@ -4,7 +4,14 @@
       
         <label>Minggu</label>
         <input type="week" class="form-control nweek" value="<?php echo date('Y').'-W'.date('W');?>"  name="tanggal">
-
+        <br>
+        <label>Laboratorium</label>
+        <select class="form-control lab" name="id_lab" id="id_lab">
+          <!-- <option value="">-- Pilih Laboratorium --</option> -->
+          <?php foreach ($data_get['lab'] as $key => $value): ?>
+            <option value="<?php echo $value['id_laboratorium']; ?>"><?php echo $value['nama']; ?></option>
+          <?php endforeach; ?>
+        </select>
         <button style="margin-top: 20px;" type="button" onclick="get_jadwal();" required class="btn btn-success"><i class="icon-spinner2"></i> Proses</button>
         <button style="margin-top: 20px;" type="button" onclick="get_jadwal_rilis();" required class="btn btn-primary"><i class="icon-calendar"></i> Rilis Jadwal</button>
     </div>

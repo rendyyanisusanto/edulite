@@ -19,9 +19,20 @@ class jadwal_lab extends MY_Controller {
 		$data['param'] 		= 	$this->arr;
 		$data['guru']		=	$this->my_where('guru', ['id_guru'=>$data['account']['anggota_id']])->row_array();
 		$data['dt_guru']	=	$this->get_guru();
-		$this->my_view(['role/guru/page/jadwal_lab/index_page/index','role/guru/page/jadwal_lab/index_page/js'],$data);
-	}
+		if ($this->agent->is_mobile()) {	
 
+			$this->my_view(['role/guru/page_mobile/jadwal_lab/index_page/index','role/guru/page_mobile/jadwal_lab/index_page/js'],$data);
+		} else {
+			$this->my_view(['role/guru/page/jadwal_lab/index_page/index','role/guru/page/jadwal_lab/index_page/js'],$data);
+		}
+	}
+	function get_data_request(){
+		$data['account']	=	$this->get_user_account();
+		$data['param'] 		= 	$this->arr;
+		$data['guru']		=	$this->get_guru();
+		$data['jadwal_lab']	=	$this->db->query('select *, (select nama from laboratorium where id_laboratorium=idlaboratorium_fk) as nama from jadwal_lab where idguru_fk='.$data['guru']['guru']['id_guru'].' order by id_jadwal_lab desc limit 10')->result_array();
+		$this->my_view(['role/guru/page_mobile/jadwal_lab/index_page/get_data'],$data);
+	}
 	public function add_page()
 	{
 		$data['account']	=	$this->get_user_account();
@@ -80,37 +91,38 @@ class jadwal_lab extends MY_Controller {
 		$this->my_view(['role/guru/page/jadwal_lab/add_page/jadwal'],$data);
 	}
 	public function simpan_data()
-	{	
+	{
 		$transcode = rand(0, 999999);
+
 		$data = [
-			'kode' 							=> $transcode,	 	
-			'tanggal' 						=> $_POST['tanggal'],
-			'idkelas_fk' 					=> $_POST['idkelas_fk'],
-			'idmapel_fk' 					=> $_POST['idmapel_fk'],
-			'keterangan' 					=> $_POST['keterangan'],
-			'status' 						=> 0,
-			'idguru_fk' 					=> $this->get_user_account()['anggota_id'],
+			'kode'              => $transcode,
+			'tanggal'           => $this->input->post('tanggal', true),
+			'idkelas_fk'        => $this->input->post('idkelas_fk', true),
+			'idmapel_fk'        => $this->input->post('idmapel_fk', true),
+			'keterangan'        => $this->input->post('keterangan', true),
+			'idlaboratorium_fk' => $this->input->post('idlaboratorium_fk', true),
+			'status'            => 0,
+			'idguru_fk'         => $this->get_user_account()['anggota_id'],
 		];
 
-		if ($this->save_data('jadwal_lab', $data)) {
-			
-			$dataget = $this->my_where('jadwal_lab', [
-				'kode' 							=> $transcode,
-				'tanggal' 						=> $_POST['tanggal'],
-				'idkelas_fk' 					=> $_POST['idkelas_fk'],
-				'idmapel_fk' 					=> $_POST['idmapel_fk'],
-				'idguru_fk' 					=> $this->get_user_account()['anggota_id'],
-			])->row_array();
+		// insert jadwal
+		$this->db->insert('jadwal_lab', $data);
+		$id_jadwal = $this->db->insert_id(); // ambil primary key
 
-			foreach ($_POST['jam_pelajaran'] as $value) {
-				$this->save_data('detail_jadwal_lab', [
-					'idjadwallab_fk' => $dataget['id_jadwal_lab'],
-					'idjampelajaran_fk' => ((isset($value)) ? $value : '')
-				]);
+		if ($id_jadwal) {
+			$jamPelajaran = $this->input->post('jam_pelajaran', true);
+			if (!empty($jamPelajaran)) {
+				foreach ($jamPelajaran as $value) {
+					$this->db->insert('detail_jadwal_lab', [
+						'idjadwallab_fk'   => $id_jadwal,
+						'idjampelajaran_fk'=> $value ?? ''
+					]);
+				}
 			}
 			echo "Success";
 		}
 	}
+
 
 
 	public function datatable()
