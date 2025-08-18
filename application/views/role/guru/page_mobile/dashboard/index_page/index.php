@@ -55,7 +55,7 @@
 <div class="menu-grid">
     <div class="menu-card">
         <a href="Pengajuan_karakter_siswa/get_data" class="app-item">
-            <i class="icon-magazine"></i>
+            <i class="icon-reading"></i>
             <span>Sistem Aduan Siswa</span>
         </a>
     </div>
@@ -75,6 +75,12 @@
         <a href="Penggajian/get_data" class="app-item">
             <i class="icon-coin-dollar"></i>
             <span>HR</span>
+        </a>
+    </div>
+    <div class="menu-card">
+        <a href="Jadwal_lab/get_data" class="app-item">
+            <i class="icon-books"></i>
+            <span>Request Laboratorium</span>
         </a>
     </div>
     <div class="menu-card">

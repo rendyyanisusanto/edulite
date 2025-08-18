@@ -10,6 +10,12 @@ class Presence_system extends CI_Controller {
 		$this->load->view('presence_system/index', $data);
 	}
 
+	function frontpage(){
+		
+		$data=[];
+		$this->load->view('presence_system/frontpage', $data);
+	}
+
 	function get_presence(){
 
 		$data=[];

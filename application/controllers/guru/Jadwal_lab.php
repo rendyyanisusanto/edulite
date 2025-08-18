@@ -31,7 +31,14 @@ class jadwal_lab extends MY_Controller {
 		$data['kelas']		=	$this->my_where('kelas', [])->result_array();
 		$data['jam_pelajaran']		=	$this->my_where('jam_pelajaran', [])->result_array();
 		$data['mata_pelajaran']		=	$this->my_where('mata_pelajaran', [])->result_array();
-		$this->my_view(['role/guru/page/jadwal_lab/add_page/index','role/guru/page/jadwal_lab/add_page/js'],$data);
+		$data['laboratorium']	=	$this->my_where('laboratorium', [])->result_array();
+
+		if ($this->agent->is_mobile()) {	
+
+			$this->my_view(['role/guru/page_mobile/jadwal_lab/add_page/index','role/guru/page_mobile/jadwal_lab/add_page/js'],$data);
+		} else {
+			$this->my_view(['role/guru/page/jadwal_lab/add_page/index','role/guru/page/jadwal_lab/add_page/js'],$data);
+		}
 	}
 	function get_content_jadwal(){
 
