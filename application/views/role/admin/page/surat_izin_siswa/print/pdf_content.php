@@ -6,8 +6,8 @@
     <style>
         body {
             font-family: 'Times New Roman', serif;
-            font-size: 11pt;
-            line-height: 1.5;
+            font-size: 12pt;
+            line-height: 1.15;
             margin: 0;
             padding: 0 25px 25px;
             color: #000;
@@ -57,19 +57,19 @@
         /* Content sections with consistent spacing */
         .nomor-surat {
             margin: 20px 0;
-            font-size: 10pt;
-            line-height: 1.4;
+            font-size: 12pt;
+            line-height: 1.15;
         }
         
         .penerima {
             margin: 20px 0;
-            line-height: 1.4;
+            line-height: 1.15;
         }
         
         .content {
             text-align: justify;
             margin: 20px 0;
-            line-height: 1.6;
+            line-height: 1.15;
         }
         
         .content p {
@@ -80,7 +80,7 @@
         .kegiatan-detail {
             margin: 15px 0;
             padding-left: 40px;
-            line-height: 1.5;
+            line-height: 1.15;
         }
         
         /* Fixed table styling */
@@ -88,7 +88,7 @@
             width: 100%;
             border-collapse: collapse;
             margin: 20px 0;
-            font-size: 10pt;
+            font-size: 12pt;
             table-layout: fixed; /* Prevents table from shifting */
         }
         
@@ -133,7 +133,7 @@
         }
         
         .pendamping-cell small {
-            font-size: 8pt;
+            font-size: 12pt;
             color: #666;
             font-style: italic;
             font-weight: normal;
@@ -160,7 +160,7 @@
         
         .tembusan {
             margin-top: 30px;
-            font-size: 10pt;
+            font-size: 12pt;
             clear: both;
         }
         
@@ -276,7 +276,7 @@
         <!-- Pembuka -->
         <div class="content">
             <p class="italic">Assalamu'alaikum Warahmatullahi Wabarokatuh.</p>    
-            <p>Salam silaturrahim kami haturkan, teriring do'a semoga Bapak/Ibu senantiasa mendapatkan rahmat, hidayah, inayah serta ma'unnah Allah SWT, sehingga dalam menjalankan aktifitas sehari-hari dapat terlaksana dengan sebaik-baiknya, Amin.</p>
+            <p class="italic">Salam silaturrahim kami haturkan, teriring do'a semoga Bapak/Ibu senantiasa mendapatkan rahmat, hidayah, inayah serta ma'unnah Allah SWT, sehingga dalam menjalankan aktifitas sehari-hari dapat terlaksana dengan sebaik-baiknya, Amin.</p>
             <p>Sehubungan dengan adanya <span class="bold"><?= $surat['kegiatan'] ?></span>, maka kami bermaksud memohonkan ijin beberapa siswa (nama terlampir) untuk mengikuti kegiatan tersebut pada :</p>
             
             <div class="kegiatan-detail">
