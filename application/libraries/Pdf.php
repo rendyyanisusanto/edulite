@@ -1,39 +1,56 @@
-<?php defined('BASEPATH') OR exit('No direct script access allowed');
+<?php
+// File: application/libraries/Pdf.php
+// Library wrapper untuk DOMPDF
 
-// use Dompdf\Dompdf;
-// class Pdf extends Dompdf{
-//     /**
-//      * @var 
-//      */
-//     public $filename;
-//     public function __construct(){
-//         parent::__construct();
-//         $this->filename = "laporan.pdf";
-//     }
-//     /**
-//      * @access    protected
-//      * @return    
-//      */
-//     protected function ci()
-//     {
-//         return get_instance();
-//     }
-//     /**
-//      * @access    public
-//      * @param    
-//      * @param    
-//      * @return   
-//      */
-//     public function load_view($view, $data = array(), $name){
-//         $html = $this->ci()->load->view($view, $data, TRUE);
-//         $this->load_html($html);
-//         // Render the PDF
-//         $this->render();
-//         // Output the generated PDF to Browser
-//         // $this->stream($this->filename, array("Attachment"=>0));
-//         // return base64_encode($this->stream($this->filename, array("Attachment"=>0)));
-//         $Output=$this->output();
-//         file_put_contents("include/pdf_temp/".$name.".pdf", $Output);
+if (!defined('BASEPATH')) exit('No direct script access allowed');
+
+// Include DOMPDF library
+// require_once APPPATH . 'third_party/dompdf/autoload.inc.php';
+
+use Dompdf\Dompdf;
+use Dompdf\Options;
+
+class Pdf
+{
+    private $dompdf;
+    
+    public function __construct()
+    {
+        // Configure DOMPDF options
+        $options = new Options();
+        $options->set('defaultFont', 'Times-Roman');
+        $options->set('isRemoteEnabled', true);
+        $options->set('isHtml5ParserEnabled', true);
+        $options->set('isPhpEnabled', true);
         
-//     }
-// }
+        $this->dompdf = new Dompdf($options);
+    }
+    
+    public function loadHtml($html, $encoding = 'UTF-8')
+    {
+        $this->dompdf->loadHtml($html, $encoding);
+    }
+    
+    public function setPaper($size = 'A4', $orientation = 'portrait')
+    {
+        $this->dompdf->setPaper($size, $orientation);
+    }
+    
+    public function render()
+    {
+        $this->dompdf->render();
+    }
+    
+    public function stream($filename = 'document.pdf', $options = array())
+    {
+        $this->dompdf->stream($filename, $options);
+    }
+    
+    public function output()
+    {
+        return $this->dompdf->output();
+    }
+}
+
+// File alternatif: application/libraries/Pdf_tcpdf.php
+// Library wrapper untuk TCPDF

@@ -1,6 +1,7 @@
 {
     "require": {
         "phpoffice/phpword": "^0.17.0",
-        "mike42/escpos-php": "^4.0"
+        "mike42/escpos-php": "^4.0",
+        "dompdf/dompdf": "^3.1"
     }
 }
