@@ -112,7 +112,7 @@
 </style>
 <div class="row">
 	<div class="col-xs-12">
-		<center><h4>Request Presensi</h4></center>
+		<center><h4>Surat Izin Siswa</h4></center>
 	</div>
 </div>
 <div class="row" style="margin-top: 5%;">
