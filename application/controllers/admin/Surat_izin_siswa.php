@@ -154,8 +154,9 @@ class surat_izin_siswa extends MY_Controller {
 
 		// Kirim notifikasi WhatsApp jika status DITERIMA
 		if ($this->input->post('status') == 'DITERIMA') {
-			$guru = $this->my_where('guru', ["id_guru"=>$this->get_user_account()['anggota_id']])->row_array();
-			
+			$surat_izin_siswa = $this->db->where('id_surat_izin_siswa', $id)->get('surat_izin_siswa')->row_array();
+			$guru = $this->my_where('guru', ["id_guru"=> $surat_izin_siswa['idguru_fk']])->row_array();
+
 			// Ambil data siswa yang terkait
 			$siswa_names = $this->db->select('s.nama')
 									->from('siswa s')
