@@ -88,6 +88,7 @@ class pelanggaran_siswa extends MY_Controller {
 			'nama_pelanggaran' 						=> $_POST['nama_pelanggaran'],
 			'poin' 									=> $_POST['poin'],
 			'kode_pelanggaran' 						=> $_POST['kode_pelanggaran'],
+			'kategori_pelanggaran'					=> $_POST['kategori_pelanggaran'],
 		];
 
 		if ($this->save_data('poin_pelanggaran', $data)) {
@@ -102,6 +103,7 @@ class pelanggaran_siswa extends MY_Controller {
 			'nama_pelanggaran' 						=> $_POST['nama_pelanggaran'],
 			'poin' 									=> $_POST['poin'],
 			'kode_pelanggaran' 						=> $_POST['kode_pelanggaran'],
+			'kategori_pelanggaran'					=> $_POST['kategori_pelanggaran'],
 		];
 
 		if ($this->my_update('poin_pelanggaran', $data, ['id_poin_pelanggaran'=>$_POST['id']])) {
@@ -266,9 +268,9 @@ class pelanggaran_siswa extends MY_Controller {
 	{
 		$arr = [
 			'table'				=>	'v_poin_pelanggaran',
-			'column'			=>	['nama_pelanggaran','poin','kode_pelanggaran','jenis_pelanggaran'],
-			'column_order'		=>	[ 'id_poin_pelanggaran','nama_pelanggaran','poin','kode_pelanggaran','jenis_pelanggaran'],
-			'column_search'		=>	[ 'id_poin_pelanggaran','nama_pelanggaran','poin','kode_pelanggaran','jenis_pelanggaran'],
+			'column'			=>	['nama_pelanggaran','poin','kode_pelanggaran','jenis_pelanggaran','kategori_pelanggaran'],
+			'column_order'		=>	['id_poin_pelanggaran','nama_pelanggaran','poin','kode_pelanggaran','jenis_pelanggaran','kategori_pelanggaran'],
+			'column_search'		=>	['id_poin_pelanggaran','nama_pelanggaran','poin','kode_pelanggaran','jenis_pelanggaran','kategori_pelanggaran'],
 			'order'				=>	['id_poin_pelanggaran'	=>	'DESC'],
 			'id'				=>	'id_poin_pelanggaran'
 		];
@@ -289,7 +291,7 @@ class pelanggaran_siswa extends MY_Controller {
             			data-idjenispelanggaran_fk="'.$field['idjenispelanggaran_fk'].'"
             			data-poin="'.$field['poin'].'"
             class="btn btn-xs btn-edit btn-success"><i class="icon-pencil3"></i></button>';
-            $row[]		=	'<button type="button" class="btn btn-xs btn-hps btn-danger"><i class="icon-trash"></i></button>';
+            $row[]		=	'<button type="button" data-id="'.$field['id_poin_pelanggaran'].'" class="btn btn-xs btn-hps btn-danger"><i class="icon-trash"></i></button>';
             $data[]     =   $row;
         }
         $output = array(
@@ -362,4 +364,19 @@ class pelanggaran_siswa extends MY_Controller {
 	{
 
 	}
+
+	/*
+		DELETE POIN PELANGGARAN
+	*/
+    public function hapus_poin()
+    {
+        $id = $this->input->post('id');
+
+        if ($this->db->delete('poin_pelanggaran', ['id_poin_pelanggaran' => $id])) {
+            echo json_encode(['status' => 'success', 'message' => 'Poin pelanggaran berhasil dihapus.']);
+        } else {
+            echo json_encode(['status' => 'error', 'message' => 'Gagal menghapus poin pelanggaran.']);
+        }
+    }
+
 }

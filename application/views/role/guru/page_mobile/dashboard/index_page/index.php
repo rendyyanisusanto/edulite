@@ -54,6 +54,13 @@
 </div>
 <div class="menu-grid">
     <div class="menu-card">
+        <a href="Surat_izin_siswa/get_data" class="app-item">
+            <i class="icon-book"></i>
+            <span>Request Surat Ijin Siswa</span>
+        </a>
+    </div>
+	
+    <div class="menu-card">
         <a href="Pengajuan_karakter_siswa/get_data" class="app-item">
             <i class="icon-reading"></i>
             <span>Sistem Aduan Siswa</span>

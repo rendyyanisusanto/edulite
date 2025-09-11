@@ -465,8 +465,16 @@
                                    Kode Surat 
                                     <span class="text-danger">*</span>
                                 </label>
-                                <input type="text" name="kode" id="edit_kode" class="form-control" required>
+                                <input type="text" name="kode" id="edit_kode" class="form-control kode" required>
                             </div>
+                            <button class="btn btn-success" 
+                                        data-toggle="tooltip" 
+                                        onclick="generate_kode_surat();" 
+                                        data-placement="top" 
+                                        title="Generate Kode Otomatis" 
+                                        type="button">
+                                    <i class="icon-spinner"></i> Generate
+                                </button>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">

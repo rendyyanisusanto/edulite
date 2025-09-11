@@ -278,7 +278,7 @@
             return false;
         }
 
-        $('.se-pre-con').css('display','block');
+        // $('.se-pre-con').css('display','block');
         var form_data = new FormData(this);
         
         // Add selected students
@@ -287,12 +287,12 @@
         });
         
         send_ajax_file($(this).attr('action'), form_data).then(function(data) {
-            $(".se-pre-con").fadeOut("slow");
+            // $(".se-pre-con").fadeOut("slow");
             toastr.success('Data berhasil ditambahkan');
             $('#modal-tambah').modal('hide');
             table.ajax.reload();
         }).catch(function() {
-            $(".se-pre-con").fadeOut("slow");
+            // $(".se-pre-con").fadeOut("slow");
             toastr.error('Gagal menyimpan data');
         });
         return false;
@@ -307,7 +307,7 @@
             return false;
         }
 
-        $('.se-pre-con').css('display','block');
+        // $('.se-pre-con').css('display','block');
         var form_data = new FormData(this);
         
         // Add selected students
