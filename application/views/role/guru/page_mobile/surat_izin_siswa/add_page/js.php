@@ -398,15 +398,17 @@ function submitForm() {
         dataType: 'json',
         success: function(response) {
             if (response.status === 'success') {
-                alert('Berhasil disimpan!');
+                toastr.success('Berhasil disimpan!');
                 // Redirect atau reload sesuai kebutuhan
+                
+	            set_content('Surat_izin_siswa/get_data');
             } else {
-                alert('Error: ' + (response.message || 'Unknown error'));
+                toastr.error('Error: ' + (response.message || 'Unknown error'));
                 btn.prop('disabled', false).html(originalText);
             }
         },
         error: function(xhr, status, error) {
-            alert('Error: ' + error);
+            toastr.error('Error: ' + error);
             btn.prop('disabled', false).html(originalText);
         }
     });
