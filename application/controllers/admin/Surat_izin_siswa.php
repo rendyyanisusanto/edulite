@@ -152,6 +152,37 @@ class surat_izin_siswa extends MY_Controller {
 			}
 		}
 
+		// Kirim notifikasi WhatsApp jika status DITERIMA
+		if ($this->input->post('status') == 'DITERIMA') {
+			$guru = $this->my_where('guru', ["id_guru"=>$this->get_user_account()['anggota_id']])->row_array();
+			
+			// Ambil data siswa yang terkait
+			$siswa_names = $this->db->select('s.nama')
+									->from('siswa s')
+									->join('detail_surat_izin_siswa ds', 'ds.idsiswa_fk = s.id_siswa')
+									->where('ds.idsuratizinsiswa_fk', $id)
+									->get()->result_array();
+			
+			$daftar_siswa = array_map(function($siswa) {
+				return $siswa['nama'];
+			}, $siswa_names);
+			
+			$siswa_string = implode(', ', $daftar_siswa);
+			
+			$msg = "Surat Izin Siswa oleh ".$guru['nama'].": \n\n"
+				. "\tKode Surat \t\t: " . str_pad($this->input->post('kode'), 40) . "\n"
+				. "\tKegiatan \t\t\t: " . str_pad($this->input->post('kegiatan'), 40) . "\n"
+				. "\tTanggal \t\t\t: " . str_pad(date('d/m/Y', strtotime($this->input->post('tanggal_mulai'))) . ' - ' . date('d/m/Y', strtotime($this->input->post('tanggal_selesai'))), 40) . "\n"
+				. "\tTempat \t\t\t: " . str_pad($this->input->post('tempat'), 40) . "\n"
+				. "\tPendamping \t\t: " . str_pad($this->input->post('pendamping'), 40) . "\n"
+				. "\tSiswa \t\t\t: " . str_pad($siswa_string, 40) . "\n\n"
+				. "Status: DITERIMA\n\n"
+				. "Hardfile dapat diambil di Admin Kesiswaan atau TU.\n"
+				. "Softfile dapat didownload melalui aplikasi.";
+
+			$this->bot_wa($guru['no_hp'], $msg, 'surat_izin_siswa', $id, 'guru');
+		}
+
 		echo json_encode(['status' => 'success', 'message' => 'Data berhasil diupdate']);
 	}
 

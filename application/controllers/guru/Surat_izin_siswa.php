@@ -205,7 +205,7 @@ class surat_izin_siswa extends MY_Controller {
                 'jumlah_siswa' => $berhasil_insert,
                 'kegiatan' => $data_surat['kegiatan'],
                 'tanggal_mulai' => $data_surat['tanggal_mulai'],
-                'tanggal_selesai' => $data_surat['tanggal_selesai']
+                'tanggal_selesai' => $data_surat['tanggal_selesai'] 
             ]);
             
         } catch (Exception $e) {
