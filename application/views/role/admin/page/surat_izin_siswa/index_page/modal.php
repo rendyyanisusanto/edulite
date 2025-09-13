@@ -285,17 +285,19 @@
                                     Kode Surat 
                                     <span class="text-danger">*</span>
                                 </label>
-	              				<input type="text" class="form-control kode" required name="kode" placeholder="Input here......">
-								<button class="btn btn-success" 
-                                        data-toggle="tooltip" 
-                                        onclick="generate_kode_surat();" 
-                                        data-placement="top" 
-                                        title="Generate Kode Otomatis" 
-                                        type="button">
-                                    <i class="icon-spinner"></i> Generate
-                                </button>
-	             
-
+                                <div class="input-group">
+	              				    <input type="text" class="form-control kode" required name="kode" placeholder="Input here......">
+                                    <span class="input-group-btn">
+								        <button class="btn btn-success" 
+                                                data-toggle="tooltip" 
+                                                onclick="generate_kode_surat();" 
+                                                data-placement="top" 
+                                                title="Generate Kode Otomatis" 
+                                                type="button">
+                                            <i class="icon-spinner"></i> Generate
+                                        </button>
+                                    </span>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -306,9 +308,20 @@
                                 </label>
                                 <input type="text" name="kegiatan" class="form-control" placeholder="Masukkan nama kegiatan" required>
                             </div>
+                            
                         </div>
                     </div>
-                    
+                    <div class="row">
+                        <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="text-semibold">
+                                        Tujuan 
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text" name="tujuan" class="form-control" required>
+                                </div>
+                            </div>
+                    </div>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
@@ -364,10 +377,24 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="text-semibold">
+                                    Guru Pendamping 
+                                    <span class="text-danger">*</span>
+                                </label>
+                                <select name="idguru_fk" id="select-guru" class="form-control" required onchange="updatePendamping(this)">
+                                    <option value="">Pilih Guru Pendamping</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="text-semibold">
                                     Pendamping 
                                     <span class="text-danger">*</span>
                                 </label>
-                                <input type="text" name="pendamping" class="form-control" placeholder="Masukkan nama pendamping" required>
+                                <input type="text" name="pendamping" id="input-pendamping" class="form-control" placeholder="Otomatis terisi dari guru" readonly required>
                             </div>
                         </div>
 						<div class="col-md-6">
@@ -465,17 +492,26 @@
                                    Kode Surat 
                                     <span class="text-danger">*</span>
                                 </label>
-                                <input type="text" name="kode" id="edit_kode" class="form-control kode" required>
+                                <div class="input-group">
+                                    <input type="text" name="kode" id="edit_kode" class="form-control kode" required>
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-success" 
+                                                data-toggle="tooltip" 
+                                                onclick="generate_kode_surat();" 
+                                                data-placement="top" 
+                                                title="Generate Kode Otomatis" 
+                                                type="button">
+                                            <i class="icon-spinner"></i> Generate
+                                        </button>
+                                    </span>
+                                </div>
                             </div>
-                            <button class="btn btn-success" 
-                                        data-toggle="tooltip" 
-                                        onclick="generate_kode_surat();" 
-                                        data-placement="top" 
-                                        title="Generate Kode Otomatis" 
-                                        type="button">
-                                    <i class="icon-spinner"></i> Generate
-                                </button>
                         </div>
+                        <div class="col-md-6">
+                            <!-- Empty column for spacing -->
+                        </div>
+                    </div>
+                    <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="text-semibold">
@@ -484,9 +520,17 @@
                                 </label>
                                 <input type="text" name="kegiatan" id="edit_kegiatan" class="form-control" required>
                             </div>
+                        </div>                                      
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="text-semibold">
+                                    Tujuan 
+                                    <span class="text-danger">*</span>
+                                </label>
+                                <input type="text" name="tujuan" id="edit_tujuan" class="form-control" required>
+                            </div>
                         </div>
                     </div>
-                    
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
@@ -542,10 +586,24 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="text-semibold">
+                                    Guru Pendamping 
+                                    <span class="text-danger">*</span>
+                                </label>
+                                <select name="idguru_fk" id="edit-select-guru" class="form-control" required onchange="updatePendampingEdit(this)">
+                                    <option value="">Pilih Guru Pendamping</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="text-semibold">
                                     Pendamping 
                                     <span class="text-danger">*</span>
                                 </label>
-                                <input type="text" name="pendamping" id="edit_pendamping" class="form-control" required>
+                                <input type="text" name="pendamping" id="edit_pendamping" class="form-control" readonly required>
                             </div>
                         </div>
 						<div class="col-md-6">

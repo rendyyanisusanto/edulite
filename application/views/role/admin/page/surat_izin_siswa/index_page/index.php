@@ -71,6 +71,9 @@
                                     Kegiatan
                                 </th>
                                 <th class="text-center">
+                                    Tujuan
+                                </th>
+                                <th class="text-center">
                                     Tempat
                                 </th>
                                 <th class="text-center">

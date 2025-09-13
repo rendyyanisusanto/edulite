@@ -417,7 +417,8 @@ class surat_izin_siswa extends MY_Controller {
         
         $data = [
             'surat' => $surat,
-            'siswa_list' => $siswa_list
+            'siswa_list' => $siswa_list,
+            'draft' => $draft
         ];
         
         // Generate HTML content

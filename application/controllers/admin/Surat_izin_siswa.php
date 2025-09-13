@@ -8,9 +8,9 @@ class surat_izin_siswa extends MY_Controller {
 	public $arr = [
 		'title'				=>	'Halaman surat izin siswa',
 		'table'				=>	'surat_izin_siswa',
-		'column'			=>	['kode','tempat','pendamping','waktu_selesai', 'waktu_mulai','tanggal_mulai','tanggal_surat','tanggal_selesai','kegiatan'],
-		'column_order'		=>	[ 'id_surat_izin_siswa','kode','tempat','pendamping','waktu_selesai', 'waktu_mulai','tanggal_mulai','tanggal_surat','tanggal_selesai','kegiatan'],
-		'column_search'		=>	[ 'id_surat_izin_siswa','kode','tempat','pendamping','waktu_selesai', 'waktu_mulai','tanggal_mulai','tanggal_surat','tanggal_selesai','kegiatan'],
+		'column'			=>	['kode','tempat','pendamping','waktu_selesai', 'waktu_mulai','tanggal_mulai','tanggal_surat','tanggal_selesai','kegiatan','idguru_fk'],
+		'column_order'		=>	[ 'id_surat_izin_siswa','kode','tempat','pendamping','waktu_selesai', 'waktu_mulai','tanggal_mulai','tanggal_surat','tanggal_selesai','kegiatan','idguru_fk'],
+		'column_search'		=>	[ 'id_surat_izin_siswa','kode','tempat','pendamping','waktu_selesai', 'waktu_mulai','tanggal_mulai','tanggal_surat','tanggal_selesai','kegiatan','idguru_fk'],
 		'order'				=>	['id_surat_izin_siswa'	=>	'DESC'],
 		'id'				=>	'id_surat_izin_siswa'
 	];
@@ -48,6 +48,7 @@ class surat_izin_siswa extends MY_Controller {
 			$row[]		=	date('d/m/Y', strtotime($field['tanggal_mulai']));
 			$row[]		=	date('d/m/Y', strtotime($field['tanggal_selesai']));
 			$row[]		=	$field['kegiatan'];
+			$row[]		=	$field['tujuan'];
 			$row[]		=	$field['tempat'];
 			$row[]		=	$field['pendamping'];
 			
@@ -66,11 +67,21 @@ class surat_izin_siswa extends MY_Controller {
 				$aksi = '<div class="btn-group">
 							<a href="'.base_url('admin/Surat_izin_siswa/cetak_pdf/'.$field['id_surat_izin_siswa']).'" 
 							target="_blank" 
+							class="btn btn-xs btn-success" 
+							title="Cetak PDF">
+							<i class="icon-file-pdf"></i> Surat
+							</a>
+						</div>
+						 
+						<div class="btn-group" style="margin-top:5px;">
+							<a href="'.base_url('admin/Surat_izin_siswa/cetak_pdf/'.$field['id_surat_izin_siswa'].'/arsip').'" 
+							target="_blank" 
 							class="btn btn-xs btn-danger" 
 							title="Cetak PDF">
-							<i class="icon-file-pdf"></i> PDF
+							<i class="icon-file-pdf"></i> Arsip
 							</a>
-						</div>';
+						</div>
+						';
 			} else {
 				$aksi = '<span class="text-muted"><i class="icon-lock"></i> Terkunci</span>';
 			}
@@ -95,10 +106,12 @@ class surat_izin_siswa extends MY_Controller {
 			'tanggal_mulai' => $this->input->post('tanggal_mulai'),
 			'tanggal_selesai' => $this->input->post('tanggal_selesai'),
 			'kegiatan' => $this->input->post('kegiatan'),
+			'tujuan' => $this->input->post('tujuan'),
 			'waktu_mulai' => $this->input->post('waktu_mulai'),
 			'waktu_selesai' => $this->input->post('waktu_selesai'),
 			'tempat' => $this->input->post('tempat'),
 			'pendamping' => $this->input->post('pendamping'),
+			'idguru_fk' => $this->input->post('idguru_fk'),
 			'status' => $this->input->post('status')
 		];
 
@@ -128,10 +141,12 @@ class surat_izin_siswa extends MY_Controller {
 			'tanggal_mulai' => $this->input->post('tanggal_mulai'),
 			'tanggal_selesai' => $this->input->post('tanggal_selesai'),
 			'kegiatan' => $this->input->post('kegiatan'),
+			'tujuan' => $this->input->post('tujuan'),
 			'waktu_mulai' => $this->input->post('waktu_mulai'),
 			'waktu_selesai' => $this->input->post('waktu_selesai'),
 			'tempat' => $this->input->post('tempat'),
 			'pendamping' => $this->input->post('pendamping'),
+			'idguru_fk' => $this->input->post('idguru_fk'),
 			'status' => $this->input->post('status')
 		];
 
@@ -197,6 +212,19 @@ class surat_izin_siswa extends MY_Controller {
 			$this->db->where('id_surat_izin_siswa', $id)->delete('surat_izin_siswa');
 		}
 		echo json_encode(['status' => 'success', 'message' => 'Data berhasil dihapus']);
+	}
+
+	// Method untuk mendapatkan daftar guru via AJAX
+	public function get_guru()
+	{
+		$this->db->select('id_guru, nama, nip')
+				 ->from('guru')
+				 ->where('is_active', 1) // Assuming ada field is_active
+				 ->order_by('nama', 'ASC');
+		
+		$guru = $this->db->get()->result_array();
+		
+		echo json_encode($guru);
 	}
 
 	// Method untuk mendapatkan daftar siswa via AJAX dengan pencarian
@@ -270,7 +298,7 @@ class surat_izin_siswa extends MY_Controller {
 		}
 	}
 
-	public function cetak_pdf($id)
+	public function cetak_pdf($id, $draft="")
     {
         // Cek apakah data ada dan statusnya DITERIMA
         $surat = $this->db->where('id_surat_izin_siswa', $id)->get('surat_izin_siswa')->row_array();
@@ -300,7 +328,8 @@ class surat_izin_siswa extends MY_Controller {
         
         $data = [
             'surat' => $surat,
-            'siswa_list' => $siswa_list
+            'siswa_list' => $siswa_list,
+			'draft' => $draft
         ];
         
         // Generate HTML content

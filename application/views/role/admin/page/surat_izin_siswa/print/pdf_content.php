@@ -156,6 +156,16 @@
         .ttd-space {
             height: 50px;
             margin: 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .ttd-space img {
+            max-width: 150px;
+            max-height: 50px;
+            object-fit: contain;
+            object-position: left center;
         }
         
         .tembusan {
@@ -229,6 +239,13 @@
             .ttd-section {
                 page-break-inside: avoid;
             }
+
+            .ttd-space img {
+                max-width: 120px;
+                max-height: 40px;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
         }
         
         /* Responsive adjustments */
@@ -268,7 +285,7 @@
         
         <!-- Penerima -->
         <div class="penerima">
-            Yth. Pengasuh PPSQ Asy-Syadzili 1<br>
+            Yth. <?= $surat['tujuan'] ?><br>
             Di<br>
             Tempat
         </div>
@@ -308,7 +325,18 @@
             <div class="ttd-box">
                 Pakis, <?= date('j', strtotime($surat['tanggal_mulai'])) ?> <?= format_bulan(date('n', strtotime($surat['tanggal_mulai']))) ?> <?= date('Y', strtotime($surat['tanggal_mulai'])) ?><br>
                 Kepala SMK IT Asy-Syadzili<br>
-                <div class="ttd-space"></div>
+                <div class="ttd-space">
+                    <?php if ($draft == 'arsip'): ?>
+                        <?php
+                        $ttd_path = FCPATH . 'include/media/ttd.png';
+                        if (file_exists($ttd_path)) {
+                            $ttd_data = base64_encode(file_get_contents($ttd_path));
+                            $ttd_base64 = 'data:image/png;base64,' . $ttd_data;
+                            echo '<img src="' . $ttd_base64 . '" alt="Tanda Tangan" style="width: 500px; max-height: 500px; object-fit: contain;">';
+                        }
+                        ?>
+                    <?php endif; ?>
+                </div>
                 <span class="bold underline">Avi Hendratmoko, S.Kom</span>
             </div>
         </div>

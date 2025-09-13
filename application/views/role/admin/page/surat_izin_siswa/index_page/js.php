@@ -44,6 +44,9 @@
             }
         });
 
+        // Load guru data
+        loadGuruData();
+
         // Initialize events
         initializeEvents();
     });
@@ -111,6 +114,8 @@
         currentPage = 1;
         $('#form-tambah')[0].reset();
         $('#search-siswa').val('');
+        $('#select-guru').val('');
+        $('#input-pendamping').val('');
         updateSelectedStudentsDisplay();
         $('#daftar-siswa').html(`
             <div class="text-center text-muted p-20">
@@ -119,6 +124,22 @@
             </div>
         `);
         $('#load-more-container').hide();
+    }
+
+    function loadGuruData() {
+        send_ajax('surat_izin_siswa/get_guru', {}).then(function(response) {
+            var data = JSON.parse(response);
+            var options = '<option value="">Pilih Guru Pendamping</option>';
+            
+            data.forEach(function(guru) {
+                options += `<option value="${guru.id_guru}" data-nama="${guru.nama}">${guru.nama} - ${guru.nip}</option>`;
+            });
+            
+            $('#select-guru').html(options);
+            $('#edit-select-guru').html(options);
+        }).catch(function() {
+            console.error('Gagal memuat data guru');
+        });
     }
 
     function searchSiswa(query, append = false) {
@@ -278,6 +299,12 @@
             return false;
         }
 
+        // Validasi guru pendamping
+        if (!$('#select-guru').val()) {
+            toastr.error('Pilih guru pendamping!');
+            return false;
+        }
+
         // $('.se-pre-con').css('display','block');
         var form_data = new FormData(this);
         
@@ -304,6 +331,12 @@
         
         if (selectedStudentsEdit.length === 0) {
             toastr.error('Pilih minimal satu siswa!');
+            return false;
+        }
+
+        // Validasi guru pendamping
+        if (!$('#edit-select-guru').val()) {
+            toastr.error('Pilih guru pendamping!');
             return false;
         }
 
@@ -408,6 +441,7 @@
             $('#edit_id').val(surat.id_surat_izin_siswa);
             $('#edit_kode').val(surat.kode);
             $('#edit_kegiatan').val(surat.kegiatan);
+            $('#edit_tujuan').val(surat.tujuan);
             $('#edit_tanggal_mulai').val(surat.tanggal_mulai);
             $('#edit_tanggal_selesai').val(surat.tanggal_selesai);
             $('#edit_waktu_mulai').val(surat.waktu_mulai);
@@ -415,6 +449,11 @@
             $('#edit_tempat').val(surat.tempat);
             $('#edit_pendamping').val(surat.pendamping);
             $('#edit_status').val(surat.status);
+            
+            // Set guru dropdown
+            if (surat.idguru_fk) {
+                $('#edit-select-guru').val(surat.idguru_fk);
+            }
             
             // Update selected students display
             updateSelectedStudentsDisplay('edit');
@@ -444,4 +483,25 @@
         "positionClass": "toast-top-right",
         "timeOut": "3000"
     };
+
+    // Global functions for onchange events
+    function updatePendamping(selectElement) {
+        var selectedOption = selectElement.options[selectElement.selectedIndex];
+        if (selectedOption.value) {
+            var namaGuru = selectedOption.getAttribute('data-nama');
+            $('#input-pendamping').val(namaGuru);
+        } else {
+            $('#input-pendamping').val('');
+        }
+    }
+
+    function updatePendampingEdit(selectElement) {
+        var selectedOption = selectElement.options[selectElement.selectedIndex];
+        if (selectedOption.value) {
+            var namaGuru = selectedOption.getAttribute('data-nama');
+            $('#edit_pendamping').val(namaGuru);
+        } else {
+            $('#edit_pendamping').val('');
+        }
+    }
 </script>
